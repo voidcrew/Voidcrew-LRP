@@ -4,16 +4,11 @@
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-resentment.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/contains-technical-debt.svg)](https://user-images.githubusercontent.com/8171642/50290880-ffef5500-043a-11e9-8270-a2e5b697c86c.png) [![forinfinityandbyond](https://user-images.githubusercontent.com/5211576/29499758-4efff304-85e6-11e7-8267-62919c3688a9.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
 
-* **Website:** <https://shiptest.net>
-* **Patreon:** <https://www.patreon.com/shiptest_ss13>
-* **Wiki:** <https://shiptest.net/wiki>
-* **Code Docs:** <https://codedocs.shiptest.net>
-* **Discord:** <https://shiptest.net/discord>
-* **Coderbus Discord:** <https://discord.gg/Vh8TJp9>
+* **Discord:** <https://discord.gg/3qpVdsX3>
 
-This is the codebase for the Ship-based Shiptest flavoured fork of SpaceStation 13.
+This is the codebase for the Shiptest fork - Voidcrew-LRP.
 
-Shiptest is a thrill-packed round-based exploration and roleplaying game set against the backdrop of a whimsical metal spacefaring machine masquerading as a spaceship, with charming spritework designed to represent the sci-fi setting and it's dangerous undertones. Have fun, and survive with your crew!
+Voidcrew is a PVE focused SS13 server centered around ship-based gameplay. Instead of everyone being on a station, they have their own shuttles and crews. Travel the cosmos exploring planets, ancient runes, and floating asteroids.
 
 ## DOWNLOADING
 
@@ -33,6 +28,7 @@ Shiptest is a thrill-packed round-based exploration and roleplaying game set aga
 
 ## CODEBASE CREDITS
 
+* Shiptest, for the original codebase
 * Whitesands, for the original codebase
 * /tg/, for the original codebase of the original codebase
 * BeeStation, for the many QoL changes
