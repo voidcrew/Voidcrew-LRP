@@ -262,16 +262,18 @@
 	name = "Machine Design (Protolathe Board)"
 	desc = "The circuit board for a protolathe."
 	id = "protolathe"
+	build_type = AUTOLATHE | IMPRINTER
 	build_path = /obj/item/circuitboard/machine/protolathe
-	category = list("Research Machinery")
+	category = list("initial", "Electronics", "Research Machinery")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/circuit_imprinter
 	name = "Machine Design (Circuit Imprinter Board)"
 	desc = "The circuit board for a circuit imprinter."
 	id = "circuit_imprinter"
+	build_type = AUTOLATHE | IMPRINTER
 	build_path = /obj/item/circuitboard/machine/circuit_imprinter
-	category = list("Research Machinery")
+	category = list("initial", "Electronics", "Research Machinery")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/rdserver
@@ -280,7 +282,7 @@
 	id = "rdserver"
 	build_type = AUTOLATHE | IMPRINTER
 	build_path = /obj/item/circuitboard/machine/rdserver
-	category = list("Research Machinery", "initial", "Equipment")
+	category = list("Research Machinery", "initial", "Electronics", "Equipment")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/mechfab

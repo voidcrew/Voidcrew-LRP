@@ -212,8 +212,9 @@
 	name = "Computer Design (R&D Console)"
 	desc = "Allows for the construction of circuit boards used to build a new R&D console."
 	id = "rdconsole"
+	build_type = AUTOLATHE | IMPRINTER
 	build_path = /obj/item/circuitboard/computer/rdconsole
-	category = list("Computer Boards")
+	category = list("Computer Boards", "Electronics")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/bounty
