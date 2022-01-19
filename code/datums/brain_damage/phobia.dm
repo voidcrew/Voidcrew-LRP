@@ -2,8 +2,8 @@
 	name = "Phobia"
 	desc = "Patient is unreasonably afraid of something."
 	scan_desc = "phobia"
-	gain_text = "<span class='warning'>You start finding default values very unnerving...</span>"
-	lose_text = "<span class='notice'>You no longer feel afraid of default values.</span>"
+	gain_text = span_warning("You start finding default values very unnerving...")
+	lose_text = span_notice("You no longer feel afraid of default values.")
 	var/phobia_type
 	var/next_check = 0
 	var/next_scare = 0
@@ -21,8 +21,8 @@
 	if(!phobia_type)
 		phobia_type = pick(SStraumas.phobia_types)
 
-	gain_text = "<span class='warning'>You start finding [phobia_type] very unnerving...</span>"
-	lose_text = "<span class='notice'>You no longer feel afraid of [phobia_type].</span>"
+	gain_text = span_warning("You start finding [phobia_type] very unnerving...")
+	lose_text = span_notice("You no longer feel afraid of [phobia_type].")
 	scan_desc += " of [phobia_type]"
 	trigger_regex = SStraumas.phobia_regexes[phobia_type]
 	trigger_mobs = SStraumas.phobia_mobs[phobia_type]
@@ -95,15 +95,15 @@
 		return
 	var/message = pick("spooks you to the bone", "shakes you up", "terrifies you", "sends you into a panic", "sends chills down your spine")
 	if(reason)
-		to_chat(owner, "<span class='userdanger'>Seeing [reason] [message]!</span>")
+		to_chat(owner, span_userdanger("Seeing [reason] [message]!"))
 	else if(trigger_word)
-		to_chat(owner, "<span class='userdanger'>Hearing \"[trigger_word]\" [message]!</span>")
+		to_chat(owner, span_userdanger("Hearing \"[trigger_word]\" [message]!"))
 	else
-		to_chat(owner, "<span class='userdanger'>Something [message]!</span>")
+		to_chat(owner, span_userdanger("Something [message]!"))
 	var/reaction = rand(1,4)
 	switch(reaction)
 		if(1)
-			to_chat(owner, "<span class='warning'>You are paralyzed with fear!</span>")
+			to_chat(owner, span_warning("You are paralyzed with fear!"))
 			owner.Stun(70)
 			owner.Jitter(8)
 		if(2)
@@ -113,7 +113,7 @@
 			if(reason)
 				owner.pointed(reason)
 		if(3)
-			to_chat(owner, "<span class='warning'>You shut your eyes in terror!</span>")
+			to_chat(owner, span_warning("You shut your eyes in terror!"))
 			owner.Jitter(5)
 			owner.blind_eyes(10)
 		if(4)

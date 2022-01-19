@@ -232,7 +232,7 @@
 
 	CHECK_TICK
 
-	set_observer_default_invisibility(0, "<span class='warning'>The round is over! You are now visible to the living.</span>")
+	set_observer_default_invisibility(0, span_warning("The round is over! You are now visible to the living."))
 
 	CHECK_TICK
 
@@ -321,7 +321,7 @@
 		var/info = statspage ? "<a href='?action=openLink&link=[url_encode(statspage)][GLOB.round_id]'>[GLOB.round_id]</a>" : GLOB.round_id
 		parts += "[FOURSPACES]Round ID: <b>[info]</b>"
 	parts += "[FOURSPACES]Shift Duration: <B>[DisplayTimeText(world.timeofday - SSticker.round_start_timeofday)]</B>"
-	parts += "[FOURSPACES]Station Integrity: <B>[mode.station_was_nuked ? "<span class='redtext'>Destroyed</span>" : "[popcount["station_integrity"]]%"]</B>"
+	parts += "[FOURSPACES]Station Integrity: <B>[mode.station_was_nuked ? span_redtext("Destroyed") : "[popcount["station_integrity"]]%"]</B>"
 	var/total_players = GLOB.joined_player_list.len
 	if(total_players)
 		parts+= "[FOURSPACES]Total Population: <B>[total_players]</B>"
@@ -399,11 +399,11 @@
 	if(M.mind && !isnewplayer(M))
 		if(M.stat != DEAD && !isbrain(M))
 			parts += "<div class='panel greenborder'>"
-			parts += "<span class='greentext'>You managed to survive the events in [station_name()] as [M.real_name].</span>"
+			parts += span_greentext("You managed to survive the events in [station_name()] as [M.real_name].")
 
 		else
 			parts += "<div class='panel redborder'>"
-			parts += "<span class='redtext'>You did not survive the events in [station_name()]...</span>"
+			parts += span_redtext("You did not survive the events in [station_name()]...")
 
 	else
 		parts += "<div class='panel stationborder'>"

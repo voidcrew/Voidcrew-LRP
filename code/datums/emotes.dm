@@ -139,16 +139,16 @@
 				return FALSE
 			switch(user.stat)
 				if(SOFT_CRIT)
-					to_chat(user, "<span class='warning'>You cannot [key] while in a critical condition!</span>")
+					to_chat(user, span_warning("You cannot [key] while in a critical condition!"))
 				if(UNCONSCIOUS, HARD_CRIT)
-					to_chat(user, "<span class='warning'>You cannot [key] while unconscious!</span>")
+					to_chat(user, span_warning("You cannot [key] while unconscious!"))
 				if(DEAD)
-					to_chat(user, "<span class='warning'>You cannot [key] while dead!</span>")
+					to_chat(user, span_warning("You cannot [key] while dead!"))
 			return FALSE
 		if(hands_use_check && HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
 			if(!intentional)
 				return FALSE
-			to_chat(user, "<span class='warning'>You cannot use your hands to [key] right now!</span>")
+			to_chat(user, span_warning("You cannot use your hands to [key] right now!"))
 			return FALSE
 
 	if(isliving(user))

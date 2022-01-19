@@ -240,7 +240,7 @@ or something covering your eyes."
 	var/mob/living/L = usr
 	if(L != owner)
 		return
-	to_chat(L, "<span class='mind_control'>[command]</span>")
+	to_chat(L, span_mind_control("[command]"))
 
 /atom/movable/screen/alert/drunk //Not implemented
 	name = "Drunk"
@@ -315,7 +315,7 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 	RegisterSignal(taker, COMSIG_MOVABLE_MOVED, .proc/removeAlert)
 
 /atom/movable/screen/alert/give/proc/removeAlert()
-	to_chat(owner, "<span class='warning'>You moved out of range of [giver]!</span>")
+	to_chat(owner, span_warning("You moved out of range of [giver]!"))
 	owner.clear_alert("[giver]")
 
 /atom/movable/screen/alert/give/Click(location, control, params)

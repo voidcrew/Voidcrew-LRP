@@ -178,7 +178,7 @@ SUBSYSTEM_DEF(vote)
 
 /datum/controller/subsystem/vote/proc/initiate_vote(vote_type, initiator_key, observer_vote_allowed = TRUE)
 	if(!Master.current_runlevel) //Server is still intializing.
-		to_chat(usr, "<span class='warning'>Cannot start vote, server is not done initializing.</span>")
+		to_chat(usr, span_warning("Cannot start vote, server is not done initializing."))
 		return FALSE
 	var/admin = FALSE
 	var/ckey = ckey(initiator_key)
@@ -189,12 +189,12 @@ SUBSYSTEM_DEF(vote)
 		if(started_time)
 			var/next_allowed_time = (started_time + CONFIG_GET(number/vote_delay))
 			if(mode)
-				to_chat(usr, "<span class='warning'>There is already a vote in progress! please wait for it to finish.</span>")
+				to_chat(usr, span_warning("There is already a vote in progress! please wait for it to finish."))
 				return FALSE
 
 
 			if(next_allowed_time > world.time && !admin)
-				to_chat(usr, "<span class='warning'>A vote was initiated recently, you must wait [DisplayTimeText(next_allowed_time-world.time)] before a new vote can be started!</span>")
+				to_chat(usr, span_warning("A vote was initiated recently, you must wait [DisplayTimeText(next_allowed_time-world.time)] before a new vote can be started!"))
 				return FALSE
 
 		reset()

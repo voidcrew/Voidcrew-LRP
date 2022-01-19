@@ -49,7 +49,7 @@
 	playsound(parent, 'sound/machines/synth_no.ogg', 5, TRUE)
 	var/atom/movable/parent_atom = src.parent
 	parent_atom.forceMove(targetturf)
-	to_chat(get(parent, /mob), "<span class='danger'>You can't help but feel that you just lost something back there...</span>")
+	to_chat(get(parent, /mob), span_danger("You can't help but feel that you just lost something back there..."))
 	return targetturf
 
 /datum/component/shiploving/proc/check_in_bounds()

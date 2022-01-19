@@ -101,7 +101,7 @@
 		return
 
 	if(force && HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, "<span class='warning'>You don't want to harm other living beings!</span>")
+		to_chat(user, span_warning("You don't want to harm other living beings!"))
 		return
 
 	if(item_flags & EYE_STAB && user.zone_selected == BODY_ZONE_PRECISE_EYES)
@@ -143,8 +143,8 @@
 
 /obj/attacked_by(obj/item/I, mob/living/user)
 	if(I.force)
-		user.visible_message("<span class='danger'>[user] hits [src] with [I]!</span>", \
-					"<span class='danger'>You hit [src] with [I]!</span>", null, COMBAT_MESSAGE_RANGE)
+		user.visible_message(span_danger("[user] hits [src] with [I]!"), \
+					span_danger("You hit [src] with [I]!"), null, COMBAT_MESSAGE_RANGE)
 		//only witnesses close by and the victim see a hit message.
 		log_combat(user, src, "attacked", I)
 	take_damage(I.force, I.damtype, "melee", 1)
@@ -210,6 +210,6 @@
 		attack_message_local = "[user] [message_verb] you[message_hit_area] with [I]!"
 	if(user == src)
 		attack_message_local = "You [message_verb] yourself[message_hit_area] with [I]"
-	visible_message("<span class='danger'>[attack_message]</span>",\
-		"<span class='userdanger'>[attack_message_local]</span>", null, COMBAT_MESSAGE_RANGE)
+	visible_message(span_danger("[attack_message]"),\
+		span_userdanger("[attack_message_local]"), null, COMBAT_MESSAGE_RANGE)
 	return 1
