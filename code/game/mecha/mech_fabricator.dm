@@ -69,7 +69,7 @@
 /obj/machinery/mecha_part_fabricator/examine(mob/user)
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
-		. += "<span class='notice'>The status display reads: Storing up to <b>[rmat.local_size]</b> material units.<br>Material consumption at <b>[component_coeff*100]%</b>.<br>Build time reduced by <b>[100-time_coeff*100]%</b>.</span>"
+		. += span_notice("The status display reads: Storing up to <b>[rmat.local_size]</b> material units.<br>Material consumption at <b>[component_coeff*100]%</b>.<br>Build time reduced by <b>[100-time_coeff*100]%</b>.")
 		if(linked_account)
 			. += "<span class='notice'><br><b>Linked account:</b> [linked_account.account_holder]'s bank account<span>"
 
@@ -502,21 +502,21 @@
 /obj/machinery/mecha_part_fabricator/proc/link_user_id(mob/user)
 	if(linked_account)
 		linked_account = null
-		to_chat(user, "<span class='notice'>You unlink [src]'s linked account.</span>")
+		to_chat(user, span_notice("You unlink [src]'s linked account."))
 	else
 		var/datum/bank_account/user_account = user.get_bank_account()
 		if(user_account)
 			linked_account = user_account
-			to_chat(user, "<span class='notice'>You link [user_account.account_holder]'s bank account on [src].</span>")
+			to_chat(user, span_notice("You link [user_account.account_holder]'s bank account on [src]."))
 		else
-			to_chat(user, "<span class='warning'>No bank account found!</span>")
+			to_chat(user, span_warning("No bank account found!"))
 
 /obj/machinery/mecha_part_fabricator/proc/is_insertion_ready(mob/user)
 	if(panel_open)
-		to_chat(user, "<span class='warning'>You can't load [src] while it's opened!</span>")
+		to_chat(user, span_warning("You can't load [src] while it's opened!"))
 		return FALSE
 	if(being_built)
-		to_chat(user, "<span class='warning'>\The [src] is currently processing! Please wait until completion.</span>")
+		to_chat(user, span_warning("\The [src] is currently processing! Please wait until completion."))
 		return FALSE
 
 	return TRUE
