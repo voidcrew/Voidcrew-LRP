@@ -21,9 +21,9 @@
 
 /obj/vehicle/ridden/lawnmower/emag_act(mob/user)
 	if(emagged)
-		to_chat(user, "<span class='warning'>The safety mechanisms on \the [src] are already disabled!</span>")
+		to_chat(user, span_warning("The safety mechanisms on \the [src] are already disabled!"))
 		return
-	to_chat(user, "<span class='warning'>You disable the safety mechanisms on \the [src].</span>")
+	to_chat(user, span_warning("You disable the safety mechanisms on \the [src]."))
 	emagged = TRUE
 
 /obj/vehicle/ridden/lawnmower/Bump(atom/A)
@@ -51,7 +51,7 @@
 			if(M == H)
 				continue
 			if(M.body_position == LYING_DOWN)
-				visible_message("<span class='danger'>\the [src] grinds [M.name] into a fine paste!</span>")
+				visible_message(span_danger("\the [src] grinds [M.name] into a fine paste!"))
 				if (M.stat != DEAD)
 					gib_scream = TRUE
 				M.gib()
