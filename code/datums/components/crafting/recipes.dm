@@ -774,7 +774,7 @@
 	if(!aicard.AI)
 		return TRUE
 
-	to_chat(user, "<span class='boldwarning'>You can't craft an intelliTater with an AI in the card!</span>")
+	to_chat(user, span_boldwarning("You can't craft an intelliTater with an AI in the card!"))
 	return FALSE
 
 /datum/crafting_recipe/aispook
