@@ -465,7 +465,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Bar"
 	icon_state = "bar"
 	mood_bonus = 5
-	mood_message = "<span class='nicegreen'>I love being in the bar!\n</span>"
+	mood_message = span_nicegreen("I love being in the bar!\n")
 	lighting_colour_tube = "#fff4d6"
 	lighting_colour_bulb = "#ffebc1"
 	sound_environment = SOUND_AREA_WOODFLOOR
@@ -855,7 +855,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Psychology Office"
 	icon_state = "psychology"
 	mood_bonus = 3
-	mood_message = "<span class='nicegreen'>I feel at ease here.\n</span>"
+	mood_message = span_nicegreen("I feel at ease here.\n")
 	ambientsounds = list('sound/ambience/aurora_caelus_short.ogg')
 
 //Security

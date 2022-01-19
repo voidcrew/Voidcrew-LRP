@@ -41,12 +41,12 @@
 			if(tendrils)
 				tendril(A)
 			if(prob(base_message_chance))
-				to_chat(M, "<span class='notice'>Your skin feels scaly.</span>")
+				to_chat(M, span_notice("Your skin feels scaly."))
 		if(3, 4)
 			if(tendrils)
 				tendril(A)
 			if(prob(base_message_chance))
-				to_chat(M, "<span class='notice'>[pick("Your skin is hard.", "You feel stronger.", "You feel powerful.", "You feel your muscles growing stiff.", "You feel warm.")]</span>")
+				to_chat(M, span_notice("[pick("Your skin is hard.", "You feel stronger.", "You feel powerful.", "You feel your muscles growing stiff.", "You feel warm.")]"))
 		if(5)
 			if(tendrils)
 				tendril(A)
@@ -60,7 +60,7 @@
 			M.add_movespeed_modifier(/datum/movespeed_modifier/necropolis, update=TRUE)
 			ADD_TRAIT(M, TRAIT_PIERCEIMMUNE, DISEASE_TRAIT)
 			if(fireproof)
-				to_chat(M, "<span class='notice'>[pick("You taste primordial ash.", "The necropolis whispers sweet nothings to you.", "You feel like a god.")]</span>")
+				to_chat(M, span_notice("[pick("You taste primordial ash.", "The necropolis whispers sweet nothings to you.", "You feel like a god.")]"))
 				ADD_TRAIT(M, TRAIT_RESISTHEAT, DISEASE_TRAIT)
 				ADD_TRAIT(M, TRAIT_RESISTHIGHPRESSURE, DISEASE_TRAIT)
 				M.weather_immunities |= "ash"
@@ -68,7 +68,7 @@
 				M.remove_movespeed_modifier(/datum/movespeed_modifier/necropolis)
 		else
 			if(prob(base_message_chance))
-				to_chat(M, "<span class='notice'>[pick("Your skin has become a hardened carapace.", "Your strength is superhuman.", "You feel invincible.")]</span>")
+				to_chat(M, span_notice("[pick("Your skin has become a hardened carapace.", "Your strength is superhuman.", "You feel invincible.")]"))
 			if(tendrils)
 				tendril(A)
 	return
@@ -95,7 +95,7 @@
 	if(!.)
 		return
 	var/mob/living/carbon/M = A.affected_mob
-	to_chat(M, "<span class='notice'>You feel weakened as the necropolis' blessing leaves your body.</span>")
+	to_chat(M, span_notice("You feel weakened as the necropolis' blessing leaves your body."))
 	M.remove_movespeed_modifier(/datum/movespeed_modifier/necropolis)
 	M.dna.species.punchdamagelow = initial(M.dna.species.punchdamagelow)
 	M.dna.species.punchdamagehigh = initial(M.dna.species.punchdamagehigh)

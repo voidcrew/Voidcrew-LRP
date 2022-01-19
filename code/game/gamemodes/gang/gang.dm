@@ -439,25 +439,25 @@ GLOBAL_VAR_INIT(deaths_during_shift, 0)
 	var/list/report = list()
 	var/highest_point_value = 0
 	var/highest_gang = "Leet Like Jeff K"
-	report += "<span class='header'>The families in the round were:</span>"
+	report += span_header("The families in the round were:")
 	var/objective_failures = TRUE
 	for(var/datum/team/gang/GG in gangs)
 		if(GG.my_gang_datum.check_gang_objective())
 			objective_failures = FALSE
 			break
 	for(var/datum/team/gang/G in gangs)
-		report += "<span class='header'>[G.name]:</span>"
+		report += span_header("[G.name]:")
 		if(G.members.len)
 			report += "[G.my_gang_datum.roundend_category] were:"
 			report += printplayerlist(G.members)
-			report += "<span class='header'>Points: [G.points]</span>"
-			report += "<span class='header'>Objective: [G.my_gang_datum.gang_objective]</span>"
+			report += span_header("Points: [G.points]")
+			report += span_header("Objective: [G.my_gang_datum.gang_objective]")
 			if(G.my_gang_datum.check_gang_objective())
-				report += "<span class='greentext'>The family completed their objective!</span>"
+				report += span_greentext("The family completed their objective!")
 			else
-				report += "<span class='redtext'>The family failed their objective!</span>"
+				report += span_redtext("The family failed their objective!")
 		else
-			report += "<span class='redtext'>The family was wiped out!</span>"
+			report += span_redtext("The family was wiped out!")
 		if(!objective_failures)
 			if(G.points >= highest_point_value && G.members.len && G.my_gang_datum.check_gang_objective())
 				highest_point_value = G.points

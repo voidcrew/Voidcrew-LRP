@@ -5,8 +5,8 @@
 	desc = "Thanks to your poor posture, backpacks and other bags never sit right on your back. More evently weighted objects are fine, though."
 	value = -2
 	mood_quirk = TRUE
-	gain_text = "<span class='danger'>Your back REALLY hurts!</span>"
-	lose_text = "<span class='notice'>Your back feels better.</span>"
+	gain_text = span_danger("Your back REALLY hurts!")
+	lose_text = span_notice("Your back feels better.")
 	medical_record_text = "Patient scans indicate severe and chronic back pain."
 
 /datum/quirk/badback/on_process()
@@ -20,8 +20,8 @@
 	name = "Blood Deficiency"
 	desc = "Your body can't produce enough blood to sustain itself."
 	value = -2
-	gain_text = "<span class='danger'>You feel your vigor slowly fading away.</span>"
-	lose_text = "<span class='notice'>You feel vigorous again.</span>"
+	gain_text = span_danger("You feel your vigor slowly fading away.")
+	lose_text = span_notice("You feel vigorous again.")
 	medical_record_text = "Patient requires regular treatment for blood loss due to low production of blood."
 
 /datum/quirk/blooddeficiency/on_process()
@@ -36,8 +36,8 @@
 	name = "Blind"
 	desc = "You are completely blind, nothing can counteract this."
 	value = -4
-	gain_text = "<span class='danger'>You can't see anything.</span>"
-	lose_text = "<span class='notice'>You miraculously gain back your vision.</span>"
+	gain_text = span_danger("You can't see anything.")
+	lose_text = span_notice("You miraculously gain back your vision.")
 	medical_record_text = "Patient has permanent blindness."
 
 /datum/quirk/blindness/add()
@@ -54,8 +54,8 @@
 	name = "Brain Tumor"
 	desc = "You have a little friend in your brain that is slowly destroying it. Better bring some mannitol!"
 	value = -3
-	gain_text = "<span class='danger'>You feel smooth.</span>"
-	lose_text = "<span class='notice'>You feel wrinkled again.</span>"
+	gain_text = span_danger("You feel smooth.")
+	lose_text = span_notice("You feel wrinkled again.")
 	medical_record_text = "Patient has a tumor in their brain that is slowly driving them to brain death."
 
 /datum/quirk/brainproblems/on_process()
@@ -66,8 +66,8 @@
 	desc = "You are incurably deaf."
 	value = -2
 	mob_trait = TRAIT_DEAF
-	gain_text = "<span class='danger'>You can't hear anything.</span>"
-	lose_text = "<span class='notice'>You're able to hear again!</span>"
+	gain_text = span_danger("You can't hear anything.")
+	lose_text = span_notice("You're able to hear again!")
 	medical_record_text = "Patient's cochlear nerve is incurably damaged."
 
 /datum/quirk/depression
@@ -75,8 +75,8 @@
 	desc = "You sometimes just hate life."
 	mob_trait = TRAIT_DEPRESSION
 	value = -1
-	gain_text = "<span class='danger'>You start feeling depressed.</span>"
-	lose_text = "<span class='notice'>You no longer feel depressed.</span>" //if only it were that easy!
+	gain_text = span_danger("You start feeling depressed.")
+	lose_text = span_notice("You no longer feel depressed.") //if only it were that easy!
 	medical_record_text = "Patient has a mild mood disorder causing them to experience acute episodes of depression."
 	mood_quirk = TRUE
 
@@ -195,7 +195,7 @@
 		var/mob/living/carbon/human/H = quirk_holder
 		SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
 
-	to_chat(quirk_holder, "<span class='boldnotice'>There is a precious family [heirloom.name] [where], passed down from generation to generation. Keep it safe!</span>")
+	to_chat(quirk_holder, span_boldnotice("There is a precious family [heirloom.name] [where], passed down from generation to generation. Keep it safe!"))
 
 	var/list/names = splittext(quirk_holder.real_name, " ")
 	var/family_name = names[names.len]
@@ -215,8 +215,8 @@
 	desc = "Your bones might as well be made of glass! Your limbs can take less damage before they become disabled."
 	value = -2
 	mob_trait = TRAIT_EASYLIMBDISABLE
-	gain_text = "<span class='danger'>You feel frail.</span>"
-	lose_text = "<span class='notice'>You feel sturdy again.</span>"
+	gain_text = span_danger("You feel frail.")
+	lose_text = span_notice("You feel sturdy again.")
 	medical_record_text = "Patient has unusually frail bones, recommend calcium-rich diet."
 
 /datum/quirk/heavy_sleeper
@@ -224,16 +224,16 @@
 	desc = "You sleep like a rock! Whenever you're put to sleep or knocked unconscious, you take a little bit longer to wake up."
 	value = -1
 	mob_trait = TRAIT_HEAVY_SLEEPER
-	gain_text = "<span class='danger'>You feel sleepy.</span>"
-	lose_text = "<span class='notice'>You feel awake again.</span>"
+	gain_text = span_danger("You feel sleepy.")
+	lose_text = span_notice("You feel awake again.")
 	medical_record_text = "Patient has abnormal sleep study results and is difficult to wake up."
 
 /datum/quirk/hypersensitive
 	name = "Hypersensitive"
 	desc = "For better or worse, everything seems to affect your mood more than it should."
 	value = -1
-	gain_text = "<span class='danger'>You seem to make a big deal out of everything.</span>"
-	lose_text = "<span class='notice'>You don't seem to make a big deal out of everything anymore.</span>"
+	gain_text = span_danger("You seem to make a big deal out of everything.")
+	lose_text = span_notice("You don't seem to make a big deal out of everything anymore.")
 	medical_record_text = "Patient demonstrates a high level of emotional volatility."
 
 /datum/quirk/hypersensitive/add()
@@ -252,16 +252,16 @@
 	desc = "You just can't handle your drinks and get drunk very quickly."
 	value = -1
 	mob_trait = TRAIT_LIGHT_DRINKER
-	gain_text = "<span class='notice'>Just the thought of drinking alcohol makes your head spin.</span>"
-	lose_text = "<span class='danger'>You're no longer severely affected by alcohol.</span>"
+	gain_text = span_notice("Just the thought of drinking alcohol makes your head spin.")
+	lose_text = span_danger("You're no longer severely affected by alcohol.")
 	medical_record_text = "Patient demonstrates a low tolerance for alcohol. (Wimp)"
 
 /datum/quirk/nearsighted //t. errorage
 	name = "Nearsighted"
 	desc = "You are nearsighted without prescription glasses, but spawn with a pair."
 	value = -1
-	gain_text = "<span class='danger'>Things far away from you start looking blurry.</span>"
-	lose_text = "<span class='notice'>You start seeing faraway things normally again.</span>"
+	gain_text = span_danger("Things far away from you start looking blurry.")
+	lose_text = span_notice("You start seeing faraway things normally again.")
 	medical_record_text = "Patient requires prescription glasses in order to counteract nearsightedness."
 	var/obj/item/glasses
 	var/where
@@ -320,7 +320,7 @@
 		var/mob/living/carbon/human/H = quirk_holder
 		SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
 
-	to_chat(quirk_holder, "<span class='notice'>There is a set of profession-assigned prescription glasses [where] These are valuable equipment for someone nearsighted like you. Keep them safe and clean! It's unlikely there are any spares.</span>")
+	to_chat(quirk_holder, span_notice("There is a set of profession-assigned prescription glasses [where] These are valuable equipment for someone nearsighted like you. Keep them safe and clean! It's unlikely there are any spares."))
 
 /datum/quirk/nyctophobia
 	name = "Nyctophobia"
@@ -336,7 +336,7 @@
 	var/lums = T.get_lumcount()
 	if(lums <= 0.2)
 		if(quirk_holder.m_intent == MOVE_INTENT_RUN)
-			to_chat(quirk_holder, "<span class='warning'>Easy, easy, take it slow... you're in the dark...</span>")
+			to_chat(quirk_holder, span_warning("Easy, easy, take it slow... you're in the dark..."))
 			quirk_holder.toggle_move_intent()
 		SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, "nyctophobia", /datum/mood_event/nyctophobia)
 	else
@@ -347,8 +347,8 @@
 	desc = "The thought of violence makes you sick. So much so, in fact, that you can't hurt anyone."
 	value = -2
 	mob_trait = TRAIT_PACIFISM
-	gain_text = "<span class='danger'>You feel repulsed by the thought of violence!</span>"
-	lose_text = "<span class='notice'>You think you can defend yourself again.</span>"
+	gain_text = span_danger("You feel repulsed by the thought of violence!")
+	lose_text = span_notice("You think you can defend yourself again.")
 	medical_record_text = "Patient is unusually pacifistic and cannot bring themselves to cause physical harm."
 
 /datum/quirk/paraplegic
@@ -437,8 +437,8 @@
 	desc = "Your first instinct is always to let people push you around. Resisting out of grabs will take conscious effort."
 	value = -2
 	mob_trait = TRAIT_GRABWEAKNESS
-	gain_text = "<span class='danger'>You feel like a pushover.</span>"
-	lose_text = "<span class='notice'>You feel like standing up for yourself.</span>"
+	gain_text = span_danger("You feel like a pushover.")
+	lose_text = span_notice("You feel like standing up for yourself.")
 	medical_record_text = "Patient presents a notably unassertive personality and is easy to manipulate."
 
 /datum/quirk/insanity
@@ -446,8 +446,8 @@
 	desc = "You suffer from a severe disorder that causes very vivid hallucinations. Mindbreaker toxin can suppress its effects, and you are immune to mindbreaker's hallucinogenic properties. <b>This is not a license to grief.</b>"
 	value = -2
 	//no mob trait because it's handled uniquely
-	gain_text = "<span class='userdanger'>...</span>"
-	lose_text = "<span class='notice'>You feel in tune with the world again.</span>"
+	gain_text = span_userdanger("...")
+	lose_text = span_notice("You feel in tune with the world again.")
 	medical_record_text = "Patient suffers from acute Reality Dissociation Syndrome and experiences vivid hallucinations."
 
 /datum/quirk/insanity/on_process()
@@ -470,8 +470,8 @@
 	name = "Social Anxiety"
 	desc = "Talking to people is very difficult for you, and you often stutter or even lock up."
 	value = -1
-	gain_text = "<span class='danger'>You start worrying about what you're saying.</span>"
-	lose_text = "<span class='notice'>You feel easier about talking again.</span>" //if only it were that easy!
+	gain_text = span_danger("You start worrying about what you're saying.")
+	lose_text = span_notice("You feel easier about talking again.") //if only it were that easy!
 	medical_record_text = "Patient is usually anxious in social encounters and prefers to avoid them."
 	var/dumb_thing = TRUE
 
@@ -491,10 +491,10 @@
 	if(prob(2 + nearby_people))
 		H.stuttering = max(3, H.stuttering)
 	else if(prob(min(3, nearby_people)) && !H.silent)
-		to_chat(H, "<span class='danger'>You retreat into yourself. You <i>really</i> don't feel up to talking.</span>")
+		to_chat(H, span_danger("You retreat into yourself. You <i>really</i> don't feel up to talking."))
 		H.silent = max(10, H.silent)
 	else if(prob(0.5) && dumb_thing)
-		to_chat(H, "<span class='userdanger'>You think of a dumb thing you said a long time ago and scream internally.</span>")
+		to_chat(H, span_userdanger("You think of a dumb thing you said a long time ago and scream internally."))
 		dumb_thing = FALSE //only once per life
 		if(prob(1))
 			new/obj/item/reagent_containers/food/snacks/spaghetti/pastatomato(get_turf(H)) //now that's what I call spaghetti code
@@ -507,7 +507,7 @@
 	if(prob(85) || (istype(mind_check) && mind_check.mind))
 		return
 
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, quirk_holder, "<span class='smallnotice'>You make eye contact with [A].</span>"), 3)
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, quirk_holder, span_smallnotice("You make eye contact with [A].")), 3)
 
 /datum/quirk/social_anxiety/proc/eye_contact(datum/source, mob/living/other_mob, triggering_examiner)
 	SIGNAL_HANDLER
@@ -532,7 +532,7 @@
 			msg += "causing you to freeze up!"
 
 	SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, "anxiety_eyecontact", /datum/mood_event/anxiety_eyecontact)
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, quirk_holder, "<span class='userdanger'>[msg]</span>"), 3) // so the examine signal has time to fire and this will print after
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/to_chat, quirk_holder, span_userdanger("[msg]")), 3) // so the examine signal has time to fire and this will print after
 	return COMSIG_BLOCK_EYECONTACT
 
 /datum/mood_event/anxiety_eyecontact
@@ -544,8 +544,8 @@
 	name = "Junkie"
 	desc = "You can't get enough of hard drugs."
 	value = -2
-	gain_text = "<span class='danger'>You suddenly feel the craving for drugs.</span>"
-	lose_text = "<span class='notice'>You feel like you should kick your drug habit.</span>"
+	gain_text = span_danger("You suddenly feel the craving for drugs.")
+	lose_text = span_notice("You feel like you should kick your drug habit.")
 	medical_record_text = "Patient has a history of hard drugs."
 	var/drug_list = list(/datum/reagent/drug/crank, /datum/reagent/drug/krokodil, /datum/reagent/medicine/morphine, /datum/reagent/drug/happiness, /datum/reagent/drug/methamphetamine) //List of possible IDs
 	var/datum/reagent/reagent_type //!If this is defined, reagent_id will be unused and the defined reagent type will be instead.
@@ -593,7 +593,7 @@
 		SEND_SIGNAL(H.back, COMSIG_TRY_STORAGE_SHOW, H)
 
 /datum/quirk/junkie/proc/announce_drugs()
-	to_chat(quirk_holder, "<span class='boldnotice'>There is a [initial(drug_container_type.name)] of [initial(reagent_type.name)] [where_drug]. Better hope you don't run out...</span>")
+	to_chat(quirk_holder, span_boldnotice("There is a [initial(drug_container_type.name)] of [initial(reagent_type.name)] [where_drug]. Better hope you don't run out..."))
 
 /datum/quirk/junkie/on_process()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -605,14 +605,14 @@
 			else
 				reagent_instance.addiction_stage = 0
 			H.reagents.addiction_list += reagent_instance
-			to_chat(quirk_holder, "<span class='danger'>You thought you kicked it, but you suddenly feel like you need [reagent_instance.name] again...</span>")
+			to_chat(quirk_holder, span_danger("You thought you kicked it, but you suddenly feel like you need [reagent_instance.name] again..."))
 
 /datum/quirk/junkie/smoker
 	name = "Smoker"
 	desc = "Sometimes you just really want a smoke. Probably not great for your lungs."
 	value = -1
-	gain_text = "<span class='danger'>You could really go for a smoke right about now.</span>"
-	lose_text = "<span class='notice'>You feel like you should quit smoking.</span>"
+	gain_text = span_danger("You could really go for a smoke right about now.")
+	lose_text = span_notice("You feel like you should quit smoking.")
 	medical_record_text = "Patient is a current smoker."
 	reagent_type = /datum/reagent/drug/nicotine
 	accessory_type = /obj/item/lighter/greyscale
@@ -627,7 +627,7 @@
 	. = ..()
 
 /datum/quirk/junkie/smoker/announce_drugs()
-	to_chat(quirk_holder, "<span class='boldnotice'>There is a [initial(drug_container_type.name)] [where_drug], and a lighter [where_accessory]. Make sure you get your favorite brand when you run out.</span>")
+	to_chat(quirk_holder, span_boldnotice("There is a [initial(drug_container_type.name)] [where_drug], and a lighter [where_accessory]. Make sure you get your favorite brand when you run out."))
 
 
 /datum/quirk/junkie/smoker/on_process()
@@ -646,8 +646,8 @@
 	desc = "Due to past troubles, you are unable to recover your sanity if you lose it. Be very careful managing your mood!"
 	value = -2
 	mob_trait = TRAIT_UNSTABLE
-	gain_text = "<span class='danger'>There's a lot on your mind right now.</span>"
-	lose_text = "<span class='notice'>Your mind finally feels calm.</span>"
+	gain_text = span_danger("There's a lot on your mind right now.")
+	lose_text = span_notice("Your mind finally feels calm.")
 	medical_record_text = "Patient's mind is in a vulnerable state, and cannot recover from traumatic events."
 
 /datum/quirk/bad_touch
@@ -655,8 +655,8 @@
 	desc = "You don't like hugs. You'd really prefer if people just left you alone."
 	mob_trait = TRAIT_BADTOUCH
 	value = -1
-	gain_text = "<span class='danger'>You just want people to leave you alone.</span>"
-	lose_text = "<span class='notice'>You could use a big hug.</span>"
+	gain_text = span_danger("You just want people to leave you alone.")
+	lose_text = span_notice("You could use a big hug.")
 	medical_record_text = "Patient has disdain for being touched. Potentially has undiagnosed haphephobia."
 	mood_quirk = TRUE
 

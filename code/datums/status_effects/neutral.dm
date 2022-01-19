@@ -108,7 +108,7 @@
 	if(rewarded && rewarded.mind && rewarded.stat != DEAD)
 		to_chat(owner, "<span class='boldnotice'>You hear something behind you talking...</span> <span class='notice'>Bounty claimed.</span>")
 		playsound(owner, 'sound/weapons/gun/shotgun/shot.ogg', 75, FALSE)
-		to_chat(rewarded, "<span class='greentext'>You feel a surge of mana flow into you!</span>")
+		to_chat(rewarded, span_greentext("You feel a surge of mana flow into you!"))
 		for(var/obj/effect/proc_holder/spell/spell in rewarded.mind.spell_list)
 			spell.charge_counter = spell.charge_max
 			spell.recharging = FALSE
@@ -193,8 +193,8 @@
 		return
 
 	slap_item = slap
-	owner.visible_message("<span class='notice'>[owner] raises [owner.p_their()] arm, looking for a high-five!</span>", \
-		"<span class='notice'>You post up, looking for a high-five!</span>", null, 2)
+	owner.visible_message(span_notice("[owner] raises [owner.p_their()] arm, looking for a high-five!"), \
+		span_notice("You post up, looking for a high-five!"), null, 2)
 
 	for(var/mob/living/carbon/possible_taker in orange(1, owner))
 		if(!owner.CanReach(possible_taker) || possible_taker.incapacitated())
@@ -202,8 +202,8 @@
 		register_candidate(possible_taker)
 
 	if(!possible_takers) // in case we tried high-fiving with only a dead body around or something
-		owner.visible_message("<span class='danger'>[owner] realizes no one within range is actually capable of high-fiving, lowering [owner.p_their()] arm in shame...</span>", \
-			"<span class='warning'>You realize a moment too late that no one within range is actually capable of high-fiving you, oof...</span>", null, 2)
+		owner.visible_message(span_danger("[owner] realizes no one within range is actually capable of high-fiving, lowering [owner.p_their()] arm in shame..."), \
+			span_warning("You realize a moment too late that no one within range is actually capable of high-fiving you, oof..."), null, 2)
 		SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_five_alone)
 		qdel(src)
 		return
@@ -237,8 +237,8 @@
 
 /// We failed to high-five broh, either because there's no one viable next to us anymore, or we lost the slapper, or what
 /datum/status_effect/high_fiving/proc/fail()
-	owner.visible_message("<span class='danger'>[owner] slowly lowers [owner.p_their()] arm, realizing no one will high-five [owner.p_them()]! How embarassing...</span>", \
-		"<span class='warning'>You realize the futility of continuing to wait for a high-five, and lower your arm...</span>", null, 2)
+	owner.visible_message(span_danger("[owner] slowly lowers [owner.p_their()] arm, realizing no one will high-five [owner.p_them()]! How embarassing..."), \
+		span_warning("You realize the futility of continuing to wait for a high-five, and lower your arm..."), null, 2)
 	SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/left_hanging)
 	qdel(src)
 
@@ -251,7 +251,7 @@
 			open_hands_taker++
 
 	if(!open_hands_taker)
-		to_chat(successful_taker, "<span class='warning'>You can't high-five [owner] with no open hands!</span>")
+		to_chat(successful_taker, span_warning("You can't high-five [owner] with no open hands!"))
 		SEND_SIGNAL(successful_taker, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_five_full_hand) // not so successful now!
 		return
 
@@ -265,14 +265,14 @@
 		return
 
 	if(slappers_owner >= 2) // we only check this if it's already established the taker has 2+ hands free
-		owner.visible_message("<span class='notice'>[successful_taker] enthusiastically high-tens [owner]!</span>", "<span class='nicegreen'>Wow! You're high-tenned [successful_taker]!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", ignored_mobs=successful_taker)
-		to_chat(successful_taker, "<span class='nicegreen'>You give high-tenning [owner] your all!</span>")
+		owner.visible_message(span_notice("[successful_taker] enthusiastically high-tens [owner]!"), span_nicegreen("Wow! You're high-tenned [successful_taker]!"), span_hear("You hear a sickening sound of flesh hitting flesh!"), ignored_mobs=successful_taker)
+		to_chat(successful_taker, span_nicegreen("You give high-tenning [owner] your all!"))
 		playsound(owner, 'sound/weapons/slap.ogg', 100, TRUE, 1)
 		SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_ten)
 		SEND_SIGNAL(successful_taker, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_ten)
 	else
-		owner.visible_message("<span class='notice'>[successful_taker] high-fives [owner]!</span>", "<span class='nicegreen'>All right! You're high-fived by [successful_taker]!</span>", "<span class='hear'>You hear a sickening sound of flesh hitting flesh!</span>", ignored_mobs=successful_taker)
-		to_chat(successful_taker, "<span class='nicegreen'>You high-five [owner]!</span>")
+		owner.visible_message(span_notice("[successful_taker] high-fives [owner]!"), span_nicegreen("All right! You're high-fived by [successful_taker]!"), span_hear("You hear a sickening sound of flesh hitting flesh!"), ignored_mobs=successful_taker)
+		to_chat(successful_taker, span_nicegreen("You high-five [owner]!"))
 		playsound(owner, 'sound/weapons/slap.ogg', 50, TRUE, -1)
 		SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_five)
 		SEND_SIGNAL(successful_taker, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_five)
@@ -280,8 +280,8 @@
 
 /// If we don't have any slappers in hand when someone goes to high-five us, we prank the hell out of them
 /datum/status_effect/high_fiving/proc/too_slow_p1(mob/living/carbon/rube)
-	owner.visible_message("<span class='notice'>[rube] rushes in to high-five [owner], but-</span>", "<span class='nicegreen'>[rube] falls for your trick just as planned, lunging for a high-five that no longer exists! Classic!</span>", ignored_mobs=rube)
-	to_chat(rube, "<span class='nicegreen'>You go in for [owner]'s high-five, but-</span>")
+	owner.visible_message(span_notice("[rube] rushes in to high-five [owner], but-"), span_nicegreen("[rube] falls for your trick just as planned, lunging for a high-five that no longer exists! Classic!"), ignored_mobs=rube)
+	to_chat(rube, span_nicegreen("You go in for [owner]'s high-five, but-"))
 	addtimer(CALLBACK(src, .proc/too_slow_p2, rube), 0.5 SECONDS)
 
 /// Part two of the ultimate prank
@@ -289,9 +289,9 @@
 	if(!owner || !rube)
 		qdel(src)
 		return
-	owner.visible_message("<span class='danger'>[owner] pulls away from [rube]'s slap at the last second, dodging the high-five entirely!</span>", "<span class='nicegreen'>[rube] fails to make contact with your hand, making an utter fool of [rube.p_them()]self!</span>", "<span class='hear'>You hear a disappointing sound of flesh not hitting flesh!</span>", ignored_mobs=rube)
+	owner.visible_message(span_danger("[owner] pulls away from [rube]'s slap at the last second, dodging the high-five entirely!"), span_nicegreen("[rube] fails to make contact with your hand, making an utter fool of [rube.p_them()]self!"), span_hear("You hear a disappointing sound of flesh not hitting flesh!"), ignored_mobs=rube)
 	var/all_caps_for_emphasis = uppertext("NO! [owner] PULLS [owner.p_their()] HAND AWAY FROM YOURS! YOU'RE TOO SLOW!")
-	to_chat(rube, "<span class='userdanger'>[all_caps_for_emphasis]</span>")
+	to_chat(rube, span_userdanger("[all_caps_for_emphasis]"))
 	playsound(owner, 'sound/weapons/thudswoosh.ogg', 100, TRUE, 1)
 	rube.Knockdown(1 SECONDS)
 	SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/down_low)
@@ -311,7 +311,7 @@
 	if(owner.CanReach(taker) && !taker.incapacitated())
 		return
 
-	to_chat(taker, "<span class='warning'>You left [owner] hanging!</span>")
+	to_chat(taker, span_warning("You left [owner] hanging!"))
 	remove_candidate(taker)
 	if(!possible_takers)
 		fail()

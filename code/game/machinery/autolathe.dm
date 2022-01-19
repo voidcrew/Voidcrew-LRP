@@ -108,9 +108,9 @@
 		return TRUE
 
 	if(istype(O, /obj/item/disk/design_disk))
-		user.visible_message("<span class='notice'>[user] begins to load \the [O] in \the [src]...</span>",
-			"<span class='notice'>You begin to load a design from \the [O]...</span>",
-			"<span class='hear'>You hear the chatter of a floppy drive.</span>")
+		user.visible_message(span_notice("[user] begins to load \the [O] in \the [src]..."),
+			span_notice("You begin to load a design from \the [O]..."),
+			span_hear("You hear the chatter of a floppy drive."))
 		busy = TRUE
 		var/obj/item/disk/design_disk/D = O
 		if(do_after(user, 14.4, target = src))
@@ -257,7 +257,7 @@
 	. += ..()
 	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 	if(in_range(user, src) || isobserver(user))
-		. += "<span class='notice'>The status display reads: Storing up to <b>[materials.max_amount]</b> material units.<br>Material consumption at <b>[prod_coeff*100]%</b>.</span>"
+		. += span_notice("The status display reads: Storing up to <b>[materials.max_amount]</b> material units.<br>Material consumption at <b>[prod_coeff*100]%</b>.")
 
 /obj/machinery/autolathe/proc/main_win(mob/user)
 	var/dat = "<div class='statusDisplay'><h3>Autolathe Menu:</h3><br>"
@@ -431,7 +431,7 @@
 		return
 	obj_flags |= EMAGGED
 	adjust_hacked(TRUE) // im in
-	to_chat(user, "<span class='warning'>You load the [src] with a series of specialized designs.</span>")
+	to_chat(user, span_warning("You load the [src] with a series of specialized designs."))
 
 /obj/machinery/autolathe/hacked/Initialize()
 	. = ..()
