@@ -10,21 +10,21 @@ macro "default"
 
 
 menu "menu"
-	elem
+	elem 
 		name = "&File"
 		command = ""
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = "&Quick screenshot\tF2"
 		command = ".screenshot auto"
 		category = "&File"
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = "&Save screenshot as...\tShift+F2"
 		command = ".screenshot"
 		category = "&File"
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = ""
 		command = ""
 		category = "&File"
@@ -34,21 +34,21 @@ menu "menu"
 		command = ".reconnect"
 		category = "&File"
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = "&Quit\tAlt-F4"
 		command = ".quit"
 		category = "&File"
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = "&Help"
 		command = ""
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = "&Admin Help\tF1"
 		command = "adminhelp"
 		category = "&Help"
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = "&Hotkeys"
 		command = "hotkeys-help"
 		category = "&Help"
@@ -122,83 +122,106 @@ window "mapwindow"
 		pos = 0,464
 		size = 280x16
 		anchor1 = 0,100
-		is-visible = true
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #222222
+		border = line
+		saved-params = ""
 		text = ""
 		align = left
-		background-color = #222222
-		text-color = #ffffff
-		border = line
 
 window "infowindow"
 	elem "infowindow"
 		type = MAIN
-		pos = 281,0
+		pos = 372,0
 		size = 640x480
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
+		outer-size = 658x549
+		inner-size = 640x502
 	elem "info"
 		type = CHILD
 		pos = 0,30
 		size = 640x445
 		anchor1 = 0,0
 		anchor2 = 100,100
+		background-color = none
 		saved-params = "splitter"
 		left = "statwindow"
 		right = "outputwindow"
 		is-vert = false
 	elem "changelog"
 		type = BUTTON
-		pos = 16,5
-		size = 104x20
+		pos = 8,5
+		size = 80x20
 		anchor1 = 3,0
 		anchor2 = 19,0
+		background-color = none
 		saved-params = "is-checked"
 		text = "Changelog"
 		command = "changelog"
 	elem "rules"
 		type = BUTTON
-		pos = 120,5
-		size = 100x20
+		pos = 96,5
+		size = 56x20
 		anchor1 = 19,0
 		anchor2 = 34,0
+		background-color = none
 		saved-params = "is-checked"
 		text = "Rules"
 		command = "rules"
+	elem "discord"
+		type = BUTTON
+		pos = 158,5
+		size = 106x20
+		anchor1 = 30,0
+		anchor2 = 44,0
+		font-family = "Verdana"
+		text-color = #ffffff
+		background-color = #40628a
+		saved-params = "is-checked"
+		text = "Join Discord"
+		command = "discord"
 	elem "wiki"
 		type = BUTTON
-		pos = 220,5
-		size = 100x20
+		pos = 264,5
+		size = 80x20
 		anchor1 = 34,0
 		anchor2 = 50,0
+		background-color = none
 		saved-params = "is-checked"
 		text = "Wiki"
 		command = "wiki"
 	elem "forum"
 		type = BUTTON
-		pos = 320,5
-		size = 100x20
+		pos = 352,5
+		size = 72x20
 		anchor1 = 50,0
 		anchor2 = 66,0
+		background-color = none
 		saved-params = "is-checked"
 		text = "Forum"
 		command = "forum"
 	elem "github"
 		type = BUTTON
-		pos = 420,5
-		size = 100x20
+		pos = 432,5
+		size = 88x20
 		anchor1 = 66,0
 		anchor2 = 81,0
+		background-color = none
 		saved-params = "is-checked"
 		text = "Github"
 		command = "github"
 	elem "report-issue"
 		type = BUTTON
-		pos = 520,5
-		size = 100x20
+		pos = 528,5
+		size = 96x20
 		anchor1 = 81,0
 		anchor2 = 97,0
+		background-color = none
 		saved-params = "is-checked"
 		text = "Report Issue"
 		command = "report-issue"
@@ -206,15 +229,12 @@ window "infowindow"
 window "outputwindow"
 	elem "outputwindow"
 		type = MAIN
-		pos = 281,0
+		pos = 372,0
 		size = 640x480
 		anchor1 = -1,-1
 		anchor2 = -1,-1
-		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
-		outer-size = 656x538
-		inner-size = 640x499
 	elem "input"
 		type = INPUT
 		pos = 2,460
@@ -231,7 +251,6 @@ window "outputwindow"
 		size = 40x19
 		anchor1 = 100,100
 		anchor2 = -1,-1
-		background-color = none
 		border = line
 		saved-params = "is-checked"
 		text = "OOC"
@@ -244,7 +263,6 @@ window "outputwindow"
 		size = 40x19
 		anchor1 = 100,100
 		anchor2 = -1,-1
-		background-color = none
 		border = line
 		saved-params = "is-checked"
 		text = "Say"
@@ -257,7 +275,6 @@ window "outputwindow"
 		size = 40x19
 		anchor1 = 100,100
 		anchor2 = -1,-1
-		background-color = none
 		border = line
 		saved-params = "is-checked"
 		text = "Me"
