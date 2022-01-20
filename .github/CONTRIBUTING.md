@@ -23,7 +23,7 @@ After setting it up, optionally navigate your git commandline to the project fol
 
 We have a [list of guides on the wiki](https://tgstation13.org/wiki/Guide_to_contributing_to_the_game) that will help you get started contributing to White Sands with Git and Dream Maker. For beginners, it is recommended you work on small projects like bugfixes at first. If you need help learning to program in BYOND, check out this [repository of resources](http://www.byond.com/developer/articles/resources).
 
-There is an open list of approachable issues for [your inspiration here](https://github.com/Jackriip/Voidcrew-LRP/issues).
+There is an open list of approachable issues for [your inspiration here](https://github.com/Jackriip/Voidcrew-LRP/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22).
 
 You can of course, as always, ask for help on the discord channels, or the forums, We're just here to have fun and help out, so please don't expect professional support.
 
