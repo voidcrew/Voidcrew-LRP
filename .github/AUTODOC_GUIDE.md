@@ -15,7 +15,7 @@ is automatically generated and built on every new commit to the master branch
 This gives new developers a clickable reference [DOCUMENTATION] they can browse to better help
 gain understanding of the /tg/code codebase structure and api reference.
 
-## Documenting code on /tg/code
+## Documenting code on Voidcrew code
 We use block comments to document procs and classes, and we use `///` line comments
 when documenting individual variables.
 
