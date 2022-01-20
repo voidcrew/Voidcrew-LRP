@@ -336,6 +336,7 @@
 			employmentCabinet.addFile(employee)
 
 /mob/dead/new_player/proc/LateChoices()
+	log_runtime("-----[ckey] has triggered LateChoices().-----")
 	var/list/shuttle_choices = list("Purchase ship..." = "Purchase") //Dummy for purchase option
 
 	for(var/obj/structure/overmap/ship/simulated/S as anything in SSovermap.simulated_ships)
