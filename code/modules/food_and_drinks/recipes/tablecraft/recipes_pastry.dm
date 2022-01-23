@@ -452,7 +452,8 @@
 	name = "Hot dog"
 	reqs = list(
 		/obj/item/reagent_containers/food/snacks/bun = 1,
-		/obj/item/reagent_containers/food/snacks/sausage = 1
+		/obj/item/reagent_containers/food/snacks/sausage = 1,
+		/datum/reagent/consumable/mustard = 5
 	)
 	result = /obj/item/reagent_containers/food/snacks/hotdog
 	subcategory = CAT_PASTRY
