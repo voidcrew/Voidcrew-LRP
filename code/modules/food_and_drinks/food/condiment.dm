@@ -244,6 +244,7 @@
 		/datum/reagent/consumable/sugar = list("condi_sugar", "Sugar", "Tasty spacey sugar!"),
 		/datum/reagent/consumable/astrotame = list("condi_astrotame", "Astrotame", "The sweetness of a thousand sugars but none of the calories."),
 		/datum/reagent/consumable/bbqsauce = list("condi_bbq", "BBQ sauce", "Hand wipes not included."),
+		/datum/reagent/consumable/mustard = list("condi_bbq", "Mustard", "According to the SolGov sausage department, only children put ketchup on their hotdog."),
 		)
 
 /obj/item/reagent_containers/food/condiment/pack/update_icon()
