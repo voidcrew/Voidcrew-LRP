@@ -194,7 +194,13 @@
 	color = "#731008" // rgb: 115, 16, 8
 	taste_description = "ketchup"
 
-
+/datum/reagent/consumable/mustard
+	name = "Mustard"
+	description = "Mustard. Really. Goes good with hotdogs."
+	nutriment_factor = 2 * REAGENTS_METABOLISM
+	color = "#ede028" // rgb: 237, 224, 40
+	taste_description = "mustard"
+	
 /datum/reagent/consumable/capsaicin
 	name = "Capsaicin Oil"
 	description = "This is what makes chilis hot."
