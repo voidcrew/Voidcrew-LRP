@@ -9,6 +9,7 @@
 		/obj/item/kitchen/fork = 6,
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 8,
 		/obj/item/reagent_containers/food/condiment/pack/ketchup = 5,
+		/obj/item/reagent_containers/food/condiment/pack/mustard = 5,
 		/obj/item/reagent_containers/food/condiment/pack/hotsauce = 5,
 		/obj/item/reagent_containers/food/condiment/pack/astrotame = 5,
 		/obj/item/reagent_containers/food/condiment/saltshaker = 5,
