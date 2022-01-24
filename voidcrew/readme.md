@@ -60,7 +60,6 @@ Our answer to this is modularization of the code.
 ## The modularization protocol
 
 Always start by thinking of the theme/purpose of your work. It's oftentimes a good idea to see if there isn't an already existing one, that you should append to.
-**If it's a tgcode-specific tweak or bugfix, first course of action should be an attempt to discuss and PR it upstream, instead of needlessly modularizing it here.**
 
 Otherwise, pick a new ID for your module. E.g. `DNA-FEATURE-WINGS` or `XENOARCHEAOLOGY` or `SHUTTLE_TOGGLE` - We will use this in future documentation. It is essentially your module ID. It must be uniform throughout the entire module. All references MUST be exactly the same.
 
@@ -131,7 +130,7 @@ MODULE ID: <!-- uppercase, underscore_connected name of your module, that you us
 
 <!-- Here, try to describe what your PR does, what features it provides and any other directly useful information -->
 
-### TG Proc/File Changes:
+### Shiptest Proc/File Changes:
 
 - N/A
 <!-- If you had to edit, or append to any core procs in the process of making this PR, list them here. APPEND: Also, please include any files that you've changed. .DM files that is. -->
