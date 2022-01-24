@@ -268,6 +268,9 @@
 			active = 0
 			return
 
+/turf/open/floor/mineral/uranium/singularity_act()
+	return // void crew edit, literally just makes uranium floor immune to the singularity so you now can build one on your ship.
+
 // ALIEN ALLOY
 /turf/open/floor/mineral/abductor
 	name = "alien floor"
