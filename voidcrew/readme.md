@@ -1,6 +1,6 @@
 # The modularization handbook - Voidcrew style, v0.1
 
-**Failure to follow this guide will result in your PR being denied.**
+**This guide is not entirely mandatory, seek clarification if you are unsure**
 
 ## Introduction
 
