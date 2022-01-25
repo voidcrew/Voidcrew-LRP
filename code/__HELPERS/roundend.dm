@@ -470,7 +470,7 @@
 /datum/controller/subsystem/ticker/proc/medal_report()
 	if(GLOB.commendations.len)
 		var/list/parts = list()
-		parts += "<span class='header'>Medal Commendations:</span>"
+		parts += span_header("Medal Commendations:")
 		for (var/com in GLOB.commendations)
 			parts += com
 		return "<div class='panel stationborder'>[parts.Join("<br>")]</div>"
@@ -479,7 +479,7 @@
 /datum/controller/subsystem/ticker/proc/mouse_report()
 	if(GLOB.mouse_food_eaten)
 		var/list/parts = list()
-		parts += "<span class='header'>Mouse stats:</span>"
+		parts += span_header("Mouse stats:")
 		parts += "Mouse Born: [GLOB.mouse_spawned]"
 		parts += "Mouse Killed: [GLOB.mouse_killed]"
 		parts += "Trash Eaten: [GLOB.mouse_food_eaten]"

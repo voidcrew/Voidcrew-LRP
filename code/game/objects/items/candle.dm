@@ -71,7 +71,7 @@
 
 /obj/item/candle/attack_self(mob/user)
 	if(put_out_candle())
-		user.visible_message("<span class='notice'>[user] snuffs [src].</span>")
+		user.visible_message(span_notice("[user] snuffs [src]."))
 
 /obj/item/candle/infinite
 	infinite = TRUE
@@ -103,16 +103,16 @@
 
 /obj/item/candle/attack_self(mob/user)
 	if(!src.lit)
-		to_chat(user, "<span class='notice'>You start pushing [src] into the ground...</span>")
+		to_chat(user, span_notice("You start pushing [src] into the ground..."))
 		if (do_after(user, 20, target=src))
 			qdel(src)
 			new /obj/structure/destructible/tribal_torch(get_turf(user))
 			light_color = LIGHT_COLOR_ORANGE
-			user.visible_message("<span class='notice'>[user] plants \the [src] firmly in the ground.</span>", "<span class='notice'>You plant \the [src] firmly in the ground.</span>")
+			user.visible_message(span_notice("[user] plants \the [src] firmly in the ground."), span_notice("You plant \the [src] firmly in the ground."))
 			return
 	else if(lit)
 		user.visible_message(
-			"<span class='notice'>[user] snuffs [src] out.</span>")
+			span_notice("[user] snuffs [src] out."))
 		lit = FALSE
 		update_icon()
 		set_light(0)

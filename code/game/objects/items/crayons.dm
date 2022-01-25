@@ -73,7 +73,7 @@
 	return istype(surface, /turf/open/floor)
 
 /obj/item/toy/crayon/suicide_act(mob/user)
-	user.visible_message("<span class='suicide'>[user] is jamming [src] up [user.p_their()] nose and into [user.p_their()] brain. It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] is jamming [src] up [user.p_their()] nose and into [user.p_their()] brain. It looks like [user.p_theyre()] trying to commit suicide!"))
 	return (BRUTELOSS|OXYLOSS)
 
 /obj/item/toy/crayon/Initialize()
@@ -91,7 +91,7 @@
 /obj/item/toy/crayon/examine(mob/user)
 	. = ..()
 	if(can_change_colour)
-		. += "<span class='notice'>Ctrl-click [src] while it's on your person to quickly recolour it.</span>"
+		. += span_notice("Ctrl-click [src] while it's on your person to quickly recolour it.")
 
 /obj/item/toy/crayon/proc/refill()
 	if(charges == -1)
@@ -136,12 +136,12 @@
 	if(charges == -1)
 		. = FALSE
 	else if(!charges_left)
-		to_chat(user, "<span class='warning'>There is no more of [src] left!</span>")
+		to_chat(user, span_warning("There is no more of [src] left!"))
 		if(self_contained)
 			qdel(src)
 		. = TRUE
 	else if(charges_left < amount && requires_full)
-		to_chat(user, "<span class='warning'>There is not enough of [src] left!</span>")
+		to_chat(user, span_warning("There is not enough of [src] left!"))
 		. = TRUE
 
 /obj/item/toy/crayon/ui_state(mob/user)
@@ -159,7 +159,7 @@
 	if(user.canUseTopic(src, BE_CLOSE, ismonkey(user)))
 		if(has_cap)
 			is_capped = !is_capped
-			to_chat(user, "<span class='notice'>The cap on [src] is now [is_capped ? "on" : "off"].</span>")
+			to_chat(user, span_notice("The cap on [src] is now [is_capped ? "on" : "off"]."))
 			update_icon()
 
 /obj/item/toy/crayon/CtrlClick(mob/user)
@@ -361,10 +361,10 @@
 		clicky = clamp(text2num(click_params["icon-y"]) - 16, -(world.icon_size/2), world.icon_size/2)
 
 	if(!instant)
-		to_chat(user, "<span class='notice'>You start drawing a [temp] on the	[target.name]...</span>")
+		to_chat(user, span_notice("You start drawing a [temp] on the	[target.name]..."))
 
 	if(pre_noise)
-		audible_message("<span class='notice'>You hear spraying.</span>")
+		audible_message(span_notice("You hear spraying."))
 		playsound(user.loc, 'sound/effects/spray.ogg', 5, TRUE, 5)
 
 	var/wait_time = 50
@@ -404,7 +404,7 @@
 						affected_turfs += right
 						affected_turfs += target
 					else
-						to_chat(user, "<span class='warning'>There isn't enough space to paint!</span>")
+						to_chat(user, span_warning("There isn't enough space to paint!"))
 						return
 			C.add_hiddenprint(user)
 			if(istagger)
@@ -413,16 +413,16 @@
 				C.AddComponent(/datum/component/art, BAD_ART)
 
 	if(!instant)
-		to_chat(user, "<span class='notice'>You finish drawing \the [temp].</span>")
+		to_chat(user, span_notice("You finish drawing \the [temp]."))
 	else
-		to_chat(user, "<span class='notice'>You spray a [temp] on \the [target.name]</span>")
+		to_chat(user, span_notice("You spray a [temp] on \the [target.name]"))
 
 	if(length(text_buffer) > 1)
 		text_buffer = copytext(text_buffer, length(text_buffer[1]) + 1)
 		SStgui.update_uis(src)
 
 	if(post_noise)
-		audible_message("<span class='hear'>You hear spraying.</span>")
+		audible_message(span_hear("You hear spraying."))
 		playsound(user.loc, 'sound/effects/spray.ogg', 5, TRUE, 5)
 
 	var/fraction = min(1, . / reagents.maximum_volume)
@@ -442,9 +442,9 @@
 			else if(C.is_mouth_covered(mask_only = 1))
 				covered = "mask"
 			if(covered)
-				to_chat(C, "<span class='warning'>You have to remove your [covered] first!</span>")
+				to_chat(C, span_warning("You have to remove your [covered] first!"))
 				return
-		to_chat(user, "<span class='notice'>You take a bite of the [src.name]. Delicious!</span>")
+		to_chat(user, span_notice("You take a bite of the [src.name]. Delicious!"))
 		var/eaten = use_charges(user, 5, FALSE)
 		if(check_empty(user)) //Prevents divsion by zero
 			return
@@ -456,7 +456,7 @@
 /obj/item/toy/crayon/proc/can_claim_for_gang(mob/user, atom/target)
 	var/area/A = get_area(target)
 	if(!A)
-		to_chat(user, "<span class='warning'>[A] is unsuitable for tagging.</span>")
+		to_chat(user, span_warning("[A] is unsuitable for tagging."))
 		return FALSE
 
 	var/spraying_over = FALSE
@@ -464,12 +464,12 @@
 		spraying_over = TRUE
 
 	for(var/obj/machinery/power/apc in target)
-		to_chat(user, "<span class='warning'>You can't tag an APC.</span>")
+		to_chat(user, span_warning("You can't tag an APC."))
 		return FALSE
 
 	var/occupying_gang = territory_claimed(A, user)
 	if(occupying_gang && !spraying_over)
-		to_chat(user, "<span class='danger'>[A] has already been tagged by a gang! You must find and spray over the old tag first!</span>")
+		to_chat(user, span_danger("[A] has already been tagged by a gang! You must find and spray over the old tag first!"))
 		return FALSE
 
 	// stolen from oldgang lmao
@@ -486,7 +486,7 @@
 	tag.icon_state = "[user_gang.gang_id]_tag"
 	tag.name = "[tag.my_gang.name] gang tag"
 	tag.desc = "Looks like someone's claimed this area for [tag.my_gang.name]."
-	to_chat(user, "<span class='notice'>You tagged [territory] for [tag.my_gang.name]!</span>")
+	to_chat(user, span_notice("You tagged [territory] for [tag.my_gang.name]!"))
 
 /obj/item/toy/crayon/proc/territory_claimed(area/territory, mob/user)
 	for(var/obj/effect/decal/cleanable/crayon/gang/G in GLOB.gang_tags)
@@ -608,13 +608,13 @@
 		var/obj/item/toy/crayon/C = W
 		switch(C.crayon_color)
 			if("mime")
-				to_chat(usr, "<span class='warning'>This crayon is too sad to be contained in this box!</span>")
+				to_chat(usr, span_warning("This crayon is too sad to be contained in this box!"))
 				return
 			if("rainbow")
-				to_chat(usr, "<span class='warning'>This crayon is too powerful to be contained in this box!</span>")
+				to_chat(usr, span_warning("This crayon is too powerful to be contained in this box!"))
 				return
 		if(istype(W, /obj/item/toy/crayon/spraycan))
-			to_chat(user, "<span class='warning'>Spraycans are not crayons!</span>")
+			to_chat(user, span_warning("Spraycans are not crayons!"))
 			return
 	return ..()
 
@@ -655,11 +655,11 @@
 /obj/item/toy/crayon/spraycan/suicide_act(mob/user)
 	var/mob/living/carbon/human/H = user
 	if(is_capped || !actually_paints)
-		user.visible_message("<span class='suicide'>[user] shakes up [src] with a rattle and lifts it to [user.p_their()] mouth, but nothing happens!</span>")
+		user.visible_message(span_suicide("[user] shakes up [src] with a rattle and lifts it to [user.p_their()] mouth, but nothing happens!"))
 		user.say("MEDIOCRE!!", forced="spraycan suicide")
 		return SHAME
 	else
-		user.visible_message("<span class='suicide'>[user] shakes up [src] with a rattle and lifts it to [user.p_their()] mouth, spraying paint across [user.p_their()] teeth!</span>")
+		user.visible_message(span_suicide("[user] shakes up [src] with a rattle and lifts it to [user.p_their()] mouth, spraying paint across [user.p_their()] teeth!"))
 		user.say("WITNESS ME!!", forced="spraycan suicide")
 		if(pre_noise || post_noise)
 			playsound(src, 'sound/effects/spray.ogg', 5, TRUE, 5)
@@ -691,14 +691,14 @@
 		. += "It has [charges_left] use\s left."
 	else
 		. += "It is empty."
-	. += "<span class='notice'>Alt-click [src] to [ is_capped ? "take the cap off" : "put the cap on"].</span>"
+	. += span_notice("Alt-click [src] to [ is_capped ? "take the cap off" : "put the cap on"].")
 
 /obj/item/toy/crayon/spraycan/afterattack(atom/target, mob/user, proximity, params)
 	if(!proximity)
 		return
 
 	if(is_capped)
-		to_chat(user, "<span class='warning'>Take the cap off first!</span>")
+		to_chat(user, span_warning("Take the cap off first!"))
 		return
 
 	if(check_empty(user))
@@ -709,8 +709,8 @@
 			playsound(user.loc, 'sound/effects/spray.ogg', 25, TRUE, 5)
 
 		var/mob/living/carbon/C = target
-		user.visible_message("<span class='danger'>[user] sprays [src] into the face of [target]!</span>")
-		to_chat(target, "<span class='userdanger'>[user] sprays [src] into your face!</span>")
+		user.visible_message(span_danger("[user] sprays [src] into the face of [target]!"))
+		to_chat(target, span_userdanger("[user] sprays [src] into your face!"))
 
 		if(C.client)
 			C.blur_eyes(3)
@@ -733,7 +733,7 @@
 	if(isobj(target) && !istype(target, /obj/effect/decal/cleanable/crayon/gang))
 		if(actually_paints)
 			if(color_hex2num(paint_color) < 350 && !istype(target, /obj/structure/window) && !istype(target, /obj/effect/decal/cleanable/crayon)) //Colors too dark are rejected
-				to_chat(usr, "<span class='warning'>A color that dark on an object like this? Surely not...</span>")
+				to_chat(usr, span_warning("A color that dark on an object like this? Surely not..."))
 				return FALSE
 
 			target.add_atom_colour(paint_color, WASHABLE_COLOUR_PRIORITY)
@@ -749,7 +749,7 @@
 
 		if(pre_noise || post_noise)
 			playsound(user.loc, 'sound/effects/spray.ogg', 5, TRUE, 5)
-		user.visible_message("<span class='notice'>[user] coats [target] with spray paint!</span>", "<span class='notice'>You coat [target] with spray paint.</span>")
+		user.visible_message(span_notice("[user] coats [target] with spray paint!"), span_notice("You coat [target] with spray paint."))
 		return
 
 	. = ..()
@@ -772,7 +772,7 @@
 /obj/item/toy/crayon/spraycan/borg/afterattack(atom/target,mob/user,proximity, params)
 	var/diff = ..()
 	if(!iscyborg(user))
-		to_chat(user, "<span class='notice'>How did you get this?</span>")
+		to_chat(user, span_notice("How did you get this?"))
 		qdel(src)
 		return FALSE
 

@@ -346,9 +346,9 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 
 		if(can_handle_hot)
 			extinguish()
-			to_chat(user, "<span class='notice'>You put out the fire on [src].</span>")
+			to_chat(user, span_notice("You put out the fire on [src]."))
 		else
-			to_chat(user, "<span class='warning'>You burn your hand on [src]!</span>")
+			to_chat(user, span_warning("You burn your hand on [src]!"))
 			var/obj/item/bodypart/affecting = C.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 			if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
 				C.update_damage_overlays()
@@ -358,7 +358,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		var/mob/living/carbon/C = user
 		if(istype(C))
 			if(!C.gloves || (!(C.gloves.resistance_flags & (UNACIDABLE|ACID_PROOF))))
-				to_chat(user, "<span class='warning'>The acid on [src] burns your hand!</span>")
+				to_chat(user, span_warning("The acid on [src] burns your hand!"))
 				var/obj/item/bodypart/affecting = C.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
 				if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
 					C.update_damage_overlays()
@@ -370,7 +370,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	var/grav = user.has_gravity()
 	if(grav > STANDARD_GRAVITY)
 		var/grav_power = min(3,grav - STANDARD_GRAVITY)
-		to_chat(user,"<span class='notice'>You start picking up [src]...</span>")
+		to_chat(user,span_notice("You start picking up [src]..."))
 		if(!do_mob(user,src,30*grav_power))
 			return
 
@@ -420,7 +420,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	if(!A.has_fine_manipulation)
 		if(src in A.contents) // To stop Aliens having items stuck in their pockets
 			A.dropItemToGround(src)
-		to_chat(user, "<span class='warning'>Your claws aren't capable of such fine manipulation!</span>")
+		to_chat(user, span_warning("Your claws aren't capable of such fine manipulation!"))
 		return
 	attack_paw(A)
 
@@ -442,7 +442,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 /obj/item/proc/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	SEND_SIGNAL(src, COMSIG_ITEM_HIT_REACT, args)
 	if(prob(final_block_chance))
-		owner.visible_message("<span class='danger'>[owner] blocks [attack_text] with [src]!</span>")
+		owner.visible_message(span_danger("[owner] blocks [attack_text] with [src]!"))
 		return 1
 	return 0
 
@@ -557,15 +557,15 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 
 	if(M.is_eyes_covered())
 		// you can't stab someone in the eyes wearing a mask!
-		to_chat(user, "<span class='warning'>You're going to need to remove [M.p_their()] eye protection first!</span>")
+		to_chat(user, span_warning("You're going to need to remove [M.p_their()] eye protection first!"))
 		return
 
 	if(isalien(M))//Aliens don't have eyes./N     slimes also don't have eyes!
-		to_chat(user, "<span class='warning'>You cannot locate any eyes on this creature!</span>")
+		to_chat(user, span_warning("You cannot locate any eyes on this creature!"))
 		return
 
 	if(isbrain(M))
-		to_chat(user, "<span class='warning'>You cannot locate any organic eyes on this brain!</span>")
+		to_chat(user, span_warning("You cannot locate any organic eyes on this brain!"))
 		return
 
 	src.add_fingerprint(user)
@@ -575,12 +575,12 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	user.do_attack_animation(M)
 
 	if(M != user)
-		M.visible_message("<span class='danger'>[user] stabs [M] in the eye with [src]!</span>", \
-							"<span class='userdanger'>[user] stabs you in the eye with [src]!</span>")
+		M.visible_message(span_danger("[user] stabs [M] in the eye with [src]!"), \
+							span_userdanger("[user] stabs you in the eye with [src]!"))
 	else
 		user.visible_message( \
-			"<span class='danger'>[user] stabs [user.p_them()]self in the eyes with [src]!</span>", \
-			"<span class='userdanger'>You stab yourself in the eyes with [src]!</span>" \
+			span_danger("[user] stabs [user.p_them()]self in the eyes with [src]!"), \
+			span_userdanger("You stab yourself in the eyes with [src]!") \
 		)
 	if(is_human_victim)
 		var/mob/living/carbon/human/U = M
@@ -601,20 +601,20 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 	if(eyes.damage >= 10)
 		M.adjust_blurriness(15)
 		if(M.stat != DEAD)
-			to_chat(M, "<span class='danger'>Your eyes start to bleed profusely!</span>")
+			to_chat(M, span_danger("Your eyes start to bleed profusely!"))
 		if(!(M.is_blind() || HAS_TRAIT(M, TRAIT_NEARSIGHT)))
-			to_chat(M, "<span class='danger'>You become nearsighted!</span>")
+			to_chat(M, span_danger("You become nearsighted!"))
 		M.become_nearsighted(EYE_DAMAGE)
 		if(prob(50))
 			if(M.stat != DEAD)
 				if(M.drop_all_held_items())
-					to_chat(M, "<span class='danger'>You drop what you're holding and clutch at your eyes!</span>")
+					to_chat(M, span_danger("You drop what you're holding and clutch at your eyes!"))
 			M.adjust_blurriness(10)
 			M.Unconscious(20)
 			M.Paralyze(40)
 		if (prob(eyes.damage - 10 + 1))
 			M.become_blind(EYE_DAMAGE)
-			to_chat(M, "<span class='danger'>You go blind!</span>")
+			to_chat(M, span_danger("You go blind!"))
 
 /obj/item/singularity_pull(S, current_size)
 	..()
@@ -738,7 +738,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 
 /obj/item/proc/ignition_effect(atom/A, mob/user)
 	if(get_temperature())
-		. = "<span class='notice'>[user] lights [A] with [src].</span>"
+		. = span_notice("[user] lights [A] with [src].")
 	else
 		. = ""
 
@@ -990,7 +990,7 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 		return
 	user.dropItemToGround(src, silent = TRUE)
 	if(throwforce && HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, "<span class='notice'>You set [src] down gently on the ground.</span>")
+		to_chat(user, span_notice("You set [src] down gently on the ground."))
 		return
 	return src
 

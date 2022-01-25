@@ -71,15 +71,15 @@
 	if(nobomb)
 		return
 	if(!hasclient)
-		to_chat(A, "<span class='warning'>Taking this plasma energy for your </span><span class='notice'>Apotheosis</span><span class='warning'> would bring dishonor to the clan!</span>")
+		to_chat(A, span_warning("Taking this plasma energy for your <span class='notice'>Apotheosis</span> would bring dishonor to the clan!"))
 		new /obj/effect/temp_visual/plasma_soul(Dturf)//doesn't beam to you, so it just hangs around and poofs.
 		return
 	else if(plasma_power >= plasma_cap)
-		to_chat(A, "<span class='warning'>You cannot power up your </span><span class='notice'>Apotheosis</span><span class='warning'> any more!</span>")
+		to_chat(A, span_warning("You cannot power up your <span class='notice'>Apotheosis</span> any more!"))
 		new /obj/effect/temp_visual/plasma_soul(Dturf)//doesn't beam to you, so it just hangs around and poofs.
 	else
 		plasma_power += plasma_increment
-		to_chat(A, "<span class='nicegreen'>Power increasing! Your </span><span class='notice'>Apotheosis</span><span class='nicegreen'> is now at power level [plasma_power]!</span>")
+		to_chat(A, span_nicegreen("Power increasing! Your <span class='notice'>Apotheosis</span> is now at power level [plasma_power]!"))
 		new /obj/effect/temp_visual/plasma_soul(Dturf, A)
 		var/oldcolor = A.color
 		A.color = "#9C00FF"
