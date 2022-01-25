@@ -268,6 +268,9 @@
 			active = 0
 			return
 
+/turf/open/floor/mineral/uranium/singularity_act()
+	return // voidcrew edit
+
 // ALIEN ALLOY
 /turf/open/floor/mineral/abductor
 	name = "alien floor"
