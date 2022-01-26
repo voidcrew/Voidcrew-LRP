@@ -76,6 +76,16 @@
 	var/medium_burn_msg = "blistered"
 	var/heavy_burn_msg = "peeling away"
 
+/obj/item/bodypart/Initialize()
+	. = ..()
+	name = "[limb_id] [parse_zone(body_zone)]"
+	update_icon_dropped()
+
+/obj/item/bodypart/forceMove(atom/destination) //Please. Never forcemove a limb if its's actually in use. This is only for borgs.
+	. = ..()
+	if(isturf(destination))
+		update_icon_dropped()
+
 /obj/item/bodypart/Initialize(mapload)
 	. = ..()
 	if(can_be_disabled)
