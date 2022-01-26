@@ -70,7 +70,7 @@
 			if(pushed_mob.buckled)
 				to_chat(user, "<span class='warning'>[pushed_mob] is buckled to [pushed_mob.buckled]!</span>")
 				return
-			if((user.a_intent == INTENT_GRAB) || (user.a_intent == INTENT_HARM))
+			if((user.a_intent == INTENT_GRAB) || (user.a_intent == INTENT_HARM)) // VOID EDIT
 				if(user.grab_state < GRAB_AGGRESSIVE)
 					to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
 					return
