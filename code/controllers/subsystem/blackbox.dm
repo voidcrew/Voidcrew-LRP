@@ -32,9 +32,16 @@ SUBSYSTEM_DEF(blackbox)
 
 	CheckPlayerCount()
 
-	if(CONFIG_GET(flag/use_exp_tracking))
-		if((triggertime < 0) || (world.time > (triggertime +3000)))	//subsystem fires once at roundstart then once every 10 minutes. a 5 min check skips the first fire. The <0 is midnight rollover check
+	if((triggertime < 0) || (world.time > (triggertime +3000)))	//subsystem fires once at roundstart then once every 10 minutes. a 5 min check skips the first fire. The <0 is midnight rollover check
+		if(CONFIG_GET(flag/use_exp_tracking))
 			update_exp(10,FALSE)
+
+		if(SSdbcore.Connect())
+			for(var/client/L in GLOB.clients)
+				if(L.is_afk())
+					continue
+				L.process_ten_minute_living()
+
 
 /datum/controller/subsystem/blackbox/proc/CheckPlayerCount()
 	set waitfor = FALSE
