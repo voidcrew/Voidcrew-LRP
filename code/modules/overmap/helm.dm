@@ -196,7 +196,7 @@
 			new_name = trim(new_name)
 			var/prefix = current_ship.source_template.prefix
 			if (!(findtext(new_name, "KOS") || findtext(new_name, prefix)))
-				new_name = addtext(prefix, " ", new_name)
+				new_name = "[prefix] [new_name]"
 			if (!length(new_name) || new_name == current_ship.name)
 				return
 			if(!reject_bad_text(new_name, MAX_CHARTER_LEN))
