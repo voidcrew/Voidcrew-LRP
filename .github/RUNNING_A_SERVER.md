@@ -3,18 +3,18 @@ First-time installation should be fairly straightforward. First, you'll need
 BYOND installed. You can get it from https://www.byond.com/download. Once you've done
 that, extract the game files to wherever you want to keep them. This is a
 sourcecode-only release, so the next step is to compile the server files.
-Open tgstation.dme by double-clicking it, open the Build menu, and click
+Open shiptest.dme by double-clicking it, open the Build menu, and click
 compile. This'll take a little while, and if everything's done right you'll get
 a message like this:
 
 ```
-saving tgstation.dmb (DEBUG mode)
-tgstation.dmb - 0 errors, 0 warnings
+saving shiptest.dmb (DEBUG mode)
+shiptest.dmb - 0 errors, 0 warnings
 ```
 
 If you see any errors or warnings, something has gone wrong - possibly a corrupt
 download or the files extracted wrong. If problems persist, ask for assistance
-in irc://irc.rizon.net/coderbus
+in our discord server: https://discord.gg/vaawXjADXa
 
 Once that's done, open up the config folder. You'll want to edit config.txt to
 set the probabilities for different gamemodes in Secret and to set your server

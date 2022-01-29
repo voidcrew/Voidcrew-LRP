@@ -10,20 +10,20 @@ If you have difficulty, ask for help in the #coding-general channel on our disco
 
 ## Introduction
 
-Hello and welcome to White Sands' contributing page. You are here because you are curious or interested in contributing - thank you! Everyone is free to contribute to this project as long as they follow the simple guidelines and specifications below; at WS, we strive to maintain code stability and maintainability, and to do that, we need all pull requests to hold up to those specifications. It's in everyone's best interests - including yours! - if the same bug doesn't have to be fixed twice because of duplicated code.
+Hello and welcome to Voidcrew's contributing page. You are here because you are curious or interested in contributing - thank you! Everyone is free to contribute to this project as long as they follow the simple guidelines and specifications below; at VC, we strive to maintain code stability and maintainability, and to do that, we need all pull requests to hold up to those specifications. It's in everyone's best interests - including yours! - if the same bug doesn't have to be fixed twice because of duplicated code.
 
 First things first, we want to make it clear how you can contribute (if you've never contributed before), as well as the kinds of powers the team has over your additions, to avoid any unpleasant surprises if your pull request is closed for a reason you didn't foresee.
 
 ## Getting Started
 
-White Sands doesn't usually have a list of goals and features to add; we instead allow freedom for contributors to suggest and create their ideas for the game. That doesn't mean we aren't determined to squash bugs, which unfortunately pop up a lot due to the deep complexity of the game. Here are some useful starting guides, if you want to contribute or if you want to know what challenges you can tackle with zero knowledge about the game's code structure.
+Voidcrew, doesn't usually have a list of goals and features to add; we instead allow freedom for contributors to suggest and create their ideas for the game. However, occasionally there may be ideas presented by our host under the Github projects tab that you are free to work on! Yet, that doesn't mean we aren't determined to squash bugs, which unfortunately pop up a lot due to the deep complexity of the game. Here are some useful starting guides, if you want to contribute or if you want to know what challenges you can tackle with zero knowledge about the game's code structure.
 
-If you want to contribute the first thing you'll need to do is [set up Git](https://wiki.white-sands.space/Setting_up_git) so you can download the source code.
+If you want to contribute the first thing you'll need to do is [set up Git](https://tgstation13.org/wiki/Setting_up_git) so you can download the source code. (Thanks to /tg/ for the guide)
 After setting it up, optionally navigate your git commandline to the project folder and run the command: 'git config blame.ignoreRevsFile .git-blame-ignore-revs'
 
-We have a [list of guides on the wiki](https://wiki.white-sands.space/index.php/Guides#Development_and_Contribution_Guides) that will help you get started contributing to White Sands with Git and Dream Maker. For beginners, it is recommended you work on small projects like bugfixes at first. If you need help learning to program in BYOND, check out this [repository of resources](http://www.byond.com/developer/articles/resources).
+We have a [list of guides on the wiki](https://tgstation13.org/wiki/Guide_to_contributing_to_the_game) that will help you get started contributing to White Sands with Git and Dream Maker. For beginners, it is recommended you work on small projects like bugfixes at first. If you need help learning to program in BYOND, check out this [repository of resources](http://www.byond.com/developer/articles/resources).
 
-There is an open list of approachable issues for [your inspiration here](https://github.com/shiptest-ss13/Shiptestissues?q=is%3Aopen+is%3Aissue+label%3A%22Good+First+Issue%22).e
+There is an open list of approachable issues for [your inspiration here](https://github.com/Jackriip/Voidcrew-LRP/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22).
 
 You can of course, as always, ask for help on the discord channels, or the forums, We're just here to have fun and help out, so please don't expect professional support.
 
@@ -182,6 +182,8 @@ There's no indication of what "1" and "2" mean! Instead, you'd do something like
 			(...)
 		if(DO_THE_THING_EFFICIENTLY)
 			(...)
+#undef DO_THE_THING_REALLY_HARD
+#undef DO_THE_THING_EFFICIENTLY
 ````
 This is clearer and enhances readability of your code! Get used to doing it!
 
@@ -290,7 +292,6 @@ The following coding styles are not only not enforced at all, but are generally 
 
 ### Operators
 #### Spacing
-(this is not strictly enforced, but more a guideline for readability's sake)
 
 * Operators that should be separated by spaces
 	* Boolean and logic operators like &&, || <, >, ==, etc (but not !)
@@ -421,7 +422,6 @@ Regarding sprites & sounds, you must credit the artist and possibly the codebase
 Do not add any of the following in a Pull Request or risk getting the PR closed:
 * National Socialist Party of Germany content, National Socialist Party of Germany related content, or National Socialist Party of Germany references
 * Code where one line of code is split across mutiple lines (except for multiple, separate strings and comments; in those cases, existing longer lines must not be split up)
-* Code adding, removing, or updating the availability of alien races/species/human mutants without prior approval. Pull requests attempting to add or remove features from said races/species/mutants require prior approval as well.
 * Code which violates GitHub's [terms of service](https://github.com/site/terms).
 
 Just because something isn't on this list doesn't mean that it's acceptable. Use common sense above all else.

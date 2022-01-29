@@ -306,6 +306,7 @@
 		ship.manifest_inject(humanc, client, job)
 		GLOB.data_core.manifest_inject(humanc, client)
 		AnnounceArrival(humanc, job.title, ship)
+		NotifyFaction(humanc, ship)
 		AddEmploymentContract(humanc)
 
 		if(GLOB.highlander)
