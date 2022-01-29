@@ -25,3 +25,11 @@ Use our docker image that tracks the master branch (See commits for build status
 ```
 docker run -d -p <your port>:1337 -v /path/to/your/config:/tgstation/config -v /path/to/your/data:/tgstation/data shiptestss13/shiptest <dream daemon options i.e. -public or -params>
 ```
+
+
+im  alittle chungus
+
+
+
+
+
