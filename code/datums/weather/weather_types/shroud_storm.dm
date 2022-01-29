@@ -32,7 +32,7 @@
 	multiply_blend_on_main_stage = TRUE
 
 /datum/weather/shroud_storm/weather_act(mob/living/living_mob)
-	/// Think of some good solution of how weather should affect monsters and how they should be resistant to things like this
+	// Think of some good solution of how weather should affect monsters and how they should be resistant to things like this
 	if(isanimal(living_mob))
 		return
 	if(prob(10))

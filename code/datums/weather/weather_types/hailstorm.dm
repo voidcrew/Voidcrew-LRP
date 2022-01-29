@@ -29,7 +29,7 @@
 	sound_weak_inside = /datum/looping_sound/weather/wind
 
 /datum/weather/hailstorm/weather_act(mob/living/living_mob)
-	/// Think of some good solution of how weather should affect monsters and how they should be resistant to things like this
+	// Think of some good solution of how weather should affect monsters and how they should be resistant to things like this
 	if(isanimal(living_mob))
 		return
 	living_mob.adjust_bodytemperature(-rand(3,6))
