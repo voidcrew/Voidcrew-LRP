@@ -5,10 +5,10 @@
 /// Rewarded when you complete a crew objective
 #define METACOIN_CO_REWARD(is_speed_round, round_duration) is_speed_round ? 50 : max(min(round(100 * (round_duration / 72000)), 50), 150)
 /// Rewarded when you escape on the shuttle
-#define METACOIN_ESCAPE_REWARD(is_speed_round, round_duration) is_speed_round ? 100 : max(min(round(200 * (round_duration / 72000)), 100), 350)
+#define METACOIN_ESCAPE_REWARD(is_speed_round, round_duration) is_speed_round ? 100 : max(min(round(100 * (round_duration / 72000)), 100), 100) // VOID CREW EDIT
 /// Rewarded when you survive the round
-#define METACOIN_SURVIVE_REWARD(is_speed_round, round_duration) is_speed_round ? 50 : max(min(round(100 * (round_duration / 72000)), 50), 250)
+#define METACOIN_SURVIVE_REWARD(is_speed_round, round_duration) is_speed_round ? 50 : max(min(round(50 * (round_duration / 72000)), 50), 50) // VOID CREW EDIT
 /// Rewarded when you don't survive the round, but stick around till the end
-#define METACOIN_NOTSURVIVE_REWARD 100
+//#define METACOIN_NOTSURVIVE_REWARD 100 VOID CREW EDIT
 /// Rewarded when you are alive and active for 10 minutes
 #define METACOIN_TENMINUTELIVING_REWARD 15
