@@ -93,6 +93,7 @@
 	if(isturf(destination))
 		update_icon_dropped()
 
+
 /obj/item/bodypart/Initialize(mapload)
 	. = ..()
 	if(can_be_disabled)
