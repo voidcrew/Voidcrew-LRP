@@ -70,7 +70,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	always_unpowered = FALSE
 	area_flags = VALID_TERRITORY | BLOBS_ALLOWED // Loading the same shuttle map at a different time will produce distinct area instances.
 	icon_state = "shuttle"
-	flags_1 = CAN_BE_DIRTY_1
+	flags_1 = CAN_BE_DIRTY_1 | CULT_PERMITTED_1 // VOID EDIT
 	lighting_colour_tube = "#fff0dd"
 	lighting_colour_bulb = "#ffe1c1"
 	area_limited_icon_smoothing = TRUE
@@ -154,7 +154,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/ship/crew/library
 	name = "Library"
 	icon_state = "library"
-	flags_1 = CULT_PERMITTED_1
+	//flags_1 = CULT_PERMITTED_1 // VOID EDIT
 	lighting_colour_tube = "#ffce99"
 	lighting_colour_bulb = "#ffdbb4"
 	sound_environment = SOUND_AREA_WOODFLOOR
@@ -177,7 +177,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/ship/crew/janitor
 	name = "Custodial Closet"
 	icon_state = "janitor"
-	flags_1 = CULT_PERMITTED_1
+	//flags_1 = CULT_PERMITTED_1 // VOID EDIT
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /// Medical Bay ///
