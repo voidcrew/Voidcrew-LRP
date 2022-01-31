@@ -1,0 +1,1 @@
+#define COMSIG_ASSEMBLY_HOLDER_ACTIVATE "assembly_holder_activate"
