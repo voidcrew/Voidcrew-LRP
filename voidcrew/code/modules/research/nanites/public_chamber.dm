@@ -61,7 +61,7 @@
 	if(!occupant)
 		return
 	if(attacker)
-		occupant.investigate_log("was injected with nanites by [key_name(attacker)] using [src] at [AREACOORD(src)].", INVESTIGATE_NANITES)
+		log_game("[occupant] was injected with nanites by [key_name(attacker)] using [src] at [AREACOORD(src)].")
 		log_combat(attacker, occupant, "injected", null, "with nanites via [src]")
 	occupant.AddComponent(/datum/component/nanites, linked_techweb, 75, cloud_id)
 
@@ -87,7 +87,7 @@
 	if(!occupant)
 		return
 	if(attacker)
-		occupant.investigate_log("had their nanite cloud ID changed into [cloud_id] by [key_name(attacker)] using [src] at [AREACOORD(src)].", INVESTIGATE_NANITES)
+		occupant.investigate_log("had their nanite cloud ID changed into [cloud_id] by [key_name(attacker)] using [src] at [AREACOORD(src)].")
 	SEND_SIGNAL(occupant, COMSIG_NANITE_SET_CLOUD, cloud_id)
 
 /obj/machinery/public_nanite_chamber/update_icon_state()

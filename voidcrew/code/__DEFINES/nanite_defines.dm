@@ -1,12 +1,12 @@
-#define NANITE_SYNC_DELAY 300
+#define NANITE_SYNC_DELAY (30 SECONDS)
+#define NANITE_DEFAULT_MAX_VOLUME 500
+#define NANITE_PROGRAM_LIMIT 20
+
+///The chance at a Nanite program randomly failing when it cannot sync
+#define NANITE_FAILURE_CHANCE 8
 
 #define NANITE_SHOCK_IMMUNE 1
 #define NANITE_EMP_IMMUNE 2
-
-#define NANITE_PROGRAM_LIMIT 20
-
-
-#define NANITE_BASE_RESEARCH 3.5
 
 #define NANITE_CLOUD_TOGGLE 1
 #define NANITE_CLOUD_DISABLE 2

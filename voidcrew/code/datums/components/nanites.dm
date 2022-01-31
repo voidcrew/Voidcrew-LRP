@@ -1,32 +1,53 @@
+#define NANITE_DEFAULT_MAX_VOLUME 500
+
 /datum/component/nanites
 	dupe_mode = COMPONENT_DUPE_UNIQUE_PASSARGS
 
+	///The living person these nanites are attached onto
 	var/mob/living/host_mob
-	var/nanite_volume = 100		//amount of nanites in the system, used as fuel for nanite programs
-	var/max_nanites = 500		//maximum amount of nanites in the system
-	var/regen_rate = 0.5		//nanites generated per second
-	var/safety_threshold = 50	//how low nanites will get before they stop processing/triggering
-	var/cloud_id = 0 			//0 if not connected to the cloud, 1-100 to set a determined cloud backup to draw from
-	var/cloud_active = TRUE		//if false, won't sync to the cloud
+
+	///amount of nanites in the system, used as fuel for nanite programs
+	var/nanite_volume = 100
+	///maximum amount of nanites someone can have
+	var/max_nanites = NANITE_DEFAULT_MAX_VOLUME
+	///nanites generated per second
+	var/regen_rate = 0.5
+	///how low nanites will get before they stop processing/triggering
+	var/safety_threshold = 50
+	///0 if not connected to the cloud, 1-100 to set a determined cloud backup to draw from
+	var/cloud_id = 0
+	///if false, won't sync to the cloud
+	var/cloud_active = TRUE
+	///How long until the next sync to cloud
 	var/next_sync = 0
+	///All nanite programs in the user
 	var/list/datum/nanite_program/programs = list()
+	///How many programs this user can have at once
 	var/max_programs = NANITE_PROGRAM_LIMIT
 
-	var/list/datum/nanite_program/protocol/protocols = list() ///Separate list of protocol programs, to avoid looping through the whole programs list when cheking for conflicts
-	var/start_time = 0 ///Timestamp to when the nanites were first inserted in the host
-	var/stealth = FALSE //if TRUE, does not appear on HUDs and health scans
-	var/diagnostics = TRUE //if TRUE, displays program list when scanned by nanite scanners
+	///Separate list of protocol programs, to avoid looping through the whole programs list when cheking for conflicts
+	var/list/datum/nanite_program/protocol/protocols = list()
+	///Timestamp to when the nanites were first inserted in the host
+	var/start_time = 0
+	///Prevents nanites from appearing on HUDs and health scans
+	var/stealth = FALSE
+	///if TRUE, displays program list when scanned by nanite scanners
+	var/diagnostics = TRUE
+	///The techweb these Nanites are synced to, to generate Nanite research points
 	var/datum/techweb/linked_techweb
 
-/datum/component/nanites/Initialize(datum/techweb/linked_techweb, amount = 100, cloud = 0)
+/datum/component/nanites/Initialize(
+	datum/techweb/linked_techweb,
+	nanite_volume = 100,
+	cloud_id = 0,
+)
 	if(!isliving(parent) && !istype(parent, /datum/nanite_cloud_backup))
 		return COMPONENT_INCOMPATIBLE
 
 	src.linked_techweb = linked_techweb
-	nanite_volume = amount
-	cloud_id = cloud
+	src.nanite_volume = nanite_volume
+	src.cloud_id = cloud_id
 
-	//Nanites without hosts are non-interactive through normal means
 	if(isliving(parent))
 		host_mob = parent
 
@@ -57,7 +78,6 @@
 	RegisterSignal(parent, COMSIG_NANITE_ADD_PROGRAM, .proc/add_program)
 	RegisterSignal(parent, COMSIG_NANITE_SCAN, .proc/nanite_scan)
 	RegisterSignal(parent, COMSIG_NANITE_SYNC, .proc/sync)
-
 	if(isliving(parent))
 		RegisterSignal(parent, COMSIG_ATOM_EMP_ACT, .proc/on_emp)
 		RegisterSignal(parent, COMSIG_MOB_DEATH, .proc/on_death)
@@ -69,30 +89,32 @@
 		RegisterSignal(parent, COMSIG_NANITE_COMM_SIGNAL, .proc/receive_comm_signal)
 
 /datum/component/nanites/UnregisterFromParent()
-	UnregisterSignal(parent, list(COMSIG_HAS_NANITES,
-								COMSIG_NANITE_IS_STEALTHY,
-								COMSIG_NANITE_DELETE,
-								COMSIG_NANITE_UI_DATA,
-								COMSIG_NANITE_GET_PROGRAMS,
-								COMSIG_NANITE_SET_VOLUME,
-								COMSIG_NANITE_ADJUST_VOLUME,
-								COMSIG_NANITE_SET_MAX_VOLUME,
-								COMSIG_NANITE_SET_CLOUD,
-								COMSIG_NANITE_SET_CLOUD_SYNC,
-								COMSIG_NANITE_SET_SAFETY,
-								COMSIG_NANITE_SET_REGEN,
-								COMSIG_NANITE_ADD_PROGRAM,
-								COMSIG_NANITE_SCAN,
-								COMSIG_NANITE_SYNC,
-								COMSIG_ATOM_EMP_ACT,
-								COMSIG_MOB_DEATH,
-								COMSIG_MOB_ALLOWED,
-								COMSIG_LIVING_ELECTROCUTE_ACT,
-								COMSIG_LIVING_MINOR_SHOCK,
-								COMSIG_MOVABLE_HEAR,
-								COMSIG_SPECIES_GAIN,
-								COMSIG_NANITE_SIGNAL,
-								COMSIG_NANITE_COMM_SIGNAL))
+	UnregisterSignal(parent, list(
+		COMSIG_HAS_NANITES,
+		COMSIG_NANITE_IS_STEALTHY,
+		COMSIG_NANITE_DELETE,
+		COMSIG_NANITE_UI_DATA,
+		COMSIG_NANITE_GET_PROGRAMS,
+		COMSIG_NANITE_SET_VOLUME,
+		COMSIG_NANITE_ADJUST_VOLUME,
+		COMSIG_NANITE_SET_MAX_VOLUME,
+		COMSIG_NANITE_SET_CLOUD,
+		COMSIG_NANITE_SET_CLOUD_SYNC,
+		COMSIG_NANITE_SET_SAFETY,
+		COMSIG_NANITE_SET_REGEN,
+		COMSIG_NANITE_ADD_PROGRAM,
+		COMSIG_NANITE_SCAN,
+		COMSIG_NANITE_SYNC,
+		COMSIG_ATOM_EMP_ACT,
+		COMSIG_MOB_DEATH,
+		COMSIG_MOB_ALLOWED,
+		COMSIG_LIVING_ELECTROCUTE_ACT,
+		COMSIG_LIVING_MINOR_SHOCK,
+		COMSIG_MOVABLE_HEAR,
+		COMSIG_SPECIES_GAIN,
+		COMSIG_NANITE_SIGNAL,
+		COMSIG_NANITE_COMM_SIGNAL,
+	))
 
 /datum/component/nanites/Destroy()
 	STOP_PROCESSING(SSnanites, src)
@@ -113,7 +135,6 @@
 /datum/component/nanites/process()
 	if(!IS_IN_STASIS(host_mob))
 		adjust_nanites(null, regen_rate)
-		add_research()
 		for(var/X in programs)
 			var/datum/nanite_program/NP = X
 			NP.on_process()
@@ -159,7 +180,7 @@
 				sync(null, cloud_copy)
 				return
 	//Without cloud syncing nanites can accumulate errors and/or defects
-	if(prob(8) && programs.len)
+	if(prob(NANITE_FAILURE_CHANCE) && programs.len)
 		var/datum/nanite_program/NP = pick(programs)
 		NP.software_error()
 
@@ -189,7 +210,7 @@
 
 	nanite_volume = clamp(nanite_volume + amount, 0, max_nanites)
 	if(nanite_volume <= 0) //oops we ran out
-		qdel(src)
+		INVOKE_ASYNC(src, .proc/delete_nanites)
 
 /datum/component/nanites/proc/set_nanite_bar(remove = FALSE)
 	var/image/holder = host_mob.hud_list[DIAG_NANITE_FULL_HUD]
@@ -220,9 +241,9 @@
 	if(flags & SHOCK_ILLUSION || shock_damage < 1)
 		return
 
-	if(!HAS_TRAIT_NOT_FROM(host_mob, TRAIT_SHOCKIMMUNE, "nanites"))//Another shock protection must protect nanites too, but nanites protect only host
-		nanite_volume *= (rand(45, 80) * 0.01)		//Lose 20-55% of nanites
-		adjust_nanites(null, -(rand(5, 50)))			//Lose 5-50 flat nanite volume
+	if(!HAS_TRAIT_NOT_FROM(host_mob, TRAIT_SHOCKIMMUNE, TRAIT_NANITES))//Another shock protection must protect nanites too, but nanites protect only host
+		nanite_volume *= (rand(45, 80) * 0.01) //Lose 20-55% of nanites
+		adjust_nanites(null, -(rand(5, 50))) //Lose 5-50 flat nanite volume
 		for(var/X in programs)
 			var/datum/nanite_program/NP = X
 			NP.on_shock(shock_damage)
@@ -230,7 +251,7 @@
 /datum/component/nanites/proc/on_minor_shock(datum/source)
 	SIGNAL_HANDLER
 
-	adjust_nanites(null, -(rand(5, 15)))			//Lose 5-15 flat nanite volume
+	adjust_nanites(null, -(rand(5, 15))) //Lose 5-15 flat nanite volume
 	for(var/X in programs)
 		var/datum/nanite_program/NP = X
 		NP.on_minor_shock()
@@ -331,19 +352,6 @@
 	SIGNAL_HANDLER
 
 	nanite_programs |= programs
-
-/datum/component/nanites/proc/add_research()
-	var/research_value = NANITE_BASE_RESEARCH
-	if(!ishuman(host_mob))
-		if(!iscarbon(host_mob))
-			research_value *= 0.4
-		else
-			research_value *= 0.8
-	if(!host_mob.client)
-		research_value *= 0.5
-	if(host_mob.stat == DEAD)
-		research_value *= 0.75
-	linked_techweb?.add_point_list(list(TECHWEB_POINT_TYPE_NANITES = research_value))
 
 /datum/component/nanites/proc/nanite_scan(datum/source, mob/user, full_scan)
 	SIGNAL_HANDLER

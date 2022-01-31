@@ -73,14 +73,14 @@
 			if(!isnull(threshold))
 				chamber.set_safety(clamp(round(threshold, 1),0,500))
 				playsound(src, "terminal_type", 25, FALSE)
-				chamber.occupant.investigate_log("'s nanites' safety threshold was set to [threshold] by [key_name(usr)] via [src] at [AREACOORD(src)].", INVESTIGATE_NANITES)
+				log_game("[chamber.occupant]'s nanites' safety threshold was set to [threshold] by [key_name(usr)] via [src] at [AREACOORD(src)].")
 			. = TRUE
 		if("set_cloud")
 			var/cloud_id = text2num(params["value"])
 			if(!isnull(cloud_id))
 				chamber.set_cloud(clamp(round(cloud_id, 1),0,100))
 				playsound(src, "terminal_type", 25, FALSE)
-				chamber.occupant.investigate_log("'s nanites' cloud id was set to [cloud_id] by [key_name(usr)] via [src] at [AREACOORD(src)].", INVESTIGATE_NANITES)
+				log_game("[chamber.occupant]'s nanites' cloud id was set to [cloud_id] by [key_name(usr)] via [src] at [AREACOORD(src)].")
 			. = TRUE
 		if("connect_chamber")
 			find_chamber()
@@ -89,11 +89,11 @@
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 25, FALSE)
 			chamber.remove_nanites()
 			log_combat(usr, chamber.occupant, "cleared nanites from", null, "via [src]")
-			chamber.occupant.investigate_log("'s nanites were cleared by [key_name(usr)] via [src] at [AREACOORD(src)].", INVESTIGATE_NANITES)
+			log_game("[chamber.occupant]'s nanites were cleared by [key_name(usr)] via [src] at [AREACOORD(src)].")
 			. = TRUE
 		if("nanite_injection")
 			playsound(src, 'sound/machines/terminal_prompt.ogg', 25, FALSE)
 			chamber.inject_nanites()
 			log_combat(usr, chamber.occupant, "injected", null, "with nanites via [src]")
-			chamber.occupant.investigate_log("was injected with nanites by [key_name(usr)] via [src] at [AREACOORD(src)].", INVESTIGATE_NANITES)
+			log_game("[chamber.occupant] was injected with nanites by [key_name(usr)] via [src] at [AREACOORD(src)].")
 			. = TRUE

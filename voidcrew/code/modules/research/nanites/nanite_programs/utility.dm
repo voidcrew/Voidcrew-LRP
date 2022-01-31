@@ -56,8 +56,9 @@
 /datum/nanite_program/self_scan/on_trigger(comm_message)
 	if(host_mob.stat == DEAD)
 		return
-	var/datum/nanite_extra_setting/NS = extra_settings[NES_SCAN_TYPE]
-	switch(NS.get_value())
+
+	var/datum/nanite_extra_setting/scanned_nanites = extra_settings[NES_SCAN_TYPE]
+	switch(scanned_nanites.get_value())
 		if("Medical")
 			healthscan(host_mob, host_mob)
 		if("Chemical")
@@ -251,7 +252,7 @@
 		//this will potentially take over existing nanites!
 		infectee.AddComponent(/datum/component/nanites, null, 10)
 		SEND_SIGNAL(infectee, COMSIG_NANITE_SYNC, nanites)
-		infectee.investigate_log("was infected by spreading nanites by [key_name(host_mob)] at [AREACOORD(infectee)].", INVESTIGATE_NANITES)
+		log_game("[infectee] was infected by spreading nanites by [key_name(host_mob)] at [AREACOORD(infectee)].")
 
 /datum/nanite_program/nanite_sting
 	name = "Nanite Sting"
@@ -275,7 +276,7 @@
 		//unlike with Infective Exo-Locomotion, this can't take over existing nanites, because Nanite Sting only targets non-hosts.
 		infectee.AddComponent(/datum/component/nanites, null, 5)
 		SEND_SIGNAL(infectee, COMSIG_NANITE_SYNC, nanites)
-		infectee.investigate_log("was infected by a nanite cluster by [key_name(host_mob)] at [AREACOORD(infectee)].", INVESTIGATE_NANITES)
+		log_game("[infectee] was infected by a nanite cluster by [key_name(host_mob)] at [AREACOORD(infectee)].")
 		to_chat(infectee, "<span class='warning'>You feel a tiny prick.</span>")
 
 /datum/nanite_program/mitosis
