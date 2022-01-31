@@ -11,20 +11,25 @@
 	var/smashes_tables = FALSE //If the martial art smashes tables when performing table slams and head smashes
 	var/datum/weakref/holder //owner of the martial art
 	var/display_combos = FALSE //shows combo meter if true
+	var/combo_timer = 6 SECONDS // period of time after which the combo streak is reset.
+	var/timerid
 
-/datum/martial_art/proc/disarm_act(mob/living/carbon/human/A, mob/living/carbon/human/D)
-	return FALSE
+/datum/martial_art/proc/help_act(mob/living/A, mob/living/D)
+	return MARTIAL_ATTACK_INVALID
 
-/datum/martial_art/proc/harm_act(mob/living/carbon/human/A, mob/living/carbon/human/D)
-	return FALSE
+/datum/martial_art/proc/disarm_act(mob/living/A, mob/living/D)
+	return MARTIAL_ATTACK_INVALID
 
-/datum/martial_art/proc/grab_act(mob/living/carbon/human/A, mob/living/carbon/human/D)
-	return FALSE
+/datum/martial_art/proc/harm_act(mob/living/A, mob/living/D)
+	return MARTIAL_ATTACK_INVALID
 
-/datum/martial_art/proc/can_use(mob/living/carbon/human/H)
+/datum/martial_art/proc/grab_act(mob/living/A, mob/living/D)
+	return MARTIAL_ATTACK_INVALID
+
+/datum/martial_art/proc/can_use(mob/living/L)
 	return TRUE
 
-/datum/martial_art/proc/add_to_streak(element,mob/living/carbon/human/D)
+/datum/martial_art/proc/add_to_streak(element, mob/living/D)
 	if(D != current_target)
 		reset_streak(D)
 	streak = streak+element
@@ -32,13 +37,17 @@
 		streak = copytext(streak, 1 + length(streak[1]))
 	if (display_combos)
 		var/mob/living/holder_living = holder.resolve()
-		holder_living?.hud_used?.combo_display.update_icon_state(streak)
+		timerid = addtimer(CALLBACK(src, .proc/reset_streak, null, FALSE), combo_timer, TIMER_UNIQUE | TIMER_STOPPABLE)
+		holder_living?.hud_used?.combo_display.update_icon_state(streak, combo_timer - 2 SECONDS)
 
-/datum/martial_art/proc/reset_streak(mob/living/carbon/human/new_target)
+/datum/martial_art/proc/reset_streak(mob/living/new_target, update_icon = TRUE)
+	if(timerid)
+		deltimer(timerid)
 	current_target = new_target
 	streak = ""
-	var/mob/living/holder_living = holder.resolve()
-	holder_living?.hud_used?.combo_display.update_icon_state(streak)
+	if(update_icon)
+		var/mob/living/holder_living = holder?.resolve()
+		holder_living?.hud_used?.combo_display.update_icon_state(streak)
 
 /datum/martial_art/proc/teach(mob/living/holder_living, make_temporary=FALSE)
 	if(!istype(holder_living) || !holder_living.mind)
@@ -82,5 +91,5 @@
 	return
 
 ///Gets called when a projectile hits the owner. Returning anything other than BULLET_ACT_HIT will stop the projectile from hitting the mob.
-/datum/martial_art/proc/on_projectile_hit(mob/living/carbon/human/A, obj/projectile/P, def_zone)
+/datum/martial_art/proc/on_projectile_hit(mob/living/A, obj/projectile/P, def_zone)
 	return BULLET_ACT_HIT

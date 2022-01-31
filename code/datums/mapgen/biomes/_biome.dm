@@ -1,7 +1,7 @@
 ///This datum handles the transitioning from a turf to a specific biome, and handles spawning decorative structures and mobs.
 /datum/biome
 	///Type of turf this biome creates
-	var/turf/turf_type
+	var/turf_type
 	///Chance of having a structure from the flora types list spawn
 	var/flora_density = 0
 	///Chance of having a mob from the fauna types list spawn
@@ -12,18 +12,16 @@
 	var/list/fauna_types = list()
 
 ///This proc handles the creation of a turf of a specific biome type
-/datum/biome/proc/generate_turf(var/turf/gen_turf)
-	gen_turf.ChangeTurf(turf_type, initial(turf_type.baseturfs), CHANGETURF_DEFER_CHANGE)
-	var/area/A = gen_turf.loc
-	if(length(fauna_types) && prob(fauna_density) && (A.area_flags & MOB_SPAWN_ALLOWED))
+/datum/biome/proc/generate_turf(turf/gen_turf)
+	gen_turf.ChangeTurf(turf_type, null, CHANGETURF_DEFER_CHANGE)
+	if(length(fauna_types) && prob(fauna_density))
 		var/mob/fauna = pick(fauna_types)
 		new fauna(gen_turf)
 
-	if(length(flora_types) && prob(flora_density) && (A.area_flags & FLORA_ALLOWED))
+	if(length(flora_types) && prob(flora_density))
 		var/obj/structure/flora = pick(flora_types)
 		new flora(gen_turf)
 
-//jungle planet biomes
 /datum/biome/mudlands
 	turf_type = /turf/open/floor/plating/dirt/jungle/dark
 	flora_types = list(/obj/structure/flora/grass/jungle,/obj/structure/flora/grass/jungle/b, /obj/structure/flora/rock/jungle, /obj/structure/flora/rock/pile/largejungle)

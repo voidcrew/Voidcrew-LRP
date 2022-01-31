@@ -1,9 +1,10 @@
 /datum/award
-	///Name of the achievement, If null it wont show up in the achievement browser. (Handy for inheritance trees)
+	///Name of the achievement, If null it won't show up in the achievement browser. (Handy for inheritance trees)
 	var/name
 	var/desc = "You did it."
-	///Found in UI_Icons/Achievements
+	///The icon state for this award. The icon file is found in ui_icons/achievements.
 	var/icon = "default"
+
 	var/category = "Normal"
 
 	///What ID do we use in db, limited to 32 characters
@@ -44,7 +45,7 @@
 
 ///Get raw numerical achievement value from the database
 /datum/award/proc/get_raw_value(key)
-	var/datum/DBQuery/Q = SSdbcore.NewQuery(
+	var/datum/db_query/Q = SSdbcore.NewQuery(
 		"SELECT value FROM [format_table_name("achievements")] WHERE ckey = :ckey AND achievement_key = :achievement_key",
 		list("ckey" = key, "achievement_key" = database_id)
 	)
@@ -68,6 +69,7 @@
 ///Achievements are one-off awards for usually doing cool things.
 /datum/award/achievement
 	desc = "Achievement for epic people"
+	icon = "" // This should warn contributors that do not declare an icon when contributing new achievements.
 
 /datum/award/achievement/get_metadata_row()
 	. = ..()
@@ -78,7 +80,7 @@
 
 /datum/award/achievement/on_unlock(mob/user)
 	. = ..()
-	to_chat(user, "<span class='greenannounce'><B>Achievement unlocked: [name]!</B></span>")
+	to_chat(user, span_greenannounce("<B>Achievement unlocked: [name]!</B>"))
 
 ///Scores are for leaderboarded things, such as killcount of a specific boss
 /datum/award/score
@@ -99,7 +101,7 @@
 	.["achievement_type"] = "score"
 
 /datum/award/score/proc/LoadHighScores()
-	var/datum/DBQuery/Q = SSdbcore.NewQuery(
+	var/datum/db_query/Q = SSdbcore.NewQuery(
 		"SELECT ckey,value FROM [format_table_name("achievements")] WHERE achievement_key = :achievement_key ORDER BY value DESC LIMIT 50",
 		list("achievement_key" = database_id)
 	)

@@ -38,7 +38,7 @@
 
 /obj/item/ammo_box/c38/dumdum
 	name = "speed loader (.38 DumDum)"
-	desc = "Designed to quickly reload revolvers. DumDum bullets shatter on impact and shred the target's innards, likely getting caught inside."
+	desc = "Designed to quickly reload revolvers. These rounds expand on impact, allowing them to shred the target and cause massive bleeding. Very weak against armor and distant targets."
 	ammo_type = /obj/item/ammo_casing/c38/dumdum
 
 /obj/item/ammo_box/c38/hotshot
@@ -50,20 +50,6 @@
 	name = "speed loader (.38 Iceblox)"
 	desc = "Designed to quickly reload revolvers. Iceblox bullets contain a cryogenic payload."
 	ammo_type = /obj/item/ammo_casing/c38/iceblox
-
-/obj/item/ammo_box/c38_box
-	name = "ammo box (.38)"
-	desc = "A box of ammo."
-	icon_state = "38box"
-	ammo_type = /obj/item/ammo_casing/c38
-	max_ammo = 30
-
-/obj/item/ammo_box/c38_box/hunting
-	name = "ammo box (.38 hunting)"
-	desc = "A box of ammo."
-	icon_state = "38huntingbox"
-	ammo_type = /obj/item/ammo_casing/c38/hunting
-	max_ammo = 30
 
 /obj/item/ammo_box/c9mm
 	name = "ammo box (9mm)"
@@ -91,10 +77,8 @@
 	multiple_sprites = AMMO_BOX_PER_BULLET
 
 /obj/item/ammo_box/a762
-	// WS Edit Start - Whitesands
-	name = "stripper clip (7.62x54mm)"
-	desc = "A rifle-cartrige stripper clip."
-	// WS Edit Start - Whitesands
+	name = "stripper clip (7.62mm)"
+	desc = "A stripper clip."
 	icon_state = "762"
 	ammo_type = /obj/item/ammo_casing/a762
 	max_ammo = 5

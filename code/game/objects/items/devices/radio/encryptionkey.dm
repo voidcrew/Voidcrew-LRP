@@ -9,19 +9,22 @@
 	var/independent = FALSE
 	var/list/channels = list()
 
-/obj/item/encryptionkey/Initialize()
+/obj/item/encryptionkey/Initialize(mapload)
 	. = ..()
-	if(!channels.len)
-		desc = "An encryption key for a radio headset.  Has no special codes in it. You should probably tell a coder!"
+	if(!channels.len && !translate_binary)
+		desc += " Has no special codes in it. You should probably tell a coder!"
 
 /obj/item/encryptionkey/examine(mob/user)
 	. = ..()
-	if(LAZYLEN(channels))
+	if(LAZYLEN(channels) || translate_binary)
 		var/list/examine_text_list = list()
 		for(var/i in channels)
 			examine_text_list += "[GLOB.channel_tokens[i]] - [lowertext(i)]"
 
-		. += "<span class='notice'>It can access the following channels; [jointext(examine_text_list, ", ")].</span>"
+		if(translate_binary)
+			examine_text_list += "[GLOB.channel_tokens[MODE_BINARY]] - [MODE_BINARY]"
+
+		. += span_notice("It can access the following channels; [jointext(examine_text_list, ", ")].")
 
 /obj/item/encryptionkey/syndicate
 	name = "syndicate encryption key"
@@ -82,7 +85,7 @@
 /obj/item/encryptionkey/heads/captain
 	name = "\proper the captain's encryption key"
 	icon_state = "cap_cypherkey"
-	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_ENGINEERING = 0, RADIO_CHANNEL_SCIENCE = 0, RADIO_CHANNEL_MEDICAL = 0, RADIO_CHANNEL_SUPPLY = 0, RADIO_CHANNEL_SERVICE = 0, RADIO_CHANNEL_WIDEBAND = 0) //WS edit - Wideband radio
+	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_ENGINEERING = 0, RADIO_CHANNEL_SCIENCE = 0, RADIO_CHANNEL_MEDICAL = 0, RADIO_CHANNEL_SUPPLY = 0, RADIO_CHANNEL_SERVICE = 0)
 
 /obj/item/encryptionkey/heads/rd
 	name = "\proper the research director's encryption key"
@@ -104,7 +107,7 @@
 	icon_state = "cmo_cypherkey"
 	channels = list(RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_COMMAND = 1)
 
-/obj/item/encryptionkey/heads/head_of_personnel
+/obj/item/encryptionkey/heads/hop
 	name = "\proper the head of personnel's encryption key"
 	icon_state = "hop_cypherkey"
 	channels = list(RADIO_CHANNEL_SUPPLY = 1, RADIO_CHANNEL_SERVICE = 1, RADIO_CHANNEL_COMMAND = 1)
@@ -128,7 +131,7 @@
 	name = "\improper CentCom radio encryption key"
 	icon_state = "cent_cypherkey"
 	independent = TRUE
-	channels = list(RADIO_CHANNEL_CENTCOM = 1, RADIO_CHANNEL_WIDEBAND = 0) //WS edit- Wideband Radio
+	channels = list(RADIO_CHANNEL_CENTCOM = 1)
 
 /obj/item/encryptionkey/ai //ported from NT, this goes 'inside' the AI.
 	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_SCIENCE = 1, RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_SUPPLY = 1, RADIO_CHANNEL_SERVICE = 1, RADIO_CHANNEL_AI_PRIVATE = 1)

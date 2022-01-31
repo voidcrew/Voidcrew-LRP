@@ -26,25 +26,60 @@ require only minor tweaks.
 
 #define SPACERUIN_MAP_EDGE_PAD 15
 
+/// Distance from edge to move to another z-level
+#define TRANSITIONEDGE 7
+
+// Maploader bounds indices
+/// The maploader index for the maps minimum x
+#define MAP_MINX 1
+/// The maploader index for the maps minimum y
+#define MAP_MINY 2
+/// The maploader index for the maps minimum z
+#define MAP_MINZ 3
+/// The maploader index for the maps maximum x
+#define MAP_MAXX 4
+/// The maploader index for the maps maximum y
+#define MAP_MAXY 5
+/// The maploader index for the maps maximum z
+#define MAP_MAXZ 6
+
+/// Path for the next_map.json file, if someone, for some messed up reason, wants to change it.
+#define PATH_TO_NEXT_MAP_JSON "data/next_map.json"
+
+/// List of directories we can load map .json files from
+#define MAP_DIRECTORY_MAPS "_maps"
+#define MAP_DIRECTORY_DATA "data"
+#define MAP_DIRECTORY_WHITELIST list(MAP_DIRECTORY_MAPS,MAP_DIRECTORY_DATA)
+
+/// Special map path value for custom adminloaded stations.
+#define CUSTOM_MAP_PATH "custom"
+
 // traits
 // boolean - marks a level as having that property if present
 #define ZTRAIT_CENTCOM "CentCom"
 #define ZTRAIT_STATION "Station"
 #define ZTRAIT_MINING "Mining"
-#define ZTRAIT_RESERVED "Reserved"
+#define ZTRAIT_RESERVED "Transit/Reserved"
 #define ZTRAIT_AWAY "Away Mission"
 #define ZTRAIT_SPACE_RUINS "Space Ruins"
 #define ZTRAIT_LAVA_RUINS "Lava Ruins"
 #define ZTRAIT_ICE_RUINS "Ice Ruins"
 #define ZTRAIT_ICE_RUINS_UNDERGROUND "Ice Ruins Underground"
-#define ZTRAIT_SAND_RUINS "Sand Ruins" //WS edit - Whitesands
+#define ZTRAIT_ISOLATED_RUINS "Isolated Ruins" //Placing ruins on z levels with this trait will use turf reservation instead of usual placement.
 
 // boolean - weather types that occur on the level
-#define ZTRAIT_SANDSTORM "Weather_Sandstorm"
 #define ZTRAIT_SNOWSTORM "Weather_Snowstorm"
 #define ZTRAIT_ASHSTORM "Weather_Ashstorm"
-#define ZTRAIT_ACIDRAIN "Weather_Acidrain"
-#define ZTRAIT_TEMPERATURE_GRADIENT "Weather_Gradient" //WS edit - Whitesands
+#define ZTRAIT_VOIDSTORM "Weather_Voidstorm"
+
+/// boolean - does this z prevent ghosts from observing it
+#define ZTRAIT_SECRET "Secret"
+
+/// boolean - does this z prevent phasing
+#define ZTRAIT_NOPHASE "No Phase"
+
+/// boolean - does this z prevent xray/meson/thermal vision
+#define ZTRAIT_NOXRAY "No X-Ray"
 
 // number - bombcap is multiplied by this before being applied to bombs
 #define ZTRAIT_BOMBCAP_MULTIPLIER "Bombcap Multiplier"
@@ -69,45 +104,39 @@ require only minor tweaks.
 #define ZTRAIT_BASETURF "Baseturf"
 
 // default trait definitions, used by SSmapping
-#define ZTRAITS_CENTCOM list(ZTRAIT_CENTCOM = TRUE)
-#define ZTRAITS_STATION list(ZTRAIT_LINKAGE = SELFLOOPING, ZTRAIT_STATION = TRUE)
-#define ZTRAITS_SPACE list(ZTRAIT_LINKAGE = SELFLOOPING, ZTRAIT_SPACE_RUINS = TRUE)
-#define ZTRAITS_LAVALAND list( \
+///Z level traits for CentCom
+#define ZTRAITS_CENTCOM list(ZTRAIT_CENTCOM = TRUE, ZTRAIT_NOPHASE = TRUE)
+///Z level traits for Space Station 13
+#define ZTRAITS_STATION list(ZTRAIT_LINKAGE = CROSSLINKED, ZTRAIT_STATION = TRUE)
+///Z level traits for Deep Space
+#define ZTRAITS_SPACE list(ZTRAIT_LINKAGE = CROSSLINKED, ZTRAIT_SPACE_RUINS = TRUE)
+///Z level traits for Lavaland
+#define ZTRAITS_LAVALAND list(\
 	ZTRAIT_MINING = TRUE, \
 	ZTRAIT_ASHSTORM = TRUE, \
 	ZTRAIT_LAVA_RUINS = TRUE, \
 	ZTRAIT_BOMBCAP_MULTIPLIER = 2, \
 	ZTRAIT_BASETURF = /turf/open/lava/smooth/lava_land_surface)
-#define ZTRAITS_WHITESANDS list( \
-	ZTRAIT_MINING = TRUE, \
-	ZTRAIT_TEMPERATURE_GRADIENT = TRUE, \
-	ZTRAIT_SAND_RUINS = TRUE, \
-	ZTRAIT_BOMBCAP_MULTIPLIER = 2, \
-	ZTRAIT_BASETURF = /turf/open/floor/plating/asteroid/whitesands)
-#define ZTRAITS_ICEMOON list( \
-	ZTRAIT_MINING = TRUE, \
-	ZTRAIT_SNOWSTORM = TRUE, \
-	ZTRAIT_ICE_RUINS = TRUE, \
-	ZTRAIT_BOMBCAP_MULTIPLIER = 2, \
-	ZTRAIT_DOWN = -1, \
-	ZTRAIT_BASETURF = /turf/open/floor/plating/asteroid/snow/ice)
-#define ZTRAITS_ICEMOON_UNDERGROUND list( \
-	ZTRAIT_MINING = TRUE, \
-	ZTRAIT_ICE_RUINS_UNDERGROUND = TRUE, \
-	ZTRAIT_BOMBCAP_MULTIPLIER = 2, \
-	ZTRAIT_UP = 1, \
-	ZTRAIT_BASETURF = /turf/open/lava/plasma/ice_moon)
+///Z level traits for Away Missions
+#define ZTRAITS_AWAY list(ZTRAIT_AWAY = TRUE)
+///Z level traits for Secret Away Missions
+#define ZTRAITS_AWAY_SECRET list(ZTRAIT_AWAY = TRUE, ZTRAIT_SECRET = TRUE, ZTRAIT_NOPHASE = TRUE)
 
 #define DL_NAME "name"
 #define DL_TRAITS "traits"
 #define DECLARE_LEVEL(NAME, TRAITS) list(DL_NAME = NAME, DL_TRAITS = TRAITS)
 
 // must correspond to _basemap.dm for things to work correctly
-#define DEFAULT_MAP_TRAITS list( \
-	DECLARE_LEVEL("CentCom", ZTRAITS_CENTCOM), \
+#define DEFAULT_MAP_TRAITS list(\
+	DECLARE_LEVEL("CentCom", ZTRAITS_CENTCOM),\
 )
 
-//Reserved turf type
+// Camera lock flags
+#define CAMERA_LOCK_STATION 1
+#define CAMERA_LOCK_MINING 2
+#define CAMERA_LOCK_CENTCOM 4
+
+//Reserved/Transit turf type
 #define RESERVED_TURF_TYPE /turf/open/space/basic //What the turf is when not being used
 
 //Ruin Generation
@@ -119,8 +148,7 @@ require only minor tweaks.
 #define PLACE_SPACE_RUIN "space" //On space ruin z level(s)
 #define PLACE_LAVA_RUIN "lavaland" //On lavaland ruin z levels(s)
 #define PLACE_BELOW "below" //On z levl below - centered on same tile
-#define PLACE_RESERVED "reserved" //On reserved ruin z level
-
+#define PLACE_ISOLATED "isolated" //On isolated ruin z level
 
 ///Map generation defines
 #define PERLIN_LAYER_HEIGHT "perlin_height"
@@ -137,14 +165,14 @@ require only minor tweaks.
 #define BIOME_HIGHMEDIUM_HUMIDITY "highmedium_humidity"
 #define BIOME_HIGH_HUMIDITY "high_humidity"
 
-#define ALLOCATION_FREE 1
-#define ALLOCATION_QUADRANT 2
-
-#define QUADRANT_MAP_SIZE 127
-
-#define QUADRANT_SIZE_BORDER 3
-#define TRANSIT_SIZE_BORDER 3
-
-#define DEFAULT_ALLOC_JUMP 5
-
-#define MAP_EDGE_PAD 5
+// Bluespace shelter deploy checks for survival capsules
+/// Shelter spot is allowed 
+#define SHELTER_DEPLOY_ALLOWED "allowed"
+/// Shelter spot has turfs that restrict deployment
+#define SHELTER_DEPLOY_BAD_TURFS "bad turfs"
+/// Shelter spot has areas that restrict deployment
+#define SHELTER_DEPLOY_BAD_AREA "bad area"
+/// Shelter spot has anchored objects that restrict deployment
+#define SHELTER_DEPLOY_ANCHORED_OBJECTS "anchored objects"
+/// Shelter spot is out of bounds from the maps x/y coordinates 
+#define SHELTER_DEPLOY_OUTSIDE_MAP "outside map"

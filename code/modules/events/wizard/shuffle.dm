@@ -10,9 +10,11 @@
 
 /datum/round_event/wizard/shuffleloc/start()
 	var/list/moblocs = list()
-	var/list/mobs	 = list()
+	var/list/mobs = list()
 
 	for(var/mob/living/carbon/human/H in GLOB.alive_mob_list)
+		if(!is_station_level(H.z))
+			continue //lets not try to strand people in space or stuck in the wizards den
 		moblocs += H.loc
 		mobs += H
 
@@ -44,7 +46,7 @@
 
 /datum/round_event/wizard/shufflenames/start()
 	var/list/mobnames = list()
-	var/list/mobs	 = list()
+	var/list/mobs = list()
 
 	for(var/mob/living/carbon/human/H in GLOB.alive_mob_list)
 		mobnames += H.real_name
@@ -77,10 +79,10 @@
 	earliest_start = 0 MINUTES
 
 /datum/round_event/wizard/shuffleminds/start()
-	var/list/mobs	 = list()
+	var/list/mobs = list()
 
 	for(var/mob/living/carbon/human/H in GLOB.alive_mob_list)
-		if(H.stat || !H.mind || iswizard(H))
+		if(H.stat || !H.mind || IS_WIZARD(H))
 			continue //the wizard(s) are spared on this one
 		mobs += H
 

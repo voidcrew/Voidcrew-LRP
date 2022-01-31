@@ -1,4 +1,4 @@
-/proc/make_types_fancy(var/list/types)
+/proc/make_types_fancy(list/types)
 	if (ispath(types))
 		types = list(types)
 	. = list()
@@ -8,7 +8,6 @@
 			/obj/effect/decal/cleanable = "CLEANABLE",
 			/obj/item/radio/headset = "HEADSET",
 			/obj/item/clothing/head/helmet/space = "SPESSHELMET",
-			/obj/item/bodypart = "BODYPART",
 			/obj/item/book/manual = "MANUAL",
 			/obj/item/reagent_containers/food/drinks = "DRINK", //longest paths comes first
 			/obj/item/reagent_containers/food = "FOOD",
@@ -47,14 +46,23 @@
 /proc/get_fancy_list_of_datum_types()
 	var/static/list/pre_generated_list
 	if (!pre_generated_list) //init
-		pre_generated_list = make_types_fancy(sortList(typesof(/datum) - typesof(/atom)))
+		pre_generated_list = make_types_fancy(sort_list(typesof(/datum) - typesof(/atom)))
 	return pre_generated_list
 
 
 /proc/filter_fancy_list(list/L, filter as text)
 	var/list/matches = new
+	var/end_len = -1
+	var/list/endcheck = splittext(filter, "!")
+	if(endcheck.len > 1)
+		filter = endcheck[1]
+		end_len = length_char(filter)
+
 	for(var/key in L)
 		var/value = L[key]
-		if(findtext("[key]", filter) || findtext("[value]", filter))
+		if(findtext("[key]", filter, -end_len) || findtext("[value]", filter, -end_len))
 			matches[key] = value
 	return matches
+
+/proc/return_typenames(type)
+	return splittext("[type]", "/")

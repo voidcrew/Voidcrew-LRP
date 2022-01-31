@@ -1,82 +1,89 @@
-/datum/job/hos
-	title = "Head of Security"
+/datum/job/head_of_security
+	title = JOB_HEAD_OF_SECURITY
+	description = "Coordinate security personnel, ensure they are not corrupt, \
+		make sure every department is protected."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD|DEADMIN_POSITION_SECURITY
-	department_head = list("Captain")
+	department_head = list(JOB_CAPTAIN)
 	head_announce = list(RADIO_CHANNEL_SECURITY)
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain"
 	selection_color = "#ffdddd"
+	req_admin_notify = 1
 	minimal_player_age = 14
 	exp_requirements = 300
-	officer = TRUE
-	wiki_page = "Head_of_Security" //WS Edit - Wikilinks/Warning
-	exp_type = EXP_TYPE_CREW
-	exp_type_department = EXP_TYPE_SECURITY
+	exp_required_type = EXP_TYPE_CREW
+	exp_required_type_department = EXP_TYPE_SECURITY
+	exp_granted_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/hos
-	mind_traits = list(TRAIT_LAW_ENFORCEMENT_METABOLISM)
+	plasmaman_outfit = /datum/outfit/plasmaman/head_of_security
+	departments_list = list(
+		/datum/job_department/security,
+		/datum/job_department/command,
+		)
 
-	access = list(
-		ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_ARMORY, ACCESS_COURT, ACCESS_WEAPONS, ACCESS_MECH_SECURITY,
-		ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS, ACCESS_ALL_PERSONAL_LOCKERS,
-		ACCESS_RESEARCH, ACCESS_ENGINE, ACCESS_MINING, ACCESS_MEDICAL, ACCESS_CONSTRUCTION, ACCESS_MAILSORTING,
-		ACCESS_HEADS, ACCESS_HOS, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MAINT_TUNNELS, ACCESS_MINERAL_STOREROOM, ACCESS_EVA)
-	minimal_access = list(
-		ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_BRIG, ACCESS_ARMORY, ACCESS_COURT, ACCESS_WEAPONS, ACCESS_MECH_SECURITY,
-		ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE, ACCESS_MAINT_TUNNELS, ACCESS_ALL_PERSONAL_LOCKERS,
-		ACCESS_RESEARCH, ACCESS_ENGINE, ACCESS_MINING, ACCESS_MEDICAL, ACCESS_CONSTRUCTION, ACCESS_MAILSORTING,
-		ACCESS_HEADS, ACCESS_HOS, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_GATEWAY, ACCESS_MAINT_TUNNELS, ACCESS_MINERAL_STOREROOM)
+	mind_traits = list(TRAIT_DONUT_LOVER)
+	liver_traits = list(TRAIT_LAW_ENFORCEMENT_METABOLISM, TRAIT_ROYAL_METABOLISM)
+
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_SEC
 
 	display_order = JOB_DISPLAY_ORDER_HEAD_OF_SECURITY
+	bounty_types = CIV_JOB_SEC
+
+	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law)
+	rpg_title = "Guard Leader"
+	job_type_flags = JOB_STATION_JOB | JOB_HEAD_JOB
+	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_BOLD_SELECT_TEXT | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS
+
+	voice_of_god_power = 1.4 //Command staff has authority
+
+
+/datum/job/head_of_security/get_captaincy_announcement(mob/living/captain)
+	return "Due to staffing shortages, newly promoted Acting Captain [captain.real_name] on deck!"
+
 
 /datum/outfit/job/hos
 	name = "Head of Security"
-	jobtype = /datum/job/hos
+	jobtype = /datum/job/head_of_security
 
-	id = /obj/item/card/id/silver
+	id = /obj/item/card/id/advanced/silver
+	id_trim = /datum/id_trim/job/head_of_security
+	uniform = /obj/item/clothing/under/rank/security/head_of_security
+	suit = /obj/item/clothing/suit/armor/hos/trenchcoat
+	suit_store = /obj/item/gun/energy/e_gun
+	backpack_contents = list(
+		/obj/item/evidencebag = 1,
+		/obj/item/modular_computer/tablet/preset/advanced/command = 1,
+		)
 	belt = /obj/item/pda/heads/hos
 	ears = /obj/item/radio/headset/heads/hos/alt
-	uniform = /obj/item/clothing/under/rank/security/head_of_security
-	alt_uniform = /obj/item/clothing/under/rank/security/head_of_security/alt
-	shoes = /obj/item/clothing/shoes/jackboots
-	suit = /obj/item/clothing/suit/armor/hos/trenchcoat
-	alt_suit = /obj/item/clothing/suit/armor/vest/security/hos
-	dcoat = /obj/item/clothing/suit/hooded/wintercoat/security //WS Edit - Alt Uniforms
-	gloves = /obj/item/clothing/gloves/color/black
-	head = /obj/item/clothing/head/beret/sec/hos //WS edit - Better Berets
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
-	suit_store = /obj/item/gun/energy/e_gun
-	r_pocket = /obj/item/assembly/flash/handheld
+	gloves = /obj/item/clothing/gloves/color/black
+	head = /obj/item/clothing/head/hos/beret
+	shoes = /obj/item/clothing/shoes/jackboots
 	l_pocket = /obj/item/restraints/handcuffs
-	backpack_contents = list(/obj/item/melee/baton/loaded=1)
+	r_pocket = /obj/item/assembly/flash/handheld
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec
 	duffelbag = /obj/item/storage/backpack/duffelbag/sec
-	courierbag = /obj/item/storage/backpack/messenger/sec
-	box = /obj/item/storage/box/survival/security
 
+	box = /obj/item/storage/box/survival/security
+	chameleon_extras = list(
+		/obj/item/gun/energy/e_gun/hos,
+		/obj/item/stamp/hos,
+		)
 	implants = list(/obj/item/implant/mindshield)
 
-	chameleon_extras = list(/obj/item/gun/energy/e_gun/hos, /obj/item/stamp/hos)
+/datum/outfit/job/hos/mod
+	name = "Head of Security (MODsuit)"
 
-/datum/outfit/job/hos/hardsuit
-	name = "Head of Security (Hardsuit)"
-
-	mask = /obj/item/clothing/mask/gas/sechailer
-	suit = /obj/item/clothing/suit/space/hardsuit/security/hos
 	suit_store = /obj/item/tank/internals/oxygen
-	backpack_contents = list(/obj/item/melee/baton/loaded=1, /obj/item/gun/energy/e_gun=1, /obj/item/ammo_box/magazine/co9mm=1) //WS edit - free lethals
-
-/datum/outfit/job/hos/sergeant
-	name = "Sergeant (Head of Security)"
-
-	uniform = /obj/item/clothing/under/syndicate/gorlex
-	head = /obj/item/clothing/head/HoS/beret/syndicate
-	suit = /obj/item/clothing/suit/armor/vest/syndie
-	r_pocket = /obj/item/melee/transforming/energy/sword
-	backpack_contents = list(/obj/item/melee/baton/loaded=1)
+	back = /obj/item/mod/control/pre_equipped/safeguard
+	suit = null
+	head = null
+	mask = /obj/item/clothing/mask/gas/sechailer
+	internals_slot = ITEM_SLOT_SUITSTORE

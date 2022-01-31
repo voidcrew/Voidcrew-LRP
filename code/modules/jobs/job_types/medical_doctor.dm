@@ -1,131 +1,72 @@
 /datum/job/doctor
-	title = "Medical Doctor"
-	department_head = list("Chief Medical Officer")
-	faction = "Station"
+	title = JOB_MEDICAL_DOCTOR
+	description = "Save lives, run around the station looking for victims, \
+		scan everyone in sight"
+	department_head = list(JOB_CHIEF_MEDICAL_OFFICER)
+	faction = FACTION_STATION
 	total_positions = 5
 	spawn_positions = 3
 	supervisors = "the chief medical officer"
 	selection_color = "#ffeef0"
-	wiki_page = "Guide_to_Medicine"
+	exp_granted_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/doctor
+	plasmaman_outfit = /datum/outfit/plasmaman/medical
 
-	access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_CHEMISTRY, ACCESS_GENETICS, ACCESS_CLONING, ACCESS_VIROLOGY, ACCESS_MECH_MEDICAL, ACCESS_MINERAL_STOREROOM, ACCESS_EVA) //WS edit - Gen/Sci Split
-	minimal_access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_CLONING, ACCESS_MECH_MEDICAL, ACCESS_MINERAL_STOREROOM, ACCESS_PHARMACY)
 	paycheck = PAYCHECK_MEDIUM
 	paycheck_department = ACCOUNT_MED
 
+	liver_traits = list(TRAIT_MEDICAL_METABOLISM)
+
 	display_order = JOB_DISPLAY_ORDER_MEDICAL_DOCTOR
+	bounty_types = CIV_JOB_MED
+	departments_list = list(
+		/datum/job_department/medical,
+		)
+
+	family_heirlooms = list(/obj/item/storage/firstaid/ancient/heirloom)
+
+	mail_goodies = list(
+		/obj/item/healthanalyzer/advanced = 15,
+		/obj/item/scalpel/advanced = 6,
+		/obj/item/retractor/advanced = 6,
+		/obj/item/cautery/advanced = 6,
+		/obj/item/reagent_containers/glass/bottle/formaldehyde = 6,
+		/obj/effect/spawner/random/medical/organs = 5,
+		/obj/effect/spawner/random/medical/memeorgans = 1
+	)
+	rpg_title = "Cleric"
+	job_type_flags = JOB_STATION_JOB
+	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS
+
 
 /datum/outfit/job/doctor
 	name = "Medical Doctor"
 	jobtype = /datum/job/doctor
 
+	id_trim = /datum/id_trim/job/medical_doctor
+	uniform = /obj/item/clothing/under/rank/medical/doctor
+	suit = /obj/item/clothing/suit/toggle/labcoat
+	suit_store = /obj/item/flashlight/pen
 	belt = /obj/item/pda/medical
 	ears = /obj/item/radio/headset/headset_med
-	uniform = /obj/item/clothing/under/rank/medical/doctor
-	alt_uniform = /obj/item/clothing/under/rank/medical/doctor/blue //WS Edit - Alt Uniforms
 	shoes = /obj/item/clothing/shoes/sneakers/white
-	suit =  /obj/item/clothing/suit/toggle/labcoat
-	alt_suit = /obj/item/clothing/suit/apron/surgical
-	dcoat = /obj/item/clothing/suit/hooded/wintercoat/medical //WS Edit - Alt Uniforms
 	l_hand = /obj/item/storage/firstaid/medical
-	suit_store = /obj/item/flashlight/pen
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
-	courierbag = /obj/item/storage/backpack/messenger/med
+
 	box = /obj/item/storage/box/survival/medical
-
 	chameleon_extras = /obj/item/gun/syringe
+	skillchips = list(/obj/item/skillchip/entrails_reader)
 
-//WS Edit Start - Alt-Job Titles
-/datum/outfit/job/doctor/surgeon
-	name = "Medical Doctor (Surgeon)"
+/datum/outfit/job/doctor/mod
+	name = "Medical Doctor (MODsuit)"
 
-	uniform = /obj/item/clothing/under/rank/medical/doctor/blue
-	suit = /obj/item/clothing/suit/apron/surgical
-	mask = /obj/item/clothing/mask/surgical
-	suit_store = null
-
-/datum/outfit/job/doctor/nurse
-	name = "Medical Doctor (Nurse)"
-
-	head = /obj/item/clothing/head/nursehat
+	suit_store = /obj/item/tank/internals/oxygen
+	back = /obj/item/mod/control/pre_equipped/medical
 	suit = null
-	suit_store = null
-	alt_uniform = /obj/item/clothing/under/rank/medical/doctor/nurse
-	accessory = /obj/item/clothing/accessory/armband/medblue
-
-/datum/outfit/job/doctor/juniordoctor
-	name = "Medical Doctor (Junior Doctor)"
-
-	uniform = /obj/item/clothing/under/rank/medical/doctor/junior_doctor
-	alt_uniform = null
-	shoes = /obj/item/clothing/shoes/sneakers/blue
-	suit =  null
-	alt_suit = null
-	l_hand = null
-	suit_store = null
-
-	backpack_contents = list(/obj/item/storage/firstaid/medical=1, /obj/item/flashlight/pen=1)
-
-/datum/outfit/job/doctor/seniordoctor
-	name = "Medical Doctor (Senior Doctor)"
-
-	uniform = /obj/item/clothing/under/suit/senior_doctor
-	alt_uniform = null
-	shoes = /obj/item/clothing/shoes/laceup
-	suit = /obj/item/clothing/suit/toggle/lawyer/medical
-	alt_suit = /obj/item/clothing/suit/toggle/labcoat
-	dcoat = null
-	l_hand = null
-	suit_store = null
-	neck = /obj/item/clothing/neck/tie/blue
-
-	backpack_contents = list(/obj/item/storage/firstaid/medical=1, /obj/item/flashlight/pen=1)
-
-/datum/outfit/job/doctor/psychiatrist
-	name = "Medical Doctor (Psychiatrist)"
-
-	uniform = /obj/item/clothing/under/rank/medical/psychiatrist
-	alt_uniform = /obj/item/clothing/under/rank/medical/psychiatrist/blue
-	shoes = /obj/item/clothing/shoes/laceup
-	suit =  null
-	alt_suit = null
-	l_hand = null
-	suit_store = null
-
-	backpack_contents = list(/obj/item/clipboard=1, /obj/item/folder/white=1, /obj/item/taperecorder=1)
-//WS Edit End - Alt-Job Titles
-
-//Shiptest outfits
-
-/datum/outfit/job/doctor/solgov
-	name = "Medical Doctor (SolGov)"
-
-	uniform = /obj/item/clothing/under/solgov
-	accessory = /obj/item/clothing/accessory/armband/medblue
-	shoes = /obj/item/clothing/shoes/sneakers/white
-	head = /obj/item/clothing/head/beret/solgov
-	suit =  /obj/item/clothing/suit/toggle/labcoat
-
-/datum/outfit/job/doctor/solgov/rebel
-	name = "Medical Doctor (Deserter)"
-
-	uniform = /obj/item/clothing/under/syndicate/camo
-	head = /obj/item/clothing/head/beret/solgov/terragov
-
-/datum/outfit/job/doctor/pirate
-	name = "Ship's Doctor (Pirate)"
-
-	uniform = /obj/item/clothing/under/costume/sailor
-	shoes = /obj/item/clothing/shoes/jackboots
-
-/datum/outfit/job/doctor/cybersun
-	name = "Operations Assistant (Medical Doctor)"
-
-	uniform = /obj/item/clothing/under/syndicate/cybersun
-	accessory = /obj/item/clothing/accessory/armband/medblue
-	shoes = /obj/item/clothing/shoes/jackboots
+	mask = /obj/item/clothing/mask/breath/medical
+	r_pocket = /obj/item/flashlight/pen
+	internals_slot = ITEM_SLOT_SUITSTORE

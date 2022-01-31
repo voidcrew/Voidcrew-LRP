@@ -7,10 +7,10 @@
 	unique = TRUE   // FALSE - Normal book, TRUE - Should not be treated as normal book, unable to be copied, unable to be modified
 
 /obj/item/book/manual/hydroponics_pod_people
-	name = "The Human Harvest - From seed to market"
+	name = "The Human Harvest: From Seed to Market"
 	icon_state ="bookHydroponicsPodPeople"
 	author = "Farmer John" // Whoever wrote the paper or book, can be changed by pen or PC. It is not automatically assigned.
-	title = "The Human Harvest - From seed to market"
+	title = "The Human Harvest: From Seed to Market"
 	//book contents below
 	dat = {"<html>
 				<head>
@@ -26,15 +26,17 @@
 				<body>
 				<h3>Growing Humans</h3>
 
-				Why would you want to grow humans? Well I'm expecting most readers to be in the slave trade, but a few might actually
-				want to revive fallen comrades. Growing pod people is easy, but prone to disaster.
+				Why would you want to grow humans? Well, I'm expecting most readers to be in the slave trade, but a few might actually
+				want to revive fallen comrades. Growing pod people is actually quite simple:
 				<p>
 				<ol>
-				<li>Find a dead person who is in need of cloning. </li>
-				<li>Take a blood sample with a syringe. </li>
-				<li>Inject a seed pack with the blood sample. </li>
+				<li>Find a dead person who is in need of revival. </li>
+				<li>Take a blood sample with a syringe (samples of their blood taken BEFORE they died will also work). </li>
+				<li>Inject a packet of replica pod seeds (which can be acquired by either mutating cabbages into replica pods (and then harvesting said replica pods) or by purchasing them from certain corporate entities) with the blood sample. </li>
+				<li>It is imperative to understand that injecting the replica pod plant with blood AFTER it has been planted WILL NOT WORK; you have to inject the SEED PACKET, NOT the TRAY. </li>
 				<li>Plant the seeds. </li>
-				<li>Tend to the plants water and nutrition levels until it is time to harvest the cloned human.</li>
+				<li>Tend to the replica pod's water and nutrition levels until it is time to harvest the podcloned humanoid. </li>
+				<li>Note that if the corpse's mind (or spirit, or soul, or whatever the hell your local chaplain calls it) is already in a new body or has left this plane of existence entirely, you will just receive seed packets upon harvesting the replica pod plant, not a podperson. </li>
 				</ol>
 				<p>
 				It really is that easy! Good luck!
@@ -80,8 +82,8 @@
 					<li>High-speed Drill</li>
 					</ul>
 				</li>
-				<li><b>Propulsion Device:</b> Powercell-powered electro-hydraulic system.</li>
-				<li><b>Powercell capacity:</b> Varies.</li>
+				<li><b>Propulsion Device:</b> Power cell powered electro-hydraulic system.</li>
+				<li><b>Power cell capacity:</b> Varies.</li>
 				</ul>
 
 				<h2>Construction:</h2>
@@ -95,20 +97,12 @@
 				<li>Secure the mainboard with a screwdriver.</li>
 				<li>Install the peripherals control module (Not included. Use supplied datadisk to create one).</li>
 				<li>Secure the peripherals control module with a screwdriver</li>
-				<li>Install the internal armor plating (Not included due to Nanotrasen regulations. Can be made using 5 metal sheets.)</li>
+				<li>Install the internal armor plating (Not included due to Nanotrasen regulations. Can be made using 5 iron sheets.)</li>
 				<li>Secure the internal armor plating with a wrench</li>
 				<li>Weld the internal armor plating to the chassis</li>
-				<li>Install the external reinforced armor plating (Not included due to Nanotrasen regulations. Can be made using 5 reinforced metal sheets.)</li>
+				<li>Install the external reinforced armor plating (Not included due to Nanotrasen regulations. Can be made using 5 reinforced iron sheets.)</li>
 				<li>Secure the external reinforced armor plating with a wrench</li>
 				<li>Weld the external reinforced armor plating to the chassis</li>
-				<li></li>
-				<li>Additional Information:</li>
-				<li>The firefighting variation is made in a similar fashion.</li>
-				<li>A firesuit must be connected to the Firefighter chassis for heat shielding.</li>
-				<li>Internal armor is plasteel for additional strength.</li>
-				<li>External armor must be installed in 2 parts, totaling 10 sheets.</li>
-				<li>Completed mech is more resiliant against fire, and is a bit more durable overall</li>
-				<li>Nanotrasen is determined to the safety of its <s>investments</s> employees.</li>
 				</ol>
 				</body>
 				</html>
@@ -142,7 +136,7 @@
 				<h2>Basic ingredients preparation:</h2>
 
 				<b>Dough:</b> 10u water + 15u flour for simple dough.<br>
-				15u egg yolk + 15u flour + 5u sugar for cake batter.<br>
+				6u egg yolk + 12 egg white + 15u flour + 5u sugar for cake batter.<br>
 				Doughs can be transformed by using a knife and rolling pin.<br>
 				All doughs can be microwaved.<br>
 				<b>Bowl:</b> Add water to it for soup preparation.<br>
@@ -221,7 +215,7 @@
 			<li>Insert the nuclear authorisation disk into slot.</li>
 			<li>Type numeric authorisation code into the keypad. This should have been provided. Note: If you make a mistake press R to reset the device.
 			<li>Press the E button to log onto the device.</li>
-			You now have activated the device. To deactivate the buttons at anytime for example when you've already prepped the bomb for detonation	remove the auth disk OR press the R on the keypad.<br>
+			You now have activated the device. To deactivate the buttons at anytime for example when you've already prepped the bomb for detonation remove the auth disk OR press the R on the keypad.<br>
 			Now the bomb CAN ONLY be detonated using the timer. Manual detonation is not an option.<br>
 			Note: Nanotrasen is a pain in the neck.<br>
 			Toggle off the SAFETY.<br>
@@ -270,7 +264,7 @@
 				function pageloaded(myframe) {
 					document.getElementById("loading").style.display = "none";
 					myframe.style.display = "inline";
-				}
+			}
 			</script>
 			<p id='loading'>You start skimming through the manual...</p>
 			<iframe width='100%' height='97%' onload="pageloaded(this)" src="[wikiurl]/[page_link]?printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
@@ -301,13 +295,6 @@
 	title = "Engineering Textbook"
 	page_link = "Guide_to_engineering"
 
-/obj/item/book/manual/wiki/engineering_singulo_tesla
-	name = "Singularity and Tesla for Dummies"
-	icon_state ="bookEngineeringSingularitySafety"
-	author = "Engineering Encyclopedia"
-	title = "Singularity and Tesla for Dummies"
-	page_link = "Singularity_and_Tesla_engines"
-
 /obj/item/book/manual/wiki/security_space_law
 	name = "Space Law"
 	desc = "A set of Nanotrasen guidelines for keeping law and order on their space stations."
@@ -317,7 +304,7 @@
 	page_link = "Space_Law"
 
 /obj/item/book/manual/wiki/security_space_law/suicide_act(mob/living/user)
-	user.visible_message("<span class='suicide'>[user] pretends to read \the [src] intently... then promptly dies of laughter!</span>")
+	user.visible_message(span_suicide("[user] pretends to read \the [src] intently... then promptly dies of laughter!"))
 	return OXYLOSS
 
 /obj/item/book/manual/wiki/infections
@@ -353,7 +340,7 @@
 	icon_state = "barbook"
 	author = "Sir John Rose"
 	title = "Barman Recipes: Mixing Drinks and Changing Lives"
-	page_link = "Guide_to_food_and_drinks"
+	page_link = "Guide_to_drinks"
 
 /obj/item/book/manual/wiki/robotics_cyborgs
 	name = "Robotics for Dummies"
@@ -382,7 +369,7 @@
 	icon_state ="cooked_book"
 	author = "the Kanamitan Empire"
 	title = "To Serve Man"
-	page_link = "Guide_to_food_and_drinks"
+	page_link = "Guide_to_food"
 
 /obj/item/book/manual/wiki/tcomms
 	name = "Subspace Telecommunications And You"
@@ -419,16 +406,16 @@
 	title = "DIY Chemical Grenades"
 	page_link = "Grenade"
 
-/obj/item/book/manual/wiki/toxins
-	name = "Toxins or: How I Learned to Stop Worrying and Love the Maxcap"
+/obj/item/book/manual/wiki/ordnance
+	name = "Ordnance for Dummies or: How I Learned to Stop Worrying and Love the Maxcap"
 	icon_state = "book6"
 	author = "Cuban Pete"
-	title = "Toxins or: How I Learned to Stop Worrying and Love the Maxcap"
+	title = "Ordnance for Dummies or: How I Learned to Stop Worrying and Love the Maxcap"
 	page_link = "Guide_to_toxins"
 
-/obj/item/book/manual/wiki/toxins/suicide_act(mob/user)
+/obj/item/book/manual/wiki/ordnance/suicide_act(mob/user)
 	var/mob/living/carbon/human/H = user
-	user.visible_message("<span class='suicide'>[user] starts dancing to the Rhumba Beat! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] starts dancing to the Rhumba Beat! It looks like [user.p_theyre()] trying to commit suicide!"))
 	playsound(loc, 'sound/effects/spray.ogg', 10, TRUE, -3)
 	if (!QDELETED(H))
 		H.emote("spin")
@@ -438,7 +425,9 @@
 			if(prob(50))
 				step(W, pick(GLOB.alldirs))
 		ADD_TRAIT(H, TRAIT_DISFIGURED, TRAIT_GENERIC)
-		H.bleed_rate = 5
+		for(var/i in H.bodyparts)
+			var/obj/item/bodypart/BP = i
+			BP.generic_bleedstacks += 5
 		H.gib_animation()
 		sleep(3)
 		H.adjustBruteLoss(1000) //to make the body super-bloody
@@ -454,11 +443,9 @@
 	title = "Chemical Factories Without Narcotics"
 	page_link = "Guide_to_plumbing"
 
-//WS Addition - Spacepods
-/obj/item/book/manual/wiki/spacepod
-	name = "Guide to Podracing"
-	icon_state = "bookParticleAccelerator"
-	author = "Bananakin"
-	title = "Guide to Podracing"
-	page_link = "Space_Pods"
-//WS End
+/obj/item/book/manual/wiki/cytology
+	name = "Unethically Grown Organics"
+	icon_state ="cytologybook"
+	author = "Kryson"
+	title = "Unethically Grown Organics"
+	page_link = "Guide_to_cytology"

@@ -16,7 +16,7 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	flags_1 = NODECONSTRUCT_1
 
-/obj/machinery/telecomms/allinone/Initialize()
+/obj/machinery/telecomms/allinone/Initialize(mapload)
 	. = ..()
 	if (intercept)
 		freq_listening = list(FREQ_SYNDICATE)
@@ -26,13 +26,12 @@
 		return
 	if(!on || !is_freq_listening(signal))  // has to be on to receive messages
 		return
-	var/datum/map_zone/mapzone = src.get_map_zone()
-	if (!intercept && !(mapzone in signal.map_zones) && !(0 in signal.map_zones))  // has to be syndicate or on the right level
+	if (!intercept && !(z in signal.levels) && !(0 in signal.levels))  // has to be syndicate or on the right level
 		return
 
 	// Decompress the signal and mark it done
 	if (intercept)
-		signal.map_zones += 0  // Signal is broadcast to agents anywhere
+		signal.levels += 0  // Signal is broadcast to agents anywhere
 
 	signal.data["compression"] = 0
 	signal.mark_done()

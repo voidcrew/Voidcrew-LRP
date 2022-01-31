@@ -7,18 +7,14 @@
 
 /turf/proc/lighting_clear_overlay()
 	if (lighting_object)
-		qdel(lighting_object, TRUE)
+		qdel(lighting_object, force=TRUE)
 
 // Builds a lighting object for us, but only if our area is dynamic.
 /turf/proc/lighting_build_overlay()
 	if (lighting_object)
-		qdel(lighting_object,force=TRUE) //Shitty fix for lighting objects persisting after death
+		qdel(lighting_object, force=TRUE) //Shitty fix for lighting objects persisting after death
 
-	var/area/A = loc
-	if (!IS_DYNAMIC_LIGHTING(A) && !light_sources)
-		return
-
-	new/atom/movable/lighting_object(src)
+	new/datum/lighting_object(src)
 
 // Used to get a scaled lumcount.
 /turf/proc/get_lumcount(minlum = 0, maxlum = 1)
@@ -57,7 +53,7 @@
 	if (!lighting_object)
 		return FALSE
 
-	return !(lighting_object.luminosity || dynamic_lumcount)
+	return !(luminosity || dynamic_lumcount)
 
 
 ///Proc to add movable sources of opacity on the turf and let it handle lighting code.
@@ -85,8 +81,7 @@
 			reconsider_lights()
 		return
 	directional_opacity = NONE
-	for(var/am in opacity_sources)
-		var/atom/movable/opacity_source = am
+	for(var/atom/movable/opacity_source as anything in opacity_sources)
 		if(opacity_source.flags_1 & ON_BORDER_1)
 			directional_opacity |= opacity_source.dir
 		else //If fulltile and opaque, then the whole tile blocks view, no need to continue checking.
@@ -98,11 +93,16 @@
 
 /turf/proc/change_area(area/old_area, area/new_area)
 	if(SSlighting.initialized)
-		if (new_area.dynamic_lighting != old_area.dynamic_lighting)
-			if (new_area.dynamic_lighting)
+		if (new_area.static_lighting != old_area.static_lighting)
+			if (new_area.static_lighting)
 				lighting_build_overlay()
 			else
 				lighting_clear_overlay()
+	//Inherit overlay of new area
+	if(old_area.lighting_effect)
+		cut_overlay(old_area.lighting_effect)
+	if(new_area.lighting_effect)
+		add_overlay(new_area.lighting_effect)
 
 /turf/proc/generate_missing_corners()
 	if (!lighting_corner_NE)

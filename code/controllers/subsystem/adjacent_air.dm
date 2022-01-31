@@ -20,17 +20,19 @@ SUBSYSTEM_DEF(adjacent_air)
 	return ..()
 
 /datum/controller/subsystem/adjacent_air/fire(resumed = FALSE, mc_check = TRUE)
-	if(SSair.thread_running())
-		pause()
-		return
 
 	var/list/queue = src.queue
 
 	while (length(queue))
 		var/turf/currT = queue[1]
+		var/goal = queue[currT]
 		queue.Cut(1,2)
 
-		currT.ImmediateCalculateAdjacentTurfs()
+		currT.immediate_calculate_adjacent_turfs()
+		if(goal == MAKE_ACTIVE)
+			SSair.add_to_active(currT)
+		else if(goal == KILL_EXCITED)
+			SSair.add_to_active(currT, TRUE)
 
 		if(mc_check)
 			if(MC_TICK_CHECK)

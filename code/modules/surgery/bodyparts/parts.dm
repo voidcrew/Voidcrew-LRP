@@ -10,12 +10,12 @@
 	px_y = 0
 	stam_damage_coeff = 1
 	max_stamina_damage = 120
-	is_dimorphic = TRUE
+	grind_results = null
+	wound_resistance = 10
 	var/obj/item/cavity_item
-	var/acceptable_bodytype = BODYTYPE_HUMANOID
 
-/obj/item/bodypart/chest/can_dismember()
-	if(owner?.stat <= HARD_CRIT)
+/obj/item/bodypart/chest/can_dismember(obj/item/item)
+	if(owner.stat < HARD_CRIT || !get_organs())
 		return FALSE
 	return ..()
 
@@ -32,8 +32,9 @@
 /obj/item/bodypart/chest/monkey
 	icon = 'icons/mob/animal_parts.dmi'
 	icon_state = "default_monkey_chest"
-	limb_id = SPECIES_MONKEY
 	animal_origin = MONKEY_BODYPART
+	part_origin = MONKEY_BODY
+	wound_resistance = -10
 
 /obj/item/bodypart/chest/alien
 	icon = 'icons/mob/animal_parts.dmi'
@@ -41,11 +42,7 @@
 	dismemberable = 0
 	max_damage = 500
 	animal_origin = ALIEN_BODYPART
-
-/obj/item/bodypart/chest/devil
-	dismemberable = 0
-	max_damage = 5000
-	animal_origin = DEVIL_BODYPART
+	part_origin = ALIEN_BODY
 
 /obj/item/bodypart/chest/larva
 	icon = 'icons/mob/animal_parts.dmi'
@@ -53,6 +50,7 @@
 	dismemberable = 0
 	max_damage = 50
 	animal_origin = LARVA_BODYPART
+	part_origin = LARVA_BODY
 
 /obj/item/bodypart/l_arm
 	name = "left arm"
@@ -61,7 +59,8 @@
 		be possessed by the devil? This arm appears to be possessed by no \
 		one though."
 	icon_state = "default_human_l_arm"
-	attack_verb = list("slaps", "punches")
+	attack_verb_continuous = list("slaps", "punches")
+	attack_verb_simple = list("slap", "punch")
 	max_damage = 50
 	max_stamina_damage = 50
 	body_zone = BODY_ZONE_L_ARM
@@ -79,7 +78,6 @@
 	. = ..()
 	if(. == FALSE)
 		return
-	var/mob/living/carbon/owner = null
 	if(owner)
 		if(HAS_TRAIT(owner, TRAIT_PARALYSIS_L_ARM))
 			ADD_TRAIT(src, TRAIT_PARALYSIS, TRAIT_PARALYSIS_L_ARM)
@@ -122,7 +120,7 @@
 		if(bodypart_disabled)
 			owner.set_usable_hands(owner.usable_hands - 1)
 			if(owner.stat < UNCONSCIOUS)
-				to_chat(owner, "<span class='userdanger'>Your lose control of your [name]!</span>")
+				to_chat(owner, span_userdanger("Your lose control of your [name]!"))
 			if(held_index)
 				owner.dropItemToGround(owner.get_item_for_held_index(held_index))
 	else if(!bodypart_disabled)
@@ -130,14 +128,15 @@
 
 	if(owner.hud_used)
 		var/atom/movable/screen/inventory/hand/hand_screen_object = owner.hud_used.hand_slots["[held_index]"]
-		hand_screen_object?.update_icon()
+		hand_screen_object?.update_appearance()
 
 
 /obj/item/bodypart/l_arm/monkey
 	icon = 'icons/mob/animal_parts.dmi'
 	icon_state = "default_monkey_l_arm"
-	limb_id = SPECIES_MONKEY
 	animal_origin = MONKEY_BODYPART
+	part_origin = MONKEY_BODY
+	wound_resistance = -10
 	px_x = -5
 	px_y = -3
 
@@ -150,19 +149,15 @@
 	can_be_disabled = FALSE
 	max_damage = 100
 	animal_origin = ALIEN_BODYPART
-
-/obj/item/bodypart/l_arm/devil
-	dismemberable = FALSE
-	can_be_disabled = FALSE
-	max_damage = 5000
-	animal_origin = DEVIL_BODYPART
+	part_origin = ALIEN_BODY
 
 /obj/item/bodypart/r_arm
 	name = "right arm"
 	desc = "Over 87% of humans are right handed. That figure is much lower \
 		among humans missing their right arm."
 	icon_state = "default_human_r_arm"
-	attack_verb = list("slaps", "punches")
+	attack_verb_continuous = list("slaps", "punches")
+	attack_verb_simple = list("slap", "punch")
 	max_damage = 50
 	body_zone = BODY_ZONE_R_ARM
 	body_part = ARM_RIGHT
@@ -180,7 +175,6 @@
 	. = ..()
 	if(. == FALSE)
 		return
-	var/mob/living/carbon/owner = null
 	if(owner)
 		if(HAS_TRAIT(owner, TRAIT_PARALYSIS_R_ARM))
 			ADD_TRAIT(src, TRAIT_PARALYSIS, TRAIT_PARALYSIS_R_ARM)
@@ -223,7 +217,7 @@
 		if(bodypart_disabled)
 			owner.set_usable_hands(owner.usable_hands - 1)
 			if(owner.stat < UNCONSCIOUS)
-				to_chat(owner, "<span class='userdanger'>Your lose control of your [name]!</span>")
+				to_chat(owner, span_userdanger("Your lose control of your [name]!"))
 			if(held_index)
 				owner.dropItemToGround(owner.get_item_for_held_index(held_index))
 	else if(!bodypart_disabled)
@@ -231,14 +225,15 @@
 
 	if(owner.hud_used)
 		var/atom/movable/screen/inventory/hand/hand_screen_object = owner.hud_used.hand_slots["[held_index]"]
-		hand_screen_object?.update_icon()
+		hand_screen_object?.update_appearance()
 
 
 /obj/item/bodypart/r_arm/monkey
 	icon = 'icons/mob/animal_parts.dmi'
 	icon_state = "default_monkey_r_arm"
-	limb_id = SPECIES_MONKEY
 	animal_origin = MONKEY_BODYPART
+	part_origin = MONKEY_BODY
+	wound_resistance = -10
 	px_x = 5
 	px_y = -3
 
@@ -251,19 +246,16 @@
 	can_be_disabled = FALSE
 	max_damage = 100
 	animal_origin = ALIEN_BODYPART
+	part_origin = ALIEN_BODY
 
-/obj/item/bodypart/r_arm/devil
-	dismemberable = FALSE
-	can_be_disabled = FALSE
-	max_damage = 5000
-	animal_origin = DEVIL_BODYPART
 
 /obj/item/bodypart/l_leg
 	name = "left leg"
 	desc = "Some athletes prefer to tie their left shoelaces first for good \
 		luck. In this instance, it probably would not have helped."
 	icon_state = "default_human_l_leg"
-	attack_verb = list("kicks", "stomps")
+	attack_verb_continuous = list("kicks", "stomps")
+	attack_verb_simple = list("kick", "stomp")
 	max_damage = 50
 	body_zone = BODY_ZONE_L_LEG
 	body_part = LEG_LEFT
@@ -320,16 +312,21 @@
 		if(bodypart_disabled)
 			owner.set_usable_legs(owner.usable_legs - 1)
 			if(owner.stat < UNCONSCIOUS)
-				to_chat(owner, "<span class='userdanger'>Your lose control of your [name]!</span>")
+				to_chat(owner, span_userdanger("Your lose control of your [name]!"))
 	else if(!bodypart_disabled)
 		owner.set_usable_legs(owner.usable_legs + 1)
 
 
+/obj/item/bodypart/l_leg/digitigrade
+	name = "left digitigrade leg"
+	use_digitigrade = FULL_DIGITIGRADE
+
 /obj/item/bodypart/l_leg/monkey
 	icon = 'icons/mob/animal_parts.dmi'
 	icon_state = "default_monkey_l_leg"
-	limb_id = SPECIES_MONKEY
 	animal_origin = MONKEY_BODYPART
+	part_origin = MONKEY_BODY
+	wound_resistance = -10
 	px_y = 4
 
 /obj/item/bodypart/l_leg/alien
@@ -341,12 +338,7 @@
 	can_be_disabled = FALSE
 	max_damage = 100
 	animal_origin = ALIEN_BODYPART
-
-/obj/item/bodypart/l_leg/devil
-	dismemberable = FALSE
-	can_be_disabled = FALSE
-	max_damage = 5000
-	animal_origin = DEVIL_BODYPART
+	part_origin = ALIEN_BODY
 
 /obj/item/bodypart/r_leg
 	name = "right leg"
@@ -355,7 +347,8 @@
 		The hokey pokey has certainly changed a lot since space colonisation."
 	// alternative spellings of 'pokey' are available
 	icon_state = "default_human_r_leg"
-	attack_verb = list("kicks", "stomps")
+	attack_verb_continuous = list("kicks", "stomps")
+	attack_verb_simple = list("kick", "stomp")
 	max_damage = 50
 	body_zone = BODY_ZONE_R_LEG
 	body_part = LEG_RIGHT
@@ -412,16 +405,21 @@
 		if(bodypart_disabled)
 			owner.set_usable_legs(owner.usable_legs - 1)
 			if(owner.stat < UNCONSCIOUS)
-				to_chat(owner, "<span class='userdanger'>Your lose control of your [name]!</span>")
+				to_chat(owner, span_userdanger("Your lose control of your [name]!"))
 	else if(!bodypart_disabled)
 		owner.set_usable_legs(owner.usable_legs + 1)
 
 
+/obj/item/bodypart/r_leg/digitigrade
+	name = "right digitigrade leg"
+	use_digitigrade = FULL_DIGITIGRADE
+
 /obj/item/bodypart/r_leg/monkey
 	icon = 'icons/mob/animal_parts.dmi'
 	icon_state = "default_monkey_r_leg"
-	limb_id = SPECIES_MONKEY
 	animal_origin = MONKEY_BODYPART
+	part_origin = MONKEY_BODY
+	wound_resistance = -10
 	px_y = 4
 
 /obj/item/bodypart/r_leg/alien
@@ -433,9 +431,4 @@
 	can_be_disabled = FALSE
 	max_damage = 100
 	animal_origin = ALIEN_BODYPART
-
-/obj/item/bodypart/r_leg/devil
-	dismemberable = FALSE
-	can_be_disabled = FALSE
-	max_damage = 5000
-	animal_origin = DEVIL_BODYPART
+	part_origin = ALIEN_BODY

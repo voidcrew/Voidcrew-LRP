@@ -1,103 +1,69 @@
 /datum/job/roboticist
-	title = "Roboticist"
-	department_head = list("Research Director")
-	faction = "Station"
+	title = JOB_ROBOTICIST
+	description = "Build and repair the AI and cyborgs, create mechs."
+	department_head = list(JOB_RESEARCH_DIRECTOR)
+	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the research director"
 	selection_color = "#ffeeff"
 	exp_requirements = 60
-	exp_type = EXP_TYPE_CREW
-	wiki_page = "Guide_to_Robotics" //WS Edit - Wikilinks/Warning
+	exp_required_type = EXP_TYPE_CREW
+	exp_granted_type = EXP_TYPE_CREW
+	bounty_types = CIV_JOB_ROBO
 
 	outfit = /datum/outfit/job/roboticist
+	plasmaman_outfit = /datum/outfit/plasmaman/robotics
+	departments_list = list(
+		/datum/job_department/science,
+		)
 
-	access = list(ACCESS_ROBOTICS, ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_TECH_STORAGE, ACCESS_MORGUE, ACCESS_MECH_SCIENCE, ACCESS_RESEARCH, ACCESS_MINERAL_STOREROOM, ACCESS_XENOBIOLOGY) //WS edit - Gen/Sci Split
-	minimal_access = list(ACCESS_ROBOTICS, ACCESS_TECH_STORAGE, ACCESS_MORGUE, ACCESS_RESEARCH, ACCESS_MECH_SCIENCE, ACCESS_MINERAL_STOREROOM)
 	paycheck = PAYCHECK_MEDIUM
 	paycheck_department = ACCOUNT_SCI
 
 	display_order = JOB_DISPLAY_ORDER_ROBOTICIST
 
+	mail_goodies = list(
+		/obj/item/storage/box/flashes = 20,
+		/obj/item/stack/sheet/iron/twenty = 15,
+		/obj/item/modular_computer/tablet/preset/advanced = 5
+	)
+
+	family_heirlooms = list(/obj/item/toy/plush/pkplush)
+	rpg_title = "Necromancer"
+	job_type_flags = JOB_STATION_JOB
+	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS
+
+
+/datum/job/roboticist/New()
+	. = ..()
+	family_heirlooms += subtypesof(/obj/item/toy/mecha)
+
 /datum/outfit/job/roboticist
 	name = "Roboticist"
 	jobtype = /datum/job/roboticist
 
-	belt = /obj/item/storage/belt/utility/full
-	l_pocket = /obj/item/pda/roboticist
-	ears = /obj/item/radio/headset/headset_sci
+	id_trim = /datum/id_trim/job/roboticist
 	uniform = /obj/item/clothing/under/rank/rnd/roboticist
-	alt_uniform = /obj/item/clothing/under/rank/rnd/scientist //WS Edit - Alt Uniforms
-	suit = /obj/item/clothing/suit/toggle/labcoat
-	alt_suit = /obj/item/clothing/suit/toggle/suspenders/gray
-	dcoat = /obj/item/clothing/suit/hooded/wintercoat/science //WS Edit - Alt Uniforms
+	suit = /obj/item/clothing/suit/toggle/labcoat/roboticist
+	backpack_contents = list(
+		/obj/item/modular_computer/tablet/preset/science = 1,
+		)
+	belt = /obj/item/storage/belt/utility/full
+	ears = /obj/item/radio/headset/headset_sci
+	l_pocket = /obj/item/pda/roboticist
 
 	backpack = /obj/item/storage/backpack/science
-	satchel = /obj/item/storage/backpack/satchel/tox
-	courierbag = /obj/item/storage/backpack/messenger/tox
+	satchel = /obj/item/storage/backpack/satchel/science
+	duffelbag = /obj/item/storage/backpack/duffelbag/science
 
 	pda_slot = ITEM_SLOT_LPOCKET
+	skillchips = list(/obj/item/skillchip/job/roboticist)
 
-//Alt jobs
-
-/datum/outfit/job/roboticist/biomechanicalengineer
-	name = "Roboticist (Biomechanical Engineer)"
-
-	uniform = /obj/item/clothing/under/rank/rnd/roboticist/biomech_engineer
-	alt_uniform = null
+/datum/outfit/job/roboticist/mod
+	name = "Roboticist (MODsuit)"
+	suit_store = /obj/item/tank/internals/oxygen
+	back = /obj/item/mod/control/pre_equipped/standard
 	suit = null
-	alt_suit = null
-
-	pda_slot = ITEM_SLOT_LPOCKET
-
-/datum/outfit/job/roboticist/mechatronicengineer
-	name = "Roboticist (Mechatronic Engineer)"
-
-	uniform = /obj/item/clothing/under/rank/rnd/roboticist/mech_engineer
-	alt_uniform = null
-	suit = /obj/item/clothing/suit/toggle/labcoat
-	alt_suit = null
-	dcoat = /obj/item/clothing/suit/hooded/wintercoat/science
-
-/datum/outfit/job/roboticist/engineer
-	name = "Roboticist (Engine Technician)"
-
-	belt = /obj/item/storage/belt/utility/full/engi
-	l_pocket = /obj/item/pda/toxins
-	alt_uniform = /obj/item/clothing/under/rank/rnd/roboticist/mech_engineer
-	suit = /obj/item/clothing/suit/toggle/hazard
-	alt_suit = /obj/item/clothing/suit/toggle/labcoat/science
-	shoes = /obj/item/clothing/shoes/workboots
-	head = /obj/item/clothing/head/hardhat
-	r_pocket = /obj/item/t_scanner
-
-	box = /obj/item/storage/box/survival/engineer
-
-/datum/outfit/job/roboticist/seniorroboticist
-	name = "Roboticist (Senior Roboticist)"
-
-	uniform = /obj/item/clothing/under/suit/senior_roboticist
-	alt_uniform = null
-	shoes = /obj/item/clothing/shoes/laceup
-	suit = null
-	alt_suit = /obj/item/clothing/suit/toggle/labcoat
-	dcoat = null
-	neck = /obj/item/clothing/neck/tie/black
-
-	backpack_contents = list(/obj/item/storage/belt/utility/full=1)
-
-//Shiptest Outfits
-
-/datum/outfit/job/roboticist/technician
-	name = "Mech Technician (Industrial)"
-	uniform = /obj/item/clothing/under/rank/rnd/roboticist/mech_engineer
-	alt_uniform = null
-	shoes = /obj/item/clothing/shoes/workboots
-	suit = /obj/item/clothing/suit/apron/overalls
-	alt_suit = /obj/item/clothing/suit/hazardvest
-	ears = /obj/item/radio/headset/headset_rob
-
-	backpack = /obj/item/storage/backpack/industrial
-	satchel = /obj/item/storage/backpack/satchel/eng
-	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
-	courierbag = /obj/item/storage/backpack/messenger/engi
+	mask = /obj/item/clothing/mask/breath
+	internals_slot = ITEM_SLOT_SUITSTORE

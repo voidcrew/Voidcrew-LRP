@@ -15,46 +15,69 @@
 //#define REFERENCE_TRACKING
 #ifdef REFERENCE_TRACKING
 
+///Used for doing dry runs of the reference finder, to test for feature completeness
+///Slightly slower, higher in memory. Just not optimal
+//#define REFERENCE_TRACKING_DEBUG
+
 ///Run a lookup on things hard deleting by default.
 //#define GC_FAILURE_HARD_LOOKUP
 #ifdef GC_FAILURE_HARD_LOOKUP
+///Don't stop when searching, go till you're totally done
 #define FIND_REF_NO_CHECK_TICK
 #endif //ifdef GC_FAILURE_HARD_LOOKUP
 
 #endif //ifdef REFERENCE_TRACKING
 
-//#define VISUALIZE_ACTIVE_TURFS //Highlights atmos active turfs in green
+/*
+* Enables debug messages for every single reaction step. This is 1 message per 0.5s for a SINGLE reaction. Useful for tracking down bugs/asking me for help in the main reaction handiler (equilibrium.dm).
+*
+* * Requires TESTING to be defined to work.
+*/
+//#define REAGENTS_TESTING
+
+#define VISUALIZE_ACTIVE_TURFS //Highlights atmos active turfs in green
+#define TRACK_MAX_SHARE //Allows max share tracking, for use in the atmos debugging ui
 #endif //ifdef TESTING
 
-//#define UNIT_TESTS //Enables unit tests via TEST_RUN_PARAMETER
+/// If this is uncommented, we set up the ref tracker to be used in a live environment
+/// And to log events to [log_dir]/harddels.log
+//#define REFERENCE_DOING_IT_LIVE
+#ifdef REFERENCE_DOING_IT_LIVE
+// compile the backend
+#define REFERENCE_TRACKING
+// actually look for refs
+#define GC_FAILURE_HARD_LOOKUP
+#endif // REFERENCE_DOING_IT_LIVE
 
-#ifndef PRELOAD_RSC				//set to:
-#define PRELOAD_RSC 2			//	0 to allow using external resources or on-demand behaviour;
-#endif							//	1 to use the default behaviour;
-								//	2 for preloading absolutely everything;
+//#define UNIT_TESTS //If this is uncommented, we do a single run though of the game setup and tear down process with unit tests in between
+
+/// If this is uncommented, Autowiki will generate edits and shut down the server.
+/// Prefer the autowiki build target instead.
+// #define AUTOWIKI
+
+#ifndef PRELOAD_RSC //set to:
+#define PRELOAD_RSC 2 // 0 to allow using external resources or on-demand behaviour;
+#endif // 1 to use the default behaviour;
+								// 2 for preloading absolutely everything;
 
 #ifdef LOWMEMORYMODE
-#define FORCE_MAP "_maps/runtimestation.json"
+#define FORCE_MAP "runtimestation"
+#define FORCE_MAP_DIRECTORY "_maps"
 #endif
 
 //Update this whenever you need to take advantage of more recent byond features
-#define MIN_COMPILER_VERSION 513
-#define MIN_COMPILER_BUILD 1514
-#if DM_VERSION < MIN_COMPILER_VERSION || DM_BUILD < MIN_COMPILER_BUILD
+#define MIN_COMPILER_VERSION 514
+#define MIN_COMPILER_BUILD 1556
+#if (DM_VERSION < MIN_COMPILER_VERSION || DM_BUILD < MIN_COMPILER_BUILD) && !defined(SPACEMAN_DMM)
 //Don't forget to update this part
 #error Your version of BYOND is too out-of-date to compile this project. Go to https://secure.byond.com/download and update.
-#error You need version 513.1514 or higher
+#error You need version 514.1556 or higher
 #endif
 
-//Update this whenever the byond version is stable so people stop updating to hilariously broken versions
-#define MAX_COMPILER_VERSION 514
-#define MAX_COMPILER_BUILD 1571
-#if DM_VERSION > MAX_COMPILER_VERSION || DM_BUILD > MAX_COMPILER_BUILD
-#warn WARNING: Your BYOND version is over the recommended version (514.1571)! Stability is not guaranteed.
-#endif
-//Log the full sendmaps profile on 514.1556+, any earlier and we get bugs or it not existing
-#if DM_VERSION >= 514 && DM_BUILD >= 1556
-#define SENDMAPS_PROFILE
+#if (DM_VERSION == 514 && DM_BUILD > 1575 && DM_BUILD <= 1577)
+#error Your version of BYOND currently has a crashing issue that will prevent you from running Dream Daemon test servers.
+#error We require developers to test their content, so an inability to test means we cannot allow the compile.
+#error Please consider downgrading to 514.1575 or lower.
 #endif
 
 //Additional code for the above flags.
@@ -70,18 +93,25 @@
 #define TESTING
 #endif
 
+#if defined(UNIT_TESTS)
+//Hard del testing defines
+#define REFERENCE_TRACKING
+#define REFERENCE_TRACKING_DEBUG
+#define FIND_REF_NO_CHECK_TICK
+#define GC_FAILURE_HARD_LOOKUP
+#endif
+
+#ifdef TGS
+// TGS performs its own build of dm.exe, but includes a prepended TGS define.
+#define CBT
+#endif
+
 // A reasonable number of maximum overlays an object needs
 // If you think you need more, rethink it
 #define MAX_ATOM_OVERLAYS 100
 
-#define AUXMOS (world.system_type == MS_WINDOWS ? "auxtools/auxmos.dll" : __detect_auxmos())
-
-/proc/__detect_auxmos()
-	if (fexists("./libauxmos.so"))
-		return "./libauxmos.so"
-	else if (fexists("./auxtools/libauxmos.so"))
-		return "./auxtools/libauxmos.so"
-	else if (fexists("[world.GetConfig("env", "HOME")]/.byond/bin/libauxmos.so"))
-		return "[world.GetConfig("env", "HOME")]/.byond/bin/libauxmos.so"
-	else
-		CRASH("Could not find libauxmos.so")
+#if !defined(CBT) && !defined(SPACEMAN_DMM)
+#warn Building with Dream Maker is no longer supported and will result in errors.
+#warn In order to build, run BUILD.bat in the root directory.
+#warn Consider switching to VSCode editor instead, where you can press Ctrl+Shift+B to build.
+#endif

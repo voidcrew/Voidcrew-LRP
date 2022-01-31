@@ -1,18 +1,13 @@
 ---
 name: Bug report
-about: Create a report to help reproduce and fix an issue
-title: "[BUG]"
-labels: Bug
-assignees: ''
-
+about: Create a report to help reproduce and fix the issue
 ---
-
 <!-- Write **BELOW** The Headers and **ABOVE** The comments else it may not be viewable -->
 ## Round ID:
 
 <!--- **INCLUDE THE ROUND ID**
 If you discovered this issue from playing tgstation hosted servers:
-[Round ID]: # (It can be found in the Status panel or retrieved from https://atlantaned.space/statbus/round.php ! The round id let's us look up valuable information and logs for the round the bug happened.)-->
+[Round ID]: # (It can be found in the Status panel or retrieved from https://sb.atlantaned.space/rounds ! The round id let's us look up valuable information and logs for the round the bug happened.)-->
 
 ## Testmerges:
 

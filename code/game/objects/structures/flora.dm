@@ -1,17 +1,7 @@
 /obj/structure/flora
 	resistance_flags = FLAMMABLE
-	max_integrity = 40
+	max_integrity = 150
 	anchored = TRUE
-
-/obj/structure/flora/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
-	switch(damage_type)
-		if(BRUTE)
-			if(damage_amount)
-				playsound(src, 'sound/weapons/slash.ogg', 50, TRUE)
-			else
-				playsound(src, 'sound/weapons/fwoosh.ogg', 50, TRUE)
-		if(BURN)
-			playsound(src.loc, 'sound/items/welder.ogg', 100, TRUE)
 
 //trees
 /obj/structure/flora/tree
@@ -27,9 +17,9 @@
 		if(W.get_sharpness() && W.force > 0)
 			if(W.hitsound)
 				playsound(get_turf(src), W.hitsound, 100, FALSE, FALSE)
-			user.visible_message("<span class='notice'>[user] begins to cut down [src] with [W].</span>","<span class='notice'>You begin to cut down [src] with [W].</span>", "<span class='hear'>You hear the sound of sawing.</span>")
+			user.visible_message(span_notice("[user] begins to cut down [src] with [W]."),span_notice("You begin to cut down [src] with [W]."), span_hear("You hear the sound of sawing."))
 			if(do_after(user, 1000/W.force, target = src)) //5 seconds with 20 force, 8 seconds with a hatchet, 20 seconds with a shard.
-				user.visible_message("<span class='notice'>[user] fells [src] with the [W].</span>","<span class='notice'>You fell [src] with the [W].</span>", "<span class='hear'>You hear the sound of a tree falling.</span>")
+				user.visible_message(span_notice("[user] fells [src] with the [W]."),span_notice("You fell [src] with the [W]."), span_hear("You hear the sound of a tree falling."))
 				playsound(get_turf(src), 'sound/effects/meteorimpact.ogg', 100 , FALSE, FALSE)
 				user.log_message("cut down [src] at [AREACOORD(src)]", LOG_ATTACK)
 				for(var/i=1 to log_amount)
@@ -55,10 +45,10 @@
 	icon_state = "pine_1"
 	var/list/icon_states = list("pine_1", "pine_2", "pine_3")
 
-/obj/structure/flora/tree/pine/Initialize()
+/obj/structure/flora/tree/pine/Initialize(mapload)
 	. = ..()
 
-	if(islist(icon_states && icon_states.len))
+	if(islist(icon_states?.len))
 		icon_state = pick(icon_states)
 
 /obj/structure/flora/tree/pine/xmas
@@ -75,12 +65,12 @@
 	var/unlimited = FALSE
 	var/static/list/took_presents //shared between all xmas trees
 
-/obj/structure/flora/tree/pine/xmas/presents/Initialize()
+/obj/structure/flora/tree/pine/xmas/presents/Initialize(mapload)
 	. = ..()
 	if(!took_presents)
 		took_presents = list()
 
-/obj/structure/flora/tree/pine/xmas/presents/attack_hand(mob/living/user)
+/obj/structure/flora/tree/pine/xmas/presents/attack_hand(mob/living/user, list/modifiers)
 	. = ..()
 	if(.)
 		return
@@ -88,9 +78,9 @@
 		return
 
 	if(took_presents[user.ckey] && !unlimited)
-		to_chat(user, "<span class='warning'>There are no presents with your name on.</span>")
+		to_chat(user, span_warning("There are no presents with your name on."))
 		return
-	to_chat(user, "<span class='warning'>After a bit of rummaging, you locate a gift with your name on it!</span>")
+	to_chat(user, span_warning("After a bit of rummaging, you locate a gift with your name on it!"))
 
 	if(!unlimited)
 		took_presents[user.ckey] = TRUE
@@ -112,7 +102,7 @@
 	desc = "A tree straight from the tropics."
 	icon_state = "palm1"
 
-/obj/structure/flora/tree/palm/Initialize()
+/obj/structure/flora/tree/palm/Initialize(mapload)
 	. = ..()
 	icon_state = pick("palm1","palm2")
 	pixel_x = 0
@@ -129,23 +119,21 @@
 	icon_state = "anchored_rod"
 	anchored = TRUE
 
-/obj/structure/flora/tree/dead/Initialize()
+/obj/structure/flora/tree/dead/Initialize(mapload)
 	icon_state = "tree_[rand(1, 6)]"
 	. = ..()
 
 /obj/structure/flora/tree/jungle
 	name = "tree"
-	icon = 'icons/obj/flora/jungletrees.dmi'
 	icon_state = "tree"
 	desc = "It's seriously hampering your view of the jungle."
-	var/randomize_icon = TRUE
+	icon = 'icons/obj/flora/jungletrees.dmi'
 	pixel_x = -48
 	pixel_y = -20
 
-/obj/structure/flora/tree/jungle/Initialize()
+/obj/structure/flora/tree/jungle/Initialize(mapload)
+	icon_state = "[icon_state][rand(1, 6)]"
 	. = ..()
-	if(randomize_icon) //prevents varedited trees changing
-		icon_state = "[icon_state][rand(1, 10)]"
 
 /obj/structure/flora/tree/jungle/small
 	pixel_y = 0
@@ -157,12 +145,12 @@
 	name = "grass"
 	desc = "A patch of overgrown grass."
 	icon = 'icons/obj/flora/snowflora.dmi'
-	gender = PLURAL	//"this is grass" not "this is a grass"
+	gender = PLURAL //"this is grass" not "this is a grass"
 
 /obj/structure/flora/grass/brown
 	icon_state = "snowgrass1bb"
 
-/obj/structure/flora/grass/brown/Initialize()
+/obj/structure/flora/grass/brown/Initialize(mapload)
 	icon_state = "snowgrass[rand(1, 3)]bb"
 	. = ..()
 
@@ -170,14 +158,14 @@
 /obj/structure/flora/grass/green
 	icon_state = "snowgrass1gb"
 
-/obj/structure/flora/grass/green/Initialize()
+/obj/structure/flora/grass/green/Initialize(mapload)
 	icon_state = "snowgrass[rand(1, 3)]gb"
 	. = ..()
 
 /obj/structure/flora/grass/both
 	icon_state = "snowgrassall1"
 
-/obj/structure/flora/grass/both/Initialize()
+/obj/structure/flora/grass/both/Initialize(mapload)
 	icon_state = "snowgrassall[rand(1, 3)]"
 	. = ..()
 
@@ -190,7 +178,7 @@
 	icon_state = "snowbush1"
 	anchored = TRUE
 
-/obj/structure/flora/bush/Initialize()
+/obj/structure/flora/bush/Initialize(mapload)
 	icon_state = "snowbush[rand(1, 6)]"
 	. = ..()
 
@@ -202,7 +190,7 @@
 	icon = 'icons/obj/flora/ausflora.dmi'
 	icon_state = "firstbush_1"
 
-/obj/structure/flora/ausbushes/Initialize()
+/obj/structure/flora/ausbushes/Initialize(mapload)
 	if(icon_state == "firstbush_1")
 		icon_state = "firstbush_[rand(1, 4)]"
 	. = ..()
@@ -210,105 +198,105 @@
 /obj/structure/flora/ausbushes/reedbush
 	icon_state = "reedbush_1"
 
-/obj/structure/flora/ausbushes/reedbush/Initialize()
+/obj/structure/flora/ausbushes/reedbush/Initialize(mapload)
 	icon_state = "reedbush_[rand(1, 4)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/leafybush
 	icon_state = "leafybush_1"
 
-/obj/structure/flora/ausbushes/leafybush/Initialize()
+/obj/structure/flora/ausbushes/leafybush/Initialize(mapload)
 	icon_state = "leafybush_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/palebush
 	icon_state = "palebush_1"
 
-/obj/structure/flora/ausbushes/palebush/Initialize()
+/obj/structure/flora/ausbushes/palebush/Initialize(mapload)
 	icon_state = "palebush_[rand(1, 4)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/stalkybush
 	icon_state = "stalkybush_1"
 
-/obj/structure/flora/ausbushes/stalkybush/Initialize()
+/obj/structure/flora/ausbushes/stalkybush/Initialize(mapload)
 	icon_state = "stalkybush_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/grassybush
 	icon_state = "grassybush_1"
 
-/obj/structure/flora/ausbushes/grassybush/Initialize()
+/obj/structure/flora/ausbushes/grassybush/Initialize(mapload)
 	icon_state = "grassybush_[rand(1, 4)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/fernybush
 	icon_state = "fernybush_1"
 
-/obj/structure/flora/ausbushes/fernybush/Initialize()
+/obj/structure/flora/ausbushes/fernybush/Initialize(mapload)
 	icon_state = "fernybush_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/sunnybush
 	icon_state = "sunnybush_1"
 
-/obj/structure/flora/ausbushes/sunnybush/Initialize()
+/obj/structure/flora/ausbushes/sunnybush/Initialize(mapload)
 	icon_state = "sunnybush_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/genericbush
 	icon_state = "genericbush_1"
 
-/obj/structure/flora/ausbushes/genericbush/Initialize()
+/obj/structure/flora/ausbushes/genericbush/Initialize(mapload)
 	icon_state = "genericbush_[rand(1, 4)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/pointybush
 	icon_state = "pointybush_1"
 
-/obj/structure/flora/ausbushes/pointybush/Initialize()
+/obj/structure/flora/ausbushes/pointybush/Initialize(mapload)
 	icon_state = "pointybush_[rand(1, 4)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/lavendergrass
 	icon_state = "lavendergrass_1"
 
-/obj/structure/flora/ausbushes/lavendergrass/Initialize()
+/obj/structure/flora/ausbushes/lavendergrass/Initialize(mapload)
 	icon_state = "lavendergrass_[rand(1, 4)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/ywflowers
 	icon_state = "ywflowers_1"
 
-/obj/structure/flora/ausbushes/ywflowers/Initialize()
+/obj/structure/flora/ausbushes/ywflowers/Initialize(mapload)
 	icon_state = "ywflowers_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/brflowers
 	icon_state = "brflowers_1"
 
-/obj/structure/flora/ausbushes/brflowers/Initialize()
+/obj/structure/flora/ausbushes/brflowers/Initialize(mapload)
 	icon_state = "brflowers_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/ppflowers
 	icon_state = "ppflowers_1"
 
-/obj/structure/flora/ausbushes/ppflowers/Initialize()
+/obj/structure/flora/ausbushes/ppflowers/Initialize(mapload)
 	icon_state = "ppflowers_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/sparsegrass
 	icon_state = "sparsegrass_1"
 
-/obj/structure/flora/ausbushes/sparsegrass/Initialize()
+/obj/structure/flora/ausbushes/sparsegrass/Initialize(mapload)
 	icon_state = "sparsegrass_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/fullgrass
 	icon_state = "fullgrass_1"
 
-/obj/structure/flora/ausbushes/fullgrass/Initialize()
+/obj/structure/flora/ausbushes/fullgrass/Initialize(mapload)
 	icon_state = "fullgrass_[rand(1, 3)]"
 	. = ..()
 
@@ -323,41 +311,62 @@
 	throwforce = 13
 	throw_speed = 2
 	throw_range = 4
+	item_flags = NO_PIXEL_RANDOM_DROP
+
+	/// Can this plant be trimmed by someone with TRAIT_BONSAI
+	var/trimmable = TRUE
+	var/list/static/random_plant_states
 
 /obj/item/kirbyplants/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/tactical)
-	addtimer(CALLBACK(src, /datum.proc/_AddComponent, list(/datum/component/beauty, 500)), 0)
 	AddComponent(/datum/component/two_handed, require_twohands=TRUE, force_unwielded=10, force_wielded=10)
+	AddElement(/datum/element/beauty, 500)
+
+/obj/item/kirbyplants/attackby(obj/item/I, mob/living/user, params)
+	. = ..()
+	if(trimmable && HAS_TRAIT(user,TRAIT_BONSAI) && isturf(loc) && I.get_sharpness())
+		to_chat(user,span_notice("You start trimming [src]."))
+		if(do_after(user,3 SECONDS,target=src))
+			to_chat(user,span_notice("You finish trimming [src]."))
+			change_visual()
+
+/// Cycle basic plant visuals
+/obj/item/kirbyplants/proc/change_visual()
+	if(!random_plant_states)
+		generate_states()
+	var/current = random_plant_states.Find(icon_state)
+	var/next = WRAP(current+1,1,length(random_plant_states))
+	icon_state = random_plant_states[next]
 
 /obj/item/kirbyplants/random
 	icon = 'icons/obj/flora/_flora.dmi'
 	icon_state = "random_plant"
-	var/list/static/states
 
-/obj/item/kirbyplants/random/Initialize()
+/obj/item/kirbyplants/random/Initialize(mapload)
 	. = ..()
 	icon = 'icons/obj/flora/plants.dmi'
-	if(!states)
+	if(!random_plant_states)
 		generate_states()
-	icon_state = pick(states)
+	icon_state = pick(random_plant_states)
 
-/obj/item/kirbyplants/random/proc/generate_states()
-	states = list()
+/obj/item/kirbyplants/proc/generate_states()
+	random_plant_states = list()
 	for(var/i in 1 to 25)
 		var/number
 		if(i < 10)
 			number = "0[i]"
 		else
 			number = "[i]"
-		states += "plant-[number]"
-	states += "applebush"
+		random_plant_states += "plant-[number]"
+	random_plant_states += "applebush"
 
 
 /obj/item/kirbyplants/dead
 	name = "RD's potted plant"
 	desc = "A gift from the botanical staff, presented after the RD's reassignment. There's a tag on it that says \"Y'all come back now, y'hear?\"\nIt doesn't look very healthy..."
 	icon_state = "plant-25"
+	trimmable = FALSE
 
 /obj/item/kirbyplants/photosynthetic
 	name = "photosynthetic potted plant"
@@ -371,10 +380,27 @@
 	desc = "A fake, cheap looking, plastic tree. Perfect for people who kill every plant they touch."
 	icon_state = "plant-26"
 	custom_materials = (list(/datum/material/plastic = 8000))
+	trimmable = FALSE
 
-/obj/item/kirbyplants/fullysynthetic/Initialize()
+/obj/item/kirbyplants/fullysynthetic/Initialize(mapload)
 	. = ..()
 	icon_state = "plant-[rand(26, 29)]"
+
+/obj/item/kirbyplants/potty
+	name = "Potty the Potted Plant"
+	desc = "A secret agent staffed in the station's bar to protect the mystical cakehat."
+	icon_state = "potty"
+	trimmable = FALSE
+
+/obj/item/kirbyplants/fern
+	name = "neglected fern"
+	desc = "An old botanical research sample collected on a long forgotten jungle planet."
+	icon_state = "fern"
+	trimmable = FALSE
+
+/obj/item/kirbyplants/fern/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/swabable, CELL_LINE_TABLE_ALGAE, CELL_VIRUS_TABLE_GENERIC, rand(2,4), 5)
 
 //a rock is flora according to where the icon file is
 //and now these defines
@@ -385,34 +411,27 @@
 	icon = 'icons/obj/flora/rocks.dmi'
 	resistance_flags = FIRE_PROOF
 	density = TRUE
-	max_integrity = 100
+	/// Itemstack that is dropped when a rock is mined with a pickaxe
 	var/obj/item/stack/mineResult = /obj/item/stack/ore/glass/basalt
+	/// Amount of the itemstack to drop
+	var/mineAmount = 20
 
-/obj/structure/flora/rock/Initialize()
+/obj/structure/flora/rock/Initialize(mapload)
 	. = ..()
 	icon_state = "[icon_state][rand(1,3)]"
 
 /obj/structure/flora/rock/attackby(obj/item/W, mob/user, params)
-	if(mineResult && (!(flags_1 & NODECONSTRUCT_1)))
-		if(W.tool_behaviour == TOOL_MINING)
-			to_chat(user, "<span class='notice'>You start mining...</span>")
-			if(W.use_tool(src, user, 40, volume=50))
-				to_chat(user, "<span class='notice'>You finish mining the rock.</span>")
-				new mineResult(get_turf(src), 20)
-				SSblackbox.record_feedback("tally", "pick_used_mining", 1, W.type)
-				qdel(src)
-			return
-	return ..()
-
-/obj/structure/flora/rock/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
-	switch(damage_type)
-		if(BRUTE)
-			if(damage_amount)
-				playsound(src, 'sound/effects/hit_stone.ogg', 50, TRUE)
-			else
-				playsound(src, 'sound/weapons/tap.ogg', 50, TRUE)
-		if(BURN)
-			playsound(src.loc, 'sound/items/welder.ogg', 100, TRUE)
+	if(!mineResult || W.tool_behaviour != TOOL_MINING)
+		return ..()
+	if(flags_1 & NODECONSTRUCT_1)
+		return ..()
+	to_chat(user, span_notice("You start mining..."))
+	if(W.use_tool(src, user, 40, volume=50))
+		to_chat(user, span_notice("You finish mining the rock."))
+		if(mineResult && mineAmount)
+			new mineResult(loc, mineAmount)
+		SSblackbox.record_feedback("tally", "pick_used_mining", 1, W.type)
+		qdel(src)
 
 /obj/structure/flora/rock/pile
 	icon_state = "lavarocks"
@@ -427,7 +446,7 @@
 	icon_state = "grassa"
 
 
-/obj/structure/flora/grass/jungle/Initialize()
+/obj/structure/flora/grass/jungle/Initialize(mapload)
 	icon_state = "[icon_state][rand(1, 5)]"
 	. = ..()
 
@@ -442,7 +461,7 @@
 	icon = 'icons/obj/flora/jungleflora.dmi'
 	density = FALSE
 
-/obj/structure/flora/rock/jungle/Initialize()
+/obj/structure/flora/rock/jungle/Initialize(mapload)
 	. = ..()
 	icon_state = "[initial(icon_state)][rand(1,5)]"
 
@@ -455,7 +474,7 @@
 	icon = 'icons/obj/flora/jungleflora.dmi'
 	icon_state = "busha"
 
-/obj/structure/flora/junglebush/Initialize()
+/obj/structure/flora/junglebush/Initialize(mapload)
 	icon_state = "[icon_state][rand(1, 3)]"
 	. = ..()
 
@@ -480,201 +499,6 @@
 	pixel_x = -16
 	pixel_y = -16
 
-/obj/structure/flora/rock/pile/largejungle/Initialize()
+/obj/structure/flora/rock/pile/largejungle/Initialize(mapload)
 	. = ..()
 	icon_state = "[initial(icon_state)][rand(1,3)]"
-
-// Special tree used in chapel ship
-/obj/structure/flora/tree/chapel
-	name = "sacred oak tree"
-	icon = 'icons/obj/flora/chapeltree.dmi'
-	icon_state = "churchtree"
-	desc = "A true earthen oak tree imported directly from the holy soil of earth. It's radiates a spiritual warmth that calms the soul."
-	pixel_x = -16
-	max_integrity = 200
-	bound_height = 64
-	var/karma = 0
-	var/mojorange = 4
-	var/lastcycle = 0
-	// Determines the karma gained/lost when feeding the tree this chem
-	var/list/moralchems = list(
-		/datum/reagent/water = 0.1,
-		/datum/reagent/plantnutriment = 0.2,
-		/datum/reagent/medicine/earthsblood = 1,
-		/datum/reagent/water/holywater = 0.8,
-		/datum/reagent/medicine/cryoxadone = 0.3,
-		/datum/reagent/ammonia = 0.4,
-		/datum/reagent/saltpetre = 0.5,
-		/datum/reagent/ash = 0.2,
-		/datum/reagent/diethylamine = 0.5,
-		/datum/reagent/consumable/nutriment = 0.1,
-		/datum/reagent/consumable/virus_food = 0.1,
-		/datum/reagent/blood = -0.1,
-		/datum/reagent/consumable/ethanol = -0.1,
-		/datum/reagent/toxin = -0.2,
-		/datum/reagent/fluorine = -0.3,
-		/datum/reagent/chlorine = -0.3,
-		/datum/reagent/toxin/acid = -0.3,
-		/datum/reagent/toxin/acid/fluacid = -0.4,
-		/datum/reagent/toxin/plantbgone = -0.5,
-		/datum/reagent/napalm = -0.6,
-		/datum/reagent/hellwater = -1,
-		/datum/reagent/liquidgibs = -0.2,
-		/datum/reagent/consumable/ethanol/demonsblood = -0.8,
-		/datum/reagent/medicine/soulus = -0.2
-	)
-
-/obj/structure/flora/tree/chapel/Initialize()
-	START_PROCESSING(SSobj, src)
-	. = ..()
-
-/obj/structure/flora/tree/chapel/process()
-	if(world.time > (lastcycle + 200))
-		if(abs(karma) > 100)
-			pulseKarma()
-		//Clean up the air a bit
-		if(isopenturf(loc))
-			var/turf/open/T = src.loc
-			if(T.air)
-				var/co2 = T.air.get_moles(GAS_CO2)
-				if(co2 > 0 && prob(50))
-					var/amt = min(co2, 10)
-					T.air.adjust_moles(GAS_CO2, -amt)
-					T.atmos_spawn_air("o2=[amt];TEMP=293.15")
-		lastcycle = world.time
-
-/obj/structure/flora/tree/chapel/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/reagent_containers))
-		var/obj/item/reagent_containers/container = I
-		if(istype(container, /obj/item/reagent_containers/syringe))
-			var/obj/item/reagent_containers/syringe/syr = container
-			if(syr.mode != 1)
-				to_chat(user, "<span class='warning'>You can't get any extract out of this plant.</span>")
-				return
-		if(!container.reagents.total_volume)
-			to_chat(user, "<span class='warning'>[container] is empty!</span>")
-			return 1
-		if(!container.is_drainable())
-			if(container.can_have_cap)
-				to_chat(user, "<span class='warning'>[container] has a cap on!</span>")
-			else
-				to_chat(user, "<span class='warning'>You can't use [container] on [src]!</span>")
-			return 1
-		to_chat(user, "<span class='notice'>You feed [src] [container.amount_per_transfer_from_this]u from [container]...</span>")
-		playsound(loc, 'sound/effects/slosh.ogg', 25, TRUE)
-		var/datum/reagents/R = new /datum/reagents()
-		R.my_atom = src
-		container.reagents.trans_to(R, container.amount_per_transfer_from_this, transfered_by = user)
-		apply_reagents(R, user)
-	else if(I.get_sharpness() && I.force > 0)
-		if(I.hitsound)
-			playsound(get_turf(src), I.hitsound, 100, FALSE, FALSE)
-		user.visible_message("<span class='notice'>[user] begins to cut down [src] with [I].</span>","<span class='notice'>You begin to cut down [src] with [I].</span>", "<span class='hear'>You hear the sound of sawing.</span>")
-		if(do_after(user, 1000/I.force, target = src)) //5 seconds with 20 force, 8 seconds with a hatchet, 20 seconds with a shard.
-			//Regret.dm
-			to_chat(user, "<span class='danger'>As you pierce the bark, a supernatural shock jolts through your body...</span>")
-			user.log_message("attempted to cut down [src] and was smitten")
-			if(iscarbon(user))
-				var/mob/living/carbon/C = user
-				if(C.can_heartattack())
-					C.set_heartattack(TRUE)
-			else if (isliving(user))
-				var/mob/living/L = user
-				L.Immobilize(100, TRUE)
-				L.jitteriness += 50
-				L.adjustToxLoss(66)
-		return 1
-	else ..()
-
-/obj/structure/flora/tree/chapel/proc/apply_reagents(datum/reagents/S, mob/user)
-	var/gainedkarma = 0
-	for(var/datum/reagent/R in moralchems)
-		if(S.has_reagent(R, 1))
-			gainedkarma += S.get_reagent_amount(R) * moralchems[R]
-	if(isliving(user))
-		var/mob/living/M = user
-		if(gainedkarma >= 0)
-			to_chat(M, "<span class='green'>[src] fills with new life as a wave of comfort washes over you.</span>")
-			SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "treekarma", /datum/mood_event/good_tree, name)
-			if(karma >= 0)
-				M.adjustBruteLoss(-0.25*karma, 0)
-				M.adjustFireLoss(-0.25*karma, 0)
-				M.adjustToxLoss(-0.25*karma, 0)
-				M.adjustCloneLoss(-0.25*karma, 0)
-		else
-			to_chat(M, "<span class='danger'>Colors fade from [src] as a wave of guilt crawls into your skin.</span>")
-			SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "treekarma", /datum/mood_event/bad_tree, name)
-			M.adjustToxLoss(abs(karma)*0.25, 0)
-	adjustKarma(gainedkarma)
-
-/obj/structure/flora/tree/chapel/proc/update_tree()
-	if(100 > karma > -100)
-		name = initial(src.name)
-		icon_state = initial(src.name)
-		desc = initial(src.name)
-	else if (karma >= 100)
-		name = "hallowed oak tree"
-		icon_state = "churchtree_nice"
-		desc = "The sacred spirits of nature have been awoken, washing the area in a holy aura."
-	else
-		name = "accursed oak tree"
-		icon_state = "churchtree_naughty"
-		desc = "As the bark rots and the leafs turn blood red a sinister aura bleeds into the area."
-	update_icon_state()
-
-/obj/structure/flora/tree/chapel/proc/adjustKarma(x)
-	var/need_update = 0
-	var/newkarma = karma + x
-	if(karma < 100 && newkarma >= 100)
-		need_update = 1
-		visible_message("<span class='green'>[src] shifts colors as a heavenly warmth washes over the room.</span>")
-	if(karma > -100 && newkarma <= -100)
-		need_update = 1
-		visible_message("<span class='danger'>As the life fades from [src] something evil seeps into the air.</span>")
-	if(abs(karma) > 100 && newkarma < 100)
-		need_update = 1
-	if(need_update)
-		update_tree()
-	karma = newkarma
-
-/obj/structure/flora/tree/chapel/proc/pulseKarma()
-	for(var/mob/living/L in range(mojorange, src))
-		var/luck = rand(1, 100)
-		if(karma > 100)
-			if(luck > 90)
-				L.reagents.add_reagent(/datum/reagent/medicine/omnizine, 5)
-			else if (luck > 50)
-				SEND_SIGNAL(L, COMSIG_ADD_MOOD_EVENT, "treekarma", /datum/mood_event/better_tree, name)
-			else if (luck > 25)
-				SEND_SIGNAL(L, COMSIG_ADD_MOOD_EVENT, "treekarma", /datum/mood_event/good_tree, name)
-			else if (luck == 1)
-				adjustKarma(-10) //Nothing good lasts forever
-		else
-			if(luck > 90)
-				L.reagents.add_reagent(/datum/reagent/toxin, 5)
-			else if (luck > 50)
-				SEND_SIGNAL(L, COMSIG_ADD_MOOD_EVENT, "treekarma", /datum/mood_event/bad_tree, name)
-			else if (luck > 25)
-				SEND_SIGNAL(L, COMSIG_ADD_MOOD_EVENT, "treekarma", /datum/mood_event/worse_tree, name)
-			else if (luck == 1)
-				adjustKarma(10)
-
-/datum/mood_event/good_tree
-	description = "<span class='nicegreen'>I feel closer to my soul.</span>\n"
-	mood_change = 3
-	timeout = 5 MINUTES
-
-/datum/mood_event/bad_tree
-	description = "<span class='warning'>I should stop gardening.</span>\n"
-	mood_change = -3
-	timeout = 5 MINUTES
-
-/datum/mood_event/better_tree
-	description = "<span class='nicegreen'>I feel blessed by the gods!</span>\n"
-	mood_change = 6
-	timeout = 5 MINUTES
-
-/datum/mood_event/worse_tree
-	description = "<span class='warning'>It's like a root is digging into my heart.</span>\n"
-	mood_change = -6
-	timeout = 5 MINUTES

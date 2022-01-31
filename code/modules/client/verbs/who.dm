@@ -56,7 +56,7 @@
 
 	var/num_lines = 0
 	msg += "<table style='width: 100%; table-layout: fixed'><tr>"
-	for(var/line in sortList(Lines))
+	for(var/line in sort_list(Lines))
 		msg += "<td>[line]</td>"
 
 		num_lines += 1
@@ -75,7 +75,7 @@
 	var/msg = "<b>Current Admins:</b>\n"
 	if(holder)
 		for(var/client/C in GLOB.admins)
-			msg += "<b>\t[C]</b> is a [C.holder.rank]"
+			msg += "\t[C] is a [C.holder.rank]"
 
 			if(C.holder.fakekey)
 				msg += " <i>(as [C.holder.fakekey])</i>"
@@ -83,7 +83,14 @@
 			if(isobserver(C.mob))
 				msg += " - Observing"
 			else if(isnewplayer(C.mob))
-				msg += " - Lobby"
+				if(SSticker.current_state <= GAME_STATE_PREGAME)
+					var/mob/dead/new_player/lobbied_admin = C.mob
+					if(lobbied_admin.ready == PLAYER_READY_TO_PLAY)
+						msg += " - Lobby (Readied)"
+					else
+						msg += " - Lobby (Not readied)"
+				else
+					msg += " - Lobby"
 			else
 				msg += " - Playing"
 
@@ -95,16 +102,8 @@
 			if(C.is_afk())
 				continue //Don't show afk admins to adminwho
 			if(!C.holder.fakekey)
-				msg += "<b>\t[C]</b> is a [C.holder.rank]\n"
-	if(length(GLOB.mentors) > 0)
-		msg += "<b>Mentors:</b> \n"
-		for(var/client/C in sortList(GLOB.clients))
-			if(C in GLOB.admins)
-				continue
-			var/mentor = GLOB.mentor_datums[C.ckey]
-			if(mentor)
-				msg += "<b>\t[C.key]</b> is a Mentor \n"
-		msg += "<span class='info'>Adminhelps are also sent to Discord. If no admins are available in game adminhelp anyways and an admin on Discord will see it and respond.</span>"
+				msg += "\t[C] is a [C.holder.rank]\n"
+		msg += span_info("Adminhelps are also sent through TGS to services like IRC and Discord. If no admins are available in game, sending an adminhelp might still be noticed and responded to.")
 	to_chat(src, msg)
 
 #undef DEFAULT_WHO_CELLS_PER_ROW

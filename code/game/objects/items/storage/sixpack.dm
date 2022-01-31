@@ -3,22 +3,23 @@
 	desc = "Holds up to six drink cans, and select bottles."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "canholder"
-	item_state = "cola"
+	inhand_icon_state = "cola"
 	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
 	custom_materials = list(/datum/material/plastic = 1200)
 	max_integrity = 500
 
 /obj/item/storage/cans/suicide_act(mob/living/carbon/user)
-	user.visible_message("<span class='suicide'>[user] begins popping open a final cold one with the boys! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+	user.visible_message(span_suicide("[user] begins popping open a final cold one with the boys! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return BRUTELOSS
 
 /obj/item/storage/cans/update_icon_state()
 	icon_state = "[initial(icon_state)][contents.len]"
+	return ..()
 
-/obj/item/storage/cans/Initialize()
+/obj/item/storage/cans/Initialize(mapload)
 	. = ..()
-	update_icon()
+	update_appearance()
 
 /obj/item/storage/cans/ComponentInitialize()
 	. = ..()
@@ -28,8 +29,8 @@
 	STR.max_items = 6
 	STR.set_holdable(list(
 		/obj/item/reagent_containers/food/drinks/soda_cans,
-		/obj/item/reagent_containers/food/drinks/beer,
-		/obj/item/reagent_containers/food/drinks/ale,
+		/obj/item/reagent_containers/food/drinks/bottle/beer,
+		/obj/item/reagent_containers/food/drinks/bottle/ale,
 		/obj/item/reagent_containers/food/drinks/waterbottle
 		))
 
@@ -47,4 +48,4 @@
 
 /obj/item/storage/cans/sixbeer/PopulateContents()
 	for(var/i in 1 to 6)
-		new /obj/item/reagent_containers/food/drinks/beer(src)
+		new /obj/item/reagent_containers/food/drinks/bottle/beer(src)

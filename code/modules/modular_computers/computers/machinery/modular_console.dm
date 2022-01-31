@@ -16,9 +16,10 @@
 	light_strength = 2
 	max_integrity = 300
 	integrity_failure = 0.5
-	var/console_department = "" // Used in New() to set network tag according to our area.
+	///Used in New() to set network tag according to our area.
+	var/console_department = ""
 
-/obj/machinery/modular_computer/console/buildable/Initialize()
+/obj/machinery/modular_computer/console/buildable/Initialize(mapload)
 	. = ..()
 	// User-built consoles start as empty frames.
 	var/obj/item/computer_hardware/hard_drive/hard_drive = cpu.all_components[MC_HDD]
@@ -28,7 +29,7 @@
 	qdel(network_card)
 	qdel(hard_drive)
 
-/obj/machinery/modular_computer/console/Initialize()
+/obj/machinery/modular_computer/console/Initialize(mapload)
 	. = ..()
 	var/obj/item/computer_hardware/battery/battery_module = cpu.all_components[MC_CELL]
 	if(battery_module)
@@ -37,7 +38,7 @@
 	var/obj/item/computer_hardware/network_card/wired/network_card = new()
 
 	cpu.install_component(network_card)
-	cpu.install_component(new /obj/item/computer_hardware/recharger/APC)
+	cpu.install_component(new /obj/item/computer_hardware/recharger/apc_recharger)
 	cpu.install_component(new /obj/item/computer_hardware/hard_drive/super) // Consoles generally have better HDDs due to lower space limitations
 
 	var/area/A = get_area(src)
@@ -52,4 +53,4 @@
 		network_card.identification_string = "Unknown Console"
 	if(cpu)
 		cpu.screen_on = 1
-	update_icon()
+	update_appearance()

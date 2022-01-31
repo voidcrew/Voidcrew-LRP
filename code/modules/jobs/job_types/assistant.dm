@@ -1,154 +1,200 @@
+GLOBAL_DATUM(colored_assistant, /datum/colored_assistant)
+
 /*
 Assistant
 */
 /datum/job/assistant
-	title = "Assistant"
-	faction = "Station"
+	title = JOB_ASSISTANT
+	description = "Get your space legs, assist people, ask the HoP to give you a job."
+	faction = FACTION_STATION
 	total_positions = 5
 	spawn_positions = 5
-	department_head = list("Head of Personnel")
 	supervisors = "absolutely everyone"
 	selection_color = "#dddddd"
-	access = list()			//See /datum/job/assistant/get_access()
-	minimal_access = list()	//See /datum/job/assistant/get_access()
+	exp_granted_type = EXP_TYPE_CREW
 	outfit = /datum/outfit/job/assistant
-	antag_rep = 7
+	plasmaman_outfit = /datum/outfit/plasmaman
 	paycheck = PAYCHECK_ASSISTANT // Get a job. Job reassignment changes your paycheck now. Get over it.
+
+	liver_traits = list(TRAIT_GREYTIDE_METABOLISM)
+
 	paycheck_department = ACCOUNT_CIV
 	display_order = JOB_DISPLAY_ORDER_ASSISTANT
-	wiki_page = "Assistant" //WS Edit - Wikilinks/Warning
 
-/datum/job/assistant/get_access()
-	if(CONFIG_GET(flag/assistants_have_maint_access) || !CONFIG_GET(flag/jobs_have_minimal_access)) //Config has assistant maint access set
-		. = ..()
-		. |= list(ACCESS_MAINT_TUNNELS)
-	else
-		return ..()
+	department_for_prefs = /datum/job_department/assistant
+
+	family_heirlooms = list(/obj/item/storage/toolbox/mechanical/old/heirloom, /obj/item/clothing/gloves/cut/heirloom)
+
+	mail_goodies = list(
+		/obj/effect/spawner/random/food_or_drink/donkpockets = 10,
+		/obj/item/clothing/mask/gas = 10,
+		/obj/item/clothing/gloves/color/fyellow = 7,
+		/obj/item/choice_beacon/music = 5,
+		/obj/item/toy/sprayoncan = 3,
+		/obj/item/crowbar/large = 1
+	)
+
+	job_type_flags = JOB_STATION_JOB
+	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS
+	rpg_title = "Lout"
 
 /datum/outfit/job/assistant
-	name = "Assistant"
+	name = JOB_ASSISTANT
 	jobtype = /datum/job/assistant
-	r_pocket = /obj/item/radio
+	id_trim = /datum/id_trim/job/assistant
 
-/datum/outfit/job/assistant/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/assistant/pre_equip(mob/living/carbon/human/target)
 	..()
-	if (CONFIG_GET(flag/grey_assistants))
-		switch(H.jumpsuit_style)
-			if(PREF_SUIT)
-				uniform = initial(uniform)
-			if(PREF_ALTSUIT)
-				uniform = /obj/item/clothing/under/misc/assistantformal
-			if(PREF_SKIRT)
-				uniform = /obj/item/clothing/under/color/jumpskirt/grey
-			else
-				uniform = /obj/item/clothing/under/color/grey
+	give_jumpsuit(target)
+
+/datum/outfit/job/assistant/proc/give_jumpsuit(mob/living/carbon/human/target)
+	var/static/jumpsuit_number = 0
+	jumpsuit_number += 1
+
+	if (isnull(GLOB.colored_assistant))
+		var/configured_type = get_configured_colored_assistant_type()
+		GLOB.colored_assistant = new configured_type
+
+	var/index = (jumpsuit_number % GLOB.colored_assistant.jumpsuits.len) + 1
+
+	//We don't cache these, because they can delete on init
+	//Too fragile, better to just eat the cost
+	if (target.jumpsuit_style == PREF_SUIT)
+		uniform = GLOB.colored_assistant.jumpsuits[index]
 	else
-		switch(H.jumpsuit_style)
-			if(PREF_SUIT)
-				uniform = initial(uniform)
-			if(PREF_ALTSUIT)
-				uniform = /obj/item/clothing/under/misc/assistantformal
-			if(PREF_SKIRT)
-				uniform = /obj/item/clothing/under/utility/skirt
-			else
-				uniform = /obj/item/clothing/under/utility
+		uniform = GLOB.colored_assistant.jumpskirts[index]
 
-/datum/outfit/job/assistant/entertainer
-	name = "Assistant (Entertainer)"
-	r_hand = /obj/item/bikehorn //comedy
+/datum/outfit/job/assistant/consistent
+	name = "Assistant - Consistent"
 
-/datum/outfit/job/assistant/engineeringspecialist
-	name = "Assistant (Engineering Specialist)"
-	accessory = /obj/item/clothing/accessory/armband/engine
+/datum/outfit/job/assistant/consistent/give_jumpsuit(mob/living/carbon/human/target)
+	uniform = /obj/item/clothing/under/color/grey
 
-/datum/outfit/job/assistant/medicalspecialist
-	name = "Assistant (Medical Specialist)"
-	uniform = /obj/item/clothing/under/color/white
-	accessory = /obj/item/clothing/accessory/armband/med
-
-/datum/outfit/job/assistant/sciencespecialist
-	name = "Assistant (Science Specialist)"
-	uniform = /obj/item/clothing/under/color/white
-	accessory = /obj/item/clothing/accessory/armband/science
-
-/datum/outfit/job/assistant/engineeringspecialist
-	name = "Assistant (Deckhand)"
-	accessory = /obj/item/clothing/accessory/armband/cargo
-
-//Shiptest outfits
-
-/datum/outfit/job/assistant/solgov
-	name = "Sailor (SolGov)"
-
-	uniform = /obj/item/clothing/under/solgov
-	shoes = /obj/item/clothing/shoes/combat
-	head = /obj/item/clothing/head/beret/solgov/plain
-
-/datum/outfit/job/assistant/solgov/rebel
-	name = "Sailor (Deserter)"
-
-	uniform = /obj/item/clothing/under/syndicate/camo
-	head = /obj/item/clothing/head/beret/solgov/terragov/plain
-
-/datum/outfit/job/assistant/intern
-	name = "Assistant (Intern)"
-	uniform = /obj/item/clothing/under/suit/black
-	neck = /obj/item/clothing/neck/tie
-	shoes = /obj/item/clothing/shoes/laceup
-	r_pocket = /obj/item/pen/fountain
-
-/datum/outfit/job/assistant/receptionist
-	name = "Assistant (Receptionist)"
-	uniform = /obj/item/clothing/under/suit/beige
-	glasses = /obj/item/clothing/glasses/regular/hipster
-	shoes = /obj/item/clothing/shoes/laceup
-	r_pocket = /obj/item/pen/fourcolor
-	l_pocket = /obj/item/clipboard
-
-/datum/outfit/job/assistant/receptionist/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/assistant/consistent/post_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
-	switch(H.jumpsuit_style)
-		if(PREF_SUIT)
-			uniform = initial(uniform)
-		if(PREF_ALTSUIT)
-			uniform = /obj/item/clothing/under/suit/blacktwopiece
-		if(PREF_SKIRT)
-			uniform = /obj/item/clothing/under/dress/skirt/plaid
-		else
-			uniform = /obj/item/clothing/under/suit/beige
 
-/datum/outfit/job/assistant/pirate
-	name = "Assistant (Pirate)"
+	// This outfit is used by the assets SS, which is ran before the atoms SS
+	if (SSatoms.initialized == INITIALIZATION_INSSATOMS)
+		H.w_uniform?.update_greyscale()
+		H.update_inv_w_uniform()
 
-	uniform = /obj/item/clothing/under/costume/sailor
-	shoes = /obj/item/clothing/shoes/jackboots
+/proc/get_configured_colored_assistant_type()
+	return CONFIG_GET(flag/grey_assistants) ? /datum/colored_assistant/grey : /datum/colored_assistant/random
 
-/datum/outfit/job/assistant/corporate
-	name = "Business Associate"
+/// Defines a style of jumpsuit/jumpskirt for assistants.
+/// Jumpsuit and jumpskirt lists should match in colors, as they are used interchangably.
+/datum/colored_assistant
+	var/list/jumpsuits
+	var/list/jumpskirts
 
-	uniform = /obj/item/clothing/under/suit/black
-	shoes = /obj/item/clothing/shoes/laceup
-	suit = /obj/item/clothing/suit/toggle/lawyer/black
+/datum/colored_assistant/grey
+	jumpsuits = list(/obj/item/clothing/under/color/grey)
+	jumpskirts = list(/obj/item/clothing/under/color/jumpskirt/grey)
 
-/datum/outfit/job/assistant/syndicate
-	name = "Junior Agent (Assistant)"
+/datum/colored_assistant/random
+	jumpsuits = list(/obj/item/clothing/under/color/random)
+	jumpskirts = list(/obj/item/clothing/under/color/jumpskirt/random)
 
-	id = /obj/item/card/id/syndicate_command/crew_id
-	ears = /obj/item/radio/headset/syndicate
-	uniform = /obj/item/clothing/under/syndicate
-	alt_uniform = null
-	shoes = /obj/item/clothing/shoes/jackboots
+/datum/colored_assistant/christmas
+	jumpsuits = list(
+		/obj/item/clothing/under/color/green,
+		/obj/item/clothing/under/color/red,
+	)
 
-/datum/outfit/job/assistant/syndicate/gorlex
-	name = "Junior Agent (Gorlex Marauders)"
+	jumpskirts = list(
+		/obj/item/clothing/under/color/jumpskirt/green,
+		/obj/item/clothing/under/color/jumpskirt/red,
+	)
 
-	uniform = /obj/item/clothing/under/syndicate/gorlex
-	alt_uniform = /obj/item/clothing/under/syndicate
+/datum/colored_assistant/mcdonalds
+	jumpsuits = list(
+		/obj/item/clothing/under/color/yellow,
+		/obj/item/clothing/under/color/red,
+	)
 
-/datum/outfit/job/assistant/ex_prisoner
-	name = "Assistant (Ex-Prisoner)"
+	jumpskirts = list(
+		/obj/item/clothing/under/color/jumpskirt/yellow,
+		/obj/item/clothing/under/color/jumpskirt/red,
+	)
 
-	glasses = /obj/item/clothing/glasses/sunglasses
-	uniform = /obj/item/clothing/under/rank/prisoner
-	shoes = /obj/item/clothing/shoes/sneakers/orange
-	accessory = /obj/item/clothing/accessory/armband/deputy
+/datum/colored_assistant/halloween
+	jumpsuits = list(
+		/obj/item/clothing/under/color/orange,
+		/obj/item/clothing/under/color/black,
+	)
+
+	jumpskirts = list(
+		/obj/item/clothing/under/color/jumpskirt/orange,
+		/obj/item/clothing/under/color/jumpskirt/black,
+	)
+
+/datum/colored_assistant/ikea
+	jumpsuits = list(
+		/obj/item/clothing/under/color/yellow,
+		/obj/item/clothing/under/color/blue,
+	)
+
+	jumpskirts = list(
+		/obj/item/clothing/under/color/jumpskirt/yellow,
+		/obj/item/clothing/under/color/jumpskirt/blue,
+	)
+
+/datum/colored_assistant/mud
+	jumpsuits = list(
+		/obj/item/clothing/under/color/brown,
+		/obj/item/clothing/under/color/lightbrown,
+	)
+
+	jumpskirts = list(
+		/obj/item/clothing/under/color/jumpskirt/brown,
+		/obj/item/clothing/under/color/jumpskirt/lightbrown,
+	)
+
+/datum/colored_assistant/warm
+	jumpsuits = list(
+		/obj/item/clothing/under/color/red,
+		/obj/item/clothing/under/color/pink,
+		/obj/item/clothing/under/color/orange,
+		/obj/item/clothing/under/color/yellow,
+	)
+
+	jumpskirts = list(
+		/obj/item/clothing/under/color/jumpskirt/red,
+		/obj/item/clothing/under/color/jumpskirt/pink,
+		/obj/item/clothing/under/color/jumpskirt/orange,
+		/obj/item/clothing/under/color/jumpskirt/yellow,
+	)
+
+/datum/colored_assistant/cold
+	jumpsuits = list(
+		/obj/item/clothing/under/color/blue,
+		/obj/item/clothing/under/color/darkblue,
+		/obj/item/clothing/under/color/darkgreen,
+		/obj/item/clothing/under/color/green,
+		/obj/item/clothing/under/color/lightpurple,
+		/obj/item/clothing/under/color/teal,
+	)
+
+	jumpskirts = list(
+		/obj/item/clothing/under/color/jumpskirt/blue,
+		/obj/item/clothing/under/color/jumpskirt/darkblue,
+		/obj/item/clothing/under/color/jumpskirt/darkgreen,
+		/obj/item/clothing/under/color/jumpskirt/green,
+		/obj/item/clothing/under/color/jumpskirt/lightpurple,
+		/obj/item/clothing/under/color/jumpskirt/teal,
+	)
+
+/// Will pick one color, and stick with it
+/datum/colored_assistant/solid
+
+/datum/colored_assistant/solid/New()
+	var/obj/item/clothing/under/color/random_jumpsuit_type = get_random_jumpsuit()
+	jumpsuits = list(random_jumpsuit_type)
+
+	for (var/obj/item/clothing/under/color/jumpskirt/jumpskirt_type as anything in subtypesof(/obj/item/clothing/under/color/jumpskirt))
+		if (initial(jumpskirt_type.greyscale_colors) == initial(random_jumpsuit_type.greyscale_colors))
+			jumpskirts = list(jumpskirt_type)
+			return
+
+	// Couldn't find a matching jumpskirt, oh well
+	jumpskirts = list(get_random_jumpskirt())

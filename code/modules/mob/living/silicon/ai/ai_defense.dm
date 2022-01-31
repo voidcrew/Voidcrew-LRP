@@ -1,9 +1,9 @@
 
 /mob/living/silicon/ai/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/aiModule))
-		var/obj/item/aiModule/MOD = W
+	if(istype(W, /obj/item/ai_module))
+		var/obj/item/ai_module/MOD = W
 		if(!mind) //A player mind is required for law procs to run antag checks.
-			to_chat(user, "<span class='warning'>[src] is entirely unresponsive!</span>")
+			to_chat(user, span_warning("[src] is entirely unresponsive!"))
 			return
 		MOD.install(laws, user) //Proc includes a success mesage so we don't need another one
 		return
@@ -11,9 +11,9 @@
 		spark_system.start()
 	return ..()
 
-/mob/living/silicon/ai/attack_alien(mob/living/carbon/alien/humanoid/M)
+/mob/living/silicon/ai/attack_alien(mob/living/carbon/alien/humanoid/user, list/modifiers)
 	if(!SSticker.HasRoundStarted())
-		to_chat(M, "You cannot attack people before the game has started.")
+		to_chat(user, "You cannot attack people before the game has started.")
 		return
 	..()
 
@@ -24,8 +24,8 @@
 	if (stat != DEAD)
 		adjustBruteLoss(60)
 		updatehealth()
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /mob/living/silicon/ai/emp_act(severity)
 	. = ..()
@@ -33,17 +33,21 @@
 		return
 	disconnect_shell()
 	if (prob(30))
-		view_core()
+		switch(pick(1,2))
+			if(1)
+				view_core()
+			if(2)
+				SSshuttle.requestEvac(src,"ALERT: Energy surge detected in AI core! Station integrity may be compromised! Initiati--%m091#ar-BZZT")
 
 /mob/living/silicon/ai/ex_act(severity, target)
 	switch(severity)
-		if(1)
+		if(EXPLODE_DEVASTATE)
 			gib()
-		if(2)
+		if(EXPLODE_HEAVY)
 			if (stat != DEAD)
 				adjustBruteLoss(60)
 				adjustFireLoss(60)
-		if(3)
+		if(EXPLODE_LIGHT)
 			if (stat != DEAD)
 				adjustBruteLoss(30)
 
@@ -53,5 +57,5 @@
 	. = ..(Proj)
 	updatehealth()
 
-/mob/living/silicon/ai/flash_act(intensity = 1, override_blindness_check = 0, affect_silicon = 0)
+/mob/living/silicon/ai/flash_act(intensity = 1, override_blindness_check = 0, affect_silicon = 0, visual = 0, type = /atom/movable/screen/fullscreen/flash, length = 25)
 	return // no eyes, no flashing

@@ -3,22 +3,23 @@
 	id = LAVALAND_DEFAULT_ATMOS
 
 	base_gases = list(
-		GAS_O2=5,
-		GAS_N2=10,
+		/datum/gas/oxygen=5,
+		/datum/gas/nitrogen=10,
 	)
 	normal_gases = list(
-		GAS_O2=10,
-		GAS_N2=10,
-		GAS_CO2=10,
+		/datum/gas/oxygen=10,
+		/datum/gas/nitrogen=10,
+		/datum/gas/carbon_dioxide=10,
 	)
 	restricted_gases = list(
-		GAS_BZ=10,
-		GAS_PLASMA=0.1,
-		GAS_H2O=0.1,
+		/datum/gas/plasma=0.1,
+		/datum/gas/bz=1.2,
+		/datum/gas/miasma=1.2,
+		/datum/gas/water_vapor=0.1,
 	)
-	restricted_chance = 50
+	restricted_chance = 30
 
-	minimum_pressure = WARNING_LOW_PRESSURE + 10
+	minimum_pressure = HAZARD_LOW_PRESSURE + 10
 	maximum_pressure = LAVALAND_EQUIPMENT_EFFECT_PRESSURE - 1
 
 	minimum_temp = BODYTEMP_COLD_DAMAGE_LIMIT + 1
@@ -28,20 +29,20 @@
 	id = ICEMOON_DEFAULT_ATMOS
 
 	base_gases = list(
-		GAS_O2=5,
-		GAS_N2=10,
+		/datum/gas/oxygen=5,
+		/datum/gas/nitrogen=10,
 	)
 	normal_gases = list(
-		GAS_O2=10,
-		GAS_N2=10,
-		GAS_CO2=10,
+		/datum/gas/oxygen=10,
+		/datum/gas/nitrogen=10,
+		/datum/gas/carbon_dioxide=10,
 	)
 	restricted_gases = list(
-		GAS_PLASMA=0.1,
-		GAS_H2O=0.1,
-		GAS_MIASMA=1.2,
+		/datum/gas/plasma=0.1,
+		/datum/gas/water_vapor=0.1,
+		/datum/gas/miasma=1.2,
 	)
-	restricted_chance = 50
+	restricted_chance = 20
 
 	minimum_pressure = HAZARD_LOW_PRESSURE + 10
 	maximum_pressure = LAVALAND_EQUIPMENT_EFFECT_PRESSURE - 1

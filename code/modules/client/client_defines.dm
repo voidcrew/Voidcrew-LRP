@@ -13,6 +13,8 @@
 	var/datum/admins/holder = null
 	///Needs to implement InterceptClickOn(user,params,atom) proc
 	var/datum/click_intercept = null
+	///Time when the click was intercepted
+	var/click_intercept_time = 0
 	///Used for admin AI interaction
 	var/AI_Interact = FALSE
 
@@ -28,7 +30,11 @@
 	var/total_count_reset = 0
 	///Internal counter for clients sending external (IRC/Discord) relay messages via ahelp to prevent spamming. Set to a number every time an admin reply is sent, decremented for every client send.
 	var/externalreplyamount = 0
-	var/ircreplyamount = 0
+	///Tracks say() usage for ic/dchat while slowmode is enabled
+	COOLDOWN_DECLARE(say_slowmode)
+	/// The last urgent ahelp that this player sent
+	COOLDOWN_DECLARE(urgent_ahelp_cooldown)
+
 		/////////
 		//OTHER//
 		/////////
@@ -36,18 +42,17 @@
 	var/datum/preferences/prefs = null
 	///last turn of the controlled mob, I think this is only used by mechs?
 	var/last_turn = 0
-	///Move delay of controlled mob, related to input handling
+	///Move delay of controlled mob, any keypresses inside this period will persist until the next proper move
 	var/move_delay = 0
+	///The visual delay to use for the current client.Move(), mostly used for making a client based move look like it came from some other slower source
+	var/visual_delay = 0
 	///Current area of the controlled mob
 	var/area = null
 
 		///////////////
 		//SOUND STUFF//
 		///////////////
-	///Currently playing ambience sound
-	var/ambience_playing = null
-	///Whether an ambience sound has been played and one shouldn't be played again, unset by a callback
-	var/played = FALSE
+
 		////////////
 		//SECURITY//
 		////////////
@@ -78,6 +83,8 @@
 	var/mouse_up_icon = null
 	///used to make a special mouse cursor, this one for mouse up icon
 	var/mouse_down_icon = null
+	///used to override the mouse cursor so it doesnt get reset
+	var/mouse_override_icon = null
 
 	///Used for ip intel checking to identify evaders, disabled because of issues with traffic
 	var/ip_intel = "Disabled"
@@ -142,7 +149,7 @@
 	var/list/seen_messages
 
 	/// datum wrapper for client view
-	var/datum/viewData/view_size
+	var/datum/view_data/view_size
 
 	/// our current tab
 	var/stat_tab
@@ -154,11 +161,12 @@
 	var/list/panel_tabs = list()
 	/// list of tabs containing spells and abilities
 	var/list/spell_tabs = list()
-	///A lazy list of atoms we've examined in the last EXAMINE_MORE_TIME (default 1.5) seconds, so that we will call [atom/proc/examine_more()] instead of [atom/proc/examine()] on them when examining
+	///A lazy list of atoms we've examined in the last RECENT_EXAMINE_MAX_WINDOW (default 2) seconds, so that we will call [/atom/proc/examine_more] instead of [/atom/proc/examine] on them when examining
 	var/list/recent_examines
 
 	var/list/parallax_layers
 	var/list/parallax_layers_cached
+	///this is the last recorded client eye by SSparallax/fire()
 	var/atom/movable/movingmob
 	var/turf/previous_turf
 	///world.time of when we can state animate()ing parallax again
@@ -170,13 +178,31 @@
 	var/parallax_movedir = 0
 	var/parallax_layers_max = 4
 	var/parallax_animate_timer
+	///Are we locking our movement input?
+	var/movement_locked = FALSE
+
+	/**
+	 * Assoc list with all the active maps - when a screen obj is added to
+	 * a map, it's put in here as well.
+	 *
+	 * Format: list(<mapname> = list(/atom/movable/screen))
+	 */
+	var/list/screen_maps = list()
+
+	// List of all asset filenames sent to this client by the asset cache, along with their assoicated md5s
+	var/list/sent_assets = list()
+	/// List of all completed blocking send jobs awaiting acknowledgement by send_asset
+	var/list/completed_asset_jobs = list()
+	/// Last asset send job id.
+	var/last_asset_job = 0
+	var/last_completed_asset_job = 0
 
 	/// rate limiting for the crew manifest
 	var/crew_manifest_delay
 
 	/// A buffer of currently held keys.
 	var/list/keys_held = list()
-	/// A buffer for combinations such of modifiers + keys (ex: CtrlD, AltE, ShiftT). Format: ["key"] -> ["combo"] (ex: ["D"] -> ["CtrlD"])
+	/// A buffer for combinations such of modifiers + keys (ex: CtrlD, AltE, ShiftT). Format: `"key"` -> `"combo"` (ex: `"D"` -> `"CtrlD"`)
 	var/list/key_combos_held = list()
 	/*
 	** These next two vars are to apply movement for keypresses and releases made while move delayed.
@@ -189,3 +215,9 @@
 
 	/// If the client is currently under the restrictions of the interview system
 	var/interviewee = FALSE
+
+	/// Whether or not this client has standard hotkeys enabled
+	var/hotkeys = TRUE
+
+	/// Whether or not this client has the combo HUD enabled
+	var/combo_hud_enabled = FALSE

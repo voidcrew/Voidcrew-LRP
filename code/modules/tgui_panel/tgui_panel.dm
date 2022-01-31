@@ -1,4 +1,4 @@
-/**
+/*!
  * Copyright (c) 2020 Aleksej Komarov
  * SPDX-License-Identifier: MIT
  */
@@ -43,11 +43,12 @@
 	initialized_at = world.time
 	// Perform a clean initialization
 	window.initialize(inline_assets = list(
-		get_asset_datum(/datum/asset/simple/tgui_common),
 		get_asset_datum(/datum/asset/simple/tgui_panel),
 	))
 	window.send_asset(get_asset_datum(/datum/asset/simple/namespaced/fontawesome))
+	window.send_asset(get_asset_datum(/datum/asset/simple/namespaced/tgfont))
 	window.send_asset(get_asset_datum(/datum/asset/spritesheet/chat))
+	// Other setup
 	request_telemetry()
 	addtimer(CALLBACK(src, .proc/on_initialize_timed_out), 5 SECONDS)
 
@@ -58,7 +59,7 @@
  */
 /datum/tgui_panel/proc/on_initialize_timed_out()
 	// Currently does nothing but sending a message to old chat.
-	SEND_TEXT(client, "<span class=\"userdanger\">Failed to load fancy chat, reverting to old chat. Certain features won't work.</span>")
+	SEND_TEXT(client, "<span class=\"userdanger\">Failed to load fancy chat, click <a href='?src=[REF(src)];reload_tguipanel=1'>HERE</a> to attempt to reload it.</span>")
 
 /**
  * private

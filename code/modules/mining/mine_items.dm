@@ -8,7 +8,7 @@
 	var/set_luminosity = 8
 	var/set_cap = 0
 
-/obj/effect/light_emitter/Initialize()
+/obj/effect/light_emitter/Initialize(mapload)
 	. = ..()
 	set_light(set_luminosity, set_cap)
 
@@ -37,6 +37,9 @@
 	new /obj/item/clothing/gloves/color/black(src)
 	new /obj/item/clothing/gloves/color/black(src)
 	new /obj/item/clothing/gloves/color/black(src)
+	new /obj/item/clothing/suit/hooded/wintercoat/miner(src)
+	new /obj/item/clothing/suit/hooded/wintercoat/miner(src)
+	new /obj/item/clothing/suit/hooded/wintercoat/miner(src)
 
 /obj/structure/closet/secure_closet/miner
 	name = "miner's equipment"
@@ -56,13 +59,38 @@
 	new /obj/item/flashlight/seclite(src)
 	new /obj/item/storage/bag/plants(src)
 	new /obj/item/storage/bag/ore(src)
-	new /obj/item/pinpointer/deepcore(src)
+	new /obj/item/t_scanner/adv_mining_scanner/lesser(src)
 	new /obj/item/gun/energy/kinetic_accelerator(src)
-	new /obj/item/clothing/glasses/meson/prescription(src) //WS edit - Prescription HUDs
 	new /obj/item/clothing/glasses/meson(src)
 	new /obj/item/survivalcapsule(src)
-	new /obj/item/clothing/head/hardhat/mining(src)
+	new /obj/item/assault_pod/mining(src)
 
+
+/**********************Shuttle Computer**************************/
+
+/obj/machinery/computer/shuttle/mining
+	name = "mining shuttle console"
+	desc = "Used to call and send the mining shuttle."
+	circuit = /obj/item/circuitboard/computer/mining_shuttle
+	shuttleId = "mining"
+	possible_destinations = "mining_home;mining_away;landing_zone_dock;mining_public"
+	no_destination_swap = TRUE
+	var/static/list/dumb_rev_heads = list()
+
+//ATTACK HAND IGNORING PARENT RETURN VALUE
+/obj/machinery/computer/shuttle/mining/attack_hand(mob/user, list/modifiers)
+	if(is_station_level(user.z) && user.mind && IS_HEAD_REVOLUTIONARY(user) && !(user.mind in dumb_rev_heads))
+		to_chat(user, span_warning("You get a feeling that leaving the station might be a REALLY dumb idea..."))
+		dumb_rev_heads += user.mind
+		return
+	. = ..()
+
+/obj/machinery/computer/shuttle/mining/common
+	name = "lavaland shuttle console"
+	desc = "Used to call and send the lavaland shuttle."
+	circuit = /obj/item/circuitboard/computer/mining_shuttle/common
+	shuttleId = "mining_common"
+	possible_destinations = "commonmining_home;lavaland_common_away;landing_zone_dock;mining_public"
 
 /**********************Mining car (Crate like thing, not the rail car)**************************/
 

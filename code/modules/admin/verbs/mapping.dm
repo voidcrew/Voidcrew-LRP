@@ -20,19 +20,18 @@
 //- Check if the area has too much empty space. If so, make it smaller and replace the rest with maintenance tunnels.
 
 GLOBAL_LIST_INIT(admin_verbs_debug_mapping, list(
-	/client/proc/camera_view, 				//-errorage
-	/client/proc/sec_camera_report, 		//-errorage
-	/client/proc/intercom_view, 			//-errorage
+	/client/proc/camera_view, //-errorage
+	/client/proc/sec_camera_report, //-errorage
+	/client/proc/intercom_view, //-errorage
 	/client/proc/air_status, //Air things
 	/client/proc/Cell, //More air things
-	/client/proc/check_plumbing, //check plumbing
-	/client/proc/check_wiring, //check power
+	/client/proc/atmosscan, //check plumbing
+	/client/proc/powerdebug, //check power
 	/client/proc/count_objects_on_z_level,
 	/client/proc/count_objects_all,
-	/client/proc/cmd_assume_direct_control,	//-errorage
+	/client/proc/cmd_assume_direct_control, //-errorage
 	/client/proc/cmd_give_direct_control,
-	/client/proc/startSinglo,
-	/client/proc/set_server_fps,	//allows you to set the ticklag.
+	/client/proc/set_server_fps, //allows you to set the ticklag.
 	/client/proc/cmd_admin_grantfullaccess,
 	/client/proc/cmd_admin_areatest_all,
 	/client/proc/cmd_admin_areatest_station,
@@ -43,6 +42,7 @@ GLOBAL_LIST_INIT(admin_verbs_debug_mapping, list(
 	/client/proc/cmd_admin_rejuvenate,
 	/datum/admins/proc/show_traitor_panel,
 	/client/proc/disable_communication,
+	/client/proc/show_map_reports,
 	/client/proc/cmd_show_at_list,
 	/client/proc/cmd_show_at_markers,
 	/client/proc/manipulate_organs,
@@ -51,24 +51,11 @@ GLOBAL_LIST_INIT(admin_verbs_debug_mapping, list(
 	/client/proc/show_line_profiling,
 	/client/proc/create_mapping_job_icons,
 	/client/proc/debug_z_levels,
-	/client/proc/map_zones_info,
 	/client/proc/place_ruin,
-	/client/proc/export_map
+	/client/proc/station_food_debug,
+	/client/proc/station_stack_debug,
 ))
 GLOBAL_PROTECT(admin_verbs_debug_mapping)
-
-/obj/effect/debugging/mapfix_marker
-	name = "map fix marker"
-	icon = 'icons/hud/screen_gen.dmi'
-	icon_state = "mapfixmarker"
-	desc = "I am a mappers mistake."
-
-/obj/effect/debugging/marker
-	icon = 'icons/turf/areas.dmi'
-	icon_state = "yellow"
-
-/obj/effect/debugging/marker/Move()
-	return 0
 
 /client/proc/camera_view()
 	set category = "Mapping"
@@ -86,7 +73,7 @@ GLOBAL_PROTECT(admin_verbs_debug_mapping)
 			for(var/turf/T in C.can_see())
 				seen[T]++
 		for(var/turf/T in seen)
-			T.maptext = "[seen[T]]"
+			T.maptext = MAPTEXT(seen[T])
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Camera Range") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Camera Range")
 
@@ -112,8 +99,8 @@ GLOBAL_LIST_EMPTY(dirty_vars)
 	set name = "Camera Report"
 
 	if(!Master)
-		alert(usr,"Master_controller not found.","Sec Camera Report")
-		return 0
+		tgui_alert(usr,"Master_controller not found.","Sec Camera Report")
+		return FALSE
 
 	var/list/obj/machinery/camera/CL = list()
 
@@ -132,7 +119,7 @@ GLOBAL_LIST_EMPTY(dirty_vars)
 					output += "<li><font color='red'>FULLY overlapping cameras at [ADMIN_VERBOSEJMP(C1)] Networks: [json_encode(C1.network)] and [json_encode(C2.network)]</font></li>"
 				if(C1.loc == C2.loc)
 					output += "<li>Overlapping cameras at [ADMIN_VERBOSEJMP(C1)] Networks: [json_encode(C1.network)] and [json_encode(C2.network)]</li>"
-		var/turf/T = get_step(C1,turn(C1.dir,180))
+		var/turf/T = get_step(C1,C1.dir)
 		if(!T || !isturf(T) || !T.density )
 			if(!(locate(/obj/structure/grille) in T))
 				var/window_check = 0
@@ -152,18 +139,29 @@ GLOBAL_LIST_EMPTY(dirty_vars)
 	set name = "Intercom Range Display"
 
 	var/static/intercom_range_display_status = FALSE
-	intercom_range_display_status = !intercom_range_display_status //blame cyberboss if this breaks something
+	intercom_range_display_status = !intercom_range_display_status //blame cyberboss if this breaks something //blamed
 
-	for(var/obj/effect/debugging/marker/M in world)
-		qdel(M)
+	for(var/obj/effect/abstract/marker/intercom/marker in GLOB.all_abstract_markers)
+		qdel(marker)
 
 	if(intercom_range_display_status)
-		for(var/obj/item/radio/intercom/I in world)
-			for(var/turf/T in orange(7,I))
-				var/obj/effect/debugging/marker/F = new/obj/effect/debugging/marker(T)
-				if (!(F in view(7,I.loc)))
-					qdel(F)
+		for(var/frequency in GLOB.all_radios)
+			for(var/obj/item/radio/intercom/intercom in GLOB.all_radios[frequency])
+				for(var/turf/turf in view(7,intercom.loc))
+					new /obj/effect/abstract/marker/intercom(turf)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Intercom Range") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/show_map_reports()
+	set category = "Mapping"
+	set name = "Show map report list"
+	set desc = "Displays a list of map reports"
+
+	var/dat = {"<b>List of all map reports:</b><br>"}
+
+	for(var/datum/map_report/report as anything in GLOB.map_reports)
+		dat += "[report.tag] ([report.original_path]) - <a href='?src=[REF(report)];[HrefToken()];show=1'>View</a><br>"
+
+	usr << browse(dat, "window=map_reports")
 
 /client/proc/cmd_show_at_list()
 	set category = "Mapping"
@@ -171,7 +169,7 @@ GLOBAL_LIST_EMPTY(dirty_vars)
 	set desc = "Displays a list of active turfs coordinates at roundstart"
 
 	var/dat = {"<b>Coordinate list of Active Turfs at Roundstart</b>
-	<br>Real-time Active Turfs list you can see in Air Subsystem at active_turfs var<br>"}
+		<br>Real-time Active Turfs list you can see in Air Subsystem at active_turfs var<br>"}
 
 	for(var/t in GLOB.active_turfs_startlist)
 		var/turf/T = t
@@ -202,20 +200,20 @@ GLOBAL_LIST_EMPTY(dirty_vars)
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Roundstart Active Turf Markers")
 
-/client/proc/enable_debug_verbs()
+/client/proc/enable_mapping_verbs()
 	set category = "Debug"
-	set name = "Debug verbs - Enable"
+	set name = "Mapping verbs - Enable"
 	if(!check_rights(R_DEBUG))
 		return
-	remove_verb(src, /client/proc/enable_debug_verbs)
-	add_verb(src, list(/client/proc/disable_debug_verbs, GLOB.admin_verbs_debug_mapping))
+	remove_verb(src, /client/proc/enable_mapping_verbs)
+	add_verb(src, list(/client/proc/disable_mapping_verbs, GLOB.admin_verbs_debug_mapping))
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Enable Debug Verbs") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/disable_debug_verbs()
+/client/proc/disable_mapping_verbs()
 	set category = "Debug"
-	set name = "Debug verbs - Disable"
-	remove_verb(src, list(/client/proc/disable_debug_verbs, GLOB.admin_verbs_debug_mapping))
-	add_verb(src, /client/proc/enable_debug_verbs)
+	set name = "Mapping verbs - Disable"
+	remove_verb(src, list(/client/proc/disable_mapping_verbs, GLOB.admin_verbs_debug_mapping))
+	add_verb(src, /client/proc/enable_mapping_verbs)
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Disable Debug Verbs") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/count_objects_on_z_level()
@@ -245,7 +243,7 @@ GLOBAL_LIST_EMPTY(dirty_vars)
 		if(istype(A,type_path))
 			var/atom/B = A
 			while(!(isturf(B.loc)))
-				if(B && B.loc)
+				if(B?.loc)
 					B = B.loc
 				else
 					break
@@ -300,15 +298,15 @@ GLOBAL_VAR_INIT(say_disabled, FALSE)
 	for(var/job in subtypesof(/datum/job))
 		var/datum/job/JB = new job
 		switch(JB.title)
-			if("AI")
+			if(JOB_AI)
 				final.Insert(icon('icons/mob/ai.dmi', "ai", SOUTH, 1), "AI")
-			if("Cyborg")
+			if(JOB_CYBORG)
 				final.Insert(icon('icons/mob/robots.dmi', "robot", SOUTH, 1), "Cyborg")
 			else
 				for(var/obj/item/I in D)
 					qdel(I)
 				randomize_human(D)
-				JB.equip(D, TRUE, FALSE)
+				D.dress_up_as_job(JB, TRUE)
 				COMPILE_OVERLAYS(D)
 				var/icon/I = icon(getFlatIcon(D), frame = 1)
 				final.Insert(I, JB.title)
@@ -326,81 +324,101 @@ GLOBAL_VAR_INIT(say_disabled, FALSE)
 	var/list/messages = list()
 	messages += "<b>World</b>: [world.maxx] x [world.maxy] x [world.maxz]<br>"
 
+	var/list/linked_levels = list()
+	var/min_x = INFINITY
+	var/min_y = INFINITY
+	var/max_x = -INFINITY
+	var/max_y = -INFINITY
+
 	for(var/z in 1 to max(world.maxz, z_list.len))
 		if (z > z_list.len)
-			messages += "Z level: <b>[z]</b>: Unmanaged (out of bounds)<br>"
+			messages += "<b>[z]</b>: Unmanaged (out of bounds)<br>"
 			continue
-		var/datum/space_level/space_level = z_list[z]
-		if (!space_level)
-			messages += "Z level: <b>[z]</b>: Unmanaged (null)<br>"
+		var/datum/space_level/S = z_list[z]
+		if (!S)
+			messages += "<b>[z]</b>: Unmanaged (null)<br>"
 			continue
+		var/linkage
+		switch (S.linkage)
+			if (UNAFFECTED)
+				linkage = "no linkage"
+			if (SELFLOOPING)
+				linkage = "self-looping"
+			if (CROSSLINKED)
+				linkage = "linked at ([S.xi], [S.yi])"
+				linked_levels += S
+				min_x = min(min_x, S.xi)
+				min_y = min(min_y, S.yi)
+				max_x = max(max_x, S.xi)
+				max_y = max(max_y, S.yi)
+			else
+				linkage = "unknown linkage '[S.linkage]'"
 
-		messages += "Z level: <b>[z]</b>: [space_level.name]<br>"
-		if (space_level.z_value != z)
-			messages += "-- z_value is [space_level.z_value], should be [z]<br>"
+		messages += "<b>[z]</b>: [S.name], [linkage], traits: [json_encode(S.traits)]<br>"
+		if (S.z_value != z)
+			messages += "-- z_value is [S.z_value], should be [z]<br>"
+		if (S.name == initial(S.name))
+			messages += "-- name not set<br>"
 		if (z > world.maxz)
 			messages += "-- exceeds max z"
 
+	var/grid[max_x - min_x + 1][max_y - min_y + 1]
+	for(var/datum/space_level/S in linked_levels)
+		grid[S.xi - min_x + 1][S.yi - min_y + 1] = S.z_value
+
 	messages += "<table border='1'>"
+	for(var/y in max_y to min_y step -1)
+		var/list/part = list()
+		for(var/x in min_x to max_x)
+			part += "[grid[x - min_x + 1][y - min_y + 1]]"
+		messages += "<tr><td>[part.Join("</td><td>")]</td></tr>"
 	messages += "</table>"
 
 	to_chat(src, messages.Join(""), confidential = TRUE)
 
-#define SUB_ZONE_INFO_FULL(virtual_level) "[virtual_level.parent_map_zone.id]. [virtual_level.id]. [virtual_level.name]"
-#define MAP_ZONE_INFO(map_zone) "[map_zone.id]. [map_zone.name]" //Works for virtual level or map zones
-
-/client/proc/map_zones_info()
-	set name = "Map-Zones Info"
+/client/proc/station_food_debug()
+	set name = "Count Station Food"
 	set category = "Mapping"
+	var/list/foodcount = list()
+	for(var/obj/item/food/fuck_me in world)
+		var/turf/location = get_turf(fuck_me)
+		if(!location || SSmapping.level_trait(location.z, ZTRAIT_STATION))
+			continue
+		LAZYADDASSOC(foodcount, fuck_me.type, 1)
 
-	var/list/dat = list()
-	for(var/datum/map_zone/map_zone as anything in SSmapping.map_zones)
-		dat += "[MAP_ZONE_INFO(map_zone)]:"
-		for(var/datum/virtual_level/virtual_level as anything in map_zone.virtual_levels)
-			dat += "<BR> - [MAP_ZONE_INFO(virtual_level)]:"
-			var/turf/low_bound = locate(virtual_level.low_x, virtual_level.low_y, virtual_level.z_value)
-			var/turf/high_bound = locate(virtual_level.high_x, virtual_level.high_y, virtual_level.z_value)
-			dat += "<BR> -- Low bounds: [ADMIN_JMP(low_bound)], High bounds: [ADMIN_JMP(high_bound)]"
-			dat += "<BR> -- Reservation: LowX: [virtual_level.low_x], LowY: [virtual_level.low_y], HighX: [virtual_level.high_x], HighY: [virtual_level.high_y]"
-			dat += "<BR> -- Reserved Margin: [virtual_level.reserved_margin]"
-			dat += "<BR> -- Traits: [json_encode(virtual_level.traits)]"
-			if(length(virtual_level.crosslinked))
-				dat += "<BR> -- Crosslinkage: (map zone ID, zone ID, name)"
-				for(var/dir in virtual_level.crosslinked)
-					var/datum/virtual_level/linked_zone = virtual_level.crosslinked[dir]
-					var/dir_string
-					//precompiler cant handle those for a switch
-					if(dir == "[NORTH]")
-						dir_string = "North"
-					else if(dir == "[SOUTH]")
-						dir_string = "South"
-					else if(dir == "[WEST]")
-						dir_string = "West"
-					else if(dir == "[EAST]")
-						dir_string = "East"
-					var/zone_string
-					if(linked_zone == virtual_level)
-						zone_string = "SELF LINKED"
-					else
-						zone_string = SUB_ZONE_INFO_FULL(linked_zone)
-					dat += "<BR> --- [dir_string]: [zone_string]"
-			if(virtual_level.up_linkage)
-				dat += "<BR> -- Up-linkage: [SUB_ZONE_INFO_FULL(virtual_level.up_linkage)]"
-			if(virtual_level.down_linkage)
-				dat += "<BR> -- Down-linkage: [SUB_ZONE_INFO_FULL(virtual_level.down_linkage)]"
-		dat += "<HR>"
-	dat += "Physical map dimensions: [world.maxx], [world.maxy], [world.maxz]"
-	dat += "<BR>Physical levels:"
-	for(var/z in 1 to SSmapping.z_list.len)
-		var/datum/space_level/space_level = SSmapping.z_list[z]
-		dat += "<BR> - [z]. [space_level.name]"
-		if(length(space_level.virtual_levels))
-			dat += "<BR> -- Contained virtual level reservations:"
-			for(var/datum/virtual_level/virtual_level as anything in space_level.virtual_levels)
-				dat += "<BR> --- [SUB_ZONE_INFO_FULL(virtual_level)]"
-	var/datum/browser/popup = new(usr, "map zone debug", "Map-Zones info", 600, 600)
-	popup.set_content(dat.Join())
+	var/table_header = "<tr><th>Name</th> <th>Type</th> <th>Amount</th>"
+	var/table_contents = list()
+	for(var/atom/type as anything in foodcount)
+		var/foodname = initial(type.name)
+		var/count = foodcount[type]
+		table_contents += "<tr><td>[foodname]</td> <td>[type]</td> <td>[count]</td></tr>"
+
+	var/page_style = "<style>table, th, td {border: 1px solid black;border-collapse: collapse;}</style>"
+	var/page_contents = "[page_style]<table style=\"width:100%\">[table_header][jointext(table_contents, "")]</table>"
+	var/datum/browser/popup = new(mob, "fooddebug", "Station Food Count", 600, 400)
+	popup.set_content(page_contents)
 	popup.open()
 
-#undef SUB_ZONE_INFO_FULL
-#undef MAP_ZONE_INFO
+/client/proc/station_stack_debug()
+	set name = "Count Station Stacks"
+	set category = "Mapping"
+	var/list/stackcount = list()
+	for(var/obj/item/stack/fuck_me in world)
+		var/turf/location = get_turf(fuck_me)
+		if(!location || SSmapping.level_trait(location.z, ZTRAIT_STATION))
+			continue
+		LAZYADDASSOC(stackcount, fuck_me.type, fuck_me.amount)
+
+	var/table_header = "<tr><th>Name</th> <th>Type</th> <th>Amount</th>"
+	var/table_contents = list()
+	for(var/atom/type as anything in stackcount)
+		var/stackname = initial(type.name)
+		var/count = stackcount[type]
+		table_contents += "<tr><td>[stackname]</td> <td>[type]</td> <td>[count]</td></tr>"
+
+	var/page_style = "<style>table, th, td {border: 1px solid black;border-collapse: collapse;}</style>"
+	var/page_contents = "[page_style]<table style=\"width:100%\">[table_header][jointext(table_contents, "")]</table>"
+	var/datum/browser/popup = new(mob, "stackdebug", "Station Stack Count", 600, 400)
+	popup.set_content(page_contents)
+	popup.open()
+

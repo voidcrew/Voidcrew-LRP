@@ -6,22 +6,20 @@
 #define POLL_IGNORE_SYNDICATE "syndicate"
 #define POLL_IGNORE_HOLOPARASITE "holoparasite"
 #define POLL_IGNORE_POSIBRAIN "posibrain"
-#define POLL_IGNORE_EM_HOLOGRAM "emergency_hologram"
 #define POLL_IGNORE_SPECTRAL_BLADE "spectral_blade"
 #define POLL_IGNORE_CONSTRUCT "construct"
 #define POLL_IGNORE_SPIDER "spider"
 #define POLL_IGNORE_ASHWALKER "ashwalker"
 #define POLL_IGNORE_GOLEM "golem"
-#define POLL_IGNORE_SWARMER "swarmer"
 #define POLL_IGNORE_DRONE "drone"
 #define POLL_IGNORE_FUGITIVE "fugitive"
-#define POLL_IGNORE_DEFECTIVECLONE "defective_clone" //WS Edit - Cloning
 #define POLL_IGNORE_PYROSLIME "slime"
 #define POLL_IGNORE_SHADE "shade"
 #define POLL_IGNORE_IMAGINARYFRIEND "imaginary_friend"
 #define POLL_IGNORE_SPLITPERSONALITY "split_personality"
 #define POLL_IGNORE_CONTRACTOR_SUPPORT "contractor_support"
 #define POLL_IGNORE_ACADEMY_WIZARD "academy_wizard"
+#define POLL_IGNORE_PAI "pai"
 
 
 GLOBAL_LIST_INIT(poll_ignore_desc, list(
@@ -31,22 +29,20 @@ GLOBAL_LIST_INIT(poll_ignore_desc, list(
 	POLL_IGNORE_SYNDICATE = "Syndicate",
 	POLL_IGNORE_HOLOPARASITE = "Holoparasite",
 	POLL_IGNORE_POSIBRAIN = "Positronic brain",
-	POLL_IGNORE_EM_HOLOGRAM = "Emergency Hologram",
 	POLL_IGNORE_SPECTRAL_BLADE = "Spectral blade",
 	POLL_IGNORE_CONSTRUCT = "Construct",
 	POLL_IGNORE_SPIDER = "Spiders",
 	POLL_IGNORE_ASHWALKER = "Ashwalker eggs",
 	POLL_IGNORE_GOLEM = "Golems",
-	POLL_IGNORE_SWARMER = "Swarmer shells",
 	POLL_IGNORE_DRONE = "Drone shells",
 	POLL_IGNORE_FUGITIVE = "Fugitive Hunter",
-	POLL_IGNORE_DEFECTIVECLONE = "Defective clone", //WS Edit - Cloning
 	POLL_IGNORE_PYROSLIME = "Slime",
 	POLL_IGNORE_SHADE = "Shade",
 	POLL_IGNORE_IMAGINARYFRIEND = "Imaginary Friend",
 	POLL_IGNORE_SPLITPERSONALITY = "Split Personality",
 	POLL_IGNORE_CONTRACTOR_SUPPORT = "Contractor Support Unit",
-	POLL_IGNORE_ACADEMY_WIZARD = "Academy Wizard Defender"
+	POLL_IGNORE_ACADEMY_WIZARD = "Academy Wizard Defender",
+	POLL_IGNORE_PAI = JOB_PERSONAL_AI,
 ))
 GLOBAL_LIST_INIT(poll_ignore, init_poll_ignore())
 

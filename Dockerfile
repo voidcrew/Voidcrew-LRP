@@ -1,6 +1,5 @@
 # base = ubuntu + full apt update
 FROM ubuntu:xenial AS base
-
 RUN dpkg --add-architecture i386 \
     && apt-get update \
     && apt-get upgrade -y \
@@ -31,9 +30,9 @@ RUN . ./dependencies.sh \
     && cd .. \
     && rm -rf byond byond.zip
 
-# build = byond + shiptest compiled and deployed to /deploy
+# build = byond + tgstation compiled and deployed to /deploy
 FROM byond AS build
-WORKDIR /shiptest
+WORKDIR /tgstation
 
 RUN apt-get install -y --no-install-recommends \
         curl
@@ -71,17 +70,15 @@ RUN . ./dependencies.sh \
 
 # final = byond + runtime deps + rust_g + build
 FROM byond
-WORKDIR /shiptest
+WORKDIR /tgstation
 
 RUN apt-get install -y --no-install-recommends \
         libssl1.0.0:i386 \
         zlib1g:i386
-#auxtools fexists memes
-RUN ln -s /shiptest/auxtools/libauxmos.so /root/.byond/bin/libauxmos.so
 
 COPY --from=build /deploy ./
 COPY --from=rust_g /rust_g/target/i686-unknown-linux-gnu/release/librust_g.so ./librust_g.so
 
-VOLUME [ "/shiptest/config", "/shiptest/data" ]
-ENTRYPOINT [ "DreamDaemon", "shiptest.dmb", "-port", "1337", "-trusted", "-close", "-verbose" ]
+VOLUME [ "/tgstation/config", "/tgstation/data" ]
+ENTRYPOINT [ "DreamDaemon", "tgstation.dmb", "-port", "1337", "-trusted", "-close", "-verbose" ]
 EXPOSE 1337

@@ -4,26 +4,26 @@
 #define PRIORITY_LOW 1000
 
 /**
-  * Client Colour Priority System By RemieRichards (then refactored by another contributor)
-  * A System that gives finer control over which client.colour value to display on screen
-  * so that the "highest priority" one is always displayed as opposed to the default of
-  * "whichever was set last is displayed".
-  *
-  * Refactored to allow multiple overlapping client colours
-  * (e.g. wearing blue glasses under a yellow visor, even though the result is a little unsatured.)
-  * As well as some support for animated colour transitions.
-  *
-  * Define subtypes of this datum
-  */
+ * Client Colour Priority System By RemieRichards (then refactored by another contributor)
+ * A System that gives finer control over which client.colour value to display on screen
+ * so that the "highest priority" one is always displayed as opposed to the default of
+ * "whichever was set last is displayed".
+ *
+ * Refactored to allow multiple overlapping client colours
+ * (e.g. wearing blue glasses under a yellow visor, even though the result is a little unsatured.)
+ * As well as some support for animated colour transitions.
+ *
+ * Define subtypes of this datum
+ */
 /datum/client_colour
 	///Any client.color-valid value
 	var/colour = ""
 	///The mob that owns this client_colour.
 	var/mob/owner
 	/**
-	* We prioritize colours with higher priority (lower numbers), so they don't get overriden by less important ones:
-	* eg: "Bloody screen" > "goggles colour" as the former is much more important
-	*/
+	  * We prioritize colours with higher priority (lower numbers), so they don't get overriden by less important ones:
+	  * eg: "Bloody screen" > "goggles colour" as the former is much more important
+	  */
 	var/priority = PRIORITY_NORMAL
 	///Will this client_colour prevent ones of lower priority from being applied?
 	var/override = FALSE
@@ -31,8 +31,6 @@
 	var/fade_in = 0
 	///Same as above, but on removal.
 	var/fade_out = 0
-	///Easing value for the above
-	var/easing = 0
 
 /datum/client_colour/New(mob/_owner)
 	owner = _owner
@@ -56,9 +54,9 @@
 		owner.update_client_colour()
 
 /**
-  * Adds an instance of colour_type to the mob's client_colours list
-  * colour_type - a typepath (subtyped from /datum/client_colour)
-  */
+ * Adds an instance of colour_type to the mob's client_colours list
+ * colour_type - a typepath (subtyped from /datum/client_colour)
+ */
 /mob/proc/add_client_colour(colour_type)
 	if(!ispath(colour_type, /datum/client_colour) || QDELING(src))
 		return
@@ -66,15 +64,15 @@
 	var/datum/client_colour/colour = new colour_type(src)
 	BINARY_INSERT(colour, client_colours, /datum/client_colour, colour, priority, COMPARE_KEY)
 	if(colour.fade_in)
-		animate_client_colour(colour.fade_in, colour.easing)
+		animate_client_colour(colour.fade_in)
 	else
 		update_client_colour()
 	return colour
 
 /**
-  * Removes an instance of colour_type from the mob's client_colours list
-  * colour_type - a typepath (subtyped from /datum/client_colour)
-  */
+ * Removes an instance of colour_type from the mob's client_colours list
+ * colour_type - a typepath (subtyped from /datum/client_colour)
+ */
 /mob/proc/remove_client_colour(colour_type)
 	if(!ispath(colour_type, /datum/client_colour))
 		return
@@ -86,11 +84,11 @@
 			break
 
 /**
-  * Gets the resulting colour/tone from client_colours.
-  * In the case of multiple colours, they'll be converted to RGBA matrices for compatibility,
-  * summed together, and then each element divided by the number of matrices. (except we do this with lists because byond)
-  * target is the target variable.
-  */
+ * Gets the resulting colour/tone from client_colours.
+ * In the case of multiple colours, they'll be converted to RGBA matrices for compatibility,
+ * summed together, and then each element divided by the number of matrices. (except we do this with lists because byond)
+ * target is the target variable.
+ */
 #define MIX_CLIENT_COLOUR(target)\
 	var/_our_colour;\
 	var/_number_colours = 0;\
@@ -127,9 +125,9 @@
 
 
 /**
-  * Resets the mob's client.color to null, and then reapplies a new color based
-  * on the client_colour datums it currently has.
-  */
+ * Resets the mob's client.color to null, and then reapplies a new color based
+ * on the client_colour datums it currently has.
+ */
 /mob/proc/update_client_colour()
 	if(!client)
 		return
@@ -194,8 +192,11 @@
 	fade_in = 20
 	fade_out = 20
 
-/datum/client_colour/monochrome/blind/permanent //For the permanently colorblind
-	priority = PRIORITY_ABSOLUTE
+/datum/client_colour/monochrome/trance
+	priority = PRIORITY_NORMAL
+
+/datum/client_colour/monochrome/blind
+	priority = PRIORITY_NORMAL
 
 /datum/client_colour/bloodlust
 	priority = PRIORITY_ABSOLUTE // Only anger.
@@ -206,17 +207,8 @@
 	..()
 	addtimer(CALLBACK(src, .proc/update_colour, list(1,0,0,0.8,0.2,0, 0.8,0,0.2,0.1,0,0), 10, SINE_EASING|EASE_OUT), 1)
 
-/datum/client_colour/thirdeye
-	colour = list(
-			-0.3, -0.3, -0.3, 0.00,\
-			-0.3, -0.3, -0.3, 0.00,\
-			-0.3, -0.3, -0.3, 0.00,\
-			0.00, 0.00, 0.00, 1.00,\
-			0.20, 0.80, 0.70, 0.00
-			)
-	priority = PRIORITY_NORMAL
-	fade_in = 5 SECONDS
-	easing = SINE_EASING
+/datum/client_colour/rave
+	priority = PRIORITY_LOW
 
 #undef PRIORITY_ABSOLUTE
 #undef PRIORITY_HIGH

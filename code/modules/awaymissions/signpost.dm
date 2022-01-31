@@ -7,16 +7,16 @@
 	var/question = "Travel back?"
 	var/list/zlevels
 
-/obj/structure/signpost/Initialize()
+/obj/structure/signpost/Initialize(mapload)
 	. = ..()
 	set_light(2)
-	zlevels = SSmapping.virtual_levels_by_trait(ZTRAIT_STATION)
+	zlevels = SSmapping.levels_by_trait(ZTRAIT_STATION)
 
 /obj/structure/signpost/interact(mob/user)
 	. = ..()
 	if(.)
 		return
-	if(alert(question,name,"Yes","No") == "Yes" && Adjacent(user))
+	if(tgui_alert(usr,question,name,list("Yes","No")) == "Yes" && Adjacent(user))
 		var/turf/T = find_safe_turf(zlevels=zlevels)
 
 		if(T)
@@ -26,14 +26,14 @@
 			user.forceMove(T)
 			if(AM)
 				user.start_pulling(AM)
-			to_chat(user, "<span class='notice'>You blink and find yourself in [get_area_name(T)].</span>")
+			to_chat(user, span_notice("You blink and find yourself in [get_area_name(T)]."))
 		else
 			to_chat(user, "Nothing happens. You feel that this is a bad sign.")
 
 /obj/structure/signpost/attackby(obj/item/W, mob/user, params)
 	return interact(user)
 
-/obj/structure/signpost/attack_paw(mob/user)
+/obj/structure/signpost/attack_paw(mob/user, list/modifiers)
 	return interact(user)
 
 /obj/structure/signpost/attack_hulk(mob/user)
@@ -49,7 +49,7 @@
 /obj/structure/signpost/attack_slime(mob/user)
 	return interact(user)
 
-/obj/structure/signpost/attack_animal(mob/user)
+/obj/structure/signpost/attack_animal(mob/user, list/modifiers)
 	return interact(user)
 
 /obj/structure/signpost/salvation
@@ -63,11 +63,11 @@
 		exit the area."
 	question = "Leave? You might never come back."
 
-/obj/structure/signpost/exit/Initialize()
+/obj/structure/signpost/exit/Initialize(mapload)
 	. = ..()
 	zlevels = list()
 	for(var/i in 1 to world.maxz)
 		zlevels += i
-	zlevels -= SSmapping.virtual_levels_by_trait(ZTRAIT_CENTCOM) // no easy victory, even with meme signposts
+	zlevels -= SSmapping.levels_by_trait(ZTRAIT_CENTCOM) // no easy victory, even with meme signposts
 	// also, could you think of the horror if they ended up in a holodeck
 	// template or something

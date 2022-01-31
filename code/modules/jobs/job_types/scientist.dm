@@ -1,89 +1,63 @@
 /datum/job/scientist
-	title = "Scientist"
-	department_head = list("Research Director")
-	faction = "Station"
+	title = JOB_SCIENTIST
+	description = "Do experiments, perform research, feed the slimes, make bombs."
+	department_head = list(JOB_RESEARCH_DIRECTOR)
+	faction = FACTION_STATION
 	total_positions = 5
 	spawn_positions = 3
 	supervisors = "the research director"
 	selection_color = "#ffeeff"
 	exp_requirements = 60
-	exp_type = EXP_TYPE_CREW
-	wiki_page = "Scientist" //WS Edit - Wikilinks/Warning
+	exp_required_type = EXP_TYPE_CREW
+	exp_granted_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/scientist
+	plasmaman_outfit = /datum/outfit/plasmaman/science
 
-	access = list(ACCESS_ROBOTICS, ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBIOLOGY, ACCESS_MECH_SCIENCE, ACCESS_MINERAL_STOREROOM, ACCESS_TECH_STORAGE) //WS edit - Gen/Sci Split
-	minimal_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBIOLOGY, ACCESS_MECH_SCIENCE, ACCESS_MINERAL_STOREROOM)
 	paycheck = PAYCHECK_MEDIUM
 	paycheck_department = ACCOUNT_SCI
 
 	display_order = JOB_DISPLAY_ORDER_SCIENTIST
+	bounty_types = CIV_JOB_SCI
+	departments_list = list(
+		/datum/job_department/science,
+		)
+
+	family_heirlooms = list(/obj/item/toy/plush/slimeplushie)
+
+	mail_goodies = list(
+		/obj/item/raw_anomaly_core/random = 10,
+		/obj/item/disk/tech_disk/spaceloot = 2,
+		/obj/item/camera_bug = 1
+	)
+	rpg_title = "Thaumaturgist"
+	job_type_flags = JOB_STATION_JOB
+	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS
+
 
 /datum/outfit/job/scientist
 	name = "Scientist"
 	jobtype = /datum/job/scientist
 
-	belt = /obj/item/pda/toxins
-	ears = /obj/item/radio/headset/headset_sci
+	id_trim = /datum/id_trim/job/scientist
 	uniform = /obj/item/clothing/under/rank/rnd/scientist
-	alt_uniform = /obj/item/clothing/under/rank/rnd/roboticist //WS Edit - Alt Uniforms
-	shoes = /obj/item/clothing/shoes/sneakers/white
 	suit = /obj/item/clothing/suit/toggle/labcoat/science
-	alt_suit = /obj/item/clothing/suit/toggle/suspenders/blue
-	dcoat = /obj/item/clothing/suit/hooded/wintercoat/science //WS Edit - Alt Uniforms
+	backpack_contents = list(
+		/obj/item/modular_computer/tablet/preset/science = 1,
+		)
+	belt = /obj/item/pda/science
+	ears = /obj/item/radio/headset/headset_sci
+	shoes = /obj/item/clothing/shoes/sneakers/white
 
 	backpack = /obj/item/storage/backpack/science
-	satchel = /obj/item/storage/backpack/satchel/tox
-	courierbag = /obj/item/storage/backpack/messenger/tox
+	satchel = /obj/item/storage/backpack/satchel/science
+	duffelbag = /obj/item/storage/backpack/duffelbag/science
 
 /datum/outfit/job/scientist/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(prob(0.4))
 		neck = /obj/item/clothing/neck/tie/horrible
 
-//Alt Jobs
-
-/datum/outfit/job/scientist/xenobiologist
-	name = "Scientist (Xenobiologist)"
-
-	uniform = /obj/item/clothing/under/rank/rnd/scientist/xenobiologist
-	alt_uniform = null
-	shoes = /obj/item/clothing/shoes/sneakers/green
-
-/datum/outfit/job/scientist/xenobiologist/fauna
-	name = "Scientist (Fauna Researcher)"
-
-	belt = /obj/item/melee/curator_whip
-	suit = /obj/item/clothing/suit/curator
-	head = /obj/item/clothing/head/fedora
-
-	pda_slot = ITEM_SLOT_LPOCKET
-
-/datum/outfit/job/scientist/naniteresearcher
-	name = "Scientist (Nanite Researcher)"
-
-	uniform = /obj/item/clothing/under/rank/rnd/scientist/nanite
-	alt_uniform = null
-	shoes = /obj/item/clothing/shoes/sneakers/black
-	suit = null
-	alt_suit = null
-
-/datum/outfit/job/scientist/juniorscientist
-	name = "Scientist (Junior Scientist)"
-
-	uniform = /obj/item/clothing/under/rank/rnd/scientist/junior
-	alt_uniform = null
-	shoes = /obj/item/clothing/shoes/sneakers/white
-	suit = null
-	alt_suit = null
-
-/datum/outfit/job/scientist/seniorscientist
-	name = "Scientist (Senior Scientist)"
-
-	uniform = /obj/item/clothing/under/suit/senior_scientist
-	alt_uniform = null
-	shoes = /obj/item/clothing/shoes/laceup
-	suit = /obj/item/clothing/suit/toggle/lawyer/science
-	alt_suit = /obj/item/clothing/suit/toggle/labcoat/science
-	dcoat = null
-	neck = /obj/item/clothing/neck/tie/purple
+/datum/outfit/job/scientist/get_types_to_preload()
+	. = ..()
+	. += /obj/item/clothing/neck/tie/horrible

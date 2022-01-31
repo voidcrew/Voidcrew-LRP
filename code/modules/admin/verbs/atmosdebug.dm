@@ -1,47 +1,36 @@
-/client/proc/check_plumbing()
+/client/proc/atmosscan()
 	set category = "Mapping"
 	set name = "Check Plumbing"
 	if(!src.holder)
 		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
 		return
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Check Plumbing") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	var/list/results = atmosscan()
-	to_chat(usr, "[results.Join("\n")]", confidential = TRUE)
-
-/proc/atmosscan()
-	var/list/results = list()
 
 	//all plumbing - yes, some things might get stated twice, doesn't matter.
-	for(var/obj/machinery/atmospherics/components/component in GLOB.machines)
-		if(component.z && (!component.nodes || !component.nodes.len || (null in component.nodes)))
-			results += "Unconnected [component.name] located at [ADMIN_VERBOSEJMP(component)]"
-
-	//Manifolds
-	for(var/obj/machinery/atmospherics/pipe/manifold/manifold in GLOB.machines)
-		if(manifold.z && (!manifold.nodes || !manifold.nodes.len || (null in manifold.nodes)))
-			results += "Unconnected [manifold.name] located at [ADMIN_VERBOSEJMP(manifold)]"
+	for(var/obj/machinery/atmospherics/components/pipe in GLOB.machines)
+		if(pipe.z && (!pipe.nodes || !pipe.nodes.len || (null in pipe.nodes)))
+			to_chat(usr, "Unconnected [pipe.name] located at [ADMIN_VERBOSEJMP(pipe)]", confidential = TRUE)
 
 	//Pipes
-	for(var/obj/machinery/atmospherics/pipe/simple/pipe in GLOB.machines)
+	for(var/obj/machinery/atmospherics/pipe/pipe in GLOB.machines)
+		if(istype(pipe, /obj/machinery/atmospherics/pipe/smart) || istype(pipe, /obj/machinery/atmospherics/pipe/layer_manifold))
+			continue
 		if(pipe.z && (!pipe.nodes || !pipe.nodes.len || (null in pipe.nodes)))
-			results += "Unconnected [pipe.name] located at [ADMIN_VERBOSEJMP(pipe)]"
-		for(var/obj/machinery/atmospherics/pipe/simple/other_pipe in get_turf(pipe))
-			if(other_pipe != pipe && other_pipe.piping_layer == pipe.piping_layer && other_pipe.dir == pipe.dir)
-				results += "Doubled pipe located at [ADMIN_VERBOSEJMP(pipe)]"
+			to_chat(usr, "Unconnected [pipe.name] located at [ADMIN_VERBOSEJMP(pipe)]", confidential = TRUE)
 
-	return results
+	//Nodes
+	for(var/obj/machinery/atmospherics/node1 in GLOB.machines)
+		for(var/obj/machinery/atmospherics/node2 in node1.nodes)
+			if(!(node1 in node2.nodes))
+				to_chat(usr, "One-way connection in [node1.name] located at [ADMIN_VERBOSEJMP(node1)]", confidential = TRUE)
 
-/client/proc/check_wiring()
+/client/proc/powerdebug()
 	set category = "Mapping"
 	set name = "Check Power"
 	if(!src.holder)
 		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
 		return
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Check Power") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	var/list/results = powerdebug()
-	to_chat(usr, "[results.Join("\n")]", confidential = TRUE)
-
-/proc/powerdebug()
 	var/list/results = list()
 
 	for (var/datum/powernet/PN in GLOB.powernets)
@@ -55,23 +44,16 @@
 				var/obj/structure/cable/C = PN.cables[1]
 				results += "Powernet with fewer than 10 cables! (number [PN.number]) - example cable at [ADMIN_VERBOSEJMP(C)]"
 
-	var/checked_list = list()
-	for(var/obj/structure/cable/specific_cable as anything in GLOB.cable_list)
-		if(specific_cable in checked_list)
-			continue
-		for(var/obj/structure/cable/other_cable in get_turf(specific_cable))
-			if(other_cable == specific_cable)
-				continue
-			checked_list += other_cable
-			if(other_cable.icon_state == specific_cable.icon_state)
-				results += "Doubled wire at [ADMIN_VERBOSEJMP(specific_cable)]"
-				continue
-
-	for(var/obj/machinery/power/terminal/terminal in GLOB.machines)
-		var/wired = FALSE
-		for(var/obj/structure/cable/cable in get_turf(terminal))
-			if(cable.d1 == 0)
-				wired = TRUE
-		if(!wired)
-			results += "Unwired terminal at [ADMIN_VERBOSEJMP(terminal)]"
-	return results
+	for(var/turf/T in world.contents)
+		var/found_one = FALSE
+		for(var/obj/structure/cable/C in T.contents)
+			if(found_one)
+				results += "Doubled wire at [ADMIN_VERBOSEJMP(C)]"
+			else
+				found_one = TRUE
+		var/obj/machinery/power/terminal/term = locate(/obj/machinery/power/terminal) in T.contents
+		if(term)
+			var/obj/structure/cable/C = locate(/obj/structure/cable) in T.contents
+			if(!C)
+				results += "Unwired terminal at [ADMIN_VERBOSEJMP(term)]"
+	to_chat(usr, "[results.Join("\n")]", confidential = TRUE)

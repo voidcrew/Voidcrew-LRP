@@ -1,7 +1,7 @@
 /obj/item/book/manual/random
 	icon_state = "random_book"
 
-/obj/item/book/manual/random/Initialize()
+/obj/item/book/manual/random/Initialize(mapload)
 	..()
 	var/static/banned_books = list(/obj/item/book/manual/random, /obj/item/book/manual/nuclear, /obj/item/book/manual/wiki)
 	var/newtype = pick(subtypesof(/obj/item/book/manual) - banned_books)
@@ -34,7 +34,7 @@
 	. = ..()
 	if(books_to_load && isnum(books_to_load))
 		books_to_load += pick(-1,-1,0,1,1)
-	update_icon()
+	update_appearance()
 
 /proc/create_random_books(amount, location, fail_loud = FALSE, category = null, obj/item/book/existing_book)
 	. = list()
@@ -49,7 +49,7 @@
 		return
 	if(prob(25))
 		category = null
-	var/datum/DBQuery/query_get_random_books = SSdbcore.NewQuery({"
+	var/datum/db_query/query_get_random_books = SSdbcore.NewQuery({"
 		SELECT author, title, content
 		FROM [format_table_name("library")]
 		WHERE isnull(deleted) AND (:category IS NULL OR category = :category)
@@ -59,14 +59,13 @@
 		while(query_get_random_books.NextRow())
 			var/obj/item/book/B
 			B = existing_book ? existing_book : new(location)
-			B.author	=	query_get_random_books.item[1]
-			B.title		=	query_get_random_books.item[2]
-			B.dat		=	query_get_random_books.item[3]
-			B.name		=	"Book: [B.title]"
+			B.author = query_get_random_books.item[1]
+			B.title = query_get_random_books.item[2]
+			B.dat = query_get_random_books.item[3]
+			B.name = "Book: [B.title]"
 			if(!existing_book)
-				B.icon_state=	"book[rand(1,8)]"
+				B.icon_state= "book[rand(1,8)]"
 	qdel(query_get_random_books)
-
 
 /obj/structure/bookcase/random/fiction
 	name = "bookcase (Fiction)"

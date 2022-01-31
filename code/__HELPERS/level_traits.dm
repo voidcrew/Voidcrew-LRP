@@ -1,8 +1,14 @@
 // Helpers for checking whether a z-level conforms to a specific requirement
 
 // Basic levels
-#define is_centcom_level(atom) atom.virtual_level_trait(ZTRAIT_CENTCOM)
+#define is_centcom_level(z) SSmapping.level_trait(z, ZTRAIT_CENTCOM)
 
-#define is_reserved_level(atom) atom.virtual_level_trait(ZTRAIT_RESERVED)
+#define is_station_level(z) SSmapping.level_trait(z, ZTRAIT_STATION)
 
-#define is_away_level(atom) atom.virtual_level_trait(ZTRAIT_AWAY)
+#define is_mining_level(z) SSmapping.level_trait(z, ZTRAIT_MINING)
+
+#define is_reserved_level(z) SSmapping.level_trait(z, ZTRAIT_RESERVED)
+
+#define is_away_level(z) SSmapping.level_trait(z, ZTRAIT_AWAY)
+
+#define is_secret_level(z) SSmapping.level_trait(z, ZTRAIT_SECRET)

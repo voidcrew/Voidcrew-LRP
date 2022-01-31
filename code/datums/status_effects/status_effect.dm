@@ -5,13 +5,15 @@
 /datum/status_effect
 	var/id = "effect" //Used for screen alerts.
 	var/duration = -1 //How long the status effect lasts in DECISECONDS. Enter -1 for an effect that never ends unless removed through some means.
-	var/tick_interval = 10 //How many deciseconds between ticks, approximately. Leave at 10 for every second.
+	var/tick_interval = 10 //How many deciseconds between ticks, approximately. Leave at 10 for every second. Setting this to -1 will stop processing if duration is also unlimited.
 	var/mob/living/owner //The mob affected by the status effect.
 	var/status_type = STATUS_EFFECT_UNIQUE //How many of the effect can be on one mob, and what happens when you try to add another
 	var/on_remove_on_mob_delete = FALSE //if we call on_remove() when the mob is deleted
 	var/examine_text //If defined, this text will appear when the mob is examined - to use he, she etc. use "SUBJECTPRONOUN" and replace it in the examines themselves
 	var/alert_type = /atom/movable/screen/alert/status_effect //the alert thrown by the status effect, contains name and description
 	var/atom/movable/screen/alert/status_effect/linked_alert = null //the alert itself, if it exists
+	///Processing speed - used to define if the status effect should be using SSfastprocess or SSprocessing
+	var/processing_speed = STATUS_EFFECT_FAST_PROCESS
 
 /datum/status_effect/New(list/arguments)
 	on_creation(arglist(arguments))
@@ -19,11 +21,11 @@
 /datum/status_effect/proc/on_creation(mob/living/new_owner, ...)
 	if(new_owner)
 		owner = new_owner
-	if(owner)
-		LAZYADD(owner.status_effects, src)
-	if(!owner || !on_apply())
+	if(QDELETED(owner) || !on_apply())
 		qdel(src)
 		return
+	if(owner)
+		LAZYADD(owner.status_effects, src)
 	if(duration != -1)
 		duration = world.time + duration
 	tick_interval = world.time + tick_interval
@@ -31,11 +33,20 @@
 		var/atom/movable/screen/alert/status_effect/A = owner.throw_alert(id, alert_type)
 		A.attached_effect = src //so the alert can reference us, if it needs to
 		linked_alert = A //so we can reference the alert, if we need to
-	START_PROCESSING(SSfastprocess, src)
+	if(duration > 0 || initial(tick_interval) > 0) //don't process if we don't care
+		switch(processing_speed)
+			if(STATUS_EFFECT_FAST_PROCESS)
+				START_PROCESSING(SSfastprocess, src)
+			if (STATUS_EFFECT_NORMAL_PROCESS)
+				START_PROCESSING(SSprocessing, src)
 	return TRUE
 
 /datum/status_effect/Destroy()
-	STOP_PROCESSING(SSfastprocess, src)
+	switch(processing_speed)
+		if(STATUS_EFFECT_FAST_PROCESS)
+			STOP_PROCESSING(SSfastprocess, src)
+		if (STATUS_EFFECT_NORMAL_PROCESS)
+			STOP_PROCESSING(SSprocessing, src)
 	if(owner)
 		linked_alert = null
 		owner.clear_alert(id)
@@ -67,7 +78,7 @@
 /datum/status_effect/proc/before_remove() //! Called before being removed; returning FALSE will cancel removal
 	return TRUE
 
-/datum/status_effect/proc/refresh()
+/datum/status_effect/proc/refresh(effect, ...)
 	var/original_duration = initial(duration)
 	if(original_duration == -1)
 		return
@@ -101,17 +112,17 @@
 	. = FALSE
 	var/datum/status_effect/S1 = effect
 	LAZYINITLIST(status_effects)
+	var/list/arguments = args.Copy()
+	arguments[1] = src
 	for(var/datum/status_effect/S in status_effects)
 		if(S.id == initial(S1.id) && S.status_type)
 			if(S.status_type == STATUS_EFFECT_REPLACE)
 				S.be_replaced()
 			else if(S.status_type == STATUS_EFFECT_REFRESH)
-				S.refresh()
+				S.refresh(arglist(arguments))
 				return
 			else
 				return
-	var/list/arguments = args.Copy()
-	arguments[1] = src
 	S1 = new effect(arguments)
 	. = S1
 
@@ -266,3 +277,23 @@
 /datum/status_effect/grouped/before_remove(source)
 	sources -= source
 	return !length(sources)
+
+//These effects reapplies their on_apply() effect when refreshed while stacks < max_stacks
+/datum/status_effect/limited_buff
+	id = "limited_buff"
+	duration = -1
+	status_type = STATUS_EFFECT_REFRESH
+	///How many stacks we currently have
+	var/stacks = 1
+	///How many stacks we can have maximum
+	var/max_stacks = 3
+
+/datum/status_effect/limited_buff/refresh(effect)
+	if(stacks < max_stacks)
+		on_apply()
+		stacks++
+	else
+		maxed_out()
+
+/datum/status_effect/limited_buff/proc/maxed_out()
+	return

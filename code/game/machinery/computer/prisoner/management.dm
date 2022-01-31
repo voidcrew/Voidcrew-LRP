@@ -35,7 +35,7 @@
 		var/turf/Tr = null
 		for(var/obj/item/implant/chem/C in GLOB.tracked_chem_implants)
 			Tr = get_turf(C)
-			if((Tr) && (Tr.virtual_z() != src.virtual_z()))
+			if((Tr) && (Tr.z != src.z))
 				continue//Out of range
 			if(!C.imp_in)
 				continue
@@ -50,12 +50,16 @@
 			if(!isliving(T.imp_in))
 				continue
 			Tr = get_turf(T)
-			if((Tr) && (Tr.virtual_z() != src.virtual_z()))
+			if((Tr) && (Tr.z != src.z))
 				continue//Out of range
 
+			var/loc_display = "Unknown"
 			var/mob/living/M = T.imp_in
+			if(is_station_level(Tr.z) && !isspaceturf(M.loc))
+				var/turf/mob_loc = get_turf(M)
+				loc_display = mob_loc.loc
 
-			dat += "ID: [T.imp_in.name] | Location: [get_area(M)]<BR>"
+			dat += "ID: [T.imp_in.name] | Location: [loc_display]<BR>"
 			dat += "<A href='?src=[REF(src)];warn=[REF(T)]'>(<font class='bad'><i>Message Holder</i></font>)</A> |<BR>"
 			dat += "********************************<BR>"
 		dat += "<HR><A href='?src=[REF(src)];lock=1'>{Log Out}</A>"
@@ -69,7 +73,7 @@
 		if(screen)
 			id_insert(user)
 		else
-			to_chat(user, "<span class='danger'>Unauthorized access.</span>")
+			to_chat(user, span_danger("Unauthorized access."))
 	else
 		return ..()
 
@@ -94,10 +98,10 @@
 					if("reset")
 						contained_id.points = 0
 					if("setgoal")
-						var/num = round(input(usr, "Choose prisoner's goal:", "Input an Integer", null) as num|null)
-						if(num >= 0)
-							num = min(num,1000) //Cap the quota to the equivilent of 10 minutes.
-							contained_id.goal = num
+						var/num = tgui_input_text(usr, "Enter the prisoner's goal", "Prisoner Management", 1, 1000, 1)
+						if(isnull(num))
+							return
+						contained_id.goal = round(num)
 		else if(href_list["inject1"])
 			var/obj/item/implant/I = locate(href_list["inject1"]) in GLOB.tracked_chem_implants
 			if(I && istype(I))
@@ -116,16 +120,16 @@
 				screen = !screen
 				playsound(src, 'sound/machines/terminal_on.ogg', 50, FALSE)
 			else
-				to_chat(usr, "<span class='danger'>Unauthorized access.</span>")
+				to_chat(usr, span_danger("Unauthorized access."))
 
 		else if(href_list["warn"])
-			var/warning = stripped_input(usr, "Message:", "Enter your message here!", "", MAX_MESSAGE_LEN)
+			var/warning = tgui_input_text(usr, "Enter your message here", "Messaging")
 			if(!warning)
 				return
 			var/obj/item/implant/I = locate(href_list["warn"]) in GLOB.tracked_implants
 			if(I && istype(I) && I.imp_in)
 				var/mob/living/R = I.imp_in
-				to_chat(R, "<span class='hear'>You hear a voice in your head saying: '[warning]'</span>")
+				to_chat(R, span_hear("You hear a voice in your head saying: '[warning]'"))
 				log_directed_talk(usr, R, warning, LOG_SAY, "implant message")
 
 		src.add_fingerprint(usr)

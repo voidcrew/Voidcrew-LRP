@@ -5,6 +5,7 @@
 #define SHUTTLE_CALL "called"
 #define SHUTTLE_DOCKED "docked"
 #define SHUTTLE_STRANDED "stranded"
+#define SHUTTLE_DISABLED "disabled"
 #define SHUTTLE_ESCAPE "escape"
 #define SHUTTLE_ENDGAME "endgame: game over"
 #define SHUTTLE_RECHARGING "recharging"
@@ -13,12 +14,7 @@
 #define EMERGENCY_IDLE_OR_RECALLED (SSshuttle.emergency && ((SSshuttle.emergency.mode == SHUTTLE_IDLE) || (SSshuttle.emergency.mode == SHUTTLE_RECALL)))
 #define EMERGENCY_ESCAPED_OR_ENDGAMED (SSshuttle.emergency && ((SSshuttle.emergency.mode == SHUTTLE_ESCAPE) || (SSshuttle.emergency.mode == SHUTTLE_ENDGAME)))
 #define EMERGENCY_AT_LEAST_DOCKED (SSshuttle.emergency && SSshuttle.emergency.mode != SHUTTLE_IDLE && SSshuttle.emergency.mode != SHUTTLE_RECALL && SSshuttle.emergency.mode != SHUTTLE_CALL)
-
-// Jump status defines
-#define BS_JUMP_IDLE 0
-#define BS_JUMP_CALLED 1
-#define BS_JUMP_INITIATED 2
-#define BS_JUMP_COMPLETED 3
+#define EMERGENCY_PAST_POINT_OF_NO_RETURN ((SSshuttle.emergency && SSshuttle.emergency.mode == SHUTTLE_CALL && !SSshuttle.canRecall()) || EMERGENCY_AT_LEAST_DOCKED)
 
 // Shuttle return values
 #define SHUTTLE_CAN_DOCK "can_dock"
@@ -37,13 +33,18 @@
 #define EARLY_LAUNCHED 2
 #define ENDGAME_TRANSIT 3
 
+//positive value = cannot puchase
+#define SHUTTLEPURCHASE_PURCHASABLE 0 //station can buy a shuttle
+#define SHUTTLEPURCHASE_PURCHASED 1 //station has already bought a shuttle, so cannot
+#define SHUTTLEPURCHASE_FORCED 2 //station was given a new shuttle through events or other shenanigans
+
 // Ripples, effects that signal a shuttle's arrival
 #define SHUTTLE_RIPPLE_TIME 100
 
 #define TRANSIT_REQUEST 1
 #define TRANSIT_READY 2
 
-#define SHUTTLE_TRANSIT_BORDER 12
+#define SHUTTLE_TRANSIT_BORDER 8
 
 #define PARALLAX_LOOP_TIME 25
 #define HYPERSPACE_END_TIME 5
@@ -77,10 +78,16 @@
 #define ROTATE_SMOOTH 2
 #define ROTATE_OFFSET 4
 
+#define SHUTTLE_DOCKER_LANDING_CLEAR 1
+#define SHUTTLE_DOCKER_BLOCKED_BY_HIDDEN_PORT 2
+#define SHUTTLE_DOCKER_BLOCKED 3
+
 //Shuttle defaults
-#define SHUTTLE_DEFAULT_SHUTTLE_AREA_TYPE /area/ship
+#define SHUTTLE_DEFAULT_SHUTTLE_AREA_TYPE /area/shuttle
 #define SHUTTLE_DEFAULT_UNDERLYING_AREA /area/space
 
 //Shuttle unlocks
-#define SHUTTLE_UNLOCK_BUBBLEGUM "bubblegum"
 #define SHUTTLE_UNLOCK_ALIENTECH "abductor"
+#define SHUTTLE_UNLOCK_BUBBLEGUM "bubblegum"
+#define SHUTTLE_UNLOCK_MEDISIM "holodeck"
+#define SHUTTLE_UNLOCK_NARNAR "narnar"

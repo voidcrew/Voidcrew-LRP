@@ -4,6 +4,7 @@
 #define DYE_REGISTRY_SNEAKERS "sneakers"
 #define DYE_REGISTRY_FANNYPACK "fannypack"
 #define DYE_REGISTRY_BEDSHEET "bedsheet"
+#define DYE_REGISTRY_DOUBLE_BEDSHEET "double_bedsheet"
 #define DYE_LAWYER_SPECIAL "lawyer_special"
 
 #define DYE_RED "red"
@@ -21,7 +22,7 @@
 #define DYE_QM "qm"
 #define DYE_LAW "law"
 #define DYE_CAPTAIN "captain"
-#define DYE_FO "head_of_personnel"
+#define DYE_HOP "hop"
 #define DYE_HOS "hos"
 #define DYE_CE "ce"
 #define DYE_RD "rd"
@@ -30,3 +31,4 @@
 #define DYE_CLOWN "clown"
 #define DYE_CHAP "chap"
 #define DYE_CENTCOM "centcom"
+#define DYE_PRISONER "prisoner"

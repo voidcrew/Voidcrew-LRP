@@ -7,12 +7,6 @@
 /datum/language
 	var/name = "an unknown language"  // Fluff name of language if any.
 	var/desc = "A language."          // Short description for 'Check Languages'.
-	var/speech_verb = "says"          // 'says', 'hisses', 'farts'.
-	var/ask_verb = "asks"             // Used when sentence ends in a ?
-	var/exclaim_verb = "exclaims"     // Used when sentence ends in a !
-	var/whisper_verb = "whispers"     // Optional. When not specified speech_verb + quietly/softly is used instead.
-	var/sing_verb = "sings"			  // Used for singing.
-	var/list/signlang_verb = list("signs", "gestures") // list of emotes that might be displayed if this language has NONVERBAL or SIGNLANG flags
 	var/key                           // Character used to speak in language
 	// If key is null, then the language isn't real or learnable.
 	var/flags                         // Various language flags.
@@ -20,7 +14,6 @@
 	var/sentence_chance = 5      // Likelihood of making a new sentence after each syllable.
 	var/space_chance = 55        // Likelihood of getting a space in the random scramble string
 	var/list/spans = list()
-	var/list/scramble_spans = list() //For wingding fonts
 	var/list/scramble_cache = list()
 	var/default_priority = 0          // the language that an atom knows with the highest "default_priority" is selected by default.
 
@@ -110,13 +103,5 @@
 	add_to_cache(input, scrambled_text)
 
 	return scrambled_text
-
-/datum/language/proc/get_spoken_verb(msg_end)
-	switch(msg_end)
-		if("!")
-			return exclaim_verb
-		if("?")
-			return ask_verb
-	return speech_verb
 
 #undef SCRAMBLE_CACHE_LEN

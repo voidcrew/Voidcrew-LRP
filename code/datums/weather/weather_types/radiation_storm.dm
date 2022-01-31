@@ -7,19 +7,21 @@
 	telegraph_message = "<span class='danger'>The air begins to grow warm.</span>"
 
 	weather_message = "<span class='userdanger'><i>You feel waves of heat wash over you! Find shelter!</i></span>"
-	weather_overlay = "rad_storm"
+	weather_overlay = "ash_storm"
 	weather_duration_lower = 600
 	weather_duration_upper = 1500
+	weather_color = "green"
 	weather_sound = 'sound/misc/bloblarm.ogg'
 
 	end_duration = 100
 	end_message = "<span class='notice'>The air seems to be cooling off again.</span>"
 
 	area_type = /area
-	protected_areas = list(/area/ship/maintenance, /area/ship/science/ai_chamber, /area/ship/storage, /area/ship/security/prison)
+	protected_areas = list(/area/maintenance, /area/ai_monitored/turret_protected/ai_upload, /area/ai_monitored/turret_protected/ai_upload_foyer, /area/ai_monitored/turret_protected/aisat/maint, /area/ai_monitored/command/storage/satellite,
+	/area/ai_monitored/turret_protected/ai, /area/commons/storage/emergency/starboard, /area/commons/storage/emergency/port, /area/shuttle, /area/security/prison/safe, /area/security/prison/toilet)
+	target_trait = ZTRAIT_STATION
 
-	immunity_type = "rad"
-	multiply_blend_on_main_stage = TRUE
+	immunity_type = TRAIT_RADSTORM_IMMUNE
 
 /datum/weather/rad_storm/telegraph()
 	..()
@@ -27,20 +29,31 @@
 
 
 /datum/weather/rad_storm/weather_act(mob/living/L)
-	var/resist = L.getarmor(null, "rad")
-	if(prob(40))
-		if(ishuman(L))
-			var/mob/living/carbon/human/H = L
-			if(H.dna && !HAS_TRAIT(H, TRAIT_GENELESS))
-				if(prob(max(0,100-resist)))
-					H.randmuti()
-					if(prob(50))
-						if(prob(90))
-							H.easy_randmut(NEGATIVE+MINOR_NEGATIVE)
-						else
-							H.easy_randmut(POSITIVE)
-						H.domutcheck()
-		L.rad_act(20)
+	if(!prob(40))
+		return
+
+	if(!ishuman(L))
+		return
+
+	var/mob/living/carbon/human/H = L
+	if(!H.dna || HAS_TRAIT(H, TRAIT_GENELESS))
+		return
+		
+	if(HAS_TRAIT(H, TRAIT_RADIMMUNE))
+		return
+
+	if (SSradiation.wearing_rad_protected_clothing(H))
+		return
+
+	H.random_mutate_unique_identity()
+	H.random_mutate_unique_features()
+
+	if(prob(50))
+		if(prob(90))
+			H.easy_random_mutate(NEGATIVE+MINOR_NEGATIVE)
+		else
+			H.easy_random_mutate(POSITIVE)
+		H.domutcheck()
 
 /datum/weather/rad_storm/end()
 	if(..())
@@ -48,8 +61,7 @@
 	priority_announce("The radiation threat has passed. Please return to your workplaces.", "Anomaly Alert")
 	status_alarm(FALSE)
 
-///Makes the status displays show the radiation warning for those who missed the announcement.
-/datum/weather/rad_storm/proc/status_alarm(active)
+/datum/weather/rad_storm/proc/status_alarm(active) //Makes the status displays show the radiation warning for those who missed the announcement.
 	var/datum/radio_frequency/frequency = SSradio.return_frequency(FREQ_STATUS_DISPLAYS)
 	if(!frequency)
 		return

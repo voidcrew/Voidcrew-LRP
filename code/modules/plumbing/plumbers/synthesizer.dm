@@ -5,13 +5,9 @@
 
 	icon_state = "synthesizer"
 	icon = 'icons/obj/plumbing/plumbers.dmi'
-	rcd_cost = 25
-	rcd_delay = 15
 
 	///Amount we produce for every process. Ideally keep under 5 since thats currently the standard duct capacity
 	var/amount = 1
-	///The maximum we can produce for every process
-	buffer = 5
 	///I track them here because I have no idea how I'd make tgui loop like that
 	var/static/list/possible_amounts = list(0,1,2,3,4,5)
 	///The reagent we are producing. We are a typepath, but are also typecast because there's several occations where we need to use initial.
@@ -36,7 +32,6 @@
 		/datum/reagent/potassium,
 		/datum/reagent/uranium/radium,
 		/datum/reagent/silicon,
-		/datum/reagent/silver,
 		/datum/reagent/sodium,
 		/datum/reagent/stable_plasma,
 		/datum/reagent/consumable/sugar,
@@ -46,16 +41,16 @@
 		/datum/reagent/fuel,
 	)
 
-/obj/machinery/plumbing/synthesizer/Initialize(mapload, bolt)
+/obj/machinery/plumbing/synthesizer/Initialize(mapload, bolt, layer)
 	. = ..()
-	AddComponent(/datum/component/plumbing/simple_supply, bolt)
+	AddComponent(/datum/component/plumbing/simple_supply, bolt, layer)
 
-/obj/machinery/plumbing/synthesizer/process()
+/obj/machinery/plumbing/synthesizer/process(delta_time)
 	if(machine_stat & NOPOWER || !reagent_id || !amount)
 		return
-	if(reagents.total_volume >= amount) //otherwise we get leftovers, and we need this to be precise
+	if(reagents.total_volume >= amount*delta_time*0.5) //otherwise we get leftovers, and we need this to be precise
 		return
-	reagents.add_reagent(reagent_id, amount)
+	reagents.add_reagent(reagent_id, amount*delta_time*0.5)
 
 /obj/machinery/plumbing/synthesizer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -99,14 +94,11 @@
 			if(new_reagent in dispensable_reagents)
 				reagent_id = new_reagent
 				. = TRUE
-	update_icon()
+	update_appearance()
 	reagents.clear_reagents()
 
 /obj/machinery/plumbing/synthesizer/update_overlays()
 	. = ..()
 	var/mutable_appearance/r_overlay = mutable_appearance(icon, "[icon_state]_overlay")
-	if(reagent_id)
-		r_overlay.color = initial(reagent_id.color)
-	else
-		r_overlay.color = "#FFFFFF"
+	r_overlay.color = reagent_id ? initial(reagent_id.color) : "#FFFFFF"
 	. += r_overlay

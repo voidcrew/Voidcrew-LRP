@@ -1,6 +1,6 @@
 //**************
 //*****Keys*******************
-//**************		**  **
+//************** **  **
 /obj/item/keycard
 	name = "security keycard"
 	desc = "This feels like it belongs to a door."
@@ -15,17 +15,17 @@
 	var/puzzle_id = null
 
 //Two test keys for use alongside the two test doors.
-/obj/item/keycard/cheese
-	name = "cheese keycard"
-	desc = "Look, I still don't understand the reference. What the heck is a keyzza?"
+/obj/item/keycard/yellow
+	name = "yellow keycard"
+	desc = "A yellow keycard. How fantastic. Looks like it belongs to a high security door."
 	color = "#f0da12"
-	puzzle_id = "cheese"
+	puzzle_id = "yellow"
 
-/obj/item/keycard/swordfish
-	name = "titanic keycard"
-	desc = "Smells like it was at the bottom of a harbor."
+/obj/item/keycard/blue
+	name = "blue keycard"
+	desc = "A blue keycard. How terrific. Looks like it belongs to a high security door."
 	color = "#3bbbdb"
-	puzzle_id = "swordfish"
+	puzzle_id = "blue"
 
 //***************
 //*****Doors*****
@@ -34,15 +34,18 @@
 /obj/machinery/door/keycard
 	name = "locked door"
 	desc = "This door only opens when a keycard is swiped. It looks virtually indestructable."
-	icon = 'icons/obj/doors/doorpuzzle.dmi'
+	icon = 'icons/obj/doors/puzzledoor/default.dmi'
 	icon_state = "door_closed"
 	explosion_block = 3
 	heat_proof = TRUE
 	max_integrity = 600
-	armor = list("melee" = 100, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
+	armor = list(MELEE = 100, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 100, BIO = 100, FIRE = 100, ACID = 100)
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | LAVA_PROOF
 	damage_deflection = 70
-	var/puzzle_id = null	//Make sure that the key has the same puzzle_id as the keycard door!
+	/// Make sure that the key has the same puzzle_id as the keycard door!
+	var/puzzle_id = null
+	/// Message that occurs when the door is opened
+	var/open_message = "The door beeps, and slides opens."
 
 //Standard Expressions to make keycard doors basically un-cheeseable
 /obj/machinery/door/keycard/Bumped(atom/movable/AM)
@@ -52,9 +55,9 @@
 	return
 
 /obj/machinery/door/keycard/ex_act(severity, target)
-	return
+	return FALSE
 
-/obj/machinery/door/keycard/try_to_activate_door(mob/user)
+/obj/machinery/door/keycard/try_to_activate_door(mob/user, access_bypass = FALSE)
 	add_fingerprint(user)
 	if(operating)
 		return
@@ -64,26 +67,27 @@
 	if(istype(I,/obj/item/keycard))
 		var/obj/item/keycard/key = I
 		if((!puzzle_id || puzzle_id == key.puzzle_id)  && density)
-			to_chat(user, "<span class='notice'>The door beeps, and slides opens.</span>")
+			if(open_message)
+				to_chat(user, span_notice("[open_message]"))
 			open()
 			return
 		else if(puzzle_id != key.puzzle_id)
-			to_chat(user, "<span class='notice'>[src] buzzes. This must not be the right key.</span>")
+			to_chat(user, span_notice("[src] buzzes. This must not be the right key."))
 			return
 		else
-			to_chat(user, "<span class='notice'>This door doesn't appear to close.</span>")
+			to_chat(user, span_notice("This door doesn't appear to close."))
 			return
 
-//Test doors. Gives admins a few doors to use quickly should they so choose.
-/obj/machinery/door/keycard/cheese
+//Test doors. Gives admins a few doors to use quickly should they so choose for events.
+/obj/machinery/door/keycard/yellow_required
 	name = "blue airlock"
-	desc = "Smells like... pizza?"
-	puzzle_id = "cheese"
+	desc = "It looks like it requires a yellow keycard."
+	puzzle_id = "yellow"
 
-/obj/machinery/door/keycard/swordfish
+/obj/machinery/door/keycard/blue_required
 	name = "blue airlock"
-	desc = "If nautical nonsense be something you wish."
-	puzzle_id = "swordfish"
+	desc = "It looks like it requires a blue keycard."
+	puzzle_id = "blue"
 
 //*************************
 //***Box Pushing Puzzles***
@@ -113,18 +117,19 @@
 	trigger_delay = 10
 	protected = TRUE
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | LAVA_PROOF
-	var/reward = /obj/item/reagent_containers/food/snacks/cookie
+	undertile_pressureplate = FALSE
+	var/reward = /obj/item/food/cookie
 	var/claimed = FALSE
 
-/obj/item/pressure_plate/hologrid/Initialize()
+/obj/item/pressure_plate/hologrid/Initialize(mapload)
 	. = ..()
-
-	AddElement(/datum/element/undertile, tile_overlay = tile_overlay) //we remove use_anchor here, so it ALWAYS stays anchored
+	if(undertile_pressureplate)
+		AddElement(/datum/element/undertile, tile_overlay = tile_overlay, use_anchor = FALSE) //we remove use_anchor here, so it ALWAYS stays anchored
 
 /obj/item/pressure_plate/hologrid/examine(mob/user)
 	. = ..()
 	if(claimed)
-		. += "<span class='notice'>This one appears to be spent already.</span>"
+		. += span_notice("This one appears to be spent already.")
 
 /obj/item/pressure_plate/hologrid/trigger()
 	if(!claimed)
@@ -133,7 +138,7 @@
 	icon_state = "lasergrid_full"
 	claimed = TRUE
 
-/obj/item/pressure_plate/hologrid/Crossed(atom/movable/AM)
+/obj/item/pressure_plate/hologrid/on_entered(datum/source, atom/movable/AM)
 	. = ..()
 	if(trigger_item && istype(AM, specific_item) && !claimed)
 		AM.set_anchored(TRUE)

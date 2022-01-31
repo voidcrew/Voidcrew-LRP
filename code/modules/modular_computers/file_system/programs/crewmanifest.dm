@@ -1,6 +1,7 @@
 /datum/computer_file/program/crew_manifest
 	filename = "plexagoncrew"
 	filedesc = "Plexagon Crew List"
+	category = PROGRAM_CATEGORY_CREW
 	program_icon_state = "id"
 	extended_desc = "Program for viewing and printing the current crew manifest"
 	transfer_access = ACCESS_HEADS
@@ -11,7 +12,7 @@
 
 /datum/computer_file/program/crew_manifest/ui_static_data(mob/user)
 	var/list/data = list()
-	data["manifest"] = SSjob.get_manifest()
+	data["manifest"] = GLOB.data_core.get_manifest()
 	return data
 
 /datum/computer_file/program/crew_manifest/ui_data(mob/user)
@@ -41,10 +42,10 @@
 			if(computer && printer) //This option should never be called if there is no printer
 				var/contents = {"<h4>Crew Manifest</h4>
 								<br>
-								[SSjob.get_manifest_html()]
+								[GLOB.data_core ? GLOB.data_core.get_manifest_html(0) : ""]
 								"}
 				if(!printer.print_text(contents,text("crew manifest ([])", station_time_timestamp())))
-					to_chat(usr, "<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>")
+					to_chat(usr, span_notice("Hardware error: Printer was unable to print the file. It may be out of paper."))
 					return
 				else
-					computer.visible_message("<span class='notice'>\The [computer] prints out a paper.</span>")
+					computer.visible_message(span_notice("\The [computer] prints out a paper."))

@@ -1,123 +1,117 @@
 /datum/job/captain
-	title = "Captain"
+	title = JOB_CAPTAIN
+	description = "Be responsible for the station, manage your Heads of Staff, \
+		keep the crew alive, be prepared to do anything and everything or die \
+		horribly trying."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD|DEADMIN_POSITION_SECURITY
 	department_head = list("CentCom")
-	faction = "Station"
+	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "Nanotrasen officials and Space law"
 	selection_color = "#ccccff"
-	minimal_player_age = 30
+	req_admin_notify = 1
+	minimal_player_age = 14
 	exp_requirements = 180
-	exp_type = EXP_TYPE_CREW
-	exp_type_department = EXP_TYPE_COMMAND
-	officer = TRUE
-	wiki_page = "Captain"
+	exp_required_type = EXP_TYPE_CREW
+	exp_required_type_department = EXP_TYPE_COMMAND
+	exp_granted_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/captain
+	plasmaman_outfit = /datum/outfit/plasmaman/captain
 
-	access = list() 			//See get_access()
-	minimal_access = list() 	//See get_access()
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_SEC
 
-	mind_traits = list(TRAIT_DISK_VERIFIER)
+	liver_traits = list(TRAIT_ROYAL_METABOLISM)
 
 	display_order = JOB_DISPLAY_ORDER_CAPTAIN
+	department_for_prefs = /datum/job_department/captain
+	departments_list = list(
+		/datum/job_department/command,
+	)
 
-/datum/job/captain/get_access()
-	return get_all_accesses()
+	family_heirlooms = list(/obj/item/reagent_containers/food/drinks/flask/gold, /obj/item/toy/captainsaid/collector)
+
+	mail_goodies = list(
+		/obj/item/clothing/mask/cigarette/cigar/havana = 20,
+		/obj/item/storage/fancy/cigarettes/cigars/havana = 15,
+		/obj/item/reagent_containers/food/drinks/bottle/champagne = 10,
+		/obj/item/toy/captainsaid/collector = 20
+	)
+
+	job_type_flags = JOB_STATION_JOB | JOB_HEAD_JOB
+	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_BOLD_SELECT_TEXT | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS
+	rpg_title = "Star Duke"
+
+	voice_of_god_power = 1.4 //Command staff has authority
+
+
+/datum/job/captain/get_captaincy_announcement(mob/living/captain)
+	return "Captain [captain.real_name] on deck!"
+
 
 /datum/outfit/job/captain
 	name = "Captain"
 	jobtype = /datum/job/captain
 
-	id = /obj/item/card/id/gold
+	id = /obj/item/card/id/advanced/gold
+	id_trim = /datum/id_trim/job/captain
+	uniform = /obj/item/clothing/under/rank/captain
+	suit = /obj/item/clothing/suit/armor/vest/capcarapace
+	backpack_contents = list(
+		/obj/item/melee/baton/telescopic = 1,
+		/obj/item/station_charter = 1,
+		)
 	belt = /obj/item/pda/captain
+	ears = /obj/item/radio/headset/heads/captain/alt
+	glasses = /obj/item/clothing/glasses/sunglasses
 	gloves = /obj/item/clothing/gloves/color/captain
-	uniform =  /obj/item/clothing/under/rank/command/captain
-	alt_uniform = /obj/item/clothing/under/rank/command/captain/parade //WS Edit - Alt Uniforms
-	dcoat = /obj/item/clothing/suit/hooded/wintercoat/captain //WS Edit - Alt Uniforms
-	shoes = /obj/item/clothing/shoes/sneakers/brown
 	head = /obj/item/clothing/head/caphat
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/station_charter=1)
+	shoes = /obj/item/clothing/shoes/sneakers/brown
+
 
 	backpack = /obj/item/storage/backpack/captain
 	satchel = /obj/item/storage/backpack/satchel/cap
 	duffelbag = /obj/item/storage/backpack/duffelbag/captain
-	courierbag = /obj/item/storage/backpack/messenger/com
 
 	accessory = /obj/item/clothing/accessory/medal/gold/captain
+	chameleon_extras = list(
+		/obj/item/gun/energy/e_gun,
+		/obj/item/stamp/captain,
+		)
+	implants = list(/obj/item/implant/mindshield)
+	skillchips = list(/obj/item/skillchip/disk_verifier)
 
-	chameleon_extras = list(/obj/item/gun/energy/e_gun, /obj/item/stamp/captain)
+	var/special_charter
 
-/datum/outfit/job/captain/hardsuit
-	name = "Captain (Hardsuit)"
+/datum/outfit/job/captain/pre_equip(mob/living/carbon/human/H, visualsOnly)
+	. = ..()
+	var/list/job_changes = SSmapping.config.job_changes
+	if(!length(job_changes))
+		return
+	var/list/captain_changes = job_changes["captain"]
+	if(!length(captain_changes))
+		return
+	special_charter = captain_changes["special_charter"]
+	if(!special_charter)
+		return
+	backpack_contents.Remove(/obj/item/station_charter)
+	l_hand = /obj/item/station_charter/banner
 
-	mask = /obj/item/clothing/mask/gas/atmos/captain
-	suit = /obj/item/clothing/suit/space/hardsuit/swat/captain
+/datum/outfit/job/captain/post_equip(mob/living/carbon/human/equipped, visualsOnly)
+	. = ..()
+	var/obj/item/station_charter/banner/celestial_charter = equipped.held_items[LEFT_HANDS]
+	if(!celestial_charter)
+		return
+	celestial_charter.name_type = special_charter
+
+/datum/outfit/job/captain/mod
+	name = "Captain (MODsuit)"
+
 	suit_store = /obj/item/tank/internals/oxygen
-
-/datum/outfit/job/captain/nt
-	name = "Captain (Nanotrasen)"
-
-	uniform = /obj/item/clothing/under/rank/command/captain/nt
-	alt_uniform = /obj/item/clothing/under/rank/command/captain/nt/alt
-	shoes = /obj/item/clothing/shoes/laceup
-	head = /obj/item/clothing/head/caphat/nt
-
-/datum/outfit/job/captain/solgov
-	name = "Captain (SolGov)"
-	shoes = /obj/item/clothing/shoes/laceup
-	suit = /obj/item/clothing/suit/toggle/solgov
-
-/datum/outfit/job/captain/solgov/rebel
-	name = "Captain (Deserter)"
-	suit = /obj/item/clothing/suit/toggle/solgov/terragov
-
-/datum/outfit/job/captain/pirate
-	name = "Captain (Pirate)"
-	uniform = /obj/item/clothing/under/costume/russian_officer
-	shoes = /obj/item/clothing/shoes/jackboots
-	head = /obj/item/clothing/head/pirate/captain
-	suit = /obj/item/clothing/suit/pirate/captain
-
-/datum/outfit/job/captain/corporate
-	name = "Captain (Corporate)"
-	uniform = /obj/item/clothing/under/suit/navy
-	shoes = /obj/item/clothing/shoes/laceup
-	glasses = /obj/item/clothing/glasses/sunglasses
-	gloves = null
-
-/datum/outfit/job/captain/western
-	name = "Captain (Western)"
-	uniform = /obj/item/clothing/under/suit/white
-	alt_uniform = null
-	shoes = /obj/item/clothing/shoes/cowboy/white
-	head = /obj/item/clothing/head/caphat/cowboy
-	glasses = /obj/item/clothing/glasses/sunglasses
-	alt_suit = null
-
-/datum/outfit/job/captain/syndicate
-	name = "Captain (ACLF)"
-	id = /obj/item/card/id/syndicate_command/captain_id
-	ears = /obj/item/radio/headset/syndicate/alt
-	uniform = /obj/item/clothing/under/syndicate/aclf
-	shoes = /obj/item/clothing/shoes/jackboots
-	head = /obj/item/clothing/head/HoS/syndicate
-	gloves = /obj/item/clothing/gloves/combat
-	suit = /obj/item/clothing/suit/armor/vest/capcarapace/syndicate
-
-	backpack = /obj/item/storage/backpack/security
-	satchel = /obj/item/storage/backpack/satchel/sec
-	duffelbag = /obj/item/storage/backpack/duffelbag/sec
-	courierbag = /obj/item/storage/backpack/messenger/sec
-
-/datum/outfit/job/captain/syndicate/gorlex
-	name = "Captain (Gorlex Marauders)"
-
-	uniform = /obj/item/clothing/under/syndicate/aclf
-	shoes = /obj/item/clothing/shoes/jackboots
-	head = /obj/item/clothing/head/aclfcap
-	suit = /obj/item/clothing/suit/aclf
-
+	back = /obj/item/mod/control/pre_equipped/magnate
+	suit = null
+	head = null
+	mask = /obj/item/clothing/mask/gas/atmos/captain
+	internals_slot = ITEM_SLOT_SUITSTORE

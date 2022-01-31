@@ -5,7 +5,6 @@
 
 /obj/structure/closet/secure_closet/quartermaster/PopulateContents()
 	..()
-	new /obj/item/stack/tape(src) //WS Edit - Tape
 	new /obj/item/clothing/neck/cloak/qm(src)
 	new /obj/item/storage/lockbox/medal/cargo(src)
 	new /obj/item/clothing/under/rank/cargo/qm(src)
@@ -21,6 +20,7 @@
 	new /obj/item/export_scanner(src)
 	new /obj/item/door_remote/quartermaster(src)
 	new /obj/item/circuitboard/machine/techfab/department/cargo(src)
-	new /obj/item/storage/photo_album/QM(src)
+	new /obj/item/storage/photo_album/qm(src)
 	new /obj/item/circuitboard/machine/ore_silo(src)
-	new /obj/item/clothing/head/safety_helmet(src)
+	new /obj/item/card/id/departmental_budget/car(src)
+	new /obj/item/clothing/suit/hooded/wintercoat/qm(src)

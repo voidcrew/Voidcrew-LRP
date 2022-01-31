@@ -19,20 +19,6 @@
 	user.get_admin_say()
 	return TRUE
 
-/datum/keybinding/admin/mentor_say
-	hotkey_keys = list("F4")
-	name = "mentor_say"
-	full_name = "Mentor say"
-	description = "Talk with other mentors."
-	keybind_signal = COMSIG_KB_ADMIN_MSAY_DOWN
-
-/datum/keybinding/admin/mentor_say/down(client/user)
-	. = ..()
-	if(.)
-		return
-	user.get_mentor_say()
-	return TRUE
-
 /datum/keybinding/admin/admin_ghost
 	hotkey_keys = list("F5")
 	name = "admin_ghost"
@@ -143,4 +129,18 @@
 	if(.)
 		return
 	user.readmin()
+	return TRUE
+
+/datum/keybinding/admin/view_tags
+	hotkey_keys = list("F9")
+	name = "view_tags"
+	full_name = "View Tags"
+	description = "Open the View-Tags menu"
+	keybind_signal = COMSIG_KB_ADMIN_VIEWTAGS_DOWN
+
+/datum/keybinding/admin/view_tags/down(client/user)
+	. = ..()
+	if(.)
+		return
+	user.holder?.display_tags()
 	return TRUE

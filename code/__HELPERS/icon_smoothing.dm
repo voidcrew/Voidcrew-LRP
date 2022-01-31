@@ -59,7 +59,7 @@ DEFINE_BITFIELD(smoothing_junction, list(
 		var/turf/neighbor = get_step(source, direction); \
 		if(!neighbor) { \
 			if(source.smoothing_flags & SMOOTH_BORDER) { \
-				junction |=  direction_flag; \
+				junction |= direction_flag; \
 			}; \
 		}; \
 		else { \
@@ -149,9 +149,10 @@ DEFINE_BITFIELD(smoothing_junction, list(
 	return ..()
 
 
-//do not use, use QUEUE_SMOOTH(atom)
+///do not use, use QUEUE_SMOOTH(atom)
 /atom/proc/smooth_icon()
 	smoothing_flags &= ~SMOOTH_QUEUED
+	flags_1 |= HTML_USE_INITAL_ICON_1
 	if (!z)
 		CRASH("[type] called smooth_icon() without being on a z-level")
 	if(smoothing_flags & SMOOTH_CORNERS)
@@ -163,6 +164,8 @@ DEFINE_BITFIELD(smoothing_junction, list(
 		bitmask_smooth()
 	else
 		CRASH("smooth_icon called for [src] with smoothing_flags == [smoothing_flags]")
+	SEND_SIGNAL(src, COMSIG_ATOM_SMOOTHED_ICON)
+	update_appearance(~UPDATE_SMOOTHING)
 
 
 /atom/proc/corners_diagonal_smooth(adjacencies)
@@ -194,6 +197,8 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 
 /atom/proc/corners_cardinal_smooth(adjacencies)
+	var/mutable_appearance/temp_ma
+
 	//NW CORNER
 	var/nw = "1-i"
 	if((adjacencies & NORTH_JUNCTION) && (adjacencies & WEST_JUNCTION))
@@ -206,6 +211,8 @@ DEFINE_BITFIELD(smoothing_junction, list(
 			nw = "1-n"
 		else if(adjacencies & WEST_JUNCTION)
 			nw = "1-w"
+	temp_ma = mutable_appearance(icon, nw)
+	nw = temp_ma.appearance
 
 	//NE CORNER
 	var/ne = "2-i"
@@ -219,6 +226,8 @@ DEFINE_BITFIELD(smoothing_junction, list(
 			ne = "2-n"
 		else if(adjacencies & EAST_JUNCTION)
 			ne = "2-e"
+	temp_ma = mutable_appearance(icon, ne)
+	ne = temp_ma.appearance
 
 	//SW CORNER
 	var/sw = "3-i"
@@ -232,6 +241,8 @@ DEFINE_BITFIELD(smoothing_junction, list(
 			sw = "3-s"
 		else if(adjacencies & WEST_JUNCTION)
 			sw = "3-w"
+	temp_ma = mutable_appearance(icon, sw)
+	sw = temp_ma.appearance
 
 	//SE CORNER
 	var/se = "4-i"
@@ -245,6 +256,8 @@ DEFINE_BITFIELD(smoothing_junction, list(
 			se = "4-s"
 		else if(adjacencies & EAST_JUNCTION)
 			se = "4-e"
+	temp_ma = mutable_appearance(icon, se)
+	se = temp_ma.appearance
 
 	var/list/new_overlays
 
@@ -280,7 +293,7 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 	var/area/target_area = get_area(target_turf)
 	var/area/source_area = get_area(src)
-	if((source_area.area_limited_icon_smoothing || target_area.area_limited_icon_smoothing) && !istype(source_area, target_area.type) && !istype(target_area, source_area.type))
+	if((source_area.area_limited_icon_smoothing && !istype(target_area, source_area.area_limited_icon_smoothing)) || (target_area.area_limited_icon_smoothing && !istype(source_area, target_area.area_limited_icon_smoothing)))
 		return NO_ADJ_FOUND
 
 	if(isnull(canSmoothWith)) //special case in which it will only smooth with itself
@@ -309,10 +322,10 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 
 /**
-  * Basic smoothing proc. The atom checks for adjacent directions to smooth with and changes the icon_state based on that.
-  *
-  * Returns the previous smoothing_junction state so the previous state can be compared with the new one after the proc ends, and see the changes, if any.
-  *
+ * Basic smoothing proc. The atom checks for adjacent directions to smooth with and changes the icon_state based on that.
+ *
+ * Returns the previous smoothing_junction state so the previous state can be compared with the new one after the proc ends, and see the changes, if any.
+ *
 */
 /atom/proc/bitmask_smooth()
 	var/new_junction = NONE
@@ -367,21 +380,18 @@ DEFINE_BITFIELD(smoothing_junction, list(
 					var/junction_dir = reverse_ndir(smoothing_junction)
 					var/turned_adjacency = REVERSE_DIR(junction_dir)
 					var/turf/neighbor_turf = get_step(src, turned_adjacency & (NORTH|SOUTH))
-					if(!neighbor_turf) //You can step out of map boundaries
-						return
 					var/mutable_appearance/underlay_appearance = mutable_appearance(layer = TURF_LAYER, plane = FLOOR_PLANE)
 					if(!neighbor_turf.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
 						neighbor_turf = get_step(src, turned_adjacency & (EAST|WEST))
-						if(!neighbor_turf) //You can step out of map boundaries
-							return
+
 						if(!neighbor_turf.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
 							neighbor_turf = get_step(src, turned_adjacency)
+
 							if(!neighbor_turf.get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency))
 								if(!get_smooth_underlay_icon(underlay_appearance, src, turned_adjacency)) //if all else fails, ask our own turf
 									underlay_appearance.icon = DEFAULT_UNDERLAY_ICON
 									underlay_appearance.icon_state = DEFAULT_UNDERLAY_ICON_STATE
-					underlays = list(underlay_appearance)
-
+					underlays += underlay_appearance
 
 /turf/open/floor/set_smoothed_icon_state(new_junction)
 	if(broken || burnt)
@@ -390,7 +400,7 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 
 //Icon smoothing helpers
-/proc/smooth_zlevel(var/zlevel, now = FALSE)
+/proc/smooth_zlevel(zlevel, now = FALSE)
 	var/list/away_turfs = block(locate(1, 1, zlevel), locate(world.maxx, world.maxy, zlevel))
 	for(var/V in away_turfs)
 		var/turf/T = V
@@ -418,19 +428,38 @@ DEFINE_BITFIELD(smoothing_junction, list(
 	cut_overlay(bottom_left_corner)
 	bottom_left_corner = null
 
-
+/// Internal: Takes icon states as text to replace smoothing corner overlays
 /atom/proc/replace_smooth_overlays(nw, ne, sw, se)
 	clear_smooth_overlays()
-	var/list/O = list()
+	var/mutable_appearance/temp_ma
+
+	temp_ma = mutable_appearance(icon, nw)
+	nw = temp_ma.appearance
+
+	temp_ma = mutable_appearance(icon, ne)
+	ne = temp_ma.appearance
+
+	temp_ma = mutable_appearance(icon, sw)
+	sw = temp_ma.appearance
+
+	temp_ma = mutable_appearance(icon, se)
+	se = temp_ma.appearance
+
+	var/list/new_overlays = list()
+
 	top_left_corner = nw
-	O += nw
+	new_overlays += nw
+
 	top_right_corner = ne
-	O += ne
+	new_overlays += ne
+
 	bottom_left_corner = sw
-	O += sw
+	new_overlays += sw
+
 	bottom_right_corner = se
-	O += se
-	add_overlay(O)
+	new_overlays += se
+
+	add_overlay(new_overlays)
 
 
 /proc/reverse_ndir(ndir)

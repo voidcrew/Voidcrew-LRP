@@ -3,7 +3,7 @@
 	desc = "Something broke, contact coderbus."
 	interaction_flags_atom = INTERACT_ATOM_ATTACK_HAND | INTERACT_ATOM_UI_INTERACT | INTERACT_ATOM_REQUIRES_DEXTERITY
 	var/can_play_unanchored = FALSE
-	var/list/allowed_instrument_ids
+	var/list/allowed_instrument_ids = list("r3grand","r3harpsi","crharpsi","crgrand1","crbright1", "crichugan", "crihamgan","piano")
 	var/datum/song/song
 
 /obj/structure/musician/Initialize(mapload)
@@ -15,12 +15,12 @@
 	QDEL_NULL(song)
 	return ..()
 
-/obj/structure/musician/proc/should_stop_playing(mob/user)
-	if(!(anchored || can_play_unanchored))
-		return TRUE
-	if(!user)
-		return FALSE
-	return !user.canUseTopic(src, FALSE, TRUE, FALSE, FALSE)		//can play with TK and while resting because fun.
+/obj/structure/musician/proc/should_stop_playing(atom/music_player)
+	if(!(anchored || can_play_unanchored) || !ismob(music_player))
+		return STOP_PLAYING
+	var/mob/user = music_player
+	if(!user.canUseTopic(src, FALSE, TRUE, FALSE, FALSE)) //can play with TK and while resting because fun.
+		return STOP_PLAYING
 
 /obj/structure/musician/ui_interact(mob/user)
 	. = ..()

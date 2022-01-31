@@ -1,6 +1,5 @@
 /datum/award/achievement/boss
 	category = "Bosses"
-	icon = "baseboss"
 
 /datum/award/achievement/boss/tendril_exterminator
 	name = "Tendril Exterminator"
@@ -15,15 +14,16 @@
 	icon = "firstboss"
 
 /datum/award/achievement/boss/blood_miner_kill
-	name = "Blood-drunk Miner Killer"
+	name = "Blood-Drunk Miner Killer"
 	desc = "I guess he couldn't handle his drink that well."
 	database_id = BOSS_MEDAL_MINER
 	icon = "miner"
 
 /datum/award/achievement/boss/demonic_miner_kill
-	name = "Demonic-frost Miner Killer"
-	desc = "Definitely harder than the Blood-drunk Miner."
+	name = "Demonic-Frost Miner Killer"
+	desc = "Definitely harder than the Blood-Drunk Miner."
 	database_id = BOSS_MEDAL_FROSTMINER
+	icon = "frostminer"
 
 /datum/award/achievement/boss/bubblegum_kill
 	name = "Bubblegum Killer"
@@ -65,23 +65,19 @@
 	name = "Wendigo Killer"
 	desc = "You've now ruined years of mythical storytelling."
 	database_id = BOSS_MEDAL_WENDIGO
-
-/datum/award/achievement/boss/king_goat_kill
-	name = "King Goat Killer"
-	desc = "The king is dead, long live the king!"
-	database_id = BOSS_MEDAL_KINGGOAT
-	icon = "goatboss"
+	icon = "wendigo"
 
 /datum/award/achievement/boss/blood_miner_crusher
-	name = "Blood-drunk Miner Crusher"
+	name = "Blood-Drunk Miner Crusher"
 	desc = "I guess he couldn't handle his drink that well."
 	database_id = BOSS_MEDAL_MINER_CRUSHER
 	icon = "miner"
 
 /datum/award/achievement/boss/demonic_miner_crusher
-	name = "Demonic-frost Miner Crusher"
-	desc = "Definitely harder than the Blood-drunk Miner."
+	name = "Demonic-Frost Miner Crusher"
+	desc = "Definitely harder than the Blood-Drunk Miner."
 	database_id = BOSS_MEDAL_FROSTMINER_CRUSHER
+	icon = "frostminer"
 
 /datum/award/achievement/boss/bubblegum_crusher
 	name = "Bubblegum Crusher"
@@ -111,16 +107,26 @@
 	name = "Legion Crusher"
 	desc = "We were many... now we are none."
 	database_id = BOSS_MEDAL_LEGION_CRUSHER
+	icon = "legion"
 
 /datum/award/achievement/boss/swarmer_beacon_crusher
 	name = "Swarm Beacon Crusher"
 	desc = "GET THEM OFF OF ME!"
 	database_id = BOSS_MEDAL_SWARMERS_CRUSHER
+	icon = "swarmer"
 
 /datum/award/achievement/boss/wendigo_crusher
 	name = "Wendigo Crusher"
 	desc = "You've now ruined years of mythical storytelling."
 	database_id = BOSS_MEDAL_WENDIGO_CRUSHER
+	icon = "wendigo"
+
+//should be removed soon
+/datum/award/achievement/boss/king_goat_kill
+	name = "King Goat Killer"
+	desc = "The king is dead, long live the king!"
+	database_id = BOSS_MEDAL_KINGGOAT
+	icon = "goatboss"
 
 /datum/award/achievement/boss/king_goat_crusher
 	name = "King Goat Crusher"

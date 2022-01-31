@@ -1,73 +1,55 @@
-/datum/job/cargo_tech
-	title = "Cargo Technician"
-	department_head = list("Head of Personnel")
-	faction = "Station"
+/datum/job/cargo_technician
+	title = JOB_CARGO_TECHNICIAN
+	description = "Distribute supplies to the departments that ordered them, \
+		collect empty crates, load and unload the supply shuttle, \
+		ship bounty cubes."
+	department_head = list(JOB_HEAD_OF_PERSONNEL)
+	faction = FACTION_STATION
 	total_positions = 3
 	spawn_positions = 2
 	supervisors = "the quartermaster and the head of personnel"
 	selection_color = "#dcba97"
-	wiki_page = "Cargo_technician" //WS Edit - Wikilinks/Warning
+	exp_granted_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/cargo_tech
+	plasmaman_outfit = /datum/outfit/plasmaman/cargo
 
-	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_QM, ACCESS_MINING, ACCESS_MECH_MINING, ACCESS_MINING_STATION, ACCESS_MINERAL_STOREROOM)
-	minimal_access = list(ACCESS_MAINT_TUNNELS, ACCESS_CARGO, ACCESS_MAILSORTING, ACCESS_MINERAL_STOREROOM)
 	paycheck = PAYCHECK_EASY
 	paycheck_department = ACCOUNT_CAR
-
 	display_order = JOB_DISPLAY_ORDER_CARGO_TECHNICIAN
+	bounty_types = CIV_JOB_RANDOM
+	departments_list = list(
+		/datum/job_department/cargo,
+		)
+
+	family_heirlooms = list(/obj/item/clipboard)
+
+	mail_goodies = list(
+		/obj/item/pizzabox = 10,
+		/obj/item/stack/sheet/mineral/gold = 5,
+		/obj/item/stack/sheet/mineral/uranium = 4,
+		/obj/item/stack/sheet/mineral/diamond = 3,
+		/obj/item/gun/ballistic/rifle/boltaction = 1
+	)
+	rpg_title = "Merchantman"
+	job_type_flags = JOB_STATION_JOB
+	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS
+
 
 /datum/outfit/job/cargo_tech
 	name = "Cargo Technician"
-	jobtype = /datum/job/cargo_tech
+	jobtype = /datum/job/cargo_technician
 
+	id_trim = /datum/id_trim/job/cargo_technician
+	uniform = /obj/item/clothing/under/rank/cargo/tech
+	backpack_contents = list(
+		/obj/item/modular_computer/tablet/preset/cargo = 1,
+		)
 	belt = /obj/item/pda/cargo
 	ears = /obj/item/radio/headset/headset_cargo
-	uniform = /obj/item/clothing/under/rank/cargo/tech
-	alt_uniform = /obj/item/clothing/under/shorts/grey //WS Edit - Alt Uniforms
-	alt_suit = /obj/item/clothing/suit/hazardvest
-	dcoat = /obj/item/clothing/suit/hooded/wintercoat/cargo //WS Edit - Alt Uniforms
 	l_hand = /obj/item/export_scanner
-	backpack_contents = list(/obj/item/modular_computer/tablet/preset/cargo=1)
 
-/datum/outfit/job/cargo_tech/mailroomtechnician
-	name = "Cargo Technician (Mailroom Technician)"
+/datum/outfit/job/cargo_tech/mod
+	name = "Cargo Technician (MODsuit)"
 
-	uniform = /obj/item/clothing/under/rank/cargo/tech/mailroom_technician
-	alt_uniform = null
-
-/datum/outfit/job/cargo_tech/deliveriesofficer
-	name = "Cargo Technician (Deliveries Officer)"
-
-	uniform = /obj/item/clothing/under/suit/cargo_tech
-	alt_uniform = null
-	l_hand = null
-	head = /obj/item/clothing/head/deliveries_officer
-	backpack_contents = list(/obj/item/modular_computer/tablet/preset/cargo=1, /obj/item/export_scanner=1)
-
-//Shiptest outfits
-
-/datum/outfit/job/cargo_tech/solgov
-	name = "Cargo Technician (SolGov)"
-
-	uniform = /obj/item/clothing/under/solgov
-	accessory = /obj/item/clothing/accessory/armband/cargo
-	shoes = /obj/item/clothing/shoes/combat
-	head = /obj/item/clothing/head/beret/solgov/plain
-
-/datum/outfit/job/cargo_tech/solgov/pilot
-	name = "Pilot (SolGov)"
-
-	ears = /obj/item/radio/headset/headset_sec/alt/department/supply
-	suit = /obj/item/clothing/suit/jacket
-
-/datum/outfit/job/cargo_tech/pilot
-	name = "Pilot"
-
-	uniform = /obj/item/clothing/under/syndicate/camo
-	accessory = /obj/item/clothing/accessory/armband/cargo
-	ears = /obj/item/radio/headset/headset_sec/alt/department/supply
-	suit = /obj/item/clothing/suit/jacket
-	shoes = /obj/item/clothing/shoes/jackboots
-	gloves = /obj/item/clothing/gloves/fingerless
-	glasses = /obj/item/clothing/glasses/sunglasses/big
+	back = /obj/item/mod/control/pre_equipped/loader

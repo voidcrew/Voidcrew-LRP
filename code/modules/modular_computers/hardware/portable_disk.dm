@@ -4,11 +4,11 @@
 	power_usage = 10
 	icon_state = "datadisk6"
 	w_class = WEIGHT_CLASS_TINY
-	critical = 0
+	critical = FALSE
 	max_capacity = 16
 	device_type = MC_SDD
 
-/obj/item/computer_hardware/hard_drive/portable/on_remove(obj/item/modular_computer/MC, mob/user)
+/obj/item/computer_hardware/hard_drive/portable/on_remove(obj/item/modular_computer/remove_from, mob/user)
 	return //this is a floppy disk, let's not shut the computer down when it gets pulled out.
 
 /obj/item/computer_hardware/hard_drive/portable/install_default_programs()

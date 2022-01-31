@@ -3,38 +3,39 @@
 /area/mine
 	icon_state = "mining"
 	has_gravity = STANDARD_GRAVITY
-	lighting_colour_tube = "#ffe8d2"
-	lighting_colour_bulb = "#ffdcb7"
-	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED
+	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED | CULT_PERMITTED
 
 /area/mine/explored
 	name = "Mine"
 	icon_state = "explored"
 	always_unpowered = TRUE
 	requires_power = TRUE
-	poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
 	outdoors = TRUE
 	flags_1 = NONE
-	ambientsounds = MINING
-	area_flags = VALID_TERRITORY | UNIQUE_AREA
+	ambience_index = AMBIENCE_MINING
+	area_flags = VALID_TERRITORY | UNIQUE_AREA | NO_ALERTS | CULT_PERMITTED
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	min_ambience_cooldown = 70 SECONDS
+	max_ambience_cooldown = 220 SECONDS
 
 /area/mine/unexplored
 	name = "Mine"
 	icon_state = "unexplored"
 	always_unpowered = TRUE
 	requires_power = TRUE
-	poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
 	outdoors = TRUE
 	flags_1 = NONE
-	ambientsounds = MINING
-	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED | CAVES_ALLOWED
+	ambience_index = AMBIENCE_MINING
+	area_flags = VALID_TERRITORY | UNIQUE_AREA | NO_ALERTS | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | MEGAFAUNA_SPAWN_ALLOWED
+	map_generator = /datum/map_generator/cave_generator
+	min_ambience_cooldown = 70 SECONDS
+	max_ambience_cooldown = 220 SECONDS
 
 /area/mine/lobby
 	name = "Mining Station"
@@ -61,8 +62,6 @@
 
 /area/mine/maintenance
 	name = "Mining Station Communications"
-	lighting_colour_tube = "#edfdff"
-	lighting_colour_bulb = "#dafffd"
 
 /area/mine/cafeteria
 	name = "Mining Station Cafeteria"
@@ -75,14 +74,18 @@
 /area/mine/sleeper
 	name = "Mining Station Emergency Sleeper"
 
+/area/mine/mechbay
+	name = "Mining Station Mech Bay"
+	icon_state = "mechbay"
+
 /area/mine/laborcamp
 	name = "Labor Camp"
 	icon_state = "mining_labor"
 
 /area/mine/laborcamp/security
 	name = "Labor Camp Security"
-	icon_state = "security"
-	ambientsounds = HIGHSEC
+	icon_state = "labor_camp_security"
+	ambience_index = AMBIENCE_DANGER
 
 
 
@@ -100,24 +103,27 @@
 	name = "Lavaland"
 	icon_state = "explored"
 	always_unpowered = TRUE
-	poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
 	requires_power = TRUE
-	ambientsounds = MINING
+	ambience_index = AMBIENCE_MINING
+	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED | NO_ALERTS
+	min_ambience_cooldown = 70 SECONDS
+	max_ambience_cooldown = 220 SECONDS
 
 /area/lavaland/underground
 	name = "Lavaland Caves"
 	icon_state = "unexplored"
 	always_unpowered = TRUE
 	requires_power = TRUE
-	poweralm = FALSE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
-	ambientsounds = MINING
-
+	ambience_index = AMBIENCE_MINING
+	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED | NO_ALERTS
+	min_ambience_cooldown = 70 SECONDS
+	max_ambience_cooldown = 220 SECONDS
 
 /area/lavaland/surface/outdoors
 	name = "Lavaland Wastes"
@@ -125,16 +131,16 @@
 
 /area/lavaland/surface/outdoors/unexplored //monsters and ruins spawn here
 	icon_state = "unexplored"
-	area_flags = VALID_TERRITORY | UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED
+	area_flags = VALID_TERRITORY | UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | NO_ALERTS
 	map_generator = /datum/map_generator/cave_generator/lavaland
 
 /area/lavaland/surface/outdoors/unexplored/danger //megafauna will also spawn here
 	icon_state = "danger"
-	area_flags = VALID_TERRITORY | UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | MEGAFAUNA_SPAWN_ALLOWED
+	area_flags = VALID_TERRITORY | UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | MEGAFAUNA_SPAWN_ALLOWED | NO_ALERTS
 
 /area/lavaland/surface/outdoors/explored
 	name = "Lavaland Labor Camp"
-	area_flags = VALID_TERRITORY | UNIQUE_AREA
+	area_flags = VALID_TERRITORY | UNIQUE_AREA | NO_ALERTS
 
 
 
@@ -155,36 +161,32 @@
 	power_equip = FALSE
 	power_light = FALSE
 	requires_power = TRUE
-	ambientsounds = MINING
-	poweralm = FALSE
-	area_flags = UNIQUE_AREA | FLORA_ALLOWED
+	ambience_index = AMBIENCE_MINING
+	area_flags = UNIQUE_AREA | FLORA_ALLOWED | NO_ALERTS
+	min_ambience_cooldown = 70 SECONDS
+	max_ambience_cooldown = 220 SECONDS
 
 /area/icemoon/surface/outdoors // weather happens here
 	name = "Icemoon Wastes"
 	outdoors = TRUE
 
+/area/icemoon/surface/outdoors/noteleport // for places like the cursed spring water
+	area_flags = UNIQUE_AREA | FLORA_ALLOWED | NO_ALERTS | NOTELEPORT
+
 /area/icemoon/surface/outdoors/labor_camp
 	name = "Icemoon Labor Camp"
-	poweralm = FALSE
-	area_flags = UNIQUE_AREA
+	area_flags = UNIQUE_AREA | NO_ALERTS
 
 /area/icemoon/surface/outdoors/unexplored //monsters and ruins spawn here
 	icon_state = "unexplored"
-	poweralm = FALSE
-	area_flags = UNIQUE_AREA | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | CAVES_ALLOWED
-	map_generator = /datum/map_generator/cave_generator/icemoon/surface
-
-/area/icemoon/surface/outdoors/unexplored/danger
-	icon_state = "unexplored"
-	poweralm = FALSE
-	area_flags = UNIQUE_AREA | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | CAVES_ALLOWED
+	area_flags = UNIQUE_AREA | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | CAVES_ALLOWED | NO_ALERTS
 
 /area/icemoon/surface/outdoors/unexplored/rivers // rivers spawn here
 	icon_state = "danger"
+	map_generator = /datum/map_generator/cave_generator/icemoon/surface
 
 /area/icemoon/surface/outdoors/unexplored/rivers/no_monsters
-	poweralm = FALSE
-	area_flags = UNIQUE_AREA | FLORA_ALLOWED | CAVES_ALLOWED
+	area_flags = UNIQUE_AREA | FLORA_ALLOWED | CAVES_ALLOWED | NO_ALERTS
 
 /area/icemoon/underground
 	name = "Icemoon Caves"
@@ -194,88 +196,23 @@
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
-	ambientsounds = MINING
-	poweralm = FALSE
-	area_flags = UNIQUE_AREA | FLORA_ALLOWED
-	map_generator = /datum/map_generator/cave_generator/icemoon
+	ambience_index = AMBIENCE_MINING
+	area_flags = UNIQUE_AREA | FLORA_ALLOWED | NO_ALERTS
+	min_ambience_cooldown = 70 SECONDS
+	max_ambience_cooldown = 220 SECONDS
 
 /area/icemoon/underground/unexplored // mobs and megafauna and ruins spawn here
 	name = "Icemoon Caves"
+	icon_state = "unexplored"
+	area_flags = CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | MEGAFAUNA_SPAWN_ALLOWED | NO_ALERTS
+
+/area/icemoon/underground/unexplored/rivers // rivers spawn here
 	icon_state = "danger"
-	poweralm = FALSE
-	area_flags = CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | MEGAFAUNA_SPAWN_ALLOWED
+	map_generator = /datum/map_generator/cave_generator/icemoon
+
+/area/icemoon/underground/unexplored/rivers/deep
+	map_generator = /datum/map_generator/cave_generator/icemoon/deep
 
 /area/icemoon/underground/explored // ruins can't spawn here
 	name = "Icemoon Underground"
-	poweralm = FALSE
-	area_flags = UNIQUE_AREA
-
-
-
-/**********************Whitesands Areas**************************/
-
-/area/whitesands
-	icon_state = "mining"
-	has_gravity = STANDARD_GRAVITY
-	flags_1 = NONE
-	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED
-
-/area/whitesands/colony
-	name = "Whitesands Colony"
-
-/area/whitesands/colony/guard
-	name = "Whitesands Colony Guard Post"
-	icon_state = "security"
-
-/area/whitesands/colony/dormitory
-	name = "Whitesands Colony Dormitory"
-	icon_state = "mining_living"
-/area/whitesands/colony/dormitory/one
-	name = "Whitesands Colony Dormitory One"
-
-/area/whitesands/colony/dormitory/two
-	name = "Whitesands Colony Dormitory Two"
-
-/area/whitesands/colony/greenhouse
-	name = "Whitesands Colony Greenhouse"
-	icon_state = "mining_labor_hydro"
-
-/area/whitesands/colony/production
-	name = "Whitesands Colony Ore Refinement Plant"
-	icon_state = "mining_production"
-
-/area/whitesands/colony/maintenance
-	name = "Whitesands Colony Communications"
-
-/area/whitesands/colony/shuttle_consoles
-	name = "Whitesands Colony Shuttle Landing Zone"
-
-/area/whitesands/surface
-	name = "Whitesands"
-	icon_state = "explored"
-	always_unpowered = TRUE
-	poweralm = FALSE
-	power_environ = FALSE
-	power_equip = FALSE
-	power_light = FALSE
-	requires_power = TRUE
-	ambientsounds = MINING
-	dynamic_lighting = DYNAMIC_LIGHTING_ENABLED
-	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED
-	map_generator = /datum/map_generator/cave_generator/whitesands
-
-/area/whitesands/surface/outdoors // weather happens here
-	name = "Whitesands Dunes"
-	outdoors = TRUE
-
-/area/whitesands/surface/outdoors/explored
-	icon_state = "explored"
-	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED | MOB_SPAWN_ALLOWED
-
-/area/whitesands/surface/outdoors/unexplored //monsters and ruins spawn here
-	icon_state = "unexplored"
-	area_flags = VALID_TERRITORY | UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED
-
-/area/whitesands/surface/outdoors/unexplored/danger //megafauna will also spawn here
-	icon_state = "danger"
-	area_flags = VALID_TERRITORY | UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | MEGAFAUNA_SPAWN_ALLOWED
+	area_flags = UNIQUE_AREA | NO_ALERTS

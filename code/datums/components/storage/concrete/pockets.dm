@@ -8,9 +8,9 @@
 	. = ..()
 	if(. && silent && !prevent_warning)
 		if(quickdraw)
-			to_chat(user, "<span class='notice'>You discreetly slip [I] into [parent]. Alt-click [parent] to remove it.</span>")
+			to_chat(user, span_notice("You discreetly slip [I] into [parent]. Right-click [parent] to remove it."))
 		else
-			to_chat(user, "<span class='notice'>You discreetly slip [I] into [parent].</span>")
+			to_chat(user, span_notice("You discreetly slip [I] into [parent]."))
 
 /datum/component/storage/concrete/pockets/small
 	max_items = 1
@@ -21,23 +21,6 @@
 	max_items = 1
 	max_w_class = WEIGHT_CLASS_TINY
 	attack_hand_interact = FALSE
-
-//WS Begin - Exowear Pockets
-/datum/component/storage/concrete/pockets/exo
-	max_items = 2
-	max_w_class = WEIGHT_CLASS_SMALL
-	attack_hand_interact = FALSE
-	quickdraw = FALSE
-	silent = FALSE
-
-/datum/component/storage/concrete/pockets/exo/cloak
-	max_items = 1
-	max_w_class = WEIGHT_CLASS_NORMAL
-	quickdraw = TRUE
-
-/datum/component/storage/concrete/pockets/exo/large
-	max_items = 3
-//WS End
 
 /datum/component/storage/concrete/pockets/small/fedora/Initialize()
 	. = ..()
@@ -50,20 +33,93 @@
 /datum/component/storage/concrete/pockets/small/fedora/detective
 	attack_hand_interact = TRUE // so the detectives would discover pockets in their hats
 
-//WS Begin - Any small item in shoes
+/datum/component/storage/concrete/pockets/chefhat
+	attack_hand_interact = TRUE
+	max_items = 1
+	max_w_class = WEIGHT_CLASS_NORMAL
+
+/datum/component/storage/concrete/pockets/chefhat/Initialize()
+	. = ..()
+	set_holdable(list(
+		/obj/item/clothing/head/mob_holder,
+		/obj/item/food/deadmouse
+	))
+
+/datum/component/storage/concrete/pockets/chefhat/can_be_inserted(obj/item/I, stop_messages, mob/M)
+	. = ..()
+	if(istype(I,/obj/item/clothing/head/mob_holder))
+		var/obj/item/clothing/head/mob_holder/mausholder = I
+		if(locate(/mob/living/simple_animal/mouse) in mausholder.contents)
+			return
+		return FALSE
+
 /datum/component/storage/concrete/pockets/shoes
-	max_items = 2
 	attack_hand_interact = FALSE
-	max_w_class = WEIGHT_CLASS_SMALL
-	quickdraw = FALSE
+	quickdraw = TRUE
 	silent = TRUE
-//WS End
 
 /datum/component/storage/concrete/pockets/shoes/Initialize()
 	. = ..()
+	set_holdable(list(
+		/obj/item/knife,
+		/obj/item/switchblade,
+		/obj/item/pen,
+		/obj/item/scalpel,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/dnainjector,
+		/obj/item/reagent_containers/hypospray/medipen,
+		/obj/item/reagent_containers/dropper,
+		/obj/item/implanter,
+		/obj/item/screwdriver,
+		/obj/item/weldingtool/mini,
+		/obj/item/firing_pin,
+		/obj/item/suppressor,
+		/obj/item/ammo_box/magazine/m9mm,
+		/obj/item/ammo_box/magazine/m45,
+		/obj/item/ammo_casing,
+		/obj/item/lipstick,
+		/obj/item/clothing/mask/cigarette,
+		/obj/item/lighter,
+		/obj/item/match,
+		/obj/item/holochip,
+		/obj/item/toy/crayon),
+		list(/obj/item/screwdriver/power,
+		/obj/item/ammo_casing/caseless/rocket,
+		/obj/item/clothing/mask/cigarette/pipe,
+		/obj/item/toy/crayon/spraycan)
+		)
 
 /datum/component/storage/concrete/pockets/shoes/clown/Initialize()
 	. = ..()
+	set_holdable(list(
+		/obj/item/knife,
+		/obj/item/switchblade,
+		/obj/item/pen,
+		/obj/item/scalpel,
+		/obj/item/reagent_containers/syringe,
+		/obj/item/dnainjector,
+		/obj/item/reagent_containers/hypospray/medipen,
+		/obj/item/reagent_containers/dropper,
+		/obj/item/implanter,
+		/obj/item/screwdriver,
+		/obj/item/weldingtool/mini,
+		/obj/item/firing_pin,
+		/obj/item/suppressor,
+		/obj/item/ammo_box/magazine/m9mm,
+		/obj/item/ammo_box/magazine/m45,
+		/obj/item/ammo_casing,
+		/obj/item/lipstick,
+		/obj/item/clothing/mask/cigarette,
+		/obj/item/lighter,
+		/obj/item/match,
+		/obj/item/holochip,
+		/obj/item/toy/crayon,
+		/obj/item/bikehorn),
+		list(/obj/item/screwdriver/power,
+		/obj/item/ammo_casing/caseless/rocket,
+		/obj/item/clothing/mask/cigarette/pipe,
+		/obj/item/toy/crayon/spraycan)
+		)
 
 /datum/component/storage/concrete/pockets/pocketprotector
 	max_items = 3
@@ -91,9 +147,17 @@
 
 /datum/component/storage/concrete/pockets/helmet/Initialize()
 	. = ..()
-	set_holdable(list(
-		/obj/item/reagent_containers/food/drinks/bottle/vodka,
-		/obj/item/reagent_containers/food/drinks/bottle/molotov,
-		/obj/item/reagent_containers/food/drinks/drinkingglass,
-		/obj/item/ammo_box/a762
-	))
+	set_holdable(list(/obj/item/reagent_containers/food/drinks/bottle/vodka,
+					  /obj/item/reagent_containers/food/drinks/bottle/molotov,
+					  /obj/item/reagent_containers/food/drinks/drinkingglass,
+					  /obj/item/ammo_box/a762))
+
+
+/datum/component/storage/concrete/pockets/void_cloak
+	quickdraw = TRUE
+	max_items = 3
+
+/datum/component/storage/concrete/pockets/void_cloak/Initialize()
+	. = ..()
+	var/static/list/exception_cache = typecacheof(list(/obj/item/living_heart,/obj/item/forbidden_book))
+	exception_hold = exception_cache

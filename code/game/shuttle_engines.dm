@@ -7,8 +7,10 @@
 	name = "shuttle"
 	icon = 'icons/turf/shuttle.dmi'
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	smoothing_groups = list(SMOOTH_GROUP_SHUTTLE_PARTS)
 	max_integrity = 500
-	armor = list("melee" = 100, "bullet" = 10, "laser" = 10, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 70) //default + ignores melee
+	armor = list(MELEE = 100, BULLET = 10, LASER = 10, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 70) //default + ignores melee
+	can_atmos_pass = ATMOS_PASS_DENSITY
 
 /obj/structure/shuttle/engine
 	name = "engine"
@@ -22,7 +24,7 @@
 /obj/structure/shuttle/engine/can_be_unfasten_wrench(mob/user, silent)
 	if(state == ENGINE_WELDED)
 		if(!silent)
-			to_chat(user, "<span class='warning'>[src] is welded to the floor!</span>")
+			to_chat(user, span_warning("[src] is welded to the floor!"))
 		return FAILED_UNFASTEN
 	return ..()
 
@@ -43,37 +45,37 @@
 	. = ..()
 	switch(state)
 		if(ENGINE_UNWRENCHED)
-			to_chat(user, "<span class='warning'>The [src.name] needs to be wrenched to the floor!</span>")
+			to_chat(user, span_warning("The [src.name] needs to be wrenched to the floor!"))
 		if(ENGINE_WRENCHED)
 			if(!I.tool_start_check(user, amount=0))
 				return TRUE
 
-			user.visible_message("<span class='notice'>[user.name] starts to weld the [name] to the floor.</span>", \
-				"<span class='notice'>You start to weld \the [src] to the floor...</span>", \
-				"<span class='hear'>You hear welding.</span>")
+			user.visible_message(span_notice("[user.name] starts to weld the [name] to the floor."), \
+				span_notice("You start to weld \the [src] to the floor..."), \
+				span_hear("You hear welding."))
 
 			if(I.use_tool(src, user, ENGINE_WELDTIME, volume=50))
 				state = ENGINE_WELDED
-				to_chat(user, "<span class='notice'>You weld \the [src] to the floor.</span>")
-				alter_engine_power(engine_power, src)
+				to_chat(user, span_notice("You weld \the [src] to the floor."))
+				alter_engine_power(engine_power)
 
 		if(ENGINE_WELDED)
 			if(!I.tool_start_check(user, amount=0))
 				return TRUE
 
-			user.visible_message("<span class='notice'>[user.name] starts to cut the [name] free from the floor.</span>", \
-				"<span class='notice'>You start to cut \the [src] free from the floor...</span>", \
-				"<span class='hear'>You hear welding.</span>")
+			user.visible_message(span_notice("[user.name] starts to cut the [name] free from the floor."), \
+				span_notice("You start to cut \the [src] free from the floor..."), \
+				span_hear("You hear welding."))
 
 			if(I.use_tool(src, user, ENGINE_WELDTIME, volume=50))
 				state = ENGINE_WRENCHED
-				to_chat(user, "<span class='notice'>You cut \the [src] free from the floor.</span>")
-				alter_engine_power(-engine_power, src)
+				to_chat(user, span_notice("You cut \the [src] free from the floor."))
+				alter_engine_power(-engine_power)
 	return TRUE
 
 /obj/structure/shuttle/engine/Destroy()
 	if(state == ENGINE_WELDED)
-		alter_engine_power(-engine_power, src)
+		alter_engine_power(-engine_power)
 	. = ..()
 
 //Propagates the change to the shuttle.
@@ -83,7 +85,7 @@
 	if(SSshuttle.is_in_shuttle_bounds(src))
 		var/obj/docking_port/mobile/M = SSshuttle.get_containing_shuttle(src)
 		if(M)
-			M.alter_engines(mod, src)
+			M.alter_engines(mod)
 
 /obj/structure/shuttle/engine/heater
 	name = "engine heater"
@@ -96,10 +98,6 @@
 	icon_state = "platform"
 	desc = "A platform for engine components."
 	engine_power = 0
-	pass_flags_self = PASSPLATFORM
-
-/obj/structure/shuttle/engine/platform/corner
-	icon_state = "platform_corner"
 
 /obj/structure/shuttle/engine/propulsion
 	name = "propulsion engine"

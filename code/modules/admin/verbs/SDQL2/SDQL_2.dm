@@ -1,5 +1,3 @@
-#define SDQL_qdel_datum(d) qdel(d)
-
 //SDQL2 datumized, /tg/station special!
 
 /*
@@ -63,7 +61,7 @@
 
 	You can also generate a new list on the fly using a selector array. @[] will generate a list of objects based off the selector provided.
 
-	"SELECT /mob/living IN (@[/area/crew_quarters/bar MAP contents])[1]"
+	"SELECT /mob/living IN (@[/area/service/bar MAP contents])[1]"
 
 	What if some dumbass admin spawned a bajillion spiders and you need to kill them all?
 	Oh yeah you'd rather not delete all the spiders in maintenace. Only that one room the spiders were
@@ -99,7 +97,7 @@
 
 	Don't crash the server, OK?
 
-	"UPDATE /mob/living/carbon/monkey SET #null = forceMove(usr.loc)"
+	"UPDATE /mob/living/carbon/human/species/monkey SET #null = forceMove(usr.loc)"
 
 	Writing "#null" in front of the "=" will call the proc and discard the return value.
 
@@ -182,7 +180,7 @@
 
 #define SDQL2_OPTION_SELECT_OUTPUT_SKIP_NULLS (1<<0)
 #define SDQL2_OPTION_BLOCKING_CALLS (1<<1)
-#define SDQL2_OPTION_HIGH_PRIORITY (1<<2)		//High priority SDQL query, allow using almost all of the tick.
+#define SDQL2_OPTION_HIGH_PRIORITY (1<<2) //High priority SDQL query, allow using almost all of the tick.
 #define SDQL2_OPTION_DO_NOT_AUTOGC (1<<3)
 #define SDQL2_OPTION_SEQUENTIAL (1<<4)
 
@@ -203,7 +201,7 @@
 /client/proc/SDQL2_query(query_text as message)
 	set category = "Debug"
 	if(!check_rights(R_DEBUG))  //Shouldn't happen... but just to be safe.
-		message_admins("<span class='danger'>ERROR: Non-admin [key_name(usr)] attempted to execute a SDQL query!</span>")
+		message_admins(span_danger("ERROR: Non-admin [key_name(usr)] attempted to execute a SDQL query!"))
 		log_admin("Non-admin [key_name(usr)] attempted to execute a SDQL query!")
 		return FALSE
 	var/list/results = world.SDQL2_query(query_text, key_name_admin(usr), "[key_name(usr)]")
@@ -212,9 +210,10 @@
 			to_chat(usr, results[I], confidential = TRUE)
 	SSblackbox.record_feedback("nested tally", "SDQL query", 1, list(ckey, query_text))
 
-/world/proc/SDQL2_query(query_text, log_entry1, log_entry2)
+/world/proc/SDQL2_query(query_text, log_entry1, log_entry2, silent = FALSE)
 	var/query_log = "executed SDQL query(s): \"[query_text]\"."
-	message_admins("[log_entry1] [query_log]")
+	if(!silent)
+		message_admins("[log_entry1] [query_log]")
 	query_log = "[log_entry2] [query_log]"
 	log_game(query_log)
 	NOTICE(query_log)
@@ -230,11 +229,11 @@
 	var/list/querys = SDQL_parse(query_list)
 	if(!length(querys))
 		return
-	var/list/datum/SDQL2_query/running = list()
-	var/list/datum/SDQL2_query/waiting_queue = list() //Sequential queries queue.
+	var/list/datum/sdql2_query/running = list()
+	var/list/datum/sdql2_query/waiting_queue = list() //Sequential queries queue.
 
 	for(var/list/query_tree in querys)
-		var/datum/SDQL2_query/query = new /datum/SDQL2_query(query_tree)
+		var/datum/sdql2_query/query = new /datum/sdql2_query(query_tree)
 		if(QDELETED(query))
 			continue
 		if(usr)
@@ -244,19 +243,19 @@
 			sequential = TRUE
 
 	if(sequential) //Start first one
-		var/datum/SDQL2_query/query = popleft(waiting_queue)
+		var/datum/sdql2_query/query = popleft(waiting_queue)
 		running += query
 		var/msg = "Starting query #[query.id] - [query.get_query_text()]."
 		if(usr)
-			to_chat(usr, "<span class='admin'>[msg]</span>", confidential = TRUE)
+			to_chat(usr, span_admin("[msg]"), confidential = TRUE)
 		log_admin(msg)
 		query.ARun()
 	else //Start all
-		for(var/datum/SDQL2_query/query in waiting_queue)
+		for(var/datum/sdql2_query/query in waiting_queue)
 			running += query
 			var/msg = "Starting query #[query.id] - [query.get_query_text()]."
 			if(usr)
-				to_chat(usr, "<span class='admin'>[msg]</span>", confidential = TRUE)
+				to_chat(usr, span_admin("[msg]"), confidential = TRUE)
 			log_admin(msg)
 			query.ARun()
 
@@ -269,7 +268,7 @@
 		CHECK_TICK
 		finished = TRUE
 		for(var/i in running)
-			var/datum/SDQL2_query/query = i
+			var/datum/sdql2_query/query = i
 			if(QDELETED(query))
 				running -= query
 				continue
@@ -277,7 +276,7 @@
 				finished = FALSE
 				if(query.state == SDQL2_STATE_ERROR)
 					if(usr)
-						to_chat(usr, "<span class='admin'>SDQL query [query.get_query_text()] errored. It will NOT be automatically garbage collected. Please remove manually.</span>", confidential = TRUE)
+						to_chat(usr, span_admin("SDQL query [query.get_query_text()] errored. It will NOT be automatically garbage collected. Please remove manually."), confidential = TRUE)
 					running -= query
 			else
 				if(query.finished)
@@ -290,33 +289,33 @@
 						QDEL_IN(query, 50)
 					if(sequential && waiting_queue.len)
 						finished = FALSE
-						var/datum/SDQL2_query/next_query = popleft(waiting_queue)
+						var/datum/sdql2_query/next_query = popleft(waiting_queue)
 						running += next_query
 						var/msg = "Starting query #[next_query.id] - [next_query.get_query_text()]."
 						if(usr)
-							to_chat(usr, "<span class='admin'>[msg]</span>", confidential = TRUE)
+							to_chat(usr, span_admin("[msg]"), confidential = TRUE)
 						log_admin(msg)
 						next_query.ARun()
 				else
 					if(usr)
-						to_chat(usr, "<span class='admin'>SDQL query [query.get_query_text()] was halted. It will NOT be automatically garbage collected. Please remove manually.</span>", confidential = TRUE)
+						to_chat(usr, span_admin("SDQL query [query.get_query_text()] was halted. It will NOT be automatically garbage collected. Please remove manually."), confidential = TRUE)
 					running -= query
 	while(!finished)
 
 	var/end_time_total = REALTIMEOFDAY - start_time_total
-	return list("<span class='admin'>SDQL query combined results: [query_text]</span>",\
-		"<span class='admin'>SDQL query completed: [objs_all] objects selected by path, and [selectors_used ? objs_eligible : objs_all] objects executed on after WHERE filtering/MAPping if applicable.</span>",\
-		"<span class='admin'>SDQL combined querys took [DisplayTimeText(end_time_total)] to complete.</span>") + combined_refs
+	return list(span_admin("SDQL query combined results: [query_text]"),\
+		span_admin("SDQL query completed: [objs_all] objects selected by path, and [selectors_used ? objs_eligible : objs_all] objects executed on after WHERE filtering/MAPping if applicable."),\
+		span_admin("SDQL combined querys took [DisplayTimeText(end_time_total)] to complete.")) + combined_refs
 
 GLOBAL_LIST_INIT(sdql2_queries, GLOB.sdql2_queries || list())
-GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null, "VIEW VARIABLES (all)", null))
+GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/sdql2_vv_all, new(null, "VIEW VARIABLES (all)", null))
 
-/datum/SDQL2_query
+/datum/sdql2_query
 	var/list/query_tree
 	var/state = SDQL2_STATE_IDLE
 	var/options = SDQL2_OPTIONS_DEFAULT
-	var/superuser = FALSE		//Run things like proccalls without using admin protections
-	var/allow_admin_interact = TRUE		//Allow admins to do things to this excluding varedit these two vars
+	var/superuser = FALSE //Run things like proccalls without using admin protections
+	var/allow_admin_interact = TRUE //Allow admins to do things to this excluding varedit these two vars
 	var/static/id_assign = 1
 	var/id = 0
 
@@ -342,7 +341,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 	var/obj/effect/statclick/SDQL2_delete/delete_click
 	var/obj/effect/statclick/SDQL2_action/action_click
 
-/datum/SDQL2_query/New(list/tree, SU = FALSE, admin_interact = TRUE, _options = SDQL2_OPTIONS_DEFAULT, finished_qdel = FALSE)
+/datum/sdql2_query/New(list/tree, SU = FALSE, admin_interact = TRUE, _options = SDQL2_OPTIONS_DEFAULT, finished_qdel = FALSE)
 	if(IsAdminAdvancedProcCall() || !LAZYLEN(tree))
 		qdel(src)
 		return
@@ -354,7 +353,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 	id = id_assign++
 	qdel_on_finish = finished_qdel
 
-/datum/SDQL2_query/Destroy()
+/datum/sdql2_query/Destroy()
 	state = SDQL2_STATE_HALTING
 	query_tree = null
 	obj_count_all = null
@@ -365,7 +364,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 	GLOB.sdql2_queries -= src
 	return ..()
 
-/datum/SDQL2_query/proc/get_query_text()
+/datum/sdql2_query/proc/get_query_text()
 	var/list/out = list()
 	recursive_list_print(out, query_tree)
 	return out.Join()
@@ -379,7 +378,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 		//print the key
 		if(islist(key))
 			recursive_list_print(output, key, datum_handler, atom_handler)
-		else if(is_proper_datum(key) && (datum_handler || (isatom(key) && atom_handler)))
+		else if(isdatum(key) && (datum_handler || (isatom(key) && atom_handler)))
 			if(isatom(key) && atom_handler)
 				output += atom_handler.Invoke(key)
 			else
@@ -393,7 +392,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 			var/value = input[key]
 			if(islist(value))
 				recursive_list_print(output, value, datum_handler, atom_handler)
-			else if(is_proper_datum(value) && (datum_handler || (isatom(value) && atom_handler)))
+			else if(isdatum(value) && (datum_handler || (isatom(value) && atom_handler)))
 				if(isatom(value) && atom_handler)
 					output += atom_handler.Invoke(value)
 				else
@@ -406,7 +405,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 
 	output += " \]"
 
-/datum/SDQL2_query/proc/text_state()
+/datum/sdql2_query/proc/text_state()
 	switch(state)
 		if(SDQL2_STATE_ERROR)
 			return "###ERROR"
@@ -423,7 +422,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 		if(SDQL2_STATE_HALTING)
 			return "##HALTING"
 
-/datum/SDQL2_query/proc/generate_stat()
+/datum/sdql2_query/proc/generate_stat()
 	if(!allow_admin_interact)
 		return
 	if(!delete_click)
@@ -431,23 +430,23 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 	if(!action_click)
 		action_click = new(null, "INITIALIZNG", src)
 	var/list/L = list()
-	L[++L.len] = list("[id]		", "[delete_click.update("DELETE QUERY | STATE : [text_state()] | ALL/ELIG/FIN \
+	L[++L.len] = list("[id] ", "[delete_click.update("DELETE QUERY | STATE : [text_state()] | ALL/ELIG/FIN \
 	[islist(obj_count_all)? length(obj_count_all) : (isnull(obj_count_all)? "0" : obj_count_all)]/\
 	[islist(obj_count_eligible)? length(obj_count_eligible) : (isnull(obj_count_eligible)? "0" : obj_count_eligible)]/\
 	[islist(obj_count_finished)? length(obj_count_finished) : (isnull(obj_count_finished)? "0" : obj_count_finished)] - [get_query_text()]")]", REF(delete_click))
-	L[++L.len] = list("			", "[action_click.update("[SDQL2_IS_RUNNING? "HALT" : "RUN"]")]", REF(action_click))
+	L[++L.len] = list(" ", "[action_click.update("[SDQL2_IS_RUNNING? "HALT" : "RUN"]")]", REF(action_click))
 	return L
 
-/datum/SDQL2_query/proc/delete_click()
+/datum/sdql2_query/proc/delete_click()
 	admin_del(usr)
 
-/datum/SDQL2_query/proc/action_click()
+/datum/sdql2_query/proc/action_click()
 	if(SDQL2_IS_RUNNING)
 		admin_halt(usr)
 	else
 		admin_run(usr)
 
-/datum/SDQL2_query/proc/admin_halt(user = usr)
+/datum/sdql2_query/proc/admin_halt(user = usr)
 	if(!SDQL2_IS_RUNNING)
 		return
 	var/msg = "[key_name(user)] has halted query #[id]"
@@ -455,7 +454,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 	log_admin(msg)
 	state = SDQL2_STATE_HALTING
 
-/datum/SDQL2_query/proc/admin_run(mob/user = usr)
+/datum/sdql2_query/proc/admin_run(mob/user = usr)
 	if(SDQL2_IS_RUNNING)
 		return
 	var/msg = "[key_name(user)] has (re)started query #[id]"
@@ -464,13 +463,13 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 	show_next_to_key = user.ckey
 	ARun()
 
-/datum/SDQL2_query/proc/admin_del(user = usr)
+/datum/sdql2_query/proc/admin_del(user = usr)
 	var/msg = "[key_name(user)] has stopped + deleted query #[id]"
 	message_admins(msg)
 	log_admin(msg)
 	qdel(src)
 
-/datum/SDQL2_query/proc/set_option(name, value)
+/datum/sdql2_query/proc/set_option(name, value)
 	switch(name)
 		if("select")
 			switch(value)
@@ -493,10 +492,10 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 				if("true")
 					options |= SDQL2_OPTION_SEQUENTIAL
 
-/datum/SDQL2_query/proc/ARun()
+/datum/sdql2_query/proc/ARun()
 	INVOKE_ASYNC(src, .proc/Run)
 
-/datum/SDQL2_query/proc/Run()
+/datum/sdql2_query/proc/Run()
 	if(SDQL2_IS_RUNNING)
 		return FALSE
 	if(query_tree["options"])
@@ -542,7 +541,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 	if(qdel_on_finish)
 		qdel(src)
 
-/datum/SDQL2_query/proc/PreSearch()
+/datum/sdql2_query/proc/PreSearch()
 	SDQL2_HALT_CHECK
 	switch(query_tree[1])
 		if("explain")
@@ -555,7 +554,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 			. = query_tree[query_tree[1]]
 	state = SDQL2_STATE_SWITCHING
 
-/datum/SDQL2_query/proc/Search(list/tree)
+/datum/sdql2_query/proc/Search(list/tree)
 	SDQL2_HALT_CHECK
 	var/type = tree[1]
 	var/list/from = tree[2]
@@ -596,7 +595,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 	. = objs
 	state = SDQL2_STATE_SWITCHING
 
-/datum/SDQL2_query/proc/SDQL_from_objs(list/tree)
+/datum/sdql2_query/proc/SDQL_from_objs(list/tree)
 	if(IsAdminAdvancedProcCall())
 		if("world" in tree)
 			var/text = "[key_name(usr)] attempted to grab world with a procedure call to a SDQL datum."
@@ -607,7 +606,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 		return world
 	return SDQL_expression(world, tree)
 
-/datum/SDQL2_query/proc/SDQL_get_all(type, location)
+/datum/sdql2_query/proc/SDQL_get_all(type, location)
 	var/list/out = list()
 	obj_count_all = out
 
@@ -678,14 +677,14 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 	obj_count_all = out.len
 	return out
 
-/datum/SDQL2_query/proc/Execute(list/found)
+/datum/sdql2_query/proc/Execute(list/found)
 	SDQL2_HALT_CHECK
 	select_refs = list()
 	select_text = list()
 	switch(query_tree[1])
 		if("call")
 			for(var/i in found)
-				if(!is_proper_datum(i))
+				if(!isdatum(i))
 					continue
 				world.SDQL_var(i, query_tree["call"][1], null, i, superuser, src)
 				obj_count_finished++
@@ -694,7 +693,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 
 		if("delete")
 			for(var/datum/d in found)
-				SDQL_qdel_datum(d)
+				qdel(d)
 				obj_count_finished++
 				SDQL2_TICK_CHECK
 				SDQL2_HALT_CHECK
@@ -714,7 +713,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 			if("set" in query_tree)
 				var/list/set_list = query_tree["set"]
 				for(var/d in found)
-					if(!is_proper_datum(d))
+					if(!isdatum(d))
 						continue
 					SDQL_internal_vv(d, set_list)
 					obj_count_finished++
@@ -724,8 +723,8 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 		obj_count_finished = length(obj_count_finished)
 	state = SDQL2_STATE_SWITCHING
 
-/datum/SDQL2_query/proc/SDQL_print(object, list/text_list, print_nulls = TRUE)
-	if(is_proper_datum(object))
+/datum/sdql2_query/proc/SDQL_print(object, list/text_list, print_nulls = TRUE)
+	if(isdatum(object))
 		text_list += "<A HREF='?_src_=vars;[HrefToken(TRUE)];Vars=[REF(object)]'>[REF(object)]</A> : [object]"
 		if(istype(object, /atom))
 			var/atom/A = object
@@ -735,12 +734,12 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 				text_list += " <font color='gray'>at</font> [T] [ADMIN_COORDJMP(T)]"
 				a = T.loc
 			else
-				var/turf/final = get_turf(T)		//Recursive, hopefully?
+				var/turf/final = get_turf(T) //Recursive, hopefully?
 				if(istype(final))
 					text_list += " <font color='gray'>at</font> [final] [ADMIN_COORDJMP(final)]"
 					a = final.loc
 				else
-					text_list += " <font color='gray'>at</font> nonexistant location"
+					text_list += " <font color='gray'>at</font> nonexistent location"
 			if(a)
 				text_list += " <font color='gray'>in</font> area [a]"
 				if(T.loc != a)
@@ -766,19 +765,19 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 		else
 			text_list += "[object]<br>"
 
-/datum/SDQL2_query/CanProcCall()
+/datum/sdql2_query/CanProcCall()
 	if(!allow_admin_interact)
 		return FALSE
 	return ..()
 
-/datum/SDQL2_query/vv_edit_var(var_name, var_value)
+/datum/sdql2_query/vv_edit_var(var_name, var_value)
 	if(!allow_admin_interact)
 		return FALSE
 	if(var_name == NAMEOF(src, superuser) || var_name == NAMEOF(src, allow_admin_interact) || var_name == NAMEOF(src, query_tree))
 		return FALSE
 	return ..()
 
-/datum/SDQL2_query/proc/SDQL_internal_vv(d, list/set_list)
+/datum/sdql2_query/proc/SDQL_internal_vv(d, list/set_list)
 	for(var/list/sets in set_list)
 		var/datum/temp = d
 		var/i = 0
@@ -798,20 +797,19 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 			else
 				break
 
-/datum/SDQL2_query/proc/SDQL_function_blocking(datum/object, procname, list/arguments, source)
+/datum/sdql2_query/proc/SDQL_function_blocking(datum/object, procname, list/arguments, source)
 	var/list/new_args = list()
 	for(var/arg in arguments)
 		new_args[++new_args.len] = SDQL_expression(source, arg)
 	if(object == GLOB) // Global proc.
-		procname = "/proc/[procname]"
-		return superuser? (call(procname)(new_args)) : (WrapAdminProcCall(GLOBAL_PROC, procname, new_args))
-	return superuser? (call(object, procname)(new_args)) : (WrapAdminProcCall(object, procname, new_args))
+		return superuser ? (call("/proc/[procname]")(arglist(new_args))) : (WrapAdminProcCall(GLOBAL_PROC, procname, new_args))
+	return superuser ? (call(object, procname)(arglist(new_args))) : (WrapAdminProcCall(object, procname, new_args))
 
-/datum/SDQL2_query/proc/SDQL_function_async(datum/object, procname, list/arguments, source)
+/datum/sdql2_query/proc/SDQL_function_async(datum/object, procname, list/arguments, source)
 	set waitfor = FALSE
 	return SDQL_function_blocking(object, procname, arguments, source)
 
-/datum/SDQL2_query/proc/SDQL_expression(datum/object, list/expression, start = 1)
+/datum/sdql2_query/proc/SDQL_expression(datum/object, list/expression, start = 1)
 	var/result = 0
 	var/val
 
@@ -861,14 +859,14 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 				if("or", "||")
 					result = (result || val)
 				else
-					to_chat(usr, "<span class='danger'>SDQL2: Unknown op [op]</span>", confidential = TRUE)
+					to_chat(usr, span_danger("SDQL2: Unknown op [op]"), confidential = TRUE)
 					result = null
 		else
 			result = val
 
 	return result
 
-/datum/SDQL2_query/proc/SDQL_value(datum/object, list/expression, start = 1)
+/datum/sdql2_query/proc/SDQL_value(datum/object, list/expression, start = 1)
 	var/i = start
 	var/val = null
 
@@ -948,7 +946,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 	return list("val" = val, "i" = i)
 
 /proc/SDQL_parse(list/query_list)
-	var/datum/SDQL_parser/parser = new()
+	var/datum/sdql_parser/parser = new()
 	var/list/querys = list()
 	var/list/query_tree = list()
 	var/pos = 1
@@ -971,7 +969,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 				querys[querys_pos] = parsed_tree
 				querys_pos++
 			else //There was an error so don't run anything, and tell the user which query has errored.
-				to_chat(usr, "<span class='danger'>Parsing error on [querys_pos]\th query. Nothing was executed.</span>", confidential = TRUE)
+				to_chat(usr, span_danger("Parsing error on [querys_pos]\th query. Nothing was executed."), confidential = TRUE)
 				return list()
 			query_tree = list()
 			do_parse = 0
@@ -985,8 +983,9 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 /proc/SDQL_testout(list/query_tree, indent = 0)
 	var/static/whitespace = "&nbsp;&nbsp;&nbsp; "
 	var/spaces = ""
-	for(var/s = 0, s < indent, s++)
-		spaces += whitespace
+	if(indent > 0)
+		for(var/i in 1 to indent)
+			spaces += whitespace
 
 	for(var/item in query_tree)
 		if(istype(item, /list))
@@ -1008,25 +1007,25 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 				to_chat(usr, "[spaces][whitespace][query_tree[item]]", confidential = TRUE)
 
 //Staying as a world proc as this is called too often for changes to offset the potential IsAdminAdvancedProcCall checking overhead.
-/world/proc/SDQL_var(object, list/expression, start = 1, source, superuser, datum/SDQL2_query/query)
+/world/proc/SDQL_var(object, list/expression, start = 1, source, superuser, datum/sdql2_query/query)
 	var/v
 	var/static/list/exclude = list("usr", "src", "marked", "global", "MC", "FS", "CFG")
 	var/long = start < expression.len
 	var/datum/D
-	if(is_proper_datum(object))
+	if(isdatum(object))
 		D = object
 
 	if (object == world && (!long || expression[start + 1] == ".") && !(expression[start] in exclude) && copytext(expression[start], 1, 3) != "SS") //3 == length("SS") + 1
-		to_chat(usr, "<span class='danger'>World variables are not allowed to be accessed. Use global.</span>", confidential = TRUE)
+		to_chat(usr, span_danger("World variables are not allowed to be accessed. Use global."), confidential = TRUE)
 		return null
 
 	else if(expression [start] == "{" && long)
 		if(lowertext(copytext(expression[start + 1], 1, 3)) != "0x") //3 == length("0x") + 1
-			to_chat(usr, "<span class='danger'>Invalid pointer syntax: [expression[start + 1]]</span>", confidential = TRUE)
+			to_chat(usr, span_danger("Invalid pointer syntax: [expression[start + 1]]"), confidential = TRUE)
 			return null
 		v = locate("\[[expression[start + 1]]]")
 		if(!v)
-			to_chat(usr, "<span class='danger'>Invalid pointer: [expression[start + 1]]</span>", confidential = TRUE)
+			to_chat(usr, span_danger("Invalid pointer: [expression[start + 1]]"), confidential = TRUE)
 			return null
 		start++
 		long = start < expression.len
@@ -1089,7 +1088,7 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 			var/list/L = v
 			var/index = query.SDQL_expression(source, expression[start + 2])
 			if(isnum(index) && (!ISINTEGER(index) || L.len < index))
-				to_chat(usr, "<span class='danger'>Invalid list index: [index]</span>", confidential = TRUE)
+				to_chat(usr, span_danger("Invalid list index: [index]"), confidential = TRUE)
 				return null
 			return L[index]
 	return v
@@ -1202,15 +1201,12 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 		query_list += word
 	return query_list
 
-/proc/is_proper_datum(thing)
-	return istype(thing, /datum) || istype(thing, /client)
-
 /obj/effect/statclick/SDQL2_delete/Click()
 	if(!usr.client?.holder)
 		message_admins("[key_name_admin(usr)] non-holder clicked on a statclick! ([src])")
 		log_game("[key_name(usr)] non-holder clicked on a statclick! ([src])")
 		return
-	var/datum/SDQL2_query/Q = target
+	var/datum/sdql2_query/Q = target
 	Q.delete_click()
 
 /obj/effect/statclick/SDQL2_action/Click()
@@ -1218,13 +1214,13 @@ GLOBAL_DATUM_INIT(sdql2_vv_statobj, /obj/effect/statclick/SDQL2_VV_all, new(null
 		message_admins("[key_name_admin(usr)] non-holder clicked on a statclick! ([src])")
 		log_game("[key_name(usr)] non-holder clicked on a statclick! ([src])")
 		return
-	var/datum/SDQL2_query/Q = target
+	var/datum/sdql2_query/Q = target
 	Q.action_click()
 
-/obj/effect/statclick/SDQL2_VV_all
+/obj/effect/statclick/sdql2_vv_all
 	name = "VIEW VARIABLES"
 
-/obj/effect/statclick/SDQL2_VV_all/Click()
+/obj/effect/statclick/sdql2_vv_all/Click()
 	if(!usr.client?.holder)
 		message_admins("[key_name_admin(usr)] non-holder clicked on a statclick! ([src])")
 		log_game("[key_name(usr)] non-holder clicked on a statclick! ([src])")

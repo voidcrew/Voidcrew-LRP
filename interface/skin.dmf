@@ -1,6 +1,12 @@
 macro "default"
-
-
+	elem ".winset :map.right-click=false"
+		name = "SHIFT+Shift"
+	elem "Shift"
+		name = "SHIFT"
+		command = ".winset :map.right-click=false"
+	elem "ShiftUp"
+		name = "SHIFT+UP"
+		command = ".winset :map.right-click=true"
 
 
 menu "menu"
@@ -59,7 +65,7 @@ window "mainwindow"
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
 		statusbar = false
-		icon = 'icons\\tg_32.png'
+		icon = 'icons\\ui_icons\\common\\tg_32.png'
 		macro = "default"
 		menu = "menu"
 	elem "split"
@@ -108,6 +114,7 @@ window "mapwindow"
 		font-family = "Arial"
 		font-size = 7
 		is-default = true
+		right-click = true
 		saved-params = "zoom;letterbox;zoom-mode"
 		style = ".center { text-align: center; } .maptext { font-family: 'Small Fonts'; font-size: 7px; -dm-text-outline: 1px black; color: white; line-height: 1.1; } .command_headset { font-weight: bold;\tfont-size: 8px; } .small { font-size: 6px; } .big { font-size: 8px; } .reallybig { font-size: 8px; } .extremelybig { font-size: 8px; } .greentext { color: #00FF00; font-size: 7px; } .redtext { color: #FF0000; font-size: 7px; } .clown { color: #FF69Bf; font-size: 7px;  font-weight: bold; } .his_grace { color: #15D512; } .hypnophrase { color: #0d0d0d; font-weight: bold; } .yell { font-weight: bold; } .italics { font-size: 6px; }"
 	elem "status_bar"
@@ -115,106 +122,83 @@ window "mapwindow"
 		pos = 0,464
 		size = 280x16
 		anchor1 = 0,100
-		anchor2 = -1,-1
-		text-color = #ffffff
-		background-color = #222222
-		border = line
-		saved-params = ""
+		is-visible = true
 		text = ""
 		align = left
+		background-color = #222222
+		text-color = #ffffff
+		border = line
 
 window "infowindow"
 	elem "infowindow"
 		type = MAIN
-		pos = 372,0
+		pos = 281,0
 		size = 640x480
 		anchor1 = -1,-1
 		anchor2 = -1,-1
-		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
-		outer-size = 658x549
-		inner-size = 640x502
 	elem "info"
 		type = CHILD
 		pos = 0,30
 		size = 640x445
 		anchor1 = 0,0
 		anchor2 = 100,100
-		background-color = none
 		saved-params = "splitter"
 		left = "statwindow"
 		right = "outputwindow"
 		is-vert = false
 	elem "changelog"
 		type = BUTTON
-		pos = 8,5
-		size = 80x20
+		pos = 16,5
+		size = 104x20
 		anchor1 = 3,0
 		anchor2 = 19,0
-		background-color = none
 		saved-params = "is-checked"
 		text = "Changelog"
 		command = "changelog"
 	elem "rules"
 		type = BUTTON
-		pos = 96,5
-		size = 56x20
+		pos = 120,5
+		size = 100x20
 		anchor1 = 19,0
 		anchor2 = 34,0
-		background-color = none
 		saved-params = "is-checked"
 		text = "Rules"
 		command = "rules"
-	elem "discord"
-		type = BUTTON
-		pos = 158,5
-		size = 106x20
-		anchor1 = 30,0
-		anchor2 = 44,0
-		font-family = "Verdana"
-		text-color = #ffffff
-		background-color = #40628a
-		saved-params = "is-checked"
-		text = "Join Discord"
-		command = "discord"
 	elem "wiki"
 		type = BUTTON
-		pos = 264,5
-		size = 80x20
+		pos = 220,5
+		size = 100x20
 		anchor1 = 34,0
 		anchor2 = 50,0
-		background-color = none
 		saved-params = "is-checked"
 		text = "Wiki"
 		command = "wiki"
 	elem "forum"
 		type = BUTTON
-		pos = 352,5
-		size = 72x20
+		pos = 320,5
+		size = 100x20
 		anchor1 = 50,0
 		anchor2 = 66,0
-		background-color = none
 		saved-params = "is-checked"
 		text = "Forum"
 		command = "forum"
 	elem "github"
 		type = BUTTON
-		pos = 432,5
-		size = 88x20
+		pos = 420,5
+		size = 100x20
 		anchor1 = 66,0
 		anchor2 = 81,0
-		background-color = none
 		saved-params = "is-checked"
 		text = "Github"
 		command = "github"
 	elem "report-issue"
 		type = BUTTON
-		pos = 528,5
-		size = 96x20
+		pos = 520,5
+		size = 100x20
 		anchor1 = 81,0
 		anchor2 = 97,0
-		background-color = none
 		saved-params = "is-checked"
 		text = "Report Issue"
 		command = "report-issue"
@@ -222,12 +206,15 @@ window "infowindow"
 window "outputwindow"
 	elem "outputwindow"
 		type = MAIN
-		pos = 372,0
+		pos = 281,0
 		size = 640x480
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
+		outer-size = 656x538
+		inner-size = 640x499
 	elem "input"
 		type = INPUT
 		pos = 2,460
@@ -244,6 +231,7 @@ window "outputwindow"
 		size = 40x19
 		anchor1 = 100,100
 		anchor2 = -1,-1
+		background-color = none
 		border = line
 		saved-params = "is-checked"
 		text = "OOC"
@@ -256,6 +244,7 @@ window "outputwindow"
 		size = 40x19
 		anchor1 = 100,100
 		anchor2 = -1,-1
+		background-color = none
 		border = line
 		saved-params = "is-checked"
 		text = "Say"
@@ -268,6 +257,7 @@ window "outputwindow"
 		size = 40x19
 		anchor1 = 100,100
 		anchor2 = -1,-1
+		background-color = none
 		border = line
 		saved-params = "is-checked"
 		text = "Me"

@@ -5,30 +5,62 @@
 	icon_state = "jukebox"
 	verb_say = "states"
 	density = TRUE
+	req_access = list(ACCESS_BAR)
 	var/active = FALSE
 	var/list/rangers = list()
 	var/stop = 0
+	var/list/songs = list()
 	var/datum/track/selection = null
 	/// Volume of the songs played
-	var/volume = 70
+	var/volume = 50
+	COOLDOWN_DECLARE(jukebox_error_cd)
 
 /obj/machinery/jukebox/disco
 	name = "radiant dance machine mark IV"
 	desc = "The first three prototypes were discontinued after mass casualty incidents."
 	icon_state = "disco"
+	req_access = list(ACCESS_ENGINE)
 	anchored = FALSE
 	var/list/spotlights = list()
 	var/list/sparkles = list()
-	/// Precentage change per process of the mob dancing.
-	var/dance_chance = 20
-
 
 /obj/machinery/jukebox/disco/indestructible
 	name = "radiant dance machine mark V"
 	desc = "Now redesigned with data gathered from the extensive disco and plasma research."
+	req_access = null
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	flags_1 = NODECONSTRUCT_1
+
+/datum/track
+	var/song_name = "generic"
+	var/song_path = null
+	var/song_length = 0
+	var/song_beat = 0
+
+/datum/track/New(name, path, length, beat)
+	song_name = name
+	song_path = path
+	song_length = length
+	song_beat = beat
+
+/obj/machinery/jukebox/Initialize(mapload)
+	. = ..()
+	var/list/tracks = flist("[global.config.directory]/jukebox_music/sounds/")
+
+	for(var/S in tracks)
+		var/datum/track/T = new()
+		T.song_path = file("[global.config.directory]/jukebox_music/sounds/[S]")
+		var/list/L = splittext(S,"+")
+		if(L.len != 3)
+			continue
+		T.song_name = L[1]
+		T.song_length = text2num(L[2])
+		T.song_beat = text2num(L[3])
+		songs |= T
+
+	if(songs.len)
+		selection = pick(songs)
 
 /obj/machinery/jukebox/Destroy()
 	dance_over()
@@ -38,32 +70,30 @@
 	if(!active && !(flags_1 & NODECONSTRUCT_1))
 		if(O.tool_behaviour == TOOL_WRENCH)
 			if(!anchored && !isinspace())
-				to_chat(user,"<span class='notice'>You secure [src] to the floor.</span>")
+				to_chat(user,span_notice("You secure [src] to the floor."))
 				set_anchored(TRUE)
 			else if(anchored)
-				to_chat(user,"<span class='notice'>You unsecure and disconnect [src].</span>")
+				to_chat(user,span_notice("You unsecure and disconnect [src]."))
 				set_anchored(FALSE)
 			playsound(src, 'sound/items/deconstruct.ogg', 50, TRUE)
 			return
 	return ..()
 
 /obj/machinery/jukebox/update_icon_state()
-	if(active)
-		icon_state = "[initial(icon_state)]-active"
-	else
-		icon_state = "[initial(icon_state)]"
+	icon_state = "[initial(icon_state)][active ? "-active" : null]"
+	return ..()
 
 /obj/machinery/jukebox/ui_status(mob/user)
 	if(!anchored)
-		to_chat(user,"<span class='warning'>This device must be anchored by a wrench!</span>")
+		to_chat(user,span_warning("This device must be anchored by a wrench!"))
 		return UI_CLOSE
 	if(!allowed(user) && !isobserver(user))
-		to_chat(user,"<span class='warning'>Error: Access Denied.</span>")
+		to_chat(user,span_warning("Error: Access Denied."))
 		user.playsound_local(src, 'sound/misc/compiler-failure.ogg', 25, TRUE)
 		return UI_CLOSE
-	if(!SSjukeboxes.songs.len && !isobserver(user)) //WS Edit Cit #7367
-		to_chat(user,"<span class='warning'>Error: No music tracks have been authorized for your station. Petition Central Command to resolve this issue.</span>")
-		playsound(src, 'sound/misc/compiler-failure.ogg', 25, TRUE)
+	if(!songs.len && !isobserver(user))
+		to_chat(user,span_warning("Error: No music tracks have been authorized for your station. Petition Central Command to resolve this issue."))
+		user.playsound_local(src, 'sound/misc/compiler-failure.ogg', 25, TRUE)
 		return UI_CLOSE
 	return ..()
 
@@ -77,7 +107,7 @@
 	var/list/data = list()
 	data["active"] = active
 	data["songs"] = list()
-	for(var/datum/track/S in SSjukeboxes.songs) //WS Edit Cit #7367
+	for(var/datum/track/S in songs)
 		var/list/track_data = list(
 			name = S.song_name
 		)
@@ -103,27 +133,24 @@
 				return
 			if(!active)
 				if(stop > world.time)
-					to_chat(usr, "<span class='warning'>Error: The device is still resetting from the last activation, it will be ready again in [DisplayTimeText(stop-world.time)].</span>")
+					to_chat(usr, span_warning("Error: The device is still resetting from the last activation, it will be ready again in [DisplayTimeText(stop-world.time)]."))
+					if(!COOLDOWN_FINISHED(src, jukebox_error_cd))
+						return
 					playsound(src, 'sound/misc/compiler-failure.ogg', 50, TRUE)
+					COOLDOWN_START(src, jukebox_error_cd, 15 SECONDS)
 					return
-				if(!istype(selection)) //WS Edit Cit #7367
-					to_chat(usr, "<span class='warning'>Error: Severe user incompetence detected.</span>")
-					playsound(src, 'sound/misc/compiler-failure.ogg', 50, TRUE)
-					return
-				if(!activate_music()) //WS Edit Cit #7367
-					to_chat(usr, "<span class='warning'>Error: Generic hardware failure.</span>")
-					playsound(src, 'sound/misc/compiler-failure.ogg', 50, TRUE)
-					return
+				activate_music()
+				START_PROCESSING(SSobj, src)
 				return TRUE
 			else
 				stop = 0
 				return TRUE
 		if("select_track")
 			if(active)
-				to_chat(usr, "<span class='warning'>Error: You cannot change the song until the current one is over.</span>")
+				to_chat(usr, span_warning("Error: You cannot change the song until the current one is over."))
 				return
 			var/list/available = list()
-			for(var/datum/track/S in SSjukeboxes.songs) //WS Edit Cit #7367
+			for(var/datum/track/S in songs)
 				available[S.song_name] = S
 			var/selected = params["track"]
 			if(QDELETED(src) || !selected || !istype(available[selected], /datum/track))
@@ -132,29 +159,24 @@
 			return TRUE
 		if("set_volume")
 			var/new_volume = params["volume"]
-			if(new_volume  == "reset")
+			if(new_volume == "reset")
 				volume = initial(volume)
 				return TRUE
 			else if(new_volume == "min")
 				volume = 0
 				return TRUE
 			else if(new_volume == "max")
-				volume = 100
+				volume = initial(volume)
 				return TRUE
 			else if(text2num(new_volume) != null)
 				volume = text2num(new_volume)
 				return TRUE
 
 /obj/machinery/jukebox/proc/activate_music()
-	var/jukeboxslottotake = SSjukeboxes.addjukebox(src, selection, 2) //WS Edit Cit #7367 & #7458
-	if(jukeboxslottotake)
-		active = TRUE
-		update_icon()
-		START_PROCESSING(SSobj, src)
-		stop = world.time + selection.song_length
-		return TRUE
-	else
-		return FALSE
+	active = TRUE
+	update_appearance()
+	START_PROCESSING(SSobj, src)
+	stop = world.time + selection.song_length
 
 /obj/machinery/jukebox/disco/activate_music()
 	..()
@@ -195,8 +217,6 @@
 	for(var/i in 1 to 10)
 		spawn_atom_to_turf(/obj/effect/temp_visual/hierophant/telegraph/edge, src, 1, FALSE)
 		sleep(5)
-		if(QDELETED(src)) //WS Edit Cit #11039
-			return
 
 #define DISCO_INFENO_RANGE (rand(85, 115)*0.01)
 
@@ -297,40 +317,31 @@
 
 #undef DISCO_INFENO_RANGE
 
-
-/obj/machinery/jukebox/disco/proc/dance(mob/living/dancer) //Show your moves
+/obj/machinery/jukebox/disco/proc/dance(mob/living/M) //Show your moves
 	set waitfor = FALSE
-	switch(rand(0, 9))
+	switch(rand(0,9))
 		if(0 to 1)
-			dance2(dancer)
+			dance2(M)
 		if(2 to 3)
-			dance3(dancer)
+			dance3(M)
 		if(4 to 6)
-			dance4(dancer)
+			dance4(M)
 		if(7 to 9)
-			dance5(dancer)
+			dance5(M)
 
-
-/obj/machinery/jukebox/disco/proc/dance2(mob/living/dancer)
-	set waitfor = FALSE
-	for(var/i in 1 to 10)
-		if(QDELETED(dancer))
-			return
-		if(!active)
-			break
-		dancer.emote("flip")
-		sleep(2 SECONDS)
-
+/obj/machinery/jukebox/disco/proc/dance2(mob/living/M)
+	for(var/i in 0 to 9)
+		dance_rotate(M, CALLBACK(M, /mob.proc/dance_flip))
+		sleep(20)
 
 /mob/proc/dance_flip()
-	emote("flip")
-
+	if(dir == WEST)
+		emote("flip")
 
 /obj/machinery/jukebox/disco/proc/dance3(mob/living/M)
-	set waitfor = FALSE
 	var/matrix/initial_matrix = matrix(M.transform)
 	for (var/i in 1 to 75)
-		if(QDELETED(M))
+		if (!M)
 			return
 		switch(i)
 			if (1 to 15)
@@ -374,28 +385,24 @@
 		sleep(1)
 	M.lying_fix()
 
-
-/obj/machinery/jukebox/disco/proc/dance4(mob/living/dancer)
-	set waitfor = FALSE
-	for(var/i in 1 to 29)
-		if(QDELETED(dancer))
-			return
-		if(!active)
-			break
-		sleep(rand(1, 3))
-		dancer.setDir(pick(GLOB.cardinals))
-	dancer.set_resting(FALSE, TRUE, TRUE) // Last pass gets us up.
-
+/obj/machinery/jukebox/disco/proc/dance4(mob/living/M)
+	var/speed = rand(1,3)
+	set waitfor = 0
+	var/time = 30
+	while(time)
+		sleep(speed)
+		for(var/i in 1 to speed)
+			M.setDir(pick(GLOB.cardinals))
+			for(var/mob/living/carbon/NS in rangers)
+				NS.set_resting(!NS.resting, TRUE, TRUE)
+		time--
 
 /obj/machinery/jukebox/disco/proc/dance5(mob/living/M)
-	set waitfor = FALSE
 	animate(M, transform = matrix(180, MATRIX_ROTATE), time = 1, loop = 0)
 	var/matrix/initial_matrix = matrix(M.transform)
 	for (var/i in 1 to 60)
-		if(QDELETED(M))
+		if (!M)
 			return
-		if(!active)
-			break
 		if (i<31)
 			initial_matrix = matrix(M.transform)
 			initial_matrix.Translate(0,1)
@@ -430,11 +437,10 @@
 	lying_prev = 0
 
 /obj/machinery/jukebox/proc/dance_over()
-	var/position = SSjukeboxes.findjukeboxindex(src) //WS Edit Cit #10689
-	if(!position)
-		return
-	SSjukeboxes.removejukebox(position)
-	STOP_PROCESSING(SSobj, src)
+	for(var/mob/living/L in rangers)
+		if(!L || !L.client)
+			continue
+		L.stop_sound_channel(CHANNEL_JUKEBOX)
 	rangers = list()
 
 /obj/machinery/jukebox/disco/dance_over()
@@ -443,20 +449,32 @@
 	QDEL_LIST(sparkles)
 
 /obj/machinery/jukebox/process()
-	if(active && world.time >= stop) //WS Edit Cit #7367
+	if(world.time < stop && active)
+		var/sound/song_played = sound(selection.song_path)
+
+		for(var/mob/M in range(10,src))
+			if(!M.client || !(M.client.prefs.toggles & SOUND_INSTRUMENTS))
+				continue
+			if(!(M in rangers))
+				rangers[M] = TRUE
+				M.playsound_local(get_turf(M), null, volume, channel = CHANNEL_JUKEBOX, S = song_played, use_reverb = FALSE)
+		for(var/mob/L in rangers)
+			if(get_dist(src,L) > 10)
+				rangers -= L
+				if(!L || !L.client)
+					continue
+				L.stop_sound_channel(CHANNEL_JUKEBOX)
+	else if(active)
 		active = FALSE
+		STOP_PROCESSING(SSobj, src)
 		dance_over()
 		playsound(src,'sound/machines/terminal_off.ogg',50,TRUE)
-		update_icon()
+		update_appearance()
 		stop = world.time + 100
 
 /obj/machinery/jukebox/disco/process()
 	. = ..()
 	if(active)
-		for(var/mob/living/dancer in rangers)
-			if(QDELETED(dancer))
-				rangers -= dancer
-				continue
-			if(!prob(dance_chance) || HAS_TRAIT(dancer, TRAIT_IMMOBILIZED))
-				continue
-			dance(dancer)
+		for(var/mob/living/M in rangers)
+			if(prob(5+(allowed(M)*4)) && (M.mobility_flags & MOBILITY_MOVE))
+				dance(M)

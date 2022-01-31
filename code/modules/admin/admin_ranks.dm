@@ -1,7 +1,7 @@
-GLOBAL_LIST_EMPTY(admin_ranks)								//list of all admin_rank datums
+GLOBAL_LIST_EMPTY(admin_ranks) //list of all admin_rank datums
 GLOBAL_PROTECT(admin_ranks)
 
-GLOBAL_LIST_EMPTY(protected_ranks)								//admin ranks loaded from txt
+GLOBAL_LIST_EMPTY(protected_ranks) //admin ranks loaded from txt
 GLOBAL_PROTECT(protected_ranks)
 
 /datum/admin_rank
@@ -59,8 +59,6 @@ GLOBAL_PROTECT(protected_ranks)
 				flag = R_BUILD
 			if("ADMIN")
 				flag = R_ADMIN
-			if("MENTOR")
-				flag = R_MENTOR
 			if("BAN")
 				flag = R_BAN
 			if("FUN")
@@ -103,10 +101,10 @@ GLOBAL_PROTECT(protected_ranks)
 		switch(group_count)
 			if(1)
 				rights |= flag
-				include_rights	|= flag
+				include_rights |= flag
 			if(2)
 				rights &= ~flag
-				exclude_rights	|= flag
+				exclude_rights |= flag
 			if(3)
 				can_edit_rights |= flag
 
@@ -150,7 +148,7 @@ GLOBAL_PROTECT(protected_ranks)
 			if(!no_update)
 				sync_ranks_with_db()
 		else
-			var/datum/DBQuery/query_load_admin_ranks = SSdbcore.NewQuery("SELECT `rank`, flags, exclude_flags, can_edit_flags FROM [format_table_name("admin_ranks")]")
+			var/datum/db_query/query_load_admin_ranks = SSdbcore.NewQuery("SELECT `rank`, flags, exclude_flags, can_edit_flags FROM [format_table_name("admin_ranks")]")
 			if(!query_load_admin_ranks.Execute())
 				message_admins("Error loading admin ranks from database. Loading from backup.")
 				log_sql("Error loading admin ranks from database. Loading from backup.")
@@ -229,7 +227,7 @@ GLOBAL_PROTECT(protected_ranks)
 	while(admins_regex.Find(admins_text))
 		new /datum/admins(rank_names[admins_regex.group[2]], ckey(admins_regex.group[1]), FALSE, TRUE)
 	if(!CONFIG_GET(flag/admin_legacy_system) || dbfail)
-		var/datum/DBQuery/query_load_admins = SSdbcore.NewQuery("SELECT ckey, `rank` FROM [format_table_name("admin")] ORDER BY `rank`")
+		var/datum/db_query/query_load_admins = SSdbcore.NewQuery("SELECT ckey, `rank` FROM [format_table_name("admin")] ORDER BY `rank`")
 		if(!query_load_admins.Execute())
 			message_admins("Error loading admins from database. Loading from backup.")
 			log_sql("Error loading admins from database. Loading from backup.")

@@ -4,9 +4,22 @@
 	name = "shotgun slug"
 	desc = "A 12 gauge lead slug."
 	icon_state = "blshell"
-	caliber = "shotgun"
+	worn_icon_state = "shell"
+	caliber = CALIBER_SHOTGUN
 	custom_materials = list(/datum/material/iron=4000)
 	projectile_type = /obj/projectile/bullet/shotgun_slug
+
+/obj/item/ammo_casing/shotgun/executioner
+	name = "executioner slug"
+	desc = "A 12 gauge lead slug purpose built to annihilate flesh on impact."
+	icon_state = "stunshell"
+	projectile_type = /obj/projectile/bullet/shotgun_slug/executioner
+
+/obj/item/ammo_casing/shotgun/pulverizer
+	name = "pulverizer slug"
+	desc = "A 12 gauge lead slug purpose built to annihilate bones on impact."
+	icon_state = "stunshell"
+	projectile_type = /obj/projectile/bullet/shotgun_slug/pulverizer
 
 /obj/item/ammo_casing/shotgun/beanbag
 	name = "beanbag slug"
@@ -70,7 +83,7 @@
 	icon_state = "bshell"
 	projectile_type = /obj/projectile/bullet/pellet/shotgun_rubbershot
 	pellets = 6
-	variance = 25
+	variance = 20
 	custom_materials = list(/datum/material/iron=4000)
 
 /obj/item/ammo_casing/shotgun/incapacitate
@@ -105,7 +118,7 @@
 	desc = "An advanced shotgun shell that uses a micro laser to replicate the effects of a scatter laser weapon in a ballistic package."
 	icon_state = "lshell"
 	projectile_type = /obj/projectile/beam/weak
-	pellets = 4 //WS edit: makes scatter lasers based again
+	pellets = 6
 	variance = 35
 
 /obj/item/ammo_casing/shotgun/techshell
@@ -121,7 +134,7 @@
 	projectile_type = /obj/projectile/bullet/dart
 	var/reagent_amount = 30
 
-/obj/item/ammo_casing/shotgun/dart/Initialize()
+/obj/item/ammo_casing/shotgun/dart/Initialize(mapload)
 	. = ..()
 	create_reagents(reagent_amount, OPENCONTAINER)
 
@@ -131,23 +144,10 @@
 /obj/item/ammo_casing/shotgun/dart/bioterror
 	desc = "A shotgun dart filled with deadly toxins."
 
-/obj/item/ammo_casing/shotgun/dart/bioterror/Initialize()
+/obj/item/ammo_casing/shotgun/dart/bioterror/Initialize(mapload)
 	. = ..()
 	reagents.add_reagent(/datum/reagent/consumable/ethanol/neurotoxin, 6)
 	reagents.add_reagent(/datum/reagent/toxin/spore, 6)
 	reagents.add_reagent(/datum/reagent/toxin/mutetoxin, 6) //;HELP OPS IN MAINT
 	reagents.add_reagent(/datum/reagent/toxin/coniine, 6)
 	reagents.add_reagent(/datum/reagent/toxin/sodium_thiopental, 6)
-
-/obj/item/ammo_casing/shotgun/L666
-	name = "L666 bullet casing"
-	desc = "A strange bullet that appears to have several high caliber bullets in it, because fuck you."
-	icon_state = ".50"
-	caliber = ".50"
-	pellets = 6
-	projectile_type = /obj/projectile/bullet/p50
-	variance = 20
-
-/obj/item/ammo_casing/shotgun/L666/penetrator
-	name = "L666 penetraotr bullet casing"
-	projectile_type = /obj/projectile/bullet/p50/penetrator
