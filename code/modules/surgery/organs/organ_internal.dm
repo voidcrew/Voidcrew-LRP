@@ -29,8 +29,8 @@
 	var/useable = TRUE
 	var/list/food_reagents = list(/datum/reagent/consumable/nutriment = 5)
 
-	//WS Begin - IPCS
-	var/vital = 0
+	//WS Begin
+	var/vital = 0 // literally is never used
 	//Was this organ implanted/inserted/etc, if true will not be removed during species change.
 	var/external = FALSE
 	//whether to call Remove() when qdeling the organ.

@@ -490,11 +490,6 @@
 			var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)
 			if(heart.Restart() && stat == CONSCIOUS)
 				to_chat(src, "<span class='notice'>You feel your heart beating again!</span>")
-	//WS - Bootleg IPC revival
-	if(stat == DEAD && isipc(src) && can_be_revived())
-		if(shock_damage * siemens_coeff >= 1 && prob(25))
-			revive(FALSE, FALSE)
-	//WS - END
 	electrocution_animation(40)
 
 /mob/living/carbon/human/emp_act(severity)

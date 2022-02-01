@@ -102,7 +102,7 @@
 			"<span class='notice'>[user] begins to insert [tool] into [target]'s [parse_zone(target_zone)].</span>",
 			"<span class='notice'>[user] begins to insert something into [target]'s [parse_zone(target_zone)].</span>")
 
-	//WS Begin - IPCs
+	//VOID EDIT BEGIN
 
 	if(istype(tool, /obj/item/mmi))//this whole thing is only used for robotic surgery in organ_mani_robotic.dm :*
 		current_type = "posibrain"
@@ -127,7 +127,7 @@
 			to_chat(user, "<span class='notice'>[tool] has no life in it, this would be pointless!</span>")
 			return -1
 
-	//WS End
+	//VOID EDIT END
 
 	else if(implement_type in implements_extract)
 		current_type = "extract"

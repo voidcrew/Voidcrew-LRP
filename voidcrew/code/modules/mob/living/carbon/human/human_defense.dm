@@ -1,0 +1,5 @@
+/mob/living/carbon/human/electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE)
+	. = ..()
+	if(stat == DEAD && isipc(src) && can_be_revived())
+		if(shock_damage * siemens_coeff >= 1 && prob(25))
+			revive(FALSE, FALSE)

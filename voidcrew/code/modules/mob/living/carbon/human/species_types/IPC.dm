@@ -1,8 +1,8 @@
-/datum/species/ipc // im fucking lazy mk2 and cant get sprites to normally work
-	name = "\improper Integrated Positronic Chassis" //inherited from the real species, for health scanners and things
+/datum/species/ipc
+	name = "\improper Integrated Positronic Chassis"
 	id = SPECIES_IPC
 	sexes = FALSE
-	say_mod = "states" //inherited from a user's real species
+	say_mod = "states"
 	species_traits = list(AGENDER,NOTRANSSTING,NOEYESPRITES,NO_DNA_COPY,NOBLOOD,TRAIT_EASYDISMEMBER,NOZOMBIE,MUTCOLORS,REVIVESBYHEALING,NOHUSK,NOMOUTH,NO_BONES, MUTCOLORS, NO_UNDERWEAR) //all of these + whatever we inherit from the real species
 	inherent_traits = list(TRAIT_RESISTCOLD,TRAIT_VIRUSIMMUNE,TRAIT_NOBREATH,TRAIT_RADIMMUNE,TRAIT_GENELESS,TRAIT_LIMBATTACHMENT)
 	inherent_biotypes = list(MOB_ROBOTIC, MOB_HUMANOID)
@@ -12,7 +12,7 @@
 	mutantliver = /obj/item/organ/liver/cybernetic/upgraded/ipc
 	mutantstomach = /obj/item/organ/stomach/cell
 	mutantears = /obj/item/organ/ears/robot
-	mutantlungs = null //no more collecting change for you
+	mutantlungs = null
 	mutantappendix = null
 	mutant_organs = list(/obj/item/organ/cyberimp/arm/power_cord)
 	mutant_bodyparts = list("ipc_screen", "ipc_antenna", "ipc_chassis")
@@ -53,34 +53,34 @@
 	var/ipc_name = "[pick(GLOB.posibrain_names)]-[rand(100, 999)]"
 	return ipc_name
 
-/datum/species/ipc/on_species_gain(mob/living/carbon/C) // Let's make that IPC actually robotic.
+/datum/species/ipc/on_species_gain(mob/living/carbon/carbon) // Let's make that IPC actually robotic.
 	. = ..()
-	if(ishuman(C) && !change_screen)
+	if(ishuman(carbon) && !change_screen)
 		change_screen = new
-		change_screen.Grant(C)
+		change_screen.Grant(carbon)
 
-/datum/species/ipc/on_species_loss(mob/living/carbon/C)
+/datum/species/ipc/on_species_loss(mob/living/carbon/carbon)
 	. = ..()
 	if(change_screen)
-		change_screen.Remove(C)
+		change_screen.Remove(carbon)
 
 /datum/species/ipc/get_spans()
 	return SPAN_ROBOT
 
-/datum/species/ipc/after_equip_job(datum/job/J, mob/living/carbon/human/H)
-	H.grant_language(/datum/language/machine)
+/datum/species/ipc/after_equip_job(datum/job/job, mob/living/carbon/human/human)
+	human.grant_language(/datum/language/machine)
 
-/datum/species/ipc/spec_death(gibbed, mob/living/carbon/C)
-	saved_screen = C.dna.features["ipc_screen"]
-	C.dna.features["ipc_screen"] = "BSOD"
-	C.update_body()
-	addtimer(CALLBACK(src, .proc/post_death, C), 5 SECONDS)
+/datum/species/ipc/spec_death(gibbed, mob/living/carbon/carbon)
+	saved_screen = carbon.dna.features["ipc_screen"]
+	carbon.dna.features["ipc_screen"] = "BSOD"
+	carbon.update_body()
+	addtimer(CALLBACK(src, .proc/post_death, carbon), 5 SECONDS)
 
-/datum/species/ipc/proc/post_death(mob/living/carbon/C)
-	if(C.stat < DEAD)
+/datum/species/ipc/proc/post_death(mob/living/carbon/carbon)
+	if(carbon.stat < DEAD)
 		return
-	C.dna.features["ipc_screen"] = null // Turns off their monitor on death.
-	C.update_body()
+	carbon.dna.features["ipc_screen"] = null // Turns off their monitor on death.
+	carbon.update_body()
 
 /datum/action/innate/change_screen
 	name = "Change Display"
@@ -97,10 +97,10 @@
 		return
 	if(!ishuman(owner))
 		return
-	var/mob/living/carbon/human/H = owner
-	H.dna.features["ipc_screen"] = screen_choice
-	H.eye_color = sanitize_hexcolor(color_choice)
-	H.update_body()
+	var/mob/living/carbon/human/human = owner
+	human.dna.features["ipc_screen"] = screen_choice
+	human.eye_color = sanitize_hexcolor(color_choice)
+	human.update_body()
 
 /obj/item/apc_powercord
 	name = "power cord"
@@ -112,20 +112,20 @@
 	if((!istype(target, /obj/machinery/power/apc) && !isethereal(target)) || !ishuman(user) || !proximity_flag)
 		return ..()
 	user.changeNext_move(CLICK_CD_MELEE)
-	var/mob/living/carbon/human/H = user
-	var/obj/item/organ/stomach/cell/battery = H.getorganslot(ORGAN_SLOT_STOMACH)
+	var/mob/living/carbon/human/human = user
+	var/obj/item/organ/stomach/cell/battery = human.getorganslot(ORGAN_SLOT_STOMACH)
 	if(!battery)
-		to_chat(H, "<span class='warning'>You try to siphon energy from \the [target], but your power cell is gone!</span>")
+		to_chat(human, "<span class='warning'>You try to siphon energy from \the [target], but your power cell is gone!</span>")
 		return
 
-	if(istype(H) && H.nutrition >= NUTRITION_LEVEL_ALMOST_FULL)
+	if(istype(human) && human.nutrition >= NUTRITION_LEVEL_ALMOST_FULL)
 		to_chat(user, "<span class='warning'>You are already fully charged!</span>")
 		return
 
 	if(istype(target, /obj/machinery/power/apc))
-		var/obj/machinery/power/apc/A = target
-		if(A.cell && A.cell.charge > A.cell.maxcharge/4)
-			powerdraw_loop(A, H, TRUE)
+		var/obj/machinery/power/apc/apc = target
+		if(apc.cell && apc.cell.charge > apc.cell.maxcharge/4)
+			powerdraw_loop(apc, human, TRUE)
 			return
 		else
 			to_chat(user, "<span class='warning'>There is not enough charge to draw from that APC.</span>")
@@ -135,85 +135,85 @@
 		var/mob/living/carbon/human/target_ethereal = target
 		var/obj/item/organ/stomach/ethereal/eth_stomach = target_ethereal.getorganslot(ORGAN_SLOT_STOMACH)
 		if(target_ethereal.nutrition > 0 && eth_stomach)
-			powerdraw_loop(eth_stomach, H, FALSE)
+			powerdraw_loop(eth_stomach, human, FALSE)
 			return
 		else
 			to_chat(user, "<span class='warning'>There is not enough charge to draw from that being!</span>")
 			return
 
-/obj/item/apc_powercord/proc/powerdraw_loop(atom/target, mob/living/carbon/human/H, apc_target)
-	H.visible_message("<span class='notice'>[H] inserts a power connector into the [target].</span>", "<span class='notice'>You begin to draw power from the [target].</span>")
-	var/obj/item/organ/stomach/cell/battery = H.getorganslot(ORGAN_SLOT_STOMACH)
+/obj/item/apc_powercord/proc/powerdraw_loop(atom/target, mob/living/carbon/human/human, apc_target)
+	human.visible_message("<span class='notice'>[human] inserts a power connector into the [target].</span>", "<span class='notice'>You begin to draw power from the [target].</span>")
+	var/obj/item/organ/stomach/cell/battery = human.getorganslot(ORGAN_SLOT_STOMACH)
 	if(apc_target)
-		var/obj/machinery/power/apc/A = target
-		if(!istype(A))
+		var/obj/machinery/power/apc/apc = target
+		if(!istype(apc))
 			return
-		while(do_after(H, 10, target = A))
-			if(loc != H)
-				to_chat(H, "<span class='warning'>You must keep your connector out while charging!</span>")
+		while(do_after(human, 10, target = apc))
+			if(loc != human)
+				to_chat(human, "<span class='warning'>You must keep your connector out while charging!</span>")
 				break
-			if(A.cell.charge == 0)
-				to_chat(H, "<span class='warning'>The [A] doesn't have enough charge to spare.</span>")
+			if(apc.cell.charge == 0)
+				to_chat(human, "<span class='warning'>The [apc] doesn't have enough charge to spare.</span>")
 				break
-			A.charging = 1
-			if(A.cell.charge >= 500)
-				H.nutrition += 50
-				A.cell.charge -= 250
-				to_chat(H, "<span class='notice'>You siphon off some of the stored charge for your own use.</span>")
+			apc.charging = 1
+			if(apc.cell.charge >= 500)
+				human.nutrition += 50
+				apc.cell.charge -= 250
+				to_chat(human, "<span class='notice'>You siphon off some of the stored charge for your own use.</span>")
 			else
-				H.nutrition += A.cell.charge/10
-				A.cell.charge = 0
-				to_chat(H, "<span class='notice'>You siphon off as much as the [A] can spare.</span>")
+				human.nutrition += apc.cell.charge/10
+				apc.cell.charge = 0
+				to_chat(human, "<span class='notice'>You siphon off as much as the [apc] can spare.</span>")
 				break
-			if(H.nutrition > NUTRITION_LEVEL_WELL_FED)
-				to_chat(H, "<span class='notice'>You are now fully charged.</span>")
+			if(human.nutrition > NUTRITION_LEVEL_WELL_FED)
+				to_chat(human, "<span class='notice'>You are now fully charged.</span>")
 				break
 	else
-		var/obj/item/organ/stomach/ethereal/A = target
-		if(!istype(A))
+		var/obj/item/organ/stomach/ethereal/eth_stomach = target
+		if(!istype(eth_stomach))
 			return
 		var/siphon_amt
-		while(do_after(H, 10, target = A.owner))
+		while(do_after(human, 10, target = eth_stomach.owner))
 			if(!battery)
-				to_chat(H, "<span class='warning'>You need a battery to recharge!</span>")
+				to_chat(human, "<span class='warning'>You need a battery to recharge!</span>")
 				break
-			if(loc != H)
-				to_chat(H, "<span class='warning'>You must keep your connector out while charging!</span>")
+			if(loc != human)
+				to_chat(human, "<span class='warning'>You must keep your connector out while charging!</span>")
 				break
-			if(A.crystal_charge == 0)
-				to_chat(H, "<span class='warning'>[A] is completely drained!</span>")
+			if(eth_stomach.crystal_charge == 0)
+				to_chat(human, "<span class='warning'>[eth_stomach] is completely drained!</span>")
 				break
-			siphon_amt = A.crystal_charge <= (2 * ETHEREAL_CHARGE_SCALING_MULTIPLIER) ? A.crystal_charge : (2 * ETHEREAL_CHARGE_SCALING_MULTIPLIER)
-			A.adjust_charge(-1 * siphon_amt)
-			H.nutrition += (siphon_amt)
-			if(H.nutrition > NUTRITION_LEVEL_WELL_FED)
-				to_chat(H, "<span class='notice'>You are now fully charged.</span>")
+			siphon_amt = eth_stomach.crystal_charge <= (2 * ETHEREAL_CHARGE_SCALING_MULTIPLIER) ? eth_stomach.crystal_charge : (2 * ETHEREAL_CHARGE_SCALING_MULTIPLIER)
+			eth_stomach.adjust_charge(-1 * siphon_amt)
+			human.nutrition += (siphon_amt)
+			if(human.nutrition > NUTRITION_LEVEL_WELL_FED)
+				to_chat(human, "<span class='notice'>You are now fully charged.</span>")
 				break
 
-	H.visible_message("<span class='notice'>[H] unplugs from the [target].</span>", "<span class='notice'>You unplug from the [target].</span>")
+	human.visible_message("<span class='notice'>[human] unplugs from the [target].</span>", "<span class='notice'>You unplug from the [target].</span>")
 	return
 
-/datum/species/ipc/spec_life(mob/living/carbon/human/H)
+/datum/species/ipc/spec_life(mob/living/carbon/human/human)
 	. = ..()
-	if(H.health <= HEALTH_THRESHOLD_CRIT && H.stat != DEAD) // So they die eventually instead of being stuck in crit limbo.
-		H.adjustFireLoss(6) // After BODYTYPE_ROBOTIC resistance this is ~2/second
+	if(human.health <= HEALTH_THRESHOLD_CRIT && human.stat != DEAD) // So they die eventually instead of being stuck in crit limbo.
+		human.adjustFireLoss(6) // After BODYTYPE_ROBOTIC resistance this is ~2/second
 		if(prob(5))
-			to_chat(H, "<span class='warning'>Alert: Internal temperature regulation systems offline; thermal damage sustained. Shutdown imminent.</span>")
-			H.visible_message("[H]'s cooling system fans stutter and stall. There is a faint, yet rapid beeping coming from inside their chassis.")
+			to_chat(human, "<span class='warning'>Alert: Internal temperature regulation systems offline; thermal damage sustained. Shutdown imminent.</span>")
+			human.visible_message("[human]'s cooling system fans stutter and stall. There is a faint, yet rapid beeping coming from inside their chassis.")
 
 
-/datum/species/ipc/spec_revival(mob/living/carbon/human/H)
-	H.dna.features["ipc_screen"] = "BSOD"
-	H.update_body()
-	H.say("Reactivating [pick("core systems", "central subroutines", "key functions")]...")
-	addtimer(CALLBACK(src, .proc/post_revival, H), 6 SECONDS)
+/datum/species/ipc/spec_revival(mob/living/carbon/human/human)
+	human.dna.features["ipc_screen"] = "BSOD"
+	human.update_body()
+	human.say("Reactivating [pick("core systems", "central subroutines", "key functions")]...")
+	addtimer(CALLBACK(src, .proc/post_revival, human), 6 SECONDS)
 
-/datum/species/ipc/proc/post_revival(mob/living/carbon/human/H)
-	if(H.stat < DEAD)
+/datum/species/ipc/proc/post_revival(mob/living/carbon/human/human)
+	if(human.stat < DEAD)
 		return
-	H.say("Unit [H.real_name] is fully functional. Have a nice day.")
-	H.dna.features["ipc_screen"] = saved_screen
-	H.update_body()
+	human.say("Unit [human.real_name] is fully functional. Have a nice day.")
+	human.dna.features["ipc_screen"] = saved_screen
+	human.update_body()
 
 /datum/species/ipc/replace_body(mob/living/carbon/C, datum/species/new_species)
 	..()
@@ -229,3 +229,10 @@
 		BP.limb_id = chassis_of_choice.limbs_id
 		BP.name = "\improper[chassis_of_choice.name] [parse_zone(BP.body_zone)]"
 		BP.update_limb()
+
+
+///Used to modularly load IPC accesories
+/world/proc/make_ipc_datum_references_list()
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/ipc_screens, GLOB.ipc_screens_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/ipc_antennas, GLOB.ipc_antennas_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/ipc_chassis, GLOB.ipc_chassis_list)
