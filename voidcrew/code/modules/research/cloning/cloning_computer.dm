@@ -1,5 +1,19 @@
 #define AUTOCLONING_MINIMAL_LEVEL 3
 
+#define CLONING_CONSOLE_MAIN_MENU 1
+#define CLONING_CONSOLE_RECORDS_LIST 2
+#define CLONING_CONSOLE_CLONING_MENU 3
+#define CLONING_CONSOLE_CONFIRMATION_MENU 4
+
+#define CLONER_AUTOPROCESS "autoprocess"
+#define CLONER_STOP_AUTOPROCESS "stopautoprocess"
+#define CLONER_INCLUDE_SE "include_se"
+#define CLONER_EXCLUDE_SE "exclude_se"
+#define CLONER_INCLUDE_UI "include_ui"
+#define CLONER_EXCLUDE_UI "exclude_ui"
+#define CLONER_INCLUDE_UE "include_ue"
+#define CLONER_EXCLUDE_UE "exclude_ue"
+
 /obj/machinery/computer/cloning
 	name = "cloning console"
 	desc = "Used to clone people and manage DNA."
@@ -7,24 +21,32 @@
 	icon_keyboard = "med_key"
 	circuit = /obj/item/circuitboard/computer/cloning
 	req_access = list(ACCESS_GENETICS) //for modifying records
-	var/obj/machinery/dna_scannernew/scanner //Linked scanner. For scanning.
-	var/list/pods //Linked cloning pods
+	light_color = LIGHT_COLOR_BLUE
+
+	///Linked scanner. For scanning.
+	var/obj/machinery/dna_scannernew/scanner
+	///Linked cloning pods
+	var/list/pods
 	var/temp = "Inactive"
 	var/scantemp_ckey
 	var/scantemp = "Ready to Scan"
-	var/menu = 1 //Which menu screen to display
+	///Which menu screen to display
+	var/menu = CLONING_CONSOLE_MAIN_MENU
 	var/list/records = list()
 	var/datum/data/record/active_record
-	var/obj/item/disk/data/diskette //Incompatible format to genetics machine
+	///Incompatible format to genetics machine
+	var/obj/item/disk/data/diskette
 	//select which parts of the diskette to load
-	var/include_se = FALSE //mutations
-	var/include_ui = FALSE //appearance
-	var/include_ue = FALSE //blood type, UE, and name
+	///mutations
+	var/include_se = FALSE
+	///appearance
+	var/include_ui = FALSE
+	///blood type, UE, and name
+	var/include_ue = FALSE
 
-	var/loading = FALSE // Nice loading text
+	/// Nice loading text
+	var/loading = FALSE
 	var/autoprocess = FALSE
-
-	light_color = LIGHT_COLOR_BLUE
 
 /obj/machinery/computer/cloning/Initialize()
 	. = ..()
@@ -38,32 +60,49 @@
 	return ..()
 
 /obj/machinery/computer/cloning/proc/GetAvailablePod(mind = null)
-	if(pods)
-		for(var/P in pods)
-			var/obj/machinery/clonepod/pod = P
-			if(pod.occupant && mind && pod.clonemind == mind)
-				return null
-			if(pod.is_operational() && !(pod.occupant || pod.mess))
-				return pod
+	if(!pods)
+		return
+	for(var/P in pods)
+		var/obj/machinery/clonepod/pod = P
+		if(pod.occupant && mind && pod.clonemind == mind)
+			return null
+		if(pod.is_operational() && !(pod.occupant || pod.mess))
+			return pod
 
 /obj/machinery/computer/cloning/proc/HasEfficientPod()
-	if(pods)
-		for(var/P in pods)
-			var/obj/machinery/clonepod/pod = P
-			if(pod.is_operational() && pod.efficiency > 5)
-				return TRUE
+	if(!pods)
+		return
+	for(var/P in pods)
+		var/obj/machinery/clonepod/pod = P
+		if(pod.is_operational() && pod.efficiency > 5)
+			return TRUE
 
 /obj/machinery/computer/cloning/proc/GetAvailableEfficientPod(mind = null)
-	if(pods)
-		for(var/P in pods)
-			var/obj/machinery/clonepod/pod = P
-			if(pod.occupant && pod.clonemind == mind)
-				return pod
-			else if(!. && pod.is_operational() && !(pod.occupant || pod.mess) && pod.efficiency > 5)
-				. = pod
+	if(!pods)
+		return
+	for(var/P in pods)
+		var/obj/machinery/clonepod/pod = P
+		if(pod.occupant && pod.clonemind == mind)
+			return pod
+		else if(!. && pod.is_operational() && !(pod.occupant || pod.mess) && pod.efficiency > 5)
+			. = pod
 
 /proc/grow_clone_from_record(obj/machinery/clonepod/pod, datum/data/record/R, empty)
-	return pod.growclone(R.fields["name"], R.fields["UI"], R.fields["SE"], R.fields["mindref"], R.fields["last_death"], R.fields["blood_type"], R.fields["mrace"], R.fields["features"], R.fields["factions"], R.fields["quirks"], R.fields["bank_account"], R.fields["traumas"], empty)
+	return pod.growclone(
+		R.fields["name"],
+		R.fields["UI"],
+		R.fields["SE"],
+		R.fields["mindref"],
+		R.fields["last_death"],
+		R.fields["blood_type"],
+		R.fields["mrace"],
+		R.fields["features"],
+		R.fields["factions"],
+		R.fields["quirks"],
+		R.fields["bank_account"],
+		R.fields["traumas"],
+		empty,
+	)
 
 /obj/machinery/computer/cloning/process()
 	if(!(scanner && LAZYLEN(pods) && autoprocess))
@@ -169,7 +208,7 @@
 	updatemodules(TRUE)
 
 	var/dat = ""
-	dat += "<a href='byond://?src=[REF(src)];refresh=1'>Refresh</a>"
+	dat += "<a href='byond://?src=[REF(src)];refresh=[CLONING_CONSOLE_MAIN_MENU]'>Refresh</a>"
 
 	if(scanner && HasEfficientPod() && scanner.scan_level >= AUTOCLONING_MINIMAL_LEVEL)
 		if(!autoprocess)
@@ -181,11 +220,10 @@
 	dat += "<h3>Cloning Pod Status</h3>"
 	dat += "<div class='statusDisplay'>[temp]&nbsp;</div>"
 	switch(menu)
-		if(1)
+		if(CLONING_CONSOLE_MAIN_MENU)
 			// Modules
 			if (isnull(scanner) || !LAZYLEN(pods))
 				dat += "<h3>Modules</h3>"
-				//dat += "<a href='byond://?src=[REF(src)];relmodules=1'>Reload Modules</a>"
 				if (isnull(scanner))
 					dat += "<font class='bad'>ERROR: No Scanner detected!</font><br>"
 				if (!LAZYLEN(pods))
@@ -219,7 +257,7 @@
 			// Database
 			dat += "<h3>Database Functions</h3>"
 			if (records.len && records.len > 0)
-				dat += "<a href='byond://?src=[REF(src)];menu=2'>View Records ([records.len])</a><br>"
+				dat += "<a href='byond://?src=[REF(src)];menu=[CLONING_CONSOLE_RECORDS_LIST]'>View Records ([records.len])</a><br>"
 			else
 				dat += "<span class='linkOff'>View Records (0)</span><br>"
 			if (diskette)
@@ -227,14 +265,14 @@
 
 
 
-		if(2)
+		if(CLONING_CONSOLE_RECORDS_LIST)
 			dat += "<h3>Current records</h3>"
-			dat += "<a href='byond://?src=[REF(src)];menu=1'><< Back</a><br><br>"
+			dat += "<a href='byond://?src=[REF(src)];menu=[CLONING_CONSOLE_MAIN_MENU]'><< Back</a><br><br>"
 			for(var/datum/data/record/R in records)
 				dat += "<h4>[R.fields["name"]]</h4>Scan ID [R.fields["id"]] <a href='byond://?src=[REF(src)];view_rec=[R.fields["id"]]'>View Record</a>"
-		if(3)
+		if(CLONING_CONSOLE_CLONING_MENU)
 			dat += "<h3>Selected Record</h3>"
-			dat += "<a href='byond://?src=[REF(src)];menu=2'><< Back</a><br>"
+			dat += "<a href='byond://?src=[REF(src)];menu=[CLONING_CONSOLE_RECORDS_LIST]'><< Back</a><br>"
 
 			if (!active_record)
 				dat += "<font class='bad'>Record not found.</font>"
@@ -275,9 +313,9 @@
 						L += "Structural Enzymes"
 					dat += english_list(L, "Empty", " + ", " + ")
 					var/can_load = FALSE
-					var/obj/item/card/id/C = user.get_idcard(TRUE)
-					if(C)
-						if(check_access(C))
+					var/obj/item/card/id/worn_id = user.get_idcard(TRUE)
+					if(worn_id)
+						if(check_access(worn_id))
 							can_load = TRUE
 					if(can_load)
 						dat += "<br /><a href='byond://?src=[REF(src)];disk=load'>Load From Disk</a>"
@@ -305,20 +343,21 @@
 
 				dat += "<font size=1><a href='byond://?src=[REF(src)];del_rec=1'>Delete Record</a></font>"
 
-		if(4)
+		if(CLONING_CONSOLE_CONFIRMATION_MENU)
 			if (!active_record)
-				menu = 2
+				menu = CLONING_CONSOLE_RECORDS_LIST
 				ui_interact(user)
 				return
 			dat += "<b><a href='byond://?src=[REF(src)];del_rec=1'>Please confirm.</a></b><br>"
-			dat += "<b><a href='byond://?src=[REF(src)];menu=3'>Cancel</a></b>"
+			dat += "<b><a href='byond://?src=[REF(src)];menu=[CLONING_CONSOLE_CLONING_MENU]'>Cancel</a></b>"
 
 	var/datum/browser/popup = new(user, "cloning", "Cloning System Control")
 	popup.set_content(dat)
 	popup.open()
 
 /obj/machinery/computer/cloning/Topic(href, href_list)
-	if(..())
+	. = ..()
+	if(.)
 		return
 
 	if(loading)
@@ -326,26 +365,26 @@
 
 	if(href_list["task"])
 		switch(href_list["task"])
-			if("autoprocess")
+			if(CLONER_AUTOPROCESS)
 				if(scanner && HasEfficientPod() && scanner.scan_level >= AUTOCLONING_MINIMAL_LEVEL)
 					autoprocess = TRUE
 					START_PROCESSING(SSmachines, src)
 					playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
-			if("stopautoprocess")
+			if(CLONER_STOP_AUTOPROCESS)
 				autoprocess = FALSE
 				STOP_PROCESSING(SSmachines, src)
 				playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, FALSE)
-			if("include_se")
+			if(CLONER_INCLUDE_SE)
 				include_se = TRUE
-			if("exclude_se")
+			if(CLONER_EXCLUDE_SE)
 				include_se = FALSE
-			if("include_ui")
+			if(CLONER_INCLUDE_UI)
 				include_ui = TRUE
-			if("exclude_ui")
+			if(CLONER_EXCLUDE_UI)
 				include_ui = FALSE
-			if("include_ue")
+			if(CLONER_INCLUDE_UE)
 				include_ue = TRUE
-			if("exclude_ue")
+			if(CLONER_EXCLUDE_UE)
 				include_ue = FALSE
 
 	else if ((href_list["scan"]) && !isnull(scanner) && scanner.is_operational())
@@ -371,14 +410,14 @@
 		playsound(src, "terminal_type", 25, FALSE)
 		active_record = find_record("id", href_list["view_rec"], records)
 		if(active_record)
-			menu = 3
+			menu = CLONING_CONSOLE_CLONING_MENU
 		else
 			temp = "Record missing."
 
 	else if (href_list["del_rec"])
-		if ((!active_record) || (menu < 3))
+		if ((!active_record) || (menu < CLONING_CONSOLE_CLONING_MENU))
 			return
-		if (menu == 3) //If we are viewing a record, confirm deletion
+		if (menu == CLONING_CONSOLE_CLONING_MENU) //If we are viewing a record, confirm deletion
 			var/has_access = FALSE
 			if(ishuman(usr))
 				var/mob/living/carbon/human/user = usr
@@ -390,21 +429,21 @@
 				has_access = TRUE
 			if(has_access)
 				temp = "Delete record?"
-				menu = 4
+				menu = CLONING_CONSOLE_CONFIRMATION_MENU
 				playsound(src, 'sound/machines/terminal_prompt.ogg', 50, FALSE)
 			else
 				temp = "Access Denied"
-				menu = 2
+				menu = CLONING_CONSOLE_RECORDS_LIST
 				playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, FALSE)
 
 
-		else if (menu == 4)
+		else if (menu == CLONING_CONSOLE_CONFIRMATION_MENU)
 			log_cloning("[key_name(usr)] deleted [key_name(active_record.fields["mindref"])]'s cloning records from [src] at [AREACOORD(src)].")
 			temp = "[active_record.fields["name"]] => Record deleted."
 			records.Remove(active_record)
 			active_record = null
 			playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
-			menu = 2
+			menu = CLONING_CONSOLE_RECORDS_LIST
 
 	else if (href_list["disk"]) //Load or eject.
 		switch(href_list["disk"])
@@ -418,7 +457,7 @@
 					return
 				if (!active_record)
 					temp = "<font class='bad'>Record error.</font>"
-					menu = 1
+					menu = CLONING_CONSOLE_MAIN_MENU
 					updateUsrDialog()
 					playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, FALSE)
 					return
@@ -488,7 +527,7 @@
 					playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 					if(active_record == C)
 						active_record = null
-					menu = 1
+					menu = CLONING_CONSOLE_MAIN_MENU
 					success = TRUE
 					if(!empty)
 						log_cloning("[key_name(usr)] initiated cloning of [key_name(C.fields["mindref"])] via [src] at [AREACOORD(src)]. Pod: [pod] at [AREACOORD(pod)].")
@@ -497,7 +536,7 @@
 				if(result &	CLONING_DELETE_RECORD)
 					if(active_record == C)
 						active_record = null
-					menu = 1
+					menu = CLONING_CONSOLE_MAIN_MENU
 					records -= C
 
 			if(!success)
@@ -626,5 +665,19 @@
 	else
 		scantemp = "Subject successfully scanned."
 	records += R
-	log_cloning("[M ? key_name(M) : "Autoprocess"] added the [body_only ? "body-only " : ""]record of [key_name(mob_occupant)] to [src] at [AREACOORD(src)].")
+	log_cloning("[M ? key_name(M) : CLONER_AUTOPROCESS] added the [body_only ? "body-only " : ""]record of [key_name(mob_occupant)] to [src] at [AREACOORD(src)].")
 	playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50)
+
+#undef CLONER_AUTOPROCESS
+#undef CLONER_STOP_AUTOPROCESS
+#undef CLONER_INCLUDE_SES
+#undef CLONER_EXCLUDE_SE
+#undef CLONER_INCLUDE_UI
+#undef CLONER_EXCLUDE_UI
+#undef CLONER_INCLUDE_UE
+#undef CLONER_EXCLUDE_UE
+
+#undef CLONING_CONSOLE_MAIN_MENU
+#undef CLONING_CONSOLE_RECORDS_LIST
+#undef CLONING_CONSOLE_CLONING_MENU
+#undef CLONING_CONSOLE_CONFIRMATION_MENU
