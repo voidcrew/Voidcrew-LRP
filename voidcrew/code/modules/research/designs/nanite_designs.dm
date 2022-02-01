@@ -2,15 +2,17 @@
 	name = "None"
 	desc = "Warn a coder if you see this."
 	id = "default_nanites"
-	build_type = NANITE_COMPILER
+	build_type = NONE
 	construction_time = 50
 	category = list()
 	research_icon = 'icons/obj/device.dmi'
 	research_icon_state = "nanite_program"
+	///The nanite program researching this will unlock.
 	var/program_type = /datum/nanite_program
 
-////////////////////UTILITY NANITES//////////////////////////////////////
-
+/**
+ * # UTILITY NANITES
+ */
 /datum/design/nanites/metabolic_synthesis
 	name = "Metabolic Synthesis"
 	desc = "The nanites use the metabolic cycle of the host to speed up their replication rate, using their extra nutrition as fuel."
@@ -133,7 +135,9 @@
 	program_type = /datum/nanite_program/mitosis
 	category = list("Utility Nanites")
 
-////////////////////MEDICAL NANITES//////////////////////////////////////
+/**
+ * # MEDICAL NANITES
+ */
 /datum/design/nanites/regenerative
 	name = "Accelerated Regeneration"
 	desc = "The nanites boost the host's natural regeneration, increasing their healing speed."
@@ -206,9 +210,9 @@
 	program_type = /datum/nanite_program/defib
 	category = list("Medical Nanites")
 
-
-////////////////////AUGMENTATION NANITES//////////////////////////////////////
-
+/**
+ * #AUGMENTATION NANITES
+ */
 /datum/design/nanites/nervous
 	name = "Nerve Support"
 	desc = "The nanites act as a secondary nervous system, reducing the amount of time the host is stunned."
@@ -258,8 +262,9 @@
 	program_type = /datum/nanite_program/mindshield
 	category = list("Augmentation Nanites")
 
-////////////////////DEFECTIVE NANITES//////////////////////////////////////
-
+/**
+ * # DEFECTIVE NANITES
+ */
 /datum/design/nanites/glitch
 	name = "Glitch"
 	desc = "A heavy software corruption that causes nanites to gradually break down."
@@ -316,8 +321,9 @@
 	program_type = /datum/nanite_program/brain_decay
 	category = list("Defective Nanites")
 
-////////////////////WEAPONIZED NANITES/////////////////////////////////////
-
+/**
+ * # WEAPONIZED NANITES
+ */
 /datum/design/nanites/flesh_eating
 	name = "Cellular Breakdown"
 	desc = "The nanites destroy cellular structures in the host's body, causing brute damage."
@@ -389,8 +395,9 @@
 	program_type = /datum/nanite_program/comm/mind_control
 	category = list("Weaponized Nanites")
 
-////////////////////SUPPRESSION NANITES//////////////////////////////////////
-
+/**
+ * # SUPRESSION NANITES
+ */
 /datum/design/nanites/shock
 	name = "Electric Shock"
 	desc = "The nanites shock the host when triggered. Destroys a large amount of nanites!"
@@ -482,8 +489,9 @@
 	program_type = /datum/nanite_program/bad_mood
 	category = list("Suppression Nanites")
 
-////////////////////SENSOR NANITES//////////////////////////////////////
-
+/**
+ * # SENSOR NANITES
+ */
 /datum/design/nanites/sensor_health
 	name = "Health Sensor"
 	desc = "The nanites receive a signal when the host's health is above/below a certain percentage."
@@ -533,9 +541,11 @@
 	program_type = /datum/nanite_program/sensor/species
 	category = list("Sensor Nanites")
 
-////////////////////NANITE PROTOCOLS//////////////////////////////////////
-//Note about the category name: The UI cuts the last 8 characters from the category name to remove the " Nanites" in the other categories
-//Because of this, Protocols was getting cut down to "P", so i had to add some padding
+/**
+ * # NANITE PROTOCOLS
+ * Note about the category name: The UI cuts the last 8 characters from the category name to remove the " Nanites" in the other categories
+ * Because of this, Protocols was getting cut down to "P", so i had to add some padding
+ */
 /datum/design/nanites/kickstart
 	name = "Kickstart Protocol"
 	desc = "Replication Protocol: the nanites focus on early growth, heavily boosting replication rate for a few minutes after the initial implantation."
