@@ -1,4 +1,3 @@
-//used by cloners
 /datum/gas_mixture/immutable/cloner
 	initial_temperature = T20C
 
