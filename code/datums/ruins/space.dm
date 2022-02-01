@@ -308,3 +308,9 @@
 	suffix = "dangerous_research.dmm"
 	name = "Occult Research Station"
 	description = "This station was deemed unsuitable for continued experiments, and quickly abandoned."
+
+/datum/map_template/ruin/space/reticence_facility
+	id = "reticence_facility"
+	suffix = "reticencefacility.dmm"
+	name = "Abandoned Mime Facility"
+	description = "This facility seems to have been quickly abandoned. It appears to be related to Mimes."
