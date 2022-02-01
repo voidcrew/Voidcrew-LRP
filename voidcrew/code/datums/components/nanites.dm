@@ -15,7 +15,7 @@
 	///0 if not connected to the cloud, 1-100 to set a determined cloud backup to draw from
 	var/cloud_id = 0
 	///if false, won't sync to the cloud
-	var/cloud_activze = TRUE
+	var/cloud_active = TRUE
 	///How long until the next sync to cloud
 	var/next_sync = 0
 	///All nanite programs in the user
