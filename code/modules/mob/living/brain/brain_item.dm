@@ -286,8 +286,6 @@
 	if(mmi && istype(mmi))
 		stored_mmi = mmi
 		mmi.forceMove(src)
-	else
-		stored_mmi = new /obj/item/mmi/posibrain/ipc(src)
 
 ////////////////////////////////////TRAUMAS////////////////////////////////////////
 

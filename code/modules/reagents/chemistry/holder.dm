@@ -361,7 +361,7 @@
 		if(!C)
 			C = R.holder.my_atom
 
-		//WS begin - IPCs
+		//VOID EDIT BEGIN
 		if(ishuman(C))
 			var/mob/living/carbon/human/H = C
 			//Check if this mob's species is set and can process this type of reagent
@@ -387,7 +387,7 @@
 				R.holder.remove_reagent(R.type, R.metabolization_rate)
 				continue
 		//If you got this far, that means we can process whatever reagent this iteration is for. Handle things normally from here.
-		//WS End
+		//VOID EDIT END
 
 
 		if(C && R)

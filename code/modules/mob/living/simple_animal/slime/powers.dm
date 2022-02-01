@@ -75,12 +75,13 @@
 			return FALSE
 		to_chat(src, "<span class='warning'><i>I can't latch onto another slime...</i></span>")
 		return FALSE
-
+	//VOID EDIT BEGIN
 	if(isipc(M))
 		if(silent)
 			return FALSE
 		to_chat(src, "<span class='warning'><i>This subject does not have life energy...</i></span>")
 		return FALSE
+	//VOID EDIT END
 
 	if(docile)
 		if(silent)
