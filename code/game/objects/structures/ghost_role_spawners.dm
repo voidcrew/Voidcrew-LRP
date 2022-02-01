@@ -896,7 +896,7 @@
 	assignedrole = "Lost Assistant"
 	important_info = "You are very much obsessed with the dragon. Do NOT stop thinking about the dragon."
 	outfit = /datum/outfit/job/assistant
-	mob_species = /datum/species/ipc // Void edit
+	mob_species = /datum/species/ipc
 
 /obj/effect/mob_spawn/human/lostassistant/Initialize(mapload)
 	..()

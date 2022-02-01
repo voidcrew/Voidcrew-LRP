@@ -523,11 +523,11 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	features["spider_mandibles"]	= sanitize_inlist(features["spider_mandibles"], GLOB.spider_mandibles_list, "Plain")
 	features["moth_markings"] 	= sanitize_inlist(features["moth_markings"], GLOB.moth_markings_list, "None")
 	features["squid_face"]	= sanitize_inlist(features["squid_face"], GLOB.squid_face_list, "Squidward")
-	// Void edit begin
+
 	features["ipc_screen"]	= sanitize_inlist(features["ipc_screen"], GLOB.ipc_screens_list)
 	features["ipc_antenna"]	 = sanitize_inlist(features["ipc_antenna"], GLOB.ipc_antennas_list)
 	features["ipc_chassis"]	 = sanitize_inlist(features["ipc_chassis"], GLOB.ipc_chassis_list)
-	// Void edit end
+
 	features["kepori_feathers"] = sanitize_inlist(features["kepori_feathers"], GLOB.kepori_feathers_list, "Plain")
 	features["kepori_body_feathers"] = sanitize_inlist(features["kepori_body_feathers"], GLOB.kepori_body_feathers_list, "Plain")
 	features["flavor_text"]		= sanitize_text(features["flavor_text"], initial(features["flavor_text"]))
@@ -595,11 +595,11 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["feature_spider_spinneret"]	, features["spider_spinneret"])
 	WRITE_FILE(S["feature_spider_mandibles"]	, features["spider_mandibles"])
 	WRITE_FILE(S["feature_squid_face"]			, features["squid_face"])
-	// Void edit begin
+
 	WRITE_FILE(S["feature_ipc_screen"]			, features["ipc_screen"])
 	WRITE_FILE(S["feature_ipc_antenna"]			, features["ipc_antenna"])
 	WRITE_FILE(S["feature_ipc_chassis"]			, features["ipc_chassis"])
-	// Void edit end
+
 	WRITE_FILE(S["feature_kepori_feathers"]	, features["kepori_feathers"])
 	WRITE_FILE(S["feature_kepori_body_feathers"], features["kepori_body_feathers"])
 
