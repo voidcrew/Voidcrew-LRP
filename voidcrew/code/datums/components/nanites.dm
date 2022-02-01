@@ -1,5 +1,3 @@
-#define NANITE_DEFAULT_MAX_VOLUME 500
-
 /datum/component/nanites
 	dupe_mode = COMPONENT_DUPE_UNIQUE_PASSARGS
 
