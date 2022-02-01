@@ -229,3 +229,10 @@
 		BP.limb_id = chassis_of_choice.limbs_id
 		BP.name = "\improper[chassis_of_choice.name] [parse_zone(BP.body_zone)]"
 		BP.update_limb()
+
+
+///Used to modularly load IPC accesories
+/world/proc/make_ipc_datum_references_list()
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/ipc_screens, GLOB.ipc_screens_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/ipc_antennas, GLOB.ipc_antennas_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/ipc_chassis, GLOB.ipc_chassis_list)
