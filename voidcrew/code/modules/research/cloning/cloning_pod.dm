@@ -299,15 +299,16 @@
 			log_cloning("[key_name(mob_occupant)] ejected from [src] at [AREACOORD(src)] due to power loss.")
 
 			connected_message("Clone Ejected: Loss of power.")
+		return
 
-	else if(mob_occupant && (mob_occupant.loc == src))
+	if(mob_occupant && (mob_occupant.loc == src))
 		if(!beaker.reagents.has_reagent(/datum/reagent/medicine/synthflesh, fleshamnt))
 			go_out()
 			log_cloning("[key_name(mob_occupant)] ejected from [src] at [AREACOORD(src)] due to insufficient material.")
 			connected_message("Clone Ejected: Not enough material.")
 			if(internal_radio)
 				SPEAK("The cloning of [mob_occupant.real_name] has been ended prematurely due to insufficient material.")
-		else if(SSeconomy.full_ancap)
+		if(SSeconomy.full_ancap)
 			if(!current_insurance)
 				go_out()
 				log_cloning("[key_name(mob_occupant)] ejected from [src] at [AREACOORD(src)] due to invalid bank account.")
@@ -574,9 +575,12 @@
 	..()
 
 /obj/machinery/clonepod/proc/maim_clone(mob/living/carbon/human/cloned_human)
-	for(var/fl in unattached_flesh)
-		qdel(fl)
-	unattached_flesh.Cut()
+	if(!unattached_flesh)
+		unattached_flesh = list()
+	else
+		for(var/fl in unattached_flesh)
+			qdel(fl)
+		unattached_flesh.Cut()
 
 	//Yeah, clones start with very low health, not with random, because why would they start with random health
 	// In addition to being cellularly damaged, they also have no limbs or internal organs.
