@@ -71,7 +71,7 @@
 	human.grant_language(/datum/language/machine)
 
 /datum/species/ipc/spec_death(gibbed, mob/living/carbon/carbon)
-	saved_screen = C.dna.features["ipc_screen"]
+	saved_screen = carbon.dna.features["ipc_screen"]
 	carbon.dna.features["ipc_screen"] = "BSOD"
 	carbon.update_body()
 	addtimer(CALLBACK(src, .proc/post_death, carbon), 5 SECONDS)
@@ -163,7 +163,7 @@
 			else
 				human.nutrition += apc.cell.charge/10
 				apc.cell.charge = 0
-				to_chat(human, "<span class='notice'>You siphon off as much as the [A] can spare.</span>")
+				to_chat(human, "<span class='notice'>You siphon off as much as the [apc] can spare.</span>")
 				break
 			if(human.nutrition > NUTRITION_LEVEL_WELL_FED)
 				to_chat(human, "<span class='notice'>You are now fully charged.</span>")
