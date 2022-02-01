@@ -124,6 +124,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 
 	for(var/i in GLOB.human_list)
 		var/mob/living/carbon/human/H = i
+		// VoidCrew edit starts - Nanites
 		var/nanite_sensors = FALSE
 		if(H in SSnanites.nanite_monitored_mobs)
 			nanite_sensors = TRUE
@@ -169,6 +170,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 					brutedam = null
 
 				if (nanite_sensors || U.sensor_mode >= SENSOR_COORDS)
+				// VoidCrew edit ends - Nanites
 					if (!pos)
 						pos = get_turf(H)
 					area = get_area_name(H, TRUE)
