@@ -99,7 +99,6 @@
 #define SPECIES_SKELETON "skeleton"
 #define SPECIES_SNAIL "snail"
 #define SPECIES_RACHNID "rachnid"
-#define SPECIES_KEPORI "kepori"
 #define SPECIES_VAMPIRE "vampire"
 #define SPECIES_VOX "vox"
 #define SPECIES_ZOMBIE "zombie"
@@ -134,7 +133,6 @@
 #define BODYTYPE_HUMANOID (1<<2) //Everything
 #define BODYTYPE_BOXHEAD (1<<3) //TV Head
 #define BODYTYPE_DIGITIGRADE (1<<4) //Cancer
-#define BODYTYPE_KEPORI (1<<5) //Just Kepori
 
 // Health/damage defines
 #define MAX_LIVING_HEALTH 100

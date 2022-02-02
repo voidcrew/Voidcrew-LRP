@@ -627,13 +627,6 @@
 	race = /datum/species/squid
 	process_flags = ORGANIC | SYNTHETIC
 
-/datum/reagent/mutationtoxin/kepi //crying
-	name = "Kepori Mutation Toxin"
-	description = "A feathery toxin."
-	race = /datum/species/kepori
-	process_flags = ORGANIC | SYNTHETIC
-	taste_description = "a familiar white meat"
-
 //BLACKLISTED RACES
 /datum/reagent/mutationtoxin/skeleton
 	name = "Skeleton Mutation Toxin"

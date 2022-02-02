@@ -1348,9 +1348,6 @@
 /mob/living/carbon/human/species/snail
 	race = /datum/species/snail
 
-/mob/living/carbon/human/species/kepori
-	race = /datum/species/kepori
-
 /mob/living/carbon/human/species/vampire
 	race = /datum/species/vampire
 

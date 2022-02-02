@@ -62,10 +62,6 @@ const TARGET_SPECIES_LIST = [
     name: 'Elzuose',
     value: 'ethereal',
   },
-  {
-    name: 'Kepori',
-    value: 'kepori',
-  },
 ];
 
 const TARGET_NUTRITION_LIST = [
