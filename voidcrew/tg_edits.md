@@ -25,3 +25,23 @@
 	- Modifies /datum/reagents/proc/metabolize() for the reagent flag consumption
 - code/modules/surgery/organ_manipulation.dm
 	- Modifies /datum/surgery_step/manipulate_organs/preop()
+- config/game_options.txt
+	- Modifies roundstart races
+
+### KEPORI
+- code/__HELPERS/mobs.dm
+	- Modifies /proc/random_features() for kepori sprite accessories
+- code/datums/components/tackle.dm
+	- Modifies /datum/component/tackler/proc/checkTackle() for the leap word
+	- Modifies /datum/component/tackler/proc/sack() for the tackle word
+	- Modifies /datum/component/tackler/proc/checkObstacle() for special table jumping 
+- code/modules/admin/create_mob.dm
+	- Modifies /proc/randomize_human() for ADMIN human randomization
+- code/modules/client/preferences_savefile.dm
+	- Modifies a few procs for writing and saving kepori prefs
+- code/modules/client/preferences.dm
+	- Modifies /datum/preferences/proc/ShowChoices, kepori prefs
+- code/modules/mob/living/carbon/human/species.dm
+	- Modifies /datum/species/proc/handle_mutant_bodyparts(), kepori parts
+- config/game_options.txt
+	- Modifies roundstart races

@@ -1,3 +1,10 @@
+#define KEPORI_TACKLE_STAM_COST 10
+#define KEPORI_BASE_TACKLE_KNOCKDOWN (0.2 SECONDS)
+#define KEPORI_TACKLE_RANGE 8
+#define KEPORI_MIN_TACKLE_DISTANCE 1
+#define KEPORI_TACKLE_SPEED 2
+#define KEPORI_TACKLE_SKILL_MOD 2
+
 /datum/species/kepori
 	name = "\improper Kepori"
 	id = SPECIES_KEPORI
@@ -15,8 +22,8 @@
 	attack_verb = "slash"
 	attack_sound = 'sound/weapons/slash.ogg'
 	miss_sound = 'sound/weapons/slashmiss.ogg'
-	species_clothing_path = 'icons/mob/clothing/species/kepori.dmi'
-	species_eye_path = 'icons/mob/kepori_parts.dmi'
+	species_clothing_path = 'voidcrew/icons/mob/clothing/species/kepori.dmi'
+	species_eye_path = 'voidcrew/icons/mob/kepori_parts.dmi'
 	offset_features = list(OFFSET_UNIFORM = list(0,0), OFFSET_ID = list(0,0), OFFSET_GLOVES = list(0,0), OFFSET_GLASSES = list(0,0), OFFSET_EARS = list(0,-4), OFFSET_SHOES = list(0,0), OFFSET_S_STORE = list(0,0), OFFSET_FACEMASK = list(0,-5), OFFSET_HEAD = list(0,-4), OFFSET_FACE = list(0,0), OFFSET_BELT = list(0,0), OFFSET_BACK = list(0,-4), OFFSET_SUIT = list(0,0), OFFSET_NECK = list(0,0), OFFSET_ACCESSORY = list(0, -4))
 	punchdamagelow = 0
 	punchdamagehigh = 6
@@ -31,19 +38,6 @@
 	no_equip = list(ITEM_SLOT_BACK)
 	mutanttongue = /obj/item/organ/tongue/kepori
 	species_language_holder = /datum/language_holder/kepori
-	/// # Inherit tackling variables #
-	/// See: [/datum/component/tackler/var/stamina_cost]
-	var/tackle_stam_cost = 10
-	/// See: [/datum/component/tackler/var/base_knockdown]
-	var/base_knockdown = 0.2 SECONDS
-	/// See: [/datum/component/tackler/var/range]
-	var/tackle_range = 8
-	/// See: [/datum/component/tackler/var/min_distance]
-	var/min_distance = 1
-	/// See: [/datum/component/tackler/var/speed]
-	var/tackle_speed = 2
-	/// See: [/datum/component/tackler/var/skill_mod]
-	var/skill_mod = 2
 
 	species_chest = /obj/item/bodypart/chest/kepori
 	species_head = /obj/item/bodypart/head/kepori
@@ -57,22 +51,33 @@
 		return random_unique_kepori_name()
 	return kepori_name()
 
-/datum/species/kepori/can_equip(obj/item/I, slot, disable_warning, mob/living/carbon/human/H, bypass_equip_delay_self, swap)
+/datum/species/kepori/can_equip(obj/item/item, slot, disable_warning, mob/living/carbon/human/human, bypass_equip_delay_self, swap)
 	if(slot == ITEM_SLOT_MASK)
-		if(H.wear_mask && !swap)
+		if(human.wear_mask && !swap)
 			return FALSE
-		if(I.w_class > WEIGHT_CLASS_SMALL)
+		if(item.w_class > WEIGHT_CLASS_SMALL)
 			return FALSE
-		if(!H.get_bodypart(BODY_ZONE_HEAD))
+		if(!human.get_bodypart(BODY_ZONE_HEAD))
 			return FALSE
-		return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		return equip_delay_self_check(item, human, bypass_equip_delay_self)
 	. = ..()
 
-/datum/species/kepori/on_species_gain(mob/living/carbon/C, datum/species/old_species, pref_load)
+/datum/species/kepori/on_species_gain(mob/living/carbon/carbon, datum/species/old_species, pref_load)
 	..()
-	C.AddComponent(/datum/component/tackler, stamina_cost= tackle_stam_cost, base_knockdown= base_knockdown, range= tackle_range, speed= tackle_speed, skill_mod= skill_mod, min_distance= min_distance)
+	carbon.AddComponent(/datum/component/tackler, stamina_cost = KEPORI_TACKLE_STAM_COST, base_knockdown = KEPORI_BASE_TACKLE_KNOCKDOWN, range = KEPORI_TACKLE_RANGE, speed = KEPORI_TACKLE_SPEED, skill_mod = KEPORI_TACKLE_SKILL_MOD, min_distance = KEPORI_MIN_TACKLE_DISTANCE)
 
 
-/datum/species/kepori/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
+/datum/species/kepori/on_species_loss(mob/living/carbon/human/human, datum/species/new_species, pref_load)
 	. = ..()
-	qdel(C.GetComponent(/datum/component/tackler))
+	qdel(human.GetComponent(/datum/component/tackler))
+
+/world/proc/make_kepori_datum_references_list()
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/kepori_feathers, GLOB.kepori_feathers_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/kepori_body_feathers, GLOB.kepori_body_feathers_list)
+
+#undef KEPORI_TACKLE_STAM_COST
+#undef KEPORI_BASE_TACKLE_KNOCKDOWN
+#undef KEPORI_TACKLE_RANGE
+#undef KEPORI_MIN_TACKLE_DISTANCE
+#undef KEPORI_TACKLE_SPEED
+#undef KEPORI_TACKLE_SKILL_MOD

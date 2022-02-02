@@ -84,7 +84,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	if(current_version < 39)
 		var/species_id
 		READ_FILE(S["species"], species_id)
-		if(species_id == SPECIES_KEPORI)
+		if(species_id == SPECIES_KEPORI) // deprecated on tg im just gonna leave this (also wwhy the fuck would anyone write this)
 			pref_species = new /datum/species/kepori
 			READ_FILE(S["feature_teshari_feathers"], features["kepori_feathers"])
 			READ_FILE(S["feature_teshari_body_feathers"], features["kepori_body_feathers"])
@@ -394,11 +394,11 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	READ_FILE(S["feature_moth_wings"], features["moth_wings"])
 	READ_FILE(S["feature_moth_markings"], features["moth_markings"])
 
-	//VOID EDIT BEGIN
 	READ_FILE(S["feature_ipc_screen"], features["ipc_screen"])
 	READ_FILE(S["feature_ipc_antenna"], features["ipc_antenna"])
 	READ_FILE(S["feature_ipc_chassis"], features["ipc_chassis"])
-	//VOID EDIT END
+	READ_FILE(S["feature_kepori_feathers"], features["kepori_feathers"])
+	READ_FILE(S["feature_kepori_body_feathers"], features["kepori_body_feathers"])
 
 
 	//WS Begin
@@ -411,8 +411,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	READ_FILE(S["feature_spider_spinneret"], features["spider_spinneret"])
 	READ_FILE(S["feature_spider_mandibles"], features["spider_mandibles"])
 	READ_FILE(S["feature_squid_face"], features["squid_face"])
-	READ_FILE(S["feature_kepori_feathers"], features["kepori_feathers"])
-	READ_FILE(S["feature_kepori_body_feathers"], features["kepori_body_feathers"])
 	READ_FILE(S["alt_titles_preferences"], alt_titles_preferences)
 
 	alt_titles_preferences = SANITIZE_LIST(alt_titles_preferences)
