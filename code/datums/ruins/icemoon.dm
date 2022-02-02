@@ -19,6 +19,12 @@
 	description = "Slime ranchin with the bud."
 	suffix = "icemoon_surface_slimerancher.dmm"
 
+/datum/map_template/ruin/icemoon/icemoon_surface_russian_outpost //Shiptest edit
+	name = "Russian Outpost"
+	id = "icemoon_surface_russian_outpost"
+	description = "The russians have set a research outpost around some unknown object..."
+	suffix = "icemoon_surface_russian_outpost.dmm"
+
 // above and below ground together
 
 
