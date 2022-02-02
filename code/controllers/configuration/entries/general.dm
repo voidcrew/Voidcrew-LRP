@@ -235,16 +235,16 @@
 	config_entry_value = "https://shiptest.net/wiki/"
 
 /datum/config_entry/string/forumurl
-	config_entry_value = "https://discord.gg/edazjdr7Gt"
+	config_entry_value = "https://shiptest.net/discord"
 
 /datum/config_entry/string/rulesurl
-	config_entry_value = "https://rules.voidcrew-lrp.com"
+	config_entry_value = "https://shiptest.net/wiki/Rules"
 
 /datum/config_entry/string/githuburl
-	config_entry_value = "https://github.com/Jackriip/Voidcrew-LRP"
+	config_entry_value = "https://github.com/shiptest-ss13/Shiptest"
 
 /datum/config_entry/string/discordurl
-	config_entry_value = "https://discord.gg/edazjdr7Gt"
+	config_entry_value = "https://shiptest.net/discord"
 
 /datum/config_entry/string/mapviewerurl
 	config_entry_value = "https://shiptest.net/map"

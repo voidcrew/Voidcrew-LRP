@@ -1,24 +1,21 @@
-# This workflow warns and then closes issues and PRs that have had no activity for a specified amount of time.
-#
-# You can adjust the behavior by modifying this file.
-# For more information, see:
-# https://github.com/actions/stale
-name: Mark stale pull requests
+name: Mark stale issues and pull requests
 
 on:
   schedule:
-  - cron: '28 21 * * *'
+  - cron: "0 0 * * *"
 
 jobs:
   stale:
 
-    runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
+    runs-on: ubuntu-20.04
 
     steps:
-    - uses: actions/stale@v3
+    - uses: actions/stale@v4
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        stale-pr-message: 'Your pull request has been inactive for too long. Please contact a maintainer.'
-        stale-pr-label: 'stale'
+        stale-pr-message: "This PR has been inactive for long enough to be automatically marked as stale. This means it is at risk of being auto closed in ~ 14 days, please address any outstanding review items and ensure your PR is finished, if these are all true and you are auto-staled anyway, you need to actively ask maintainers if your PR will be merged. Once you have done any of the previous actions then you should request a maintainer remove the stale label on your PR, to reset the stale timer. If you feel no maintainer will respond in that time, you may wish to close this PR youself, while you seek maintainer comment, as you will then be able to reopen the PR yourself"
+        days-before-stale: 14
+        days-before-close: 7
+        days-before-issue-stale: -1
+        stale-pr-label: 'Stale'
+        exempt-pr-labels: 'RED LABEL, Test Merged, Test Merge Candidate, Stale Exempt'

@@ -385,13 +385,10 @@
 	powerefficiency = round(newpowereff, 0.01)
 
 /obj/machinery/chem_dispenser/proc/replace_beaker(mob/living/user, obj/item/reagent_containers/new_beaker)
-	if(!user || !can_interact(user))
+	if(!user)
 		return FALSE
 	if(beaker)
-		if(Adjacent(src, user) && !issiliconoradminghost(user))
-			user.put_in_hands(beaker)
-		else
-			beaker.forceMove(get_turf(src))
+		user.put_in_hands(beaker)
 		beaker = null
 	if(new_beaker)
 		beaker = new_beaker

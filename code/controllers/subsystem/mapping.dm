@@ -225,9 +225,8 @@ SUBSYSTEM_DEF(mapping)
 			S.job_slots[job_slot] = slots
 		if(isnum(data["cost"]))
 			S.cost = data["cost"]
-			ship_purchase_list["[S.prefix] [S.name] ([S.cost] [CONFIG_GET(string/metacurrency_name)]s)"] = S // VOIDCREW
-		if(isnum(data["limit"]))
-			S.limit = data["limit"]
+			ship_purchase_list["[S.name] ([S.cost] [CONFIG_GET(string/metacurrency_name)]s)"] = S
+
 		shuttle_templates[S.file_name] = S
 		map_templates[S.file_name] = S
 		if(isnum(data["roundstart"]) && data["roundstart"])

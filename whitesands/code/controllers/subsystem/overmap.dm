@@ -87,11 +87,10 @@ SUBSYSTEM_DEF(overmap)
   * * Shuttle: The docking port to create an overmap object for
   */
 /datum/controller/subsystem/overmap/proc/setup_shuttle_ship(obj/docking_port/mobile/shuttle, datum/map_template/shuttle/source_template)
-	var/docked_object = get_overmap_object_by_location(shuttle)
+	var/docked_object = shuttle.current_ship
 	var/obj/structure/overmap/ship/simulated/new_ship
 	if(docked_object)
 		new_ship = new(docked_object, shuttle, source_template)
-		new_ship.state = OVERMAP_SHIP_IDLE
 	else if(is_reserved_level(shuttle))
 		new_ship = new(get_unused_overmap_square(), shuttle, source_template)
 		new_ship.state = OVERMAP_SHIP_FLYING
@@ -171,7 +170,7 @@ SUBSYSTEM_DEF(overmap)
 /datum/controller/subsystem/overmap/proc/spawn_initial_ships()
 	var/datum/map_template/shuttle/selected_template = SSmapping.maplist[pick(SSmapping.maplist)]
 	INIT_ANNOUNCE("Loading [selected_template.name]...")
-	SSshuttle.load_template(selected_template)
+	SSshuttle.action_load(selected_template)
 	if(SSdbcore.Connect())
 		var/datum/DBQuery/query_round_map_name = SSdbcore.NewQuery({"
 			UPDATE [format_table_name("round")] SET map_name = :map_name WHERE id = :round_id
@@ -201,7 +200,6 @@ SUBSYSTEM_DEF(overmap)
 	var/datum/map_generator/mapgen
 	var/area/target_area
 	var/turf/surface = /turf/open/space
-	var/datum/weather_controller/weather_controller_type
 	if(planet_type)
 		switch(planet_type)
 			if(DYNAMIC_WORLD_LAVA)
@@ -209,25 +207,21 @@ SUBSYSTEM_DEF(overmap)
 				mapgen = new /datum/map_generator/cave_generator/lavaland
 				target_area = /area/overmap_encounter/planetoid/lava
 				surface = /turf/open/floor/plating/asteroid/basalt/lava_land_surface
-				weather_controller_type = /datum/weather_controller/lavaland
 			if(DYNAMIC_WORLD_ICE)
 				ruin_list = SSmapping.ice_ruins_templates
 				mapgen = new /datum/map_generator/cave_generator/icemoon
 				target_area = /area/overmap_encounter/planetoid/ice
 				surface = /turf/open/floor/plating/asteroid/snow/icemoon
-				weather_controller_type = /datum/weather_controller/snow_planet
 			if(DYNAMIC_WORLD_SAND)
 				ruin_list = SSmapping.sand_ruins_templates
 				mapgen = new /datum/map_generator/cave_generator/whitesands
 				target_area = /area/overmap_encounter/planetoid/sand
 				surface = /turf/open/floor/plating/asteroid/whitesands
-				weather_controller_type = /datum/weather_controller/desert
 			if(DYNAMIC_WORLD_JUNGLE)
 				ruin_list = SSmapping.jungle_ruins_templates
 				mapgen = new /datum/map_generator/jungle_generator
 				target_area = /area/overmap_encounter/planetoid/jungle
 				surface = /turf/open/floor/plating/dirt/jungle
-				weather_controller_type = /datum/weather_controller/lush
 			if(DYNAMIC_WORLD_ASTEROID)
 				ruin_list = null
 				mapgen = new /datum/map_generator/cave_generator/asteroid
@@ -236,7 +230,6 @@ SUBSYSTEM_DEF(overmap)
 				mapgen = new /datum/map_generator/cave_generator/rockplanet
 				target_area = /area/overmap_encounter/planetoid/rockplanet
 				surface = /turf/open/floor/plating/asteroid
-				weather_controller_type = /datum/weather_controller/chlorine //let's go??
 			if(DYNAMIC_WORLD_REEBE)
 				ruin_list = SSmapping.yellow_ruins_templates
 				mapgen = new /datum/map_generator/cave_generator/reebe
@@ -274,9 +267,6 @@ SUBSYSTEM_DEF(overmap)
 
 	if(mapgen)
 		mapgen.generate_terrain(vlevel.get_unreserved_block())
-
-	if(weather_controller_type)
-		new weather_controller_type(mapzone)
 
 	// locates the first dock in the bottom left, accounting for padding and the border
 	var/turf/primary_docking_turf = locate(
@@ -354,17 +344,6 @@ SUBSYSTEM_DEF(overmap)
 		if (dist < max_range && dist < ret_dist)
 			. = T
 			ret_dist = dist
-
-/**
-  * Gets the parent overmap object (e.g. the planet the atom is on) for a given atom.
-  * * source - The object you want to get the corresponding parent overmap object for.
-  */
-/datum/controller/subsystem/overmap/proc/get_overmap_object_by_location(atom/source)
-	for(var/O in overmap_objects)
-		if(istype(O, /obj/structure/overmap/dynamic))
-			var/obj/structure/overmap/dynamic/D = O
-			if(D.mapzone?.is_in_bounds(source))
-				return D
 
 /datum/controller/subsystem/overmap/Recover()
 	if(istype(SSovermap.events))

@@ -3,7 +3,7 @@
 	set name = "Show Borg Panel"
 	set desc = "Show borg panel"
 
-	if(!check_rights(R_ADMIN|R_DEBUG))
+	if(!check_rights(R_ADMIN))
 		return
 
 	if (!istype(borgo, /mob/living/silicon/robot))

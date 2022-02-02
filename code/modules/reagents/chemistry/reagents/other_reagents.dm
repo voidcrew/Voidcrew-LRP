@@ -130,6 +130,8 @@
 	glass_desc = "The father of all refreshments."
 	shot_glass_icon_state = "shotglassclear"
 
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs //WS Edit - IPCs
+
 /*
  *	Water reaction to turf
  */
@@ -333,6 +335,7 @@
 	name = "Hell Water"
 	description = "YOUR FLESH! IT BURNS!"
 	taste_description = "burning"
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 
 /datum/reagent/hellwater/on_mob_life(mob/living/carbon/M)
 	M.fire_stacks = min(5,M.fire_stacks + 3)
@@ -379,7 +382,7 @@
 	if(ishuman(M))
 		if(method == PATCH || method == VAPOR)
 			var/mob/living/carbon/human/N = M
-			if(N.dna.species.id == SPECIES_HUMAN)
+			if(N.dna.species.id == "human")
 				switch(N.skin_tone)
 					if("african1")
 						N.skin_tone = "african2"
@@ -484,6 +487,7 @@
 									"Your appendages begin morphing." = MUT_MSG_EXTENDED,
 									"You feel as though you're about to change at any moment!" = MUT_MSG_ABOUT2TURN)
 	var/cycles_to_turn = 20 //the current_cycle threshold / iterations needed before one can transform
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 
 /datum/reagent/mutationtoxin/on_mob_life(mob/living/carbon/human/H)
 	. = TRUE
@@ -526,6 +530,7 @@
 	description = "A corruptive toxin."
 	color = "#13BC5E" // rgb: 19, 188, 94
 	race = /datum/species/jelly/slime
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 
 /datum/reagent/mutationtoxin/unstable
 	name = "Unstable Mutation Toxin"
@@ -547,6 +552,7 @@
 	name = "Felinid Mutation Toxin"
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/human/felinid
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 	taste_description = "something nyat good"
 
 /datum/reagent/mutationtoxin/lizard
@@ -554,6 +560,7 @@
 	description = "A lizarding toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/lizard
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 	taste_description = "dragon's breath but not as cool"
 
 /datum/reagent/mutationtoxin/fly
@@ -561,6 +568,7 @@
 	description = "An insectifying toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/fly
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 	taste_description = "trash"
 
 /datum/reagent/mutationtoxin/moth
@@ -568,6 +576,7 @@
 	description = "A glowing toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/moth
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 	taste_description = "clothing"
 
 /datum/reagent/mutationtoxin/pod
@@ -575,6 +584,7 @@
 	description = "A vegetalizing toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/pod
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 	taste_description = "flowers"
 
 /datum/reagent/mutationtoxin/jelly
@@ -582,6 +592,7 @@
 	description = "A jellyfying toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/jelly
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 	taste_description = "grandma's gelatin"
 
 /datum/reagent/mutationtoxin/jelly/on_mob_life(mob/living/carbon/human/H)
@@ -604,6 +615,7 @@
 	description = "A crystal toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/golem/random
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 	taste_description = "rocks"
 
 /datum/reagent/mutationtoxin/abductor
@@ -611,6 +623,7 @@
 	description = "An alien toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/abductor
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 	taste_description = "something out of this world... no, universe!"
 
 /datum/reagent/mutationtoxin/android
@@ -618,7 +631,15 @@
 	description = "A robotic toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/android
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 	taste_description = "circuitry and steel"
+
+/datum/reagent/mutationtoxin/ipc
+	name = "IPC Mutation Toxin"
+	description = "An integrated positronic toxin."
+	color = "#5EFF3B" //RGB: 94, 255, 59
+	race = /datum/species/ipc
+	process_flags = ORGANIC | SYNTHETIC
 
 /datum/reagent/mutationtoxin/squid
 	name = "Squid Mutation Toxin"
@@ -627,12 +648,20 @@
 	race = /datum/species/squid
 	process_flags = ORGANIC | SYNTHETIC
 
+/datum/reagent/mutationtoxin/kepi //crying
+	name = "Kepori Mutation Toxin"
+	description = "A feathery toxin."
+	race = /datum/species/kepori
+	process_flags = ORGANIC | SYNTHETIC
+	taste_description = "a familiar white meat"
+
 //BLACKLISTED RACES
 /datum/reagent/mutationtoxin/skeleton
 	name = "Skeleton Mutation Toxin"
 	description = "A scary toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/skeleton
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 	taste_description = "milk... and lots of it"
 
 /datum/reagent/mutationtoxin/zombie
@@ -640,13 +669,14 @@
 	description = "An undead toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/zombie //Not the infectious kind. The days of xenobio zombie outbreaks are long past.
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 	taste_description = "brai...nothing in particular"
 
 /datum/reagent/mutationtoxin/goofzombie
 	name = "Zombie Mutation Toxin"
 	description = "An undead toxin... kinda..."
 	color = "#5EFF3B" //RGB: 94, 255, 59
-	race = /datum/species/human/krokodil_addict //Not the infectious kind. The days of xenobio zombie outbreaks are long past.
+	race = /datum/species/krokodil_addict //Not the infectious kind. The days of xenobio zombie outbreaks are long past.
 	process_flags = ORGANIC | SYNTHETIC
 
 /datum/reagent/mutationtoxin/ash
@@ -654,6 +684,7 @@
 	description = "An ashen toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/lizard/ashwalker
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 	taste_description = "savagery"
 
 //DANGEROUS RACES
@@ -662,6 +693,7 @@
 	description = "A dark toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/shadow
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 	taste_description = "the night"
 
 /datum/reagent/mutationtoxin/plasma
@@ -669,6 +701,7 @@
 	description = "A plasma-based toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/plasmaman
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 	taste_description = "plasma"
 
 #undef MUT_MSG_IMMEDIATE
@@ -848,6 +881,7 @@
 	reagent_state = GAS
 	color = "#808080" // rgb: 128, 128, 128
 	taste_description = "acid"
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 
 /datum/reagent/fluorine/on_mob_life(mob/living/carbon/M)
 	M.adjustToxLoss(1*REM, 0)
@@ -984,6 +1018,10 @@
 	var/irradiation_level = 1
 	material = /datum/material/uranium
 
+	//WS Begin - IPCs
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
+	//WS End
+
 /datum/reagent/uranium/on_mob_life(mob/living/carbon/M)
 	M.apply_effect(irradiation_level/M.metabolism_efficiency,EFFECT_IRRADIATE,0)
 	..()
@@ -1011,6 +1049,7 @@
 	color = "#00CC00" // ditto
 	taste_description = "the colour blue and regret"
 	irradiation_level = 2*REM
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 	material = null
 
 /datum/reagent/uranium/radium/dip_object(obj/item/I, mob/user, obj/item/reagent_containers/H)
@@ -1023,6 +1062,10 @@
 	color = "#0000CC"
 	taste_description = "fizzling blue"
 	material = /datum/material/bluespace
+
+	//WS Begin - IPCs
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
+	//WS End
 
 /datum/reagent/bluespace/expose_mob(mob/living/M, method=TOUCH, reac_volume)
 	if(method == TOUCH || method == VAPOR)
@@ -1081,6 +1124,7 @@
 	glass_icon_state = "dr_gibb_glass"
 	glass_name = "glass of welder fuel"
 	glass_desc = "Unless you're an industrial tool, this is probably not safe for consumption."
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 
 /datum/reagent/fuel/expose_mob(mob/living/M, method=TOUCH, reac_volume)//Splashing people with welding fuel to make them easy to ignite!
 	if(method == TOUCH || method == VAPOR)
@@ -1509,6 +1553,7 @@
 	reagent_state = LIQUID
 	color = "#2D2D2D"
 	taste_description = "oil"
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 
 /datum/reagent/stable_plasma
 	name = "Stable Plasma"
@@ -1517,6 +1562,7 @@
 	color = "#2D2D2D"
 	taste_description = "bitterness"
 	taste_mult = 1.5
+	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 
 /datum/reagent/stable_plasma/on_mob_life(mob/living/carbon/C)
 	C.adjustPlasma(10)

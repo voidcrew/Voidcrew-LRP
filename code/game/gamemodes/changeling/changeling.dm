@@ -109,12 +109,7 @@ GLOBAL_VAR(changeling_team_objective_type) //If this is not null, we hand our th
 
 	chosen_dna.transfer_identity(user, 1)
 	user.updateappearance(mutcolor_update=1)
-
-	///Bodypart data hack. Will rewrite when I rewrite changelings soon-ish
-	for(var/obj/item/bodypart/BP as anything in user.bodyparts)
-		if(IS_ORGANIC_LIMB(BP))
-			BP.update_limb(is_creating = TRUE)
-
+	user.update_body()
 	user.domutcheck()
 
 	//vars hackery. not pretty, but better than the alternative.

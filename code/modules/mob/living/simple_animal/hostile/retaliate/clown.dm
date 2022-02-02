@@ -162,7 +162,6 @@
 	maxHealth = 150
 	health = 150
 	pixel_x = -16
-	base_pixel_x = -16
 	speed = 10
 	harm_intent_damage = 5
 	melee_damage_lower = 5
@@ -188,7 +187,6 @@
 	maxHealth = 400
 	health = 400
 	pixel_x = -16
-	base_pixel_x = -16
 	speed = 2
 	harm_intent_damage = 15
 	melee_damage_lower = 15
@@ -286,7 +284,6 @@
 	maxHealth = 130
 	health = 130
 	pixel_x = -16
-	base_pixel_x = -16
 	speed = -5
 	harm_intent_damage = 10
 	melee_damage_lower = 10

@@ -39,7 +39,6 @@
 	name = "\improper AI upload console"
 	desc = "Used to upload laws to the AI."
 	circuit = /obj/item/circuitboard/computer/aiupload
-	icon_screen = "ai_upload"
 
 /obj/machinery/computer/upload/ai/interact(mob/user)
 	current = select_active_ai(user, z)

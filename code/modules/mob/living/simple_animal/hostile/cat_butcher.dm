@@ -35,6 +35,16 @@
 	del_on_death = 1
 	var/impatience = 0
 
+/mob/living/simple_animal/hostile/cat_butcherer/CanAttack(atom/the_target)
+	if(iscarbon(target))
+		var/mob/living/carbon/human/C = target
+		if(C.getorgan(/obj/item/organ/ears/cat) && C.getorgan(/obj/item/organ/tail/cat) && C.has_trauma_type(/datum/brain_trauma/severe/pacifism))//he wont attack his creations
+			if(C.stat >= UNCONSCIOUS && (!HAS_TRAIT(C, TRAIT_NOMETABOLISM) || !istype(C.dna.species, /datum/species/ipc)))//unless they need healing
+				return ..()
+			else
+				return FALSE
+	return ..()
+
 /mob/living/simple_animal/hostile/cat_butcherer/AttackingTarget()
 	if(iscarbon(target))
 		var/mob/living/carbon/human/L = target

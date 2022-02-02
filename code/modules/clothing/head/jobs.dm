@@ -172,8 +172,7 @@ WS End */
 /obj/item/clothing/head/HoS/beret/syndicate
 	name = "syndicate beret"
 	desc = "A black beret with thick armor padding inside. Stylish and robust."
-	icon_state = "beret_officer"
-	item_state = "beret_officer"
+	icon_state = "hosberetblack"
 
 /obj/item/clothing/head/warden
 	name = "warden's police hat"

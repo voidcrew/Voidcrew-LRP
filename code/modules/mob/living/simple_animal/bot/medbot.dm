@@ -429,7 +429,7 @@
 	var/can_inject = FALSE
 	for(var/X in C.bodyparts)
 		var/obj/item/bodypart/part = X
-		if(IS_ORGANIC_LIMB(part))
+		if(part.status == BODYPART_ORGANIC)
 			can_inject = TRUE
 	if(!can_inject)
 		return 0

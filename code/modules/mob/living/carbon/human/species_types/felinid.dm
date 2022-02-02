@@ -1,9 +1,10 @@
 //Subtype of human
 /datum/species/human/felinid
-	name = "\improper Felinid"
-	id = SPECIES_FELINID
+	name = "Felinid"
+	id = "felinid"
 	say_mod = "meows"
-	examine_limb_id = SPECIES_HUMAN
+	limbs_id = "human"
+
 	mutant_bodyparts = list("ears", "tail_human")
 	default_features = list("mcolor" = "FFF", "tail_human" = "Cat", "ears" = "Cat", "wings" = "None")
 

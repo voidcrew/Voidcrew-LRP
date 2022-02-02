@@ -34,6 +34,7 @@
 								"Exosuit Equipment",
 								"Exosuit Ammunition",
 								"Cyborg Upgrade Modules",
+								"IPC components",
 								"Misc"
 								)
 	var/datum/bank_account/linked_account

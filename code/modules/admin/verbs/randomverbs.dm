@@ -379,7 +379,7 @@
 	set category = "Admin.Events"
 	set name = "Create Command Report"
 
-	if(!check_rights(R_FUN))
+	if(!check_rights(R_ADMIN))
 		return
 
 	var/input = input(usr, "Enter a Command Report. Ensure it makes sense IC. Command's name is currently set to [command_name()].", "What?", "") as message|null
@@ -408,7 +408,7 @@
 	set category = "Admin.Events"
 	set name = "Change Command Name"
 
-	if(!check_rights(R_FUN))
+	if(!check_rights(R_ADMIN))
 		return
 
 	var/input = input(usr, "Please input a new name for Central Command.", "What?", "") as text|null
@@ -718,8 +718,10 @@
 	var/datum/map_zone/mapzone = input("Map Zone to target?", "Map Zone") as null|anything in SSmapping.map_zones
 	if(!mapzone)
 		return
-	mapzone.assert_weather_controller()
+
 	var/datum/weather_controller/weather_controller = mapzone.weather_controller
+	if(!weather_controller)
+		return
 	weather_controller.run_weather(weather_type)
 
 	message_admins("[key_name_admin(usr)] started weather of type [weather_type] on the map-zone [mapzone].")

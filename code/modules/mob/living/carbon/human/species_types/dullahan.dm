@@ -1,7 +1,6 @@
 /datum/species/dullahan
-	name = "\improper Dullahan"
-	id = SPECIES_DULLAHAN
-	max_bodypart_count = 5 //No head
+	name = "Dullahan"
+	id = "dullahan"
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS)
 	inherent_traits = list(TRAIT_NOHUNGER,TRAIT_NOBREATH)
@@ -11,7 +10,7 @@
 	mutanteyes = /obj/item/organ/eyes/dullahan
 	mutanttongue = /obj/item/organ/tongue/dullahan
 	mutantears = /obj/item/organ/ears/dullahan
-	examine_limb_id = SPECIES_HUMAN
+	limbs_id = "human"
 	skinned_type = /obj/item/stack/sheet/animalhide/human
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | ERT_SPAWN
 

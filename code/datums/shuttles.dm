@@ -11,7 +11,6 @@
 	var/port_x_offset
 	var/port_y_offset
 
-	var/limit
 	var/cost
 	var/short_name
 	var/list/job_slots

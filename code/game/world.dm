@@ -306,12 +306,12 @@ GLOBAL_VAR(restart_counter)
 
 	s += "<b>[station_name()]</b>";
 	s += " ("
-	s += "<a href=\"https://discord.gg/edazjdr7Gt\">" //Change this to wherever you want the hub to link to.
+	s += "<a href=\"https://shiptest.net/discord\">" //Change this to wherever you want the hub to link to.
 	s += "Discord"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
 	s += "</a>"
 	s += ")"
 	s += " ("
-	s += "<a href=\"https://discord.gg/edazjdr7Gt\">"
+	s += "<a href=\"https://github.com/shiptest-ss13/Shiptest\">"
 	s += "Github"
 	s += "</a>"
 	s += ")"

@@ -349,7 +349,7 @@
 				/obj/item/circuitboard/machine/autolathe,
 				/obj/item/circuitboard/computer/mining,
 				/obj/item/circuitboard/machine/ore_redemption,
-				/obj/item/circuitboard/machine/mining_equipment_vendor,
+				/obj/item/circuitboard/machine/vending/mining_equipment,
 				/obj/item/circuitboard/machine/microwave,
 				/obj/item/circuitboard/machine/chem_dispenser/drinks,
 				/obj/item/circuitboard/machine/chem_dispenser/drinks/beer,
@@ -366,6 +366,11 @@
 				/obj/item/circuitboard/computer/teleporter,
 				/obj/item/circuitboard/machine/destructive_analyzer,
 				/obj/item/circuitboard/computer/rdconsole,
+				/obj/item/circuitboard/computer/nanite_chamber_control,
+				/obj/item/circuitboard/computer/nanite_cloud_controller,
+				/obj/item/circuitboard/machine/nanite_chamber,
+				/obj/item/circuitboard/machine/nanite_programmer,
+				/obj/item/circuitboard/machine/nanite_program_hub
 				)
 
 /obj/effect/spawner/lootdrop/techstorage/security

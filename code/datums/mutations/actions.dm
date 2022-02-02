@@ -219,7 +219,8 @@
 		return
 
 	var/list/parts = list()
-	for(var/obj/item/bodypart/BP as anything in C.bodyparts)
+	for(var/X in C.bodyparts)
+		var/obj/item/bodypart/BP = X
 		if(BP.body_part != HEAD && BP.body_part != CHEST)
 			if(BP.dismemberable)
 				parts += BP

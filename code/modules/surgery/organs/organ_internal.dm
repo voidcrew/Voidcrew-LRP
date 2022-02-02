@@ -29,8 +29,8 @@
 	var/useable = TRUE
 	var/list/food_reagents = list(/datum/reagent/consumable/nutriment = 5)
 
-	//WS Begin
-	var/vital = 0 // literally is never used
+	//WS Begin - IPCS
+	var/vital = 0
 	//Was this organ implanted/inserted/etc, if true will not be removed during species change.
 	var/external = FALSE
 	//whether to call Remove() when qdeling the organ.
@@ -52,11 +52,7 @@
 	if(replaced)
 		replaced.Remove(M, special = 1)
 		if(drop_if_replaced)
-			var/dest = get_turf(M)
-			if(dest)
-				replaced.forceMove(get_turf(M))
-			else
-				qdel(replaced)
+			replaced.forceMove(get_turf(M))
 		else
 			qdel(replaced)
 

@@ -114,6 +114,14 @@
 	for(var/i in 1 to 7)
 		new /obj/item/disk/plantgene(src)
 
+/obj/item/storage/box/disks_nanite
+	name = "nanite program disks box"
+	illustration = "disk_kit"
+
+/obj/item/storage/box/disks_nanite/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/disk/nanite_program(src)
+
 // Ordinary survival box
 /obj/item/storage/box/survival
 	var/mask_type = /obj/item/clothing/mask/breath

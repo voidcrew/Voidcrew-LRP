@@ -1,7 +1,7 @@
 /obj/item/bodypart/head
 	name = BODY_ZONE_HEAD
 	desc = "Didn't make sense not to live for fun, your brain gets smart but your head gets dumb."
-	icon = 'icons/mob/human_parts_greyscale.dmi'
+	icon = 'icons/mob/human_parts.dmi'
 	icon_state = "default_human_head"
 	max_damage = 200
 	body_zone = BODY_ZONE_HEAD
@@ -13,7 +13,6 @@
 	px_y = -8
 	stam_damage_coeff = 1
 	max_stamina_damage = 100
-	is_dimorphic = TRUE
 	bone_break_threshold = 35 // Beefier bones
 
 	var/mob/living/brain/brainmob = null //The current occupant.
@@ -66,7 +65,7 @@
 
 /obj/item/bodypart/head/examine(mob/user)
 	. = ..()
-	if(IS_ORGANIC_LIMB(src))
+	if(status == BODYPART_ORGANIC)
 		if(!brain)
 			. += "<span class='info'>The brain has been removed from [src].</span>"
 		else if(brain.suicided || brainmob?.suiciding)
@@ -93,14 +92,14 @@
 			. += "<span class='info'>[real_name]'s tongue has been removed.</span>"
 
 
-/obj/item/bodypart/head/can_dismember()
-	if(owner?.stat <= HARD_CRIT)
+/obj/item/bodypart/head/can_dismember(obj/item/I)
+	if(owner && owner.stat <= HARD_CRIT)
 		return FALSE
 	return ..()
 
 /obj/item/bodypart/head/drop_organs(mob/user, violent_removal)
 	var/turf/T = get_turf(src)
-	if(IS_ORGANIC_LIMB(src))
+	if(status != BODYPART_ROBOTIC)
 		playsound(T, 'sound/misc/splort.ogg', 50, TRUE, -1)
 	for(var/obj/item/I in src)
 		if(I == brain)
@@ -126,7 +125,7 @@
 	ears = null
 	tongue = null
 
-/obj/item/bodypart/head/update_limb(dropping_limb, mob/living/carbon/source, is_creating)
+/obj/item/bodypart/head/update_limb(dropping_limb, mob/living/carbon/source)
 	var/mob/living/carbon/C
 	if(source)
 		C = source
@@ -140,7 +139,7 @@
 		facial_hairstyle = "Shaved"
 		lip_style = null
 
-	else if(!animal_origin && ishuman(C))
+	else if(!animal_origin)
 		var/mob/living/carbon/human/H = C
 		var/datum/species/S = H.dna.species
 
@@ -202,7 +201,7 @@
 	. = ..()
 	if(dropped) //certain overlays only appear when the limb is being detached from its owner.
 
-		if(IS_ORGANIC_LIMB(src)) //having a robotic head hides certain features.
+		if(status != BODYPART_ROBOTIC) //having a robotic head hides certain features.
 			//facial hair
 			if(facial_hairstyle)
 				var/datum/sprite_accessory/S = GLOB.facial_hairstyles_list[facial_hairstyle]
@@ -234,25 +233,24 @@
 					. += hair_overlay
 
 
-			// lipstick
-			if(lip_style)
-				var/image/lips_overlay = image('icons/mob/human_face.dmi', "lips_[lip_style]", -BODY_LAYER, SOUTH)
-				lips_overlay.color = lip_color
-				. += lips_overlay
+		// lipstick
+		if(lip_style)
+			var/image/lips_overlay = image('icons/mob/human_face.dmi', "lips_[lip_style]", -BODY_LAYER, SOUTH)
+			lips_overlay.color = lip_color
+			. += lips_overlay
 
-			// eyes
-			var/image/eyes_overlay = image('icons/mob/human_face.dmi', "eyes_missing", -BODY_LAYER, SOUTH)
-			. += eyes_overlay
-			if(eyes)
-				eyes_overlay.icon_state = eyes.eye_icon_state
+		// eyes
+		var/image/eyes_overlay = image('icons/mob/human_face.dmi', "eyes_missing", -BODY_LAYER, SOUTH)
+		. += eyes_overlay
+		if(eyes)
+			eyes_overlay.icon_state = eyes.eye_icon_state
 
-				if(eyes.eye_color)
-					eyes_overlay.color = "#" + eyes.eye_color
+			if(eyes.eye_color)
+				eyes_overlay.color = "#" + eyes.eye_color
 
 /obj/item/bodypart/head/monkey
 	icon = 'icons/mob/animal_parts.dmi'
 	icon_state = "default_monkey_head"
-	limb_id = SPECIES_MONKEY
 	animal_origin = MONKEY_BODYPART
 
 /obj/item/bodypart/head/alien

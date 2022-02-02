@@ -152,7 +152,6 @@
 
 /obj/machinery/computer/piratepad_control
 	name = "cargo hold control terminal"
-	icon_screen = "bounty"
 	var/status_report = "Ready for delivery."
 	var/obj/machinery/piratepad/pad
 	var/warmup_time = 100

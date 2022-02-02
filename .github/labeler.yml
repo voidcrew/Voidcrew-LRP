@@ -1,27 +1,32 @@
-admin:
+Admin:
   - 'code/modules/admin/**'
   - 'whitesands/code/modules/admin/**'
 
 # Any file within the config subfolder
-config:
+Config:
   - 'config/**'
 
-dependencies:
+Dependencies:
   - '**/package.json'
   - '**/package-lock.json'
   - '**/yarn.lock'
 
+# When the .DME is changed
+DME Edit:
+  - './*.dme'
+  - '**/*.dme'
+
 # Any .dmi changes
-sprites:
+Sprites:
   - '**/*.dmi'
 
 # Changes to a .dmm or anything in the _map subfolder
-mapping:
+Map Change:
   - '**/*.dmm'
   - '_maps/**'
 
 # Any changes to .ogg files are marked as sound
-sound:
+Sound:
   - '**/*.ogg'
 
 # Changes to the SQL subfolder
