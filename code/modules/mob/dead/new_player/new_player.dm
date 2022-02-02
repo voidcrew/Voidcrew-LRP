@@ -306,6 +306,7 @@
 		ship.manifest_inject(humanc, client, job)
 		GLOB.data_core.manifest_inject(humanc, client)
 		AnnounceArrival(humanc, job.title, ship)
+		NotifyFaction(humanc, ship)
 		AddEmploymentContract(humanc)
 
 		if(GLOB.highlander)
@@ -354,9 +355,17 @@
 		if(SSdbcore.IsConnected() && usr.client.get_metabalance() < template.cost)
 			alert(src, "You have insufficient metabalance to cover this purchase! (Price: [template.cost])")
 			return
+		if(template.limit)
+			var/count = 0
+			for(var/obj/structure/overmap/ship/simulated/X in SSovermap.simulated_ships)
+				if(X.source_template == template)
+					count++
+					if(template.limit <= count)
+						alert(src, "The ship limit of [template.limit] has been reached this round.")
+						return
 		close_spawn_windows()
 		to_chat(usr, "<span class='danger'>Your [template.name] is being prepared. Please be patient!</span>")
-		var/obj/docking_port/mobile/target = SSshuttle.action_load(template)
+		var/obj/docking_port/mobile/target = SSshuttle.load_template(template)
 		if(!istype(target))
 			to_chat(usr, "<span class='danger'>There was an error loading the ship (You have not been charged). Please contact admins!</span>")
 			new_player_panel()

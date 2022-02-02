@@ -15,7 +15,6 @@
 #define POLL_IGNORE_SWARMER "swarmer"
 #define POLL_IGNORE_DRONE "drone"
 #define POLL_IGNORE_FUGITIVE "fugitive"
-#define POLL_IGNORE_DEFECTIVECLONE "defective_clone" //WS Edit - Cloning
 #define POLL_IGNORE_PYROSLIME "slime"
 #define POLL_IGNORE_SHADE "shade"
 #define POLL_IGNORE_IMAGINARYFRIEND "imaginary_friend"

@@ -150,13 +150,67 @@
 
 /obj/machinery/mineral/equipment_vendor/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/mining_voucher))
-		say("This model of vendor has been discontinued due to complications following the Corporate Wars. Thank you for your service! - Nanotrasen, 498.")
+		redeem_voucher(I, user)
 		return
 	if(default_deconstruction_screwdriver(user, "mining-open", "mining", I))
 		return
 	if(default_deconstruction_crowbar(I))
 		return
 	return ..()
+
+#define SURVIVAL_CAPSULE_KIT "Survival Capsule and Explorer's Webbing"
+#define RESONATOR_KIT "Resonator Kit"
+#define MINEBOT_KIT "Minebot Kit"
+#define EXTRACTION_KIT "Extraction and Rescue Kit"
+#define CRUSHER_KIT "Crusher Kit"
+#define CONSCRIPTION_KIT "Mining Conscription Kit"
+
+/obj/machinery/mineral/equipment_vendor/proc/redeem_voucher(obj/item/mining_voucher/voucher, mob/redeemer)
+	var/items = list(
+		SURVIVAL_CAPSULE_KIT,
+		RESONATOR_KIT,
+		MINEBOT_KIT,
+		EXTRACTION_KIT,
+		CRUSHER_KIT,
+		CONSCRIPTION_KIT,
+	)
+
+	var/selection = tgui_input_list(redeemer, "Pick your equipment", "Mining Voucher Redemption", sortList(items))
+	if(isnull(selection))
+		return
+	if(!Adjacent(redeemer) || QDELETED(voucher) || voucher.loc != redeemer)
+		return
+	var/drop_location = drop_location()
+	switch(selection)
+		if(SURVIVAL_CAPSULE_KIT)
+			new /obj/item/storage/belt/mining/vendor(drop_location)
+		if(RESONATOR_KIT)
+			new /obj/item/extinguisher/mini(drop_location)
+			new /obj/item/resonator(drop_location)
+		if(MINEBOT_KIT)
+			new /mob/living/simple_animal/hostile/mining_drone(drop_location)
+			new /obj/item/weldingtool/hugetank(drop_location)
+			new /obj/item/clothing/head/welding(drop_location)
+			new /obj/item/borg/upgrade/modkit/minebot_passthrough(drop_location)
+		if(EXTRACTION_KIT)
+			new /obj/item/extraction_pack(drop_location)
+			new /obj/item/fulton_core(drop_location)
+			new /obj/item/stack/marker_beacon/thirty(drop_location)
+		if(CRUSHER_KIT)
+			new /obj/item/extinguisher/mini(drop_location)
+			new /obj/item/kinetic_crusher(drop_location)
+		if(CONSCRIPTION_KIT)
+			new /obj/item/storage/backpack/duffelbag/mining_conscript(drop_location)
+
+	SSblackbox.record_feedback("tally", "mining_voucher_redeemed", 1, selection)
+	qdel(voucher)
+
+#undef SURVIVAL_CAPSULE_KIT
+#undef RESONATOR_KIT
+#undef MINEBOT_KIT
+#undef EXTRACTION_KIT
+#undef CRUSHER_KIT
+#undef CONSCRIPTION_KIT
 
 /obj/machinery/mineral/equipment_vendor/ex_act(severity, target)
 	do_sparks(5, TRUE, src)

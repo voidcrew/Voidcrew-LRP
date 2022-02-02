@@ -59,16 +59,8 @@ const TARGET_SPECIES_LIST = [
     value: 'rachnid',
   },
   {
-    name: 'IPC',
-    value: 'ipc',
-  },
-  {
     name: 'Elzuose',
     value: 'ethereal',
-  },
-  {
-    name: 'Kepori',
-    value: 'kepori',
   },
 ];
 
