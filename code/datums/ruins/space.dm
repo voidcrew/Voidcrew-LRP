@@ -314,3 +314,9 @@
 	suffix = "reticencefacility.dmm"
 	name = "Abandoned Mime Facility"
 	description = "This facility seems to have been quickly abandoned. It appears to be related to Mimes."
+
+/datum/map_template/ruin/space/ArtGallery
+	id = "ArtGallery"
+	suffix = "ArtGallery.dmm"
+	name = "Abandoned Art Gallery"
+	description = "This was once apart of a far larger exhibition of artwork though most of it is gone now, Though there seems to be a few things left arround by the visiters that were here most don't seem freindly. ."
