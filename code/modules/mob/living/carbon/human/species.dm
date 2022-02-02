@@ -853,6 +853,15 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if("ipc_antenna" in mutant_bodyparts)
 		if(!H.dna.features["ipc_antenna"] || H.dna.features["ipc_antenna"] == "None" || H.head && (H.head.flags_inv & HIDEEARS) || !HD)
 			bodyparts_to_add -= "ipc_antenna"
+
+	if("kepori_feathers" in mutant_bodyparts)
+		if(!H.dna.features["kepori_feathers"] || H.dna.features["kepori_feathers"] == "None" || H.head && (H.head.flags_inv & HIDEHAIR) || (H.wear_mask && (H.wear_mask.flags_inv & HIDEHAIR)) || !HD) //HD.status == BODYTYPE_ROBOTIC) and here too
+			bodyparts_to_add -= "kepori_feathers"
+
+	if("kepori_body_feathers" in mutant_bodyparts)
+		if(!H.dna.features["kepori_body_feathers"] || H.dna.features["kepori_body_feathers"] == "None" || H.wear_suit && (H.wear_suit.flags_inv & HIDEJUMPSUIT))
+			bodyparts_to_add -= "kepori_body_feathers"
+
 	// Void edit end
 
 	if("spider_legs" in mutant_bodyparts)
@@ -870,14 +879,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if("squid_face" in mutant_bodyparts)
 		if(!H.dna.features["squid_face"] || H.dna.features["squid_face"] == "None" || H.head && (H.head.flags_inv & HIDEFACE) || (H.wear_mask && (H.wear_mask.flags_inv & HIDEFACE)) || !HD) // || HD.status == BODYTYPE_ROBOTIC
 			bodyparts_to_add -= "squid_face"
-
-	if("kepori_feathers" in mutant_bodyparts)
-		if(!H.dna.features["kepori_feathers"] || H.dna.features["kepori_feathers"] == "None" || H.head && (H.head.flags_inv & HIDEHAIR) || (H.wear_mask && (H.wear_mask.flags_inv & HIDEHAIR)) || !HD) //HD.status == BODYTYPE_ROBOTIC) and here too
-			bodyparts_to_add -= "kepori_feathers"
-
-	if("kepori_body_feathers" in mutant_bodyparts)
-		if(!H.dna.features["kepori_body_feathers"] || H.dna.features["kepori_body_feathers"] == "None" || H.wear_suit && (H.wear_suit.flags_inv & HIDEJUMPSUIT))
-			bodyparts_to_add -= "kepori_body_feathers"
 
 ////PUT ALL YOUR WEIRD ASS REAL-LIMB HANDLING HERE
 	///Digi handling
@@ -962,6 +963,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					S = GLOB.ipc_antennas_list[H.dna.features["ipc_antenna"]]
 				if("ipc_chassis")
 					S = GLOB.ipc_chassis_list[H.dna.features["ipc_chassis"]]
+				if("kepori_feathers")
+					S = GLOB.kepori_feathers_list[H.dna.features["kepori_feathers"]]
+				if("kepori_body_feathers")
+					S = GLOB.kepori_body_feathers_list[H.dna.features["kepori_body_feathers"]]
 				// Void edit begin
 				if("spider_legs")
 					S = GLOB.spider_legs_list[H.dna.features["spider_legs"]]
@@ -969,10 +974,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					S = GLOB.spider_spinneret_list[H.dna.features["spider_spinneret"]]
 				if ("spider_mandibles")
 					S = GLOB.spider_mandibles_list[H.dna.features["spider_mandibles"]]
-				if("kepori_feathers")
-					S = GLOB.kepori_feathers_list[H.dna.features["kepori_feathers"]]
-				if("kepori_body_feathers")
-					S = GLOB.kepori_body_feathers_list[H.dna.features["kepori_body_feathers"]]
 			if(!S || S.icon_state == "none")
 				continue
 
@@ -2311,34 +2312,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 ///Calls the DMI data for a custom icon for a given bodypart from the Species Datum.
 /datum/species/proc/get_custom_icons(var/part)
 	return
-/*Here's what a species that has a unique icon for every slot would look like. If your species doesnt have any custom icons for a given part, return null.
-/datum/species/kepori/get_custom_icons(var/part)
-	switch(part)
-		if("uniform")
-			return 'icons/mob/species/kepori/kepori_uniforms.dmi'
-		if("gloves")
-			return 'icons/mob/species/kepori/kepori_gloves.dmi'
-		if("glasses")
-			return 'icons/mob/species/kepori/kepori_glasses.dmi'
-		if("ears")
-			return 'icons/mob/species/kepori/kepori_ears.dmi'
-		if("shoes")
-			return 'icons/mob/species/kepori/kepori_shoes.dmi'
-		if("head")
-			return 'icons/mob/species/kepori/kepori_head.dmi'
-		if("belt")
-			return 'icons/mob/species/kepori/kepori_belts.dmi'
-		if("suit")
-			return 'icons/mob/species/kepori/kepori_suits.dmi'
-		if("mask")
-			return 'icons/mob/species/kepori/kepori_masks.dmi'
-		if("back")
-			return 'icons/mob/species/kepori/kepori_back.dmi'
-		if("generic")
-			return 'icons/mob/species/kepori/kepori_generic.dmi'
-		else
-			return
-*/
 
 /datum/species/proc/get_item_offsets_for_index(i)
 	return

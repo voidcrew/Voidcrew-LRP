@@ -107,7 +107,7 @@
 	RegisterSignal(user, COMSIG_MOVABLE_MOVED, .proc/checkObstacle)
 	playsound(user, 'sound/weapons/thudswoosh.ogg', 40, TRUE, -1)
 
-	var/leap_word = (isfelinid(user) || iskepori(user)) ? "pounce" : "leap" ///If a species will "pounce" instead of "leap".
+	var/leap_word = (isfelinid(user) || iskepori(user)) ? "pounce" : "leap" ///If a species will "pounce" instead of "leap". // VOID EDIT
 	if(can_see(user, A, 7))
 		user.visible_message("<span class='warning'>[user] [leap_word]s at [A]!</span>", "<span class='danger'>You [leap_word] at [A]!</span>")
 	else
@@ -158,7 +158,7 @@
 	var/mob/living/carbon/human/S = user
 
 	var/roll = rollTackle(target)
-	var/tackle_word = (isfelinid(user) || iskepori(user)) ? "pounce" : "tackle" ///If a species will "pounce" instead of "tackle".
+	var/tackle_word = (isfelinid(user) || iskepori(user)) ? "pounce" : "tackle" ///If a species will "pounce" instead of "tackle". //VOID EDIT
 
 	tackling = FALSE
 	tackle.gentle = TRUE
@@ -479,7 +479,7 @@
 				break
 
 	// Kepori have mastered the art of the table-tackle and will instead fly over gracefully (most of the time)
-	if(iskepori(owner))
+	if(iskepori(owner)) // VOID EDIT
 		// However if there is too much junk on the table, it can't be helped
 		if(rand(1, MAX_TABLE_MESSES) > length(messes))
 			return

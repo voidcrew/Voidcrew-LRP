@@ -5,6 +5,13 @@
 	race = /datum/species/ipc
 	process_flags = ORGANIC | SYNTHETIC
 
+/datum/reagent/mutationtoxin/kepi
+	name = "Kepori Mutation Toxin"
+	description = "A feathery toxin."
+	race = /datum/species/kepori
+	process_flags = ORGANIC | SYNTHETIC
+	taste_description = "a familiar white meat"
+
 /datum/reagent/water
 	process_flags = ORGANIC | SYNTHETIC
 
