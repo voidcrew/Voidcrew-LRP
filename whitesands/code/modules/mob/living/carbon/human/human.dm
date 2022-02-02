@@ -72,9 +72,6 @@
 
 			src.is_busy = FALSE
 
-/mob/living/carbon/human/species/ipc
-	race = /datum/species/ipc
-
 /mob/living/carbon/human/species/squid
 	race = /datum/species/squid
 

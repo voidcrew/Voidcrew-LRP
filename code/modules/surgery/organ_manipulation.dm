@@ -41,7 +41,7 @@
 /datum/surgery/organ_manipulation/mechanic
 	name = "Prosthesis organ manipulation"
 	possible_locs = list(BODY_ZONE_CHEST, BODY_ZONE_HEAD)
-	requires_bodypart_type = BODYPART_ROBOTIC
+	requires_bodypart_type = BODYTYPE_ROBOTIC
 	lying_required = FALSE
 	self_operable = TRUE
 	steps = list(
@@ -102,7 +102,7 @@
 			"<span class='notice'>[user] begins to insert [tool] into [target]'s [parse_zone(target_zone)].</span>",
 			"<span class='notice'>[user] begins to insert something into [target]'s [parse_zone(target_zone)].</span>")
 
-	//WS Begin - IPCs
+	//VOID EDIT BEGIN
 
 	if(istype(tool, /obj/item/mmi))//this whole thing is only used for robotic surgery in organ_mani_robotic.dm :*
 		current_type = "posibrain"
@@ -110,7 +110,8 @@
 		var/obj/item/mmi/target_mmi = tool
 		if(!affected)
 			return -1
-		if(affected.status != ORGAN_ROBOTIC)
+
+		if(IS_ORGANIC_LIMB(affected))
 			to_chat(user, "<span class='notice'>You can't put [tool] into a meat enclosure!</span>")
 			return -1
 		if(!isipc(target))
@@ -126,7 +127,7 @@
 			to_chat(user, "<span class='notice'>[tool] has no life in it, this would be pointless!</span>")
 			return -1
 
-	//WS End
+	//VOID EDIT END
 
 	else if(implement_type in implements_extract)
 		current_type = "extract"

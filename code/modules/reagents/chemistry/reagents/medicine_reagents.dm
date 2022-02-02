@@ -264,7 +264,7 @@
 
 /datum/reagent/medicine/oxandrolone/overdose_process(mob/living/M)
 	if(M.getFireLoss()) //It only makes existing burns worse
-		M.adjustFireLoss(4.5*REM, FALSE, FALSE, BODYPART_ORGANIC) // it's going to be healing either 4 or 0.5
+		M.adjustFireLoss(4.5*REM, FALSE, FALSE, BODYTYPE_ORGANIC) // it's going to be healing either 4 or 0.5
 		. = 1
 	..()
 
@@ -337,8 +337,8 @@
 		holder.add_reagent(/datum/reagent/consumable/sugar, 1)
 		holder.remove_reagent(/datum/reagent/medicine/salglu_solution, 0.5)
 	if(prob(33))
-		M.adjustBruteLoss(0.5*REM, FALSE, FALSE, BODYPART_ORGANIC)
-		M.adjustFireLoss(0.5*REM, FALSE, FALSE, BODYPART_ORGANIC)
+		M.adjustBruteLoss(0.5*REM, FALSE, FALSE, BODYTYPE_ORGANIC)
+		M.adjustFireLoss(0.5*REM, FALSE, FALSE, BODYTYPE_ORGANIC)
 		. = TRUE
 	..()
 
@@ -406,7 +406,6 @@
 	color = "#000000"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
 	taste_description = "ash"
-	process_flags = ORGANIC //WS Edit - IPCs
 
 /datum/reagent/medicine/charcoal/on_mob_life(mob/living/carbon/M)
 	M.adjustToxLoss(-2*REM, 0)
@@ -429,7 +428,6 @@
 	reagent_state = LIQUID
 	color = "#F1C40F"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
-	process_flags = SYNTHETIC //WS Edit - IPCs
 
 /datum/reagent/medicine/system_cleaner/on_mob_life(mob/living/M)
 	M.adjustToxLoss(-2*REM, 0)
@@ -444,7 +442,6 @@
 	description = "Repairs brain damage in synthetics."
 	color = "#727272"
 	taste_description = "metallic"
-	process_flags = SYNTHETIC //WS Edit - IPCs
 
 /datum/reagent/medicine/liquid_solder/on_mob_life(mob/living/M)
 	M.adjustOrganLoss(ORGAN_SLOT_BRAIN, -3*REM)
@@ -476,8 +473,8 @@
 /datum/reagent/medicine/omnizine/overdose_process(mob/living/M)
 	M.adjustToxLoss(1.5*REM, 0)
 	M.adjustOxyLoss(1.5*REM, 0)
-	M.adjustBruteLoss(1.5*REM, FALSE, FALSE, BODYPART_ORGANIC)
-	M.adjustFireLoss(1.5*REM, FALSE, FALSE, BODYPART_ORGANIC)
+	M.adjustBruteLoss(1.5*REM, FALSE, FALSE, BODYTYPE_ORGANIC)
+	M.adjustFireLoss(1.5*REM, FALSE, FALSE, BODYTYPE_ORGANIC)
 	..()
 	. = 1
 
@@ -550,7 +547,7 @@
 
 /datum/reagent/medicine/sal_acid/overdose_process(mob/living/M)
 	if(M.getBruteLoss()) //It only makes existing bruises worse
-		M.adjustBruteLoss(4.5*REM, FALSE, FALSE, BODYPART_ORGANIC) // it's going to be healing either 4 or 0.5
+		M.adjustBruteLoss(4.5*REM, FALSE, FALSE, BODYTYPE_ORGANIC) // it's going to be healing either 4 or 0.5
 		. = 1
 	..()
 
@@ -1030,7 +1027,7 @@
 	. = 1
 
 /datum/reagent/medicine/bicaridine/overdose_process(mob/living/M)
-	M.adjustBruteLoss(2*REM, FALSE, FALSE, BODYPART_ORGANIC)
+	M.adjustBruteLoss(2*REM, FALSE, FALSE, BODYTYPE_ORGANIC)
 	..()
 	. = 1
 
@@ -1050,7 +1047,7 @@
 	. = 1
 
 /datum/reagent/medicine/bicaridinep/overdose_process(mob/living/M)
-	M.adjustBruteLoss(6*REM, FALSE, FALSE, BODYPART_ORGANIC)
+	M.adjustBruteLoss(6*REM, FALSE, FALSE, BODYTYPE_ORGANIC)
 	..()
 	. = 1
 
@@ -1105,7 +1102,7 @@
 	. = 1
 
 /datum/reagent/medicine/kelotane/overdose_process(mob/living/M)
-	M.adjustFireLoss(2*REM, FALSE, FALSE, BODYPART_ORGANIC)
+	M.adjustFireLoss(2*REM, FALSE, FALSE, BODYTYPE_ORGANIC)
 	..()
 	. = 1
 
@@ -1122,7 +1119,7 @@
 	. = 1
 
 /datum/reagent/medicine/dermaline/overdose_process(mob/living/M)
-	M.adjustFireLoss(6*REM, FALSE, FALSE, BODYPART_ORGANIC)
+	M.adjustFireLoss(6*REM, FALSE, FALSE, BODYTYPE_ORGANIC)
 	..()
 	. = 1
 
@@ -1215,7 +1212,6 @@
 	reagent_state = SOLID
 	color = "#555555"
 	overdose_threshold = 30
-	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs //WS Edit - IPCs
 
 /datum/reagent/medicine/syndicate_nanites/on_mob_life(mob/living/carbon/M)
 	M.adjustBruteLoss(-5*REM, 0) //A ton of healing - this is a 50 telecrystal investment.
@@ -1320,8 +1316,8 @@
 	return TRUE
 
 /datum/reagent/medicine/lavaland_extract/overdose_process(mob/living/M)
-	M.adjustBruteLoss(3*REM, 0, FALSE, BODYPART_ORGANIC)
-	M.adjustFireLoss(3*REM, 0, FALSE, BODYPART_ORGANIC)
+	M.adjustBruteLoss(3*REM, 0, FALSE, BODYTYPE_ORGANIC)
+	M.adjustFireLoss(3*REM, 0, FALSE, BODYTYPE_ORGANIC)
 	M.adjustToxLoss(3*REM, 0)
 	..()
 	return TRUE

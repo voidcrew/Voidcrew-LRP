@@ -9,7 +9,7 @@
 /obj/machinery/computer/helm
 	name = "helm control console"
 	desc = "Used to view or control the ship."
-	icon_screen = "shuttle"
+	icon_screen = "navigation"
 	icon_keyboard = "tech_key"
 	circuit = /obj/item/circuitboard/computer/shuttle/helm
 	light_color = LIGHT_COLOR_FLARE
@@ -175,7 +175,7 @@
 	.["mapRef"] = current_ship.map_name
 	.["shipInfo"] = list(
 		name = current_ship.name,
-		class = current_ship.source_template.name,
+		class = current_ship.source_template?.name,
 		mass = current_ship.mass,
 		sensor_range = current_ship.sensor_range
 	)
@@ -194,6 +194,9 @@
 			if(!new_name)
 				return
 			new_name = trim(new_name)
+			var/prefix = current_ship.source_template.prefix
+			if (!(findtext(new_name, "KOS") || findtext(new_name, prefix)))
+				new_name = "[prefix] [new_name]"
 			if (!length(new_name) || new_name == current_ship.name)
 				return
 			if(!reject_bad_text(new_name, MAX_CHARTER_LEN))
