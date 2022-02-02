@@ -1,10 +1,3 @@
-#define KEPORI_TACKLE_STAM_COST 10
-#define KEPORI_BASE_TACKLE_KNOCKDOWN (0.2 SECONDS)
-#define KEPORI_TACKLE_RANGE 8
-#define KEPORI_MIN_TACKLE_DISTANCE 1
-#define KEPORI_TACKLE_SPEED 2
-#define KEPORI_TACKLE_SKILL_MOD 2
-
 /datum/species/kepori
 	name = "\improper Kepori"
 	id = SPECIES_KEPORI
@@ -62,10 +55,22 @@
 		return equip_delay_self_check(item, human, bypass_equip_delay_self)
 	. = ..()
 
+#define KEPORI_TACKLE_STAM_COST 10
+#define KEPORI_BASE_TACKLE_KNOCKDOWN (0.2 SECONDS)
+#define KEPORI_TACKLE_RANGE 8
+#define KEPORI_MIN_TACKLE_DISTANCE 1
+#define KEPORI_TACKLE_SPEED 2
+#define KEPORI_TACKLE_SKILL_MOD 2
 /datum/species/kepori/on_species_gain(mob/living/carbon/carbon, datum/species/old_species, pref_load)
 	..()
 	carbon.AddComponent(/datum/component/tackler, stamina_cost = KEPORI_TACKLE_STAM_COST, base_knockdown = KEPORI_BASE_TACKLE_KNOCKDOWN, range = KEPORI_TACKLE_RANGE, speed = KEPORI_TACKLE_SPEED, skill_mod = KEPORI_TACKLE_SKILL_MOD, min_distance = KEPORI_MIN_TACKLE_DISTANCE)
 
+#undef KEPORI_TACKLE_STAM_COST
+#undef KEPORI_BASE_TACKLE_KNOCKDOWN
+#undef KEPORI_TACKLE_RANGE
+#undef KEPORI_MIN_TACKLE_DISTANCE
+#undef KEPORI_TACKLE_SPEED
+#undef KEPORI_TACKLE_SKILL_MOD
 
 /datum/species/kepori/on_species_loss(mob/living/carbon/human/human, datum/species/new_species, pref_load)
 	. = ..()
@@ -74,10 +79,3 @@
 /world/proc/make_kepori_datum_references_list()
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/kepori_feathers, GLOB.kepori_feathers_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/kepori_body_feathers, GLOB.kepori_body_feathers_list)
-
-#undef KEPORI_TACKLE_STAM_COST
-#undef KEPORI_BASE_TACKLE_KNOCKDOWN
-#undef KEPORI_TACKLE_RANGE
-#undef KEPORI_MIN_TACKLE_DISTANCE
-#undef KEPORI_TACKLE_SPEED
-#undef KEPORI_TACKLE_SKILL_MOD

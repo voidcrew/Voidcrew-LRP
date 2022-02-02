@@ -73,7 +73,6 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 #define isdullahan(A) (is_species(A, /datum/species/dullahan))
 
 //WS Begin - Custom Species
-#define issquidperson(A) (is_species(A, /datum/species/squid))
 #define isspiderperson(A) (is_species(A, /datum/species/spider))
 //WS End
 
