@@ -4,8 +4,6 @@ GLOBAL_LIST_INIT(admin_verbs_default, world.AVerbsDefault())
 GLOBAL_PROTECT(admin_verbs_default)
 /world/proc/AVerbsDefault()
 	return list(
-	/client/proc/cmd_mentor_say,
-	/client/proc/mentor_memo,
 	/client/proc/deadmin,				/*destroys our own admin datum so we can play as a regular player*/
 	/client/proc/cmd_admin_say,			/*admin-only ooc chat*/
 	/client/proc/hide_verbs,			/*hides all our adminverbs*/
@@ -200,7 +198,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	)
 GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, /proc/release))
 GLOBAL_PROTECT(admin_verbs_possess)
-GLOBAL_LIST_INIT(admin_verbs_permissions, list(/client/proc/edit_admin_permissions, /client/proc/edit_mentors))
+GLOBAL_LIST_INIT(admin_verbs_permissions, list(/client/proc/edit_admin_permissions))
 GLOBAL_PROTECT(admin_verbs_permissions)
 GLOBAL_LIST_INIT(admin_verbs_poll, list(/client/proc/poll_panel))
 GLOBAL_PROTECT(admin_verbs_poll)
@@ -283,8 +281,6 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 			add_verb(src, /client/proc/togglebuildmodeself)
 		if(rights & R_ADMIN)
 			add_verb(src, GLOB.admin_verbs_admin)
-		if(rights & R_MENTOR)
-			add_verb(src, GLOB.mentor_verbs)
 		if(rights & R_BAN)
 			add_verb(src, GLOB.admin_verbs_ban)
 		if(rights & R_FUN)
@@ -313,7 +309,6 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		GLOB.admin_verbs_default,
 		/client/proc/togglebuildmodeself,
 		GLOB.admin_verbs_admin,
-		GLOB.mentor_verbs,
 		GLOB.admin_verbs_ban,
 		GLOB.admin_verbs_fun,
 		GLOB.admin_verbs_server,
