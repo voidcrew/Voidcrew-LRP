@@ -3,13 +3,13 @@
 	set name = "Mentorsay"
 
 	if(!is_mentor())
-		to_chat(src, span_danger("Error: Only mentors and administrators may use this command."), confidential = TRUE)
+		to_chat(src, "<span class='danger'>Error: Only mentors and administrators may use this command.</span>", confidential = TRUE)
 		return
 
 	msg = emoji_parse(copytext(sanitize(msg), 1, MAX_MESSAGE_LEN))
 	if(!msg)
 		return
-
+/* // Mentor pinging - Not available until TG rebase
 	var/list/pinged_mentor_clients = check_mentor_pings(msg)
 	if(length(pinged_mentor_clients) && pinged_mentor_clients[ADMINSAY_PING_UNDERLINE_NAME_INDEX])
 		msg = pinged_mentor_clients[ADMINSAY_PING_UNDERLINE_NAME_INDEX]
@@ -21,12 +21,10 @@
 			continue
 		window_flash(iter_mentor_client)
 		SEND_SOUND(iter_mentor_client.mob, sound('sound/misc/bloop.ogg'))
-
+*/
 	log_mentor("MSAY: [key_name(src)] : [msg]")
 	msg = keywords_lookup(msg)
-	if(src.key == "[CONFIG_GET(string/headofpseudostaff)]")
-		msg = "<b><font color = #A097FE><span class='prefix'>HOP:</span> <EM>[key_name(src, 0, 0)]</EM>: <span class='message linkify'>[msg]</span></font></b>"
-	else if(mentor_datum?.is_contributor)
+	if(mentor_datum?.is_contributor)
 		msg = "<b><font color = #16abf9><span class='prefix'>CONTRIB:</span> <EM>[key_name(src, 0, 0)]</EM>: <span class='message linkify'>[msg]</span></font></b>"
 	else if(check_rights_for(src, R_ADMIN, 0))
 		msg = "<b><font color = #8A2BE2><span class='prefix'>STAFF:</span> <EM>[key_name(src, 0, 0)]</EM>: <span class='message linkify'>[msg]</span></font></b>"
@@ -42,7 +40,7 @@
 /client/proc/get_mentor_say()
 	var/msg = input(src, null, "msay \"text\"") as text|null
 	cmd_mentor_say(msg)
-
+/*
 /proc/check_mentor_pings(msg) /// see /proc/check_admin_pings(msg) we just check for mentor_datum instead of holder
 	var/list/msglist = splittext(msg, " ")
 	var/list/mentors_to_ping = list()
@@ -63,7 +61,7 @@
 	if(length(mentors_to_ping))
 		mentors_to_ping[ADMINSAY_PING_UNDERLINE_NAME_INDEX] = jointext(msglist, " ")
 		return mentors_to_ping
-
+*/
 /// Gives Mentors/Admins the MSAY verb
 /client/proc/add_mentor_verbs()
 	///Both mentors and admins will get those verbs.
