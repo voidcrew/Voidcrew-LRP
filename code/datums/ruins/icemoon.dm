@@ -18,12 +18,18 @@
 	id = "slimerancher"
 	description = "Slime ranchin with the bud."
 	suffix = "icemoon_surface_slimerancher.dmm"
-	
+
 /datum/map_template/ruin/icemoon/kitchen //Voidcrew edit
 	name = "Ruined kitchen"
 	id = "icekitchen"
 	description = "Something terrible happened with the local fauna"
 	suffix = "icemoon_surface_kitchen.dmm"
+
+/datum/map_template/ruin/icemoon/icemoon_surface_russian_outpost //Voidcrew edit
+	name = "Russian Outpost"
+	id = "icemoon_surface_russian_outpost"
+	description = "The russians have set a research outpost around some unknown object..."
+	suffix = "icemoon_surface_russian_outpost.dmm"
 
 // above and below ground together
 
