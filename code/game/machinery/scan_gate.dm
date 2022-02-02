@@ -17,7 +17,6 @@
 #define SCANGATE_GOLEM "golem"
 #define SCANGATE_ZOMBIE "zombie"
 #define SCANGATE_SPIDER "rachnid"
-#define SCANGATE_SQUID "squid"
 #define SCANGATE_ETHEREAL "ethereal"
 
 /obj/machinery/scanner_gate
@@ -135,8 +134,6 @@
 						scan_species = /datum/species/zombie
 					if(SCANGATE_SPIDER)
 						scan_species = /datum/species/spider
-					if(SCANGATE_SQUID)
-						scan_species = /datum/species/squid
 					if(SCANGATE_ETHEREAL)
 						scan_species = /datum/species/ethereal
 				if(is_species(H, scan_species))
@@ -252,5 +249,4 @@
 #undef SCANGATE_GOLEM
 #undef SCANGATE_ZOMBIE
 #undef SCANGATE_SPIDER
-#undef SCANGATE_SQUID
 #undef SCANGATE_ETHEREAL

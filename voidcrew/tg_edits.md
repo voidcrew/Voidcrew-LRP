@@ -45,3 +45,17 @@
 	- Modifies /datum/species/proc/handle_mutant_bodyparts(), kepori parts
 - config/game_options.txt
 	- Modifies roundstart races
+
+### SQUIDPEOPLE
+- code/__HELPERS/mobs.dm
+	- Modifies /proc/random_features() for squid sprite accessories
+- code/modules/admin/create_mob.dm
+	- Modifies /proc/randomize_human() for ADMIN human randomization
+- code/modules/client/preferences_savefile.dm
+	- Modifies a few procs for writing and saving squid prefs
+- code/modules/client/preferences.dm
+	- Modifies /datum/preferences/proc/ShowChoices, squid prefs
+- code/modules/mob/living/carbon/human/species.dm
+	- Modifies /datum/species/proc/handle_mutant_bodyparts(), squid parts
+- config/game_options.txt
+	- Modifies roundstart races

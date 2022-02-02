@@ -2110,7 +2110,7 @@
 	name = "Witch Wing"
 	icon_state = "witchwing"
 
-//WS begin - Moth wing additions / Squids
+//WS begin - Moth wing additions
 
 //Moth fluff
 /datum/sprite_accessory/moth_fluff
@@ -2184,26 +2184,6 @@
 /datum/sprite_accessory/moth_fluff/shaved
 	name = "Shaved"
 	icon_state = "shaved"
-
-//Squids
-/datum/sprite_accessory/squid_face
-	icon = 'icons/mob/mutant_bodyparts.dmi'
-
-/datum/sprite_accessory/squid_face/squidward
-	name = "Squidward"
-	icon_state = "squidward"
-
-/datum/sprite_accessory/squid_face/illithid
-	name = "Illithid"
-	icon_state = "illithid"
-
-/datum/sprite_accessory/squid_face/freaky
-	name = "Freaky"
-	icon_state = "freaky"
-
-/datum/sprite_accessory/squid_face/grabbers
-	name = "Grabbers"
-	icon_state = "grabbers"
 
 /datum/sprite_accessory/spider_legs
 	icon = 'whitesands/icons/mob/spider_legs.dmi'

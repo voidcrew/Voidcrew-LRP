@@ -12,6 +12,13 @@
 	process_flags = ORGANIC | SYNTHETIC
 	taste_description = "a familiar white meat"
 
+/datum/reagent/mutationtoxin/squid
+	name = "Squid Mutation Toxin"
+	description = "A salty toxin."
+	color = "#5EFF3B" //RGB: 94, 255, 59
+	race = /datum/species/squid
+	process_flags = ORGANIC | SYNTHETIC
+
 /datum/reagent/water
 	process_flags = ORGANIC | SYNTHETIC
 

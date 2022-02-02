@@ -11,14 +11,12 @@
 	heatmod = 1.2
 	burnmod = 1.4
 	speedmod = 0.55
-	var/speedmod_grav = 0.55
-	var/speedmod_nograv = 0
 	punchdamagehigh = 8 //Tentacles make for weak noodle arms
 	punchstunthreshold = 6 //Good for smacking down though
 	attack_verb = "slap"
 	attack_sound = 'sound/weapons/slap.ogg'
 	miss_sound = 'sound/weapons/punchmiss.ogg'
-	special_step_sounds = list('whitesands/sound/effects/footstep/squid1.ogg', 'whitesands/sound/effects/footstep/squid2.ogg', 'whitesands/sound/effects/footstep/squid3.ogg')
+	special_step_sounds = list('voidcrew/sound/effects/footstep/squid/squid1.ogg', 'voidcrew/sound/effects/footstep/squid/squid2.ogg', 'voidcrew/sound/effects/footstep/squid/squid3.ogg')
 	disliked_food = JUNKFOOD
 	liked_food = VEGETABLES | MEAT
 	toxic_food = FRIED
@@ -35,24 +33,21 @@
 /datum/species/squid/random_name(gender,unique,lastname)
 	if(unique)
 		return random_unique_squid_name()
+	return squid_name()
 
-	var/randname = squid_name()
-
-	return randname
-
-/datum/species/squid/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
+/datum/species/squid/on_species_gain(mob/living/carbon/human/human, datum/species/old_species)
 	. = ..()
-	var/datum/action/innate/change_color/S = new
-	var/datum/action/cooldown/spit_ink/I = new
-	S.Grant(H)
-	I.Grant(H)
+	var/datum/action/innate/change_color/change_color = new
+	var/datum/action/cooldown/spit_ink/spit_ink = new
+	change_color.Grant(human)
+	spit_ink.Grant(human)
 
-/datum/species/squid/on_species_loss(mob/living/carbon/human/H)
+/datum/species/squid/on_species_loss(mob/living/carbon/human/human)
 	. = ..()
 	fixed_mut_color = rgb(128,128,128)
-	H.update_body()
-	var/datum/action/innate/change_color/S = locate(/datum/action/innate/change_color) in H.actions
-	S?.Remove(H)
+	human.update_body()
+	var/datum/action/innate/change_color/change_color = locate(/datum/action/innate/change_color) in human.actions
+	change_color?.Remove(human)
 
 /datum/action/innate/change_color
 	name = "Change Color"
@@ -62,13 +57,13 @@
 
 /datum/action/innate/change_color/Activate()
 	active = TRUE //Prevent promptspam
-	var/mob/living/carbon/human/H = owner
+	var/mob/living/carbon/human/human_owner = owner
 	var/color_choice = input(usr, "What color will you change to?", "Color Change") as null | color
 	if (color_choice)
 		var/temp_hsv = RGBtoHSV(color_choice)
 		if (ReadHSV(temp_hsv)[3] >= ReadHSV("#191919")[3])
-			H.dna.species.fixed_mut_color = sanitize_hexcolor(color_choice)
-			H.update_body()
+			human_owner.dna.species.fixed_mut_color = sanitize_hexcolor(color_choice)
+			human_owner.update_body()
 		else
 			to_chat(usr, "<span class='danger'>Invalid color. Your color is not bright enough.</span>")
 	active = FALSE
@@ -86,32 +81,38 @@
 	cooldown_time = 60
 	var/ink_cost = 60
 
-/datum/action/cooldown/spit_ink/Trigger()
-	var/mob/living/carbon/C = owner
-	var/turf/T = get_turf(C)
-	if(!T)
-		to_chat(C, "<span class='warning'>There's no room to spill ink here!</span>")
+/datum/action/cooldown/spit_ink/Trigger() // VOID TODO this will need to be updated on TG due to the new action system
+	var/mob/living/carbon/carbon_owner = owner
+	var/turf/current_turf = get_turf(carbon_owner)
+	if(!current_turf)
+		to_chat(carbon_owner, "<span class='warning'>There's no room to spill ink here!</span>")
 		return
-	var/obj/effect/decal/cleanable/squid_ink/I = locate() in T
-	if(I)
-		to_chat(C, "<span class='warning'>There's already a puddle of ink here!</span>")
+	var/obj/effect/decal/cleanable/squid_ink/squid_ink = locate() in current_turf
+	if(squid_ink)
+		to_chat(carbon_owner, "<span class='warning'>There's already a puddle of ink here!</span>")
 		return
 	var/nutrition_threshold = NUTRITION_LEVEL_FED
-	if (C.nutrition >= nutrition_threshold)
-		C.adjust_nutrition(-ink_cost)
-		playsound(C, 'sound/effects/splat.ogg', 50, 1)
-		new /obj/effect/decal/cleanable/squid_ink(T, C)
-		C.visible_message("<span class='danger'>[C.name] sprays a puddle of slippery ink onto the floor!</span>", "<i>You spray ink all over the floor!</i>")
+	if (carbon_owner.nutrition >= nutrition_threshold)
+		carbon_owner.adjust_nutrition(-ink_cost)
+		playsound(carbon_owner, 'sound/effects/splat.ogg', 50, 1)
+		new /obj/effect/decal/cleanable/squid_ink(current_turf, carbon_owner)
+		carbon_owner.visible_message("<span class='danger'>[carbon_owner.name] sprays a puddle of slippery ink onto the floor!</span>", "<i>You spray ink all over the floor!</i>")
 	else
-		to_chat(C, "<span class='warning'>You don't have enough neutrients to create ink, you need to eat!</span>")
+		to_chat(carbon_owner, "<span class='warning'>You don't have enough neutrients to create ink, you need to eat!</span>")
 		return
 
+#define SQUID_SPEEDMOD_GRAV 0.55
+#define SQUID_SPEEDMOD_NO_GRAV 0
 // Zero gravity movement
-/datum/species/squid/spec_life(mob/living/carbon/human/H)
-	var/area/A = get_area(H)
-	speedmod = A.has_gravity ? speedmod_grav : speedmod_nograv
+/datum/species/squid/spec_life(mob/living/carbon/human/human)
+	var/area/area = get_area(human)
+	speedmod = area.has_gravity ? SQUID_SPEEDMOD_GRAV : SQUID_SPEEDMOD_NO_GRAV
 	..()
+#undef SQUID_SPEEDMOD_GRAV
+#undef SQUID_SPEEDMOD_NO_GRAV
 
-/datum/species/squid/negates_gravity(mob/living/carbon/human/H)
-	if(H.movement_type & !isspaceturf(H.loc))
+/datum/species/squid/negates_gravity(mob/living/carbon/human/human)
+	if(human.movement_type & !isspaceturf(human.loc))
 		return TRUE
+/world/proc/make_squid_datum_references_list()
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/squid_face, GLOB.squid_face_list)

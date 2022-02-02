@@ -305,3 +305,23 @@
 
 /datum/sprite_accessory/kepori_body_feathers/none
 	name = "None"
+
+//Squids
+/datum/sprite_accessory/squid_face
+	icon = 'icons/mob/mutant_bodyparts.dmi'
+
+/datum/sprite_accessory/squid_face/squidward
+	name = "Squidward"
+	icon_state = "squidward"
+
+/datum/sprite_accessory/squid_face/illithid
+	name = "Illithid"
+	icon_state = "illithid"
+
+/datum/sprite_accessory/squid_face/freaky
+	name = "Freaky"
+	icon_state = "freaky"
+
+/datum/sprite_accessory/squid_face/grabbers
+	name = "Grabbers"
+	icon_state = "grabbers"

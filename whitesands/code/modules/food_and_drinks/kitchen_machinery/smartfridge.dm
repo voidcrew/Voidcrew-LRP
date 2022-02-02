@@ -16,7 +16,6 @@
 
 /obj/machinery/smartfridge/bloodbank/update_icon_state()
 	return
-
 /obj/machinery/smartfridge/bloodbank/preloaded
 	initial_contents = list(
 		/obj/item/reagent_containers/blood/AMinus = 1,
