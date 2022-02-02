@@ -320,3 +320,15 @@
 	suffix = "ArtGallery.dmm"
 	name = "Abandoned Art Gallery"
 	description = "This was once apart of a far larger exhibition of artwork though most of it is gone now, Though there seems to be a few things left arround by the visiters that were here most don't seem freindly. ."
+
+/datum/map_template/ruin/space/spiderclanstation
+	id = "spiderclanstation"
+	suffix = "spiderclanstation.dmm"
+	name = "Biological Research Station"
+	description = "A biological research station from the mysterious Spider Clan!"
+
+/datum/map_template/ruin/space/wizardmaze
+	id = "wizardmaze"
+	suffix = "wizardmaze.dmm"
+	name = "Wizard Maze"
+	description = "A hellish maze made by the Wizard Federation to test their acolytes."
