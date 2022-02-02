@@ -314,3 +314,15 @@
 	suffix = "reticencefacility.dmm"
 	name = "Abandoned Mime Facility"
 	description = "This facility seems to have been quickly abandoned. It appears to be related to Mimes."
+
+/datum/map_template/ruin/space/spiderclanstation
+	id = "spiderclanstation"
+	suffix = "spiderclanstation.dmm"
+	name = "Biological Research Station"
+	description = "A biological research station from the mysterious Spider Clan!"
+
+/datum/map_template/ruin/space/wizardmaze
+	id = "wizardmaze"
+	suffix = "wizardmaze.dmm"
+	name = "Wizard Maze"
+	description = "A hellish maze made by the Wizard Federation to test their acolytes."
