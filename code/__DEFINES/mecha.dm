@@ -15,3 +15,11 @@
 #define MECHA_SECURE_BOLTS 1
 #define MECHA_LOOSE_BOLTS 2
 #define MECHA_OPEN_HATCH 3
+
+// HOS - TARTARUS
+// Syndie DS -- Spare Mag Issue
+// Hyena-Class 10mm Mags -- Can't print from lathe
+// Hyena-Class -- Junior Agent missing gear
+// Hyena-Class -- Missing mining vendor. Wreckers (miners) lack mining equipment on start
+// Hyena-Class -- Mechanics have normal tools i/stead of syndie tools.
+//Twinkle-Class -- Captain lacks access to cap/s room/armory
