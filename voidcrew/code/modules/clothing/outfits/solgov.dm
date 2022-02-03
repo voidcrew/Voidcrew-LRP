@@ -13,15 +13,15 @@
 	suit_store = /obj/item/gun/energy/laser/terra
 	back = /obj/item/storage/backpack
 	box = /obj/item/storage/box/survival
-	backpack_contents = list(/obj/item/crowbar/power,\
-		/obj/item/melee/baton/loaded=1,\
-		/obj/item/ammo_box/magazine/pistol556mm=2)
+	backpack_contents = list(/obj/item/crowbar/power,
+		/obj/item/melee/baton/loaded = 1,
+		/obj/item/ammo_box/magazine/pistol556mm = 2)
 
-/datum/outfit/solgov/post_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/solgov/post_equip(mob/living/carbon/human/human, visualsOnly)
 	. = ..()
-	var/obj/item/radio/headset/R = H.ears
-	R.set_frequency(FREQ_SOLGOV)
-	R.freqlock = TRUE
+	var/obj/item/radio/headset/headset = human.ears
+	headset.set_frequency(FREQ_SOLGOV)
+	headset.freqlock = TRUE
 
 /datum/outfit/solgov/commander
 	name = "SolGov Commander"
@@ -36,12 +36,12 @@
 	belt = /obj/item/gun/energy/pulse/terra
 	back = /obj/item/storage/backpack
 	box = /obj/item/storage/box/survival
-	backpack_contents = list(/obj/item/crowbar/power,\
-		/obj/item/melee/baton/loaded=1,\
-		/obj/item/grenade/c4/x4=2,\
-		/obj/item/ammo_box/magazine/pistol556mm=1,\
-		/obj/item/megaphone=1,\
-		/obj/item/clothing/head/beret/solgov=1)
+	backpack_contents = list(/obj/item/crowbar/power,
+		/obj/item/melee/baton/loaded = 1,
+		/obj/item/grenade/c4/x4 = 2,
+		/obj/item/ammo_box/magazine/pistol556mm = 1,
+		/obj/item/megaphone = 1,
+		/obj/item/clothing/head/beret/solgov = 1)
 
 /datum/outfit/solgov/elite
 	name = "SolGov Elite"
@@ -54,7 +54,7 @@
 	head = /obj/item/clothing/head/beret/solgov
 	r_pocket = /obj/item/gun/ballistic/automatic/pistol/solgov
 	l_pocket = /obj/item/melee/transforming/energy/ctf/solgov
-	backpack_contents = list(/obj/item/crowbar/power,\
-		/obj/item/ammo_box/magazine/rifle47x33mm=2,\
-		/obj/item/grenade/c4/x4=2,\
-		/obj/item/ammo_box/magazine/pistol556mm=2)
+	backpack_contents = list(/obj/item/crowbar/power,
+		/obj/item/ammo_box/magazine/rifle47x33mm = 2,
+		/obj/item/grenade/c4/x4 = 2,
+		/obj/item/ammo_box/magazine/pistol556mm = 2)

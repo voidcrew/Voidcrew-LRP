@@ -1,10 +1,3 @@
-
-/* Tables and Racks - File webedited in with love by TripleZeta
- * Contains:
- *		Reinforced Wooden Tables
- *
- */
-
 /obj/structure/table/wood/reinforced //a reinforced version of the regular wooden table, primarily for use in solgov outposts or ships
 	name = "reinforced wooden table"
 	desc = "A reinforced version of the four-legged wooden table. Likely as easy to burn as a normal one."
@@ -25,20 +18,20 @@
 	else
 		return "<span class='notice'>The top cover is firmly stuck on, but could be <i>pried</i> off with considerable effort.</span>"
 
-/obj/structure/table/wood/reinforced/attackby(obj/item/W, mob/user, params)
-	if(W.tool_behaviour == TOOL_CROWBAR && user.a_intent != INTENT_HELP)
-		if(!W.tool_start_check(user, amount=0))
-			return
+/obj/struture/table/wood/reinforced/crowbar_act(mob/living/user, obj/item/item)
+	. = ..()
+	if (user.a_intent == INTENT_HELP)
+		return
+	if (!item.tool_start_check(user, amount = 0))
+		return
 
-		if(deconstruction_ready)
-			to_chat(user, "<span class='notice'>You begin levering the top cover back in place...</span>")
-			if (W.use_tool(src, user, 50, volume=50))
-				to_chat(user, "<span class='notice'>You pry the top cover back into place.</span>")
-				deconstruction_ready = 0
-		else
-			to_chat(user, "<span class='notice'>You start prying off the top cover...</span>")
-			if (W.use_tool(src, user, 50, volume=50))
-				to_chat(user, "<span class='notice'>You pry off the top cover.</span>")
-				deconstruction_ready = 1
+	if(deconstruction_ready)
+		to_chat(user, "<span class='notice'>You begin levering the top cover back in place...</span>")
+		if (item.use_tool(src, user, 50, volume = 50))
+			to_chat(user, "<span class='notice'>You pry the top cover back into place.</span>")
+			deconstruction_ready = 0
 	else
-		. = ..()
+		to_chat(user, "<span class='notice'>You start prying off the top cover...</span>")
+		if (item.use_tool(src, user, 50, volume = 50))
+			to_chat(user, "<span class='notice'>You pry off the top cover.</span>")
+			deconstruction_ready = 1
