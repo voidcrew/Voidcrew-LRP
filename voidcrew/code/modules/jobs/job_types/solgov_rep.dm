@@ -1,7 +1,6 @@
 /*
 SolGov Representative
 */
-
 /datum/job/solgov
 	title = "SolGov Representative"
 	faction = "Station"

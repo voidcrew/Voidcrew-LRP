@@ -1,6 +1,6 @@
 /obj/item/clothing/under/solgov
-	icon = 'icons/obj/clothing/under/solgov.dmi'
-	mob_overlay_icon = 'icons/mob/clothing/under/solgov.dmi'
+	icon = 'voidcrew/icons/obj/clothing/under/solgov.dmi'
+	mob_overlay_icon = 'voidcrew/icons/mob/clothing/under/solgov.dmi'
 	icon_state = "fatigues"
 	item_state = "fatigues"
 	name = "\improper SolGov fatigues"
@@ -31,8 +31,8 @@
 	can_adjust = FALSE
 
 /obj/item/clothing/under/plasmaman/solgov
-	icon = 'icons/obj/clothing/under/solgov.dmi' //ogan i am going to kill you i stg
-	mob_overlay_icon = 'icons/mob/clothing/under/solgov.dmi'
+	icon = 'voidcrew/icons/obj/clothing/under/solgov.dmi'
+	mob_overlay_icon = 'voidcrew/icons/mob/clothing/under/solgov.dmi'
 	name = "SolGov envirosuit"
 	desc = "Why the human centric government sent the science-fiction equivalent of a leper to this station is beyond me."
 	icon_state = "plasma_solgov"
