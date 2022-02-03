@@ -63,7 +63,7 @@
 
 
 /obj/mecha/working/ripley/mkii
-	desc = "Autonomous Power Loader Unit MK-II. This prototype Ripley is refitted with a pressurized cabin, trading its prior speed for atmospheric protection"
+	desc = "Autonomous Power Loader Unit MK-II. This prototype Ripley is refitted with a pressurized cabin, trading its prior speed for atmospheric protection. While the air-tight cabin provides additional integrity, this model was rarely seen on well-developed stations."
 	name = "\improper APLU MK-II \"Ripley\""
 	icon_state = "ripleymkii"
 	fast_pressure_step_in = 2 //step_in while in low pressure conditions
@@ -77,7 +77,7 @@
 	opacity = TRUE
 
 /obj/mecha/working/ripley/firefighter
-	desc = "Autonomous Power Loader Unit MK-III. This model is refitted with a pressurized cabin and additional thermal protection."
+	desc = "Autonomous Power Loader Unit MK-III. This model has an improved plasteel-alloy armour system; based on lessons learned during the Nanotrasen-Syndicate War, it offers near-total immunity from heat and grants excellent protection from conventional weaponry."
 	name = "\improper APLU MK-III \"Firefighter\""
 	icon_state = "firefighter"
 	max_temperature = 65000
@@ -88,7 +88,7 @@
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	light_range = 7
 	light_power = 1
-	armor = list("melee" = 55, "bullet" = 35, "laser" = 35, "energy" = 30, "bomb" = 70, "bio" = 0, "rad" = 95, "fire" = 100, "acid" = 100)
+	armor = list("melee" = 55, "bullet" = 35, "laser" = 35, "energy" = 30, "bomb" = 70, "bio" = 0, "rad" = 90, "fire" = 100, "acid" = 100)
 	max_equip = 5 // More armor, less tools
 	wreckage = /obj/structure/mecha_wreckage/ripley/firefighter
 	enclosed = TRUE
