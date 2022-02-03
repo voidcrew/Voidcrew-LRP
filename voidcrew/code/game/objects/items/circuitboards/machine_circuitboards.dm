@@ -1,3 +1,47 @@
+/**
+ # PACMANS
+ */
+/obj/item/circuitboard/machine/pacman/uranium
+	name = "SUPERPACMAN-type Generator (Machine Board)"
+	icon_state = "engineering"
+	build_path = /obj/machinery/power/port_gen/pacman/uranium
+
+/obj/item/circuitboard/machine/pacman/diamond
+	name = "MRSPACMAN-type Generator (Machine Board)"
+	build_path = /obj/machinery/power/port_gen/pacman/diamond
+
+/**
+ * # CLONING
+ */
+/obj/item/circuitboard/machine/clonepod
+	name = "Clone Pod (Machine Board)"
+	icon_state = "medical"
+	build_path = /obj/machinery/clonepod
+	req_components = list(
+		/obj/item/stack/cable_coil = 2,
+		/obj/item/stock_parts/scanning_module = 2,
+		/obj/item/stock_parts/manipulator = 2,
+		/obj/item/stack/sheet/glass = 1)
+
+/obj/item/circuitboard/machine/clonepod/experimental
+	name = "Experimental Clone Pod (Machine Board)"
+	icon_state = "medical"
+	build_path = /obj/machinery/clonepod/experimental
+
+/obj/item/circuitboard/machine/clonescanner
+	name = "Cloning Scanner (Machine Board)"
+	icon_state = "medical"
+	build_path = /obj/machinery/dna_scannernew
+	req_components = list(
+		/obj/item/stock_parts/scanning_module = 1,
+		/obj/item/stock_parts/matter_bin = 1,
+		/obj/item/stock_parts/micro_laser = 1,
+		/obj/item/stack/sheet/glass = 1,
+		/obj/item/stack/cable_coil = 2)
+
+/**
+ * # NANITES
+ */
 /obj/item/circuitboard/machine/nanite_chamber
 	name = "Nanite Chamber (Machine Board)"
 	icon_state = "science"
@@ -28,14 +72,16 @@
 	name = "Public Nanite Chamber (Machine Board)"
 	icon_state = "science"
 	build_path = /obj/machinery/public_nanite_chamber
-	var/cloud_id = 1
 	req_components = list(
 		/obj/item/stock_parts/micro_laser = 2,
-		/obj/item/stock_parts/manipulator = 1)
+		/obj/item/stock_parts/manipulator = 1,
+	)
+	///The cloud ID this nanite chamber will be synced to upon being built.
+	var/cloud_id = 1
 
 /obj/item/circuitboard/machine/public_nanite_chamber/multitool_act(mob/living/user)
 	. = ..()
-	var/new_cloud = input("Set the public nanite chamber's Cloud ID (1-100).", "Cloud ID", cloud_id) as num|null
+	var/new_cloud = input("Set the public nanite chamber's Cloud ID (1-100).", "Cloud ID", cloud_id) as num|null // TODO - TGUI this after rebase
 	if(!new_cloud || (loc != user))
 		to_chat(user, "<span class='warning'>You must hold the circuitboard to change its Cloud ID!</span>")
 		return
@@ -45,28 +91,3 @@
 	. = ..()
 	. += "Cloud ID is currently set to [cloud_id]."
 
-/obj/item/circuitboard/machine/clonepod
-	name = "Clone Pod (Machine Board)"
-	icon_state = "medical"
-	build_path = /obj/machinery/clonepod
-	req_components = list(
-		/obj/item/stack/cable_coil = 2,
-		/obj/item/stock_parts/scanning_module = 2,
-		/obj/item/stock_parts/manipulator = 2,
-		/obj/item/stack/sheet/glass = 1)
-
-/obj/item/circuitboard/machine/clonepod/experimental
-	name = "Experimental Clone Pod (Machine Board)"
-	icon_state = "medical"
-	build_path = /obj/machinery/clonepod/experimental
-
-/obj/item/circuitboard/machine/clonescanner
-	name = "Cloning Scanner (Machine Board)"
-	icon_state = "medical"
-	build_path = /obj/machinery/dna_scannernew
-	req_components = list(
-		/obj/item/stock_parts/scanning_module = 1,
-		/obj/item/stock_parts/matter_bin = 1,
-		/obj/item/stock_parts/micro_laser = 1,
-		/obj/item/stack/sheet/glass = 1,
-		/obj/item/stack/cable_coil = 2)
