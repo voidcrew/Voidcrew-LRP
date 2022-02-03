@@ -558,7 +558,6 @@
 	desc = "A complicated kit containing all the parts necessary to upgrade a MK-II's armour with additional armour plates and improved insulation around the electronics. Must be applied to a MK-II's frame and cannot be removed once applied. "
 	icon_state = "ripleyupgrade"
 
-	var/obj/mecha/working/ripley/mkii/N = new /obj/mecha/working/ripley/firefighter(get_turf(M),1)
 
 /obj/item/mecha_parts/mecha_equipment/ripleyupgrade/firefighter/can_attach(obj/mecha/working/ripley/M)
 	if(M.type != /obj/mecha/working/ripley/mkii)
@@ -577,3 +576,41 @@
 		to_chat(loc, "<span class='warning'>The conversion process requires a cell installed.</span>")
 		return FALSE
 	return TRUE
+
+/obj/item/mecha_parts/mecha_equipment/ripleyupgrade/firefighter/attach(obj/mecha/M)
+	var/obj/mecha/working/ripley/mkii/N = new /obj/mecha/working/ripley/firefighter(get_turf(M),1)
+	if(!N)
+		return
+	QDEL_NULL(N.cell)
+	if (M.cell)
+		N.cell = M.cell
+		M.cell.forceMove(N)
+		M.cell = null
+	QDEL_NULL(N.scanmod)
+	if (M.scanmod)
+		N.scanmod = M.scanmod
+		M.scanmod.forceMove(N)
+		M.scanmod = null
+	QDEL_NULL(N.capacitor)
+	if (M.capacitor)
+		N.capacitor = M.capacitor
+		M.capacitor.forceMove(N)
+		M.capacitor = null
+	N.update_part_values()
+	for(var/obj/item/mecha_parts/E in M.contents)
+		if(istype(E, /obj/item/mecha_parts/concealed_weapon_bay)) //why is the bay not just a variable change who did this
+			E.forceMove(N)
+	for(var/obj/item/mecha_parts/mecha_equipment/E in M.equipment) //Move the equipment over...
+		E.detach()
+		E.attach(N)
+		M.equipment -= E
+	N.dna_lock = M.dna_lock
+	N.maint_access = M.maint_access
+	N.strafe = M.strafe
+	N.obj_integrity = M.obj_integrity //This is not a repair tool
+	if (M.name != "\improper APLU MK-II \"Ripley\"")
+		N.name = M.name
+	M.wreckage = 0
+	qdel(M)
+	playsound(get_turf(N),'sound/items/ratchet.ogg',50,TRUE)
+	return

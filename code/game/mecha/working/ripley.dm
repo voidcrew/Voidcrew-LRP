@@ -69,7 +69,7 @@
 	fast_pressure_step_in = 2 //step_in while in low pressure conditions
 	slow_pressure_step_in = 4 //step_in while in normal pressure conditions
 	step_in = 4
-	armor = list("melee" = 50, "bullet" = 20, "laser" = 10, "energy" = 20, "bomb" = 45, "bio" = 0, "rad" = 60, "fire" = 100, "acid" = 100)
+	armor = list("melee" = 50, "bullet" = 30, "laser" = 30, "energy" = 30, "bomb" = 60, "bio" = 0, "rad" = 60, "fire" = 100, "acid" = 100)
 	wreckage = /obj/structure/mecha_wreckage/ripley/mkii
 	enclosed = TRUE
 	enter_delay = 40
@@ -88,7 +88,7 @@
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	light_range = 7
 	light_power = 1
-	armor = list("melee" = 55, "bullet" = 35, "laser" = 35, "energy" = 30, "bomb" = 60, "bio" = 0, "rad" = 95, "fire" = 100, "acid" = 100)
+	armor = list("melee" = 55, "bullet" = 35, "laser" = 35, "energy" = 30, "bomb" = 70, "bio" = 0, "rad" = 95, "fire" = 100, "acid" = 100)
 	max_equip = 5 // More armor, less tools
 	wreckage = /obj/structure/mecha_wreckage/ripley/firefighter
 	enclosed = TRUE
@@ -101,11 +101,14 @@
 	desc = "OH SHIT IT'S THE DEATHSQUAD WE'RE ALL GONNA DIE"
 	name = "\improper DEATH-RIPLEY"
 	icon_state = "deathripley"
-	fast_pressure_step_in = 2 //step_in while in low pressure conditions
+	max_integrity = 400
+	max_temperature = 100000 // Admin-only deathsquad mech, let's make it not die in a fire
+	fast_pressure_step_in = 1.5 //step_in while in low pressure conditions
 	slow_pressure_step_in = 3 //step_in while in normal pressure conditions
 	step_in = 4
 	light_range = 7
 	light_power = 1
+	armor = list("melee" = 60, "bullet" = 40, "laser" = 40, "energy" = 40, "bomb" = 75, "bio" = 0, "rad" = 100, "fire" = 100, "acid" = 100)
 	wreckage = /obj/structure/mecha_wreckage/ripley/deathripley
 	step_energy_drain = 0
 	enclosed = TRUE

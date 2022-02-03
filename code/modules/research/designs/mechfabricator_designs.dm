@@ -72,8 +72,9 @@
 	construction_time = 100
 	category = list("Ripley")
 
-//firefighter subtype
-/datum/design/firefighter_chassis
+//firefighter subtype // Replaced by a printable firefighter upgrade module
+
+/*/datum/design/firefighter_chassis
 	name = "Exosuit Chassis (APLU \"Firefighter\")"
 	id = "firefighter_chassis"
 	build_type = MECHFAB
@@ -81,6 +82,7 @@
 	materials = list(/datum/material/iron=20000)
 	construction_time = 100
 	category = list("Firefighter")
+*/
 
 /datum/design/ripley_torso
 	name = "Exosuit Torso (APLU \"Ripley\")"
@@ -490,7 +492,7 @@
 	id = "ripleyupgrade_firefighter"
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/ripleyupgrade/firefighter
-	materials = list(/datum/material/iron=15000,/datum/material/plasma=15000,/datum/material/titanium=10000,/datum/material/uranium/10000)
+	materials = list(/datum/material/iron=15000,/datum/material/plasma=15000,/datum/material/titanium=10000,/datum/material/uranium=15000)
 	construction_time = 100
 	category = list("Exosuit Equipment")
 
