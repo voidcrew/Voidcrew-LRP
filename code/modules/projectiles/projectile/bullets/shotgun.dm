@@ -102,4 +102,4 @@
 // Mech Scattershot
 
 /obj/projectile/bullet/scattershot
-	damage = 24
+	damage = 25

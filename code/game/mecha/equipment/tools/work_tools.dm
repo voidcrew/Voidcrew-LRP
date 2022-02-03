@@ -552,3 +552,28 @@
 	qdel(M)
 	playsound(get_turf(N),'sound/items/ratchet.ogg',50,TRUE)
 	return
+
+/obj/item/mecha_parts/mecha_equipment/ripleyupgrade/firefighter
+	name = "Ripley Heavy-Duty Frontier kit"
+	desc = "A complicated kit containing all the parts necessary to upgrade a MK-II's armour with additional armour plates and improved insulation around the electronics. Must be applied to a MK-II's frame and cannot be removed once applied. "
+	icon_state = "ripleyupgrade"
+
+	var/obj/mecha/working/ripley/mkii/N = new /obj/mecha/working/ripley/firefighter(get_turf(M),1)
+
+/obj/item/mecha_parts/mecha_equipment/ripleyupgrade/firefighter/can_attach(obj/mecha/working/ripley/M)
+	if(M.type != /obj/mecha/working/ripley/mkii)
+		to_chat(loc, "<span class='warning'>This conversion kit can only be applied to APLU MK-II models.</span>")
+		return FALSE
+	if(M.cargo.len)
+		to_chat(loc, "<span class='warning'>[M]'s cargo hold must be empty before this conversion kit can be applied.</span>")
+		return FALSE
+	if(!M.maint_access) //non-removable upgrade, so lets make sure the pilot or owner has their say.
+		to_chat(loc, "<span class='warning'>[M] must have maintenance protocols active in order to allow this conversion kit.</span>")
+		return FALSE
+	if(M.occupant) //We're actualy making a new mech and swapping things over, it might get weird if players are involved
+		to_chat(loc, "<span class='warning'>[M] must be unoccupied before this conversion kit can be applied.</span>")
+		return FALSE
+	if(!M.cell) //Turns out things break if the cell is missing
+		to_chat(loc, "<span class='warning'>The conversion process requires a cell installed.</span>")
+		return FALSE
+	return TRUE

@@ -485,6 +485,15 @@
 	construction_time = 100
 	category = list("Exosuit Equipment")
 
+/datum/design/ripleyupgrade/firefighter
+	name = "Ripley MK-II to MK-III conversion kit"
+	id = "ripleyupgrade_firefighter"
+	build_type = MECHFAB
+	build_path = /obj/item/mecha_parts/mecha_equipment/ripleyupgrade/firefighter
+	materials = list(/datum/material/iron=15000,/datum/material/plasma=15000,/datum/material/titanium=10000,/datum/material/uranium/10000)
+	construction_time = 100
+	category = list("Exosuit Equipment")
+
 /datum/design/mech_hydraulic_clamp
 	name = "Exosuit Engineering Equipment (Hydraulic Clamp)"
 	id = "mech_hydraulic_clamp"

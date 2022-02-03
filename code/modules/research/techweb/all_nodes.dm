@@ -736,6 +736,15 @@
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 	export_price = 5000
 
+/datum/techweb_node/firefighter
+	id = "mecha_firefighter"
+	display_name = "MK-III Upgrade Kit"
+	description = "MK-III Kit Design"
+	prereq_ids = list("adv_mecha")
+	design_ids = list("ripleyupgrade_firefighter")
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
+	export_price = 1500
+
 /datum/techweb_node/odysseus
 	id = "mecha_odysseus"
 	display_name = "EXOSUIT: Odysseus"
