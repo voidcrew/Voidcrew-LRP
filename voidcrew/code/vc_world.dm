@@ -8,5 +8,8 @@
 	make_kepori_datum_references_list()
 	make_squid_datum_references_list()
 
+	// Add custom role radio freqs to glob lists
+	init_custom_say_radio_globs()
+
 	// Load all mentors
 	load_mentors()
