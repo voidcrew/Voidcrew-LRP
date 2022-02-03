@@ -1249,8 +1249,6 @@
 			cookiealt = /obj/item/reagent_containers/food/snacks/nugget
 		else if(isfelinid(H))
 			cookiealt = /obj/item/reagent_containers/food/snacks/deadmouse
-		else if(issquidperson(H))
-			cookiealt = /obj/item/reagent_containers/food/snacks/fishfingers
 		if(H.recieve_gift(cookiealt))
 			log_admin("[key_name(H)] got their [cookiealt], spawned by [key_name(src.owner)].")
 			message_admins("[key_name(H)] got their [cookiealt], spawned by [key_name(src.owner)].")

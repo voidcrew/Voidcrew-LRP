@@ -77,9 +77,9 @@
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_fluff, GLOB.moth_fluff_list)
 	if(!GLOB.moth_markings_list.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_markings, GLOB.moth_markings_list)
+	// VOID EDIT BEGIN
 	if(!GLOB.squid_face_list.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/squid_face, GLOB.squid_face_list)
-	// VOID EDIT BEGIN
 	if(!GLOB.ipc_screens_list.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/ipc_screens, GLOB.ipc_screens_list)
 	if(!GLOB.ipc_antennas_list.len)
@@ -153,14 +153,6 @@
 
 		if(!findname(.))
 			break
-
-/proc/random_unique_squid_name(attempts_to_find_unique_name=10)
-	for(var/i in 1 to attempts_to_find_unique_name)
-		. = capitalize(squid_name())
-
-		if(!findname(.))
-			break
-
 
 /proc/random_skin_tone()
 	return pick(GLOB.skin_tones)

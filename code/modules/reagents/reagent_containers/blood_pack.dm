@@ -61,9 +61,6 @@
 /obj/item/reagent_containers/blood/lizard
 	blood_type = "L"
 
-/obj/item/reagent_containers/blood/squid
-	blood_type = "S"
-
 /obj/item/reagent_containers/blood/universal
 	blood_type = "U"
 
