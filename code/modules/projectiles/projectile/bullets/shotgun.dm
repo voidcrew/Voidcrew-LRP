@@ -102,4 +102,4 @@
 // Mech Scattershot
 
 /obj/projectile/bullet/scattershot
-	damage = 25
+	damage = 25 //VoidTest Edit, changes 24 to 25

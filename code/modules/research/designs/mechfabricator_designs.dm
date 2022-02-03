@@ -72,7 +72,7 @@
 	construction_time = 100
 	category = list("Ripley")
 
-//firefighter subtype // Replaced by a printable firefighter upgrade module
+//firefighter subtype // Replaced by the "MK-III Upgrade", found at your local exofab
 
 /*/datum/design/firefighter_chassis
 	name = "Exosuit Chassis (APLU \"Firefighter\")"

@@ -28,7 +28,7 @@
 	mine_range = 5
 
 /obj/projectile/plasma/adv/mech
-	damage = 10
+	damage = 20 // VoidTest Edit, changes 10 to 20
 	range = 9
 	mine_range = 3
 

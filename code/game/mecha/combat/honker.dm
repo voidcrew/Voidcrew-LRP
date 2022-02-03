@@ -6,7 +6,7 @@
 	max_integrity = 150
 	deflect_chance = 60
 	internal_damage_threshold = 50
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 100)
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 100) //VoidTest Edit, gives combat mechs a moderate stats buff
 	max_temperature = 25000
 	infra_luminosity = 5
 	operation_req_access = list(ACCESS_THEATRE)

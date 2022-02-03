@@ -6,7 +6,7 @@
 	dir_in = 1 //Facing North.
 	max_integrity = 300
 	deflect_chance = 5
-	armor = list("melee" = 30, "bullet" = 30, "laser" = 40, "energy" = 15, "bomb" = 15, "bio" = 0, "rad" = 10, "fire" = 100, "acid" = 100)
+	armor = list("melee" = 30, "bullet" = 30, "laser" = 40, "energy" = 15, "bomb" = 15, "bio" = 0, "rad" = 10, "fire" = 100, "acid" = 100) //VoidTest Edit, gives combat mechs a moderate stats buff
 	max_temperature = 25000
 	leg_overload_coeff = 80
 	infra_luminosity = 6

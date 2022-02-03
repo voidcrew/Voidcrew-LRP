@@ -7,7 +7,7 @@
 	step_energy_drain = 3
 	max_integrity = 250
 	deflect_chance = 30
-	armor = list("melee" = 40, "bullet" = 40, "laser" = 40, "energy" = 30, "bomb" = 35, "bio" = 0, "rad" = 50, "fire" = 100, "acid" = 100)
+	armor = list("melee" = 40, "bullet" = 40, "laser" = 40, "energy" = 30, "bomb" = 35, "bio" = 0, "rad" = 50, "fire" = 100, "acid" = 100) //VoidTest Edit, gives combat mechs a moderate stats buff
 	max_temperature = 25000
 	infra_luminosity = 3
 	wreckage = /obj/structure/mecha_wreckage/phazon
