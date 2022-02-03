@@ -1,5 +1,6 @@
 /obj/item/clothing/head/helmet/space/solgov
 	name = "\improper SolGov Vacuum Helmet"
+	icon = 'voidcrew/icons/obj/clothing/hats.dmi'
 	icon_state = "vachelmet_solgov"
 	desc = "This space-proof helmet is meant to be worn with a matching T-MA suit."
 	item_state = "vachelmet_solgov"
@@ -7,6 +8,7 @@
 
 /obj/item/clothing/suit/space/solgov
 	name = "\improper SolGov Vacuum Suit"
+	icon = 'voidcrew/icons/obj/clothing/suits.dmi'
 	icon_state = "vacsuit_solgov"
 	desc = "Originally designed by independent contractors on Luna for the security team of a major hotel chain, the armored and lightweight Tortoise Microlite Armored Suit now sees widespread use by SolGov's peacekeeper forces."
 	item_state = "vacsuit_solgov"
