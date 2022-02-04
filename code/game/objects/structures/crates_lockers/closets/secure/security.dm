@@ -110,7 +110,7 @@
 	new /obj/item/storage/photo_album/HoS(src)
 	new /obj/item/gun_voucher //WS edit - gun gun gun gun gun gun gun
 
-/obj/structure/closet/secure_closet/hos_lite
+/obj/structure/closet/secure_closet/hos_lite //Snowflake map item for VoidTest
 	name = "\proper head of security's locker"
 	req_access = list(ACCESS_HOS)
 	icon_state = "hos"
