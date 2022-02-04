@@ -4,5 +4,5 @@
 	time = 50
 	reqs = list(/obj/item/stack/sheet/leather = 4,
 				/obj/item/stack/sheet/sinew = 1)
-	tools = list(TOOL_WIRECUTTER, /obj/item/stack/medical/suture)
+	tools = list(TOOL_WIRECUTTER, TOOL_SCREWDRIVER)
 	category = CAT_PRIMAL
