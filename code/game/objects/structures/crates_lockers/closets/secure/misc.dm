@@ -65,3 +65,24 @@
 	new /obj/item/storage/box/smart_metal_foam(src)
 	for(var/i in 1 to 3)
 		new /obj/item/rcd_ammo/large(src)
+
+/obj/structure/closet/secure_closet/pilot_officer
+	name = "/proper pilot officer's locker"
+	desc = "A storage unit containing useful equipment for a spacecraft pilot or mechanic."
+	req_access = list(ACCESS_SECURITY)
+	icon_state = "sec"
+
+/obj/structure/closet/secure_closet/pilot_officer/PopulateContents()
+	..()
+	new /obj/item/stack/sheet/metal(src, 25)
+	new /obj/item/storage/box/metalfoam(src)
+	new /obj/item/clothing/ears/earmuffs(src)
+	new /obj/item/flashlight/flare(src)
+	new /obj/item/flashlight/flare(src)
+	new /obj/item/restraints/handcuffs/cable(src)
+	new /obj/item/melee/classic_baton/telescopic(src)
+	new /obj/item/gun/energy/e_gun/mini(src)
+	new /obj/item/flashlight/seclite(src)
+	new /obj/item/clothing/suit/space/pilot(src)
+	new /obj/item/clothing/head/helmet/space/pilot(src)
+	new /obj/item/clothing/shoes/jackboots(src)
