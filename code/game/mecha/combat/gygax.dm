@@ -4,9 +4,9 @@
 	icon_state = "gygax"
 	step_in = 3
 	dir_in = 1 //Facing North.
-	max_integrity = 250
+	max_integrity = 300
 	deflect_chance = 5
-	armor = list("melee" = 25, "bullet" = 20, "laser" = 30, "energy" = 15, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 100)
+	armor = list("melee" = 30, "bullet" = 30, "laser" = 40, "energy" = 15, "bomb" = 15, "bio" = 0, "rad" = 10, "fire" = 100, "acid" = 100) //VoidTest Edit, gives combat mechs a moderate stats buff
 	max_temperature = 25000
 	leg_overload_coeff = 80
 	infra_luminosity = 6
@@ -27,7 +27,7 @@
 	icon_state = "darkgygax"
 	max_integrity = 300
 	deflect_chance = 20
-	armor = list("melee" = 40, "bullet" = 40, "laser" = 50, "energy" = 35, "bomb" = 20, "bio" = 0, "rad" =20, "fire" = 100, "acid" = 100)
+	armor = list("melee" = 40, "bullet" = 40, "laser" = 50, "energy" = 35, "bomb" = 20, "bio" = 0, "rad" = 20, "fire" = 100, "acid" = 100)
 	max_temperature = 35000
 	leg_overload_coeff = 70
 	force = 30

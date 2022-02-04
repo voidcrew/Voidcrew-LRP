@@ -63,13 +63,13 @@
 
 
 /obj/mecha/working/ripley/mkii
-	desc = "Autonomous Power Loader Unit MK-II. This prototype Ripley is refitted with a pressurized cabin, trading its prior speed for atmospheric protection"
+	desc = "Autonomous Power Loader Unit MK-II. This prototype Ripley is refitted with a pressurized cabin, trading its prior speed for atmospheric protection. While the air-tight cabin provides additional integrity, this model was rarely seen on well-developed stations."
 	name = "\improper APLU MK-II \"Ripley\""
 	icon_state = "ripleymkii"
 	fast_pressure_step_in = 2 //step_in while in low pressure conditions
 	slow_pressure_step_in = 4 //step_in while in normal pressure conditions
 	step_in = 4
-	armor = list("melee" = 40, "bullet" = 20, "laser" = 10, "energy" = 20, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 100)
+	armor = list("melee" = 50, "bullet" = 30, "laser" = 30, "energy" = 30, "bomb" = 60, "bio" = 0, "rad" = 60, "fire" = 100, "acid" = 100)
 	wreckage = /obj/structure/mecha_wreckage/ripley/mkii
 	enclosed = TRUE
 	enter_delay = 40
@@ -77,18 +77,18 @@
 	opacity = TRUE
 
 /obj/mecha/working/ripley/firefighter
-	desc = "Autonomous Power Loader Unit MK-III. This model is refitted with a pressurized cabin and additional thermal protection."
+	desc = "Autonomous Power Loader Unit MK-III. This model has an improved plasteel-alloy armour system; based on lessons learned during the Nanotrasen-Syndicate War, it offers near-total immunity from heat and grants excellent protection from conventional weaponry."
 	name = "\improper APLU MK-III \"Firefighter\""
 	icon_state = "firefighter"
 	max_temperature = 65000
-	max_integrity = 250
+	max_integrity = 300
 	fast_pressure_step_in = 2 //step_in while in low pressure conditions
 	slow_pressure_step_in = 4 //step_in while in normal pressure conditions
 	step_in = 4
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	light_range = 7
 	light_power = 1
-	armor = list("melee" = 40, "bullet" = 30, "laser" = 30, "energy" = 30, "bomb" = 60, "bio" = 0, "rad" = 70, "fire" = 100, "acid" = 100)
+	armor = list("melee" = 55, "bullet" = 35, "laser" = 35, "energy" = 30, "bomb" = 70, "bio" = 0, "rad" = 90, "fire" = 100, "acid" = 100)
 	max_equip = 5 // More armor, less tools
 	wreckage = /obj/structure/mecha_wreckage/ripley/firefighter
 	enclosed = TRUE
@@ -101,11 +101,14 @@
 	desc = "OH SHIT IT'S THE DEATHSQUAD WE'RE ALL GONNA DIE"
 	name = "\improper DEATH-RIPLEY"
 	icon_state = "deathripley"
-	fast_pressure_step_in = 2 //step_in while in low pressure conditions
+	max_integrity = 400
+	max_temperature = 100000 // Admin-only deathsquad mech, let's make it not die in a fire
+	fast_pressure_step_in = 1.5 //step_in while in low pressure conditions
 	slow_pressure_step_in = 3 //step_in while in normal pressure conditions
 	step_in = 4
 	light_range = 7
 	light_power = 1
+	armor = list("melee" = 60, "bullet" = 40, "laser" = 40, "energy" = 40, "bomb" = 75, "bio" = 0, "rad" = 100, "fire" = 100, "acid" = 100)
 	wreckage = /obj/structure/mecha_wreckage/ripley/deathripley
 	step_energy_drain = 0
 	enclosed = TRUE
