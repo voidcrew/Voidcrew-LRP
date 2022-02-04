@@ -552,3 +552,64 @@
 	qdel(M)
 	playsound(get_turf(N),'sound/items/ratchet.ogg',50,TRUE)
 	return
+
+/obj/item/mecha_parts/mecha_equipment/ripleyupgrade/firefighter
+	name = "Ripley Heavy-Duty Frontier kit"
+	desc = "A complicated kit containing all the parts necessary to upgrade a MK-II's armour with additional armour plates and improved insulation around the electronics. Must be applied to a MK-II's frame and cannot be removed once applied. "
+	icon_state = "ripleyupgrade"
+
+/obj/item/mecha_parts/mecha_equipment/ripleyupgrade/firefighter/can_attach(obj/mecha/working/ripley/target_mech)
+	if(target_mech.type != /obj/mecha/working/ripley/mkii)
+		to_chat(loc, "<span class='warning'>This conversion kit can only be applied to APLU MK-II models.</span>")
+		return FALSE
+	if(target_mech.cargo.len)
+		to_chat(loc, "<span class='warning'>[target_mech]'s cargo hold must be empty before this conversion kit can be applied.</span>")
+		return FALSE
+	if(!target_mech.maint_access) //non-removable upgrade, so lets make sure the pilot or owner has their say.
+		to_chat(loc, "<span class='warning'>[target_mech] must have maintenance protocols active in order to allow this conversion kit.</span>")
+		return FALSE
+	if(target_mech.occupant) //We're actualy making a new mech and swapping things over, it might get weird if players are involved
+		to_chat(loc, "<span class='warning'>[target_mech] must be unoccupied before this conversion kit can be applied.</span>")
+		return FALSE
+	if(!target_mech.cell) //Turns out things break if the cell is missing
+		to_chat(loc, "<span class='warning'>The conversion process requires a cell installed.</span>")
+		return FALSE
+	return TRUE
+
+/obj/item/mecha_parts/mecha_equipment/ripleyupgrade/firefighter/attach(obj/mecha/target_mech)
+	var/obj/mecha/working/ripley/mkii/new_mech = new /obj/mecha/working/ripley/firefighter(get_turf(target_mech),1)
+	if(!new_mech)
+		return
+	QDEL_NULL(new_mech.cell)
+	if (target_mech.cell)
+		new_mech.cell = target_mech.cell
+		target_mech.cell.forceMove(new_mech)
+		target_mech.cell = null
+	QDEL_NULL(new_mech.scanmod)
+	if (target_mech.scanmod)
+		new_mech.scanmod = target_mech.scanmod
+		target_mech.scanmod.forceMove(new_mech)
+		target_mech.scanmod = null
+	QDEL_NULL(new_mech.capacitor)
+	if (target_mech.capacitor)
+		new_mech.capacitor = target_mech.capacitor
+		target_mech.capacitor.forceMove(new_mech)
+		target_mech.capacitor = null
+	new_mech.update_part_values()
+	for(var/obj/item/mecha_parts/E in target_mech.contents)
+		if(istype(E, /obj/item/mecha_parts/concealed_weapon_bay)) //why is the bay not just a variable change who did this
+			E.forceMove(new_mech)
+	for(var/obj/item/mecha_parts/mecha_equipment/E in target_mech.equipment) //Move the equipment over...
+		E.detach()
+		E.attach(new_mech)
+		target_mech.equipment -= E
+	new_mech.dna_lock = target_mech.dna_lock
+	new_mech.maint_access = target_mech.maint_access
+	new_mech.strafe = target_mech.strafe
+	new_mech.obj_integrity = target_mech.obj_integrity //This is not a repair tool
+	if (target_mech.name != "\improper APLU MK-II \"Ripley\"")
+		new_mech.name = target_mech.name
+	target_mech.wreckage = 0
+	qdel(target_mech)
+	playsound(get_turf(new_mech),'sound/items/ratchet.ogg',50,TRUE)
+	return
