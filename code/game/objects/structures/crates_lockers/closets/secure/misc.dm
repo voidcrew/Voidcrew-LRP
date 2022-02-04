@@ -69,7 +69,7 @@
 /obj/structure/closet/secure_closet/pilot_officer // Snowflake map item for VoidTest
 	name = "/proper pilot officer's locker"
 	desc = "A storage unit containing useful equipment for a spacecraft pilot or mechanic."
-	req_access = list(ACCESS_SECURITY)
+	req_access = list(ACCESS_MINERAL_STOREROOM)
 	icon_state = "sec"
 
 /obj/structure/closet/secure_closet/pilot_officer/PopulateContents()

@@ -708,7 +708,9 @@
 /obj/effect/turf_decal/trimline/red/filled/corner{
 	dir = 1
 	},
-/obj/machinery/door/airlock/security/glass,
+/obj/machinery/door/airlock/security/glass{
+	req_one_access_txt = null
+	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
 	},
@@ -1053,7 +1055,11 @@
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/security/prison)
 "pn" = (
-/obj/machinery/door/airlock/security,
+/obj/machinery/door/airlock/security{
+	req_access = null;
+	req_one_access = list(1);
+	req_one_access_txt = null
+	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -1354,7 +1360,9 @@
 /obj/effect/turf_decal/trimline/red/filled/corner{
 	dir = 8
 	},
-/obj/machinery/door/airlock/security/glass,
+/obj/machinery/door/airlock/security/glass{
+	req_one_access_txt = null
+	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -2531,7 +2539,11 @@
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/engineering/electrical)
 "JK" = (
-/obj/machinery/door/airlock/security,
+/obj/machinery/door/airlock/security{
+	req_access = null;
+	req_one_access = list(1, 64);
+	req_one_access_txt = null
+	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
