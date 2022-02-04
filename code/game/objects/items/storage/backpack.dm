@@ -604,3 +604,18 @@
 	name = "police bag"
 	desc = "A large duffel bag for holding extra police gear."
 	slowdown = 0
+
+//VOIDCREW EDIT BEGIN
+/obj/item/storage/backpack/satchel/kepori
+	name = "Kepori Satchel"
+	desc = "A satchel designed with the kepori's light body in mind, has reduced capacity."
+	icon_state = "satchel-flat"
+	item_state = "satchel-flat"
+	w_class = WEIGHT_CLASS_BULKY
+	kepori_equip = TRUE
+
+/obj/item/storage/backpack/satchel/kepori/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_combined_w_class = 17
+//VOIDCREW EDIT END

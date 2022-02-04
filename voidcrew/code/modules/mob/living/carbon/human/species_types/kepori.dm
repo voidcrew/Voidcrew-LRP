@@ -53,7 +53,7 @@
 			return FALSE
 		return equip_delay_self_check(item, human, bypass_equip_delay_self)
 	if (slot == ITEM_SLOT_BACK)
-		if(item.w_class > WEIGHT_CLASS_NORMAL)
+		if(item.kepori_equip == FALSE)
 			return FALSE
 	. = ..()
 
