@@ -9,4 +9,4 @@
 /obj/item/storage/backpack/satchel/kepori/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/BAG = GetComponent(/datum/component/storage)
-	BAG.max_combined_w_class = 17
+	BAG.max_combined_w_class = 16
