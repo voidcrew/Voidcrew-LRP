@@ -28,6 +28,7 @@
 	bodytemp_normal = BODYTEMP_NORMAL + 30
 	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT + 30)
 	bodytemp_cold_damage_limit = (BODYTEMP_COLD_DAMAGE_LIMIT + 30)
+	no_equip = list(ITEM_SLOT_BACK)
 	mutanttongue = /obj/item/organ/tongue/kepori
 	species_language_holder = /datum/language_holder/kepori
 
@@ -52,9 +53,6 @@
 		if(!human.get_bodypart(BODY_ZONE_HEAD))
 			return FALSE
 		return equip_delay_self_check(item, human, bypass_equip_delay_self)
-	if (slot == ITEM_SLOT_BACK)
-		if(item.kepori_equip == FALSE)
-			return FALSE
 	. = ..()
 
 #define KEPORI_TACKLE_STAM_COST 10
