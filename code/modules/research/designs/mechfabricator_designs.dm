@@ -72,8 +72,9 @@
 	construction_time = 100
 	category = list("Ripley")
 
-//firefighter subtype
-/datum/design/firefighter_chassis
+//firefighter subtype // Replaced by the "MK-III Upgrade", found at your local exofab
+
+/*/datum/design/firefighter_chassis
 	name = "Exosuit Chassis (APLU \"Firefighter\")"
 	id = "firefighter_chassis"
 	build_type = MECHFAB
@@ -81,6 +82,7 @@
 	materials = list(/datum/material/iron=20000)
 	construction_time = 100
 	category = list("Firefighter")
+*/
 
 /datum/design/ripley_torso
 	name = "Exosuit Torso (APLU \"Ripley\")"
@@ -485,6 +487,15 @@
 	construction_time = 100
 	category = list("Exosuit Equipment")
 
+/datum/design/ripleyupgrade/firefighter
+	name = "Ripley MK-II to MK-III conversion kit"
+	id = "ripleyupgrade_firefighter"
+	build_type = MECHFAB
+	build_path = /obj/item/mecha_parts/mecha_equipment/ripleyupgrade/firefighter
+	materials = list(/datum/material/iron=15000,/datum/material/plasma=15000,/datum/material/titanium=10000,/datum/material/uranium=15000)
+	construction_time = 100
+	category = list("Exosuit Equipment")
+
 /datum/design/mech_hydraulic_clamp
 	name = "Exosuit Engineering Equipment (Hydraulic Clamp)"
 	id = "mech_hydraulic_clamp"
@@ -807,59 +818,3 @@
 	construction_time = 100
 	build_path = /obj/item/assembly/flash/handheld
 	category = list("Misc")
-
-// IPC Replacement Parts
-
-/datum/design/robotic_liver
-	name = "Substance Processor"
-	id = "robotic_liver"
-	build_type = MECHFAB
-	build_path = /obj/item/organ/liver/cybernetic/upgraded/ipc
-	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
-	construction_time = 100
-	category = list("IPC Components")
-
-/datum/design/robotic_eyes
-	name = "Basic Robotic Eyes"
-	id = "robotic_eyes"
-	build_type = MECHFAB
-	build_path = /obj/item/organ/eyes/robotic
-	materials = list(/datum/material/iron = 1000, /datum/material/glass = 2000)
-	construction_time = 100
-	category = list("IPC Components")
-
-/datum/design/robotic_tongue
-	name = "Robotic Voicebox"
-	id = "robotic_tongue"
-	build_type = MECHFAB
-	build_path = /obj/item/organ/tongue/robot
-	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
-	construction_time = 100
-	category = list("IPC Components")
-
-/datum/design/robotic_stomach
-	name = "Micro-cell"
-	id = "robotic_stomach"
-	build_type = MECHFAB
-	build_path = /obj/item/organ/stomach/cell
-	materials = list(/datum/material/iron = 2000, /datum/material/glass = 2000, /datum/material/plasma = 200)
-	construction_time = 100
-	category = list("IPC Components")
-
-/datum/design/robotic_ears
-	name = "Auditory Sensors"
-	id = "robotic_ears"
-	build_type = MECHFAB
-	build_path = /obj/item/organ/ears/robot
-	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
-	construction_time = 100
-	category = list("IPC Components")
-
-/datum/design/power_cord
-	name = "Recharging Electronics"
-	id = "power_cord"
-	build_type = MECHFAB
-	build_path = /obj/item/organ/cyberimp/arm/power_cord
-	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
-	construction_time = 100
-	category = list("IPC Components")

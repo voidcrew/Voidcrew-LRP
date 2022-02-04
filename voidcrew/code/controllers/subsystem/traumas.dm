@@ -1,0 +1,5 @@
+/datum/controller/subsystem/traumas/Initialize()
+	. = ..()
+	phobia_species["robots"] = typecacheof(list(/datum/species/android, /datum/species/ipc))
+	phobia_species["aliens"] = typecacheof(list(/datum/species/abductor, /datum/species/jelly, /datum/species/pod, /datum/species/shadow, /datum/species/squid))
+	phobia_species |= list("birds" = typecacheof(list(/datum/species/kepori)))

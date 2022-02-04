@@ -75,12 +75,13 @@
 			return FALSE
 		to_chat(src, "<span class='warning'><i>I can't latch onto another slime...</i></span>")
 		return FALSE
-
+	//VOID EDIT BEGIN
 	if(isipc(M))
 		if(silent)
 			return FALSE
 		to_chat(src, "<span class='warning'><i>This subject does not have life energy...</i></span>")
 		return FALSE
+	//VOID EDIT END
 
 	if(docile)
 		if(silent)
@@ -179,7 +180,6 @@
 			var/list/babies = list()
 			var/new_nutrition = round(nutrition * 0.9)
 			var/new_powerlevel = round(powerlevel / 4)
-			var/datum/component/nanites/original_nanites = GetComponent(/datum/component/nanites)
 			var/turf/drop_loc = drop_location()
 
 			for(var/i=1,i<=4,i++)
@@ -201,10 +201,6 @@
 				babies += M
 				M.mutation_chance = clamp(mutation_chance+(rand(5,-5)),0,100)
 				SSblackbox.record_feedback("tally", "slime_babies_born", 1, M.colour)
-
-				if(original_nanites)
-					M.AddComponent(/datum/component/nanites, original_nanites.linked_techweb, original_nanites.nanite_volume*0.25)
-					SEND_SIGNAL(M, COMSIG_NANITE_SYNC, original_nanites, TRUE, TRUE) //The trues are to copy activation as well
 
 			var/mob/living/simple_animal/slime/new_slime = pick(babies)
 			new_slime.a_intent = INTENT_HARM

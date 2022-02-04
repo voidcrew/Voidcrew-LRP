@@ -5,7 +5,6 @@
 	reagent_state = SOLID
 	color = "#550000"
 	taste_description = "sweet tasting metal"
-	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 
 /datum/reagent/thermite/expose_turf(turf/T, reac_volume)
 	if(reac_volume >= 1)
@@ -36,7 +35,6 @@
 	color = "#FFC8C8"
 	metabolization_rate = 4
 	taste_description = "burning"
-	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 
 /datum/reagent/clf3/on_mob_life(mob/living/carbon/M)
 	M.adjust_fire_stacks(2)
@@ -153,7 +151,6 @@
 	color = "#FA00AF"
 	taste_description = "burning"
 	self_consuming = TRUE
-	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 
 /datum/reagent/phlogiston/expose_mob(mob/living/M, method=TOUCH, reac_volume)
 	M.adjust_fire_stacks(1)
@@ -176,7 +173,6 @@
 	color = "#FA00AF"
 	taste_description = "burning"
 	self_consuming = TRUE
-	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 
 /datum/reagent/napalm/on_mob_life(mob/living/carbon/M)
 	M.adjust_fire_stacks(1)
@@ -194,8 +190,6 @@
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
 	taste_description = "bitterness"
 	self_consuming = TRUE
-	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
-
 
 /datum/reagent/cryostylane/on_mob_life(mob/living/carbon/M) //TODO: code freezing into an ice cube
 	if(M.reagents.has_reagent(/datum/reagent/oxygen))
@@ -215,7 +209,6 @@
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
 	taste_description = "bitterness"
 	self_consuming = TRUE
-	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 
 /datum/reagent/pyrosium/on_mob_life(mob/living/carbon/M)
 	if(M.reagents.has_reagent(/datum/reagent/oxygen))
@@ -232,7 +225,6 @@
 	taste_description = "charged metal"
 	self_consuming = TRUE
 	var/shock_timer = 0
-	process_flags = ORGANIC | SYNTHETIC //WS Edit - IPCs
 
 /datum/reagent/teslium/on_mob_life(mob/living/carbon/M)
 	shock_timer++

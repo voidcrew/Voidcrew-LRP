@@ -546,7 +546,7 @@
 	name = "RCS thruster package"
 	desc = "A set of thrusters that allow for exosuit movement in zero-gravity enviroments, by expelling gas from the internal life support tank."
 	effect_type = /obj/effect/particle_effect/smoke
-	var/move_cost = 20 //moles per step
+	var/move_cost = 7.5 //moles per step // VoidTest Edit, changes 20 to 7.5
 
 /obj/item/mecha_parts/mecha_equipment/thrusters/gas/try_attach_part(mob/user, obj/mecha/M)
 	if(!M.internal_tank)

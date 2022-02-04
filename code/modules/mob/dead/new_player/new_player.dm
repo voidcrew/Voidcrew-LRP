@@ -265,6 +265,9 @@
 	return JOB_AVAILABLE
 
 /mob/dead/new_player/proc/AttemptLateSpawn(datum/job/job, obj/structure/overmap/ship/simulated/ship)
+	if (isnull(ship) || isnull(ship.shuttle))
+		stack_trace("Tried to spawn ([ckey]) into a null ship! Please report this on Github.")
+		return FALSE
 	var/error = IsJobUnavailable(job, ship)
 	if(error != JOB_AVAILABLE)
 		alert(src, get_job_unavailable_error_message(error, job))

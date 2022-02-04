@@ -32,7 +32,7 @@
 // Mech LMG
 
 /obj/projectile/bullet/lmg
-	damage = 20
+	damage = 25 //VoidTest Edit, changes 20 to 25
 
 // Mech FNX-99
 
