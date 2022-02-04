@@ -18,7 +18,7 @@
 	else
 		return "<span class='notice'>The top cover is firmly stuck on, but could be <i>pried</i> off with considerable effort.</span>"
 
-/obj/struture/table/wood/reinforced/crowbar_act(mob/living/user, obj/item/item)
+/obj/structure/table/wood/reinforced/crowbar_act(mob/living/user, obj/item/item)
 	. = ..()
 	if (user.a_intent == INTENT_HELP)
 		return
