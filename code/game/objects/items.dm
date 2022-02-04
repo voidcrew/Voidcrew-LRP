@@ -181,7 +181,6 @@ GLOBAL_VAR_INIT(embedpocalypse, FALSE) // if true, all items will be able to emb
 
 	var/canMouseDown = FALSE
 
-	var/kepori_equip = FALSE //VOIDCREW EDIT
 /obj/item/Initialize()
 
 	if(attack_verb)
