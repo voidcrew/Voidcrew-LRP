@@ -28,7 +28,6 @@
 	bodytemp_normal = BODYTEMP_NORMAL + 30
 	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT + 30)
 	bodytemp_cold_damage_limit = (BODYTEMP_COLD_DAMAGE_LIMIT + 30)
-	no_equip = list(ITEM_SLOT_BACK)
 	mutanttongue = /obj/item/organ/tongue/kepori
 	species_language_holder = /datum/language_holder/kepori
 
@@ -53,6 +52,9 @@
 		if(!human.get_bodypart(BODY_ZONE_HEAD))
 			return FALSE
 		return equip_delay_self_check(item, human, bypass_equip_delay_self)
+	if (slot == ITEM_SLOT_BACK)
+		if(item.w_class > WEIGHT_CLASS_NORMAL)
+			return FALSE
 	. = ..()
 
 #define KEPORI_TACKLE_STAM_COST 10
@@ -64,7 +66,6 @@
 /datum/species/kepori/on_species_gain(mob/living/carbon/carbon, datum/species/old_species, pref_load)
 	..()
 	carbon.AddComponent(/datum/component/tackler, stamina_cost = KEPORI_TACKLE_STAM_COST, base_knockdown = KEPORI_BASE_TACKLE_KNOCKDOWN, range = KEPORI_TACKLE_RANGE, speed = KEPORI_TACKLE_SPEED, skill_mod = KEPORI_TACKLE_SKILL_MOD, min_distance = KEPORI_MIN_TACKLE_DISTANCE)
-
 #undef KEPORI_TACKLE_STAM_COST
 #undef KEPORI_BASE_TACKLE_KNOCKDOWN
 #undef KEPORI_TACKLE_RANGE
