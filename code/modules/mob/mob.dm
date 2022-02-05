@@ -686,6 +686,11 @@
 	else
 		to_chat(src, "You don't have a mind datum for some reason, so you can't add a note to it.")
 
+/mob/proc/remove_mob_from_shuttle()	//removes the person from the active shuttle list they spawned
+	mind.in_shuttle.current_activity(mind,FALSE)
+	if(mind.in_shuttle.check_activity_of_all()==FALSE&&mind.in_shuttle.shuttle.auto_jump_state==FALSE)
+		mind.in_shuttle.shuttle.auto_jump()		//start the auto timer if no one is left
+
 /**
   * Allows you to respawn, abandoning your current mob
   *
@@ -744,7 +749,9 @@
 		log_game("[key_name(usr)] AM failed due to disconnect.")
 		qdel(M)
 		return
-
+	if(mind!=null)	//check if he is unable to return
+		if(mind.in_shuttle!=null)//check if the person is a mob spawn
+			remove_mob_from_shuttle()
 	M.key = key
 //	M.Login()	//wat
 	return

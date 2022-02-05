@@ -38,6 +38,7 @@
 
 	var/memory
 
+	var/obj/structure/overmap/ship/simulated/in_shuttle=null	//To which shuttle does the mind belong to if any?
 	var/assigned_role
 	var/special_role
 	var/list/restricted_roles = list()

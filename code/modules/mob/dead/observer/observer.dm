@@ -312,6 +312,12 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	var/response = alert(src, "Are you -sure- you want to ghost?\n(You are alive. If you ghost whilst still alive you may not play again this round! You can't change your mind so choose wisely!!)","Are you sure you want to ghost?","Ghost","Stay in body")
 	if(response != "Ghost")
 		return FALSE//didn't want to ghost after-all
+
+	if(mind.in_shuttle!=null)	//check if mob is connected to a shuttle
+		mind.in_shuttle.current_activity(mind,FALSE)
+		if(mind.in_shuttle.check_activity_of_all()==FALSE&&mind.in_shuttle.shuttle.auto_jump_state==FALSE) //if no player is left start the auto timer
+			mind.in_shuttle.shuttle.auto_jump()		//start the auto timer if no one is left
+
 	ghostize(FALSE)						// FALSE parameter is so we can never re-enter our body. U ded.
 	return TRUE
 

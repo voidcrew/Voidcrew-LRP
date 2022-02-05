@@ -21,9 +21,24 @@
 		if(.) //not dead
 			handle_blood()
 
+		if(button==FALSE&&mind.in_shuttle!=null)//secure mind of crew before del
+			securedmind=mind
+			button=TRUE //since the crew is gonna belong once he is created to the same shuttle until he respawns or is unable to live
+
 		if(isLivingSSD())//if you're disconnected, you're going to sleep
 			if(AmountSleeping() < 20)
 				AdjustSleeping(20)//adjust every 10 seconds
+			if(sleepycrew==FALSE&&securedmind.in_shuttle!=null) //make sure its the first time
+				sleepycrew=TRUE //set crewmember to state of asleep true
+				securedmind.in_shuttle.current_activity(securedmind,FALSE) //updates the list of active crew
+				if(mind.in_shuttle.check_activity_of_all()==FALSE&&mind.in_shuttle.shuttle.auto_jump_state==FALSE)	//Checks if all crew member area inactive
+					securedmind.in_shuttle.shuttle.auto_jump()	//start the auto timer if no one is left
+
+		if(sleepycrew==TRUE&&isLivingSSD()==FALSE)	//was the crew member awaken before?
+			securedmind.in_shuttle.current_activity(securedmind,TRUE)
+			if(securedmind.in_shuttle.shuttle.auto_jump_state) //if the auto jumper has been activated cancel it
+				securedmind.in_shuttle.shuttle.cancel_auto_jump()
+			sleepycrew=FALSE	//set crewmember in the state of awaken
 
 		if(stat != DEAD)
 			var/bprv = handle_bodyparts()
@@ -41,6 +56,18 @@
 	if(stat == DEAD)
 		stop_sound_channel(CHANNEL_HEARTBEAT)
 		LoadComponent(/datum/component/rot/corpse)
+		if(crewdead==FALSE&&securedmind.in_shuttle!=null) //make sure its the first time
+			securedmind.in_shuttle.current_activity(securedmind,FALSE)
+			crewdead=TRUE //set Crew dead
+			if(securedmind.in_shuttle.check_activity_of_all()==FALSE&&securedmind.in_shuttle.shuttle.auto_jump_state==FALSE)
+				securedmind.in_shuttle.shuttle.auto_jump()	//start the auto timer if no one is left
+
+	if(crewdead==TRUE&&stat!=DEAD&&securedmind.in_shuttle!=null)
+		crewdead=FALSE //Crew has been revived
+		if(sleepycrew==FALSE)	//If he is already inactive we dont need to call the list again
+			securedmind.in_shuttle.current_activity(securedmind,TRUE)
+			if(securedmind.in_shuttle.shuttle.auto_jump_state)
+				securedmind.in_shuttle.shuttle.cancel_auto_jump()
 
 	check_cremation()
 

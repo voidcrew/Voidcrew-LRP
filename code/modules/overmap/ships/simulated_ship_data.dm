@@ -6,6 +6,8 @@
 	var/list/job_slots = list(new /datum/job/captain() = 1, new /datum/job/assistant() = 5)
 	///Manifest list of people on the ship
 	var/list/manifest = list()
+	///Manifest list of active people on the ship
+	var/list/isactive = list()
 	///Shipwide bank account
 	var/datum/bank_account/ship/ship_account
 	///Whether or not new players are allowed to join the ship
@@ -28,3 +30,14 @@
 	set waitfor = FALSE
 	if(H.mind && (H.mind.assigned_role != H.mind.special_role))
 		manifest[H.real_name] = human_job
+
+/obj/structure/overmap/ship/simulated/proc/current_activity(datum/mind/M,var/process) //updates the list of living people
+	if(process==TRUE)
+		isactive.Add(M.name)
+	else
+		isactive.Remove(M.name)
+
+/obj/structure/overmap/ship/simulated/proc/check_activity_of_all()
+	if(isactive.len==0)
+		return FALSE
+	return TRUE

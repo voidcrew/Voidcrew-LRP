@@ -237,3 +237,15 @@
 
 	///Is the mob actively shifting?
 	var/shifting
+
+	///is the crewmember asleep?
+	var/sleepycrew=FALSE
+
+	///is the crewmember alive?
+	var/crewdead=FALSE
+
+	///Secures the crew members mind incase they die
+	var/datum/mind/securedmind
+
+	///Helps secure the mind in the very first loop
+	var/button=FALSE

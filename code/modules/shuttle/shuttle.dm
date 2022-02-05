@@ -28,6 +28,12 @@
 	///Delete this port after ship fly off.
 	var/delete_after = FALSE
 
+	///holding the auto jumper timer ID
+	var/auto_jump_timer
+
+	///has the auto jump being called?
+	var/auto_jump_state=FALSE
+
 	//these objects are indestructible
 /obj/docking_port/Destroy(force)
 	// unless you assert that you know what you're doing. Horrible things
@@ -865,3 +871,17 @@
 
 /obj/docking_port/mobile/emergency/on_emergency_dock()
 	return
+
+/obj/docking_port/mobile/proc/do_jump()
+	priority_announce("Bluespace Jump Initiated.", sender_override="[name] Bluespace Pylon", sound='sound/magic/lightningbolt.ogg', zlevel=virtual_z())
+	intoTheSunset()
+
+/obj/docking_port/mobile/proc/auto_jump()
+	priority_announce("Bluespace jump calibration initialized. Calibration completion in [4] minutes.", sender_override="[name] Bluespace Pylon", zlevel=virtual_z())
+	auto_jump_timer=addtimer(CALLBACK(src, .proc/do_jump), 20 SECONDS) //activates the timer in 4 minutes
+	auto_jump_state=TRUE	//auto jump has began
+
+/obj/docking_port/mobile/proc/cancel_auto_jump()
+	priority_announce("Bluespace Pylon spooling down. Jump calibration aborted.", sender_override="[current_ship.name] Bluespace Pylon", zlevel=virtual_z())
+	deltimer(auto_jump_timer)	//cancel auto timer
+	auto_jump_state=FALSE

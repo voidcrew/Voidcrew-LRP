@@ -332,6 +332,11 @@
 	if(length(ship.job_slots) > 1 && ship.job_slots[1] == job) // if it's the "captain" equivalent job of the ship. checks to make sure it's not a one-job ship
 		minor_announce("[job.title] [character.real_name] on deck!", zlevel = ship.shuttle.virtual_z())
 
+	character.mind.in_shuttle=ship //Link the shuttle to the mind
+	ship.current_activity(character.mind,TRUE)
+	if(ship.shuttle.auto_jump_state) //cancel the auto jumper if it has been activated
+		ship.shuttle.cancel_auto_jump()
+
 /mob/dead/new_player/proc/AddEmploymentContract(mob/living/carbon/human/employee)
 	//TODO:  figure out a way to exclude wizards/nukeops/demons from this.
 	for(var/C in GLOB.employmentCabinets)
