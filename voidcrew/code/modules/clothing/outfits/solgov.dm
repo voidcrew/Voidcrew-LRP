@@ -20,7 +20,7 @@
 /datum/outfit/solgov/post_equip(mob/living/carbon/human/human, visualsOnly)
 	. = ..()
 	var/obj/item/radio/headset/headset = human.ears
-	headset.set_frequency(FREQ_SOLGOV)
+	headset.set_frequency(FREQ_CENTCOM)
 	headset.freqlock = TRUE
 
 /datum/outfit/solgov/commander

@@ -4,7 +4,7 @@
 	icon = 'whitesands/icons/obj/smooth_structures/reinforced_wood_table.dmi'
 	icon_state = "reinforced_wood_table-0"
 	base_icon_state = "reinforced_wood_table"
-	deconstruction_ready = 0
+	deconstruction_ready = FALSE
 	buildstack = /obj/item/stack/sheet/plasteel
 	resistance_flags = FLAMMABLE
 	max_integrity = 200
@@ -29,10 +29,10 @@
 		to_chat(user, "<span class='notice'>You begin levering the top cover back in place...</span>")
 		if (item.use_tool(src, user, 50, volume = 50))
 			to_chat(user, "<span class='notice'>You pry the top cover back into place.</span>")
-			deconstruction_ready = 0
+			deconstruction_ready = FALSE
 	else
 		to_chat(user, "<span class='notice'>You start prying off the top cover...</span>")
 		if (item.use_tool(src, user, 50, volume = 50))
 			to_chat(user, "<span class='notice'>You pry off the top cover.</span>")
-			deconstruction_ready = 1
+			deconstruction_ready = TRUE
 	return TRUE

@@ -3,7 +3,7 @@
 	icon = 'voidcrew/icons/obj/radio.dmi'
 	icon_state = "solgov_cypherkey"
 	independent = TRUE
-	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SOLGOV = 1)
+	channels = list(RADIO_CHANNEL_COMMAND = 1)
 
 /obj/item/encryptionkey/wideband
 	name = "wideband encryption key"
