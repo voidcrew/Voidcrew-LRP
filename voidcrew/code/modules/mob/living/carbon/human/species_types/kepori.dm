@@ -64,6 +64,7 @@
 /datum/species/kepori/on_species_gain(mob/living/carbon/carbon, datum/species/old_species, pref_load)
 	..()
 	carbon.AddComponent(/datum/component/tackler, stamina_cost = KEPORI_TACKLE_STAM_COST, base_knockdown = KEPORI_BASE_TACKLE_KNOCKDOWN, range = KEPORI_TACKLE_RANGE, speed = KEPORI_TACKLE_SPEED, skill_mod = KEPORI_TACKLE_SKILL_MOD, min_distance = KEPORI_MIN_TACKLE_DISTANCE)
+
 #undef KEPORI_TACKLE_STAM_COST
 #undef KEPORI_BASE_TACKLE_KNOCKDOWN
 #undef KEPORI_TACKLE_RANGE
