@@ -1,6 +1,7 @@
 /obj/item/gun/energy/laser/terra
 	name = "TerraGov laser rifle"
 	desc = "A old laser rifle that was used by SolGov. Has a self-recharging cell but only 6 shots before needing to recharge. This should be in a musuem instead."
+	icon = 'voidcrew/icons/obj/guns/energy.dmi'
 	icon_state = "terralaser"
 	item_state = "laser"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -13,6 +14,7 @@
 /obj/item/gun/energy/laser/iot
 	name = "\improper E-SG 255 Ultimate"
 	desc = "An energy shotgun with an integrated computer system for surveillance and statistics tracking."
+	icon = 'voidcrew/icons/obj/guns/energy.dmi'
 	lefthand_file = 'icons/mob/inhands/weapons/64x_guns_left.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/64x_guns_right.dmi'
 	inhand_x_dimension = 64
@@ -24,14 +26,10 @@
 	var/obj/item/modular_computer/integratedNTOS
 	var/NTOS_type = /obj/item/modular_computer/internal
 
-/obj/item/gun/energy/laser/iot/lethal
-	desc = "An energy shotgun with an integrated computer system for surveillance and statistics tracking. This one appears to be modified to fire lethal beams."
-	icon_state = "iotshotgun_lethal"
-	ammo_type = list(/obj/item/ammo_casing/energy/laser/ultima)
-
 /obj/item/gun/energy/laser/hitscanpistol
 	name = "experimental laser gun"
 	desc = "A highly experimental laser gun, with unknown inner workings. It has no markings besides a \"GROUP A\" inscription on the barrel."
+	icon = 'voidcrew/icons/obj/guns/energy.dmi'
 	icon_state = "hitscangun"
 	item_state = "gun"
 	ammo_x_offset = 2

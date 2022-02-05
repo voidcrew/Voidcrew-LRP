@@ -1,6 +1,7 @@
 /obj/item/gun/energy/e_gun/adv_stopping
 	name = "advanced stopping revolver"
 	desc = "An advanced energy revolver with the capacity to shoot both disabler and lethal lasers, as well as futuristic safari nets."
+	icon = 'voidcrew/icons/obj/guns/energy.dmi'
 	icon_state = "bsgun"
 	item_state = "gun"
 	force = 7
@@ -11,6 +12,7 @@
 /obj/item/gun/energy/e_gun/smg
 	name = "\improper E-TAR SMG"
 	desc = "A dual-mode energy gun capable of discharging weaker shots at a much faster rate than the standard energy gun."
+	icon = 'voidcrew/icons/obj/guns/energy.dmi'
 	icon_state = "esmg"
 	ammo_type = list(/obj/item/ammo_casing/energy/disabler/smg, /obj/item/ammo_casing/energy/laser/smg)
 	ammo_x_offset = 2
@@ -24,6 +26,7 @@
 	desc = "A improved version of the E-SG 255. It now includes two firing modes, disable and kill, while still keeping that sweed integrated computer. Please note that the screen is right next to the switch mode button."
 	lefthand_file = 'icons/mob/inhands/weapons/64x_guns_left.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/64x_guns_right.dmi'
+	icon = 'voidcrew/icons/obj/guns/energy.dmi'
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	icon_state = "iotshotgun"

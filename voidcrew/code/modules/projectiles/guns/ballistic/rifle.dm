@@ -5,7 +5,9 @@
 	this rifle has seen its share of part replacements, repairs,
 	and bubba-hack-jobs to keep it serviceable. Use at your own risk.
 	"}
-	icon = 'icons/obj/guns/projectile.dmi'
+	icon = 'voidcrew/icons/obj/guns/projectile.dmi'
+	lefthand_file = 'voidcrew/icons/mob/inhands/weapons/64x_guns_left.dmi'
+	righthand_file = 'voidcrew/icons/mob/inhands/weapons/64x_guns_right.dmi'
 	icon_state = "crackhead_rifle"
 	item_state = "crackhead_rifle"
 	weapon_weight = WEAPON_MEDIUM

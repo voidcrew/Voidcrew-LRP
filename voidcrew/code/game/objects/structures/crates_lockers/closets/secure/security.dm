@@ -1,6 +1,6 @@
 /obj/structure/closet/secure_closet/lieutenant
 	name = "SolGov official's locker"
-	req_access = list(ACCESS_SOLGOV)
+	req_access = list(ACCESS_CENT_CAPTAIN)
 	icon_state = "solgov"
 
 /obj/structure/closet/secure_closet/lieutenant/PopulateContents()

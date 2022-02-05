@@ -2,8 +2,7 @@
 /obj/item/clothing/suit/solgov_trenchcoat
 	name = "solgov trenchcoat"
 	desc = "A solgov official's trenchcoat. Has a lot of pockets."
-
-
+	icon = 'voidcrew/icons/obj/clothing/suits.dmi'
 	icon_state = "trenchcoat_solgov"
 	item_state = "trenchcoat_solgov"
 	body_parts_covered = CHEST|LEGS|ARMS
