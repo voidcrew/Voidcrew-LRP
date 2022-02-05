@@ -18,7 +18,7 @@
 	id = "slimerancher"
 	description = "Slime ranchin with the bud."
 	suffix = "icemoon_surface_slimerancher.dmm"
-	
+
 /datum/map_template/ruin/icemoon/kitchen //Voidcrew edit
 	name = "Ruined kitchen"
 	id = "icekitchen"

@@ -190,10 +190,6 @@
 	file_name = "ruin_syndicate_fighter_shiv"
 	name = "Syndicate Fighter"
 
-/datum/map_template/shuttle/ruin/solgov_exploration_pod
-	file_name = "ruin_solgov_exploration_pod"
-	name = "SolGov Exploration Pod"
-
 /// Escape pod map templates
 /datum/map_template/shuttle/escape_pod
 	category = "escape_pod"
