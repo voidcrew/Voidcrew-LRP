@@ -1,5 +1,5 @@
 /obj/item/oil_cleanser
-	name = "Oil Cleanser"
+	name = "\improper oil cleanser"
 	desc = "Sometimes those IPCs need an oil change."
 
 	// fuck you im not spriting
