@@ -35,3 +35,4 @@
 		if (item.use_tool(src, user, 50, volume = 50))
 			to_chat(user, "<span class='notice'>You pry off the top cover.</span>")
 			deconstruction_ready = 1
+	return TRUE

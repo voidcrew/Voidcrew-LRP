@@ -3,7 +3,8 @@
 	id_type_name = "\improper SolGov ID"
 	desc = "A SolGov ID with no proper access to speak of."
 	assignment = "SolGov Officer"
-	icon_state = "solgov"
+	icon = 'icons/obj/card.dmi' // work around until we have a new sprite
+	icon_state = "retro"
 	uses_overlays = FALSE
 
 /obj/item/card/id/solgov/commander

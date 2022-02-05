@@ -27,7 +27,7 @@
 
 /obj/item/ammo_box/magazine/m45
 	name = "handgun magazine (.45)"
-	icon = 'voidcrew/icons/obj/guns/ammo.dmi'
+	icon = 'icons/obj/ammo.dmi'
 	icon_state = "45-8"
 	ammo_type = /obj/item/ammo_casing/c45
 	caliber = ".45"
@@ -43,8 +43,8 @@
 /obj/item/ammo_box/magazine/co9mm //WS edit begin - commander
 	name = "Commander magazine (9mm)"
 	desc = "A single stack M1911 reproduction magazine, modified to chamber 9mm."
-	icon = 'voidcrew/icons/obj/guns/ammo.dmi'
-	icon_state = "co9mm-8"
+	icon = 'icons/obj/ammo.dmi'
+	icon_state = "9x19p-8"
 	ammo_type = /obj/item/ammo_casing/c9mm
 	caliber = "9mm"
 	max_ammo = 8
@@ -52,9 +52,9 @@
 /obj/item/ammo_box/magazine/co9mm/update_icon()
 	..()
 	if (ammo_count() >= 8)
-		icon_state = "co9mm-8"
+		icon_state = "9x19p-8"
 	else
-		icon_state = "co9mm-[ammo_count()]" //WS edit end - commander
+		icon_state = "9x19p-0"
 
 /obj/item/ammo_box/magazine/pistolm9mm
 	name = "pistol magazine (9mm)"
@@ -78,7 +78,7 @@
 /obj/item/ammo_box/magazine/disposable
 	name = "part of a disposable gun"
 	desc = "You ripped out part of the gun, somehow, rendering it unusuable. I hope you're happy."
-	icon = 'voidcrew/icons/obj/guns/ammo.dmi'
+	icon = 'icons/obj/ammo.dmi'
 	icon_state = "45-8"
 	ammo_type = /obj/item/ammo_casing/c38
 	caliber = ".38"
