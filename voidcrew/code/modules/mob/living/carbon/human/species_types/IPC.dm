@@ -3,8 +3,30 @@
 	id = SPECIES_IPC
 	sexes = FALSE
 	say_mod = "states"
-	species_traits = list(AGENDER,NOTRANSSTING,NOEYESPRITES,NO_DNA_COPY,NOBLOOD,TRAIT_EASYDISMEMBER,NOZOMBIE,MUTCOLORS,REVIVESBYHEALING,NOHUSK,NOMOUTH,NO_BONES, MUTCOLORS, NO_UNDERWEAR) //all of these + whatever we inherit from the real species
-	inherent_traits = list(TRAIT_RESISTCOLD,TRAIT_VIRUSIMMUNE,TRAIT_NOBREATH,TRAIT_RADIMMUNE,TRAIT_GENELESS,TRAIT_LIMBATTACHMENT)
+	species_traits = list(
+		AGENDER,
+		NOTRANSSTING,
+		NOEYESPRITES,
+		NO_DNA_COPY,
+		NOBLOOD,
+		TRAIT_EASYDISMEMBER,
+		NOZOMBIE,
+		MUTCOLORS,
+		REVIVESBYHEALING,
+		NOHUSK,
+		NOMOUTH,
+		NO_BONES,
+		MUTCOLORS,
+		NO_UNDERWEAR,
+	)
+	inherent_traits = list(
+		TRAIT_RESISTCOLD,
+		TRAIT_VIRUSIMMUNE,
+		TRAIT_NOBREATH,
+		TRAIT_RADIMMUNE,
+		TRAIT_GENELESS,
+		TRAIT_LIMBATTACHMENT,
+	)
 	inherent_biotypes = list(MOB_ROBOTIC, MOB_HUMANOID)
 	mutantbrain = /obj/item/organ/brain/mmi_holder/posibrain
 	mutanteyes = /obj/item/organ/eyes/robotic
@@ -15,8 +37,17 @@
 	mutantlungs = null
 	mutantappendix = null
 	mutant_organs = list(/obj/item/organ/cyberimp/arm/power_cord)
-	mutant_bodyparts = list("ipc_screen", "ipc_antenna", "ipc_chassis")
-	default_features = list("mcolor" = "#7D7D7D", "ipc_screen" = "Static", "ipc_antenna" = "None", "ipc_chassis" = "Morpheus Cyberkinetics(Greyscale)")
+	mutant_bodyparts = list(
+		"ipc_screen",
+		"ipc_antenna",
+		"ipc_chassis",
+	)
+	default_features = list(
+		"mcolor" = "#7D7D7D",
+		"ipc_screen" = "Static",
+		"ipc_antenna" = "None",
+		"ipc_chassis" = "Morpheus Cyberkinetics(Greyscale)",
+	)
 	meat = /obj/item/stack/sheet/plasteel{amount = 5}
 	skinned_type = /obj/item/stack/sheet/metal{amount = 10}
 	exotic_blood = /datum/reagent/fuel/oil
