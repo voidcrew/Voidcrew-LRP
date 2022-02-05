@@ -11,4 +11,4 @@
 /// Rewarded when you don't survive the round, but stick around till the end
 //#define METACOIN_NOTSURVIVE_REWARD 100 VOID CREW EDIT
 /// Rewarded when you are alive and active for 10 minutes
-#define METACOIN_TENMINUTELIVING_REWARD 25
+#define METACOIN_TENMINUTELIVING_REWARD 20
