@@ -458,7 +458,7 @@
  *
  * Delete all of the areas, and delete any cryopods
  */
-/obj/docking_port/mobile/proc/scuttle()
+/obj/docking_port/mobile/proc/mothball()
 	var/obj/docking_port/stationary/current_dock = get_docked()
 
 	var/underlying_area_type = SHUTTLE_DEFAULT_UNDERLYING_AREA

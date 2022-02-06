@@ -81,10 +81,10 @@
 			// delete it because this is somewhat ambiguous (but they are technically flying here)
 			destroy_ship()
 		if (OVERMAP_SHIP_IDLE)
-			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/scuttle), 1 SECONDS)
+			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), 1 SECONDS)
 		if (OVERMAP_SHIP_DOCKING)
 			// give it some extra time, this is going to be docked soon anyways
-			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/scuttle), 11 MINUTES)
+			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), 11 MINUTES)
 
 /**
   * Bastardized version of GLOB.manifest.manifest_inject, but used per ship
