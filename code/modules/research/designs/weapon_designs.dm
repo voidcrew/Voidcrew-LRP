@@ -44,36 +44,6 @@
 	category = list("Ammo")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
-/datum/design/beanbag_slug/sec
-	id = "sec_beanbag_slug"
-	build_type = PROTOLATHE
-	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
-
-/datum/design/shotgun_slug/sec
-	id = "sec_slug"
-	build_type = PROTOLATHE
-	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
-
-/datum/design/buckshot_shell/sec
-	id = "sec_bshot"
-	build_type = PROTOLATHE
-	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
-
-/datum/design/shotgun_dart/sec
-	id = "sec_dart"
-	build_type = PROTOLATHE
-	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
-
-/datum/design/incendiary_slug/sec
-	id = "sec_Islug"
-	build_type = PROTOLATHE
-	category = list("Ammo")
-	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
-
 /datum/design/pin_testing
 	name = "Test-Range Firing Pin"
 	desc = "This safety firing pin allows firearms to be operated within proximity to a firing range."
