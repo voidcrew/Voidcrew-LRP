@@ -496,9 +496,9 @@
 	qdel(src, force=TRUE)
 
 /obj/docking_port/mobile/proc/intoTheSunset()
-	// Loop over mobs
-	for(var/t in return_turfs())
-		if(auto_jump_state==FALSE) //prevents different crew from getting despawned
+	if(auto_jump_state==FALSE) //prevents different crew from getting despawned
+		// Loop over mobs
+		for(var/t in return_turfs())
 			var/turf/T = t
 			for(var/mob/living/M in T.GetAllContents())
 				// If they have a mind and they're not in the brig, they escaped
@@ -509,7 +509,7 @@
 				M.ghostize(FALSE)
 				M.moveToNullspace()
 
-	// Now that mobs are stowed, delete the shuttle
+		// Now that mobs are stowed, delete the shuttle
 	jumpToNullSpace()
 
 /obj/docking_port/mobile/proc/create_ripples(obj/docking_port/stationary/S1, animate_time)
