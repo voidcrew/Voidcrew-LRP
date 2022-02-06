@@ -59,9 +59,9 @@
 	switch (activity)
 		if (ACTIVE_CREW)
 			return
-		if(SSD_CREW)
+		if (SSD_CREW)
 			addtimer(CALLBACK(src, .proc/finalize_inactive_ship, TRUE), 5 MINUTES)
-		if(INACTIVE_CREW)
+		if (INACTIVE_CREW)
 			finalize_inactive_ship()
 
 /**
@@ -74,7 +74,7 @@
 	if (ssd_check && (is_active_crew() == ACTIVE_CREW))
 		return // ssd guy came back
 
-	switch(state)
+	switch (state)
 		if (OVERMAP_SHIP_FLYING)
 			addtimer(CALLBACK(src, .proc/destroy_ship), 2 MINUTES)
 		if (OVERMAP_SHIP_UNDOCKING)
@@ -84,7 +84,7 @@
 			// delete it because this is somewhat ambiguous (but they are technically flying here)
 			destroy_ship()
 		if (OVERMAP_SHIP_IDLE)
-			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), 1 SECONDS)
+			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), 10 MINUTES)
 		if (OVERMAP_SHIP_DOCKING)
 			// give it some extra time, this is going to be docked soon anyways
 			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), 11 MINUTES)
