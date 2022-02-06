@@ -56,7 +56,7 @@
 	icon = 'whitesands/icons/obj/power.dmi'
 	icon_state = "g-cell"
 	maxcharge = 8000
-	custom_materials = list(/datum/material/glass=60)
+	custom_materials = list(/datum/material/glass = 60)
 	chargerate = 2000
 
 /obj/item/stock_parts/cell/gun/large

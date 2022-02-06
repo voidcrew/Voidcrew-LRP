@@ -81,12 +81,6 @@
 #define ACCESS_PHARMACY 69 ///Nice.
 #define ACCESS_PSYCHOLOGY 70
 
-//WS Begin
-/// Cloning room and clone pod ejection
-#define ACCESS_CLONING 68
-/// SGR Office
-#define ACCESS_SOLGOV 90 //Let's give em plenty of room, now
-//WS End
 
 
 	//BEGIN CENTCOM ACCESS

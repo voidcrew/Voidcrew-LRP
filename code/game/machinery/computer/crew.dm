@@ -32,7 +32,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 	var/list/jobs = new/list()
 	jobs["Captain"] = 00
 	jobs["Head of Personnel"] = 02
-	jobs["SolGov Representative"] = 05		//WS Edit - SolGov Rep
+	jobs["SolGov Representative"] = 05		//WS Edit - SolGov Rep //VOID TODO: changed in tg
 	jobs["Head of Security"] = 10
 	jobs["Warden"] = 11
 	jobs["Security Officer"] = 12
