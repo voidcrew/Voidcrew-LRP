@@ -4,6 +4,10 @@
 #define SSD_CREW 1
 #define ACTIVE_CREW 2
 
+#define CHECK_CREW_SSD 10 MINUTES
+#define SHIP_RUIN 10 MINUTES
+#define SHIP_DELETE 2 MINUTES
+
 /obj/structure/overmap/ship/simulated
 	///Assoc list of remaining open job slots (job = remaining slots)
 	var/list/job_slots = list(new /datum/job/captain() = 1, new /datum/job/assistant() = 5)
@@ -55,12 +59,11 @@
 /obj/structure/overmap/ship/simulated/proc/handle_inactive_ship()
 	SIGNAL_HANDLER
 
-	var/activity = is_active_crew()
-	switch (activity)
+	switch (is_active_crew())
 		if (ACTIVE_CREW)
 			return
 		if (SSD_CREW)
-			addtimer(CALLBACK(src, .proc/finalize_inactive_ship, TRUE), 10 MINUTES)
+			addtimer(CALLBACK(src, .proc/finalize_inactive_ship, TRUE), CHECK_CREW_SSD)
 		if (INACTIVE_CREW)
 			finalize_inactive_ship()
 
@@ -76,18 +79,18 @@
 
 	switch (state)
 		if (OVERMAP_SHIP_FLYING)
-			addtimer(CALLBACK(src, .proc/destroy_ship), 2 MINUTES)
+			addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE)
 		if (OVERMAP_SHIP_UNDOCKING)
 			// give it some extra time, this is going to be flying soon anyways
-			addtimer(CALLBACK(src, .proc/destroy_ship), 3 MINUTES)
+			addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE)
 		if (OVERMAP_SHIP_ACTING)
 			// delete it because this is somewhat ambiguous (but they are technically flying here)
 			destroy_ship()
 		if (OVERMAP_SHIP_IDLE)
-			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), 10 MINUTES)
+			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), SHIP_RUIN)
 		if (OVERMAP_SHIP_DOCKING)
 			// give it some extra time, this is going to be docked soon anyways
-			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), 11 MINUTES)
+			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), SHIP_RUIN)
 
 /**
   * Bastardized version of GLOB.manifest.manifest_inject, but used per ship
@@ -105,3 +108,7 @@
 #undef INACTIVE_CREW
 #undef SSD_CREW
 #undef ACTIVE_CREW
+
+#undef CHECK_CREW_SSD
+#undef SHIP_RUIN
+#undef SHIP_DELETE
