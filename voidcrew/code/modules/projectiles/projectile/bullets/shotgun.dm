@@ -1,18 +1,17 @@
 /obj/projectile/bullet/pellet/shotgun_buckshot
 	name = "buckshot pellet"
-	damage = 10						//WS Edit - Shotgun Nerf
-	armour_penetration = -20		//WS Edit - Shotgun Nerf
+	damage = 10
+	armour_penetration = -20
 
 /obj/projectile/bullet/shotgun_slug
 	name = "12g shotgun slug"
-	damage = 45					//WS Edit - Shotgun Nerf
+	damage = 45
 
 /obj/projectile/bullet/shotgun_beanbag
 	name = "beanbag slug"
 	damage = 5
-	stamina = 45					//WS Edit - Shotgun Nerf
-	armour_penetration = -10		//WS Edit - Shotgun Nerf
-
+	stamina = 45
+	armour_penetration = -10
 /obj/projectile/bullet/incendiary/shotgun
 	name = "incendiary slug"
 	damage = 20
