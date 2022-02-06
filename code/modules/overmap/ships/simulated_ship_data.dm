@@ -60,7 +60,7 @@
 		if (ACTIVE_CREW)
 			return
 		if (SSD_CREW)
-			addtimer(CALLBACK(src, .proc/finalize_inactive_ship, TRUE), 5 MINUTES)
+			addtimer(CALLBACK(src, .proc/finalize_inactive_ship, TRUE), 10 MINUTES)
 		if (INACTIVE_CREW)
 			finalize_inactive_ship()
 
