@@ -1,5 +1,5 @@
 /obj/item/stack/tile/grass/attackby(obj/item/item, mob/user, params)
-	if((W.tool_behaviour == TOOL_SHOVEL) && params)
+	if((item.tool_behaviour == TOOL_SHOVEL) && params)
 		to_chat(user, "<span class='notice'>You start digging up [src].</span>")
 		playsound(src, 'sound/effects/shovel_dig.ogg', 50, 1)
 		if(do_after(user, 2 * get_amount(), target = src))
