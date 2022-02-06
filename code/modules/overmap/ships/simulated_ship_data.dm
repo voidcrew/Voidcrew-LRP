@@ -57,7 +57,7 @@
 		if (ACTIVE_CREW)
 			return
 		if(SSD_CREW)
-			addtimer(CALLBACK(.proc/finalize_inactive_ship, TRUE), 5 MINUTES)
+			addtimer(CALLBACK(src, .proc/finalize_inactive_ship, TRUE), 5 MINUTES)
 		if(INACTIVE_CREW)
 			finalize_inactive_ship()
 
@@ -73,19 +73,18 @@
 
 	switch(state)
 		if (OVERMAP_SHIP_FLYING)
-			addtimer(CALLBACK(.proc/destroy_ship), 2 MINUTES)
+			addtimer(CALLBACK(src, .proc/destroy_ship), 2 MINUTES)
 		if (OVERMAP_SHIP_UNDOCKING)
 			// give it some extra time, this is going to be flying soon anyways
-			addtimer(CALLBACK(.proc/destroy_ship), 3 MINUTES)
+			addtimer(CALLBACK(src, .proc/destroy_ship), 3 MINUTES)
 		if (OVERMAP_SHIP_ACTING)
 			// delete it because this is somewhat ambiguous (but they are technically flying here)
 			destroy_ship()
 		if (OVERMAP_SHIP_IDLE)
-			shuttle.scuttle()
-			// here we want to turn into a ruin
+			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/scuttle), 1 SECONDS)
 		if (OVERMAP_SHIP_DOCKING)
-			return
-			// ruin
+			// give it some extra time, this is going to be docked soon anyways
+			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/scuttle), 11 MINUTES)
 
 /**
   * Bastardized version of GLOB.manifest.manifest_inject, but used per ship
