@@ -119,7 +119,7 @@
 //WS Begin - Autotranfer vote
 
 /datum/config_entry/number/vote_autotransfer_initial //length of time before the first autotransfer vote is called (deciseconds, default 2 hours)
-	config_entry_value = 126000 //VOIDCREW EDIT
+	config_entry_value = 72000
 	integer = FALSE
 	min_val = 0
 

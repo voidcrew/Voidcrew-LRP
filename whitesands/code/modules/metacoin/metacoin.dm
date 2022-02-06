@@ -40,12 +40,13 @@
 	message_admins("<span class='adminnotice'>[key_name_admin(usr)]: Modified [key_name(C)]'s [metacoin_name] ([log_text])</span>")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Modify Metabalance") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+/* VOIDCREW EDIT
 /client/proc/process_endround_metacoin(is_speed_round, round_duration)
 	if(!mob)	return
 	var/mob/M = mob
 	if(M.mind && !isnewplayer(M))
 		if(M.stat != DEAD && !isbrain(M))
-			inc_metabalance(METACOIN_ESCAPE_REWARD(is_speed_round, round_duration), reason="Survived the shift.")
+			inc_metabalance(METACOIN_ESCAPE_REWARD(is_speed_round, round_duration), reason="Survived the shift.") */
 /*
 VOID CREW EDIT
 		else
