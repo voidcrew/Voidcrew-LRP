@@ -49,7 +49,7 @@
 "eU" = (/obj/machinery/computer/monitor,/turf/open/floor/carpet/executive,/area/ship/bridge)
 "eV" = (/obj/machinery/iv_drip,/obj/machinery/airalarm/directional/east,/obj/machinery/light{dir = 4},/turf/open/floor/plasteel/white,/area/ship/medical)
 "fa" = (/obj/structure/grille,/obj/structure/window/reinforced/tinted/fulltile,/turf/open/floor/plating,/area/ship/crew/chapel)
-"fb" = (/obj/machinery/photocopier/faxmachine/longrange{department = "Captain"},/obj/structure/table/wood,/obj/machinery/light/small{dir = 8},/turf/open/floor/wood/yew,/area/ship/cargo/office)
+"fb" = (/obj/machinery/photocopier/faxmachine/longrange{department = "Captain"},/obj/structure/table/wood,/obj/machinery/light/small{dir = 8},/obj/item/radio/headset/headset_cent/commander,/turf/open/floor/wood/yew,/area/ship/cargo/office)
 "fl" = (/turf/closed/wall/mineral/titanium/nodiagonal,/area/ship/engineering/electrical)
 "fo" = (/obj/machinery/deepfryer,/obj/machinery/camera{dir = 5},/turf/open/floor/plasteel/mono/white,/area/ship/crew/canteen/kitchen)
 "fs" = (/obj/structure/cable/yellow{icon_state = "1-2"},/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,/turf/open/floor/plasteel/kitchen_coldroom/freezerfloor,/area/ship/crew/canteen/kitchen)
@@ -178,7 +178,7 @@
 "sD" = (/obj/structure/cable/yellow{icon_state = "2-4"},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{dir = 6},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{dir = 6},/obj/structure/cable/yellow{icon_state = "0-4"},/obj/machinery/power/apc/auto_name/west,/turf/open/floor/plasteel,/area/ship/hallway/central)
 "sF" = (/obj/machinery/suit_storage_unit/ert/medical,/turf/open/floor/plasteel/white,/area/ship/medical)
 "sL" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,/turf/closed/wall/mineral/titanium/nodiagonal,/area/ship/engineering/electrical)
-"sS" = (/obj/structure/table/reinforced,/obj/machinery/recharger,/obj/machinery/airalarm/directional/east,/obj/item/gun_voucher,/turf/open/floor/engine,/area/ship/security)
+"sS" = (/obj/machinery/airalarm/directional/east,/obj/structure/closet/secure_closet{req_access_txt = "null"},/obj/item/radio/headset/headset_cent/alt,/obj/item/radio/headset/headset_cent/alt,/obj/item/radio/headset/headset_cent/alt,/obj/item/radio/headset/headset_cent,/obj/item/radio/headset/headset_cent,/obj/item/radio/headset/headset_cent,/obj/item/radio/headset/headset_cent,/obj/item/radio/headset/headset_cent/alt,/obj/item/radio/headset/headset_cent/alt,/obj/item/radio/headset/headset_cent/alt,/obj/item/radio/headset/headset_cent/alt,/obj/item/radio/headset/headset_cent,/obj/item/radio/headset/headset_cent,/turf/open/floor/engine,/area/ship/security)
 "sT" = (/obj/structure/cable/yellow{icon_state = "4-8"},/obj/structure/plaque/static_plaque{desc = "Commissioned in 2462, This Battlecruiser SN:0121 was Made on Sevastapol XI in accordance with Nanotrasen Combat-Carrier Guidelines"; name = "Phalanx-Class Super Battlecruiser Comissioning Plaque"; pixel_y = 32},/turf/open/floor/plasteel/white,/area/ship/hallway/fore)
 "sU" = (/obj/structure/cable/yellow{icon_state = "1-2"},/obj/machinery/power/smes/engineering,/obj/structure/window/reinforced{dir = 4},/obj/structure/cable/yellow{icon_state = "0-2"},/turf/open/floor/plasteel{icon_state = "steel"},/area/ship/engineering/electrical)
 "tn" = (/obj/structure/grille,/obj/structure/window/reinforced/fulltile,/obj/machinery/door/poddoor{id = phbridgeblastdoors},/turf/open/floor/plating,/area/ship/bridge)
@@ -466,6 +466,7 @@
 "TO" = (/obj/machinery/button/door{id = phcargooneblastdoor3; name = "Internal Hanger Blast Door Control"; pixel_y = 24},/obj/machinery/light{dir = 1},/turf/open/floor/plasteel{icon_state = "steel"},/area/ship/cargo{name = "Cargo Bay Two"})
 "TP" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{dir = 8},/turf/open/floor/plasteel,/area/ship/hallway/central)
 "TT" = (/obj/machinery/atmospherics/components/unary/shuttle/heater{dir = 4},/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced,/turf/open/floor/plating,/area/ship/engineering)
+"TY" = (/obj/machinery/telecomms/allinone{tempfreq = 1337},/turf/open/floor/engine,/area/ship/security/armory)
 "Ug" = (/obj/structure/altar_of_gods,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{dir = 8},/turf/open/floor/carpet/lone,/area/ship/crew/chapel)
 "Uk" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{dir = 8},/turf/open/floor/plasteel/mono,/area/ship/crew/canteen)
 "Uo" = (/obj/machinery/door/window/eastright,/turf/open/floor/wood/maple,/area/ship/crew/chapel)
@@ -544,7 +545,7 @@ gBraEcuVOVqLJMcWqLqLVdEzldTmqFMZySjJpUsFmSZyZyKjZyxEZyKXVuXIvfxKQQXqRjkAnffGMSqY
 gBraHAuVvRqLMCMCMCMCMCMCflPFApflfljJXILBVWGVNmDcxPORIhHYIhpUvfCrlyRjyohcnfDeKtqYcqKtnfnfiNDxVXCTbVDxDxDxoZoZoZoZ
 gBrasrYBQfMCMCMCMCMCMCMCldJfFjInHtBiXIXIXIXIXIXIXIXIXIXIXIXIPJvfjykAvfhcjrleonZLAUMSnfxwiNtYhrKQEufNuDEIoZoZoZoZ
 FkFkFkFkFkMCMCMCMCMCMCMCldBTPZNUsDTKqSTPTPTPTPGzPMPMiQPMPMPMwZDFvMVRHOnpxADeKtqYDeBDhclMiNtYTcctZhNouDEIoZoZoZoZ
-oZoZoZoZoZoZoZoZoZoZMCMCldBTTBNUjJYMYMYMYMYMYMYMYMYMYMYMYMPMwZGfyZnXiKNTDaDatzUgGlnfbduCiNtYYXCQSEEuuDEIoZoZoZoZ
+oZoZoZoZoZoZoZoZoZoZMCMCldBTTBNUjJYMYMYMYMYMYMYMYMYMYMYMYMPMwZGfyZnXiKNTDaDatzUgGlnfbduCiNTYYXCQSEEuuDEIoZoZoZoZ
 oZoZoZoZoZoZoZoZoZoZoZoZFYLNQcNUefEapYRpEaTJCGFxobxhwgPMPMPMwZhAAtrSbOwZjrnfqYqYqYnfUolFiNEIEIEIEIEIEIhaoZoZoZoZ
 oZoZoZoZoZoZoZoZoZoZoZoZoZoZoZIPIPYpIPIPakVKakakLxIPIPIPIPIPnpnpnpnpnpnphcapapapapaphcUKiNEIEIEIEIEIhaoZoZoZoZoZ
 oZoZoZoZoZoZoZoZoZoZoZoZoZoZoZExTNqATOOKqABhqAqAgPUGTOXpqAExExExExExExoZoZoZoZoZoZoZoZoZoZoZoZoZoZoZoZoZoZoZoZoZ
