@@ -10,7 +10,7 @@
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 
 	item_flags = SURGICAL_TOOL
-	force = 10
+	force = 3
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 5
 	throw_speed = 3
