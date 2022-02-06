@@ -498,15 +498,16 @@
 /obj/docking_port/mobile/proc/intoTheSunset()
 	// Loop over mobs
 	for(var/t in return_turfs())
-		var/turf/T = t
-		for(var/mob/living/M in T.GetAllContents())
-			// If they have a mind and they're not in the brig, they escaped
-			if(M.mind && !istype(t, /turf/open/floor/mineral/plastitanium/red/brig))
-				M.mind.force_escaped = TRUE
-			// Ghostize them and put them in nullspace stasis (for stat & possession checks)
-			M.notransform = TRUE
-			M.ghostize(FALSE)
-			M.moveToNullspace()
+		if(auto_jump_state==FALSE) //prevents different crew from getting despawned
+			var/turf/T = t
+			for(var/mob/living/M in T.GetAllContents())
+				// If they have a mind and they're not in the brig, they escaped
+				if(M.mind && !istype(t, /turf/open/floor/mineral/plastitanium/red/brig))
+					M.mind.force_escaped = TRUE
+				// Ghostize them and put them in nullspace stasis (for stat & possession checks)
+				M.notransform = TRUE
+				M.ghostize(FALSE)
+				M.moveToNullspace()
 
 	// Now that mobs are stowed, delete the shuttle
 	jumpToNullSpace()
