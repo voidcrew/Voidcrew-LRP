@@ -18,12 +18,12 @@
 		if (QDELETED(src))
 			return
 
-		if(.) //not dead
-			handle_blood()
-
 		if(button==FALSE&&mind.in_shuttle!=null)//secure mind of crew before del
 			securedmind=mind
 			button=TRUE //since the crew is gonna belong once he is created to the same shuttle until he respawns or is unable to live
+			
+		if(.) //not dead
+			handle_blood()
 
 		if(isLivingSSD())//if you're disconnected, you're going to sleep
 			if(AmountSleeping() < 20)

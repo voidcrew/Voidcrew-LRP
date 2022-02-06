@@ -878,7 +878,7 @@
 
 /obj/docking_port/mobile/proc/auto_jump()
 	priority_announce("Bluespace jump calibration initialized. Calibration completion in [4] minutes.", sender_override="[name] Bluespace Pylon", zlevel=virtual_z())
-	auto_jump_timer=addtimer(CALLBACK(src, .proc/do_jump), 20 SECONDS) //activates the timer in 4 minutes
+	auto_jump_timer=addtimer(CALLBACK(src, .proc/do_jump), 20 SECONDS,TIMER_STOPPABLE) //activates the timer in 4 minutes
 	auto_jump_state=TRUE	//auto jump has began
 
 /obj/docking_port/mobile/proc/cancel_auto_jump()
