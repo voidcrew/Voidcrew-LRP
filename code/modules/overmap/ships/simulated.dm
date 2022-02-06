@@ -78,6 +78,9 @@
 			if(M.stat <= HARD_CRIT) //Is not in hard crit, or is dead.
 				return //MEANT TO BE A RETURN, DO NOT REPLACE WITH CONTINUE, THIS KEEPS IT FROM DELETING THE SHUTTLE WHEN THERE'S CONCIOUS PEOPLE ON
 			throw_atom_into_space(M)
+	destroy_ship()
+
+/obj/structure/overmap/ship/simulated/proc/destroy_ship()
 	shuttle.jumpToNullSpace()
 	qdel(src)
 
