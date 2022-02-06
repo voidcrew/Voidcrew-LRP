@@ -81,7 +81,6 @@
 		if (OVERMAP_SHIP_FLYING)
 			addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE)
 		if (OVERMAP_SHIP_UNDOCKING)
-			// give it some extra time, this is going to be flying soon anyways
 			addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE)
 		if (OVERMAP_SHIP_ACTING)
 			// delete it because this is somewhat ambiguous (but they are technically flying here)
@@ -89,7 +88,6 @@
 		if (OVERMAP_SHIP_IDLE)
 			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), SHIP_RUIN)
 		if (OVERMAP_SHIP_DOCKING)
-			// give it some extra time, this is going to be docked soon anyways
 			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), SHIP_RUIN)
 
 /**
