@@ -24,7 +24,13 @@
 	id = "icekitchen"
 	description = "Something terrible happened with the local fauna"
 	suffix = "icemoon_surface_kitchen.dmm"
-
+	
+/datum/map_template/ruin/icemoon/imperialchurch //Voidcrew edit
+	id = "imperialchurch"
+	suffix = "imperialchurch.dmm"
+	name = "Forgitten Church"
+	description = "Formerly a place of worship that served a few religious groups over the years, now lays abandoned with msot of the items left behind including the guardians that protect this place."
+	
 // above and below ground together
 
 
