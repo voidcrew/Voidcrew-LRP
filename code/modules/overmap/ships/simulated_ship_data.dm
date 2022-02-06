@@ -37,13 +37,16 @@
  * Check the status of the crew
  */
 /obj/structure/overmap/ship/simulated/proc/is_active_crew()
+	var/is_ssd = FALSE
 	for (var/datum/weakref/crewmember in crewmembers)
 		var/mob/living/carbon/human/member = crewmember.resolve()
 		if (member.stat <= HARD_CRIT)
 			if (isnull(member.client))
-				return SSD_CREW
+				is_ssd = TRUE
 			else
 				return ACTIVE_CREW
+	if (is_ssd)
+		return SSD_CREW
 	return INACTIVE_CREW
 
 /**
