@@ -85,7 +85,7 @@
 	destroy_ship()
 
 /obj/structure/overmap/ship/simulated/proc/destroy_ship(force = FALSE)
-	if (is_active_crew() == ACTIVE_CREW)
+	if (is_active_crew() == SHUTTLE_ACTIVE_CREW)
 		return
 	shuttle.jumpToNullSpace()
 	message_admins("\[SHUTTLE]: [shuttle.name] has been deleted!")
@@ -336,9 +336,9 @@
 	switch (is_active_crew())
 		if (SHUTTLE_ACTIVE_CREW)
 			return
-		if (SHUTTL_SSD_CREW)
+		if (SHUTTLE_SSD_CREW)
 			addtimer(CALLBACK(src, .proc/finalize_inactive_ship, TRUE), CHECK_CREW_SSD)
-		if (SHUTTL_INACTIVE_CREW)
+		if (SHUTTLE_INACTIVE_CREW)
 			finalize_inactive_ship()
 
 /**
@@ -348,7 +348,7 @@
  * * ssd_check - Should we double check if theres a crewmember that is SSD
  */
 /obj/structure/overmap/ship/simulated/proc/finalize_inactive_ship(ssd_check = FALSE)
-	if (ssd_check && (is_active_crew() == ACTIVE_CREW))
+	if (ssd_check && (is_active_crew() == SHUTTLE_ACTIVE_CREW))
 		return // ssd guy came back
 
 	switch (state)
