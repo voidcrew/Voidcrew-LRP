@@ -6,7 +6,7 @@
 
 #define CHECK_CREW_SSD 10 MINUTES
 #define SHIP_RUIN 10 MINUTES
-#define SHIP_DELETE 2 MINUTES
+#define SHIP_DELETE 10 MINUTES
 
 /obj/structure/overmap/ship/simulated
 	///Assoc list of remaining open job slots (job = remaining slots)
