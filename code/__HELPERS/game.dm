@@ -557,6 +557,23 @@ block( \
 		else
 			return
 
+proc/AddHud(mob/living/carbon/human/character, obj/structure/overmap/ship/simulated/ship)
+	switch(ship.source_template.prefix)
+		if("NT-C")
+			var/faction_hud_type = FACTION_HUD_NT
+			var/faction_hud_name = "hudcentcom"
+			add_faction_hud(faction_hud_type, faction_hud_name, character)
+		if("SYN-C")
+			var/faction_hud_type = ANTAG_HUD_OPS
+			var/faction_hud_name = "synd"
+			add_faction_hud(faction_hud_type, faction_hud_name, character)
+		if("NEU")
+			var/faction_hud_type = ANTAG_HUD_CULT
+			var/faction_hud_name = "cult"
+			add_faction_hud(faction_hud_type, faction_hud_name, character)
+		else
+
+
 /proc/lavaland_equipment_pressure_check(turf/T)
 	. = FALSE
 	if(!istype(T))

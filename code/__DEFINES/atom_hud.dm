@@ -47,6 +47,8 @@
 // for fans to identify pins
 #define FAN_HUD "24"
 
+#define FACTION_HUD "25"
+
 //by default everything in the hud_list of an atom is an image
 //a value in hud_list with one of these will change that behavior
 #define HUD_LIST_LIST 1
@@ -83,6 +85,9 @@
 #define ANTAG_HUD_GANGSTER 26
 #define ANTAG_HUD_SPACECOP 27
 
+#define FACTION_HUD_NEU 28
+#define FACTION_HUD_NT 29
+#define FACTION_HUD_SYND 30
 
 // Notification action types
 #define NOTIFY_JUMP "jump"

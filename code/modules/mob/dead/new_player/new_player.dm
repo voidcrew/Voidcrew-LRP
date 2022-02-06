@@ -310,6 +310,7 @@
 		GLOB.data_core.manifest_inject(humanc, client)
 		AnnounceArrival(humanc, job.title, ship)
 		NotifyFaction(humanc, ship)
+		AddHud(humanc, ship)
 		AddEmploymentContract(humanc)
 
 		if(GLOB.highlander)
