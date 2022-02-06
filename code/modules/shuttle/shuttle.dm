@@ -459,6 +459,8 @@
  * Delete all of the areas, and delete any cryopods
  */
 /obj/docking_port/mobile/proc/mothball()
+	if (current_ship?.is_active_crew() == SHUTTLE_ACTIVE_CREW)
+		return
 	var/obj/docking_port/stationary/current_dock = get_docked()
 
 	var/underlying_area_type = SHUTTLE_DEFAULT_UNDERLYING_AREA
@@ -481,6 +483,8 @@
 		var/area/old_area = oldT.loc
 		underlying_area.contents += oldT
 		oldT.change_area(old_area, underlying_area)
+
+	message_admins("\[SHUTTLE]: [current_ship?.name] has been deleted!")
 
 	qdel(src, force=TRUE)
 

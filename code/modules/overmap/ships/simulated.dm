@@ -7,6 +7,10 @@
 ///Name of the file used for ship name random selection
 #define SHIP_NAMES_FILE "ship_names.json"
 
+#define CHECK_CREW_SSD 10 MINUTES
+#define SHIP_RUIN 10 MINUTES
+#define SHIP_DELETE 10 MINUTES
+
 /**
   * # Simulated overmap ship
   *
@@ -80,8 +84,11 @@
 			throw_atom_into_space(M)
 	destroy_ship()
 
-/obj/structure/overmap/ship/simulated/proc/destroy_ship()
+/obj/structure/overmap/ship/simulated/proc/destroy_ship(force = FALSE)
+	if (is_active_crew() == ACTIVE_CREW)
+		return
 	shuttle.jumpToNullSpace()
+	message_admins("\[SHUTTLE]: [shuttle.name] has been deleted!")
 	qdel(src)
 
 /**
@@ -320,6 +327,47 @@
 		base_icon_state = "ship"
 	return ..()
 
+/**
+ * Decides what to do when a crew member dies, as long as there are live (whilst not SSD) crewmembers nothing will happen
+ */
+/obj/structure/overmap/ship/simulated/proc/handle_inactive_ship()
+	SIGNAL_HANDLER
+
+	switch (is_active_crew())
+		if (SHUTTLE_ACTIVE_CREW)
+			return
+		if (SHUTTL_SSD_CREW)
+			addtimer(CALLBACK(src, .proc/finalize_inactive_ship, TRUE), CHECK_CREW_SSD)
+		if (SHUTTL_INACTIVE_CREW)
+			finalize_inactive_ship()
+
+/**
+ * Go through the different statuses of the ship, and choose the proper deletion method of the ship
+ *
+ * Arguments:
+ * * ssd_check - Should we double check if theres a crewmember that is SSD
+ */
+/obj/structure/overmap/ship/simulated/proc/finalize_inactive_ship(ssd_check = FALSE)
+	if (ssd_check && (is_active_crew() == ACTIVE_CREW))
+		return // ssd guy came back
+
+	switch (state)
+		if (OVERMAP_SHIP_FLYING)
+			addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE)
+		if (OVERMAP_SHIP_UNDOCKING)
+			addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE)
+		if (OVERMAP_SHIP_ACTING)
+			// delete it because this is somewhat ambiguous (but they are technically flying here)
+			addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE)
+		if (OVERMAP_SHIP_IDLE)
+			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), SHIP_RUIN)
+		if (OVERMAP_SHIP_DOCKING)
+			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), SHIP_RUIN)
+
 #undef SHIP_SIZE_THRESHOLD
 
 #undef SHIP_DOCKED_REPAIR_TIME
+
+#undef CHECK_CREW_SSD
+#undef SHIP_RUIN
+#undef SHIP_DELETE
