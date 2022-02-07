@@ -25,6 +25,12 @@
 	description = "Something terrible happened with the local fauna"
 	suffix = "icemoon_surface_kitchen.dmm"
 	
+/datum/map_template/ruin/icemoon/icemoon_surface_russian_outpost //Voidcrew edit
+	name = "Russian Outpost"
+	id = "icemoon_surface_russian_outpost"
+	description = "The russians have set a research outpost around some unknown object..."
+	suffix = "icemoon_surface_russian_outpost.dmm"
+	
 /datum/map_template/ruin/icemoon/imperialchurch //Voidcrew edit
 	id = "imperialchurch"
 	suffix = "imperialchurch.dmm"
