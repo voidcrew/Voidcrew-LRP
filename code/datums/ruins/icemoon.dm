@@ -68,3 +68,4 @@
 	id = "corpreject"
 	description = "Nanotrasen Corporate Security Solutions vault site Gamma."
 	suffix = "icemoon_surface_corporate_rejects.dmm"
+	
