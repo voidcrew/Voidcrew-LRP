@@ -343,6 +343,8 @@
 	var/list/shuttle_choices = list("Purchase ship..." = "Purchase") //Dummy for purchase option
 
 	for(var/obj/structure/overmap/ship/simulated/S as anything in SSovermap.simulated_ships)
+		if(isnull(S.shuttle))
+			continue
 		if((length(S.shuttle.spawn_points) < 1) || !S.join_allowed)
 			continue
 		shuttle_choices[S.name + " ([S.source_template.short_name ? S.source_template.short_name : "Unknown-class"])"] = S //Try to get the class name
