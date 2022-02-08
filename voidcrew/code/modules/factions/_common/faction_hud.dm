@@ -1,7 +1,7 @@
 /datum/atom_hud/faction
-	hud_icons = list(FACTION_HUD) //the icon list for factions
-	var/self_visible = TRUE //if the player can view there own hud
-	var/icon_color //will set the icon color to this
+	hud_icons = list(FACTION_HUD) ///the icon list for factions
+	var/self_visible = TRUE ///if the player can view there own hud
+	var/icon_color ///will set the icon color to this
 
 /datum/atom_hud/faction/hidden
 	self_visible = FALSE

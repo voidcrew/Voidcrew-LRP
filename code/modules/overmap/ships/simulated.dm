@@ -330,17 +330,15 @@
 /**
   *Sets the ships faction and updates the crews huds
   */
-/obj/structure/overmap/ship/simulated/proc/set_ship_faction()
-	/var/old_prefix ///Used to store a ships original prefix so we can change back later
+/obj/structure/overmap/ship/simulated/proc/set_ship_faction(faction_change)
 	if(!COOLDOWN_FINISHED(src, faction_cooldown))
 		return
 	COOLDOWN_START(src, faction_cooldown, FACTION_COOLDOWN_TIME)
-	old_prefix = source_template.prefix
-	if(prefix == old_prefix)
-		prefix = "KOS"
-		name = "[prefix] [copytext(name, ((length(old_prefix)+1)))]"
+	if(prefix == source_template.prefix)
+		prefix = faction_change
+		name = "[prefix] [copytext(name, ((length(source_template.prefix)+1)))]"
 	else
-		prefix = old_prefix
+		prefix = source_template.prefix
 		name = "[prefix] [copytext(name, 4)]"
 	say("Changing Faction to: [prefix]")
 	set_ship_name(name, ignore_cooldown = TRUE)

@@ -207,7 +207,7 @@
 			update_static_data(usr, ui)
 			return
 		if("toggle_kos")
-			current_ship.set_ship_faction()
+			current_ship.set_ship_faction("KOS")
 			update_static_data(usr, ui)
 			return
 		if("reload_ship")
