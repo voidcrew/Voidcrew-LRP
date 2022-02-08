@@ -194,7 +194,7 @@
 			if(!new_name)
 				return
 			new_name = trim(new_name)
-			var/prefix = current_ship.source_template.prefix
+			var/prefix = current_ship.prefix
 			if (!(findtext(new_name, "KOS") || findtext(new_name, prefix)))
 				new_name = "[prefix] [new_name]"
 			if (!length(new_name) || new_name == current_ship.name)
@@ -204,6 +204,23 @@
 				return
 			if(!current_ship.set_ship_name(new_name))
 				say("Error: [COOLDOWN_TIMELEFT(current_ship, rename_cooldown)/10] seconds until ship designation can be changed..")
+			update_static_data(usr, ui)
+			return
+		if("toggle_kos")
+			if(current_ship.prefix == "NEU" && current_ship.faction_cooldown == 0)
+				say("Changing Faction To: KOS")
+				current_ship.prefix = "KOS"
+				current_ship.set_ship_faction()
+			else
+				if(current_ship.prefix == "KOS" && current_ship.faction_cooldown == 0)
+					say("Changing Faction To: NEU")
+					current_ship.prefix = "NEU"
+					current_ship.set_ship_faction()
+				else
+					if(current_ship.faction_cooldown > 0)
+						say("ERROR: [COOLDOWN_TIMELEFT(current_ship,faction_cooldown)/10] seconds until ships faction can be changed..")
+					else
+						say("Policies prohibit the changing of this ships faction. Sorry for the inconvenience")
 			update_static_data(usr, ui)
 			return
 		if("reload_ship")

@@ -46,7 +46,7 @@
 #define ANTAG_HUD "23"
 // for fans to identify pins
 #define FAN_HUD "24"
-
+//for faction huds. Used at /mob level
 #define FACTION_HUD "25"
 
 //by default everything in the hud_list of an atom is an image
@@ -85,9 +85,7 @@
 #define ANTAG_HUD_GANGSTER 26
 #define ANTAG_HUD_SPACECOP 27
 
-#define FACTION_HUD_NEU 28
-#define FACTION_HUD_NT 29
-#define FACTION_HUD_SYND 30
+#define FACTION_HUD_GENERAL 28
 
 // Notification action types
 #define NOTIFY_JUMP "jump"

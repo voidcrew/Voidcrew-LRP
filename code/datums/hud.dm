@@ -32,9 +32,7 @@ GLOBAL_LIST_INIT(huds, list(
 	ANTAG_HUD_GANGSTER = new/datum/atom_hud/antag/hidden(),
 	ANTAG_HUD_SPACECOP = new/datum/atom_hud/antag(),
 	///START VOIDCREW EDITS
-	FACTION_HUD_NEU = new/datum/atom_hud/faction(),
-	FACTION_HUD_NT = new/datum/atom_hud/faction(),
-	FACTION_HUD_SYND = new/datum/atom_hud/faction()
+	FACTION_HUD_GENERAL = new/datum/atom_hud/faction()
 	///STOP VOIDCREW EDITS
 	))
 

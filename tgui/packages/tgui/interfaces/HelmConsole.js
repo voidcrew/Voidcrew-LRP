@@ -50,12 +50,21 @@ const SharedContent = (props, context) => {
             })} />
         )}
         buttons={(
+        <>
+          <Button
+            tooltip="Toggle KOS or NEUTRAL"
+            tooltipPosition="left"
+            icon="circle"
+            disabled={isViewer}
+            onClick={() => act('toggle_kos')} />
+
           <Button
             tooltip="Refresh Ship Stats"
             tooltipPosition="left"
             icon="sync"
             disabled={isViewer}
             onClick={() => act('reload_ship')} />
+        </>
         )}>
         <LabeledList>
           <LabeledList.Item label="Class">

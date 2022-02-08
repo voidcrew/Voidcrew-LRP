@@ -1,5 +1,5 @@
 /datum/atom_hud/faction
-	hud_icons = list(FACTION_HUD, ANTAG_HUD)
+	hud_icons = list(FACTION_HUD)
 	var/self_visible = TRUE
 	var/icon_color //will set the icon color to this
 
@@ -35,7 +35,7 @@
 /proc/set_faction_hud(mob/M, new_icon_state, hudindex)
 	if(!istype(M))
 		CRASH("set_faction_hud(): [M] ([M.type]) is not a mob!")
-	var/image/holder = M.hud_list[ANTAG_HUD]
+	var/image/holder = M.hud_list[FACTION_HUD]
 	var/datum/atom_hud/faction/specific_hud = hudindex ? GLOB.huds[hudindex] : null
 	if(holder)
 		holder.icon_state = new_icon_state
