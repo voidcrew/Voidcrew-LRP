@@ -1,14 +1,14 @@
 /datum/atom_hud/faction
-	hud_icons = list(FACTION_HUD)
-	var/self_visible = TRUE
+	hud_icons = list(FACTION_HUD) //the icon list for factions
+	var/self_visible = TRUE //if the player can view there own hud
 	var/icon_color //will set the icon color to this
 
 /datum/atom_hud/faction/hidden
 	self_visible = FALSE
 /**
-Called when you need to have a mob join the hud list
-ARGUEMENTS: mob/player -> the player you want to add to the list
-*/
+  *Called when you need to have a mob join the hud list
+  *ARGUEMENTS: mob/player -> the player you want to add to the list
+  */
 /datum/atom_hud/faction/proc/join_hud(mob/player)
 	//sees_hud should be set to 0 if the mob does not get to see it's own hud type.
 	if(!istype(player))
@@ -23,9 +23,9 @@ ARGUEMENTS: mob/player -> the player you want to add to the list
 
 	player.mind.faction_hud = src
 /**
-Called when you need a player to have a mob leave a faction hud
-ARGUEMENTS: mob/player -> the player in question you want to leave
-*/
+  *Called when you need a player to have a mob leave a faction hud
+  *ARGUEMENTS: mob/player -> the player in question you want to leave
+  */
 /datum/atom_hud/faction/proc/leave_hud(mob/player)
 	if(!player)
 		return
@@ -37,7 +37,11 @@ ARGUEMENTS: mob/player -> the player in question you want to leave
 		player.mind.faction_hud = null
 
 //GAME_MODE PROCS
-//called to set a mob's faction icon state
+/**Called to set a factions icon state
+  * mob/player -> the player you want to set the icon of
+  * new_icon_state -> the icon image your updating the image to
+  * hudindex -> the index number of the hud listed in atom_hud.dm
+  */
 /proc/set_faction_hud(mob/player, new_icon_state, hudindex)
 	if(!istype(player))
 		CRASH("set_faction_hud(): [player] ([player.type]) is not a mob!")
@@ -57,7 +61,7 @@ ARGUEMENTS: mob/player -> the player in question you want to leave
 	set_faction_hud(current, faction_hud_icon_state)
 	if(newhud)
 		newhud.join_hud(current)
-//these are called to have someone leave all faction related hubs currently used when transfering mind
+//these are called to have someone leave all faction related huds currently used when transfering mind
 /datum/mind/proc/leave_all_faction_huds()
 	for(var/datum/atom_hud/faction/hud in GLOB.huds)
 		if(hud.hudusers[current])
