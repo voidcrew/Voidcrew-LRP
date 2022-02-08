@@ -10,7 +10,7 @@
 #define CHECK_CREW_SSD 10 MINUTES
 #define SHIP_RUIN 10 MINUTES
 #define SHIP_DELETE 10 MINUTES
-#define FACTION_COOLDOWN_TIME 0 MINUTES
+#define FACTION_COOLDOWN_TIME 20 MINUTES
 /**
   * # Simulated overmap ship
   *
