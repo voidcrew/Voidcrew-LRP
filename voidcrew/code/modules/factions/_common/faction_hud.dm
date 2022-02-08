@@ -5,7 +5,10 @@
 
 /datum/atom_hud/faction/hidden
 	self_visible = FALSE
-
+/**
+Called when you need to have a mob join the hud list
+ARGUEMENTS: mob/player -> the player you want to add to the list
+*/
 /datum/atom_hud/faction/proc/join_hud(mob/player)
 	//sees_hud should be set to 0 if the mob does not get to see it's own hud type.
 	if(!istype(player))
@@ -19,7 +22,10 @@
 			add_hud_to(player)
 
 	player.mind.faction_hud = src
-
+/**
+Called when you need a player to have a mob leave a faction hud
+ARGUEMENTS: mob/player -> the player in question you want to leave
+*/
 /datum/atom_hud/faction/proc/leave_hud(mob/player)
 	if(!player)
 		return
@@ -51,7 +57,7 @@
 	set_faction_hud(current, faction_hud_icon_state)
 	if(newhud)
 		newhud.join_hud(current)
-
+//these are called to have someone leave all faction related hubs currently used when transfering mind
 /datum/mind/proc/leave_all_faction_huds()
 	for(var/datum/atom_hud/faction/hud in GLOB.huds)
 		if(hud.hudusers[current])
