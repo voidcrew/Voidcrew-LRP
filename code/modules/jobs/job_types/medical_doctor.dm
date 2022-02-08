@@ -10,8 +10,8 @@
 
 	outfit = /datum/outfit/job/doctor
 
-	access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_CHEMISTRY, ACCESS_GENETICS, ACCESS_CLONING, ACCESS_VIROLOGY, ACCESS_MECH_MEDICAL, ACCESS_MINERAL_STOREROOM, ACCESS_EVA) //WS edit - Gen/Sci Split
-	minimal_access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_CLONING, ACCESS_MECH_MEDICAL, ACCESS_MINERAL_STOREROOM, ACCESS_PHARMACY)
+	access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_CHEMISTRY, ACCESS_GENETICS, ACCESS_VIROLOGY, ACCESS_MECH_MEDICAL, ACCESS_MINERAL_STOREROOM, ACCESS_EVA) //WS edit - Gen/Sci Split
+	minimal_access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_MECH_MEDICAL, ACCESS_MINERAL_STOREROOM, ACCESS_PHARMACY)
 	paycheck = PAYCHECK_MEDIUM
 	paycheck_department = ACCOUNT_MED
 
@@ -129,3 +129,10 @@
 	uniform = /obj/item/clothing/under/syndicate/cybersun
 	accessory = /obj/item/clothing/accessory/armband/medblue
 	shoes = /obj/item/clothing/shoes/jackboots
+/datum/outfit/job/doctor/syndicate/nsv
+	name = "Medical Doctor (NSV-M)"
+
+	uniform = /obj/item/clothing/under/syndicate
+	id = /obj/item/card/id/syndicate_command/crew_id
+	shoes = /obj/item/clothing/shoes/jackboots
+	ears = /obj/item/radio/headset/syndicate/alt

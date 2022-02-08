@@ -90,3 +90,44 @@
 			L.electrocute_act(urdamageamt_burn, target)
 	target.take_bodypart_damage(urdamageamt_brute, urdamageamt_burn)
 	return FALSE
+
+/datum/surgery/healing/oil_cleanse
+	name = "Oil Cleanse"
+	desc = "Clean the oil within an IPC."
+	replaced_by = null
+	target_mobtypes = list(/mob/living/carbon/human/species/ipc)
+	steps = list(
+		/datum/surgery_step/mechanic_open,
+		/datum/surgery_step/open_hatch,
+		/datum/surgery_step/prepare_electronics,
+		/datum/surgery_step/heal/cleanse_oil,
+		/datum/surgery_step/mechanic_close
+	)
+	requires_bodypart_type = BODYTYPE_ROBOTIC
+	possible_locs = list(BODY_ZONE_CHEST)
+	lying_required = TRUE
+
+/datum/surgery_step/heal/cleanse_oil
+	name = "cleanse oil"
+	implements = list(/obj/item/oil_cleanser = 100, /obj/item/reagent_containers/syringe = 30)
+	repeatable = TRUE
+	time = 2.5 SECONDS
+	var/tox_healing = 5
+
+/datum/surgery_step/heal/cleanse_oil/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+	display_results(user, target, "<span class='notice'>You prepare to clean out the oil running through [target].</span>",
+		"<span class='notice'>[user] prepares to cleanse [target] with [tool].</span>",
+		"<span class='notice'>[user] prepares to cleanse [target] with [tool].</span>")
+
+
+/datum/surgery_step/heal/cleanse_oil/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
+	display_results(user, target, "<span class='notice'>You successfully cleanse [target]'s oil with [tool]...</span>",
+		"<span class='notice'>[user] pumps some oil in and out of [target] with [tool]...</span>",
+		"<span class='notice'>[user] pumps some oil in and out of [target] with [tool]...</span>")
+	target.adjustToxLoss(-tox_healing)
+
+/datum/surgery_step/heal/cleanse_oil/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+	display_results(user, target, "<span class='notice'>The oil seems to be even dirtier than before...</span>",
+		"<span class='notice'>[user] pumps dirty oil back into [target] with [tool]...</span>",
+		"<span class='notice'>[user] pumps dirty oil back into [target] with [tool]...</span>")
+	target.adjustToxLoss(tox_healing)
