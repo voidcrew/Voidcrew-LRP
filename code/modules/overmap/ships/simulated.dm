@@ -10,7 +10,7 @@
 #define CHECK_CREW_SSD 10 MINUTES
 #define SHIP_RUIN 10 MINUTES
 #define SHIP_DELETE 10 MINUTES
-#define FACTION_COOLDOWN_TIME 20 MINUTES
+#define FACTION_COOLDOWN_TIME 0 MINUTES
 /**
   * # Simulated overmap ship
   *
@@ -331,12 +331,18 @@
   *Sets the ships faction and updates the crews huds
   */
 /obj/structure/overmap/ship/simulated/proc/set_ship_faction()
+	/var/old_prefix ///Used to store a ships original prefix so we can change back later
 	if(!COOLDOWN_FINISHED(src, faction_cooldown))
 		return
 	COOLDOWN_START(src, faction_cooldown, FACTION_COOLDOWN_TIME)
-	prefix = (prefix == "NEU" ? "KOS" : "NEU")
+	old_prefix = source_template.prefix
+	if(prefix == old_prefix)
+		prefix = "KOS"
+		name = "[prefix] [copytext(name, ((length(old_prefix)+1)))]"
+	else
+		prefix = old_prefix
+		name = "[prefix] [copytext(name, 4)]"
 	say("Changing Faction to: [prefix]")
-	name = "[prefix] [copytext(name, 4)]"
 	set_ship_name(name, ignore_cooldown = TRUE)
 	update_crew_hud()
 /**

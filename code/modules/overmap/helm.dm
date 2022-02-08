@@ -207,11 +207,7 @@
 			update_static_data(usr, ui)
 			return
 		if("toggle_kos")
-			var/list/factions = list("KOS", "NEU") //List for checking if the ship can toggle their faction
-			if(current_ship.prefix in factions)
-				current_ship.set_ship_faction()
-			else
-				say("Company Policy prohibits the changing of Factions.") //Default message to send to players when they try to change factions without being part of the list
+			current_ship.set_ship_faction()
 			update_static_data(usr, ui)
 			return
 		if("reload_ship")
