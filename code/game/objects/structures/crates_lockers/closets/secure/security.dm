@@ -146,7 +146,6 @@
 	new /obj/item/gun/ballistic/automatic/pistol/commissar(src) //WS edit - free lethals
 	new /obj/item/ammo_box/magazine/co9mm(src)
 	new /obj/item/ammo_box/magazine/co9mm(src)
-	new /obj/item/disk/design_disk/ammo_c9mm(src)
 	new /obj/item/circuitboard/machine/techfab/department/security(src)
 	new /obj/item/storage/photo_album/HoS(src)
 
