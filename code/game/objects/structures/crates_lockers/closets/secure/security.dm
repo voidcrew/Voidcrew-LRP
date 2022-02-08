@@ -125,7 +125,6 @@
 	new /obj/item/radio/headset/heads/hos(src)
 	new /obj/item/clothing/under/rank/security/head_of_security/parade/female(src)
 	new /obj/item/clothing/under/rank/security/head_of_security/parade(src)
-	new /obj/item/clothing/suit/armor/vest/leather(src)
 	new /obj/item/clothing/suit/armor/hos/trenchcoat(src) //WS edit - Small QoL Brig additions
 	new /obj/item/clothing/suit/armor/hos(src)
 	new /obj/item/clothing/under/rank/security/head_of_security/skirt(src)
@@ -142,7 +141,7 @@
 	new /obj/item/storage/box/flashbangs(src)
 	new /obj/item/shield/riot/tele(src)
 	new /obj/item/storage/belt/security/full(src)
-	new /obj/item/gun/ballistic/automatic/pistol/commissar(src) //WS edit - free lethals
+	new /obj/item/gun/ballistic/automatic/pistol/commander(src) //WS edit - free lethals
 	new /obj/item/ammo_box/magazine/co9mm(src)
 	new /obj/item/ammo_box/magazine/co9mm(src)
 	new /obj/item/disk/design_disk/ammo_c9mm(src)
