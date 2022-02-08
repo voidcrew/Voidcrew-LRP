@@ -7,3 +7,14 @@
 		/obj/item/circuitboard/machine/nanite_programmer,
 		/obj/item/circuitboard/machine/nanite_program_hub,
 	)
+
+/obj/effect/spawner/lootdrop/donkpockets
+	name = "ship part spawner"
+
+	loot = list(
+		/obj/item/ship_parts/neutral,
+		/obj/item/ship_parts/neutral/medium,
+		/obj/item/ship_parts/neutral/high,
+		/obj/item/ship_parts/nanotrasen,
+		/obj/item/ship_parts/syndicate,
+	)
