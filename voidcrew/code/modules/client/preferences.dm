@@ -1,11 +1,11 @@
 /datum/preferences
 	///Currently owned ships
 	var/list/ships_owned = list(
-		/datum/ship/neutral = 0,
-		/datum/ship/neutral/medium = 0,
-		/datum/ship/neutral/high = 0,
-		/datum/ship/nanotrasen = 0,
-		/datum/ship/syndicate = 0,
+		/datum/ship_parts/neutral = 0,
+		/datum/ship_parts/neutral/medium = 0,
+		/datum/ship_parts/neutral/high = 0,
+		/datum/ship_parts/nanotrasen = 0,
+		/datum/ship_parts/syndicate = 0,
 	)
 
 /datum/preferences/New()
