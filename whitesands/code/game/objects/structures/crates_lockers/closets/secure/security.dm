@@ -21,6 +21,22 @@
 	new /obj/item/clothing/suit/armor/vest/security/brig_phys(src)
 	new /obj/item/clothing/head/beret/sec/brig_phys(src)
 
+/obj/structure/closet/secure_closet/lieutenant
+	name = "SolGov official's locker"
+	req_access = list(ACCESS_SOLGOV)
+	icon_state = "solgov"
+
+/obj/structure/closet/secure_closet/lieutenant/PopulateContents()
+	..()
+	new /obj/item/clothing/head/beret/solgov(src)
+	new /obj/item/storage/briefcase(src)
+	new	/obj/item/storage/firstaid/regular(src)
+	new /obj/item/clothing/glasses/sunglasses(src)
+	new /obj/item/clothing/suit/armor/vest/solgov/rep(src)
+	new /obj/item/clothing/suit/solgov_trenchcoat(src)
+	new /obj/item/clothing/accessory/waistcoat/solgov(src)
+	new /obj/item/clothing/shoes/laceup(src)
+
 /obj/structure/closet/secure_closet/true_lieutenant
 	name = "\proper lieutenant's locker"
 	req_access = list(ACCESS_HEADS)

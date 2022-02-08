@@ -49,7 +49,7 @@
 	if(isliving(parent))
 		host_mob = parent
 
-		if(host_mob.mob_biotypes & (MOB_MINERAL|MOB_ROBOTIC))
+		if(!(host_mob.mob_biotypes & (MOB_ORGANIC|MOB_UNDEAD))) //Shouldn't happen, but this avoids HUD runtimes in case a silicon gets them somehow.
 			return COMPONENT_INCOMPATIBLE
 
 		start_time = world.time

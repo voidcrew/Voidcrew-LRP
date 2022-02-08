@@ -275,3 +275,27 @@
 			if (power_output < 4 || (obj_flags & EMAGGED))
 				power_output++
 				. = TRUE
+
+/obj/machinery/power/port_gen/pacman/super
+	name = "\improper S.U.P.E.R.P.A.C.M.A.N.-type portable generator"
+	icon_state = "portgen1_0"
+	base_icon = "portgen1"
+	circuit = /obj/item/circuitboard/machine/pacman/super
+	sheet_path = /obj/item/stack/sheet/mineral/uranium
+	power_gen = 15000
+	time_per_sheet = 85
+
+/obj/machinery/power/port_gen/pacman/super/overheat()
+	explosion(src.loc, 3, 3, 3, -1)
+
+/obj/machinery/power/port_gen/pacman/mrs
+	name = "\improper M.R.S.P.A.C.M.A.N.-type portable generator"
+	base_icon = "portgen2"
+	icon_state = "portgen2_0"
+	circuit = /obj/item/circuitboard/machine/pacman/mrs
+	sheet_path = /obj/item/stack/sheet/mineral/diamond
+	power_gen = 40000
+	time_per_sheet = 80
+
+/obj/machinery/power/port_gen/pacman/mrs/overheat()
+	explosion(src.loc, 4, 4, 4, -1)

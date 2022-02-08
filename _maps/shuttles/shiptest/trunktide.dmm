@@ -9,6 +9,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -52,9 +55,6 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/engineering)
 "bO" = (
@@ -84,9 +84,7 @@
 /obj/effect/turf_decal/techfloor{
 	dir = 6
 	},
-/obj/machinery/atmospherics/components/unary/tank/toxins{
-	dir = 8
-	},
+/obj/machinery/atmospherics/components/unary/tank/toxins,
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/maintenance/central)
 "em" = (
@@ -166,24 +164,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/ship/cargo)
-"fH" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
-/obj/machinery/atmospherics/pipe/simple/purple/hidden{
-	dir = 1
-	},
-/obj/effect/turf_decal/techfloor{
-	dir = 4
-	},
-/obj/effect/turf_decal/techfloor{
-	dir = 8
-	},
-/obj/machinery/door/airlock/engineering,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/open/floor/plasteel/tech/grid,
-/area/ship/engineering)
 "fJ" = (
 /obj/machinery/atmospherics/pipe/simple/general/hidden/layer2,
 /obj/machinery/door/airlock/glass,
@@ -314,9 +294,6 @@
 	pixel_x = 24
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/engineering)
 "jJ" = (
@@ -915,9 +892,6 @@
 	},
 /obj/machinery/door/firedoor/border_only,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/maintenance/central)
 "zO" = (
@@ -940,10 +914,7 @@
 /turf/open/floor/plasteel,
 /area/ship/maintenance/fore)
 "zY" = (
-/obj/machinery/atmospherics/components/unary/tank/air{
-	dir = 1;
-	piping_layer = 2
-	},
+/obj/machinery/atmospherics/components/unary/tank/air,
 /turf/open/floor/plating,
 /area/ship/maintenance/fore)
 "Ar" = (
@@ -1169,20 +1140,15 @@
 /obj/effect/turf_decal/techfloor{
 	dir = 9
 	},
+/obj/machinery/suit_storage_unit/mining/eva,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/suit_storage_unit/inherit,
-/obj/item/clothing/gloves/explorer,
-/obj/item/clothing/mask/gas/explorer,
-/obj/item/clothing/suit/hooded/explorer,
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/maintenance/central)
 "HP" = (
 /obj/effect/turf_decal/techfloor{
 	dir = 5
 	},
-/obj/machinery/atmospherics/components/unary/tank/toxins{
-	dir = 8
-	},
+/obj/machinery/atmospherics/components/unary/tank/toxins,
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/maintenance/central)
 "If" = (
@@ -1326,8 +1292,8 @@
 /obj/effect/turf_decal/techfloor{
 	dir = 10
 	},
+/obj/machinery/suit_storage_unit/mining/eva,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/suit_storage_unit/independent/mining/eva,
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/maintenance/central)
 "NW" = (
@@ -1988,7 +1954,7 @@ IH
 EP
 ZG
 zt
-fH
+RM
 jC
 fl
 DZ

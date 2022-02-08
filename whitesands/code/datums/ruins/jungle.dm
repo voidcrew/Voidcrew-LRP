@@ -1,7 +1,7 @@
 // Hey! Listen! Update \config\jungleruinblacklist.txt with your new ruins!
 
 /datum/map_template/ruin/jungle
-	prefix = "voidcrew/_maps/RandomRuins/JungleRuins/"
+	prefix = "_maps/RandomRuins/JungleRuins/"
 
 /datum/map_template/ruin/jungle/solgov_crash
 	name = "Abandoned SolGov Exploration Pod"

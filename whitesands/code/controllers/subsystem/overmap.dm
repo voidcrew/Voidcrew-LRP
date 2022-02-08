@@ -169,7 +169,6 @@ SUBSYSTEM_DEF(overmap)
 			spawn_event_cluster(type, T, chance / 2)
 
 /datum/controller/subsystem/overmap/proc/spawn_initial_ships()
-#ifndef UNIT_TESTS
 	var/datum/map_template/shuttle/selected_template = SSmapping.maplist[pick(SSmapping.maplist)]
 	INIT_ANNOUNCE("Loading [selected_template.name]...")
 	SSshuttle.load_template(selected_template)
@@ -179,7 +178,6 @@ SUBSYSTEM_DEF(overmap)
 		"}, list("map_name" = selected_template.name, "round_id" = GLOB.round_id))
 		query_round_map_name.Execute()
 		qdel(query_round_map_name)
-#endif
 
 /**
   * Creates an overmap object for each ruin level, making them accessible.

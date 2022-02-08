@@ -1,7 +1,7 @@
 // Hey! Listen! Update \config\sandruinblacklist.txt with your new ruins!
 
 /datum/map_template/ruin/whitesands
-	prefix = "voidcrew/_maps/RandomRuins/SandRuins/"
+	prefix = "_maps/RandomRuins/SandRuins/"
 
 /datum/map_template/ruin/whitesands/solgov_crash
 	name = "Crashed SolGov Transport"

@@ -72,9 +72,8 @@
 	construction_time = 100
 	category = list("Ripley")
 
-//firefighter subtype // Replaced by the "MK-III Upgrade", found at your local exofab
-
-/*/datum/design/firefighter_chassis
+//firefighter subtype
+/datum/design/firefighter_chassis
 	name = "Exosuit Chassis (APLU \"Firefighter\")"
 	id = "firefighter_chassis"
 	build_type = MECHFAB
@@ -82,7 +81,6 @@
 	materials = list(/datum/material/iron=20000)
 	construction_time = 100
 	category = list("Firefighter")
-*/
 
 /datum/design/ripley_torso
 	name = "Exosuit Torso (APLU \"Ripley\")"
@@ -484,15 +482,6 @@
 	build_type = MECHFAB
 	build_path = /obj/item/mecha_parts/mecha_equipment/ripleyupgrade
 	materials = list(/datum/material/iron=10000,/datum/material/plasma=10000)
-	construction_time = 100
-	category = list("Exosuit Equipment")
-
-/datum/design/ripleyupgrade/firefighter
-	name = "Ripley MK-II to MK-III conversion kit"
-	id = "ripleyupgrade_firefighter"
-	build_type = MECHFAB
-	build_path = /obj/item/mecha_parts/mecha_equipment/ripleyupgrade/firefighter
-	materials = list(/datum/material/iron=15000,/datum/material/plasma=15000,/datum/material/titanium=10000,/datum/material/uranium=15000)
 	construction_time = 100
 	category = list("Exosuit Equipment")
 

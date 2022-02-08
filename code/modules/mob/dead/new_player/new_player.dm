@@ -265,9 +265,6 @@
 	return JOB_AVAILABLE
 
 /mob/dead/new_player/proc/AttemptLateSpawn(datum/job/job, obj/structure/overmap/ship/simulated/ship)
-	if (isnull(ship) || isnull(ship.shuttle))
-		stack_trace("Tried to spawn ([ckey]) into a null ship! Please report this on Github.")
-		return FALSE
 	var/error = IsJobUnavailable(job, ship)
 	if(error != JOB_AVAILABLE)
 		alert(src, get_job_unavailable_error_message(error, job))
@@ -343,8 +340,6 @@
 	var/list/shuttle_choices = list("Purchase ship..." = "Purchase") //Dummy for purchase option
 
 	for(var/obj/structure/overmap/ship/simulated/S as anything in SSovermap.simulated_ships)
-		if(isnull(S.shuttle))
-			continue
 		if((length(S.shuttle.spawn_points) < 1) || !S.join_allowed)
 			continue
 		shuttle_choices[S.name + " ([S.source_template.short_name ? S.source_template.short_name : "Unknown-class"])"] = S //Try to get the class name

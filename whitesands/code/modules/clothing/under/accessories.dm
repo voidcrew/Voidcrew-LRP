@@ -53,3 +53,8 @@
 /obj/item/clothing/accessory/holster/chameleon/broken/Initialize()
 	. = ..()
 	chameleon_action.emp_randomise(INFINITY)
+
+/obj/item/clothing/accessory/waistcoat/solgov
+	name = "solgov waistcoat"
+	desc = "A standard issue waistcoat in solgov colors."
+	icon_state = "solgov_waistcoat"

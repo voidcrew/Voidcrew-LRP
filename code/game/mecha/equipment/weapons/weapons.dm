@@ -75,7 +75,7 @@
 	addtimer(CALLBACK(src, .proc/set_ready_state, 1), equip_cooldown)
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser
-	equip_cooldown = 5 //VoidTest Edit, gives mech weaponry a minor stat buff
+	equip_cooldown = 8
 	name = "\improper CH-PS \"Immolator\" laser"
 	desc = "A weapon for combat exosuits. Shoots basic lasers."
 	icon_state = "mecha_laser"
@@ -85,7 +85,7 @@
 	harmful = TRUE
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/disabler
-	equip_cooldown = 5 //VoidTest Edit, gives mech weaponry a minor stat buff
+	equip_cooldown = 8
 	name = "\improper CH-DS \"Peacemaker\" disabler"
 	desc = "A weapon for combat exosuits. Shoots basic disablers."
 	icon_state = "mecha_disabler"
@@ -122,7 +122,7 @@
 	harmful = TRUE
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/pulse
-	equip_cooldown = 15 //VoidTest Edit, gives mech weaponry a minor stat buff
+	equip_cooldown = 30
 	name = "eZ-13 MK2 heavy pulse rifle"
 	desc = "A weapon for combat exosuits. Shoots powerful destructive blasts capable of demolishing obstacles."
 	icon_state = "mecha_pulse"
@@ -292,7 +292,7 @@
 	desc = "A weapon for combat exosuits. A mime invention, field tests have shown that targets cannot even scream before going down."
 	fire_sound = 'sound/weapons/gun/general/heavy_shot_suppressed.ogg'
 	icon_state = "mecha_mime"
-	equip_cooldown = 20 //VoidTest Edit, gives mech weaponry a minor stat buff
+	equip_cooldown = 30
 	projectile = /obj/projectile/bullet/mime
 	projectiles = 6
 	projectile_energy_cost = 50
