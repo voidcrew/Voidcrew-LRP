@@ -34,6 +34,7 @@
 	var/avg_fuel_amnt = 100
 	///Cooldown until the ship can be renamed again
 	COOLDOWN_DECLARE(rename_cooldown)
+	/// Cooldown until you can change your faction again controlled by FACTION_COOLDOWN_TIME
 	COOLDOWN_DECLARE(faction_cooldown)
 	///The overmap object the ship is docked to, if any
 	var/obj/structure/overmap/docked

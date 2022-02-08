@@ -557,7 +557,7 @@ block( \
 		else
 			return
 
-proc/AddHud(mob/living/carbon/human/character, obj/structure/overmap/ship/simulated/ship)
+/proc/AddHud(mob/living/carbon/human/character, obj/structure/overmap/ship/simulated/ship)
 	add_faction_hud(ship.prefix, FACTION_HUD_GENERAL, character)
 
 /proc/lavaland_equipment_pressure_check(turf/T)
