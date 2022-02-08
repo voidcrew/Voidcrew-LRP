@@ -12,6 +12,7 @@ LINEN BINS
 	righthand_file = 'icons/mob/inhands/misc/bedsheet_righthand.dmi'
 	icon_state = "sheetwhite"
 	item_state = "sheetwhite"
+	item_flags = SURGICAL_TOOL
 	slot_flags = ITEM_SLOT_NECK
 	layer = MOB_LAYER
 	throwforce = 0
