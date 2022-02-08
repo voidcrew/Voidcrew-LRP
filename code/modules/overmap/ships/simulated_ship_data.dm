@@ -55,7 +55,7 @@
  * Arguments:
  * * mob/living/carbon/human/crewmate - The mob to add to the list of crewmembers
  */
-/obj/structure/overmap/ship/simulated/proc/register_cremember(mob/living/carbon/human/crewmate)
+/obj/structure/overmap/ship/simulated/proc/register_crewmember(mob/living/carbon/human/crewmate)
 	var/datum/weakref/new_cremate = WEAKREF(crewmate)
 	crewmembers.Add(new_cremate)
 	RegisterSignal(crewmate, list(COMSIG_MOB_DEATH, COMSIG_MOB_LOGOUT), .proc/handle_inactive_ship)
@@ -68,7 +68,7 @@
 	set waitfor = FALSE
 	if(H.mind && (H.mind.assigned_role != H.mind.special_role))
 		manifest[H.real_name] = human_job
-	register_cremember(H)
+	register_crewmember(H)
 
 /**
  * Check the status of the crew
