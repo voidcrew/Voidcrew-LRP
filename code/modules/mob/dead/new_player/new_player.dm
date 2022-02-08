@@ -340,6 +340,7 @@
 			employmentCabinet.addFile(employee)
 
 /mob/dead/new_player/proc/LateChoices()
+/* //We do this ourselves modularly. This is commented out pending TG update to replace.
 	var/list/shuttle_choices = list("Purchase ship..." = "Purchase") //Dummy for purchase option
 
 	for(var/obj/structure/overmap/ship/simulated/S as anything in SSovermap.simulated_ships)
@@ -423,7 +424,7 @@
 			return
 
 	AttemptLateSpawn(selected_job, selected_ship)
-
+*/
 /mob/dead/new_player/proc/create_character(transfer_after)
 	spawning = 1
 	close_spawn_windows()

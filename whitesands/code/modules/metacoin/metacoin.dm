@@ -46,6 +46,7 @@
 	if(M.mind && !isnewplayer(M))
 		if(M.stat != DEAD && !isbrain(M))
 			inc_metabalance(METACOIN_ESCAPE_REWARD(is_speed_round, round_duration), reason="Survived the shift.")
+			give_random_ship()
 /*
 VOID CREW EDIT
 		else
@@ -57,6 +58,7 @@ VOID CREW EDIT
 
 /client/proc/process_ten_minute_living()
 	inc_metabalance(METACOIN_TENMINUTELIVING_REWARD, FALSE)
+	give_random_ship()
 
 /client/proc/get_metabalance()
 	if(!SSdbcore.IsConnected())

@@ -12,7 +12,6 @@
 	var/port_y_offset
 
 	var/limit
-	var/cost
 	var/short_name
 	var/list/job_slots
 	var/list/name_categories = list("GENERAL")
