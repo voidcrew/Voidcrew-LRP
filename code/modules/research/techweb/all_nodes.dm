@@ -140,12 +140,9 @@
 	display_name = "Data Theory"
 	description = "Big Data, in space!"
 	prereq_ids = list("base")
-	design_ids = list(
-		"survey-handheld-advanced"
-	)
+	design_ids = list("survey-handheld-advanced", "robo_access_card")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 	export_price = 5000
-
 
 /////////////////////////engineering tech/////////////////////////
 /datum/techweb_node/engineering
