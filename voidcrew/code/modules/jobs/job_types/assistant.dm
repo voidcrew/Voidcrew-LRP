@@ -77,7 +77,7 @@
 /datum/outfit/job/assistant/provo
 	name = "Provisional IRA Scientist"
 
-	head = /obj/item/clothing/head/beret/sec/officer{name="IRA beret"}
+	head = /obj/item/clothing/head/beret/sec/officer{name = "IRA beret"}
 	mask = /obj/item/clothing/mask/balaclava
 	gloves = /obj/item/clothing/gloves/color/black
 	neck = /obj/item/clothing/neck/tie/red
