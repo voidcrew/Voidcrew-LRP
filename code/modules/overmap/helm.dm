@@ -207,20 +207,9 @@
 			update_static_data(usr, ui)
 			return
 		if("toggle_kos")
-			if(current_ship.prefix == "NEU" && current_ship.faction_cooldown == 0)
-				say("Changing Faction To: KOS")
-				current_ship.prefix = "KOS"
-				current_ship.set_ship_faction()
-			else
-				if(current_ship.prefix == "KOS" && current_ship.faction_cooldown == 0)
-					say("Changing Faction To: NEU")
-					current_ship.prefix = "NEU"
-					current_ship.set_ship_faction()
-				else
-					if(current_ship.faction_cooldown > 0)
-						say("ERROR: [COOLDOWN_TIMELEFT(current_ship,faction_cooldown)/10] seconds until ships faction can be changed..")
-					else
-						say("Policies prohibit the changing of this ships faction. Sorry for the inconvenience")
+			if(!current_ship.set_ship_faction())
+				say("Error: [COOLDOWN_TIMELEFT(current_ship, faction_cooldown)/10] seconds until ship designation can be changed..")
+			current_ship.set_ship_faction()
 			update_static_data(usr, ui)
 			return
 		if("reload_ship")

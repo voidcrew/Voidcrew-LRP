@@ -326,6 +326,14 @@
 	for(var/area/shuttle_area as anything in shuttle.shuttle_areas)
 		shuttle_area.rename_area("[new_name] [initial(shuttle_area.name)]")
 	return TRUE
+/obj/structure/overmap/ship/simulated/proc/set_ship_faction()
+	if(!COOLDOWN_FINISHED(src, faction_cooldown))
+		return
+	COOLDOWN_START(src, faction_cooldown, 5 MINUTES)
+	prefix = (prefix == "NEU" ? "KOS" : "NEU")
+	say("Changing Faction to: [prefix]")
+	name = "[prefix] [copytext(name, 4)]"
+	set_ship_name(name, ignore_cooldown = TRUE)
 
 /obj/structure/overmap/ship/simulated/update_icon_state()
 	if(mass < SHIP_SIZE_THRESHOLD)
