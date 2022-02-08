@@ -52,7 +52,7 @@ const SharedContent = (props, context) => {
         buttons={(
         <>
           <Button
-            tooltip="Toggle KOS or NEUTRAL"
+            tooltip="Toggle KOS"
             tooltipPosition="left"
             icon="circle"
             disabled={isViewer}
