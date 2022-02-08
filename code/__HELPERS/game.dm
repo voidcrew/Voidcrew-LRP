@@ -562,7 +562,9 @@ block( \
   * obj/structure/overmap/ship/simulated/ship -> the ship the newplayer is spawning in, needed for its prefix
   */
 /proc/AddHud(mob/living/carbon/human/character, obj/structure/overmap/ship/simulated/ship)
-	add_faction_hud(ship.prefix, FACTION_HUD_GENERAL, character)
+	var/faction_hud_type = FACTION_HUD_GENERAL
+	var/faction_hud_name = ship.prefix
+	add_faction_hud(faction_hud_type, faction_hud_name, character)
 
 /proc/lavaland_equipment_pressure_check(turf/T)
 	. = FALSE
