@@ -7,9 +7,9 @@
 ///Name of the file used for ship name random selection
 #define SHIP_NAMES_FILE "ship_names.json"
 
-#define CHECK_CREW_SSD 10 MINUTES
-#define SHIP_RUIN 10 MINUTES
-#define SHIP_DELETE 10 MINUTES
+#define CHECK_CREW_SSD (10 MINUTES)
+#define SHIP_RUIN (10 MINUTES)
+#define SHIP_DELETE (10 MINUTES)
 
 /**
   * # Simulated overmap ship
@@ -41,6 +41,9 @@
 	var/obj/docking_port/mobile/shuttle
 	///The map template the shuttle was spawned from, if it was indeed created from a template. CAN BE NULL (ex. custom-built ships).
 	var/datum/map_template/shuttle/source_template
+
+	///Timer for ship deletion
+	var/deletion_timer
 
 /obj/structure/overmap/ship/simulated/Initialize(mapload, obj/docking_port/mobile/_shuttle, datum/map_template/shuttle/_source_template)
 	. = ..()
@@ -93,6 +96,7 @@
 		return
 	shuttle.jumpToNullSpace()
 	message_admins("\[SHUTTLE]: [shuttle.name] has been deleted!")
+	log_admin("\[SHUTTLE]: [shuttle.name] has been deleted!")
 	qdel(src)
 
 /**
@@ -337,6 +341,8 @@
 /obj/structure/overmap/ship/simulated/proc/handle_inactive_ship()
 	SIGNAL_HANDLER
 
+	if (!isnull(deletion_timer))
+		return
 	switch (is_active_crew())
 		if (SHUTTLE_ACTIVE_CREW)
 			return
@@ -356,18 +362,12 @@
 		return // ssd guy came back
 
 	switch (state)
-		if (OVERMAP_SHIP_FLYING)
-			addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE)
-		if (OVERMAP_SHIP_UNDOCKING)
-			addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE)
-		if (OVERMAP_SHIP_ACTING)
-			// delete it because this is somewhat ambiguous (but they are technically flying here)
-			addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE)
-		if (OVERMAP_SHIP_IDLE)
-			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), SHIP_RUIN)
-		if (OVERMAP_SHIP_DOCKING)
-			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), SHIP_RUIN)
-
+		if (OVERMAP_SHIP_FLYING, OVERMAP_SHIP_UNDOCKING, OVERMAP_SHIP_ACTING)
+			message_admins("\[SHUTTLE]: [name] has been queued for deletion in [SHIP_DELETE / 600] minutes! [ADMIN_COORDJMP(shuttle.loc)]")
+			deletion_timer = addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE, (TIMER_STOPPABLE|TIMER_UNIQUE))
+		if (OVERMAP_SHIP_IDLE, OVERMAP_SHIP_DOCKING)
+			message_admins("\[SHUTTLE]: [name] has been queued for ruin conversion in [SHIP_RUIN / 600] minutes! [ADMIN_COORDJMP(shuttle.loc)]")
+			deletion_timer = addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), SHIP_RUIN, (TIMER_STOPPABLE|TIMER_UNIQUE))
 #undef SHIP_SIZE_THRESHOLD
 
 #undef SHIP_DOCKED_REPAIR_TIME
