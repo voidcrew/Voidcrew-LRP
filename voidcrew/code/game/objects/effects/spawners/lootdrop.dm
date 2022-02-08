@@ -8,7 +8,7 @@
 		/obj/item/circuitboard/machine/nanite_program_hub,
 	)
 
-/obj/effect/spawner/lootdrop/donkpockets
+/obj/effect/spawner/lootdrop/ship_parts
 	name = "ship part spawner"
 
 	loot = list(

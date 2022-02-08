@@ -21,3 +21,8 @@
 	var/datum/ship/selected_ship = pick(subtypesof(/datum/ship))
 	prefs.ships_owned[selected_ship]++
 	to_chat(src, "You have been granted [selected_ship][selected_ship.faction == FACTION_NEUTRAL ? " [selected_ship.level]" : ""] type ship parts!")
+
+/client/proc/list_ship_parts()
+	to_chat(usr, "<span class='boldwarning'>Currently owned ship parts:</span>")
+	for(var/datum/ship/ships as anything in prefs.ships_owned)
+		to_chat(usr, "<span class='boldwarning'>[prefs.ships_owned[ships]] [initial(ships.name)]</span>")

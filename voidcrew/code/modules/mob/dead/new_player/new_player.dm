@@ -14,6 +14,7 @@
 		return
 
 	if(selected_ship == "Purchase")
+		usr.client.list_ship_parts()
 		var/datum/map_template/shuttle/template = SSmapping.ship_purchase_list[tgui_input_list(src, "Please select ship to purchase!", "Welcome, [client.prefs.real_name].", SSmapping.ship_purchase_list)]
 		if(!template)
 			return LateChoices()

@@ -19,9 +19,9 @@
 	level = SHIP_STRONG
 
 /datum/ship/nanotrasen
-	name = "NT-S ship parts"
+	name = "NT-C ship parts"
 	faction = FACTION_NANOTRASEN
 
 /datum/ship/syndicate
-	name = "SYN ship parts"
+	name = "SYN-C ship parts"
 	faction = FACTION_SYNDICATE
