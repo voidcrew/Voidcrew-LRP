@@ -84,7 +84,7 @@
 #define ANTAG_HUD_FUGITIVE 25
 #define ANTAG_HUD_GANGSTER 26
 #define ANTAG_HUD_SPACECOP 27
-
+//faction HUD defines
 #define FACTION_HUD_GENERAL 28
 
 // Notification action types
