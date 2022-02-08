@@ -207,9 +207,11 @@
 			update_static_data(usr, ui)
 			return
 		if("toggle_kos")
-			if(!current_ship.set_ship_faction())
-				say("Error: [COOLDOWN_TIMELEFT(current_ship, faction_cooldown)/10] seconds until ship designation can be changed..")
-			current_ship.set_ship_faction()
+			var/list/factions = list("KOS", "NEU")
+			if(current_ship.prefix in factions)
+				current_ship.set_ship_faction()
+			else
+				say("Company Policy prohibits the changing of Factions.")
 			update_static_data(usr, ui)
 			return
 		if("reload_ship")

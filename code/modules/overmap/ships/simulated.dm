@@ -334,6 +334,14 @@
 	say("Changing Faction to: [prefix]")
 	name = "[prefix] [copytext(name, 4)]"
 	set_ship_name(name, ignore_cooldown = TRUE)
+	update_crew_hud()
+
+/obj/structure/overmap/ship/simulated/proc/update_crew_hud()
+	for (var/datum/weakref/member in crewmembers)
+		if (isnull(member.resolve()))
+			continue
+		remove_faction_hud(FACTION_HUD_GENERAL, member.resolve())
+		add_faction_hud(FACTION_HUD_GENERAL, prefix, member.resolve())
 
 /obj/structure/overmap/ship/simulated/update_icon_state()
 	if(mass < SHIP_SIZE_THRESHOLD)
