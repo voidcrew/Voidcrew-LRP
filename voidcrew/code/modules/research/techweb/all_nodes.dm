@@ -7,3 +7,11 @@
 	design_ids = list("robotic_liver", "robotic_eyes", "robotic_tongue", "robotic_stomach", "robotic_ears", "power_cord")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1500)
 	export_price = 5000
+
+/datum/techweb_node/id_permits
+	id = "id_permits"
+	display_name = "Cyberware Access Permit"
+	prereq_ids = list("datatheory")
+	design_ids = list("robo_access_card")
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 500)
+	export_price = 1000
