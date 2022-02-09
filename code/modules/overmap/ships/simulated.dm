@@ -45,6 +45,7 @@
 	/// The prefix the shuttle currently possesses
 	var/prefix
 
+	/var/fixed_name ///Snips the prefix off the ship when renaming to stop duplicate prefixes from existing
 /obj/structure/overmap/ship/simulated/Initialize(mapload, obj/docking_port/mobile/_shuttle, datum/map_template/shuttle/_source_template)
 	. = ..()
 	SSovermap.simulated_ships += src
@@ -333,14 +334,14 @@
 /obj/structure/overmap/ship/simulated/proc/set_ship_faction(faction_change)
 	if(!COOLDOWN_FINISHED(src, faction_cooldown))
 		return
+	if(faction_change == prefix || (faction_change == "return" && prefix == "NEU"))
+		return
 	COOLDOWN_START(src, faction_cooldown, FACTION_COOLDOWN_TIME)
-	if(prefix == source_template.prefix)
-		prefix = faction_change
-		name = "[prefix] [copytext(name, ((length(source_template.prefix)+1)))]"
-	else
+	fixed_name = (length(prefix)+1)
+	prefix = faction_change
+	if(faction_change == "return")
 		prefix = source_template.prefix
-		name = "[prefix] [copytext(name, 4)]"
-	say("Changing Faction to: [prefix]")
+	name = "[prefix] [copytext(name, fixed_name)]"
 	set_ship_name(name, ignore_cooldown = TRUE)
 	update_crew_hud()
 /**
