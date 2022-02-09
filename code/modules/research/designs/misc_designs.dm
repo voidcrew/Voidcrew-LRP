@@ -306,16 +306,6 @@
 	category = list("Electronics")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
-/datum/design/robo_id
-	name = "Robotics ID Upgrade"
-	desc = "A tiny chip that attaches to any standard ID card. This one is configured to access robotics equipment."
-	id = "robo_access_card"
-	build_type = PROTOLATHE
-	materials = list(/datum/material/iron = 200, /datum/material/glass = 100, /datum/material/silver = 500)
-	build_path = /obj/item/card/robo_access_card
-	category = list("Electronics")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
-
 /datum/design/eng_gloves
 	name = "Tinkers Gloves"
 	desc = "Overdesigned engineering gloves that have automated construction subroutines dialed in, allowing for faster construction while worn."
