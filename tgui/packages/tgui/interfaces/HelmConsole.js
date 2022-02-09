@@ -95,19 +95,6 @@ const SharedContent = (props, context) => {
             icon="fas fa-skull"
             disabled={isViewer}
             onClick={() => act('toggle_kos')} />
-
-            <Button
-            tooltip="Toggle Friendly"
-            tooltipPosition="left"
-            icon="fas fa-heart"
-            disabled={isViewer}
-            onClick={() => act('toggle_friendly')} />
-            <Button
-            tooltip="Toggle Merchant"
-            tooltipPosition="left"
-            icon="fas fa-dollar-sign"
-            disabled={isViewer}
-            onClick={() => act('toggle_merchant')} />
             <Button
             tooltip="Toggle Default"
             tooltipPosition="left"

@@ -210,14 +210,6 @@
 			current_ship.set_ship_faction("KOS")
 			update_static_data(usr, ui)
 			return
-		if("toggle_friendly")
-			current_ship.set_ship_faction("FRND")
-			update_static_data(usr, ui)
-			return
-		if("toggle_merchant")
-			current_ship.set_ship_faction("MERCH")
-			update_static_data(usr, ui)
-			return
 		if("return")
 			current_ship.set_ship_faction("return")
 			update_static_data(usr, ui)
