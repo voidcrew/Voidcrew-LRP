@@ -25,10 +25,40 @@
 
 /obj/structure/overmap/ship/simulated/Destroy()
 	. = ..()
-	// clear all the weakrefs and unreg signals
+	unregister_all_crewmembers()
+
+/**
+ * Unregister a crewmate from the crewmembers list
+ *
+ * Arguments:
+ * * mob/living/carbon/human/crewmate - The mob to remove from the list of crewmembers
+ */
+/obj/structure/overmap/ship/simulated/proc/unregister_crewmember(mob/living/carbon/human/crewmate)
 	for (var/datum/weakref/member in crewmembers)
-		UnregisterSignal(member.resolve(), COMSIG_MOB_DEATH)
-		member = null
+		if (crewmate == member.resolve())
+			UnregisterSignal(member.resolve(), list(COMSIG_MOB_DEATH, COMSIG_MOB_LOGOUT))
+			member = null
+
+/**
+ * Unregister ALL crewmates from the ship
+ */
+/obj/structure/overmap/ship/simulated/proc/unregister_all_crewmembers()
+	for (var/datum/weakref/member in crewmembers)
+		if (isnull(member.resolve()))
+			member = null
+			continue
+		unregister_crewmember(member.resolve())
+
+/**
+ * Register a crewmate to the crewmembers list
+ *
+ * Arguments:
+ * * mob/living/carbon/human/crewmate - The mob to add to the list of crewmembers
+ */
+/obj/structure/overmap/ship/simulated/proc/register_crewmember(mob/living/carbon/human/crewmate)
+	var/datum/weakref/new_cremate = WEAKREF(crewmate)
+	crewmembers.Add(new_cremate)
+	RegisterSignal(crewmate, list(COMSIG_MOB_DEATH, COMSIG_MOB_LOGOUT), .proc/handle_inactive_ship)
 
 /**
   * Bastardized version of GLOB.manifest.manifest_inject, but used per ship
@@ -38,10 +68,7 @@
 	set waitfor = FALSE
 	if(H.mind && (H.mind.assigned_role != H.mind.special_role))
 		manifest[H.real_name] = human_job
-
-	var/datum/weakref/new_cremate = WEAKREF(H)
-	crewmembers.Add(new_cremate)
-	RegisterSignal(H, COMSIG_MOB_DEATH, .proc/handle_inactive_ship)
+	register_crewmember(H)
 
 /**
  * Check the status of the crew
@@ -52,7 +79,8 @@
 		var/mob/living/carbon/human/member = crewmember.resolve()
 		if (isnull(member)) // this crewmate is gone
 			continue
-
+		if (shuttle.z != member.z) // different z, they don't matter anymore
+			continue
 		if (member.stat <= HARD_CRIT)
 			if (isnull(member.client))
 				is_ssd = TRUE
