@@ -364,9 +364,11 @@
 			// delete it because this is somewhat ambiguous (but they are technically flying here)
 			addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE)
 		if (OVERMAP_SHIP_IDLE)
-			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), SHIP_RUIN)
+			addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE)
+			//addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), SHIP_RUIN)
 		if (OVERMAP_SHIP_DOCKING)
-			addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), SHIP_RUIN)
+			addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE)
+			//addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), SHIP_RUIN)
 
 #undef SHIP_SIZE_THRESHOLD
 
