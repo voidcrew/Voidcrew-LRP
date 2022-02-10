@@ -62,6 +62,10 @@
 	//Adds a faction hud to a newplayer documentation in _HELPERS/game.dm
 	add_faction_hud(FACTION_HUD_GENERAL, prefix, crewmate)
 
+	if (!isnull(source_template.antag_datum))
+		var/datum/antagonist/ship_datum = new source_template.antag_datum
+		crewmate.mind.add_antag_datum(ship_datum)
+
 /**
   * Bastardized version of GLOB.manifest.manifest_inject, but used per ship
   *

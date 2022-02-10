@@ -198,6 +198,10 @@ SUBSYSTEM_DEF(mapping)
 		if(islist(data["namelists"]))
 			S.name_categories = data["namelists"]
 
+		if(istext(data["antag_datum"]))
+			var/path = "/datum/antagonist/" + data["antag_datum"]
+			S.antag_datum = text2path(path)
+
 		S.job_slots = list()
 		var/list/job_slot_list = data["job_slots"]
 		for(var/job in job_slot_list)
