@@ -240,6 +240,14 @@
 /obj/machinery/vending/clothing,
 /turf/open/floor/wood,
 /area/ship/crew/dorm)
+"fg" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/plasteel/cult,
+/area/ship/storage{
+	name = "Miner's Area"
+	})
 "fw" = (
 /obj/structure/dresser,
 /obj/machinery/power/apc/auto_name/east,
@@ -312,6 +320,15 @@
 /obj/effect/spawner/structure/window/shuttle,
 /turf/open/floor/engine/cult,
 /area/ship/bridge)
+"iL" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 1;
+	filter_types = list("o2","n2")
+	},
+/turf/open/floor/plasteel,
+/area/ship/storage{
+	name = "Miner's Area"
+	})
 "jr" = (
 /obj/machinery/atmospherics/pipe/simple/purple/visible{
 	dir = 6
@@ -514,6 +531,7 @@
 /obj/machinery/computer/cryopod{
 	pixel_y = 20
 	},
+/obj/structure/curtain/cloth/fancy,
 /turf/open/floor/plasteel/cult,
 /area/ship/crew/dorm)
 "oF" = (
@@ -590,6 +608,7 @@
 "qq" = (
 /obj/structure/bedsheetbin,
 /obj/structure/table/wood,
+/obj/machinery/airalarm/directional/south,
 /turf/open/floor/wood,
 /area/ship/crew/dorm)
 "qL" = (
@@ -606,6 +625,7 @@
 /turf/open/floor/plasteel/cult,
 /area/ship/cargo)
 "rd" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/ship/storage{
 	name = "Miner's Area"
@@ -733,11 +753,11 @@
 /turf/open/floor/engine/cult,
 /area/ship/engineering/electrical)
 "uZ" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 1
 	},
 /turf/open/floor/plasteel/cult,
 /area/ship/storage{
@@ -902,6 +922,7 @@
 /area/ship/bridge)
 "Ah" = (
 /obj/machinery/selling_pad,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/ship/storage{
 	name = "Miner's Area"
@@ -1842,11 +1863,11 @@
 /turf/open/floor/engine/cult,
 /area/ship/engineering/electrical)
 "VN" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 1
 	},
 /turf/open/floor/plasteel/cult,
 /area/ship/storage{
@@ -2315,7 +2336,7 @@ aD
 RQ
 VN
 rd
-EI
+fg
 gN
 Ga
 mH
@@ -2369,7 +2390,7 @@ aD
 xQ
 uZ
 Ah
-rd
+iL
 vD
 Ga
 Pn
