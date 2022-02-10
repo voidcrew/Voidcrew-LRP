@@ -45,7 +45,6 @@
 	var/datum/map_template/shuttle/source_template
 	/// The prefix the shuttle currently possesses
 	var/prefix
-
     ///Snips the prefix off the ship when renaming to stop duplicate prefixes from existing
 	var/fixed_name
 	///Timer for ship deletion

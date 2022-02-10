@@ -1,5 +1,5 @@
 /datum/atom_hud/faction
-	///the icon list for factions
+	//the icon list for factions
 	hud_icons = list(FACTION_HUD)
 	///if the player can view there own hud
 	var/self_visible = TRUE
@@ -13,7 +13,7 @@
   *ARGUEMENTS: mob/player -> the player you want to add to the list
   */
 /datum/atom_hud/faction/proc/join_hud(mob/player)
-	///sees_hud should be set to 0 if the mob does not get to see it's own hud type.
+	//sees_hud should be set to 0 if the mob does not get to see it's own hud type.
 	if(!istype(player))
 		CRASH("join_hud(): [player] ([player.type]) is not a mob!")
 	if(player.mind.faction_hud) //note: please let this runtime if a mob has no mind, as mindless mobs shouldn't be getting factionged
