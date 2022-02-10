@@ -1,7 +1,10 @@
 /datum/atom_hud/faction
-	hud_icons = list(FACTION_HUD) ///the icon list for factions
-	var/self_visible = TRUE ///if the player can view there own hud
-	var/icon_color ///will set the icon color to this
+	///the icon list for factions
+	hud_icons = list(FACTION_HUD)
+	///if the player can view there own hud
+	var/self_visible = TRUE
+	///will set the icon color to this
+	var/icon_color
 
 /datum/atom_hud/faction/hidden
 	self_visible = FALSE
@@ -10,7 +13,7 @@
   *ARGUEMENTS: mob/player -> the player you want to add to the list
   */
 /datum/atom_hud/faction/proc/join_hud(mob/player)
-	//sees_hud should be set to 0 if the mob does not get to see it's own hud type.
+	///sees_hud should be set to 0 if the mob does not get to see it's own hud type.
 	if(!istype(player))
 		CRASH("join_hud(): [player] ([player.type]) is not a mob!")
 	if(player.mind.faction_hud) //note: please let this runtime if a mob has no mind, as mindless mobs shouldn't be getting factionged
@@ -55,13 +58,13 @@
 
 
 //MIND PROCS
-//these are called by mind.transfer_to()
+///these are called by mind.transfer_to()
 /datum/mind/proc/transfer_faction_huds(datum/atom_hud/faction/newhud)
 	leave_all_faction_huds()
 	set_faction_hud(current, faction_hud_icon_state)
 	if(newhud)
 		newhud.join_hud(current)
-//these are called to have someone leave all faction related huds currently used when transfering mind
+///these are called to have someone leave all faction related huds currently used when transfering mind
 /datum/mind/proc/leave_all_faction_huds()
 	for(var/datum/atom_hud/faction/hud in GLOB.huds)
 		if(hud.hudusers[current])

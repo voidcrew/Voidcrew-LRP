@@ -48,6 +48,7 @@
 			member = null
 			continue
 		unregister_crewmember(member.resolve())
+		remove_faction_hud(FACTION_HUD_GENERAL, member.resolve())
 
 /**
  * Register a crewmate to the crewmembers list
@@ -59,6 +60,8 @@
 	var/datum/weakref/new_cremate = WEAKREF(crewmate)
 	crewmembers.Add(new_cremate)
 	RegisterSignal(crewmate, list(COMSIG_MOB_DEATH, COMSIG_MOB_LOGOUT), .proc/handle_inactive_ship)
+	///Adds a faction hud to a newplayer documentation in _HELPERS/game.dm
+	AddHud(crewmate, src) ///Adds a faction hud to a newplayer documentation in _HELPERS/game.dm
 
 /**
   * Bastardized version of GLOB.manifest.manifest_inject, but used per ship

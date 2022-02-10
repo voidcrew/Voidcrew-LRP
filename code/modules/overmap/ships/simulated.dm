@@ -45,8 +45,8 @@
 	var/datum/map_template/shuttle/source_template
 	/// The prefix the shuttle currently possesses
 	var/prefix
-  
-  ///Snips the prefix off the ship when renaming to stop duplicate prefixes from existing
+
+    ///Snips the prefix off the ship when renaming to stop duplicate prefixes from existing
 	var/fixed_name
 	///Timer for ship deletion
 	var/deletion_timer
@@ -344,9 +344,10 @@
 		return
 	COOLDOWN_START(src, faction_cooldown, FACTION_COOLDOWN_TIME)
 	fixed_name = (length(prefix)+1)
-	prefix = faction_change
 	if(faction_change == "return")
 		prefix = source_template.prefix
+	else
+		prefix = faction_change
 	name = "[prefix] [copytext(name, fixed_name)]"
 	set_ship_name(name, ignore_cooldown = TRUE)
 	update_crew_hud()

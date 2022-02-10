@@ -310,7 +310,6 @@
 		GLOB.data_core.manifest_inject(humanc, client)
 		AnnounceArrival(humanc, job.title, ship)
 		NotifyFaction(humanc, ship)
-		AddHud(humanc, ship) //VOIDCREW EDIT - Adds a faction hud to a newplayer documentation in _HELPERS/game.dm
 		AddEmploymentContract(humanc)
 
 		if(GLOB.highlander)

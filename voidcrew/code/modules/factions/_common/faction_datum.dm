@@ -1,7 +1,9 @@
 
 /datum/faction
-	var/faction_hud_type ///The group the hud resides in lets users in the same group view eachother
-	var/faction_hud_name ///name of the hud also the name of the hud icon
+	///The group the hud resides in lets users in the same group view eachother
+	var/faction_hud_type
+	///name of the hud also the name of the hud icon
+	var/faction_hud_name
 
 /**
   *Called when you want to add the faction hud to a user
