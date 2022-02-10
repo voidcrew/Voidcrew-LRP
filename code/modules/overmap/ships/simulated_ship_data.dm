@@ -35,7 +35,15 @@
 /obj/structure/overmap/ship/simulated/proc/unregister_crewmember(mob/living/carbon/human/crewmate)
 	for (var/datum/weakref/member in crewmembers)
 		if (crewmate == member.resolve())
-			UnregisterSignal(member.resolve(), list(COMSIG_MOB_DEATH, COMSIG_MOB_LOGOUT))
+			var/mob/living/carbon/human/ex_crewmate = member.resolve()
+			UnregisterSignal(ex_crewmate, list(COMSIG_MOB_DEATH, COMSIG_MOB_LOGOUT))
+
+			remove_faction_hud(FACTION_HUD_GENERAL, ex_crewmate)
+			var/datum/mind/ex_crewmate_mind = ex_crewmate.mind
+			var/datum/antagonist/to_remove = ex_crewmate_mind.has_antag_datum(source_template?.antag_datum)
+			if (!isnull(to_remove))
+				ex_crewmate_mind.remove_antag_datum(to_remove)
+
 			member = null
 
 /**
@@ -47,7 +55,6 @@
 			member = null
 			continue
 		unregister_crewmember(member.resolve())
-		remove_faction_hud(FACTION_HUD_GENERAL, member.resolve())
 
 /**
  * Register a crewmate to the crewmembers list
