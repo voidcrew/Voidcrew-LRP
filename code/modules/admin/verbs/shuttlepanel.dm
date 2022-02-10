@@ -23,6 +23,7 @@
 	options += "Infinite Transit"
 	options += "Delete Shuttle"
 	options += "Into The Sunset (delete & greentext 'escape')"
+	options += "Cancel Queued Deletion"
 
 	var/selection = input(user, "Select where to fly [name]:", "Fly Shuttle") as null|anything in options
 	if(!selection)
@@ -32,20 +33,32 @@
 		if("Infinite Transit")
 			destination = null
 			mode = SHUTTLE_IGNITING
+			message_admins("\[SHUTTLE]: [key_name_admin(user)] has placed [name] into Infinite Transit.")
+			log_admin("\[SHUTTLE]: [key_name_admin(user)] has placed [name] into Infinite Transit.")
 			setTimer(ignitionTime)
-			message_admins("[user.key] has placed [name] into Infinite Transit.")
 
 		if("Delete Shuttle")
 			if(alert(user, "Really delete [name]?", "Delete Shuttle", "Cancel", "Really!") != "Really!")
 				return
+			message_admins("\[SHUTTLE]: [key_name_admin(user)] has deleted [name].")
+			log_admin("\[SHUTTLE]: [key_name_admin(user)] has deleted [name].")
 			jumpToNullSpace()
-			message_admins("[user.key] has deleted [name].")
 
 		if("Into The Sunset (delete & greentext 'escape')")
 			if(alert(user, "Really delete [name] and greentext escape objectives?", "Delete Shuttle", "Cancel", "Really!") != "Really!")
 				return
+			message_admins("\[SHUTTLE]: [key_name_admin(user)] has deleted [name], and granted the crew greentext.")
+			log_admin("\[SHUTTLE]: [key_name_admin(user)] has deleted [name], and granted the crew greentext.")
 			intoTheSunset()
-			message_admins("[user.key] has deleted [name], and granted the crew greentext.")
+		if("Cancel Queued Deletion")
+			if (isnull(current_ship.deletion_timer))
+				to_chat(user, "<span class='notice'>Ship not queued for deletion!</span>")
+				return
+			deltimer(current_ship.deletion_timer)
+			current_ship.deletion_timer = null
+			message_admins("\[SHUTTLE]: [key_name_admin(user)] has cancelled the deletion of [name]!")
+			log_admin("\[SHUTTLE]: [key_name_admin(user)] has cancelled the deletion of [name]!")
+
 
 		else
 			if(options[selection])
