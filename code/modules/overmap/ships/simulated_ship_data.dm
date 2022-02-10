@@ -60,6 +60,10 @@
 	crewmembers.Add(new_cremate)
 	RegisterSignal(crewmate, list(COMSIG_MOB_DEATH, COMSIG_MOB_LOGOUT), .proc/handle_inactive_ship)
 
+	if (!isnull(source_template.antag_datum))
+		var/datum/antagonist/ship_datum = new source_template.antag_datum
+		crewmate.mind.add_antag_datum(ship_datum)
+
 /**
   * Bastardized version of GLOB.manifest.manifest_inject, but used per ship
   *
