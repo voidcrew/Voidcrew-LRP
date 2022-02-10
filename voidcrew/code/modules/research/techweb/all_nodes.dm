@@ -16,3 +16,6 @@
 	design_ids = list("robo_access_card")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 500)
 	export_price = 1000
+
+/datum/techweb_node/exp_surgery/New()
+	design_ids |= list("autodoc")
