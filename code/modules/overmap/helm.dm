@@ -194,7 +194,7 @@
 			if(!new_name)
 				return
 			new_name = trim(new_name)
-			var/prefix = current_ship.source_template.prefix
+			var/prefix = current_ship.prefix
 			if (!(findtext(new_name, "KOS") || findtext(new_name, prefix)))
 				new_name = "[prefix] [new_name]"
 			if (!length(new_name) || new_name == current_ship.name)
@@ -204,6 +204,14 @@
 				return
 			if(!current_ship.set_ship_name(new_name))
 				say("Error: [COOLDOWN_TIMELEFT(current_ship, rename_cooldown)/10] seconds until ship designation can be changed..")
+			update_static_data(usr, ui)
+			return
+		if("toggle_kos")
+			current_ship.set_ship_faction("KOS")
+			update_static_data(usr, ui)
+			return
+		if("return")
+			current_ship.set_ship_faction("return")
 			update_static_data(usr, ui)
 			return
 		if("reload_ship")

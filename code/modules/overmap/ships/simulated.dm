@@ -7,6 +7,7 @@
 ///Name of the file used for ship name random selection
 #define SHIP_NAMES_FILE "ship_names.json"
 
+#define FACTION_COOLDOWN_TIME (20 MINUTES)
 #define CHECK_CREW_SSD (10 MINUTES)
 #define SHIP_RUIN (10 MINUTES)
 #define SHIP_DELETE (10 MINUTES)
@@ -34,14 +35,18 @@
 	var/avg_fuel_amnt = 100
 	///Cooldown until the ship can be renamed again
 	COOLDOWN_DECLARE(rename_cooldown)
-
+	/// Cooldown until you can change your faction again controlled by FACTION_COOLDOWN_TIME
+	COOLDOWN_DECLARE(faction_cooldown)
 	///The overmap object the ship is docked to, if any
 	var/obj/structure/overmap/docked
 	///The docking port of the linked shuttle
 	var/obj/docking_port/mobile/shuttle
 	///The map template the shuttle was spawned from, if it was indeed created from a template. CAN BE NULL (ex. custom-built ships).
 	var/datum/map_template/shuttle/source_template
-
+	/// The prefix the shuttle currently possesses
+	var/prefix
+    ///Snips the prefix off the ship when renaming to stop duplicate prefixes from existing
+	var/fixed_name
 	///Timer for ship deletion
 	var/deletion_timer
 
@@ -54,6 +59,7 @@
 		CRASH("Simulated overmap ship created without associated shuttle!")
 	name = shuttle.name
 	source_template = _source_template
+	prefix = source_template.prefix
 	calculate_mass()
 #ifdef UNIT_TESTS
 	set_ship_name("[source_template]")
@@ -327,6 +333,32 @@
 	for(var/area/shuttle_area as anything in shuttle.shuttle_areas)
 		shuttle_area.rename_area("[new_name] [initial(shuttle_area.name)]")
 	return TRUE
+/**
+  *Sets the ships faction and updates the crews huds
+  */
+/obj/structure/overmap/ship/simulated/proc/set_ship_faction(faction_change)
+	if(!COOLDOWN_FINISHED(src, faction_cooldown))
+		return
+	if(faction_change == prefix || (faction_change == "return" && prefix == "NEU"))
+		return
+	COOLDOWN_START(src, faction_cooldown, FACTION_COOLDOWN_TIME)
+	fixed_name = (length(prefix)+1)
+	if(faction_change == "return")
+		prefix = source_template.prefix
+	else
+		prefix = faction_change
+	name = "[prefix] [copytext(name, fixed_name)]"
+	set_ship_name(name, ignore_cooldown = TRUE)
+	update_crew_hud()
+/**
+  *The proc for actually updating the hud calls from faction_datum
+  */
+/obj/structure/overmap/ship/simulated/proc/update_crew_hud()
+	for (var/datum/weakref/member in crewmembers)
+		if (isnull(member.resolve()))
+			continue
+		remove_faction_hud(FACTION_HUD_GENERAL, member.resolve())
+		add_faction_hud(FACTION_HUD_GENERAL, prefix, member.resolve())
 
 /obj/structure/overmap/ship/simulated/update_icon_state()
 	if(mass < SHIP_SIZE_THRESHOLD)
@@ -371,7 +403,7 @@
 #undef SHIP_SIZE_THRESHOLD
 
 #undef SHIP_DOCKED_REPAIR_TIME
-
+#undef FACTION_COOLDOWN
 #undef CHECK_CREW_SSD
 #undef SHIP_RUIN
 #undef SHIP_DELETE
