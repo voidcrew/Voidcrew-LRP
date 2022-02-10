@@ -149,7 +149,7 @@
 		if(33 to 38)
 			// Makeshift Weapons Pack. 5% chance
 			new /obj/item/spear/bonespear(src)
-			new /obj/item/spear/(src)
+			new /obj/item/spear(src)
 		if(39 to 44)
 			// Utility Recuring. 5% chance
 			new /obj/item/slimecross/recurring/metal(src)
@@ -167,8 +167,8 @@
 			new /obj/item/stock_parts/cell/high/plus(src)
 		if(57 to 61)
 			// Combat Recurring. 5% Chance
-			new /obj/item/slimecross/recurring/oil
-			new /obj/item/slimecross/recurring/gold
+			new /obj/item/slimecross/recurring/oil(src)
+			new /obj/item/slimecross/recurring/gold(src)
 		if(62 to 65)
 			// Material pack (Exotic). 3% Chance
 			new /obj/item/stack/sheet/mineral/bananium/five(src)
