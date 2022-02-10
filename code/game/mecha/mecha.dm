@@ -57,9 +57,8 @@
 	var/internal_damage_threshold = 50 //health percentage below which internal damage is possible
 	var/internal_damage = 0 //contains bitflags
 
-	var/list/operation_req_access = list()//required access level for mecha operation
-	var/list/internals_req_access = list(ACCESS_MECH_ENGINE, ACCESS_MECH_SCIENCE)//REQUIRED ACCESS LEVEL TO OPEN CELL COMPARTMENT
-
+	var/list/operation_req_access = list() //required access level for mecha operation
+	var/list/internals_req_access = list() // VoidTest Edit - makes mechs public access. Doesn't affect combat balance as mech users can (and should) lock their maint panels anyway.
 	var/wreckage
 
 	var/list/equipment = new

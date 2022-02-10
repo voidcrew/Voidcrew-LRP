@@ -40,3 +40,13 @@
 	build_path = /obj/item/disk/nanite_program
 	category = list("Electronics")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/robo_id
+	name = "Robotics ID Upgrade"
+	desc = "A tiny chip that attaches to any standard ID card. This one is configured to access robotics equipment."
+	id = "robo_access_card"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 200, /datum/material/glass = 100, /datum/material/silver = 500)
+	build_path = /obj/item/card/robo_access_card
+	category = list("Electronics")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING

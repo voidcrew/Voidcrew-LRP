@@ -1,5 +1,6 @@
 /turf/open/floor/plating/dirt
 	gender = PLURAL
+	baseturfs = /turf/open/floor/plating/dirt
 	name = "dirt"
 	desc = "Upon closer examination, it's still dirt."
 	icon = 'icons/turf/floors.dmi'
@@ -41,6 +42,7 @@
 
 /turf/open/floor/plating/grass/jungle
 	name = "jungle grass"
+	baseturfs = /turf/open/floor/plating/dirt/dark
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
 	desc = "Greener on the other side."
@@ -49,8 +51,8 @@
 	smooth_icon = 'icons/turf/floors/junglegrass.dmi'
 
 /turf/closed/mineral/random/jungle
-	turf_type = /turf/open/floor/plating/grass/jungle
-	baseturfs = /turf/open/floor/plating/grass/jungle
+	turf_type = /turf/open/floor/plating/dirt
+	baseturfs = /turf/open/floor/plating/dirt
 	mineralSpawnChanceList = list(/obj/item/stack/ore/uranium = 5, /obj/item/stack/ore/diamond = 1, /obj/item/stack/ore/gold = 10,
 		/obj/item/stack/ore/silver = 12, /obj/item/stack/ore/plasma = 20, /obj/item/stack/ore/iron = 40, /obj/item/stack/ore/titanium = 11,
 		/obj/item/stack/ore/bluespace_crystal = 1)
