@@ -326,7 +326,8 @@ GLOBAL_LIST_INIT(bananium_recipes, list ( \
 /obj/item/stack/sheet/mineral/bananium/get_main_recipes()
 	. = ..()
 	. += GLOB.bananium_recipes
-
+/obj/item/stack/sheet/mineral/bananium/five
+	amount = 5
 /*
  * Titanium
  */
@@ -506,7 +507,8 @@ GLOBAL_LIST_INIT(abductor_recipes, list ( \
 /obj/item/stack/sheet/mineral/abductor/get_main_recipes()
 	. = ..()
 	. += GLOB.abductor_recipes
-
+/obj/item/stack/sheet/mineral/abductor/five
+	amount = 5
 /*
  * Coal
  */
