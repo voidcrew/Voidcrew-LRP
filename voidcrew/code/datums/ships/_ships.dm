@@ -5,7 +5,7 @@
 	var/faction = FACTION_NEUTRAL
 	///What level is this ship
 	var/level = SHIP_WEAK
-	var/obj/item/ship_parts/part_type
+	var/part_type
 
 /datum/ship_parts/neutral
 	name = "NEU ship parts"

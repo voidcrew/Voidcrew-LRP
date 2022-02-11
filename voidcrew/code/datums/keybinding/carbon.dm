@@ -3,7 +3,7 @@
 	name = "takeshippart"
 	full_name = "Take ship part"
 	description = "Remove ship parts from your preferences."
-	keybind_signal = COMSIG_KB_CARBON_TAKESHIPPART
+	keybind_signal = COMSIG_KB_CARBON_TAKESHIPPART_DOWN
 
 /datum/keybinding/carbon/remove_ship_part/down(client/user)
 	. = ..()
@@ -18,9 +18,8 @@
 	if(!ship_response || !owned_ships[ship_response])
 		return
 	var/datum/ship_parts/removed_parts = owned_ships[ship_response]
-//	var/datum/ship_parts/new_part = new removed_parts
 	user.prefs.ships_owned[removed_parts]--
-//	var/obj/item/ship_parts/new_parts = new initial(removed_part.part_type.type)
-//	carbon_user.put_in_hand(new_parts)
+	var/obj/item/ship_parts/new_parts = initial(removed_parts.part_type)
+	new new_parts(carbon_user.loc)
 	to_chat(carbon_user, "[removed_parts] selected.")
 	return TRUE
