@@ -25,4 +25,18 @@
 /client/proc/list_ship_parts()
 	to_chat(usr, "<span class='boldwarning'>Currently owned ship parts:</span>")
 	for(var/datum/ship_parts/ships as anything in prefs.ships_owned)
+		if(initial(prefs.ships_owned[ships]) < 1)
+			continue
 		to_chat(usr, "<span class='boldwarning'>[prefs.ships_owned[ships]] [initial(ships.name)]</span>")
+
+/client/proc/get_ships()
+	var/list/owned_ships = list()
+	for(var/datum/ship_parts/ships as anything in prefs.ships_owned)
+		if(initial(prefs.ships_owned[ships]) < 1)
+			continue
+		owned_ships[initial(ships.name)] = ships
+
+	if(!length(owned_ships))
+		to_chat(src, "You do not have any ship parts.")
+		return FALSE
+	return owned_ships
