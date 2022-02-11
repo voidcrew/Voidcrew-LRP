@@ -67,8 +67,16 @@
 			purchasing_shuttles.job_slots[job_slot] = slots
 		if(isnum(data["parts_needed"]))
 			purchasing_shuttles.parts_needed = data["parts_needed"]
-
-			ship_purchase_list["[purchasing_shuttles.prefix] [purchasing_shuttles.name] ([purchasing_shuttles.parts_needed][purchasing_shuttles.prefix == FACTION_NEUTRAL ? " [purchasing_shuttles.ship_level]" : ""] [purchasing_shuttles.prefix] parts)"] = purchasing_shuttles // VOIDCREW
+			if(purchasing_shuttles.prefix == FACTION_NEUTRAL) // Assign Neutral's ship strengths
+				switch(purchasing_shuttles.parts_needed)
+					if(1)
+						purchasing_shuttles.ship_level = SHIP_WEAK
+					if(2)
+						purchasing_shuttles.ship_level = SHIP_MEDIUM
+					if(3, INFINITY)
+						purchasing_shuttles.ship_level = SHIP_STRONG
+			ship_purchase_list["[purchasing_shuttles.prefix] [purchasing_shuttles.name] \
+				([purchasing_shuttles.parts_needed] [purchasing_shuttles.ship_level ? "[purchasing_shuttles.ship_level] " : ""][purchasing_shuttles.prefix] parts)"] = purchasing_shuttles // VOIDCREW
 		if(isnum(data["limit"]))
 			purchasing_shuttles.limit = data["limit"]
 		shuttle_templates[purchasing_shuttles.file_name] = purchasing_shuttles
