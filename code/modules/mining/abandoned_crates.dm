@@ -196,8 +196,8 @@
 			new /obj/item/wirecutters/abductor(src)
 			new /obj/item/weldingtool/abductor(src)
 		if(78 to 79)
-			// Uplink, 20 TC. 1% Chance
-			new /obj/item/uplink(src)
+			// Uplink, 10 TC. 1% Chance
+			new /obj/item/uplink/old(src)
 		if(80 to 81)
 			// Nukie Implant kit. 1% Chance
 			new /obj/item/implanter/storage(src)
