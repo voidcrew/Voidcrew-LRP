@@ -21,5 +21,4 @@
 	user.prefs.ships_owned[removed_parts]--
 	var/obj/item/ship_parts/new_parts = initial(removed_parts.part_type)
 	new new_parts(carbon_user.loc)
-	to_chat(carbon_user, "[removed_parts] selected.")
 	return TRUE

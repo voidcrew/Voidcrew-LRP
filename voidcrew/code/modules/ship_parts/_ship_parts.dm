@@ -34,7 +34,7 @@
 	for(var/datum/ship_parts/ships as anything in prefs.ships_owned)
 		if(initial(prefs.ships_owned[ships]) < 1)
 			continue
-		owned_ships[initial(ships.name)] = ships
+		owned_ships["[initial(ships.name)] - [initial(prefs.ships_owned[ships])] owned"] = ships
 
 	if(!length(owned_ships))
 		to_chat(src, "You do not have any ship parts.")
