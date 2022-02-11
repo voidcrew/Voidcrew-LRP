@@ -127,7 +127,7 @@
 			ui = new(user, src, "HelmConsole", name)
 			ui.open()
 	else
-		say("ERROR: Unrecoginzed biosignature detected")
+		say("ERROR: Unrecognized bio-signature detected")
 		return
 /obj/machinery/computer/helm/ui_data(mob/user)
 	. = list()
