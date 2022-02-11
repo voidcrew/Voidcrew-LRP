@@ -8,7 +8,8 @@
 	var/part_type
 
 /datum/ship_parts/neutral
-	name = "NEU ship parts"
+	name = "Weak NEU ship parts"
+	level = SHIP_WEAK
 	faction = FACTION_NEUTRAL
 	part_type = /obj/item/ship_parts/neutral
 

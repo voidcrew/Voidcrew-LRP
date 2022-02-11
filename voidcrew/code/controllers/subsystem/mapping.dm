@@ -76,7 +76,7 @@
 					if(3, INFINITY)
 						purchasing_shuttles.ship_level = SHIP_STRONG
 			ship_purchase_list["[purchasing_shuttles.prefix] [purchasing_shuttles.name] \
-				([purchasing_shuttles.parts_needed] [purchasing_shuttles.ship_level ? "[purchasing_shuttles.ship_level] " : ""][purchasing_shuttles.prefix] parts)"] = purchasing_shuttles // VOIDCREW
+				([purchasing_shuttles.parts_needed] [purchasing_shuttles.prefix == FACTION_NEUTRAL ? "[purchasing_shuttles.ship_level] " : ""][purchasing_shuttles.prefix] parts)"] = purchasing_shuttles // VOIDCREW
 		if(isnum(data["limit"]))
 			purchasing_shuttles.limit = data["limit"]
 		shuttle_templates[purchasing_shuttles.file_name] = purchasing_shuttles

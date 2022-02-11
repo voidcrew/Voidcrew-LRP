@@ -20,7 +20,7 @@
 			return LateChoices()
 		if(!usr.client.get_ship_parts(template.prefix, template.parts_needed, template.ship_level))
 			alert(src, "You lack the parts needed to build this ship! (Required: \
-				[template.parts_needed][template.prefix == FACTION_NEUTRAL ? " [template.ship_level]" : ""] [template.prefix]parts)")
+				[template.parts_needed][template.prefix == FACTION_NEUTRAL ? " [template.ship_level]" : ""] [template.prefix] parts)")
 			return
 		if(template.limit)
 			var/count = 0
