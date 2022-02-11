@@ -495,7 +495,7 @@ Auto Patrol: []"},
 	..()
 
 /obj/machinery/bot_core/secbot
-	req_access = list(ACCESS_SECURITY)
+	req_one_access = list(ACCESS_SECURITY, ACCESS_ROBOTICS)
 
 /// Returns false if the current target is unable to pay the fair_market_price for being arrested/detained
 /mob/living/simple_animal/bot/secbot/proc/check_nap_violations()

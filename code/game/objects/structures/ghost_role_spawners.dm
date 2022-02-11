@@ -536,8 +536,7 @@
 	r_pocket = /obj/item/kitchen/knife/combat/survival
 	belt = /obj/item/defibrillator/compact/combat/loaded
 	back = /obj/item/storage/backpack/duffelbag/syndie/med
-	r_hand = /obj/item/gun/medbeam
-	backpack_contents = list(/obj/item/storage/box/survival/syndie=1, /obj/item/storage/firstaid/medical, /obj/item/storage/firstaid/tactical, /obj/item/storage/box/medipens=3)
+	backpack_contents = list(/obj/item/storage/box/survival/syndie=1, /obj/item/storage/firstaid/medical, /obj/item/storage/firstaid/tactical, /obj/item/storage/box/medipens=3, /obj/item/gun/medbeam)
 
 /obj/effect/mob_spawn/human/syndicate/battlecruiser/assault
 	name = "Syndicate Battlecruiser Assault Operative"
@@ -566,7 +565,7 @@
 	head = /obj/item/clothing/head/warden
 	uniform = /obj/item/clothing/under/syndicate/combat
 	id = /obj/item/card/id/syndicate_command/operative
-	backpack_contents = list(/obj/item/melee/baton/loaded=1, /obj/item/storage/box/survival/syndie=1)
+	backpack_contents = list(/obj/item/melee/baton/loaded=1, /obj/item/storage/box/survival/syndie=1, /obj/item/gun_voucher/syndicate=1)
 
 /obj/effect/mob_spawn/human/syndicate/battlecruiser/captain
 	name = "Syndicate Battlecruiser Captain"

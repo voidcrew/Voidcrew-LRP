@@ -9,8 +9,8 @@
 	armor = list("melee" = 25, "bullet" = 20, "laser" = 30, "energy" = 15, "bomb" = 10, "bio" = 0, "rad" = 10, "fire" = 100, "acid" = 100) //VoidTest Edit, gives combat mechs a moderate stats buff
 	max_temperature = 15000
 	wreckage = /obj/structure/mecha_wreckage/reticence
-	operation_req_access = list(ACCESS_THEATRE)
-	internals_req_access = list(ACCESS_MECH_SCIENCE, ACCESS_THEATRE)
+	operation_req_access = list()
+	internals_req_access = list() // VoidTest Edit
 	add_req_access = 0
 	internal_damage_threshold = 25
 	max_equip = 2
