@@ -1,4 +1,3 @@
-/* We use a custom cavegen
 /datum/map_generator/cave_generator/icemoon
 	open_turf_types = list(/turf/open/floor/plating/asteroid/snow/icemoon = 19, /turf/open/floor/plating/ice/icemoon = 1)
 	closed_turf_types = list(/turf/closed/mineral/random/snow = 1)
@@ -29,4 +28,3 @@
 	mob_spawn_chance = 10//danger zone, highway to the danger zone
 	birth_limit = 5
 	death_limit = 4
-*/
