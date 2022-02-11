@@ -76,12 +76,11 @@
   * Arguments:
   * mob/living/carbon/human/crewmate - The mob being checked for access
   */
-/obj/structure/overmap/ship/simulated/proc/console_verification(mob/living/carbon/human/crewmate)
+/obj/structure/overmap/ship/simulated/proc/is_player_in_crew(mob/living/carbon/human/crewmate)
 	for (var/datum/weakref/member in crewmembers)
 		if (crewmate == member.resolve())
 			return TRUE
-		else
-			return FALSE
+	return FALSE
 /**
   * Bastardized version of GLOB.manifest.manifest_inject, but used per ship
   *
