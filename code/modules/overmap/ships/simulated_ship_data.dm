@@ -72,7 +72,15 @@
 	if (!isnull(source_template.antag_datum))
 		var/datum/antagonist/ship_datum = new source_template.antag_datum
 		crewmate.mind.add_antag_datum(ship_datum)
-
+/**Checks for verification before being aloud to open a console or object
+  * Arguments:
+  * mob/living/carbon/human/crewmate - The mob being checked for access
+  */
+/obj/structure/overmap/ship/simulated/proc/is_player_in_crew(mob/living/carbon/human/crewmate)
+	for (var/datum/weakref/member in crewmembers)
+		if (crewmate == member.resolve())
+			return TRUE
+	return FALSE
 /**
   * Bastardized version of GLOB.manifest.manifest_inject, but used per ship
   *
