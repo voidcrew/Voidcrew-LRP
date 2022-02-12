@@ -39,6 +39,9 @@
 			purchasing_shuttles.prefix = data["prefix"]
 		if(islist(data["namelists"]))
 			purchasing_shuttles.name_categories = data["namelists"]
+		if(istext(data["antag_datum"]))
+			var/path = "/datum/antagonist/" + data["antag_datum"]
+			purchasing_shuttles.antag_datum = text2path(path)
 
 		purchasing_shuttles.job_slots = list()
 		var/list/job_slot_list = data["job_slots"]
