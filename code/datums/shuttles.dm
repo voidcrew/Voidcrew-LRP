@@ -16,7 +16,10 @@
 	var/short_name
 	var/list/job_slots
 	var/list/name_categories = list("GENERAL")
-	var/prefix = "SV"
+	var/prefix = "NEU"
+
+	///The antag datum to give a player on join
+	var/antag_datum
 
 /datum/map_template/shuttle/proc/prerequisites_met()
 	return TRUE
