@@ -97,35 +97,38 @@
 		return TRUE
 
 /obj/machinery/computer/helm/ui_interact(mob/user, datum/tgui/ui)
-	if(jump_state != JUMP_STATE_OFF)
-		say("Bluespace Jump in progress. Controls suspended.")
-		return
-	// Update UI
-	if(!current_ship && !reload_ship())
-		return
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		var/user_ref = REF(user)
-		var/is_living = isliving(user)
-		// Ghosts shouldn't count towards concurrent users, which produces
-		// an audible terminal_on click.
-		if(is_living)
-			concurrent_users += user_ref
-		// Turn on the console
-		if(length(concurrent_users) == 1 && is_living)
-			playsound(src, 'sound/machines/terminal_on.ogg', 25, FALSE)
-			use_power(active_power_usage)
-		// Register map objects
-		if(current_ship)
-			user.client.register_map_obj(current_ship.cam_screen)
-			user.client.register_map_obj(current_ship.cam_plane_master)
-			user.client.register_map_obj(current_ship.cam_background)
-			current_ship.update_screen()
+	if(current_ship.is_player_in_crew(user))
+		if(jump_state != JUMP_STATE_OFF)
+			say("Bluespace Jump in progress. Controls suspended.")
+			return
+		// Update UI
+		if(!current_ship && !reload_ship())
+			return
+		ui = SStgui.try_update_ui(user, src, ui)
+		if(!ui)
+			var/user_ref = REF(user)
+			var/is_living = isliving(user)
+			// Ghosts shouldn't count towards concurrent users, which produces
+			// an audible terminal_on click.
+			if(is_living)
+				concurrent_users += user_ref
+			// Turn on the console
+			if(length(concurrent_users) == 1 && is_living)
+				playsound(src, 'sound/machines/terminal_on.ogg', 25, FALSE)
+				use_power(active_power_usage)
+			// Register map objects
+			if(current_ship)
+				user.client.register_map_obj(current_ship.cam_screen)
+				user.client.register_map_obj(current_ship.cam_plane_master)
+				user.client.register_map_obj(current_ship.cam_background)
+				current_ship.update_screen()
 
-		// Open UI
-		ui = new(user, src, "HelmConsole", name)
-		ui.open()
-
+			// Open UI
+			ui = new(user, src, "HelmConsole", name)
+			ui.open()
+	else
+		say("ERROR: Unrecognized bio-signature detected")
+		return
 /obj/machinery/computer/helm/ui_data(mob/user)
 	. = list()
 	.["integrity"] = current_ship.integrity
@@ -187,7 +190,6 @@
 		return
 	if(viewer)
 		return
-
 	switch(action) // Universal topics
 		if("rename_ship")
 			var/new_name = params["newName"]

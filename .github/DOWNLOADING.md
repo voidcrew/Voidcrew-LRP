@@ -1,6 +1,4 @@
 # DOWNLOADING
-There are a number of ways to download the source code. Some are described here, an alternative all-inclusive guide is also located at https://wiki.white-sands.space/Downloading_the_source_code
-
 ## Option 1
 
 Follow this: https://tgstation13.org/wiki/Setting_up_git

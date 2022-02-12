@@ -155,9 +155,11 @@
 	id = /obj/item/card/id/syndicate_command/crew_id
 	ears = /obj/item/radio/headset/syndicate/alt
 	uniform = /obj/item/clothing/under/syndicate/aclfgrunt
+	belt = /obj/item/storage/belt/utility/syndicate
 	accessory = /obj/item/clothing/accessory/armband/engine
 	glasses = /obj/item/clothing/glasses/sunglasses
 	shoes = /obj/item/clothing/shoes/jackboots
+
 /datum/outfit/job/engineer/gec
 	name = "Station Engineer (GEC)"
 
@@ -171,6 +173,7 @@
 	name = "Mechanic (Gorlex Marauders)"
 
 	uniform = /obj/item/clothing/under/syndicate/gorlex
+	belt = /obj/item/storage/belt/utility/syndicate
 	shoes = /obj/item/clothing/shoes/workboots
 	alt_uniform = null
 	glasses = null

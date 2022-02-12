@@ -85,6 +85,13 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/hallway/central)
+"bi" = (
+/obj/item/paper/pamphlet/ruin/originalcontent/treeside,
+/turf/closed/wall/r_wall/rust,
+/area/ship/bridge{
+	icon_state = "unknown";
+	name = "Pilot's Office"
+	})
 "bt" = (
 /obj/structure/shuttle/engine/platform{
 	dir = 1
@@ -124,6 +131,9 @@
 	},
 /obj/effect/turf_decal/corner/neutral{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/hallway/central)
@@ -205,6 +215,7 @@
 /obj/structure/sign/warning/vacuum/external{
 	pixel_y = 32
 	},
+/obj/item/storage/toolbox/mechanical,
 /obj/item/disk/design_disk/ammo_1911,
 /obj/item/disk/design_disk/ammo_38_hunting,
 /obj/structure/rack,
@@ -243,6 +254,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 5
+	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = TartBridgeLockdown
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/hallway/central)
@@ -333,9 +350,25 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/crew)
+"fH" = (
+/obj/item/areaeditor/shuttle,
+/obj/structure/table/reinforced,
+/obj/item/storage/fancy/donut_box,
+/obj/machinery/power/apc/auto_name/east,
+/obj/structure/cable,
+/turf/open/floor/plasteel/dark,
+/area/ship/security{
+	name = "HoS Office"
+	})
 "fN" = (
 /turf/closed/wall,
 /area/ship/engineering)
+"fU" = (
+/turf/open/floor/carpet,
+/area/ship/bridge{
+	icon_state = "unknown";
+	name = "Pilot's Office"
+	})
 "fW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/corner/neutral{
@@ -484,11 +517,11 @@
 /turf/open/floor/plasteel/mono,
 /area/ship/construction)
 "ik" = (
-/obj/effect/turf_decal/trimline/red/warning{
-	dir = 9
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
-/obj/structure/railing/corner,
-/turf/open/floor/plasteel/mono,
+/obj/structure/sign/warning/docking,
+/turf/closed/wall/r_wall,
 /area/ship/construction)
 "il" = (
 /obj/machinery/door/airlock/external,
@@ -623,6 +656,11 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/hallway/central)
+"kl" = (
+/turf/open/floor/plasteel/dark,
+/area/ship/security{
+	name = "HoS Office"
+	})
 "kA" = (
 /obj/machinery/cryopod{
 	dir = 4
@@ -681,6 +719,26 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/wood,
 /area/ship/crew)
+"lo" = (
+/obj/structure/table/wood/reinforced,
+/obj/item/pen/blue,
+/obj/item/pen,
+/obj/item/reagent_containers/spray/pepper,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/button/door{
+	id = TartPOSShutters;
+	name = "Privacy Shutters";
+	pixel_x = 24
+	},
+/obj/item/storage/fancy/donut_box,
+/obj/item/binoculars,
+/turf/open/floor/carpet,
+/area/ship/bridge{
+	icon_state = "unknown";
+	name = "Pilot's Office"
+	})
 "lH" = (
 /obj/effect/turf_decal/corner/red,
 /obj/effect/turf_decal/trimline/red/line{
@@ -889,14 +947,6 @@
 "nX" = (
 /turf/closed/wall,
 /area/ship/crew)
-"oc" = (
-/obj/structure/rack,
-/obj/item/storage/fancy/donut_box,
-/obj/effect/turf_decal/trimline/red/filled/end{
-	dir = 4
-	},
-/turf/open/floor/plasteel/tech,
-/area/ship/bridge)
 "og" = (
 /obj/structure/rack,
 /obj/structure/window/reinforced/survival_pod{
@@ -986,6 +1036,9 @@
 	},
 /turf/open/floor/plasteel/mono,
 /area/ship/construction)
+"oX" = (
+/turf/closed/wall/r_wall,
+/area/ship/construction)
 "oZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/corner/neutral{
@@ -999,6 +1052,15 @@
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/security/prison)
+"pn" = (
+/obj/machinery/door/airlock/security,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/security{
+	name = "HoS Office"
+	})
 "pt" = (
 /obj/effect/turf_decal/corner/neutral{
 	dir = 1
@@ -1194,6 +1256,9 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 10
 	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = TartBridgeLockdown
+	},
 /turf/open/floor/plasteel/dark,
 /area/ship/hallway/central)
 "su" = (
@@ -1201,18 +1266,23 @@
 /obj/effect/turf_decal/trimline/blue,
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/science/robotics)
+"sz" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/security{
+	name = "HoS Office"
+	})
 "sD" = (
 /obj/structure/mecha_wreckage/gygax,
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/science/robotics)
 "sJ" = (
-/obj/effect/turf_decal/trimline/red/warning{
-	dir = 6
-	},
-/obj/structure/railing/corner{
+/obj/effect/turf_decal/siding/white{
 	dir = 1
 	},
-/turf/open/floor/plasteel/mono,
+/turf/open/floor/plasteel/mono/white,
 /area/ship/construction)
 "sV" = (
 /obj/effect/turf_decal/corner/neutral,
@@ -1313,6 +1383,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/hallway/central)
@@ -1589,11 +1662,16 @@
 /turf/open/floor/plasteel/dark,
 /area/ship/hallway/central)
 "yd" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/turf/open/floor/plasteel/mono,
-/area/ship/construction)
+/turf/closed/wall/r_wall,
+/area/ship/bridge{
+	icon_state = "unknown";
+	name = "Pilot's Office"
+	})
+"yj" = (
+/turf/closed/wall,
+/area/ship/security{
+	name = "HoS Office"
+	})
 "yt" = (
 /obj/effect/turf_decal/corner/neutral{
 	dir = 1
@@ -1773,6 +1851,24 @@
 /obj/machinery/light/floor,
 /turf/open/floor/plasteel/mono/dark,
 /area/ship/construction)
+"AD" = (
+/obj/effect/spawner/structure/window/plasma/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = TartPOSShutters
+	},
+/turf/open/floor/plasteel/tech/grid,
+/area/ship/bridge{
+	icon_state = "unknown";
+	name = "Pilot's Office"
+	})
+"AP" = (
+/obj/structure/bed/pod,
+/obj/structure/curtain/cloth,
+/obj/item/bedsheet/hos,
+/turf/open/floor/plasteel/dark,
+/area/ship/security{
+	name = "HoS Office"
+	})
 "AQ" = (
 /obj/effect/turf_decal/corner/neutral,
 /obj/effect/turf_decal/corner/neutral{
@@ -1891,6 +1987,14 @@
 	},
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/security/prison)
+"Cc" = (
+/obj/structure/table/wood/reinforced,
+/obj/machinery/recharger,
+/turf/open/floor/carpet,
+/area/ship/bridge{
+	icon_state = "unknown";
+	name = "Pilot's Office"
+	})
 "Ci" = (
 /obj/effect/turf_decal/corner/neutral,
 /obj/effect/turf_decal/corner/neutral{
@@ -2071,6 +2175,24 @@
 /obj/item/wirecutters,
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/science/robotics)
+"Ev" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/carpet,
+/area/ship/bridge{
+	icon_state = "unknown";
+	name = "Pilot's Office"
+	})
+"ET" = (
+/obj/effect/turf_decal/corner/neutral{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/hallway/central)
 "EX" = (
 /obj/effect/turf_decal/corner/neutral,
 /obj/effect/turf_decal/corner/neutral{
@@ -2116,6 +2238,17 @@
 	},
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/science/robotics)
+"FA" = (
+/obj/structure/closet/secure_closet/pilot_officer,
+/obj/machinery/power/apc/auto_name/north,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/open/floor/carpet,
+/area/ship/bridge{
+	icon_state = "unknown";
+	name = "Pilot's Office"
+	})
 "FI" = (
 /obj/structure/tank_dispenser,
 /turf/open/floor/plasteel/dark,
@@ -2241,6 +2374,20 @@
 	},
 /turf/open/floor/plasteel/tech,
 /area/ship/bridge)
+"HD" = (
+/turf/closed/wall/r_wall,
+/area/ship/security{
+	name = "HoS Office"
+	})
+"HL" = (
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/turf/closed/wall/r_wall,
+/area/ship/bridge{
+	icon_state = "unknown";
+	name = "Pilot's Office"
+	})
 "Ie" = (
 /obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark,
@@ -2263,6 +2410,16 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/carpet/black,
 /area/ship/crew)
+"Is" = (
+/obj/structure/curtain/cloth,
+/obj/structure/bed/pod,
+/obj/item/bedsheet/red,
+/obj/item/storage/fancy/rollingpapers,
+/turf/open/floor/carpet,
+/area/ship/bridge{
+	icon_state = "unknown";
+	name = "Pilot's Office"
+	})
 "Iy" = (
 /obj/effect/turf_decal/corner/neutral,
 /obj/effect/turf_decal/corner/neutral{
@@ -2291,6 +2448,12 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/plasteel/dark,
 /area/ship/hallway/central)
+"IG" = (
+/obj/structure/closet/secure_closet/hos_lite,
+/turf/open/floor/plasteel/dark,
+/area/ship/security{
+	name = "HoS Office"
+	})
 "IM" = (
 /obj/machinery/door/airlock/highsecurity,
 /turf/open/floor/plasteel/tech/grid,
@@ -2342,6 +2505,13 @@
 /obj/item/screwdriver,
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/science/robotics)
+"Js" = (
+/obj/item/paper/pamphlet/ruin/originalcontent/yelling,
+/turf/closed/wall/r_wall,
+/area/ship/bridge{
+	icon_state = "unknown";
+	name = "Pilot's Office"
+	})
 "Ju" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 4
@@ -2360,6 +2530,16 @@
 	},
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/engineering/electrical)
+"JK" = (
+/obj/machinery/door/airlock/security,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge{
+	icon_state = "unknown";
+	name = "Pilot's Office"
+	})
 "JO" = (
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
 	dir = 4
@@ -2401,9 +2581,11 @@
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/storage)
 "JV" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
-/turf/open/floor/carpet,
-/area/ship/crew)
+/turf/closed/wall/r_wall/rust,
+/area/ship/bridge{
+	icon_state = "unknown";
+	name = "Pilot's Office"
+	})
 "Ka" = (
 /obj/structure/railing{
 	dir = 8
@@ -2433,6 +2615,14 @@
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/science/robotics)
+"KF" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/security{
+	name = "HoS Office"
+	})
 "KT" = (
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
@@ -2869,6 +3059,20 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/security/prison)
+"RI" = (
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/button/door{
+	id = TartBridgeLockdown;
+	name = "Bridge Lockdown";
+	pixel_x = 24
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/bridge)
 "RR" = (
 /obj/structure/railing,
 /obj/structure/rack,
@@ -2940,13 +3144,9 @@
 /turf/open/floor/circuit/red/airless,
 /area/ship/construction)
 "Tg" = (
-/obj/structure/rack,
-/obj/item/areaeditor/shuttle,
-/obj/effect/turf_decal/trimline/red/filled/end{
-	dir = 4
-	},
-/turf/open/floor/plasteel/tech,
-/area/ship/bridge)
+/obj/effect/turf_decal/siding/white,
+/turf/open/floor/plasteel/mono/white,
+/area/ship/construction)
 "Tq" = (
 /obj/structure/railing{
 	dir = 4
@@ -3079,8 +3279,7 @@
 /area/ship/hallway/central)
 "UM" = (
 /obj/structure/chair/comfy/shuttle,
-/obj/effect/turf_decal/trimline/red/filled/corner,
-/obj/effect/turf_decal/trimline/red/filled/corner{
+/obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 4
 	},
 /turf/open/floor/plasteel/tech,
@@ -3231,6 +3430,12 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/hallway/central)
+"WS" = (
+/turf/closed/wall,
+/area/ship/bridge{
+	icon_state = "unknown";
+	name = "Pilot's Office"
+	})
 "WU" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -3570,7 +3775,7 @@ Rn
 CU
 Di
 Xt
-rG
+Pm
 Lo
 zj
 wv
@@ -3608,7 +3813,7 @@ rG
 at
 Xt
 kV
-rG
+Pm
 Pm
 Lo
 zj
@@ -3717,7 +3922,7 @@ ck
 Ju
 OT
 iP
-Ju
+RI
 ck
 UM
 mS
@@ -3747,20 +3952,20 @@ Tx
 Qu
 Pm
 Pm
-Pm
-rG
-rG
-oc
-rG
-rz
+yd
+JV
+yd
+yd
+yd
+JV
 le
 tu
 rG
 rG
-Tg
+rz
 rG
 rG
-Pm
+oX
 UW
 BE
 BE
@@ -3784,21 +3989,21 @@ Tx
 Qu
 Pm
 Pm
-Pm
-Pm
-xb
-rz
-rz
-rG
-TB
+JV
+yd
+FA
+Ev
+Ev
+Ev
+JK
 cx
 tJ
 uH
-rG
-rz
-rz
-Pm
-Pm
+ID
+yj
+sz
+kl
+AP
 UW
 Oo
 YA
@@ -3822,21 +4027,21 @@ Qu
 Pm
 Pm
 Pm
-Pm
-Pm
-Pm
-Pm
-Pm
-Pm
-TB
-TB
+yd
+Is
+fU
+fU
+lo
+Cc
+WS
+wf
 fW
 pG
-uH
-TB
-Pm
-Pm
-BE
+ET
+pn
+KF
+fH
+HD
 UW
 QU
 OO
@@ -3861,19 +4066,19 @@ Pm
 Pm
 Gg
 yd
-mz
-Zh
-Zh
-Zh
-Zh
-Zh
+HL
+bi
+AD
+yd
+Js
+yd
 TB
 TB
 st
 en
-TB
-Pm
-UW
+HD
+IG
+HD
 BE
 SQ
 AU
@@ -3899,18 +4104,18 @@ Pm
 Gg
 iN
 SH
+bu
 sJ
-qJ
-eR
-eR
-eR
-aE
-Ip
+Zh
+SH
+Zh
+Tg
+SH
 TB
 IC
 Ln
-TB
-UW
+HD
+HD
 UW
 pe
 Qf
@@ -4445,7 +4650,7 @@ yC
 lh
 kJ
 Iq
-JV
+kJ
 Md
 oB
 Ng
@@ -4767,13 +4972,13 @@ wv
 wv
 Ki
 Pm
-lS
-qJ
-eR
-eR
-eR
-aE
-ik
+Ld
+sJ
+Zh
+Zh
+Zh
+Tg
+Gg
 SH
 tU
 bu
@@ -4805,12 +5010,12 @@ wv
 wv
 Ki
 Pm
-Ld
-Zh
-Zh
-Zh
-Zh
-Zh
+ik
+Pm
+Pm
+Pm
+Pm
+Pm
 oU
 eS
 bu

@@ -190,6 +190,9 @@
 /obj/structure/overmap/ship/simulated/proc/refresh_engines()
 	var/calculated_thrust
 	for(var/obj/machinery/power/shuttle/engine/E in shuttle.engine_list)
+		if (QDELETED(E)) //Garant that we has no ghost engines.
+			shuttle.engine_list -= E
+			continue
 		E.update_engine()
 		if(E.enabled)
 			calculated_thrust += E.thrust
@@ -403,7 +406,7 @@
 #undef SHIP_SIZE_THRESHOLD
 
 #undef SHIP_DOCKED_REPAIR_TIME
-#undef FACTION_COOLDOWN
+#undef FACTION_COOLDOWN_TIME
 #undef CHECK_CREW_SSD
 #undef SHIP_RUIN
 #undef SHIP_DELETE
