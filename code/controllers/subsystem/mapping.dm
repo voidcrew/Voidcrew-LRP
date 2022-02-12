@@ -116,10 +116,13 @@ SUBSYSTEM_DEF(mapping)
 
 /datum/controller/subsystem/mapping/proc/preloadRuinTemplates()
 	// Still supporting bans by filename
-	var/list/banned = generateMapList("[global.config.directory]/lavaruinblacklist.txt")
-	banned += generateMapList("[global.config.directory]/spaceruinblacklist.txt")
-	banned += generateMapList("[global.config.directory]/iceruinblacklist.txt")
-	banned += generateMapList("[global.config.directory]/sandruinblacklist.txt")
+	var/list/banned = generateMapList("[global.config.directory]/ruins/lavaruinblacklist.txt")
+	banned += generateMapList("[global.config.directory]/ruins/spaceruinblacklist.txt")
+	banned += generateMapList("[global.config.directory]/ruins/iceruinblacklist.txt")
+	banned += generateMapList("[global.config.directory]/ruins/sandruinblacklist.txt")
+	banned += generateMapList("[global.config.directory]/ruins/jungleruinblacklist.txt")
+	banned += generateMapList("[global.config.directory]/ruins/reeberuinblacklist.txt")
+	banned += generateMapList("[global.config.directory]/ruins/rockruinblacklist.txt")
 
 	for(var/item in sortList(subtypesof(/datum/map_template/ruin), /proc/cmp_ruincost_priority))
 		var/datum/map_template/ruin/ruin_type = item

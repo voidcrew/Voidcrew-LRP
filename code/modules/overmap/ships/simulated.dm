@@ -50,6 +50,9 @@
 	///Timer for ship deletion
 	var/deletion_timer
 
+	///The ships password
+	var/password
+
 /obj/structure/overmap/ship/simulated/Initialize(mapload, obj/docking_port/mobile/_shuttle, datum/map_template/shuttle/_source_template)
 	. = ..()
 	SSovermap.simulated_ships += src
@@ -60,6 +63,7 @@
 	name = shuttle.name
 	source_template = _source_template
 	prefix = source_template.prefix
+	update_ship_color()
 	calculate_mass()
 #ifdef UNIT_TESTS
 	set_ship_name("[source_template]")
@@ -190,6 +194,9 @@
 /obj/structure/overmap/ship/simulated/proc/refresh_engines()
 	var/calculated_thrust
 	for(var/obj/machinery/power/shuttle/engine/E in shuttle.engine_list)
+		if (QDELETED(E)) //Garant that we has no ghost engines.
+			shuttle.engine_list -= E
+			continue
 		E.update_engine()
 		if(E.enabled)
 			calculated_thrust += E.thrust
@@ -333,6 +340,7 @@
 	for(var/area/shuttle_area as anything in shuttle.shuttle_areas)
 		shuttle_area.rename_area("[new_name] [initial(shuttle_area.name)]")
 	return TRUE
+
 /**
   *Sets the ships faction and updates the crews huds
   */
@@ -350,6 +358,23 @@
 	name = "[prefix] [copytext(name, fixed_name)]"
 	set_ship_name(name, ignore_cooldown = TRUE)
 	update_crew_hud()
+	update_ship_color()
+
+/**
+  * Updates the ships icon to make it easier to distinguish between factions
+  */
+/obj/structure/overmap/ship/simulated/proc/update_ship_color()
+	switch(prefix)
+		if("SYN-C")
+			color = "#F10303"
+		if("NT-C")
+			color = "#115188"
+		if("KOS")
+			color = "#6E0202"
+		if("NEU")
+			color = "#DDDDDD"
+	add_atom_colour(color, FIXED_COLOUR_PRIORITY)
+
 /**
   *The proc for actually updating the hud calls from faction_datum
   */
@@ -403,7 +428,7 @@
 #undef SHIP_SIZE_THRESHOLD
 
 #undef SHIP_DOCKED_REPAIR_TIME
-#undef FACTION_COOLDOWN
+#undef FACTION_COOLDOWN_TIME
 #undef CHECK_CREW_SSD
 #undef SHIP_RUIN
 #undef SHIP_DELETE
