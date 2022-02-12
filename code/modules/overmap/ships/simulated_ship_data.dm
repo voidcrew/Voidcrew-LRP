@@ -45,7 +45,6 @@
 				ex_crewmate_mind.remove_antag_datum(to_remove)
 
 			member = null
-			crewmembers.Remove(member)
 
 /**
  * Unregister ALL crewmates from the ship
