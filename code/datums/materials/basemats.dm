@@ -6,7 +6,6 @@
 	color = "#878687"
 	categories = list(MAT_CATEGORY_ORE = TRUE, MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE)
 	sheet_type = /obj/item/stack/sheet/metal
-	ore_type = /obj/item/stack/ore/iron
 	value_per_unit = 0.0025
 
 ///Breaks extremely easily but is transparent.
@@ -19,7 +18,6 @@
 	categories = list(MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE)
 	integrity_modifier = 0.1
 	sheet_type = /obj/item/stack/sheet/glass
-	ore_type = /obj/item/stack/ore/glass
 	value_per_unit = 0.0025
 	beauty_modifier = 0.05
 	armor_modifiers = list("melee" = 0.2, "bullet" = 0.2, "laser" = 0, "energy" = 1, "bomb" = 0, "bio" = 0.2, "rad" = 0.2, "fire" = 1, "acid" = 0.2)
@@ -37,7 +35,6 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 	color = list(255/255, 284/255, 302/255,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0)
 	categories = list(MAT_CATEGORY_ORE = TRUE, MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE)
 	sheet_type = /obj/item/stack/sheet/mineral/silver
-	ore_type = /obj/item/stack/ore/silver
 	value_per_unit = 0.025
 	beauty_modifier = 0.075
 
@@ -50,7 +47,6 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 	strength_modifier = 1.2
 	categories = list(MAT_CATEGORY_ORE = TRUE, MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE)
 	sheet_type = /obj/item/stack/sheet/mineral/gold
-	ore_type = /obj/item/stack/ore/gold
 	value_per_unit = 0.0625
 	beauty_modifier = 0.15
 	armor_modifiers = list("melee" = 1.1, "bullet" = 1.1, "laser" = 1.15, "energy" = 1.15, "bomb" = 1, "bio" = 1, "rad" = 1, "fire" = 0.7, "acid" = 1.1)
@@ -63,7 +59,6 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 	color = list(48/255, 272/255, 301/255,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0)
 	categories = list(MAT_CATEGORY_ORE = TRUE, MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE)
 	sheet_type = /obj/item/stack/sheet/mineral/diamond
-	ore_type = /obj/item/stack/ore/diamond
 	alpha = 132
 	value_per_unit = 0.25
 	beauty_modifier = 0.3
@@ -77,7 +72,6 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 	color = rgb(48, 237, 26)
 	categories = list(MAT_CATEGORY_ORE = TRUE, MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE)
 	sheet_type = /obj/item/stack/sheet/mineral/uranium
-	ore_type = /obj/item/stack/ore/uranium
 	value_per_unit = 0.05
 	beauty_modifier = 0.3 //It shines so beautiful
 	armor_modifiers = list("melee" = 1.5, "bullet" = 1.4, "laser" = 0.5, "energy" = 0.5, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 1, "acid" = 1)
@@ -98,7 +92,6 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 	color = list(298/255, 46/255, 352/255,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0)
 	categories = list(MAT_CATEGORY_ORE = TRUE, MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE)
 	sheet_type = /obj/item/stack/sheet/mineral/plasma
-	ore_type = /obj/item/stack/ore/plasma
 	value_per_unit = 0.1
 	beauty_modifier = 0.15
 	armor_modifiers = list("melee" = 1.4, "bullet" = 0.7, "laser" = 0, "energy" = 1.2, "bomb" = 0, "bio" = 1.2, "rad" = 1, "fire" = 0, "acid" = 0.5)
@@ -124,7 +117,6 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 	categories = list(MAT_CATEGORY_ORE = TRUE)
 	beauty_modifier = 0.5
 	sheet_type = /obj/item/stack/sheet/bluespace_crystal
-	ore_type = /obj/item/stack/ore/bluespace_crystal
 	value_per_unit = 0.15
 
 ///Honks and slips
@@ -135,7 +127,6 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 	color = list(460/255, 464/255, 0, 0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 0,0,0,0) //obnoxiously bright yellow
 	categories = list(MAT_CATEGORY_ORE = TRUE, MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE)
 	sheet_type = /obj/item/stack/sheet/mineral/bananium
-	ore_type = /obj/item/stack/ore/bananium
 	value_per_unit = 0.5
 	beauty_modifier = 0.5
 	armor_modifiers = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 100, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 0) //Clowns cant be blown away.
@@ -161,7 +152,6 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 	strength_modifier = 1.3
 	categories = list(MAT_CATEGORY_ORE = TRUE, MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE)
 	sheet_type = /obj/item/stack/sheet/mineral/titanium
-	ore_type = /obj/item/stack/ore/titanium
 	value_per_unit = 0.0625
 	beauty_modifier = 0.05
 	armor_modifiers = list("melee" = 1.35, "bullet" = 1.3, "laser" = 1.3, "energy" = 1.25, "bomb" = 1.25, "bio" = 1, "rad" = 1, "fire" = 0.7, "acid" = 1)

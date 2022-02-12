@@ -4,7 +4,6 @@
 		/obj/item/flashlight/seclite=1,
 		/obj/item/kitchen/knife/combat/survival=1,
 		/obj/item/mining_voucher=1,
-		/obj/item/pinpointer/deepcore=1,
 		/obj/item/wrench=1
 	)
 

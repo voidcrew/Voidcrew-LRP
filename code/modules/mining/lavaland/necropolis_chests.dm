@@ -29,7 +29,6 @@
 			new /obj/item/reagent_containers/glass/bottle/potion/flight(src)
 		if(7)
 			new /obj/item/pickaxe/diamond(src)
-			new /obj/item/pinpointer/deepcore/advanced(src)
 		if(8)
 			if(prob(50))
 				new /obj/item/disk/design_disk/modkit_disc/resonator_blast(src)
