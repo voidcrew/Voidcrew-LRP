@@ -15,11 +15,18 @@
 "e" = (
 /turf/open/floor/plasteel/airless,
 /area/ruin/space/oldteleporter)
+"f" = (
+/turf/open/floor/plasteel/airless{
+	icon_state = "damaged2"
+	},
+/area/ruin/space/oldteleporter)
 "g" = (
 /obj/structure/light_construct/small{
 	dir = 1
 	},
-/turf/open/floor/plasteel/airless,
+/turf/open/floor/plasteel/airless{
+	icon_state = "damaged3"
+	},
 /area/ruin/space/oldteleporter)
 "h" = (
 /obj/machinery/computer/teleporter{
@@ -48,6 +55,11 @@
 	maxcharge = 15000
 	},
 /turf/open/floor/plasteel/airless,
+/area/ruin/space/oldteleporter)
+"m" = (
+/turf/open/floor/plasteel/airless{
+	icon_state = "damaged4"
+	},
 /area/ruin/space/oldteleporter)
 "n" = (
 /obj/machinery/power/apc{
@@ -151,7 +163,7 @@ d
 c
 e
 e
-e
+m
 e
 d
 "}
@@ -190,7 +202,7 @@ a
 b
 c
 d
-e
+f
 e
 j
 e
@@ -221,7 +233,7 @@ d
 c
 e
 k
-e
+f
 d
 c
 "}

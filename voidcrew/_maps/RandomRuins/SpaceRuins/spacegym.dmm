@@ -40,6 +40,11 @@
 /obj/machinery/door/airlock,
 /turf/open/floor/plasteel/airless,
 /area/ruin/space/has_grav/spacegym)
+"k" = (
+/turf/open/floor/plasteel/airless{
+	icon_state = "damaged1"
+	},
+/area/ruin/space/has_grav/spacegym)
 "m" = (
 /obj/item/reagent_containers/food/snacks/meatball,
 /turf/open/floor/plasteel/airless,
@@ -62,7 +67,9 @@
 /area/space)
 "v" = (
 /obj/item/reagent_containers/spray/cleaner,
-/turf/open/floor/plasteel/airless,
+/turf/open/floor/plasteel/airless{
+	icon_state = "damaged1"
+	},
 /area/ruin/space/has_grav/spacegym)
 "y" = (
 /obj/structure/closet/boxinggloves,
@@ -146,7 +153,7 @@ I
 u
 I
 G
-n
+k
 I
 I
 I
@@ -192,7 +199,7 @@ a
 o
 m
 O
-n
+k
 "}
 (5,1,1) = {"
 u
@@ -201,7 +208,7 @@ I
 O
 n
 G
-n
+k
 n
 c
 U
@@ -218,7 +225,7 @@ a
 a
 a
 n
-n
+k
 O
 u
 "}
@@ -257,7 +264,7 @@ I
 O
 F
 I
-n
+k
 G
 d
 U
