@@ -9,7 +9,7 @@
 	name = "noose"
 	desc = "Well this just got a whole lot more morbid."
 	icon_state = "noose"
-	icon = 'icons/obj/objects.dmi'
+	icon = 'voidcrew/icons/obj/objects.dmi'
 	layer = FLY_LAYER
 	flags_1 = NODECONSTRUCT_1
 	var/mutable_appearance/overlay
@@ -106,7 +106,7 @@
 				to_chat(M, "<span class='userdanger'>You tie \the [src] over your neck!</span>")
 			else
 				to_chat(M, "<span class='userdanger'>[user] ties \the [src] over your neck!</span>")
-			playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
+			playsound(user.loc, 'voidcrew/sound/effects/noosed.ogg', 50, 1, -1)
 			log_combat(user, M, "hanged", src)
 			return TRUE
 	user.visible_message("<span class='warning'>[user] fails to tie \the [src] over [M]'s neck!</span>")
@@ -138,7 +138,7 @@
 												"<span class='suicide'>[buckled_mob]'s hands are desperately clutching the noose.</span>",\
 												"<span class='suicide'>[buckled_mob]'s limbs sway back and forth with diminishing strength.</span>")
 						buckled_mob.visible_message(pick(flavor_text))
-				playsound(buckled_mob.loc, 'sound/effects/noose_idle.ogg', 30, 1, -3)
+				playsound(buckled_mob.loc, 'voidcrew/sound/effects/noose_idle.ogg', 30, 1, -3)
 			else
 				buckled_mob.visible_message("<span class='danger'>[buckled_mob] drops from the noose!</span>")
 				buckled_mob.Knockdown(60)
