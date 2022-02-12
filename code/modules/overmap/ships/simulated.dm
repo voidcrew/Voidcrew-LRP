@@ -60,6 +60,7 @@
 	name = shuttle.name
 	source_template = _source_template
 	prefix = source_template.prefix
+	update_ship_color()
 	calculate_mass()
 #ifdef UNIT_TESTS
 	set_ship_name("[source_template]")
@@ -353,6 +354,20 @@
 	name = "[prefix] [copytext(name, fixed_name)]"
 	set_ship_name(name, ignore_cooldown = TRUE)
 	update_crew_hud()
+	update_ship_color()
+/**
+  * Updates the ships icon to make it easier to distinguish between factions
+  */
+/obj/structure/overmap/ship/simulated/proc/update_ship_color()
+	if(prefix == "SYN-C")
+		color = "#ff0000"
+	if(prefix == "NT-C")
+		color = "#0000FF"
+	if(prefix == "KOS")
+		color = "#4b0101"
+	if (prefix == "NEU")
+		color = "#3f3f3f"
+	add_atom_colour(color, FIXED_COLOUR_PRIORITY)
 /**
   *The proc for actually updating the hud calls from faction_datum
   */
@@ -385,7 +400,6 @@
 			addtimer(CALLBACK(src, .proc/finalize_inactive_ship, TRUE), CHECK_CREW_SSD)
 		if (SHUTTLE_INACTIVE_CREW)
 			finalize_inactive_ship()
-
 /**
  * Go through the different statuses of the ship, and choose the proper deletion method of the ship
  *
