@@ -12,22 +12,21 @@
 	icon = 'voidcrew/icons/obj/objects.dmi'
 	layer = FLY_LAYER
 	flags_1 = NODECONSTRUCT_1
-	//So that the noose sprite can overlay the person beind hanged.
+	///So that the noose sprite can overlay the person beind hanged.
 	var/mutable_appearance/overlay
 
 /obj/structure/chair/noose/wirecutter_act(mob/user, params)
 	. = ..()
 	user.visible_message("[user] cuts the noose.", "<span class='notice'>You cut the noose.</span>")
 	if(has_buckled_mobs())
-		for(var/m in buckled_mobs)
-			var/mob/living/buckled_mob = m
+		for(var/mob/living/buckled_mob in buckled_mobs)
 			if(buckled_mob.has_gravity())
 				buckled_mob.visible_message("<span class='danger'>[buckled_mob] falls over and hits the ground!</span>")
 				to_chat(buckled_mob, "<span class='userdanger'>You fall over and hit the ground!</span>")
 				buckled_mob.Knockdown(60)
 				buckled_mob.adjustBruteLoss(10)
-	var/obj/item/stack/cable_coil/C = new(get_turf(src))
-	C.amount = 25
+	var/obj/item/stack/cable_coil/dropped_cable = new(get_turf(src))
+	dropped_cable.amount = 25
 	qdel(src)
 	return
 		
@@ -42,76 +41,76 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
-/obj/structure/chair/noose/post_buckle_mob(mob/living/M)
+/obj/structure/chair/noose/post_buckle_mob(mob/living/buckled_mob)
 	if(has_buckled_mobs())
 		src.layer = MOB_LAYER
 		START_PROCESSING(SSobj, src)
-		M.dir = SOUTH
-		animate(M, pixel_y = initial(pixel_y) + 8, time = 8, easing = LINEAR_EASING)
+		buckled_mob.dir = SOUTH
+		animate(buckled_mob, pixel_y = initial(pixel_y) + 8, time = 8, easing = LINEAR_EASING)
 	else
 		layer = initial(layer)
 		STOP_PROCESSING(SSobj, src)
-		M.pixel_x = initial(M.pixel_x)
+		buckled_mob.pixel_x = initial(buckled_mob.pixel_x)
 		pixel_x = initial(pixel_x)
-		M.pixel_y = M.get_standard_pixel_y_offset(M.lying_angle)
+		buckled_mob.pixel_y = buckled_mob.get_standard_pixel_y_offset(buckled_mob.lying_angle)
 
-/obj/structure/chair/noose/user_unbuckle_mob(mob/living/M,mob/living/user)
+/obj/structure/chair/noose/user_unbuckle_mob(mob/living/target_mob,mob/living/user)
 	if(has_buckled_mobs())
-		if(M != user)
-			user.visible_message("<span class='notice'>[user] begins to untie the noose over [M]'s neck...</span>")
-			to_chat(user, "<span class='notice'>You begin to untie the noose over [M]'s neck...</span>")
-			if(!do_mob(user, M, 100))
+		if(target_mob != user)
+			user.visible_message("<span class='notice'>[user] begins to untie the noose over [target_mob]'s neck...</span>")
+			to_chat(user, "<span class='notice'>You begin to untie the noose over [target_mob]'s neck...</span>")
+			if(!do_mob(user, target_mob, 100))
 				return
-			user.visible_message("<span class='notice'>[user] unties the noose over [M]'s neck!</span>")
-			to_chat(user,"<span class='notice'>You untie the noose over [M]'s neck!</span>")
-			M.Knockdown(60)
+			user.visible_message("<span class='notice'>[user] unties the noose over [target_mob]'s neck!</span>")
+			to_chat(user,"<span class='notice'>You untie the noose over [target_mob]'s neck!</span>")
+			target_mob.Knockdown(60)
 		else
-			M.visible_message("<span class='warning'>[M] struggles to untie the noose over their neck!</span>")
-			to_chat(M,"<span class='notice'>You struggle to untie the noose over your neck... (Stay still for 15 seconds.)</span>")
-			if(!do_after(M, 150, target = src))
-				if(M && M.buckled)
-					to_chat(M, "<span class='warning'>You fail to untie yourself!</span>")
+			target_mob.visible_message("<span class='warning'>[target_mob] struggles to untie the noose over their neck!</span>")
+			to_chat(target_mob,"<span class='notice'>You struggle to untie the noose over your neck... (Stay still for 15 seconds.)</span>")
+			if(!do_after(target_mob, 150, target = src))
+				if(target_mob && target_mob.buckled)
+					to_chat(target_mob, "<span class='warning'>You fail to untie yourself!</span>")
 				return
-			if(!M.buckled)
+			if(!target_mob.buckled)
 				return
-			M.visible_message("<span class='warning'>[M] unties the noose over their neck!</span>")
-			to_chat(M,"<span class='notice'>You untie the noose over your neck!</span>")
-			M.Knockdown(60)
+			target_mob.visible_message("<span class='warning'>[target_mob] unties the noose over their neck!</span>")
+			to_chat(target_mob,"<span class='notice'>You untie the noose over your neck!</span>")
+			target_mob.Knockdown(60)
 		unbuckle_all_mobs(force=1)
-		M.pixel_z = initial(M.pixel_z)
+		target_mob.pixel_z = initial(target_mob.pixel_z)
 		pixel_z = initial(pixel_z)
-		M.pixel_x = initial(M.pixel_x)
+		target_mob.pixel_x = initial(target_mob.pixel_x)
 		pixel_x = initial(pixel_x)
 		add_fingerprint(user)
 
-/obj/structure/chair/noose/user_buckle_mob(mob/living/carbon/human/M, mob/user, check_loc = TRUE)
-	if(!in_range(user, src) || user.stat || HAS_TRAIT(user, TRAIT_RESTRAINED) || !iscarbon(M))
+/obj/structure/chair/noose/user_buckle_mob(mob/living/carbon/human/target_mob, mob/user, check_loc = TRUE)
+	if(!in_range(user, src) || user.stat || HAS_TRAIT(user, TRAIT_RESTRAINED) || !iscarbon(target_mob))
 		return FALSE
 
-	if (!M.get_bodypart("head"))
-		to_chat(user, "<span class='warning'>[M] has no head!</span>")
+	if (!target_mob.get_bodypart("head"))
+		to_chat(user, "<span class='warning'>[target_mob] has no head!</span>")
 		return FALSE
 
-	if(M.loc != src.loc)
+	if(target_mob.loc != src.loc)
 		return FALSE //Can only noose someone if they're on the same tile as noose
 
 	add_fingerprint(user)
-	log_combat(user, M, "Attempted to Hang", src)
-	M.visible_message("<span class='danger'>[user] attempts to tie \the [src] over [M]'s neck!</span>")
-	if(user != M)
+	log_combat(user, target_mob, "Attempted to Hang", src)
+	target_mob.visible_message("<span class='danger'>[user] attempts to tie \the [src] over [target_mob]'s neck!</span>")
+	if(user != target_mob)
 		to_chat(user, "<span class='notice'>It will take 10 seconds and you have to stand still.</span>")
-	if(do_mob(user, M, user == M ? 0:100))
-		if(buckle_mob(M))
-			user.visible_message("<span class='warning'>[user] ties \the [src] over [M]'s neck!</span>")
-			if(user == M)
-				to_chat(M, "<span class='userdanger'>You tie \the [src] over your neck!</span>")
+	if(do_mob(user, target_mob, user == target_mob ? 0:100))
+		if(buckle_mob(target_mob))
+			user.visible_message("<span class='warning'>[user] ties \the [src] over [target_mob]'s neck!</span>")
+			if(user == target_mob)
+				to_chat(target_mob, "<span class='userdanger'>You tie \the [src] over your neck!</span>")
 			else
-				to_chat(M, "<span class='userdanger'>[user] ties \the [src] over your neck!</span>")
+				to_chat(target_mob, "<span class='userdanger'>[user] ties \the [src] over your neck!</span>")
 			playsound(user.loc, 'voidcrew/sound/effects/noosed.ogg', 50, 1, -1)
-			log_combat(user, M, "hanged", src)
+			log_combat(user, target_mob, "hanged", src)
 			return TRUE
-	user.visible_message("<span class='warning'>[user] fails to tie \the [src] over [M]'s neck!</span>")
-	to_chat(user, "<span class='warning'>You fail to tie \the [src] over [M]'s neck!</span>")
+	user.visible_message("<span class='warning'>[user] fails to tie \the [src] over [target_mob]'s neck!</span>")
+	to_chat(user, "<span class='warning'>You fail to tie \the [src] over [target_mob]'s neck!</span>")
 	return FALSE
 
 
@@ -119,14 +118,13 @@
 	if(!has_buckled_mobs())
 		STOP_PROCESSING(SSobj, src)
 		return
-	for(var/m in buckled_mobs)
-		var/mob/living/buckled_mob = m
+	for(var/mob/living/buckled_mob in buckled_mobs)
 		if(pixel_x >= 0)
 			animate(src, pixel_x = -3, time = 45, easing = ELASTIC_EASING)
-			animate(m, pixel_x = -3, time = 45, easing = ELASTIC_EASING)
+			animate(buckled_mob, pixel_x = -3, time = 45, easing = ELASTIC_EASING)
 		else
 			animate(src, pixel_x = 3, time = 45, easing = ELASTIC_EASING)
-			animate(m, pixel_x = 3, time = 45, easing = ELASTIC_EASING)
+			animate(buckled_mob, pixel_x = 3, time = 45, easing = ELASTIC_EASING)
 		if(buckled_mob.has_gravity())
 			if(buckled_mob.get_bodypart("head"))
 				if(buckled_mob.stat != DEAD)
