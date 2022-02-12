@@ -251,7 +251,7 @@
 	T=1.2
 	for(var/obj/item/stock_parts/manipulator/M in component_parts)
 		T -= M.rating*0.2
-	prod_coeff = min(1,max(0,T)) // Coeff going 1 -> 0,8 -> 0,6 -> 0,4
+	prod_coeff = min(4,max(1,T)) // Coeff going 1 -> 0,8 -> 0,6 -> 0,4
 
 /obj/machinery/autolathe/examine(mob/user)
 	. += ..()
