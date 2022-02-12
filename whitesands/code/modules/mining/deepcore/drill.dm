@@ -19,6 +19,12 @@
 	. = ..()
 	container.max_amount = 4000 //Give the drill some room to buffer mats, but not much
 
+/obj/machinery/deepcore/drill/Destroy()
+	. = ..()
+	if (active_vein)
+		active_vein.miner = null
+		active_vein = null
+
 /obj/machinery/deepcore/drill/interact(mob/user, special_state)
 	. = ..()
 	if(machine_stat & BROKEN)
@@ -73,9 +79,8 @@
 
 /obj/machinery/deepcore/drill/proc/mineOre()
 	var/list/extracted = active_vein.extract_ore()
-	for(var/O in extracted)
-		var/datum/material/M = O
-		container.insert_amount_mat(extracted[M], M)
+	for(var/datum/material/material as anything in extracted)
+		container.insert_amount_mat(extracted[material], material)
 	return TRUE
 
 /obj/machinery/deepcore/drill/proc/dropOre(datum/material/M, amount)
@@ -87,6 +92,7 @@
 	var/obj/effect/landmark/ore_vein/vein = locate() in deployed_zone
 	if(vein)
 		active_vein = vein
+		active_vein.miner = src
 		return vein
 	else
 		return FALSE
