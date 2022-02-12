@@ -1,6 +1,6 @@
-#define AUTOLATHE_MAIN_MENU		1
-#define AUTOLATHE_CATEGORY_MENU	2
-#define AUTOLATHE_SEARCH_MENU	3
+#define AUTOLATHE_MAIN_MENU 1
+#define AUTOLATHE_CATEGORY_MENU 2
+#define AUTOLATHE_SEARCH_MENU 3
 
 /obj/machinery/autolathe
 	name = "autolathe"
@@ -17,16 +17,15 @@
 	var/list/L = list()
 	var/list/LL = list()
 	var/hacked = FALSE
-	var/disabled = FALSE
+	var/disabled = 0
 	var/shocked = FALSE
 	var/hack_wire
 	var/disable_wire
 	var/shock_wire
 
 	var/busy = FALSE
-
-	///the multiplier for how much materials the created object takes from this machines stored materials
-	var/creation_efficiency = 1.6
+	//Coeff for how much material is consumed. Starts at 1.6 to fix dupe bugs
+	var/prod_coeff = 1.6
 
 	var/datum/design/being_built
 	var/datum/techweb/stored_research
@@ -50,7 +49,7 @@
 							)
 
 /obj/machinery/autolathe/Initialize()
-	AddComponent(/datum/component/material_container, SSmaterials.materials_by_category[MAT_CATEGORY_ITEM_MATERIAL], 0, MATCONTAINER_EXAMINE, _after_insert = CALLBACK(src, .proc/AfterMaterialInsert))
+	AddComponent(/datum/component/material_container, SSmaterials.materialtypes_by_category[MAT_CATEGORY_RIGID], 0, TRUE, null, null, CALLBACK(src, .proc/AfterMaterialInsert))
 	. = ..()
 
 	wires = new /datum/wires/autolathe(src)
@@ -63,7 +62,7 @@
 
 /obj/machinery/autolathe/ui_interact(mob/user)
 	. = ..()
-	if(!is_operational)
+	if(!is_operational())
 		return
 
 	if(shocked && !(machine_stat & NOPOWER))
@@ -125,13 +124,14 @@
 	return ..()
 
 
-/obj/machinery/autolathe/proc/AfterMaterialInsert(obj/item/item_inserted, id_inserted, amount_inserted)
+/obj/machinery/autolathe/proc/AfterMaterialInsert(item_inserted, id_inserted, amount_inserted)
 	if(istype(item_inserted, /obj/item/stack/ore/bluespace_crystal))
 		use_power(MINERAL_MATERIAL_AMOUNT / 10)
-	else if(item_inserted.has_material_type(/datum/material/glass))
-		flick("autolathe_r", src)//plays glass insertion animation by default otherwise
+	else if(custom_materials && custom_materials.len && custom_materials[SSmaterials.GetMaterialRef(/datum/material/glass)])
+		flick("autolathe_r",src)//plays glass insertion animation by default otherwise
 	else
-		flick("autolathe_o", src)//plays metal insertion animation
+		flick("autolathe_o",src)//plays metal insertion animation
+
 
 		use_power(min(1000, amount_inserted / 100))
 	updateUsrDialog()
@@ -162,7 +162,7 @@
 
 			/////////////////
 
-			var/coeff = (is_stack ? 1 : creation_efficiency) //stacks are unaffected by production coefficient
+			var/coeff = (is_stack ? 1 : prod_coeff) //stacks are unaffected by production coefficient
 			var/total_amount = 0
 
 			for(var/MAT in being_built.materials)
@@ -223,7 +223,7 @@
 	materials.use_materials(materials_used)
 
 	if(is_stack)
-		var/obj/item/stack/N = new being_built.build_path(A, multiplier, FALSE)
+		var/obj/item/stack/N = new being_built.build_path(A, multiplier)
 		N.update_icon()
 		N.autolathe_crafted(src)
 	else
@@ -244,22 +244,21 @@
 	updateDialog()
 
 /obj/machinery/autolathe/RefreshParts()
-	var/mat_capacity = 0
-	for(var/obj/item/stock_parts/matter_bin/new_matter_bin in component_parts)
-		mat_capacity += new_matter_bin.rating*75000
+	var/MaterialCapacity = 0
+	for(var/obj/item/stock_parts/matter_bin/MB in component_parts)
+		MaterialCapacity += MB.rating*75000
 	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
-	materials.max_amount = mat_capacity
-
-	var/efficiency=1.8
-	for(var/obj/item/stock_parts/manipulator/new_manipulator in component_parts)
-		efficiency -= new_manipulator.rating*0.2
-	creation_efficiency = max(1,efficiency) // creation_efficiency goes 1.6 -> 1.4 -> 1.2 -> 1 per level of manipulator efficiency
+	materials.max_amount = MaterialCapacity
+	var/efficency=1.8
+	for(var/obj/item/stock_parts/manipulator/M in component_parts)
+		efficency -= M.rating*0.2
+	prod_coeff = max(1,efficency) // Coeff going 1.6 -> 1.4 -> 1.2 -> 1.0
 
 /obj/machinery/autolathe/examine(mob/user)
 	. += ..()
 	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 	if(in_range(user, src) || isobserver(user))
-		. += "<span class='notice'>The status display reads: Storing up to <b>[materials.max_amount]</b> material units.<br>Material consumption at <b>[creation_efficiency*100]%</b>.</span>"
+		. += "<span class='notice'>The status display reads: Storing up to <b>[materials.max_amount]</b> material units.<br>Material consumption at <b>[prod_coeff*100]%</b>.</span>"
 
 /obj/machinery/autolathe/proc/main_win(mob/user)
 	var/dat = "<div class='statusDisplay'><h3>Autolathe Menu:</h3><br>"
@@ -347,11 +346,6 @@
 				dat += " <a href='?src=[REF(src)];make=[D.id];multiplier=25'>x25</a>"
 			if(max_multiplier > 0 && !disabled)
 				dat += " <a href='?src=[REF(src)];make=[D.id];multiplier=[max_multiplier]'>x[max_multiplier]</a>"
-		else
-			if(!disabled && can_build(D, 5))
-				dat += " <a href='?src=[REF(src)];make=[D.id];multiplier=5'>x5</a>"
-			if(!disabled && can_build(D, 10))
-				dat += " <a href='?src=[REF(src)];make=[D.id];multiplier=10'>x10</a>"
 
 		dat += "[get_design_cost(D)]<br>"
 
@@ -372,7 +366,7 @@
 	if(D.make_reagents.len)
 		return FALSE
 
-	var/coeff = (ispath(D.build_path, /obj/item/stack) ? 1 : creation_efficiency)
+	var/coeff = (ispath(D.build_path, /obj/item/stack) ? 1 : prod_coeff)
 
 	var/list/required_materials = list()
 
@@ -385,7 +379,7 @@
 
 
 /obj/machinery/autolathe/proc/get_design_cost(datum/design/D)
-	var/coeff = (ispath(D.build_path, /obj/item/stack) ? 1 : creation_efficiency)
+	var/coeff = (ispath(D.build_path, /obj/item/stack) ? 1 : prod_coeff)
 	var/dat
 	for(var/i in D.materials)
 		if(istext(i)) //Category handling
@@ -424,11 +418,21 @@
 	hacked = state
 	for(var/id in SSresearch.techweb_designs)
 		var/datum/design/D = SSresearch.techweb_design_by_id(id)
-		if((D.build_type & AUTOLATHE) && ("hacked" in D.category))
-			if(hacked)
+		if(D.build_type & AUTOLATHE)
+			if("hacked" in D.category)
+				if(hacked || obj_flags & EMAGGED) //WS - Emag the lathe
+					stored_research.add_design(D)
+				else
+					stored_research.remove_design(D)
+			if(("emagged" in D.category) && (obj_flags & EMAGGED))
 				stored_research.add_design(D)
-			else
-				stored_research.remove_design(D)
+
+/obj/machinery/autolathe/emag_act(mob/user) //WS - Emag the lathe
+	if(obj_flags & EMAGGED)
+		return
+	obj_flags |= EMAGGED
+	adjust_hacked(TRUE) // im in
+	to_chat(user, "<span class='warning'>You load the [src] with a series of specialized designs.</span>")
 
 /obj/machinery/autolathe/hacked/Initialize()
 	. = ..()
