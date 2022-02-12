@@ -50,6 +50,9 @@
 	///Timer for ship deletion
 	var/deletion_timer
 
+	///The ships password
+	var/password
+
 /obj/structure/overmap/ship/simulated/Initialize(mapload, obj/docking_port/mobile/_shuttle, datum/map_template/shuttle/_source_template)
 	. = ..()
 	SSovermap.simulated_ships += src
