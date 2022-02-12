@@ -14,7 +14,6 @@
 	var/memo = ""
 	///Time that next job slot change can occur
 	var/job_slot_adjustment_cooldown = 0
-
 	///List of weakrefs of all the crewmembers
 	var/list/crewmembers = list()
 
@@ -36,7 +35,15 @@
 /obj/structure/overmap/ship/simulated/proc/unregister_crewmember(mob/living/carbon/human/crewmate)
 	for (var/datum/weakref/member in crewmembers)
 		if (crewmate == member.resolve())
-			UnregisterSignal(member.resolve(), list(COMSIG_MOB_DEATH, COMSIG_MOB_LOGOUT))
+			var/mob/living/carbon/human/ex_crewmate = member.resolve()
+			UnregisterSignal(ex_crewmate, list(COMSIG_MOB_DEATH, COMSIG_MOB_LOGOUT))
+
+			remove_faction_hud(FACTION_HUD_GENERAL, ex_crewmate)
+			var/datum/mind/ex_crewmate_mind = ex_crewmate.mind
+			var/datum/antagonist/to_remove = ex_crewmate_mind.has_antag_datum(source_template?.antag_datum)
+			if (!isnull(to_remove))
+				ex_crewmate_mind.remove_antag_datum(to_remove)
+
 			member = null
 
 /**
@@ -59,7 +66,21 @@
 	var/datum/weakref/new_cremate = WEAKREF(crewmate)
 	crewmembers.Add(new_cremate)
 	RegisterSignal(crewmate, list(COMSIG_MOB_DEATH, COMSIG_MOB_LOGOUT), .proc/handle_inactive_ship)
+	//Adds a faction hud to a newplayer documentation in _HELPERS/game.dm
+	add_faction_hud(FACTION_HUD_GENERAL, prefix, crewmate)
 
+	if (!isnull(source_template.antag_datum))
+		var/datum/antagonist/ship_datum = new source_template.antag_datum
+		crewmate.mind.add_antag_datum(ship_datum)
+/**Checks for verification before being aloud to open a console or object
+  * Arguments:
+  * mob/living/carbon/human/crewmate - The mob being checked for access
+  */
+/obj/structure/overmap/ship/simulated/proc/is_player_in_crew(mob/living/carbon/human/crewmate)
+	for (var/datum/weakref/member in crewmembers)
+		if (crewmate == member.resolve())
+			return TRUE
+	return FALSE
 /**
   * Bastardized version of GLOB.manifest.manifest_inject, but used per ship
   *
