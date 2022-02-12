@@ -45,6 +45,7 @@
 				ex_crewmate_mind.remove_antag_datum(to_remove)
 
 			member = null
+			crewmembers.Remove(member)
 
 /**
  * Unregister ALL crewmates from the ship
@@ -55,6 +56,7 @@
 			member = null
 			continue
 		unregister_crewmember(member.resolve())
+	crewmembers = list()
 
 /**
  * Register a crewmate to the crewmembers list
@@ -81,7 +83,8 @@
 /obj/structure/overmap/ship/simulated/proc/register_all_crewmembers()
 	var/list/humans = shuttle.get_all_humans()
 	for (var/mob/living/carbon/human/human_to_add as anything in humans)
-		register_crewmember(human_to_add)
+		if(!isnull(human_to_add.client))
+			register_crewmember(human_to_add)
 
 /**Checks for verification before being aloud to open a console or object
   * Arguments:
