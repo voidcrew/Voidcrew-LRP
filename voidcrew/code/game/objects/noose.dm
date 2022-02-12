@@ -1,5 +1,5 @@
-/obj/item/stack/cable_coil/building_checks(datum/stack_recipe/R, multiplier)
-	if(R.result_type == /obj/structure/chair/noose)
+/obj/item/stack/cable_coil/building_checks(datum/stack_recipe/noose_recipe, multiplier)
+	if(noose_recipe.result_type == /obj/structure/chair/noose)
 		if(!(locate(/obj/structure/chair) in get_turf(usr)))
 			to_chat(usr, "<span class='warning'>You have to be standing on top of a chair to make a noose!</span>")
 			return FALSE
@@ -12,24 +12,25 @@
 	icon = 'voidcrew/icons/obj/objects.dmi'
 	layer = FLY_LAYER
 	flags_1 = NODECONSTRUCT_1
+	//So that the noose sprite can overlay the person beind hanged.
 	var/mutable_appearance/overlay
 
-/obj/structure/chair/noose/attackby(obj/item/W, mob/user, params)
-	if(W.tool_behaviour == TOOL_WIRECUTTER)
-		user.visible_message("[user] cuts the noose.", "<span class='notice'>You cut the noose.</span>")
-		if(has_buckled_mobs())
-			for(var/m in buckled_mobs)
-				var/mob/living/buckled_mob = m
-				if(buckled_mob.has_gravity())
-					buckled_mob.visible_message("<span class='danger'>[buckled_mob] falls over and hits the ground!</span>")
-					to_chat(buckled_mob, "<span class='userdanger'>You fall over and hit the ground!</span>")
-					buckled_mob.adjustBruteLoss(10)
-		var/obj/item/stack/cable_coil/C = new(get_turf(src))
-		C.amount = 25
-		qdel(src)
-		return
-	..()
-
+/obj/structure/chair/noose/wirecutter_act(mob/user, params)
+	. = ..()
+	user.visible_message("[user] cuts the noose.", "<span class='notice'>You cut the noose.</span>")
+	if(has_buckled_mobs())
+		for(var/m in buckled_mobs)
+			var/mob/living/buckled_mob = m
+			if(buckled_mob.has_gravity())
+				buckled_mob.visible_message("<span class='danger'>[buckled_mob] falls over and hits the ground!</span>")
+				to_chat(buckled_mob, "<span class='userdanger'>You fall over and hit the ground!</span>")
+				buckled_mob.Knockdown(60)
+				buckled_mob.adjustBruteLoss(10)
+	var/obj/item/stack/cable_coil/C = new(get_turf(src))
+	C.amount = 25
+	qdel(src)
+	return
+		
 /obj/structure/chair/noose/Initialize()
 	. = ..()
 	pixel_y += 16 //Noose looks like it's "hanging" in the air
