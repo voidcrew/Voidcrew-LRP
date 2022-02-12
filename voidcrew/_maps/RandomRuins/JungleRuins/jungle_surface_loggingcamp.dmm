@@ -68,22 +68,6 @@
 /obj/structure/flora/stump,
 /turf/open/floor/plating/dirt/jungle,
 /area/ruin/unpowered)
-"hm" = (
-/mob/living/simple_animal/hostile/tree{
-	health = 100;
-	icon = 'icons/obj/flora/jungletreesmall.dmi';
-	icon_dead = "tree2";
-	icon_gib = "tree2";
-	icon_living = "tree2";
-	icon_state = "tree2";
-	maxHealth = 100;
-	melee_damage_lower = 6;
-	melee_damage_upper = 8;
-	name = "tree";
-	pixel_x = -30
-	},
-/turf/open/floor/plating/dirt/jungle,
-/area/ruin/unpowered)
 "hs" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 9
@@ -105,9 +89,7 @@
 /obj/item/clothing/suit/space/hardsuit/solgov{
 	name = "Lumberjack Powersuit"
 	},
-/obj/structure/safe/floor{
-	desc = "A huge chunk of metal with a dial embedded in it. Fine print on the dial reads \"Open In Case Of Tree Attack."\"
-	},
+/obj/structure/safe/floor,
 /obj/item/grenade/frag,
 /obj/item/grenade/frag,
 /turf/open/floor/plating,
@@ -172,24 +154,21 @@
 /turf/open/floor/plating,
 /area/ruin/powered)
 "nM" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 1
-	},
 /mob/living/simple_animal/hostile/tree{
 	health = 100;
 	icon = 'icons/obj/flora/jungletrees.dmi';
-	icon_dead = "tree9";
-	icon_gib = "tree9";
-	icon_living = "tree9";
-	icon_state = "tree9";
+	icon_dead = "tree5";
+	icon_gib = "tree5";
+	icon_living = "tree5";
+	icon_state = "tree5";
 	maxHealth = 100;
 	melee_damage_lower = 6;
 	melee_damage_upper = 8;
 	name = "tree";
-	pixel_x = -50;
-	pixel_y = -10
+	pixel_x = -45;
+	pixel_y = -15
 	},
-/turf/open/floor/plating,
+/turf/open/floor/plating/dirt/jungle,
 /area/ruin/unpowered)
 "nX" = (
 /obj/effect/spawner/structure/window/shuttle,
@@ -311,12 +290,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/powered)
-"BQ" = (
-/obj/effect/decal/cleanable/blood/tracks{
-	dir = 8
-	},
-/turf/open/floor/plating/grass/jungle,
-/area/ruin/unpowered)
 "Cc" = (
 /turf/open/floor/plating/grass/jungle,
 /area/ruin/unpowered)
@@ -342,6 +315,23 @@
 /obj/effect/gibspawner/human,
 /turf/open/floor/plating,
 /area/ruin/powered)
+"EU" = (
+/mob/living/simple_animal/hostile/tree{
+	health = 100;
+	icon = 'icons/obj/flora/jungletrees.dmi';
+	icon_dead = "tree9";
+	icon_gib = "tree9";
+	icon_living = "tree9";
+	icon_state = "tree9";
+	maxHealth = 100;
+	melee_damage_lower = 6;
+	melee_damage_upper = 8;
+	name = "tree";
+	pixel_x = -50;
+	pixel_y = -10
+	},
+/turf/open/floor/plating/dirt/jungle,
+/area/ruin/unpowered)
 "EW" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 8
@@ -512,38 +502,8 @@
 /turf/open/floor/plating/dirt/jungle,
 /area/ruin/unpowered)
 "Oh" = (
-/mob/living/simple_animal/hostile/tree{
-	health = 100;
-	icon = 'icons/obj/flora/jungletrees.dmi';
-	icon_dead = "tree5";
-	icon_gib = "tree5";
-	icon_living = "tree5";
-	icon_state = "tree5";
-	maxHealth = 100;
-	melee_damage_lower = 6;
-	melee_damage_upper = 8;
-	name = "tree";
-	pixel_x = -45;
-	pixel_y = -15
-	},
+/obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/plating/dirt/jungle,
-/area/ruin/unpowered)
-"OL" = (
-/mob/living/simple_animal/hostile/tree{
-	health = 100;
-	icon = 'icons/obj/flora/jungletrees.dmi';
-	icon_dead = "tree9";
-	icon_gib = "tree9";
-	icon_living = "tree9";
-	icon_state = "tree9";
-	maxHealth = 100;
-	melee_damage_lower = 6;
-	melee_damage_upper = 8;
-	name = "tree";
-	pixel_x = -50;
-	pixel_y = -10
-	},
-/turf/open/floor/plating/grass/jungle,
 /area/ruin/unpowered)
 "Pb" = (
 /turf/closed/wall,
@@ -569,12 +529,13 @@
 /turf/open/floor/plating,
 /area/ruin/powered)
 "RE" = (
+/obj/structure/flora/stump,
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/plating/dirt/jungle,
 /area/ruin/unpowered)
 "RJ" = (
-/obj/structure/flora/stump,
-/obj/effect/decal/cleanable/blood/tracks,
+/obj/item/hatchet/wooden,
+/obj/effect/decal/cleanable/blood/gibs/core,
 /turf/open/floor/plating/dirt/jungle,
 /area/ruin/unpowered)
 "RK" = (
@@ -599,6 +560,22 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/unpowered)
+"SE" = (
+/mob/living/simple_animal/hostile/tree{
+	health = 100;
+	icon = 'icons/obj/flora/jungletreesmall.dmi';
+	icon_dead = "tree2";
+	icon_gib = "tree2";
+	icon_living = "tree2";
+	icon_state = "tree2";
+	maxHealth = 100;
+	melee_damage_lower = 6;
+	melee_damage_upper = 8;
+	name = "tree";
+	pixel_x = -30
+	},
+/turf/open/floor/plating/dirt/jungle,
+/area/ruin/unpowered)
 "SJ" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/mob_spawn/human/corpse/cargo_tech,
@@ -614,6 +591,12 @@
 /obj/item/megaphone/command,
 /turf/open/floor/carpet/royalblack,
 /area/ruin/powered)
+"Uy" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 8
+	},
+/turf/open/floor/plating/grass/jungle,
+/area/ruin/unpowered)
 "UD" = (
 /obj/machinery/light{
 	dir = 8
@@ -654,9 +637,21 @@
 /turf/open/floor/plating,
 /area/ruin/powered)
 "Zh" = (
-/obj/item/hatchet/wooden,
-/obj/effect/decal/cleanable/blood/gibs/core,
-/turf/open/floor/plating/dirt/jungle,
+/mob/living/simple_animal/hostile/tree{
+	health = 100;
+	icon = 'icons/obj/flora/jungletrees.dmi';
+	icon_dead = "tree9";
+	icon_gib = "tree9";
+	icon_living = "tree9";
+	icon_state = "tree9";
+	maxHealth = 100;
+	melee_damage_lower = 6;
+	melee_damage_upper = 8;
+	name = "tree";
+	pixel_x = -50;
+	pixel_y = -10
+	},
+/turf/open/floor/plating/grass/jungle,
 /area/ruin/unpowered)
 "ZU" = (
 /obj/structure/rack,
@@ -721,10 +716,10 @@ ej
 gd
 cA
 UJ
-hm
+SE
 Cc
 ej
-BQ
+Uy
 Cc
 Cc
 Cc
@@ -966,7 +961,7 @@ AR
 AR
 AR
 Pb
-UJ
+EU
 UJ
 Cc
 Ie
@@ -974,7 +969,7 @@ Ie
 (15,1,1) = {"
 Cc
 jz
-Oh
+nM
 Cc
 gd
 Pb
@@ -1032,7 +1027,7 @@ xu
 wP
 VH
 Ta
-nM
+SD
 HO
 HO
 HO
@@ -1218,10 +1213,10 @@ Cc
 Cc
 Cc
 xT
-RE
+Oh
+Oh
 RE
 RJ
-Zh
 Df
 UJ
 gd
@@ -1267,7 +1262,7 @@ Cc
 ej
 jz
 Cc
-OL
+Zh
 Cc
 jz
 Cc
