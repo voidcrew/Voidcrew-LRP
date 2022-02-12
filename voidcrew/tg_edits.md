@@ -67,7 +67,8 @@
 ### Unit Tests
 - code/modules/unit_tests/_unit_tests.dm
 	- Adds voidcrew unit tests
-### Cage Gen
+
+### Cave Gen
 - code/datums/mapgen/Cavegens/IcemoonCaves.dm
 	- Comments out the whole thing
 - code/datums/mapgen/Cavegens/LavalandGenerator.dm
