@@ -191,6 +191,7 @@
 	var/turf/T = locate(nx,ny,z)
 	if(T)
 		forceMove(T)
+
 /**
  * Burns the engines in one direction, accelerating in that direction.
  * Unsimulated ships use the acceleration_speed var, simulated ships check eacch engine's thrust and fuel.
