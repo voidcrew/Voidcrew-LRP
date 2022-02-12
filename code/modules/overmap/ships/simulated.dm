@@ -63,6 +63,7 @@
 	name = shuttle.name
 	source_template = _source_template
 	prefix = source_template.prefix
+	update_ship_color()
 	calculate_mass()
 #ifdef UNIT_TESTS
 	set_ship_name("[source_template]")
@@ -339,6 +340,7 @@
 	for(var/area/shuttle_area as anything in shuttle.shuttle_areas)
 		shuttle_area.rename_area("[new_name] [initial(shuttle_area.name)]")
 	return TRUE
+
 /**
   *Sets the ships faction and updates the crews huds
   */
@@ -356,6 +358,23 @@
 	name = "[prefix] [copytext(name, fixed_name)]"
 	set_ship_name(name, ignore_cooldown = TRUE)
 	update_crew_hud()
+	update_ship_color()
+
+/**
+  * Updates the ships icon to make it easier to distinguish between factions
+  */
+/obj/structure/overmap/ship/simulated/proc/update_ship_color()
+	switch(prefix)
+		if("SYN-C")
+			color = "#F10303"
+		if("NT-C")
+			color = "#115188"
+		if("KOS")
+			color = "#6E0202"
+		if("NEU")
+			color = "#DDDDDD"
+	add_atom_colour(color, FIXED_COLOUR_PRIORITY)
+
 /**
   *The proc for actually updating the hud calls from faction_datum
   */
