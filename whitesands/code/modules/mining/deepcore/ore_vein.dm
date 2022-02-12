@@ -33,7 +33,7 @@ GLOBAL_LIST_EMPTY(ore_vein_landmarks)
 
 /obj/effect/landmark/ore_vein/Destroy()
 	. = ..()
-	QDEL_NULL(resource)
+	resource = null
 	if (miner)
 		miner.active_vein = null
 		miner = null
