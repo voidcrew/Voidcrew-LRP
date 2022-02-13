@@ -18,6 +18,7 @@
 	var/base_power_usage = 12500
 	/// Power Multiplier applied whenever a part higher then t1 is added
 	var/power_coeff = 1
+
 /obj/machinery/power/bluespace_miner/Initialize(mapload)
 	. = ..()
 	materials = AddComponent(/datum/component/remote_materials, "bsm", mapload)
