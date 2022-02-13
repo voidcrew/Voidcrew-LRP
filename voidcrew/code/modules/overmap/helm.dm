@@ -97,7 +97,7 @@
 		return TRUE
 
 /obj/machinery/computer/helm/ui_interact(mob/user, datum/tgui/ui)
-	if(current_ship.is_player_in_crew(user))
+	if(current_ship.is_player_in_crew(user) || !isliving(user) || isAdminGhostAI(user))
 		if(jump_state != JUMP_STATE_OFF)
 			say("Bluespace Jump in progress. Controls suspended.")
 			return
@@ -127,9 +127,9 @@
 			ui = new(user, src, "HelmConsole", name)
 			ui.open()
 	else
-		if (isliving(user))
-			say("ERROR: Unrecognized bio-signature detected")
+		say("ERROR: Unrecognized bio-signature detected")
 		return
+
 /obj/machinery/computer/helm/ui_data(mob/user)
 	. = list()
 	.["integrity"] = current_ship.integrity
@@ -208,6 +208,15 @@
 			if(!current_ship.set_ship_name(new_name))
 				say("Error: [COOLDOWN_TIMELEFT(current_ship, rename_cooldown)/10] seconds until ship designation can be changed..")
 			update_static_data(usr, ui)
+			return
+		if("set_password")
+			var/new_pass = stripped_input(usr, "Enter your new ship password.", "New Password")
+			if(!new_pass || !length(new_pass))
+				return
+			if(length(new_pass) > 50)
+				to_chat(usr, "The given password is too long. Password unchanged.")
+				return
+			current_ship.password = new_pass
 			return
 		if("toggle_kos")
 			current_ship.set_ship_faction("KOS")
