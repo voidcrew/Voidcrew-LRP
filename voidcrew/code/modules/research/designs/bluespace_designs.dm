@@ -3,7 +3,8 @@
 	desc = "A shell used for the Bluespace Miner requires stabilized gibonite to finish"
 	id = "miningcore_shell"
 	build_type = PROTOLATHE
-	materials = list(/datum/material/titanium = 2000)
+	materials = list(/datum/material/plasma = 2000,
+					 /datum/material/iron = 2000)
 	reagents_list = list(/datum/reagent/stabilizing_agent = 50)
 	build_path = /obj/item/bluespace_parts/miningcore_shell
 	category = list("Stock Parts")

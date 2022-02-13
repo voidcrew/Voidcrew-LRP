@@ -2,7 +2,7 @@
 	name = "generic bluespace part"
 	desc = "generic bluespace part description"
 	icon = 'voidcrew/icons/obj/bluespace_parts.dmi'
-	w_class = WEIGHT_CLASS_SMALL
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/bluespace_parts/miningcore_shell
 	name = "Bluespace Mining Shell"
@@ -12,4 +12,4 @@
 /obj/item/bluespace_parts/miningcore_filled
 	name = "Bluespace Mining Core"
 	desc = "A fully finished Bluespace Mining Core, can be used in the production of a bluespace miner"
-	icon_state = "miningcore_shell_filled"
+	icon_state = "miningcore_filled"
