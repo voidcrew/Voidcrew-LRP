@@ -9,7 +9,8 @@
 	var/list/ore_rates = list(/datum/material/iron = 0.3, /datum/material/glass = 0.3, /datum/material/plasma = 0.1,  /datum/material/silver = 0.1, /datum/material/gold = 0.05, /datum/material/titanium = 0.05, /datum/material/uranium = 0.05, /datum/material/diamond = 0.02)
 	var/datum/component/remote_materials/materials
 	use_power = IDLE_POWER_USE
-	base_power_usage = 100000
+	var/base_power_usage = 100000
+	idle_power_usage = 0
 	var/multiplier = 0 //Multiplier by tier, has been made fair and everything
 	var/power_coeff = 0 //% reduction in power use
 /obj/machinery/power/bluespace_miner/Initialize(mapload)
@@ -32,6 +33,7 @@
 	multiplier /= stock_amt
 	for(var/obj/item/stock_parts/capacitor/capacitor_tier in component_parts)
 		power_coeff -= capacitor_tier.rating*0.05
+	idle_power_usage = base_power_usage * power_coeff
 
 
 /obj/machinery/power/bluespace_miner/Destroy()
