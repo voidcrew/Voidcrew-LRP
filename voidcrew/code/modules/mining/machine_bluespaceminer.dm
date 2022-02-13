@@ -36,7 +36,7 @@
 		multiplier += (laser_tier.rating-1)/3
 	for(var/obj/item/stock_parts/capacitor/capacitor_tier in component_parts)
 		power_coeff += (capacitor_tier.rating-1)*0.55
-		multiplier += (capacitor_tier.rating-1)*1.2
+		multiplier += (capacitor_tier.rating-1)*1.3
 	idle_power_usage = base_power_usage * power_coeff
 
 
