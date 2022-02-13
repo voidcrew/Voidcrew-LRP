@@ -473,7 +473,7 @@
  * Delete all of the areas, and delete any cryopods
  */
 /obj/docking_port/mobile/proc/mothball()
-	if (current_ship?.is_active_crew() == SHUTTLE_ACTIVE_CREW)
+	if(length(get_all_humans()) > 0)
 		return
 	var/obj/docking_port/stationary/current_dock = get_docked()
 
