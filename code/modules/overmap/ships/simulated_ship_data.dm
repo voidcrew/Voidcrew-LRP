@@ -82,8 +82,11 @@
 /obj/structure/overmap/ship/simulated/proc/register_all_crewmembers()
 	var/list/humans = shuttle.get_all_humans()
 	for (var/mob/living/carbon/human/human_to_add as anything in humans)
-		if(!isnull(human_to_add.client))
-			register_crewmember(human_to_add)
+		if(isnull(human_to_add.client))
+			continue
+		if(is_player_in_crew(human_to_add))
+			continue
+		register_crewmember(human_to_add)
 
 /**Checks for verification before being aloud to open a console or object
   * Arguments:
