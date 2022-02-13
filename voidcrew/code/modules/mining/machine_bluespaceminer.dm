@@ -72,8 +72,6 @@
 	if(!istype(mat))
 		mat = SSmaterials.GetMaterialRef(mat)
 	if(amt > 0 && has_space(amt))
-		/// Tracks the total amount of ore deposited in this bsm_insert
-		var/total_amount_saved = total_amount
 		if(mat)
 			materials[mat] += amt
 			total_amount += amt
@@ -82,7 +80,7 @@
 			for(var/input in materials)
 				materials[input] += amt
 				total_amount += amt
-		return (total_amount - total_amount_saved)
+		return
 	return FALSE
 
 /obj/machinery/power/bluespace_miner/update_icon_state()
@@ -105,8 +103,6 @@
 /obj/machinery/power/bluespace_miner/screwdriver_act(mob/living/user, obj/item/tool)
 	. = TRUE
 	if(..())
-		return
-	if(!tool.tool_behaviour == TOOL_SCREWDRIVER)
 		return
 	if(!state_open)
 		if(powered())
