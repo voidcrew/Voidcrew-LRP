@@ -104,6 +104,8 @@
 /obj/structure/overmap/ship/simulated/proc/destroy_ship(force = FALSE)
 	if ((length(shuttle.get_all_humans()) > 0) && !force)
 		return
+	if ((is_active_crew != SHUTTLE_ACTIVE_CREW) && !force)
+		return
 	shuttle.jumpToNullSpace()
 	message_admins("\[SHUTTLE]: [shuttle.name] has been deleted!")
 	log_admin("\[SHUTTLE]: [shuttle.name] has been deleted!")
