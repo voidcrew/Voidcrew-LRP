@@ -343,6 +343,8 @@
 	var/list/shuttle_choices = list("Purchase ship..." = "Purchase") //Dummy for purchase option
 
 	for(var/obj/structure/overmap/ship/simulated/S as anything in SSovermap.simulated_ships)
+		if(isnull(S.shuttle))
+			continue
 		if((length(S.shuttle.spawn_points) < 1) || !S.join_allowed)
 			continue
 		shuttle_choices[S.name + " ([S.source_template.short_name ? S.source_template.short_name : "Unknown-class"])"] = S //Try to get the class name
@@ -379,6 +381,14 @@
 			to_chat(usr, "<span class='danger'>Ship spawned, but you were unable to be spawned. You can likely try to spawn in the ship through joining normally, but if not, please contact an admin.</span>")
 			new_player_panel()
 		return
+
+	//password checking
+	if(!isnull(selected_ship.password))
+		var/attempt = stripped_input(src, "Enter the ship's password!", "Enter Password")
+		if (attempt != selected_ship.password)
+			to_chat(src, "Incorrect password!")
+			return LateChoices() //Send them back to shuttle selection
+
 
 	if(selected_ship.memo)
 		var/memo_accept = tgui_alert(src, "Current ship memo: [selected_ship.memo]", "[selected_ship.name] Memo", list("OK", "Cancel"))

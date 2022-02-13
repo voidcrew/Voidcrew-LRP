@@ -86,6 +86,30 @@ const SharedContent = (props, context) => {
           )}
         </LabeledList>
       </Section>
+      <Section title = "Factions"
+        buttons={(
+            <>
+            <Button
+              tooltip="Toggle KOS"
+              tooltipPosition="left"
+              icon="fas fa-skull"
+              disabled={isViewer}
+              onClick={() => act('toggle_kos')} />
+            <Button
+              tooltip="Toggle Default"
+              tooltipPosition="left"
+              icon="fas fa-flag"
+              disabled={isViewer}
+              onClick={() => act('return')} />
+            </>
+        )}>
+        <Button
+        tooltip="Set Password"
+        content="Set Password"
+        currentValue="Set Password"
+        disabled={isViewer}
+        onClick={() => act('set_password')}/>
+      </Section>
       <Section title="Radar">
         <Table>
           <Table.Row bold>

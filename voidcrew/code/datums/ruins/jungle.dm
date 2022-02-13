@@ -27,20 +27,12 @@
 	description = "An odd coffin shaped pirate hut that the inhabitant of died in."
 	suffix = "jungle_surface_coffinpirate.dmm"
 
-///how bad can i possibly be?
-/datum/map_template/ruin/jungle/onceler
-	name = "Thneed Factory"
-	id = "tumblr-sexyman"
-	description = "After a logging incident gone wrong, the Syndicate invade this factory to stop the beast."
-	suffix = "jungle_surface_tumblr_sexyman.dmm"
+/datum/map_template/ruin/jungle/logging
+	name = "Logging Camp"
+	id = "loggingcamp"
+	description = "An unfortunate logging crew landed on some totally normal trees."
+	suffix = "jungle_surface_loggingcamp.dmm"
 
-//putting this area here until i make jungle areas.dm in another PR that i am totally making
-/area/ruin/jungle/onceler/main
-	requires_power = FALSE
-	name = "Thneed Factory"
-	icon_state = "engine"
-
-//thneedville end
 
 //industrial society blah blah blah
 /datum/map_template/ruin/jungle/unabomber

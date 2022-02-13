@@ -34,7 +34,7 @@ All ShuttleMove procs go here
 				M.visible_message("<span class='warning'>[shuttle] slams into [M]!</span>")
 				SSblackbox.record_feedback("tally", "shuttle_gib", 1, M.type)
 				log_attack("[key_name(M)] was shuttle gibbed by [shuttle].")
-				M.gib()
+				M.gib(TRUE, TRUE, TRUE)
 
 
 		else //non-living mobs shouldn't be affected by shuttles, which is why this is an else

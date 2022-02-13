@@ -93,13 +93,14 @@
 
 /obj/item/clothing/suit/toggle/hazard
 	name = "high-visibility jacket"
-	desc = "A highlighter-yellow jacket with reflective stripes."
+	desc = "A highlighter-yellow jacket made of a durable, fire-resistant fabric with reflective stripes."
 	icon_state = "jacket_hazard"
 	item_state = "jacket_hazard"
 	blood_overlay_type = "coat"
 	body_parts_covered = CHEST|ARMS
 	togglename = "zipper"
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/t_scanner, /obj/item/radio)
+	armor = list("melee" = 25, "bullet" = 10, "laser" = 10,"energy" = 15, "bomb" = 10, "bio" = 30, "rad" = 15, "fire" = 40, "acid" = 40)
 	resistance_flags = NONE
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/exo/large
 

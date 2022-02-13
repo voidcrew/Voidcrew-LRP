@@ -7,6 +7,11 @@
 ///Name of the file used for ship name random selection
 #define SHIP_NAMES_FILE "ship_names.json"
 
+#define FACTION_COOLDOWN_TIME (20 MINUTES)
+#define CHECK_CREW_SSD (10 MINUTES)
+#define SHIP_RUIN (10 MINUTES)
+#define SHIP_DELETE (10 MINUTES)
+
 /**
   * # Simulated overmap ship
   *
@@ -30,13 +35,23 @@
 	var/avg_fuel_amnt = 100
 	///Cooldown until the ship can be renamed again
 	COOLDOWN_DECLARE(rename_cooldown)
-
+	/// Cooldown until you can change your faction again controlled by FACTION_COOLDOWN_TIME
+	COOLDOWN_DECLARE(faction_cooldown)
 	///The overmap object the ship is docked to, if any
 	var/obj/structure/overmap/docked
 	///The docking port of the linked shuttle
 	var/obj/docking_port/mobile/shuttle
 	///The map template the shuttle was spawned from, if it was indeed created from a template. CAN BE NULL (ex. custom-built ships).
 	var/datum/map_template/shuttle/source_template
+	/// The prefix the shuttle currently possesses
+	var/prefix
+    ///Snips the prefix off the ship when renaming to stop duplicate prefixes from existing
+	var/fixed_name
+	///Timer for ship deletion
+	var/deletion_timer
+
+	///The ships password
+	var/password
 
 /obj/structure/overmap/ship/simulated/Initialize(mapload, obj/docking_port/mobile/_shuttle, datum/map_template/shuttle/_source_template)
 	. = ..()
@@ -47,8 +62,14 @@
 		CRASH("Simulated overmap ship created without associated shuttle!")
 	name = shuttle.name
 	source_template = _source_template
+	prefix = source_template.prefix
+	update_ship_color()
 	calculate_mass()
+#ifdef UNIT_TESTS
+	set_ship_name("[source_template]")
+#else
 	set_ship_name("[source_template.prefix] [pick_list_replacements(SHIP_NAMES_FILE, pick(source_template.name_categories))]", TRUE)
+#endif
 	refresh_engines()
 	check_loc()
 
@@ -78,7 +99,14 @@
 			if(M.stat <= HARD_CRIT) //Is not in hard crit, or is dead.
 				return //MEANT TO BE A RETURN, DO NOT REPLACE WITH CONTINUE, THIS KEEPS IT FROM DELETING THE SHUTTLE WHEN THERE'S CONCIOUS PEOPLE ON
 			throw_atom_into_space(M)
+	destroy_ship()
+
+/obj/structure/overmap/ship/simulated/proc/destroy_ship(force = FALSE)
+	if ((length(shuttle.get_all_humans()) > 0) && !force)
+		return
 	shuttle.jumpToNullSpace()
+	message_admins("\[SHUTTLE]: [shuttle.name] has been deleted!")
+	log_admin("\[SHUTTLE]: [shuttle.name] has been deleted!")
 	qdel(src)
 
 /**
@@ -166,6 +194,9 @@
 /obj/structure/overmap/ship/simulated/proc/refresh_engines()
 	var/calculated_thrust
 	for(var/obj/machinery/power/shuttle/engine/E in shuttle.engine_list)
+		if (QDELETED(E)) //Garant that we has no ghost engines.
+			shuttle.engine_list -= E
+			continue
 		E.update_engine()
 		if(E.enabled)
 			calculated_thrust += E.thrust
@@ -310,6 +341,50 @@
 		shuttle_area.rename_area("[new_name] [initial(shuttle_area.name)]")
 	return TRUE
 
+/**
+  *Sets the ships faction and updates the crews huds
+  */
+/obj/structure/overmap/ship/simulated/proc/set_ship_faction(faction_change)
+	if(!COOLDOWN_FINISHED(src, faction_cooldown))
+		return
+	if(faction_change == prefix || (faction_change == "return" && prefix == "NEU"))
+		return
+	COOLDOWN_START(src, faction_cooldown, FACTION_COOLDOWN_TIME)
+	fixed_name = (length(prefix)+1)
+	if(faction_change == "return")
+		prefix = source_template.prefix
+	else
+		prefix = faction_change
+	name = "[prefix] [copytext(name, fixed_name)]"
+	set_ship_name(name, ignore_cooldown = TRUE)
+	update_crew_hud()
+	update_ship_color()
+
+/**
+  * Updates the ships icon to make it easier to distinguish between factions
+  */
+/obj/structure/overmap/ship/simulated/proc/update_ship_color()
+	switch(prefix)
+		if("SYN-C")
+			color = "#F10303"
+		if("NT-C")
+			color = "#115188"
+		if("KOS")
+			color = "#6E0202"
+		if("NEU")
+			color = "#DDDDDD"
+	add_atom_colour(color, FIXED_COLOUR_PRIORITY)
+
+/**
+  *The proc for actually updating the hud calls from faction_datum
+  */
+/obj/structure/overmap/ship/simulated/proc/update_crew_hud()
+	for (var/datum/weakref/member in crewmembers)
+		if (isnull(member.resolve()))
+			continue
+		remove_faction_hud(FACTION_HUD_GENERAL, member.resolve())
+		add_faction_hud(FACTION_HUD_GENERAL, prefix, member.resolve())
+
 /obj/structure/overmap/ship/simulated/update_icon_state()
 	if(mass < SHIP_SIZE_THRESHOLD)
 		base_icon_state = "shuttle"
@@ -317,6 +392,43 @@
 		base_icon_state = "ship"
 	return ..()
 
+/**
+ * Decides what to do when a crew member dies, as long as there are live (whilst not SSD) crewmembers nothing will happen
+ */
+/obj/structure/overmap/ship/simulated/proc/handle_inactive_ship()
+	SIGNAL_HANDLER
+
+	if (!isnull(deletion_timer))
+		return
+	switch (is_active_crew())
+		if (SHUTTLE_ACTIVE_CREW)
+			return
+		if (SHUTTLE_SSD_CREW)
+			addtimer(CALLBACK(src, .proc/finalize_inactive_ship, TRUE), CHECK_CREW_SSD, TIMER_UNIQUE)
+		if (SHUTTLE_INACTIVE_CREW)
+			finalize_inactive_ship()
+
+/**
+ * Go through the different statuses of the ship, and choose the proper deletion method of the ship
+ *
+ * Arguments:
+ * * ssd_check - Should we double check if theres a crewmember that is SSD
+ */
+/obj/structure/overmap/ship/simulated/proc/finalize_inactive_ship(ssd_check = FALSE)
+	if (ssd_check && (is_active_crew() == SHUTTLE_ACTIVE_CREW))
+		return // ssd guy came back
+
+	switch (state)
+		if (OVERMAP_SHIP_FLYING, OVERMAP_SHIP_UNDOCKING, OVERMAP_SHIP_ACTING)
+			message_admins("\[SHUTTLE]: [name] has been queued for deletion in [SHIP_DELETE / 600] minutes! [ADMIN_COORDJMP(shuttle.loc)]")
+			deletion_timer = addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE, (TIMER_STOPPABLE|TIMER_UNIQUE))
+		if (OVERMAP_SHIP_IDLE, OVERMAP_SHIP_DOCKING)
+			message_admins("\[SHUTTLE]: [name] has been queued for ruin conversion in [SHIP_RUIN / 600] minutes! [ADMIN_COORDJMP(shuttle.loc)]")
+			deletion_timer = addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), SHIP_RUIN, (TIMER_STOPPABLE|TIMER_UNIQUE))
 #undef SHIP_SIZE_THRESHOLD
 
 #undef SHIP_DOCKED_REPAIR_TIME
+#undef FACTION_COOLDOWN_TIME
+#undef CHECK_CREW_SSD
+#undef SHIP_RUIN
+#undef SHIP_DELETE
