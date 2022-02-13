@@ -6,12 +6,12 @@
 	density = TRUE
 	circuit = /obj/item/circuitboard/machine/bluespace_miner
 	layer = BELOW_OBJ_LAYER
-	///List of ores and how much is extracted by default
-	var/list/ore_rates = list(/datum/material/iron = 0.3, /datum/material/glass = 0.3, /datum/material/plasma = 0.1,  /datum/material/silver = 0.1, /datum/material/gold = 0.05, /datum/material/titanium = 0.05, /datum/material/uranium = 0.05, /datum/material/diamond = 0.02, /datum/material/bluespace = 0.02)
 	///Our connection to the ore silo
 	var/datum/component/remote_materials/materials
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 0
+	///List of ores and how much is extracted by default
+	var/list/ore_rates = list(/datum/material/iron = 0.3, /datum/material/glass = 0.3, /datum/material/plasma = 0.1,  /datum/material/silver = 0.1, /datum/material/gold = 0.05, /datum/material/titanium = 0.05, /datum/material/uranium = 0.05, /datum/material/diamond = 0.02, /datum/material/bluespace = 0.02)
 	/// Multiplier for resources generated you get a free 2x multiplier at t4 laser. Causes power increase with capacitors though
 	var/multiplier = 0
 	///The power used with t1 parts increases with part upgrade in exchange for more materials
