@@ -382,7 +382,7 @@
 		if (SHUTTLE_ACTIVE_CREW)
 			return
 		if (SHUTTLE_SSD_CREW)
-			addtimer(CALLBACK(src, .proc/finalize_inactive_ship, TRUE), CHECK_CREW_SSD)
+			addtimer(CALLBACK(src, .proc/finalize_inactive_ship, TRUE), CHECK_CREW_SSD, TIMER_UNIQUE)
 		if (SHUTTLE_INACTIVE_CREW)
 			finalize_inactive_ship()
 
