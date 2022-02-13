@@ -183,7 +183,7 @@
 	broken_states = list("snow_dug")
 	floor_tile = /obj/item/stack/tile/mineral/snow
 	ore_type = /obj/item/stack/sheet/mineral/snow
-	slowdown = 1.5
+	slowdown = 0
 	footstep = FOOTSTEP_SAND
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
