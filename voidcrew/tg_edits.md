@@ -60,20 +60,6 @@
 - config/game_options.txt
 	- Modifies roundstart races
 
-### Ship Spawning
-- code/__HELPERS/game.dm
-	- Modifies /proc/AnnounceArrival() for custom ship announcement things
-
-### Unit Tests
-- code/modules/unit_tests/_unit_tests.dm
-	- Adds voidcrew unit tests
-
-### Cave Gen
-- code/datums/mapgen/Cavegens/IcemoonCaves.dm
-	- Comments out the whole thing
-- code/datums/mapgen/Cavegens/LavalandGenerator.dm
-	- Comments out the whole thing
-
 ### Admin Tools
 - code\modules\admin\admin_verbs.dm
 	- Adds a toggleable ship purchasing verb
