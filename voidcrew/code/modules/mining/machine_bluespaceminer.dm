@@ -96,22 +96,22 @@
 		else
 			icon_state = "bsminer-maintenance"
 
-/obj/machinery/power/bluespace_miner/crowbar_act(mob/living/user, obj/item/I)
+/obj/machinery/power/bluespace_miner/crowbar_act(mob/living/user, obj/item/tool)
 	. = ..()
-	if(default_deconstruction_crowbar(I, FALSE))
+	if(default_deconstruction_crowbar(tool, FALSE))
 		return TRUE
 
-/obj/machinery/power/bluespace_miner/screwdriver_act(mob/living/user, obj/item/I)
+/obj/machinery/power/bluespace_miner/screwdriver_act(mob/living/user, obj/item/tool)
 	. = TRUE
 	if(..())
 		return
-	if(!I.tool_behaviour == TOOL_SCREWDRIVER)
+	if(!tool.tool_behaviour == TOOL_SCREWDRIVER)
 		return
 	if(!state_open)
 		if(powered())
-			if(default_deconstruction_screwdriver(user, "bsminer-maintenance", "bsminer", I))
+			if(default_deconstruction_screwdriver(user, "bsminer-maintenance", "bsminer", tool))
 				return TRUE
 		else if(!powered())
-			if(default_deconstruction_screwdriver(user, "bsminer-unpowered-maintenance", "bsminer-unpowered", I))
+			if(default_deconstruction_screwdriver(user, "bsminer-unpowered-maintenance", "bsminer-unpowered", tool))
 				return TRUE
 	return FALSE
