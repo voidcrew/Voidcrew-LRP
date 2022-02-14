@@ -116,10 +116,13 @@ SUBSYSTEM_DEF(mapping)
 
 /datum/controller/subsystem/mapping/proc/preloadRuinTemplates()
 	// Still supporting bans by filename
-	var/list/banned = generateMapList("[global.config.directory]/lavaruinblacklist.txt")
-	banned += generateMapList("[global.config.directory]/spaceruinblacklist.txt")
-	banned += generateMapList("[global.config.directory]/iceruinblacklist.txt")
-	banned += generateMapList("[global.config.directory]/sandruinblacklist.txt")
+	var/list/banned = generateMapList("[global.config.directory]/ruins/lavaruinblacklist.txt")
+	banned += generateMapList("[global.config.directory]/ruins/spaceruinblacklist.txt")
+	banned += generateMapList("[global.config.directory]/ruins/iceruinblacklist.txt")
+	banned += generateMapList("[global.config.directory]/ruins/sandruinblacklist.txt")
+	banned += generateMapList("[global.config.directory]/ruins/jungleruinblacklist.txt")
+	banned += generateMapList("[global.config.directory]/ruins/reeberuinblacklist.txt")
+	banned += generateMapList("[global.config.directory]/ruins/rockruinblacklist.txt")
 
 	for(var/item in sortList(subtypesof(/datum/map_template/ruin), /proc/cmp_ruincost_priority))
 		var/datum/map_template/ruin/ruin_type = item
@@ -197,6 +200,10 @@ SUBSYSTEM_DEF(mapping)
 			S.prefix = data["prefix"]
 		if(islist(data["namelists"]))
 			S.name_categories = data["namelists"]
+
+		if(istext(data["antag_datum"]))
+			var/path = "/datum/antagonist/" + data["antag_datum"]
+			S.antag_datum = text2path(path)
 
 		S.job_slots = list()
 		var/list/job_slot_list = data["job_slots"]

@@ -9,8 +9,8 @@
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 100) //VoidTest Edit, gives combat mechs a moderate stats buff
 	max_temperature = 25000
 	infra_luminosity = 5
-	operation_req_access = list(ACCESS_THEATRE)
-	internals_req_access = list(ACCESS_MECH_SCIENCE, ACCESS_THEATRE)
+	operation_req_access = list()
+	internals_req_access = list() // VoidTest Edit
 	wreckage = /obj/structure/mecha_wreckage/honker
 	add_req_access = 0
 	max_equip = 3

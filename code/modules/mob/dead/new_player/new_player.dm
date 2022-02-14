@@ -382,6 +382,14 @@
 			new_player_panel()
 		return
 
+	//password checking
+	if(!isnull(selected_ship.password))
+		var/attempt = stripped_input(src, "Enter the ship's password!", "Enter Password")
+		if (attempt != selected_ship.password)
+			to_chat(src, "Incorrect password!")
+			return LateChoices() //Send them back to shuttle selection
+
+
 	if(selected_ship.memo)
 		var/memo_accept = tgui_alert(src, "Current ship memo: [selected_ship.memo]", "[selected_ship.name] Memo", list("OK", "Cancel"))
 		if(memo_accept == "Cancel")

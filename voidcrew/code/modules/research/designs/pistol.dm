@@ -68,3 +68,11 @@
 /obj/item/disk/design_disk/ammo_c10mm/Initialize()
 	. = ..()
 	blueprints[1] = new /datum/design/c10mm()
+
+/obj/item/disk/design_disk/ammo_c9mm // Voidtest Edit
+	name = "Design Disk - 9mm Ammo"
+	desc = "A design disk containing the pattern for a refill box of standard 9mm ammo, used in Stechkin APS pistols."
+
+/obj/item/disk/design_disk/ammo_c9mm/Initialize()
+	. = ..()
+	blueprints[1] = new /datum/design/c9mm()

@@ -1,5 +1,5 @@
 /obj/mecha/medical
-	internals_req_access = list(ACCESS_MECH_SCIENCE, ACCESS_MECH_MEDICAL)
+	internals_req_access = list() // VoidTest Edit
 
 /obj/mecha/medical/mechturn(direction)
 	. = ..()
