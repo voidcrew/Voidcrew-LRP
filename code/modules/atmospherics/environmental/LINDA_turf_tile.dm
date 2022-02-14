@@ -131,8 +131,10 @@
 
 /////////////////////////GAS OVERLAYS//////////////////////////////
 
+/turf/proc/update_visuals()
+	CRASH("wrong turf type will try update_visuals()")
 
-/turf/open/proc/update_visuals()
+/turf/open/update_visuals()
 
 	var/list/atmos_overlay_types = src.atmos_overlay_types // Cache for free performance
 	var/list/new_overlay_types = list()
@@ -165,6 +167,7 @@
 
 	UNSETEMPTY(new_overlay_types)
 	src.atmos_overlay_types = new_overlay_types
+	return
 
 /turf/open/proc/set_visuals(list/new_overlay_types)
 	if (atmos_overlay_types)
