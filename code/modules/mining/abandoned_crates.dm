@@ -204,7 +204,7 @@
 			new /obj/item/implanter/stealth(src)
 		if(82 to 83)
 			// Krav Mega Gloves. 1% Chance
-			new /obj/item/clothing/gloves/krav_maga(src)
+			new /obj/item/clothing/gloves/krav_maga/combatglovesplus(src)
 		if(84 to 85)
 			// Bulldog Shotgun + Magazines
 			new /obj/item/gun/ballistic/shotgun/bulldog/unrestricted(src)
