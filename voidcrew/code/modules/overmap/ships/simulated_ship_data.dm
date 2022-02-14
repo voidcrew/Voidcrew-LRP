@@ -36,7 +36,7 @@
 	for (var/datum/weakref/member in crewmembers)
 		if (crewmate == member.resolve())
 			var/mob/living/carbon/human/ex_crewmate = member.resolve()
-			UnregisterSignal(ex_crewmate, list(COMSIG_MOB_DEATH, COMSIG_MOB_LOGOUT))
+			UnregisterSignal(ex_crewmate, COMSIG_MOB_DEATH)
 
 			remove_faction_hud(FACTION_HUD_GENERAL, ex_crewmate)
 			var/datum/mind/ex_crewmate_mind = ex_crewmate.mind
@@ -55,6 +55,7 @@
 			member = null
 			continue
 		unregister_crewmember(member.resolve())
+	crewmembers = list()
 
 /**
  * Register a crewmate to the crewmembers list
@@ -65,13 +66,28 @@
 /obj/structure/overmap/ship/simulated/proc/register_crewmember(mob/living/carbon/human/crewmate)
 	var/datum/weakref/new_cremate = WEAKREF(crewmate)
 	crewmembers.Add(new_cremate)
-	RegisterSignal(crewmate, list(COMSIG_MOB_DEATH, COMSIG_MOB_LOGOUT), .proc/handle_inactive_ship)
+	RegisterSignal(crewmate, COMSIG_MOB_DEATH, .proc/handle_inactive_ship)
 	//Adds a faction hud to a newplayer documentation in _HELPERS/game.dm
 	add_faction_hud(FACTION_HUD_GENERAL, prefix, crewmate)
 
 	if (!isnull(source_template.antag_datum))
 		var/datum/antagonist/ship_datum = new source_template.antag_datum
 		crewmate.mind.add_antag_datum(ship_datum)
+
+/**
+ * ##register_all_crewmembers
+ *
+ * Takes all of the living humans on the ship and adds them as a crewmember
+ */
+/obj/structure/overmap/ship/simulated/proc/register_all_crewmembers()
+	var/list/humans = shuttle.get_all_humans()
+	for (var/mob/living/carbon/human/human_to_add as anything in humans)
+		if(isnull(human_to_add.client))
+			continue
+		if(is_player_in_crew(human_to_add))
+			continue
+		register_crewmember(human_to_add)
+
 /**Checks for verification before being aloud to open a console or object
   * Arguments:
   * mob/living/carbon/human/crewmate - The mob being checked for access
@@ -81,6 +97,7 @@
 		if (crewmate == member.resolve())
 			return TRUE
 	return FALSE
+
 /**
   * Bastardized version of GLOB.manifest.manifest_inject, but used per ship
   *

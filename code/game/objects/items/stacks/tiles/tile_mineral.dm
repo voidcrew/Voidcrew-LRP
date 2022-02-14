@@ -180,5 +180,5 @@
 	desc = "A layer of snow."
 	icon_state = "tile_snow"
 	item_state = "tile-silver"
-	turf_type = /turf/open/floor/grass/snow/safe
+	turf_type = /turf/open/floor/grass/fakesnow
 	mineralType = "snow"
