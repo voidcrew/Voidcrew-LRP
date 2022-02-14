@@ -20,8 +20,6 @@
 "bd" = (
 /obj/effect/turf_decal/industrial/outline,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
-/obj/structure/closet/crate,
-/obj/item/circuitboard/machine/mining_equipment_vendor,
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/cargo)
 "bl" = (
@@ -130,6 +128,25 @@
 	dir = 10
 	},
 /obj/machinery/power/apc/auto_name/north,
+/obj/structure/rack,
+/obj/item/gun/ballistic/automatic/pistol,
+/obj/item/gun/ballistic/automatic/pistol{
+	pixel_y = 2
+	},
+/obj/item/gun/ballistic/automatic/pistol{
+	pixel_y = -2
+	},
+/obj/item/ammo_box/c10mm,
+/obj/item/ammo_box/c10mm,
+/obj/item/ammo_box/magazine/m10mm,
+/obj/item/ammo_box/magazine/m10mm,
+/obj/item/ammo_box/magazine/m10mm,
+/obj/item/ammo_box/magazine/m10mm,
+/obj/item/ammo_box/magazine/m10mm,
+/obj/item/ammo_box/magazine/m10mm,
+/obj/item/ammo_box/magazine/m10mm,
+/obj/item/ammo_box/magazine/m10mm,
+/obj/item/ammo_box/magazine/m10mm,
 /turf/open/floor/plasteel/tech,
 /area/ship/cargo)
 "dh" = (
@@ -241,10 +258,10 @@
 /obj/effect/turf_decal/industrial/outline,
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
+/obj/item/flashlight/lantern/syndicate,
+/obj/item/flashlight/lantern/syndicate,
 /obj/item/mining_scanner,
 /obj/item/mining_scanner,
-/obj/item/flashlight/seclite,
-/obj/item/flashlight/seclite,
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/storage)
 "fi" = (
@@ -259,13 +276,6 @@
 /area/ship/maintenance/port)
 "fv" = (
 /obj/effect/turf_decal/industrial/outline,
-/obj/structure/closet/secure_closet{
-	anchored = 1;
-	icon_state = "syndicate";
-	name = "ammunition locker"
-	},
-/obj/item/ammo_box/c10mm,
-/obj/item/ammo_box/c10mm,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -278,7 +288,7 @@
 /obj/machinery/airalarm/all_access{
 	pixel_y = 24
 	},
-/obj/item/disk/design_disk/ammo_c10mm,
+/obj/machinery/vending/security/marine,
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/security/armory)
 "fA" = (
@@ -366,16 +376,15 @@
 /obj/item/storage/backpack/security,
 /obj/item/clothing/under/syndicate/combat,
 /obj/item/clothing/suit/armor/vest/capcarapace/syndicate,
-/obj/item/clothing/head/HoS/syndicate,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/gloves/combat,
 /obj/item/clothing/glasses/thermal/eyepatch,
+/obj/item/clothing/head/HoS/syndicate,
+/obj/item/gun/ballistic/revolver,
+/obj/item/ammo_box/a357/match,
 /obj/item/codespeak_manual/unlimited,
 /obj/item/pen/edagger,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/item/ammo_box/a357/match,
-/obj/item/ammo_box/a357/match,
-/obj/item/gun/ballistic/revolver,
 /turf/open/floor/carpet/black,
 /area/ship/bridge)
 "hy" = (
@@ -806,6 +815,10 @@
 	pixel_y = 5
 	},
 /obj/item/storage/toolbox/syndicate,
+/obj/item/storage/toolbox/syndicate{
+	pixel_x = -5;
+	pixel_y = -5
+	},
 /obj/item/stack/cable_coil/random,
 /obj/item/stack/cable_coil/random,
 /obj/item/stack/cable_coil/random,
@@ -819,7 +832,6 @@
 /obj/structure/sign/poster/contraband/hacking_guide{
 	pixel_y = -32
 	},
-/obj/item/stack/cable_coil/random,
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/storage)
 "oV" = (
@@ -994,8 +1006,6 @@
 /obj/item/clothing/head/soft/yellow,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/south,
-/obj/item/clothing/gloves/combat,
-/obj/item/clothing/gloves/combat,
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/storage)
 "rM" = (
@@ -1134,14 +1144,6 @@
 	},
 /obj/machinery/airalarm/all_access{
 	pixel_y = 24
-	},
-/obj/item/gps,
-/obj/item/flashlight/flare,
-/obj/item/flashlight/flare,
-/obj/item/storage/box/emptysandbags,
-/obj/item/syndie_crusher{
-	pixel_x = 5;
-	pixel_y = -2
 	},
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/storage)
@@ -1545,14 +1547,6 @@
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = 28
-	},
-/obj/item/gps,
-/obj/item/flashlight/flare,
-/obj/item/flashlight/flare,
-/obj/item/storage/box/emptysandbags,
-/obj/item/syndie_crusher{
-	pixel_x = 5;
-	pixel_y = -2
 	},
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/storage)
@@ -2440,28 +2434,7 @@
 /area/ship/maintenance/port)
 "OX" = (
 /obj/effect/turf_decal/industrial/outline,
-/obj/structure/closet/secure_closet{
-	anchored = 1;
-	icon_state = "syndicate";
-	name = "firearms locker"
-	},
-/obj/item/gun/ballistic/automatic/pistol{
-	pixel_y = 2
-	},
-/obj/item/gun/ballistic/automatic/pistol{
-	pixel_y = -2
-	},
-/obj/item/ammo_box/magazine/m10mm,
-/obj/item/ammo_box/magazine/m10mm,
-/obj/structure/sign/poster/contraband/syndicate_pistol{
-	pixel_x = 32
-	},
-/obj/machinery/button/door{
-	dir = 1;
-	id = "wreckerarmory";
-	name = "armory shutters";
-	pixel_y = -24
-	},
+/obj/machinery/vending/security/marine,
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/security/armory)
 "Pn" = (
@@ -2859,8 +2832,14 @@
 /obj/structure/sign/poster/contraband/random{
 	pixel_x = -32
 	},
-/obj/item/pickaxe/drill,
-/obj/item/pickaxe/drill,
+/obj/item/syndie_crusher{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/item/syndie_crusher{
+	pixel_x = 5;
+	pixel_y = 6
+	},
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/storage)
 "VR" = (
@@ -2892,6 +2871,8 @@
 	},
 /obj/item/storage/toolbox/syndicate,
 /obj/item/wrench/combat,
+/obj/item/ammo_box/magazine/m10mm/ap,
+/obj/item/gun/ballistic/automatic/pistol,
 /obj/item/clothing/accessory/holster,
 /obj/item/grenade/chem_grenade/metalfoam,
 /obj/item/card/mining_access_card,
@@ -2899,9 +2880,6 @@
 	dir = 4;
 	pixel_x = -24
 	},
-/obj/item/ammo_box/magazine/m10mm/ap,
-/obj/item/ammo_box/magazine/m10mm/ap,
-/obj/item/gun/ballistic/automatic/pistol,
 /turf/open/floor/carpet/red,
 /area/ship/cargo/office)
 "Wc" = (
