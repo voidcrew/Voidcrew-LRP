@@ -6,7 +6,6 @@
 	if(!S)
 		return FALSE
 	READ_FILE(S["ships_owned"], ships_owned)
-	ships_owned = SANITIZE_LIST(ships_owned)
 
 /datum/preferences/save_preferences()
 	. = ..()
