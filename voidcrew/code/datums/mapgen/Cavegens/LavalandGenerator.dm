@@ -1,4 +1,3 @@
-/* We use a custom cavegen
 /datum/map_generator/cave_generator/lavaland
 	open_turf_types = list(/turf/open/floor/plating/asteroid/basalt/lava_land_surface = 1)
 	closed_turf_types =  list(/turf/closed/mineral/random/volcanic = 1)
@@ -16,4 +15,3 @@
 	smoothing_iterations = 50
 	birth_limit = 4
 	death_limit = 3
-*/

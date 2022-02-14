@@ -1,8 +1,4 @@
-/obj/item/storage/overmap_ship/emag_act(mob/user)
-	. = ..()
-	unlocked = !unlocked
-
-/obj/item/storage/overmap_ship
+/obj/item/storage/overmap_emergency_safe
 	name = "emergency space suits"
 	desc = "A wall mounted safe containing space suits. Will only open in emergencies."
 	icon = 'icons/obj/storage.dmi'
@@ -11,10 +7,10 @@
 	var/unlocked = FALSE
 	var/obj/structure/overmap/ship/simulated/linked_ship
 
-/obj/item/storage/overmap_ship/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
+/obj/item/storage/overmap_emergency_safe/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	linked_ship = port?.current_ship
 
-/obj/item/storage/overmap_ship/PopulateContents()
+/obj/item/storage/overmap_emergency_safe/PopulateContents()
 	new /obj/item/clothing/head/helmet/space/fragile(src)
 	new /obj/item/clothing/head/helmet/space/fragile(src)
 	new /obj/item/clothing/suit/space/fragile(src)
@@ -27,33 +23,37 @@
 	new /obj/item/kitchen/knife/hunting(src)
 	new /obj/item/survivalcapsule(src)
 
-/obj/item/storage/overmap_ship/fueled/PopulateContents()
+/obj/item/storage/overmap_emergency_safe/fueled/PopulateContents()
 	..()
 	new /obj/item/storage/toolbox/emergency/shuttle/fueled(src)
 
-/obj/item/storage/overmap_ship/electric/PopulateContents()
+/obj/item/storage/overmap_emergency_safe/electric/PopulateContents()
 	..()
 	new /obj/item/storage/toolbox/emergency/shuttle/electric(src)
 
-/obj/item/storage/overmap_ship/attackby(obj/item/W, mob/user, params)
+/obj/item/storage/overmap_emergency_safe/attackby(obj/item/W, mob/user, params)
 	if (can_interact(user))
 		return ..()
 
-/obj/item/storage/overmap_ship/attack_hand(mob/user)
+/obj/item/storage/overmap_emergency_safe/emag_act(mob/user)
+	. = ..()
+	unlocked = !unlocked
+
+/obj/item/storage/overmap_emergency_safe/attack_hand(mob/user)
 	if (can_interact(user))
 		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_SHOW, user)
 	return TRUE
 
-/obj/item/storage/overmap_ship/MouseDrop(over_object, src_location, over_location)
+/obj/item/storage/overmap_emergency_safe/MouseDrop(over_object, src_location, over_location)
 	if(can_interact(usr))
 		return ..()
 
-/obj/item/storage/overmap_ship/AltClick(mob/user)
+/obj/item/storage/overmap_emergency_safe/AltClick(mob/user)
 	if(!can_interact(user))
 		return
 	..()
 
-/obj/item/storage/overmap_ship/can_interact(mob/user)
+/obj/item/storage/overmap_emergency_safe/can_interact(mob/user)
 	if(!..())
 		return FALSE
 	if((linked_ship?.integrity < initial(linked_ship?.integrity) / 4)|| (!linked_ship.is_still() && linked_ship.avg_fuel_amnt < 10) || unlocked)
