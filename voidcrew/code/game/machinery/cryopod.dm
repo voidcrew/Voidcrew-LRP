@@ -324,8 +324,9 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 	var/mob/living/mob_occupant = occupant
 
 	if(linked_ship)
-		if(mob_occupant.job in linked_ship.current_ship.job_slots)
-			linked_ship.current_ship.job_slots[mob_occupant.job]++
+		for (var/datum/job/job in linked_ship.current_ship.job_slots)
+			if(job.title == mob_occupant.job)
+				linked_ship.current_ship.job_slots[job]++
 
 		if(mob_occupant.mind && mob_occupant.mind.assigned_role)
 			//Handle job slot/tater cleanup.
