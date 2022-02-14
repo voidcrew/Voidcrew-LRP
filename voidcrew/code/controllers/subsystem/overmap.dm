@@ -265,6 +265,9 @@ SUBSYSTEM_DEF(overmap)
 		surface = null
 	vlevel.fill_in(surface, target_area)
 
+	if(mapgen)
+		mapgen.generate_terrain(vlevel.get_unreserved_block())
+
 	if(ruin_type)
 		var/turf/ruin_turf = locate(rand(
 			vlevel.low_x+6 + vlevel.reserved_margin,
@@ -272,10 +275,16 @@ SUBSYSTEM_DEF(overmap)
 			vlevel.high_y-ruin_type.height-6 - vlevel.reserved_margin,
 			vlevel.z_value
 			)
-		ruin_type.load(ruin_turf)
 
-	if(mapgen)
-		mapgen.generate_terrain(vlevel.get_unreserved_block())
+		var/list/ruin_bounds = block(locate(max(ruin_turf.x, 1),			max(ruin_turf.y, 1),			 ruin_turf.z),
+									locate(min(ruin_turf.x+ruin_type.width, world.maxx),	min(ruin_turf.y+ruin_type.height, world.maxy), ruin_turf.z))
+		for(var/T in ruin_bounds)
+			var/turf/cleared_turf = T
+			for(var/i in cleared_turf.contents)
+				var/atom/movable/thing = i
+				qdel(thing)
+
+		ruin_type.load(ruin_turf)
 
 	if(weather_controller_type)
 		new weather_controller_type(mapzone)
