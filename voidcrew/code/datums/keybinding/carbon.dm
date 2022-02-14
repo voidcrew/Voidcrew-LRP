@@ -1,5 +1,5 @@
 /datum/keybinding/carbon/remove_ship_part
-	hotkey_keys = list("V")
+	hotkey_keys = list("H")
 	name = "takeshippart"
 	full_name = "Take ship part"
 	description = "Remove ship parts from your preferences."
