@@ -454,12 +454,26 @@
 		WARNING("shuttle \"[name]\" could not enter transit space. S0=[S0 ? S0.name : "null"] S1=[S1 ? S1.name : "null"]")
 
 /**
+ * ##get_all_humans
+ *
+ * Returns a list of all the humans on the ship
+ */
+/obj/docking_port/mobile/proc/get_all_humans()
+	var/list/humans_to_add = list()
+	var/list/all_turfs = return_ordered_turfs(x, y, z, dir)
+	for (var/turf/turf as anything in all_turfs)
+		var/mob/living/carbon/human/human_to_add = locate() in turf.contents
+		if (!isnull(human_to_add))
+			humans_to_add.Add(human_to_add)
+	return humans_to_add
+
+/**
  * Scuttle the ship
  *
  * Delete all of the areas, and delete any cryopods
  */
 /obj/docking_port/mobile/proc/mothball()
-	if (current_ship?.is_active_crew() == SHUTTLE_ACTIVE_CREW)
+	if(length(get_all_humans()) > 0)
 		return
 	var/obj/docking_port/stationary/current_dock = get_docked()
 
