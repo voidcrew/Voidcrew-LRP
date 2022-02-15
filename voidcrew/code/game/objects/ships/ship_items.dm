@@ -15,6 +15,7 @@
 	if(!ship_type)
 		CRASH("[src] used by a player without a ship_type!")
 	user.client.prefs.ships_owned[ship_type]++
+	user.client.prefs.save_ships()
 	to_chat(user, "You have redeemed [src], you may redeem it to purchase future ships.")
 	qdel(src)
 

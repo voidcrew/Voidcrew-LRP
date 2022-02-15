@@ -15,12 +15,13 @@
 		if(initial(ships.level) != ship_level)
 			continue
 		prefs.ships_owned[ships] -= ship_cost
-		return
+		prefs.save_ships()
 
 /client/proc/give_random_ship_part()
 	var/datum/ship_parts/selected_ship = pick(subtypesof(/datum/ship_parts))
 	prefs.ships_owned[selected_ship]++
 	to_chat(src, "You have been granted [selected_ship][selected_ship.faction == FACTION_NEUTRAL ? " [selected_ship.level]" : ""] type ship parts!")
+	prefs.save_ships()
 
 /client/proc/list_ship_parts()
 	to_chat(usr, "<span class='boldwarning'>Currently owned ship parts:</span>")
