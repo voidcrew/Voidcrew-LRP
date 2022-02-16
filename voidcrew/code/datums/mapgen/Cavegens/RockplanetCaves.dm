@@ -18,7 +18,6 @@
 		/mob/living/simple_animal/hostile/asteroid/goliath/beast/ancient/crystal = 1,
 		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/forgotten = 1,
 		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/crystal = 1,
-		//difficult misc fauna - VOID EDIT
 		/mob/living/simple_animal/hostile/bear/russian/asteroid = 15,
 		/mob/living/simple_animal/hostile/blob/blobbernaut/independent/asteroid = 10,
 		/mob/living/simple_animal/hostile/poison/giant_spider/tarantula/asteroid = 7,
@@ -43,7 +42,6 @@
 		/obj/structure/radioactive = 2,
 		/obj/structure/radioactive/stack = 2,
 		/obj/structure/radioactive/waste = 2,
-		// VOID EDITS
 		/obj/item/storage/firstaid = 4,
 		/obj/item/bodypart/r_arm/robot = 4,
 		/obj/item/assembly/prox_sensor = 4,
