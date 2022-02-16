@@ -276,7 +276,7 @@ SUBSYSTEM_DEF(overmap)
 			vlevel.z_value
 			)
 
-		var/list/ruin_bounds = block(locate(max(ruin_turf.x, 1),			max(ruin_turf.y, 1),			 ruin_turf.z), \
+		var/list/ruin_bounds = block(locate(max(ruin_turf.x, 1), max(ruin_turf.y, 1), ruin_turf.z), \
 									locate(min(ruin_turf.x + ruin_type.width, world.maxx), min(ruin_turf.y + ruin_type.height, world.maxy), ruin_turf.z))
 		for(var/turf/cleared_turf as anything in ruin_bounds)
 			for(var/atom/movable/thing as anything in cleared_turf.contents)
