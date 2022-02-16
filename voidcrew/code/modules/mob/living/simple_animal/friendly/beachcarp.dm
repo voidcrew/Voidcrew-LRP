@@ -1,4 +1,4 @@
-/mob/living/simple_animal/voidcarp
+/mob/living/simple_animal/beachcarp
 	name = "void carp"
 	desc = "A not-so ferocious, fang-bearing creature that resembles a fish."
 	icon = 'icons/mob/carp.dmi'
@@ -10,7 +10,7 @@
 	emote_hear = list("glubs.")
 	emote_see = list("glubs.")
 	speak_chance = 1
-	faction = list("carp")
+	faction = list("beach")
 	turns_per_move = 5
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/carpmeat = 2)
 	response_help_continuous = "pets"

@@ -2,30 +2,22 @@
 /obj/structure/spawner/serpent
 	name = "serpent tail"
 	desc = "A tail of a serpent. Terrible monsters are pouring out from all around it."
-
 	icon = 'voidcrew/icons/mob/beach/serpent.dmi'
-	// icon_state = "goliath_tentacle_wiggle"
-
 	faction = list("beach")
 	max_mobs = 5
 	max_integrity = 650
 	mob_types = list(/mob/living/simple_animal/hostile/carp/megacarp)
 
-	move_resist = INFINITY // just killing it tears a massive hole in the ground, let's not move it
+	move_resist = INFINITY
 	anchored = TRUE
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 	var/gps = null
 	var/obj/effect/light_emitter/tail/tail_emitted_light
 
-
-// /obj/structure/spawner/serpent/goliath
-// 	mob_types = list(/mob/living/simple_animal/hostile/asteroid/goliath/beast/tendril)
-
 GLOBAL_LIST_INIT(serpenttails, list())
 /obj/structure/spawner/serpent/Initialize()
 	. = ..()
-	tail_emitted_light = new(loc)
 	for(var/F in RANGE_TURFS(1, src))
 		if(ismineralturf(F))
 			var/turf/closed/mineral/M = F
@@ -34,7 +26,6 @@ GLOBAL_LIST_INIT(serpenttails, list())
 	GLOB.tendrils += src
 
 /obj/structure/spawner/serpent/deconstruct(disassembled)
-	new /obj/effect/collapse(loc)
 	new /obj/structure/closet/crate/necropolis/tendril(loc)
 	return ..()
 
@@ -52,42 +43,5 @@ GLOBAL_LIST_INIT(serpenttails, list())
 				L.client.give_award(/datum/award/achievement/boss/tendril_exterminator, L)
 				L.client.give_award(/datum/award/score/tendril_score, L) //Progresses score by one
 	GLOB.tendrils -= src
-	QDEL_NULL(tail_emitted_light)
 	QDEL_NULL(gps)
 	return ..()
-
-/obj/effect/light_emitter/tail
-	set_luminosity = 4
-	set_cap = 2.5
-	light_color = LIGHT_COLOR_LAVA
-
-/obj/effect/collapse
-	name = "collapsing necropolis tendril"
-	desc = "Get clear!"
-	layer = TABLE_LAYER
-	icon = 'icons/mob/nest.dmi'
-	icon_state = "tendril"
-	anchored = TRUE
-	density = TRUE
-	var/obj/effect/light_emitter/tail/tail_emitted_light
-
-/obj/effect/collapse/Initialize()
-	. = ..()
-	emitted_light = new(loc)
-	visible_message("<span class='warning'>Something falls free of the serpents tail!</span>")
-	playsound(loc,'sound/effects/tendril_destroyed.ogg', 200, FALSE, 50, TRUE, TRUE)
-	addtimer(CALLBACK(src, .proc/collapse), 50)
-
-/obj/effect/collapse/Destroy()
-	QDEL_NULL(emitted_light)
-	return ..()
-
-/obj/effect/collapse/proc/collapsetail()
-	for(var/mob/M in range(7,src))
-		shake_camera(M, 15, 1)
-	playsound(get_turf(src),'sound/effects/explosionfar.ogg', 200, TRUE)
-	visible_message("<span class='boldannounce'>The tail sinks into the ocean's depths!</span>") //WS edit.
-	// for(var/turf/T in range(2,src))
-	// 	if(!T.density)
-	// 		T.TerraformTurf(/turf/open/lava/smooth/lava_land_surface, /turf/open/lava/smooth/lava_land_surface, flags = CHANGETURF_INHERIT_AIR) //WS edit, instead of chasms this produces lava instead.
-	// qdel(src)

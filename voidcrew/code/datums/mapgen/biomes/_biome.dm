@@ -38,7 +38,9 @@
 	fauna_types = list(
 		/mob/living/simple_animal/pet/cat/cak,
 		/mob/living/simple_animal/hostile/retaliate/poison/snake,
-		/mob/living/simple_animal/slime/random
+		/mob/living/simple_animal/slime/random,
+		/mob/living/simple_animal/hostile/venus_human_trap/beach,
+		/mob/living/simple_animal/hostile/poison/bees/queen/beach
 	)
 	fauna_density = 1.2
 
@@ -61,7 +63,7 @@
 		/obj/item/clothing/under/shorts/purple,
 		/obj/item/clothing/under/shorts/red
 	)
-	flora_density = 0.7
+	flora_density = 1
 
 /datum/biome/beach/dense
 	turf_type = /turf/open/floor/plating/beach/sand/lit/dense
@@ -77,23 +79,29 @@
 		/obj/item/lighter/clockwork
 	)
 	flora_density = 1
+	fauna_types = list(/mob/living/simple_animal/hostile/jungle/mega_arachnid/beach)
+	fauna_density = 0.1
 
 /datum/biome/ocean
 	turf_type = /turf/open/water/beach
-	fauna_types = list(/mob/living/simple_animal/voidcarp)
-	fauna_density = 0.5
-	flora_types = list(/obj/structure/flora/rock, /obj/structure/flora/rock/pile, /obj/vehicle/ridden/lavaboat/dragon)
-	flora_density = 0.5
-
-/datum/biome/ocean/deep
-	turf_type = /turf/open/water/beach/deep
-	fauna_types = list(/mob/living/simple_animal/hostile/carp/megacarp)
+	fauna_types = list(/mob/living/simple_animal/beachcarp, /mob/living/simple_animal/hostile/carp/beach)
 	fauna_density = 0.5
 	flora_types = list(
 		/obj/structure/flora/rock,
 		/obj/structure/flora/rock/pile,
+		/obj/vehicle/ridden/lavaboat/dragon,
 		/obj/item/pneumatic_cannon/speargun,
 		/obj/item/storage/backpack/magspear_quiver,
+	)
+	flora_density = 0.4
+
+/datum/biome/ocean/deep
+	turf_type = /turf/open/water/beach/deep
+	fauna_types = list(/mob/living/simple_animal/hostile/carp/megacarp/beach)
+	fauna_density = 0.5
+	flora_types = list(
+		/obj/structure/flora/rock,
+		/obj/structure/flora/rock/pile,
 		/obj/structure/spawner/serpent
 	)
-	flora_density = 1
+	flora_density = 0.6
