@@ -426,7 +426,8 @@
 			deletion_timer = addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE, (TIMER_STOPPABLE|TIMER_UNIQUE))
 		if (OVERMAP_SHIP_IDLE, OVERMAP_SHIP_DOCKING)
 			message_admins("\[SHUTTLE]: [name] has been queued for ruin conversion in [SHIP_RUIN / 600] minutes! [ADMIN_COORDJMP(shuttle.loc)]")
-			deletion_timer = addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), SHIP_RUIN, (TIMER_STOPPABLE|TIMER_UNIQUE))
+			//deletion_timer = addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), SHIP_RUIN, (TIMER_STOPPABLE|TIMER_UNIQUE))
+			deletion_timer = addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE, (TIMER_STOPPABLE|TIMER_UNIQUE))
 #undef SHIP_SIZE_THRESHOLD
 
 #undef SHIP_DOCKED_REPAIR_TIME
