@@ -347,7 +347,7 @@
 			continue
 		if((length(S.shuttle.spawn_points) < 1) || !S.join_allowed)
 			continue
-		shuttle_choices[S.name + " ([S.source_template.short_name ? S.source_template.short_name : "Unknown-class"])"] = S //Try to get the class name
+		shuttle_choices["[isnull(S.password) ? "" : "(L) "]" + S.name + " ([S.source_template.short_name ? S.source_template.short_name : "Unknown-class"])"] = S //Try to get the class name
 
 	var/obj/structure/overmap/ship/simulated/selected_ship = shuttle_choices[tgui_input_list(src, "Select ship to spawn on.", "Welcome, [client?.prefs.real_name || "User"].", shuttle_choices)]
 	if(!selected_ship)
