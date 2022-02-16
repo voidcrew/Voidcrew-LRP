@@ -42,7 +42,7 @@
 	mapzone = null
 	if(current_weathers)
 		for(var/i in current_weathers)
-			var/datum/weather/W = i
+			var/datum/weather/W = current_weathers[i]
 			W.end()
 	SSweather.weather_controllers -= src
 	return ..()

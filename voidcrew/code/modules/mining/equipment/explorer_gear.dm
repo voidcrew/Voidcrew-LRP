@@ -1,10 +1,12 @@
 /obj/item/clothing/suit/hooded/survivor
 	name = "survivor suit"
 	desc = "A ragged makeshift suit resembling the explorer suit, covered with the emblems of a failed revolution. It's been repaired so many times it's hard to tell if it's more suit or patch. The joints have been redesigned for quicker movement."
-	lefthand_file = 'whitesands/icons/mob/inhands/clothing/lefthand.dmi'
-	righthand_file = 'whitesands/icons/mob/inhands/clothing/righthand.dmi'
-	icon_state = "survivor_suit"
-	item_state = "survivor_suit"
+	lefthand_file = 'voidcrew/icons/mob/inhands/clothing/lefthand.dmi'
+	righthand_file = 'voidcrew/icons/mob/inhands/clothing/righthand.dmi'
+	icon = 'voidcrew/icons/obj/clothing/suits.dmi'
+	mob_overlay_icon = 'voidcrew/icons/mob/clothing/suits.dmi'
+	icon_state = "survivor"
+	item_state = "survivor"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	min_cold_protection_temperature = (FIRE_SUIT_MIN_TEMP_PROTECT * 2)
 	cold_protection = CHEST|GROIN|LEGS|ARMS
@@ -19,7 +21,9 @@
 /obj/item/clothing/head/hooded/survivor_hood
 	name = "survivor hood"
 	desc = "A loose-fitting hood, patched up with sealant and adhesive. Somewhat protects the head from the environment, but gets the job done."
-	icon_state = "survivor_hood"
+	icon = 'voidcrew/icons/obj/clothing/hats.dmi'
+	mob_overlay_icon = 'voidcrew/icons/mob/clothing/head.dmi'
+	icon_state = "survivor"
 	suit = /obj/item/clothing/suit/hooded/survivor
 	body_parts_covered = HEAD
 	flags_inv = HIDEHAIR|HIDEFACE|HIDEEARS

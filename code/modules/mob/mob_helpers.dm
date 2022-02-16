@@ -140,7 +140,7 @@
 			else if(newletter == "H")
 				newletter = " IT COMES... "
 
-		switch(rand(1, 15))
+		switch(rand(1, 5))
 			if(1)
 				newletter = "'"
 			if(2)
