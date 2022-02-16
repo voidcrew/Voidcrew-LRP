@@ -38,12 +38,16 @@
 	turf_type = /turf/open/floor/plating/grass/jungle
 	flora_types = list(/obj/structure/flora/grass/jungle,/obj/structure/flora/grass/jungle/b, /obj/structure/flora/tree/jungle, /obj/structure/flora/rock/jungle, /obj/structure/flora/junglebush, /obj/structure/flora/junglebush/b, /obj/structure/flora/junglebush/c, /obj/structure/flora/junglebush/large, /obj/structure/flora/rock/pile/largejungle)
 	flora_density = 40
+	fauna_types = list(/mob/living/simple_animal/hostile/gorilla, /mob/living/simple_animal/hostile/venus_human_trap, /mob/living/simple_animal/hostile/jungle/mega_arachnid)
+	fauna_density = 1
 
 /datum/biome/jungle/deep
 	flora_density = 65
 
 /datum/biome/wasteland
 	turf_type = /turf/open/floor/plating/dirt/jungle/wasteland
+	fauna_types = list(/mob/living/simple_animal/hostile/skeleton, /mob/living/simple_animal/hostile/skeleton/templar)
+	fauna_density = 2
 
 /datum/biome/water
 	turf_type = /turf/open/water/jungle
