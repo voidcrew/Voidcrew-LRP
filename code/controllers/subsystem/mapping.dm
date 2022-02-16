@@ -14,6 +14,7 @@ SUBSYSTEM_DEF(mapping)
 	var/list/ice_ruins_templates = list()
 	var/list/sand_ruins_templates = list()
 	var/list/jungle_ruins_templates = list()
+	var/list/beach_ruins_templates = list() // VOID EDIT
 	var/list/rock_ruins_templates = list()
 	var/list/yellow_ruins_templates = list()
 
@@ -121,6 +122,7 @@ SUBSYSTEM_DEF(mapping)
 	banned += generateMapList("[global.config.directory]/ruins/iceruinblacklist.txt")
 	banned += generateMapList("[global.config.directory]/ruins/sandruinblacklist.txt")
 	banned += generateMapList("[global.config.directory]/ruins/jungleruinblacklist.txt")
+	banned += generateMapList("[global.config.directory]/ruins/beachruinblacklist.txt") // VOID EDIT
 	banned += generateMapList("[global.config.directory]/ruins/reeberuinblacklist.txt")
 	banned += generateMapList("[global.config.directory]/ruins/rockruinblacklist.txt")
 
@@ -143,6 +145,8 @@ SUBSYSTEM_DEF(mapping)
 			sand_ruins_templates[R.name] = R
 		else if(istype(R, /datum/map_template/ruin/jungle))
 			jungle_ruins_templates[R.name] = R
+		else if(istype(R, /datum/map_template/ruin/beach))
+			beach_ruins_templates[R.name] = R // VOID EDIT
 		else if(istype(R, /datum/map_template/ruin/icemoon))
 			ice_ruins_templates[R.name] = R
 		else if(istype(R, /datum/map_template/ruin/space))

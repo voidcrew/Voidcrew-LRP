@@ -22,30 +22,30 @@
 	)
 	flora_density = 25
 	fauna_types = list(
-		/mob/living/simple_animal/butterfly,
-		/mob/living/simple_animal/slime/pet,
-		/mob/living/simple_animal/chicken/rabbit/normal,
-		/mob/living/simple_animal/chicken,
-		/mob/living/simple_animal/chick,
-		/mob/living/simple_animal/mouse,
-		/mob/living/simple_animal/cow,
-		/mob/living/simple_animal/deer
+		/mob/living/simple_animal/butterfly/beach,
+		/mob/living/simple_animal/slime/pet/beach,
+		/mob/living/simple_animal/chicken/rabbit/normal/beach,
+		/mob/living/simple_animal/chicken/beach,
+		/mob/living/simple_animal/chick/beach,
+		/mob/living/simple_animal/mouse/beach,
+		/mob/living/simple_animal/cow/beach,
+		/mob/living/simple_animal/deer/beach
 	)
-	fauna_density = 0.8
+	fauna_density = 1
 
 /datum/biome/grass/dense
 	flora_density = 65
 	fauna_types = list(
-		/mob/living/simple_animal/pet/cat/cak,
-		/mob/living/simple_animal/hostile/retaliate/poison/snake,
-		/mob/living/simple_animal/slime/random,
-		/mob/living/simple_animal/hostile/poison/bees/queen/beach
+		/mob/living/simple_animal/pet/cat/cak/beach,
+		/mob/living/simple_animal/hostile/retaliate/poison/snake/beach,
+		/mob/living/simple_animal/slime/random/beach,
+		/mob/living/simple_animal/hostile/poison/bees/beach
 	)
 	fauna_density = 1.2
 
 /datum/biome/beach
 	turf_type = /turf/open/floor/plating/beach/sand/lit
-	fauna_types = list(/mob/living/simple_animal/crab, /mob/living/simple_animal/turtle)
+	fauna_types = list(/mob/living/simple_animal/crab/beach, /mob/living/simple_animal/turtle/beach)
 	fauna_density = 0.6
 	flora_types = list(
 		/obj/structure/flora/tree/palm,
@@ -88,9 +88,7 @@
 	flora_types = list(
 		/obj/structure/flora/rock,
 		/obj/structure/flora/rock/pile,
-		/obj/vehicle/ridden/lavaboat/dragon,
-		/obj/item/pneumatic_cannon/speargun,
-		/obj/item/storage/backpack/magspear_quiver,
+		/obj/vehicle/ridden/lavaboat/dragon
 	)
 	flora_density = 0.4
 

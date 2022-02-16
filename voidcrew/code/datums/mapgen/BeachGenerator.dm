@@ -81,14 +81,3 @@
 		selected_biome = SSmapping.biomes[selected_biome] //Get the instance of this biome from SSmapping
 		selected_biome.generate_turf(gen_turf)
 		CHECK_TICK
-
-/turf/open/genturf
-	name = "ungenerated turf"
-	desc = "If you see this, and you're not a ghost, yell at coders"
-	icon = 'icons/turf/debug.dmi'
-	icon_state = "genturf"
-
-/area/mine/planetgeneration
-	name = "planet generation area"
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
-	map_generator = /datum/map_generator/beach_generator
