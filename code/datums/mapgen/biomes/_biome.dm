@@ -28,11 +28,15 @@
 	turf_type = /turf/open/floor/plating/dirt/jungle/dark
 	flora_types = list(/obj/structure/flora/grass/jungle,/obj/structure/flora/grass/jungle/b, /obj/structure/flora/rock/jungle, /obj/structure/flora/rock/pile/largejungle)
 	flora_density = 3
+	fauna_types = list(/mob/living/simple_animal/hostile/retaliate/poison/snake, /mob/living/simple_animal/hostile/eyeball)
+	fauna_density = 0.8
 
 /datum/biome/plains
 	turf_type = /turf/open/floor/plating/grass/jungle
 	flora_types = list(/obj/structure/flora/grass/jungle,/obj/structure/flora/grass/jungle/b, /obj/structure/flora/tree/jungle, /obj/structure/flora/rock/jungle, /obj/structure/flora/junglebush, /obj/structure/flora/junglebush/b, /obj/structure/flora/junglebush/c, /obj/structure/flora/junglebush/large, /obj/structure/flora/rock/pile/largejungle)
 	flora_density = 15
+	fauna_types = list(/mob/living/simple_animal/hostile/retaliate/goose, /mob/living/simple_animal/hostile/retaliate/goat)
+	fauna_density = 0.5
 
 /datum/biome/jungle
 	turf_type = /turf/open/floor/plating/grass/jungle
@@ -46,11 +50,13 @@
 
 /datum/biome/wasteland
 	turf_type = /turf/open/floor/plating/dirt/jungle/wasteland
-	fauna_types = list(/mob/living/simple_animal/hostile/skeleton, /mob/living/simple_animal/hostile/skeleton/templar)
+	fauna_types = list(/mob/living/simple_animal/hostile/skeleton, /mob/living/simple_animal/hostile/skeleton/templar, /mob/living/simple_animal/hostile/retaliate/ghost)
 	fauna_density = 2
 
 /datum/biome/water
 	turf_type = /turf/open/water/jungle
+	fauna_types = /mob/living/simple_animal/hostile/carp
+	fauna_density = 1
 
 /datum/biome/mountain
 	turf_type = /turf/closed/mineral/random/jungle
