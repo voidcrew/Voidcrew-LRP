@@ -50,7 +50,7 @@
 
 /obj/structure/overmap/dynamic/ship_act(mob/user, obj/structure/overmap/ship/simulated/acting)
 	if(concerned)
-		to_chat(user, "<span class='notice'>Here too high traffic, try some later.</span>")
+		to_chat(user, "<span class='notice'>Too much traffic, try again later!</span>")
 		return
 	concerned = TRUE
 
