@@ -116,6 +116,13 @@
 	var/mob/living/carbon/human/oldguy
 	var/is_zombie = FALSE
 
+/mob/living/simple_animal/hostile/blob/blobspore/asteroid // VOID EDIT
+	faction = list("mining")
+	maxHealth = 70
+	health = 70
+	melee_damage_lower = 10
+	melee_damage_upper = 15
+
 /mob/living/simple_animal/hostile/blob/blobspore/Initialize(mapload, obj/structure/blob/factory/linked_node)
 	if(istype(linked_node))
 		factory = linked_node
@@ -330,3 +337,6 @@
 /mob/living/simple_animal/hostile/blob/blobbernaut/independent
 	independent = TRUE
 	gold_core_spawnable = HOSTILE_SPAWN
+
+/mob/living/simple_animal/hostile/blob/blobbernaut/independent/asteroid
+	faction = list("mining")

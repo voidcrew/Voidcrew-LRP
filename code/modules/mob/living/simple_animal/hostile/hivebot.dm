@@ -87,6 +87,12 @@
 	retreat_distance = 5
 	minimum_distance = 5
 
+/mob/living/simple_animal/hostile/hivebot/rapid/asteroid // VOID EDIT
+	faction = list("mining")
+	melee_damage_lower = 15
+	melee_damage_upper = 20
+	armour_penetration = 15
+
 /mob/living/simple_animal/hostile/hivebot/strong
 	name = "strong hivebot"
 	icon_state = "strong"

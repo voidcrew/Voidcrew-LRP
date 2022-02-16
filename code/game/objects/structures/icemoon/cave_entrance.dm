@@ -121,6 +121,14 @@ GLOBAL_LIST_INIT(ore_probability, list(
 /obj/structure/spawner/ice_moon/demonic_portal/snowlegion
 	mob_types = list(/mob/living/simple_animal/hostile/asteroid/hivelordbrood/legion/snow/tendril)
 
+/obj/structure/spawner/ice_moon/demonic_portal/blobspore
+	mob_types = list(/mob/living/simple_animal/hostile/blob/blobspore/asteroid) // VOID EDIT
+	spawn_time = 300
+
+/obj/structure/spawner/ice_moon/demonic_portal/hivebot
+	mob_types = list(/mob/living/simple_animal/hostile/hivebot/rapid/asteroid) // VOID EDIT
+	spawn_time = 300
+
 /obj/effect/collapsing_demonic_portal
 	name = "collapsing demonic portal"
 	desc = "It's slowly fading! Get ready to fight whatever comes through!"

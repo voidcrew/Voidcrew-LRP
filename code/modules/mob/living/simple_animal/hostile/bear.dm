@@ -100,6 +100,9 @@
 	armored = TRUE
 	gold_core_spawnable = HOSTILE_SPAWN
 
+/mob/living/simple_animal/hostile/bear/russian/asteroid // VOID EDIT
+	faction = list("mining")
+
 /obj/item/bear_armor
 	name = "pile of bear armor"
 	desc = "A scattered pile of various shaped armor pieces fitted for a bear, some duct tape, and a nail filer. Crude instructions \
