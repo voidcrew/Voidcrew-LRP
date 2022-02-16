@@ -24,7 +24,8 @@ em						{font-style: normal;	font-weight: bold;}
 .bold					{					font-weight: bold;}
 
 .prefix					{					font-weight: bold;}
-
+.oocplain				{}
+.warningplain			{}
 .ooc					{					font-weight: bold;}
 .adminobserverooc		{color: #0099cc;	font-weight: bold;}
 .adminooc				{color: #700038;	font-weight: bold;}
@@ -52,6 +53,9 @@ em						{font-style: normal;	font-weight: bold;}
 .aiprivradio			{color: #ff00ff;}
 .redteamradio			{color: #ff0000;}
 .blueteamradio			{color: #0000ff;}
+.greenteamradio			{color: #00ff00;}
+.yellowteamradio		{color: #d1ba22;}
+.gangradio				{color: #ac2ea1;}
 
 .yell					{					font-weight: bold;}
 
@@ -62,7 +66,10 @@ h1.alert, h2.alert		{color: #000000;}
 .infoplain				{}
 
 .userdanger				{color: #ff0000;	font-weight: bold;	font-size: 3;}
+.danger					{color: #ff0000;	font-weight: bold;}
 .danger					{color: #ff0000;}
+.tinydanger				{color: #ff0000; font-size: 85%;}
+.smalldanger			{color: #ff0000; font-size: 90%;}
 .warning				{color: #ff0000;	font-style: italic;}
 .boldwarning			{color: #ff0000;	font-style: italic;	font-weight: bold}
 .announce				{color: #228b22;	font-weight: bold;}
@@ -72,33 +79,37 @@ h1.alert, h2.alert		{color: #000000;}
 .rose					{color: #ff5050;}
 .info					{color: #0000CC;}
 .notice					{color: #000099;}
+.tinynotice				{color: #000099; font-size: 85%;}
+.tinynoticeital			{color: #000099; font-style: italic; font-size: 85%;}
+.smallnotice			{color: #000099; font-size: 90%;}
+.smallnoticeital		{color: #000099; font-style: italic;	font-size: 90%;}
 .boldnotice				{color: #000099;	font-weight: bold;}
 .hear					{color: #000099;	font-style: italic;}
 .adminnotice			{color: #0000ff;}
-.adminhelp              {color: #ff0000;    font-weight: bold;}
-.mentor					{color: #8A2BE2;}
-.mentoradmin			{color: #8A2BE2;	font-weight: bold;}
-.mentornotice			{color: #E236D8;}
+.adminhelp				{color: #ff0000;	font-weight: bold;}
 .unconscious			{color: #0000ff;	font-weight: bold;}
 .suicide				{color: #ff5050;	font-style: italic;}
 .green					{color: #03ff39;}
 .nicegreen				{color: #14a833;}
-.cult					{color: #960000;}
-.cultlarge				{color: #960000;	font-weight: bold;	font-size: 3;}
-.narsie					{color: #960000;	font-weight: bold;	font-size: 15;}
-.narsiesmall			{color: #960000;	font-weight: bold;	font-size: 6;}
+.cult					{color: #973e3b;}
+.cultlarge				{color: #973e3b;	font-weight: bold;	font-size: 3;}
+.narsie					{color: #973e3b;	font-weight: bold;	font-size: 15;}
+.narsiesmall			{color: #973e3b;	font-weight: bold;	font-size: 6;}
 .colossus				{color: #7F282A;	font-size: 5;}
 .hierophant				{color: #660099;	font-weight: bold;	font-style: italic;}
 .hierophant_warning		{color: #660099;	font-style: italic;}
 .purple					{color: #5e2d79;}
 .holoparasite			{color: #35333a;}
+.bounty					{color: #ab6613;	font-style: italic;}
 
-.revennotice			{color: #5631b5;}
-.revenboldnotice		{color: #5631b5;	font-weight: bold;}
-.revenbignotice			{color: #5631b5;	font-weight: bold;	font-size: 3;}
+.revennotice			{color: #1d2953;}
+.revenboldnotice		{color: #1d2953;	font-weight: bold;}
+.revenbignotice			{color: #1d2953;	font-weight: bold;	font-size: 3;}
 .revenminor				{color: #823abb}
 .revenwarning			{color: #760fbb;	font-style: italic;}
 .revendanger			{color: #760fbb;	font-weight: bold;	font-size: 3;}
+
+.sentientdisease		{color: #446600;}
 
 .deconversion_message	{color: #5000A0;	font-size: 3;	font-style: italic;}
 
@@ -107,7 +118,6 @@ h1.alert, h2.alert		{color: #000000;}
 .alien					{color: #543354;}
 .noticealien			{color: #00c000;}
 .alertalien				{color: #00c000;	font-weight: bold;}
-.borer					{color: #543354;	font-style: italic;}
 .changeling				{color: #800080;	font-style: italic;}
 
 .spider					{color: #4d004d;}
@@ -117,7 +127,6 @@ h1.alert, h2.alert		{color: #000000;}
 .sans					{font-family: "Comic Sans MS", cursive, sans-serif;}
 .papyrus				{font-family: "Papyrus", cursive, sans-serif;}
 .robot					{font-family: "Courier New", cursive, sans-serif;}
-.sga					{font-family: "Standard Galactic Alphabet", cursive, sans-serif}
 
 .command_headset		{font-weight: bold;	font-size: 3;}
 .small					{font-size: 1;}

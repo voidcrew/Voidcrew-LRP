@@ -1,11 +1,6 @@
 /datum/language/terrum
 	name = "Terrum"
 	desc = "The language of the golems. Sounds similar to old-earth Hebrew."
-	speech_verb = "rumbles"
-	ask_verb = "questions"
-	exclaim_verb = "tremors"
-	sing_verb = "yodels"
-	flags = LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD //WS Edit- Language icon hiding
 	key = "g"
 	space_chance = 40
 	syllables = list(

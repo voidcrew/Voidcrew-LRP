@@ -7,6 +7,10 @@
 	multiplicative_slowdown = -7
 	movetypes = GROUND
 
+/datum/movespeed_modifier/tenacious
+	multiplicative_slowdown = -0.7
+	movetypes = GROUND
+
 /datum/movespeed_modifier/sanity
 	id = MOVESPEED_ID_SANITY
 	movetypes = (~FLYING)
@@ -19,7 +23,3 @@
 
 /datum/movespeed_modifier/sanity/disturbed
 	multiplicative_slowdown = 0.25
-
-/datum/movespeed_modifier/necropolis
-	multiplicative_slowdown = 0.5
-

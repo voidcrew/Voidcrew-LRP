@@ -63,7 +63,7 @@
 	id = "mcube"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass= 250)
-	build_path = /obj/item/reagent_containers/food/snacks/monkeycube
+	build_path = /obj/item/food/monkeycube
 	category = list("initial","Food")
 
 /datum/design/ez_nut   //easy nut :)
@@ -90,6 +90,22 @@
 	make_reagents = list(/datum/reagent/plantnutriment/robustharvestnutriment = 25)
 	category = list("initial","Botany Chemicals")
 
+/datum/design/end_gro
+	name = "25u Enduro Grow"
+	id = "end_gro"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass= 30)
+	make_reagents = list(/datum/reagent/plantnutriment/endurogrow = 25)
+	category = list("initial","Botany Chemicals")
+
+/datum/design/liq_earth
+	name = "25u Liquid Earthquake"
+	id = "liq_earth"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass= 30)
+	make_reagents = list(/datum/reagent/plantnutriment/liquidearthquake = 25)
+	category = list("initial","Botany Chemicals")
+
 /datum/design/weed_killer
 	name = "25u Weed Killer"
 	id = "weed_killer"
@@ -106,12 +122,20 @@
 	make_reagents = list(/datum/reagent/toxin/pestkiller = 25)
 	category = list("initial","Botany Chemicals")
 
+/datum/design/org_pest_spray
+	name = "25u Organic Pest Killer"
+	id = "org_pest_spray"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass= 80)
+	make_reagents = list(/datum/reagent/toxin/pestkiller/organic = 25)
+	category = list("initial","Botany Chemicals")
+
 /datum/design/cloth
 	name = "Roll of Cloth"
 	id = "cloth"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass= 50)
-	build_path = /obj/item/stack/sheet/cotton/cloth
+	build_path = /obj/item/stack/sheet/cloth
 	category = list("initial","Organic Materials")
 
 /datum/design/cardboard
@@ -120,6 +144,14 @@
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass= 25)
 	build_path = /obj/item/stack/sheet/cardboard
+	category = list("initial","Organic Materials")
+
+/datum/design/rolling_paper_pack
+	name = "Rolling Paper Pack"
+	id = "rolling_paper_pack"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass= 50)
+	build_path = /obj/item/storage/fancy/rollingpapers
 	category = list("initial","Organic Materials")
 
 /datum/design/leather
@@ -154,12 +186,20 @@
 	build_path = /obj/item/storage/belt/janitor
 	category = list("initial","Organic Materials")
 
+/datum/design/plantbelt
+	name = "Botanical Belt"
+	id = "plantbelt"
+	build_type = BIOGENERATOR
+	materials = list(/datum/material/biomass= 300)
+	build_path = /obj/item/storage/belt/plant
+	category = list("initial","Organic Materials")
+
 /datum/design/s_holster
 	name = "Shoulder Holster"
 	id = "s_holster"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass= 400)
-	build_path = /obj/item/clothing/accessory/holster
+	build_path = /obj/item/storage/belt/holster
 	category = list("initial","Organic Materials")
 
 /datum/design/rice_hat

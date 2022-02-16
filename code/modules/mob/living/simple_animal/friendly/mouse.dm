@@ -1,27 +1,6 @@
-//WS Edit
-GLOBAL_LIST_INIT(mouse_comestible, typecacheof(list(
-		/obj/effect/decal/cleanable/food,
-		/obj/effect/decal/cleanable/greenglow,
-		/obj/effect/decal/cleanable/insectguts,
-		/obj/effect/decal/cleanable/vomit,
-		/obj/item/trash,
-		/obj/item/grown/bananapeel,
-		/obj/item/grown/corncob,
-		/obj/item/grown/sunflower,
-		/obj/item/cigbutt
-	)))
-GLOBAL_VAR_INIT(food_for_next_mouse, 0)
-
-GLOBAL_VAR_INIT(mouse_food_eaten, 0)
-GLOBAL_VAR_INIT(mouse_spawned, 0)
-GLOBAL_VAR_INIT(mouse_killed, 0)
-
-#define FOODPERMOUSE 35
-//WS Edit
-
 /mob/living/simple_animal/mouse
 	name = "mouse"
-	desc = "It's a nasty, ugly, evil, disease-ridden rodent."
+	desc = "They're a nasty, ugly, evil, disease-ridden rodent."
 	icon_state = "mouse_gray"
 	icon_living = "mouse_gray"
 	icon_dead = "mouse_gray_dead"
@@ -31,10 +10,10 @@ GLOBAL_VAR_INIT(mouse_killed, 0)
 	emote_see = list("runs in a circle.", "shakes.")
 	speak_chance = 1
 	turns_per_move = 5
-	see_in_dark = 8 //WS edit
+	see_in_dark = 6
 	maxHealth = 5
 	health = 5
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/mouse = 1)
+	butcher_results = list(/obj/item/food/meat/slab/mouse = 1)
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
 	response_disarm_continuous = "gently pushes aside"
@@ -42,213 +21,136 @@ GLOBAL_VAR_INIT(mouse_killed, 0)
 	response_harm_continuous = "splats"
 	response_harm_simple = "splat"
 	density = FALSE
-	ventcrawler = VENTCRAWLER_ALWAYS
 	pass_flags = PASSTABLE | PASSGRILLE | PASSMOB
 	mob_size = MOB_SIZE_TINY
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
-	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE //WS Edit
 	var/body_color //brown, gray and white, leave blank for random
 	gold_core_spawnable = FRIENDLY_SPAWN
-	move_force = MOVE_FORCE_EXTREMELY_WEAK //WS Edit
 	var/chew_probability = 1
-	var/full = FALSE //WS Edit
-	var/eating = FALSE //WS Edit
-	var/cheesed = FALSE //WS Edit
+	can_be_held = TRUE
+	held_w_class = WEIGHT_CLASS_TINY
 	held_state = "mouse_gray"
+	faction = list("rat")
 
-/mob/living/simple_animal/mouse/Initialize()
+/mob/living/simple_animal/mouse/Initialize(mapload)
 	. = ..()
-	ADD_TRAIT(src, TRAIT_HOLDABLE, INNATE_TRAIT)
-	AddComponent(/datum/component/squeak, list('sound/effects/mousesqueek.ogg'=1), 100, extrarange = SHORT_RANGE_SOUND_EXTRARANGE) //as quiet as a mouse or whatever
-	if(!body_color)
-		body_color = pick( list("brown","gray","white") )
-	icon_state = "mouse_[body_color]"
-	icon_living = "mouse_[body_color]"
-	icon_dead = "mouse_[body_color]_dead"
+	if(body_color == null)
+		body_color = pick("brown","gray","white")
+	AddElement(/datum/element/animal_variety, "mouse", body_color, FALSE)
+	AddComponent(/datum/component/squeak, list('sound/effects/mousesqueek.ogg' = 1), 100, extrarange = SHORT_RANGE_SOUND_EXTRARANGE) //as quiet as a mouse or whatever
+	add_cell_sample()
 
-//WS Begin
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = .proc/on_entered,
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/mob/living/simple_animal/mouse/add_cell_sample()
+	AddElement(/datum/element/swabable, CELL_LINE_TABLE_MOUSE, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 10)
+
 /mob/living/simple_animal/mouse/proc/splat()
-	if(!key)
-		src.health = 0
-		src.icon_dead = "mouse_[body_color]_splat"
-		death()
-	else
-		adjustHealth(rand(7,12))
-		if(health <= 0)
-			src.icon_dead = "mouse_[body_color]_splat"
-//WS End
+	src.health = 0
+	src.icon_dead = "mouse_[body_color]_splat"
+	death()
 
 /mob/living/simple_animal/mouse/death(gibbed, toast)
-	GLOB.mouse_killed++ //WS Edit
 	if(!ckey)
 		..(1)
 		if(!gibbed)
-			var/obj/item/reagent_containers/food/snacks/deadmouse/M = new(loc)
+			var/obj/item/food/deadmouse/M = new(loc)
 			M.icon_state = icon_dead
 			M.name = name
 			if(toast)
 				M.add_atom_colour("#3A3A3A", FIXED_COLOUR_PRIORITY)
-				M.desc = "It's toast."
+				M.desc = "They're toast."
 		qdel(src)
 	else
+		SSmobs.cheeserats -= src // remove play controlled mouse also
 		..(gibbed)
 
-/mob/living/simple_animal/mouse/Crossed(AM as mob|obj)
-	if( ishuman(AM) )
+/mob/living/simple_animal/mouse/revive(full_heal = FALSE, admin_revive = FALSE)
+	var/cap = CONFIG_GET(number/ratcap)
+	if(!admin_revive && !ckey && LAZYLEN(SSmobs.cheeserats) >= cap)
+		visible_message(span_warning("[src] twitched but does not continue moving due to the overwhelming rodent population on the station!"))
+		return FALSE
+	. = ..()
+	if(.)
+		SSmobs.cheeserats += src
+
+/mob/living/simple_animal/mouse/proc/on_entered(datum/source, AM as mob|obj)
+	SIGNAL_HANDLER
+	if(ishuman(AM))
 		if(!stat)
 			var/mob/M = AM
-			to_chat(M, "<span class='notice'>[icon2html(src, M)] Squeak!</span>")
-	..()
+			to_chat(M, span_notice("[icon2html(src, M)] Squeak!"))
+	if(istype(AM, /obj/item/food/cheese/royal))
+		evolve()
+		qdel(AM)
 
 /mob/living/simple_animal/mouse/handle_automated_action()
 	if(prob(chew_probability))
 		var/turf/open/floor/F = get_turf(src)
-		if(istype(F) && !F.intact)
+		if(istype(F) && F.underfloor_accessibility >= UNDERFLOOR_INTERACTABLE)
 			var/obj/structure/cable/C = locate() in F
 			if(C && prob(15))
-				if(C.avail())
-					visible_message("<span class='warning'>[src] chews through the [C]. It's toast!</span>")
-					playsound(src, 'sound/effects/sparks2.ogg', 100, TRUE)
-					C.deconstruct()
-					death(toast=1)
+				var/powered = C.avail()
+				if(powered && !HAS_TRAIT(src, TRAIT_SHOCKIMMUNE))
+					visible_message(span_warning("[src] chews through the [C]. It's toast!"))
+					death(toast = TRUE)
 				else
-					C.deconstruct()
-					visible_message("<span class='warning'>[src] chews through the [C].</span>")
+					visible_message(span_warning("[src] chews through the [C]."))
 
-//WS Begin
-/mob/living/simple_animal/mouse/Move()
-	. = ..()
-	if(stat != CONSCIOUS)
-		return .
+				C.deconstruct()
+				if(powered)
+					playsound(src, 'sound/effects/sparks2.ogg', 100, TRUE)
 
-	if(!key)
-		eat_cheese()
-	else
-		if(!(locate(/obj/structure/table) in get_turf(src)))
-			for(var/obj/item/reagent_containers/glass/G in get_turf(src))
-				G.throw_at(get_turf(G), 0, 1, src)
-			for(var/obj/item/reagent_containers/food/drinks/D in get_turf(src))
-				D.throw_at(get_turf(D), 0, 1, src)
-
-/mob/living/simple_animal/mouse/proc/eat_cheese()
-	var/obj/item/reagent_containers/food/snacks/cheesewedge/CW = locate(/obj/item/reagent_containers/food/snacks/cheesewedge) in loc
-	if(!QDELETED(CW) && full == FALSE)
-		say("Burp!")
-		visible_message("<span class='warning'>[src] gobbles up the [CW].</span>")
-		qdel(CW)
-		full = TRUE
-		addtimer(VARSET_CALLBACK(src, full, FALSE), 3 MINUTES)
-
-/mob/living/simple_animal/mouse/attackby(obj/item/O, mob/user, params)
-	if(istype(O, /obj/item/reagent_containers/food/snacks/cheesewedge))
-		to_chat(user, "<span class='notice'>You feed [O] to [src].</span>")
-		visible_message("[src] squeaks happily!")
-		qdel(O)
-	else
-		return ..()
-
-/mob/living/simple_animal/mouse/attack_ghost(mob/dead/observer/user)
-	user.possess_mouse(src)
-
-/mob/living/simple_animal/mouse/start_pulling(atom/movable/AM, state, force, supress_message)
-	return FALSE
-
-/mob/living/simple_animal/mouse/CtrlClickOn(atom/A)
-	face_atom(A)
-	if(!isturf(loc)) return
-	if(next_move > world.time) return
-	if(!A.Adjacent(src)) return
-
-	if(!can_eat(A))
-		return FALSE
-
-	eating = TRUE
-	layer = MOB_LAYER
-	visible_message(
-		"<span class='danger'>[src] starts eating away [A]...</span>",
-		"<span class='notice'>You start eating the [A]...</span>")
-	if(do_after(src, 30, FALSE, A))
-		if(QDELETED(A))
+	for(var/obj/item/food/cheese/cheese in range(1, src))
+		if(prob(10))
+			be_fruitful()
+			qdel(cheese)
 			return
-		visible_message(
-			"<span class='danger'>[src] finishes eating up [A]!</span>",
-			"<span class='notice'>You finish up eating [A]</span>")
-		A.mouse_eat(src)
-		GLOB.mouse_food_eaten++
-
-	eating = FALSE
-	layer = BELOW_OPEN_DOOR_LAYER
-
-/mob/living/simple_animal/mouse/proc/can_eat(atom/A)
-	. = FALSE
-
-	if(eating)
-		return FALSE
-	if(is_type_in_list(A, GLOB.mouse_comestible))
-		return TRUE
-	if(istype(A, /obj/item/reagent_containers/food) && !(locate(/obj/structure/table) in get_turf(A)))
-		return TRUE
-
-/mob/living/simple_animal/mouse/proc/regen_health(amt = 5)
-	var/overheal = max(health + amt - maxHealth, 0)
-	adjustHealth(-amt)
-	GLOB.food_for_next_mouse += overheal
-	var/mice = FLOOR(GLOB.food_for_next_mouse / FOODPERMOUSE, 1)
-	if(!mice)
+	for(var/obj/item/food/cheese/royal/bigcheese in range(1, src))
+		qdel(bigcheese)
+		evolve()
 		return
 
-	GLOB.mouse_spawned += mice
-	GLOB.food_for_next_mouse = max(GLOB.food_for_next_mouse - FOODPERMOUSE * mice, 0)
-	SSminor_mapping.trigger_migration(mice)
-
-/mob/living/simple_animal/mouse/proc/cheese_up()
-	if(cheesed)
+/mob/living/simple_animal/mouse/UnarmedAttack(atom/A, proximity_flag, list/modifiers)
+	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
 		return
-	cheesed = TRUE
-	regen_health(15)
-	resize = 2
-	update_transform()
-	add_movespeed_modifier(/datum/movespeed_modifier/mouse_cheese)
-	maxHealth = 30
-	health = maxHealth
-	to_chat(src, "<span class='userdanger'>You ate cheese! You are now stronger, bigger and faster!</span>")
-	addtimer(CALLBACK(src, .proc/cheese_down), 3 MINUTES)
+	. = ..()
+	if(istype(A, /obj/item/food/cheese) && canUseTopic(A, BE_CLOSE, NO_DEXTERITY))
+		if(health == maxHealth)
+			to_chat(src,span_warning("You don't need to eat or heal."))
+			return
+		to_chat(src,span_green("You nibble some cheese, restoring your health."))
+		adjustHealth(-(maxHealth-health))
+		qdel(A)
+		return
+	return ..()
 
-/mob/living/simple_animal/mouse/proc/cheese_down()
-	cheesed = FALSE
-	maxHealth = 15
-	health = maxHealth
-	resize = 0.5
-	update_transform()
-	remove_movespeed_modifier(/datum/movespeed_modifier/mouse_cheese)
-	to_chat(src, "<span class='userdanger'>A feeling of sadness comes over you as the effects of the cheese wears off. You. Must. Get. More.</span>")
+/**
+ *Checks the mouse cap, if it's above the cap, doesn't spawn a mouse. If below, spawns a mouse and adds it to cheeserats.
+ */
+/mob/living/simple_animal/mouse/proc/be_fruitful()
+	var/cap = CONFIG_GET(number/ratcap)
+	if(LAZYLEN(SSmobs.cheeserats) >= cap)
+		visible_message(span_warning("[src] carefully eats the cheese, hiding it from the [cap] mice on the station!"))
+		return
+	var/mob/living/newmouse = new /mob/living/simple_animal/mouse(loc)
+	SSmobs.cheeserats += newmouse
+	visible_message(span_notice("[src] nibbles through the cheese, attracting another mouse!"))
 
-/atom/proc/mouse_eat(mob/living/simple_animal/mouse/M)
-	M.regen_health()
+/**
+ *Spawns a new regal rat, says some good jazz, and if sentient, transfers the relivant mind.
+ */
+/mob/living/simple_animal/mouse/proc/evolve()
+	var/mob/living/simple_animal/hostile/regalrat/regalrat = new /mob/living/simple_animal/hostile/regalrat/controlled(loc)
+	visible_message(span_warning("[src] devours the cheese! They morph into something... greater!"))
+	INVOKE_ASYNC(regalrat, /atom/movable/proc/say, "RISE, MY SUBJECTS! SCREEEEEEE!")
+	if(mind)
+		mind.transfer_to(regalrat)
 	qdel(src)
-
-/obj/item/reagent_containers/food/snacks/cheesewedge/mouse_eat(mob/living/simple_animal/mouse/M)
-	M.cheese_up()
-	qdel(src)
-
-/obj/item/reagent_containers/food/snacks/cheesewheel/mouse_eat(mob/living/simple_animal/mouse/M)
-	M.cheese_up()
-	qdel(src)
-
-/obj/item/reagent_containers/food/snacks/store/cheesewheel/mouse_eat(mob/living/simple_animal/mouse/M)
-	M.cheese_up()
-	qdel(src)
-
-/obj/item/reagent_containers/food/snacks/customizable/cheesewheel/mouse_eat(mob/living/simple_animal/mouse/M)
-	M.cheese_up()
-	qdel(src)
-
-/obj/item/grown/bananapeel/bluespace/mouse_eat(mob/living/simple_animal/mouse/M)
-	var/teleport_radius = max(round(seed.potency / 10), 1)
-	var/turf/T = get_turf(M)
-	do_teleport(M, T, teleport_radius, channel = TELEPORT_CHANNEL_BLUESPACE)
-	..()
-//WS End
 
 /*
  * Mouse types
@@ -268,8 +170,12 @@ GLOBAL_VAR_INIT(mouse_killed, 0)
 	icon_state = "mouse_brown"
 	held_state = "mouse_brown"
 
+/mob/living/simple_animal/mouse/Destroy()
+	SSmobs.cheeserats -= src
+	return ..()
+
 //TOM IS ALIVE! SQUEEEEEEEE~K :)
-/mob/living/simple_animal/mouse/brown/Tom
+/mob/living/simple_animal/mouse/brown/tom
 	name = "Tom"
 	desc = "Jerry the cat is not amused."
 	response_help_continuous = "pets"
@@ -280,45 +186,62 @@ GLOBAL_VAR_INIT(mouse_killed, 0)
 	response_harm_simple = "splat"
 	gold_core_spawnable = NO_SPAWN
 
-/obj/item/reagent_containers/food/snacks/deadmouse
+/mob/living/simple_animal/mouse/brown/tom/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/pet_bonus, "squeaks happily!")
+	// Tom fears no cable.
+	ADD_TRAIT(src, TRAIT_SHOCKIMMUNE, INNATE_TRAIT)
+
+/obj/item/food/deadmouse
 	name = "dead mouse"
-	desc = "It looks like somebody dropped the bass on it. A lizard's favorite meal."
+	desc = "They look like somebody dropped the bass on it. A lizard's favorite meal."
 	icon = 'icons/mob/animal.dmi'
 	icon_state = "mouse_gray_dead"
-	bitesize = 3
-	eatverb = "devour"
-	list_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 2)
-	foodtype = GROSS | MEAT | RAW
+	bite_consumption = 3
+	eatverbs = list("devour")
+	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 2)
+	foodtypes = GROSS | MEAT | RAW
 	grind_results = list(/datum/reagent/blood = 20, /datum/reagent/liquidgibs = 5)
+	decomp_req_handle = TRUE
+	ant_attracting = FALSE
+	decomp_type = /obj/item/food/deadmouse/moldy
 
-/obj/item/reagent_containers/food/snacks/deadmouse/examine(mob/user)
+/obj/item/food/deadmouse/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/swabable, CELL_LINE_TABLE_MOUSE, CELL_VIRUS_TABLE_GENERIC_MOB, 1, 10)
+
+/obj/item/food/deadmouse/examine(mob/user)
 	. = ..()
 	if (reagents?.has_reagent(/datum/reagent/yuck) || reagents?.has_reagent(/datum/reagent/fuel))
-		. += "<span class='warning'>It's dripping with fuel and smells terrible.</span>"
+		. += span_warning("They're dripping with fuel and smells terrible.")
 
-/obj/item/reagent_containers/food/snacks/deadmouse/attackby(obj/item/I, mob/user, params)
-	if(I.get_sharpness() && user.a_intent == INTENT_HARM)
+/obj/item/food/deadmouse/attackby(obj/item/I, mob/living/user, params)
+	if(I.get_sharpness() && user.combat_mode)
 		if(isturf(loc))
-			new /obj/item/reagent_containers/food/snacks/meat/slab/mouse(loc)
-			to_chat(user, "<span class='notice'>You butcher [src].</span>")
+			new /obj/item/food/meat/slab/mouse(loc)
+			to_chat(user, span_notice("You butcher [src]."))
 			qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a surface to butcher it!</span>")
+			to_chat(user, span_warning("You need to put [src] on a surface to butcher them!"))
 	else
 		return ..()
 
-/obj/item/reagent_containers/food/snacks/deadmouse/afterattack(obj/target, mob/living/user, proximity_flag)
+/obj/item/food/deadmouse/afterattack(obj/target, mob/living/user, proximity_flag)
 	if(proximity_flag && reagents && target.is_open_container())
 		// is_open_container will not return truthy if target.reagents doesn't exist
 		var/datum/reagents/target_reagents = target.reagents
 		var/trans_amount = reagents.maximum_volume - reagents.total_volume * (4 / 3)
 		if(target_reagents.has_reagent(/datum/reagent/fuel) && target_reagents.trans_to(src, trans_amount))
-			to_chat(user, "<span class='notice'>You dip [src] into [target].</span>")
-			reagents.trans_to(target, reagents.total_volume)
+			to_chat(user, span_notice("You dip [src] into [target]."))
 		else
-			to_chat(user, "<span class='warning'>That's a terrible idea.</span>")
+			to_chat(user, span_warning("That's a terrible idea."))
 	else
 		return ..()
 
-/obj/item/reagent_containers/food/snacks/deadmouse/on_grind()
-	reagents.clear_reagents()
+/obj/item/food/deadmouse/moldy
+	name = "moldy dead mouse"
+	desc = "A dead rodent, consumed by mold and rot. There is a slim chance that a lizard might still eat it."
+	icon_state = "mouse_gray_dead"
+	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/mold = 10)
+	grind_results = list(/datum/reagent/blood = 20, /datum/reagent/liquidgibs = 5, /datum/reagent/consumable/mold = 10)
+	preserved_food = TRUE

@@ -3,7 +3,7 @@
 /datum/design/board
 	name = "Computer Design ( NULL ENTRY )"
 	desc = "I promise this doesn't give you syndicate goodies!"
-	build_type = IMPRINTER
+	build_type = IMPRINTER | AWAY_IMPRINTER
 	materials = list(/datum/material/glass = 1000)
 
 /datum/design/board/arcade_battle
@@ -89,20 +89,12 @@
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
 /datum/design/board/scan_console
-	name = "Computer Design (DNA Machine)"
-	desc = "Allows for the construction of circuit boards used to build a new DNA scanning console."
+	name = "Computer Design (DNA Console)"
+	desc = "Allows for the construction of circuit boards used to build a new DNA console."
 	id = "scan_console"
 	build_path = /obj/item/circuitboard/computer/scan_consolenew
 	category = list("Computer Boards")
-	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
-
-/datum/design/board/cloning
-	name = "Computer Design (Cloning Console)"
-	desc = "Used to clone people and manage DNA."
-	id = "cloning"
-	build_path = /obj/item/circuitboard/computer/cloning
-	category = list("Computer Boards")
-	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
 /datum/design/board/comconsole
 	name = "Computer Design (Communications)"
@@ -110,20 +102,13 @@
 	id = "comconsole"
 	build_path = /obj/item/circuitboard/computer/communications
 	category = list("Computer Boards")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SECURITY				//Honestly should have a bridge techfab for this sometime.
-
-/datum/design/board/idcardconsole
-	name = "Computer Design (ID Console)"
-	desc = "Allows for the construction of circuit boards used to build an ID computer."
-	id = "idcardconsole"
-	build_path = /obj/item/circuitboard/computer/card
-	category = list("Computer Boards")
-	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SECURITY				//Honestly should have a bridge techfab for this sometime.
+	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SECURITY //Honestly should have a bridge techfab for this sometime.
 
 /datum/design/board/crewconsole
 	name = "Computer Design (Crew monitoring computer)"
 	desc = "Allows for the construction of circuit boards used to build a Crew monitoring computer."
 	id = "crewconsole"
+	build_type = IMPRINTER
 	build_path = /obj/item/circuitboard/computer/crew
 	category = list("Computer Boards")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
@@ -156,6 +141,7 @@
 	name = "Computer Design (Robotics Control Console)"
 	desc = "Allows for the construction of circuit boards used to build a Robotics Control console."
 	id = "robocontrol"
+	materials = list(/datum/material/glass = 1000, /datum/material/gold = 1000, /datum/material/silver = 1000, /datum/material/bluespace = 2000)
 	build_path = /obj/item/circuitboard/computer/robotics
 	category = list("Computer Boards")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
@@ -212,16 +198,25 @@
 	name = "Computer Design (R&D Console)"
 	desc = "Allows for the construction of circuit boards used to build a new R&D console."
 	id = "rdconsole"
-	build_type = AUTOLATHE | IMPRINTER
 	build_path = /obj/item/circuitboard/computer/rdconsole
-	category = list("Computer Boards", "Electronics")
+	category = list("Computer Boards")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
 
-/datum/design/board/bounty
-	name = "Computer Design (Bounty Console)"
-	desc = "Allows for the construction of circuit boards used to build a Bounty Console."
-	id = "bounty"
-	build_path = /obj/item/circuitboard/computer/bounty
+/datum/design/board/cargo
+	name = "Computer Design (Supply Console)"
+	desc = "Allows for the construction of circuit boards used to build a Supply Console."
+	id = "cargo"
+	build_type = IMPRINTER
+	build_path = /obj/item/circuitboard/computer/cargo
+	category = list("Computer Boards")
+	departmental_flags = DEPARTMENTAL_FLAG_CARGO
+
+/datum/design/board/cargorequest
+	name = "Computer Design (Supply Request Console)"
+	desc = "Allows for the construction of circuit boards used to build a Supply Request Console."
+	id = "cargorequest"
+	build_type = IMPRINTER
+	build_path = /obj/item/circuitboard/computer/cargo/request
 	category = list("Computer Boards")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
@@ -232,14 +227,6 @@
 	build_path = /obj/item/circuitboard/computer/mining
 	category = list("Computer Boards")
 	departmental_flags = DEPARTMENTAL_FLAG_CARGO | DEPARTMENTAL_FLAG_SECURITY
-
-/datum/design/board/selling
-	name = "Computer Design (Cargo Hold Control Terminal)"
-	desc = "Allows for the construction of circuit boards used to build a Cargo Hold Control Terminal."
-	id = "selling_console"
-	build_path = /obj/item/circuitboard/computer/selling_pad_control
-	category = list("Computer Boards")
-	departmental_flags = DEPARTMENTAL_FLAG_CARGO
 
 /datum/design/board/comm_monitor
 	name = "Computer Design (Telecommunications Monitoring Console)"
@@ -296,3 +283,26 @@
 	build_path = /obj/item/circuitboard/computer/advanced_camera
 	category = list("Computer Boards")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+
+/datum/design/board/bountypad_control
+	name = "Computer Design (Civilian Bounty Pad Control)"
+	desc = "Allows for the construction of circuit boards used to build a new civilian bounty pad console."
+	id = "bounty_pad_control"
+	build_path = /obj/item/circuitboard/computer/bountypad
+	category = list("Computer Boards")
+
+/datum/design/board/exoscanner_console
+	name = "Computer Design (Scanner Array Control Console)"
+	desc = "Allows for the construction of circuit boards used to build a new scanner array control console."
+	id = "exoscanner_console"
+	build_type = IMPRINTER
+	build_path = /obj/item/circuitboard/computer/exoscanner_console
+	category = list("Computer Boards")
+
+/datum/design/board/exodrone_console
+	name = "Computer Design (Exploration Drone Control Console)"
+	desc = "Allows for the construction of circuit boards used to build a new exploration drone control console."
+	id = "exodrone_console"
+	build_type = IMPRINTER
+	build_path = /obj/item/circuitboard/computer/exodrone_console
+	category = list("Computer Boards")

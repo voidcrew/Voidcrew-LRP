@@ -26,18 +26,18 @@
 				playsound(active_apc, 'sound/machines/boltsdown.ogg', 25, FALSE)
 				playsound(active_apc, 'sound/machines/terminal_alert.ogg', 50, FALSE)
 			active_apc.locked = TRUE
-			active_apc.update_icon()
+			active_apc.update_appearance()
 			active_apc.remote_control = null
 			active_apc = null
 
 /obj/machinery/computer/apc_control/attack_ai(mob/user)
 	if(!isAdminGhostAI(user))
-		to_chat(user,"<span class='warning'>[src] does not support AI control.</span>") //You already have APC access, cheater!
+		to_chat(user,span_warning("[src] does not support AI control.")) //You already have APC access, cheater!
 		return
 	..()
 
 /obj/machinery/computer/apc_control/proc/check_apc(obj/machinery/power/apc/APC)
-	return APC.virtual_z() == virtual_z() && !APC.malfhack && !APC.aidisabled && !(APC.obj_flags & EMAGGED) && !APC.machine_stat && !istype(APC.area, /area/ai_monitored) && !APC.area.outdoors
+	return APC.z == z && !APC.malfhack && !APC.aidisabled && !(APC.obj_flags & EMAGGED) && !APC.machine_stat && !istype(APC.area, /area/ai_monitored) && !(APC.area.area_flags & NO_ALERTS)
 
 /obj/machinery/computer/apc_control/ui_interact(mob/user, datum/tgui/ui)
 	operator = user
@@ -67,7 +67,7 @@
 					"name" = A.area.name,
 					"operating" = A.operating,
 					"charge" = (has_cell) ? A.cell.percent() : "NOCELL",
-					"load" = DisplayPower(A.lastused_total),
+					"load" = display_power(A.lastused_total),
 					"charging" = A.charging,
 					"chargeMode" = A.chargemode,
 					"eqp" = A.equipment,
@@ -101,6 +101,8 @@
 				else
 					auth_id = "[ID.registered_name] ([ID.assignment]):"
 					log_activity("[auth_id] attempted to log into the terminal")
+					playsound(src, 'sound/machines/terminal_error.ogg', 50, FALSE)
+					to_chat(usr, span_warning("ID REJECTED - Access Denied."))
 				return
 			auth_id = "Unknown (Unknown):"
 			log_activity("[auth_id] attempted to log into the terminal")
@@ -127,7 +129,7 @@
 				playsound(active_apc, 'sound/machines/boltsdown.ogg', 25, FALSE)
 				playsound(active_apc, 'sound/machines/terminal_alert.ogg', 50, FALSE)
 				active_apc.locked = TRUE
-				active_apc.update_icon()
+				active_apc.update_appearance()
 				active_apc.remote_control = null
 				active_apc = null
 			APC.remote_control = src
@@ -140,7 +142,7 @@
 				playsound(APC, 'sound/machines/boltsup.ogg', 25, FALSE)
 				playsound(APC, 'sound/machines/terminal_alert.ogg', 50, FALSE)
 			APC.locked = FALSE
-			APC.update_icon()
+			APC.update_appearance()
 			active_apc = APC
 		if("check-logs")
 			log_activity("Checked Logs")
@@ -153,8 +155,17 @@
 			var/obj/machinery/power/apc/target = locate(ref) in GLOB.apcs_list
 			if(!target)
 				return
-			target.vars[type] = target.setsubsystem(text2num(value))
-			target.update_icon()
+
+			value = target.setsubsystem(text2num(value))
+			switch(type) // Sanity check
+				if("equipment", "lighting", "environ")
+					target.vars[type] = value
+				else
+					message_admins("Warning: possible href exploit by [key_name(usr)] - attempted to set [type] on [target] to [value]")
+					log_game("Warning: possible href exploit by [key_name(usr)] - attempted to set [type] on [target] to [value]")
+					return
+
+			target.update_appearance()
 			target.update()
 			var/setTo = ""
 			switch(target.vars[type])

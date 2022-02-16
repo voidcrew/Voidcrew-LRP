@@ -1,33 +1,33 @@
 /obj/item/gun/energy/e_gun
-	name = "energy rifle"
+	name = "energy gun"
 	desc = "A basic hybrid energy gun with two settings: disable and kill."
 	icon_state = "energy"
-	item_state = null	//so the human update icon uses the icon_state instead.
+	w_class = WEIGHT_CLASS_BULKY
+	inhand_icon_state = null //so the human update icon uses the icon_state instead.
 	ammo_type = list(/obj/item/ammo_casing/energy/disabler, /obj/item/ammo_casing/energy/laser)
-	modifystate = 1
+	modifystate = TRUE
 	can_flashlight = TRUE
 	ammo_x_offset = 3
 	flight_x_offset = 15
 	flight_y_offset = 10
-	weapon_weight = WEAPON_MEDIUM
+	dual_wield_spread = 60
 
 /obj/item/gun/energy/e_gun/mini
 	name = "miniature energy gun"
 	desc = "A small, pistol-sized energy gun with a built-in flashlight. It has two settings: disable and kill."
 	icon_state = "mini"
-	item_state = "gun"
+	inhand_icon_state = "gun"
 	w_class = WEIGHT_CLASS_SMALL
-	cell_type = /obj/item/stock_parts/cell/gun/mini
-	small_gun = TRUE
+	cell_type = /obj/item/stock_parts/cell/mini_egun
 	ammo_x_offset = 2
 	charge_sections = 3
 	can_flashlight = FALSE // Can't attach or detach the flashlight, and override it's icon update
 	gunlight_state = "mini-light"
 	flight_x_offset = 19
 	flight_y_offset = 13
-	weapon_weight = WEAPON_LIGHT
+	single_shot_type_overlay = FALSE
 
-/obj/item/gun/energy/e_gun/mini/Initialize()
+/obj/item/gun/energy/e_gun/mini/Initialize(mapload)
 	set_gun_light(new /obj/item/flashlight/seclite(src))
 	return ..()
 
@@ -50,42 +50,32 @@
 	desc = "A modified version of the basic phaser gun, this one fires less concentrated energy bolts designed for target practice."
 	ammo_type = list(/obj/item/ammo_casing/energy/disabler, /obj/item/ammo_casing/energy/laser/practice)
 	icon_state = "decloner"
+	//You have no icons for energy types, you're a decloner
+	modifystate = FALSE
 
 /obj/item/gun/energy/e_gun/hos
 	name = "\improper X-01 MultiPhase Energy Gun"
 	desc = "This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time."
-	cell_type = /obj/item/stock_parts/cell/gun/upgraded
+	cell_type = /obj/item/stock_parts/cell/hos_gun
 	icon_state = "hoslaser"
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 10
-	ammo_type = list(/obj/item/ammo_casing/energy/disabler/hos, /obj/item/ammo_casing/energy/laser/hos, /obj/item/ammo_casing/energy/ion/hos, /obj/item/ammo_casing/energy/electrode/hos)
-	automatic = 1
-	fire_rate = 3
-	shaded_charge = TRUE
+	ammo_type = list(/obj/item/ammo_casing/energy/disabler/hos, /obj/item/ammo_casing/energy/laser/hos, /obj/item/ammo_casing/energy/ion/hos)
+	ammo_x_offset = 4
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
-
-/obj/item/gun/energy/e_gun/hos/brazil
-	name = "modified antique laser gun"
-	desc = "It's somehow modified to have more firemodes."
-	icon_state = "capgun_brazil_hos"
-	item_state = "hoslaser"
-
-/obj/item/gun/energy/e_gun/hos/brazil/true
-	desc = "By using a original antique laser gun with a intact nuclear power cell, it is truly one of the finest weapons in this area of space."
-	icon_state = "capgun_hos"
-	item_state = "hoslaser"
-	selfcharge = 1
 
 /obj/item/gun/energy/e_gun/dragnet
 	name = "\improper DRAGnet"
 	desc = "The \"Dynamic Rapid-Apprehension of the Guilty\" net is a revolution in law enforcement technology."
 	icon_state = "dragnet"
-	item_state = "dragnet"
+	inhand_icon_state = "dragnet"
 	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
 	ammo_type = list(/obj/item/ammo_casing/energy/net, /obj/item/ammo_casing/energy/trap)
+	modifystate = FALSE
+	w_class = WEIGHT_CLASS_NORMAL
 	can_flashlight = FALSE
 	ammo_x_offset = 1
-	fire_rate = 1.5
 
 /obj/item/gun/energy/e_gun/dragnet/snare
 	name = "Energy Snare Launcher"
@@ -96,7 +86,7 @@
 	name = "hybrid turret gun"
 	desc = "A heavy hybrid energy cannon with two settings: Stun and kill."
 	icon_state = "turretlaser"
-	item_state = "turretlaser"
+	inhand_icon_state = "turretlaser"
 	slot_flags = null
 	w_class = WEIGHT_CLASS_HUGE
 	ammo_type = list(/obj/item/ammo_casing/energy/electrode, /obj/item/ammo_casing/energy/laser)
@@ -104,33 +94,29 @@
 	can_flashlight = FALSE
 	trigger_guard = TRIGGER_GUARD_NONE
 	ammo_x_offset = 2
-	automatic = 1
-	fire_rate = 5
 
 /obj/item/gun/energy/e_gun/nuclear
 	name = "advanced energy gun"
 	desc = "An energy gun with an experimental miniaturized nuclear reactor that automatically charges the internal power cell."
 	icon_state = "nucgun"
-	item_state = "nucgun"
-	charge_delay = 5
-	pin = null
+	inhand_icon_state = "nucgun"
+	charge_delay = 10
 	can_charge = FALSE
-	internal_cell = TRUE
-	ammo_x_offset = 2
+	ammo_x_offset = 1
 	ammo_type = list(/obj/item/ammo_casing/energy/laser, /obj/item/ammo_casing/energy/disabler)
 	selfcharge = 1
 	var/reactor_overloaded
 	var/fail_tick = 0
 	var/fail_chance = 0
 
-/obj/item/gun/energy/e_gun/nuclear/process()
+/obj/item/gun/energy/e_gun/nuclear/process(delta_time)
 	if(fail_tick > 0)
-		fail_tick--
+		fail_tick -= delta_time * 0.5
 	..()
 
 /obj/item/gun/energy/e_gun/nuclear/shoot_live_shot(mob/living/user, pointblank = 0, atom/pbtarget = null, message = 1)
 	failcheck()
-	update_icon()
+	update_appearance()
 	..()
 
 /obj/item/gun/energy/e_gun/nuclear/proc/failcheck()
@@ -139,13 +125,13 @@
 		switch(fail_tick)
 			if(0 to 200)
 				fail_tick += (2*(fail_chance))
-				M.rad_act(40)
-				to_chat(M, "<span class='userdanger'>Your [name] feels warmer.</span>")
+				M.adjustFireLoss(3)
+				to_chat(M, span_userdanger("Your [name] feels warmer."))
 			if(201 to INFINITY)
 				SSobj.processing.Remove(src)
-				M.rad_act(80)
+				M.adjustFireLoss(10)
 				reactor_overloaded = TRUE
-				to_chat(M, "<span class='userdanger'>Your [name]'s reactor overloads!</span>")
+				to_chat(M, span_userdanger("Your [name]'s reactor overloads!"))
 
 /obj/item/gun/energy/e_gun/nuclear/emp_act(severity)
 	. = ..()
@@ -157,22 +143,12 @@
 	. = ..()
 	if(reactor_overloaded)
 		. += "[icon_state]_fail_3"
-	else
-		switch(fail_tick)
-			if(0)
-				. += "[icon_state]_fail_0"
-			if(1 to 150)
-				. += "[icon_state]_fail_1"
-			if(151 to INFINITY)
-				. += "[icon_state]_fail_2"
+		return
 
-/obj/item/gun/energy/e_gun/rdgun
-	name = "research director's PDW"
-	desc = "A energy revolver made from the power of science, but more importantly booze. Only has 6 shots."
-	icon_state = "rdpdw"
-	item_state = "gun"
-	ammo_x_offset = 2
-	charge_sections = 6
-	small_gun = TRUE
-	ammo_type = list(/obj/item/ammo_casing/energy/disabler/hitscan, /obj/item/ammo_casing/energy/ion/cheap)
-	cell_type = /obj/item/stock_parts/cell/gun/mini
+	switch(fail_tick)
+		if(0)
+			. += "[icon_state]_fail_0"
+		if(1 to 150)
+			. += "[icon_state]_fail_1"
+		if(151 to INFINITY)
+			. += "[icon_state]_fail_2"

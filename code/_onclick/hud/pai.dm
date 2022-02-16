@@ -1,4 +1,4 @@
-#define PAI_MISSING_SOFTWARE_MESSAGE "<span class='warning'>You must download the required software to use this.</span>"
+#define PAI_MISSING_SOFTWARE_MESSAGE span_warning("You must download the required software to use this.")
 
 /atom/movable/screen/pai
 	icon = 'icons/hud/screen_pai.dmi'
@@ -21,7 +21,7 @@
 	if(!..())
 		return
 	var/mob/living/silicon/pai/pAI = usr
-	pAI.paiInterface()
+	pAI.ui_interact(pAI)
 
 /atom/movable/screen/pai/shell
 	name = "Toggle Holoform"
@@ -82,19 +82,26 @@
 	icon_state = "host_monitor"
 	required_software = "host scan"
 
-/atom/movable/screen/pai/host_monitor/Click()
-	if(!..())
+/atom/movable/screen/pai/host_monitor/Click(location, control, params)
+	. = ..()
+	if(!.)
 		return
 	var/mob/living/silicon/pai/pAI = usr
-	if(iscarbon(pAI.card.loc))
-		pAI.hostscan.attack(pAI.card.loc, pAI)
+	var/list/modifiers = params2list(params)
+	var/mob/living/carbon/holder = get(pAI.card.loc, /mob/living/carbon)
+	if(holder)
+		if (LAZYACCESS(modifiers, RIGHT_CLICK))
+			pAI.hostscan.attack_secondary(holder, pAI)
+		else
+			pAI.hostscan.attack(holder, pAI)
 	else
-		to_chat(src, "<span class='warning'>You are not being carried by anyone!</span>")
-		return 0
+		to_chat(usr, span_warning("You are not being carried by anyone!"))
+		return FALSE
 
 /atom/movable/screen/pai/crew_manifest
 	name = "Crew Manifest"
 	icon_state = "manifest"
+	required_software = "crew manifest"
 
 /atom/movable/screen/pai/crew_manifest/Click()
 	if(!..())
@@ -115,6 +122,7 @@
 /atom/movable/screen/pai/pda_msg_send
 	name = "PDA - Send Message"
 	icon_state = "pda_send"
+	required_software = "digital messenger"
 
 /atom/movable/screen/pai/pda_msg_send/Click()
 	if(!..())
@@ -125,12 +133,27 @@
 /atom/movable/screen/pai/pda_msg_show
 	name = "PDA - Show Message Log"
 	icon_state = "pda_receive"
+	required_software = "digital messenger"
 
 /atom/movable/screen/pai/pda_msg_show/Click()
 	if(!..())
 		return
 	var/mob/living/silicon/pai/pAI = usr
 	pAI.cmd_show_message_log(usr)
+
+/atom/movable/screen/pai/internal_gps
+	name = "Internal GPS"
+	icon_state = "internal_gps"
+	required_software = "internal gps"
+
+/atom/movable/screen/pai/internal_gps/Click()
+	. = ..()
+	if(!.)
+		return
+	var/mob/living/silicon/pai/pAI = usr
+	if(!pAI.internal_gps)
+		pAI.internal_gps = new(pAI)
+	pAI.internal_gps.attack_self(pAI)
 
 /atom/movable/screen/pai/image_take
 	name = "Take Image"
@@ -201,7 +224,7 @@
 
 // Language menu
 	using = new /atom/movable/screen/language_menu
-	using.screen_loc = ui_borg_language_menu
+	using.screen_loc = ui_pai_language_menu
 	static_inventory += using
 
 // Host Monitor
@@ -229,6 +252,11 @@
 	using.screen_loc = ui_pai_pda_log
 	static_inventory += using
 
+// Internal GPS
+	using = new /atom/movable/screen/pai/internal_gps()
+	using.screen_loc = ui_pai_internal_gps
+	static_inventory += using
+
 // Take image
 	using = new /atom/movable/screen/pai/image_take()
 	using.screen_loc = ui_pai_take_picture
@@ -241,7 +269,7 @@
 
 // Radio
 	using = new /atom/movable/screen/pai/radio()
-	using.screen_loc = ui_borg_radio
+	using.screen_loc = ui_pai_radio
 	static_inventory += using
 
 	update_software_buttons()

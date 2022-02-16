@@ -1,3 +1,4 @@
+GLOBAL_DATUM(ore_silo_default, /obj/machinery/ore_silo)
 GLOBAL_LIST_EMPTY(silo_access_logs)
 
 /obj/machinery/ore_silo
@@ -7,7 +8,6 @@ GLOBAL_LIST_EMPTY(silo_access_logs)
 	icon_state = "silo"
 	density = TRUE
 	circuit = /obj/item/circuitboard/machine/ore_silo
-	req_access = ACCESS_VAULT
 
 	var/list/holds = list()
 	var/list/datum/component/remote_materials/connected = list()
@@ -28,9 +28,14 @@ GLOBAL_LIST_EMPTY(silo_access_logs)
 		/datum/material/bluespace,
 		/datum/material/plastic,
 		)
-	AddComponent(/datum/component/material_container, materials_list, INFINITY, allowed_types=/obj/item/stack, _disable_attackby=TRUE)
+	AddComponent(/datum/component/material_container, materials_list, INFINITY, MATCONTAINER_NO_INSERT, allowed_items=/obj/item/stack)
+	if (!GLOB.ore_silo_default && mapload && is_station_level(z))
+		GLOB.ore_silo_default = src
 
 /obj/machinery/ore_silo/Destroy()
+	if (GLOB.ore_silo_default == src)
+		GLOB.ore_silo_default = null
+
 	for(var/C in connected)
 		var/datum/component/remote_materials/mats = C
 		mats.disconnect_from(src)
@@ -42,53 +47,39 @@ GLOBAL_LIST_EMPTY(silo_access_logs)
 
 	return ..()
 
-/obj/machinery/ore_silo/proc/remote_attackby(obj/machinery/M, mob/user, obj/item/stack/I)
+/obj/machinery/ore_silo/proc/remote_attackby(obj/machinery/M, mob/living/user, obj/item/stack/I, breakdown_flags=NONE)
 	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
 	// stolen from /datum/component/material_container/proc/OnAttackBy
-	if(user.a_intent != INTENT_HELP)
+	if(user.combat_mode)
 		return
 	if(I.item_flags & ABSTRACT)
 		return
 	if(!istype(I) || (I.flags_1 & HOLOGRAM_1) || (I.item_flags & NO_MAT_REDEMPTION))
-		to_chat(user, "<span class='warning'>[M] won't accept [I]!</span>")
+		to_chat(user, span_warning("[M] won't accept [I]!"))
 		return
-	var/item_mats = I.custom_materials & materials.materials
-	if(!length(item_mats))
-		to_chat(user, "<span class='warning'>[I] does not contain sufficient materials to be accepted by [M].</span>")
+	var/item_mats = materials.get_item_material_amount(I, breakdown_flags)
+	if(!item_mats)
+		to_chat(user, span_warning("[I] does not contain sufficient materials to be accepted by [M]."))
 		return
 	// assumes unlimited space...
 	var/amount = I.amount
-	materials.user_insert(I, user)
+	materials.user_insert(I, user, breakdown_flags)
 	silo_log(M, "deposited", amount, "sheets", item_mats)
 	return TRUE
 
 /obj/machinery/ore_silo/attackby(obj/item/W, mob/user, params)
+	if(default_deconstruction_screwdriver(user, icon_state, icon_state, W))
+		updateUsrDialog()
+		return
+	if(default_deconstruction_crowbar(W))
+		return
+
+	if(!powered())
+		return ..()
+
 	if (istype(W, /obj/item/stack))
 		return remote_attackby(src, user, W)
-	if (istype(W, /obj/item/card/id))
-		var/obj/item/card/id/I = W
-		var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
-		if(materials.linked_account && (I.registered_account == materials.linked_account || check_access(I)))
-			var/choice = input(user, "Please select a configuration option.", "Ore Silo") as null|anything in list("Unlink Account", "Change Markup", "Minimum Refund Threshold")
-			switch(choice)
-				if("Change Markup")
-					var/markup = clamp(input(user, "Please input the desired material markup cost. (Number, 0%-500%)", "Ore Silo", materials.cost_modifier * 100) as num, 0, 500)
-					if(markup)
-						materials.cost_modifier = markup / 100
-				if("Unlink Account")
-					materials.linked_account.bank_card_talk("[src] has been un-linked from your account.")
-					materials.linked_account = null
-				if("Minimum Refund Threshold")
-					var/threshold = max(input(user, "Please input the desired minimum balance at which to consider giving material price refunds. (Number, Minimum 0)", "Ore Silo", materials.refund_minimum) as num, 0)
-					if(threshold)
-						materials.refund_minimum = threshold
-		else if(!materials.linked_account && I.registered_account)
-			user.visible_message(
-				"[user] swipes [I] on [src], registering it's linked account for material payments.",
-				"You swipe [I] on [src], registering it's linked account for material payments.",
-				"You hear a someone sliding a card, and then a quiet beep.")
-			materials.linked_account = I.registered_account
-		return TRUE
+
 	return ..()
 
 /obj/machinery/ore_silo/ui_interact(mob/user)
@@ -99,10 +90,7 @@ GLOBAL_LIST_EMPTY(silo_access_logs)
 
 /obj/machinery/ore_silo/proc/generate_ui()
 	var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
-	var/list/ui = list("<head><title>Ore Silo</title></head><body><div class='statusDisplay'>")
-	if(materials.linked_account)
-		ui += "<b>Linked account:</b> [materials.linked_account.account_holder]'s account ([materials.cost_modifier * 100]% markup)"
-	ui += "<h2>Stored Material:</h2>"
+	var/list/ui = list("<head><title>Ore Silo</title></head><body><div class='statusDisplay'><h2>Stored Material:</h2>")
 	var/any = FALSE
 	for(var/M in materials.materials)
 		var/datum/material/mat = M
@@ -180,10 +168,9 @@ GLOBAL_LIST_EMPTY(silo_access_logs)
 		updateUsrDialog()
 		return TRUE
 	else if(href_list["ejectsheet"])
-		var/obj/item/card/id/I = usr.get_idcard(TRUE)
 		var/datum/material/eject_sheet = locate(href_list["ejectsheet"])
 		var/datum/component/material_container/materials = GetComponent(/datum/component/material_container)
-		var/count = materials.retrieve_sheets(text2num(href_list["eject_amt"]), eject_sheet, drop_location(), I?.registered_account)
+		var/count = materials.retrieve_sheets(text2num(href_list["eject_amt"]), eject_sheet, drop_location())
 		var/list/matlist = list()
 		matlist[eject_sheet] = MINERAL_MATERIAL_AMOUNT
 		silo_log(src, "ejected", -count, "sheets", matlist)
@@ -196,7 +183,7 @@ GLOBAL_LIST_EMPTY(silo_access_logs)
 /obj/machinery/ore_silo/multitool_act(mob/living/user, obj/item/multitool/I)
 	. = ..()
 	if (istype(I))
-		to_chat(user, "<span class='notice'>You log [src] in the multitool's buffer.</span>")
+		to_chat(user, span_notice("You log [src] in the multitool's buffer."))
 		I.buffer = src
 		return TRUE
 
@@ -216,21 +203,7 @@ GLOBAL_LIST_EMPTY(silo_access_logs)
 
 /obj/machinery/ore_silo/examine(mob/user)
 	. = ..()
-	. += "<span class='notice'>[src] can be linked to techfabs, circuit printers and protolathes with a multitool.</span>"
-
-/obj/machinery/ore_silo/on_object_saved(var/depth = 0)
-	if(depth >= 10)
-		return ""
-	var/dat
-	var/datum/component/material_container/material_holder = GetComponent(/datum/component/material_container)
-	for(var/each in material_holder.materials)
-		var/amount = material_holder.materials[each] / MINERAL_MATERIAL_AMOUNT
-		var/datum/material/material_datum = each
-		while(amount > 0)
-			var/amount_in_stack = max(1, min(50, amount))
-			amount -= amount_in_stack
-			dat += "[dat ? ",\n" : ""][material_datum.sheet_type]{\n\tamount = [amount_in_stack]\n\t}"
-	return dat
+	. += span_notice("[src] can be linked to techfabs, circuit printers and protolathes with a multitool.")
 
 /datum/ore_silo_log
 	var/name  // for VV

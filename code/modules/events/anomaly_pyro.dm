@@ -3,7 +3,7 @@
 	typepath = /datum/round_event/anomaly/anomaly_pyro
 
 	max_occurrences = 5
-	weight = 15 //WS Edit - Pyroclastic Rebalance
+	weight = 20
 
 /datum/round_event/anomaly/anomaly_pyro
 	startWhen = 3
@@ -11,4 +11,4 @@
 	anomaly_path = /obj/effect/anomaly/pyro
 
 /datum/round_event/anomaly/anomaly_pyro/announce(fake)
-	priority_announce("Pyroclastic anomaly detected on long range scanners. Expected location: [impact_area.name].", "Anomaly Alert", zlevel = impact_area.virtual_z())
+	priority_announce("Pyroclastic anomaly detected on long range scanners. Expected location: [impact_area.name].", "Anomaly Alert")

@@ -4,13 +4,16 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	var/rummage_if_nodrop = TRUE
 	var/component_type = /datum/component/storage/concrete
+	/// Should we preload the contents of this type?
+	/// BE CAREFUL, THERE'S SOME REALLY NASTY SHIT IN THIS TYPEPATH
+	/// SANTA IS EVIL
+	var/preload = FALSE
 
-/obj/item/storage/get_dumping_location(obj/item/storage/source,mob/user)
-	return src
-
-/obj/item/storage/Initialize()
+/obj/item/storage/Initialize(mapload)
 	. = ..()
 	PopulateContents()
+	for (var/obj/item/item in src)
+		item.item_flags |= IN_STORAGE
 
 /obj/item/storage/ComponentInitialize()
 	AddComponent(component_type)
@@ -19,14 +22,13 @@
 	return FALSE
 
 /obj/item/storage/contents_explosion(severity, target)
-	for(var/atom/A in contents)
-		switch(severity)
-			if(EXPLODE_DEVASTATE)
-				SSexplosions.highobj += A
-			if(EXPLODE_HEAVY)
-				SSexplosions.medobj += A
-			if(EXPLODE_LIGHT)
-				SSexplosions.lowobj += A
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			SSexplosions.high_mov_atom += contents
+		if(EXPLODE_HEAVY)
+			SSexplosions.med_mov_atom += contents
+		if(EXPLODE_LIGHT)
+			SSexplosions.low_mov_atom += contents
 
 /obj/item/storage/canStrip(mob/who)
 	. = ..()
@@ -49,14 +51,15 @@
 	var/datum/component/storage/ST = GetComponent(/datum/component/storage)
 	ST.do_quick_empty()
 
-/obj/item/storage/on_object_saved(var/depth = 0)
-	if(depth >= 10)
-		return ""
-	var/dat = ""
-	for(var/obj/item in contents)
-		var/metadata = generate_tgm_metadata(item)
-		dat += "[dat ? ",\n" : ""][item.type][metadata]"
-		//Save the contents of things inside the things inside us, EG saving the contents of bags inside lockers
-		var/custom_data = item.on_object_saved(depth++)
-		dat += "[custom_data ? ",\n[custom_data]" : ""]"
-	return dat
+/obj/item/storage/Destroy()
+	for(var/obj/important_thing in contents)
+		if(!(important_thing.resistance_flags & INDESTRUCTIBLE))
+			continue
+		important_thing.forceMove(drop_location())
+	return ..()
+
+/// Returns a list of object types to be preloaded by our code
+/// I'll say it again, be very careful with this. We only need it for a few things
+/// Don't do anything stupid, please
+/obj/item/storage/proc/get_types_to_preload()
+	return

@@ -78,7 +78,7 @@
 /obj/structure/closet/lawcloset/PopulateContents()
 	..()
 	new /obj/item/clothing/under/suit/blacktwopiece(src)
-	new /obj/item/clothing/under/rank/civilian/lawyer/female(src)
+	new /obj/item/clothing/under/rank/civilian/lawyer/beige(src)
 	new /obj/item/clothing/under/rank/civilian/lawyer/black(src)
 	new /obj/item/clothing/under/rank/civilian/lawyer/red(src)
 	new /obj/item/clothing/under/rank/civilian/lawyer/bluesuit(src)
@@ -124,7 +124,7 @@
 		/obj/item/clothing/under/rank/security/officer = 3,
 		/obj/item/clothing/under/rank/security/officer/skirt = 2,
 		/obj/item/clothing/shoes/jackboots = 3,
-		/obj/item/clothing/head/beret/sec = 3, //WS edit - Berets
+		/obj/item/clothing/head/beret/sec = 3,
 		/obj/item/clothing/head/soft/sec = 3,
 		/obj/item/clothing/mask/bandana/red = 2)
 	generate_items_inside(items_inside,src)
@@ -150,7 +150,6 @@
 
 /obj/structure/closet/wardrobe/atmospherics_yellow/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/clothing/head/beret/atmos = 3, //WS edit - Berets
 		/obj/item/clothing/accessory/pocketprotector = 1,
 		/obj/item/storage/backpack/duffelbag/engineering = 1,
 		/obj/item/storage/backpack/satchel/eng = 1,
@@ -175,7 +174,6 @@
 		/obj/item/clothing/under/rank/engineering/engineer = 3,
 		/obj/item/clothing/suit/hazardvest = 3,
 		/obj/item/clothing/shoes/workboots = 3,
-		/obj/item/clothing/head/beret/eng = 3, //WS edit - Berets
 		/obj/item/clothing/head/hardhat = 3)
 	generate_items_inside(items_inside,src)
 	return
@@ -199,7 +197,6 @@
 		/obj/item/clothing/suit/toggle/labcoat = 3,
 		/obj/item/clothing/suit/toggle/labcoat/paramedic = 3,
 		/obj/item/clothing/shoes/sneakers/white = 3,
-		/obj/item/clothing/head/beret/med = 3, //WS edit - Berets
 		/obj/item/clothing/head/soft/paramedic = 3)
 	generate_items_inside(items_inside,src)
 	return
@@ -215,7 +212,6 @@
 		/obj/item/clothing/suit/toggle/labcoat = 2,
 		/obj/item/clothing/shoes/sneakers/black = 2,
 		/obj/item/clothing/gloves/fingerless = 2,
-		/obj/item/clothing/head/beret/sci = 2, //WS edit - Berets
 		/obj/item/clothing/head/soft/black = 2)
 	generate_items_inside(items_inside,src)
 	if(prob(40))
@@ -236,6 +232,7 @@
 		/obj/item/clothing/suit/toggle/labcoat/chemist = 2,
 		/obj/item/storage/backpack/chemistry = 2,
 		/obj/item/storage/backpack/satchel/chem = 2,
+		/obj/item/storage/backpack/duffelbag/chemistry = 2,
 		/obj/item/storage/bag/chemistry = 2)
 	generate_items_inside(items_inside,src)
 	return
@@ -247,11 +244,12 @@
 
 /obj/structure/closet/wardrobe/genetics_white/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/clothing/under/rank/medical/geneticist = 2,
+		/obj/item/clothing/under/rank/rnd/geneticist = 2,
 		/obj/item/clothing/shoes/sneakers/white = 2,
 		/obj/item/clothing/suit/toggle/labcoat/genetics = 2,
 		/obj/item/storage/backpack/genetics = 2,
-		/obj/item/storage/backpack/satchel/gen = 2)
+		/obj/item/storage/backpack/satchel/gen = 2,
+		/obj/item/storage/backpack/duffelbag/genetics = 2)
 	generate_items_inside(items_inside,src)
 	return
 
@@ -266,9 +264,9 @@
 		/obj/item/clothing/shoes/sneakers/white = 2,
 		/obj/item/clothing/suit/toggle/labcoat/virologist = 2,
 		/obj/item/clothing/mask/surgical = 2,
-		/obj/item/clothing/head/beret/med = 2, //WS edit - Berets
 		/obj/item/storage/backpack/virology = 2,
-		/obj/item/storage/backpack/satchel/vir = 2)
+		/obj/item/storage/backpack/satchel/vir = 2,
+		/obj/item/storage/backpack/duffelbag/virology = 2,)
 	generate_items_inside(items_inside,src)
 	return
 
@@ -280,13 +278,13 @@
 	var/static/items_inside = list(
 		/obj/item/clothing/accessory/pocketprotector = 1,
 		/obj/item/storage/backpack/science = 2,
-		/obj/item/storage/backpack/satchel/tox = 2,
+		/obj/item/storage/backpack/satchel/science = 2,
+		/obj/item/storage/backpack/duffelbag/science = 2,
 		/obj/item/clothing/suit/hooded/wintercoat/science = 1,
 		/obj/item/clothing/under/rank/rnd/scientist = 3,
 		/obj/item/clothing/suit/toggle/labcoat/science = 3,
 		/obj/item/clothing/shoes/sneakers/white = 3,
 		/obj/item/radio/headset/headset_sci = 2,
-		/obj/item/clothing/head/beret/sci = 3, //WS edit - Berets
 		/obj/item/clothing/mask/gas = 3)
 	generate_items_inside(items_inside,src)
 	return
@@ -299,6 +297,7 @@
 	var/static/items_inside = list(
 		/obj/item/storage/backpack/botany = 2,
 		/obj/item/storage/backpack/satchel/hyd = 2,
+		/obj/item/storage/backpack/duffelbag/hydroponics = 2,
 		/obj/item/clothing/suit/hooded/wintercoat/hydro = 1,
 		/obj/item/clothing/suit/apron = 2,
 		/obj/item/clothing/suit/apron/overalls = 2,

@@ -27,10 +27,8 @@
 								"Research Machinery",
 								"Misc. Machinery",
 								"Computer Parts",
-								"Spacepod Designs" //WS
+								"Circuitry"
 								)
 	console_link = FALSE
 	production_animation = "protolathe_n"
-	requires_console = FALSE
-	consoleless_interface = TRUE
 	allowed_buildtypes = PROTOLATHE | IMPRINTER

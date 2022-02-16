@@ -17,7 +17,7 @@
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "computer"
 
-/obj/structure/showcase/fakeid/Initialize()
+/obj/structure/showcase/fakeid/Initialize(mapload)
 	. = ..()
 	add_overlay("id")
 	add_overlay("id_key")
@@ -28,16 +28,16 @@
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "computer"
 
-/obj/structure/showcase/fakesec/Initialize()
+/obj/structure/showcase/fakesec/update_overlays()
 	. = ..()
-	add_overlay("security")
-	add_overlay("security_key")
+	. += "security"
+	. += "security_key"
 
 /obj/structure/showcase/horrific_experiment
 	name = "horrific experiment"
 	desc = "Some sort of pod filled with blood and viscera. You swear you can see it moving..."
 	icon = 'icons/obj/machines/cloning.dmi'
-	icon_state = "pod_g"
+	icon_state = "pod_g" // Please don't delete it and not notice it for months this time.
 
 /obj/structure/showcase/machinery/oldpod
 	name = "damaged cryogenic pod"
@@ -55,18 +55,6 @@
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "robot_old"
 	density = FALSE
-
-/obj/structure/showcase/cyborg/assault
-	name = "Syndicate Assault Borg Display"
-	desc = "A gutted chassis of the Cybersun Bloodhound, a model infamous across space as the first truly successful example of a weaponized machine lifeform. An attached plaque extolls the design as a harbinger of Cybersun's rise to industry dominance in the field of combat cybernetics. "
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "showcase_6"
-
-/obj/structure/showcase/cyborg/old/medical
-	name = "Syndicate Mediborg Display"
-	desc = "The gutted chassis of Cybersun's iconic Valkyrie model, fitted with weak LED's where menacing red spotlights once shone. The once-mighty combat medic now lies still and unmoving, but the plaque alongside it reminds you that generations of this design have accompanied syndicate forces into battle wherever and whenever, performing whatever duties are required."
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "showcase_7"
 
 /obj/structure/showcase/mecha/marauder
 	name = "combat mech exhibit"
@@ -123,18 +111,18 @@
 /obj/structure/showcase/attackby(obj/item/W, mob/user)
 	if(W.tool_behaviour == TOOL_SCREWDRIVER && !anchored)
 		if(deconstruction_state == SHOWCASE_SCREWDRIVERED)
-			to_chat(user, "<span class='notice'>You screw the screws back into the showcase.</span>")
+			to_chat(user, span_notice("You screw the screws back into the showcase."))
 			W.play_tool_sound(src, 100)
 			deconstruction_state = SHOWCASE_CONSTRUCTED
 		else if (deconstruction_state == SHOWCASE_CONSTRUCTED)
-			to_chat(user, "<span class='notice'>You unscrew the screws.</span>")
+			to_chat(user, span_notice("You unscrew the screws."))
 			W.play_tool_sound(src, 100)
 			deconstruction_state = SHOWCASE_SCREWDRIVERED
 
 	if(W.tool_behaviour == TOOL_CROWBAR && deconstruction_state == SHOWCASE_SCREWDRIVERED)
 		if(W.use_tool(src, user, 20, volume=100))
-			to_chat(user, "<span class='notice'>You start to crowbar the showcase apart...</span>")
-			new /obj/item/stack/sheet/metal(drop_location(), 4)
+			to_chat(user, span_notice("You start to crowbar the showcase apart..."))
+			new /obj/item/stack/sheet/iron(drop_location(), 4)
 			qdel(src)
 
 	if(deconstruction_state == SHOWCASE_CONSTRUCTED && default_unfasten_wrench(user, W))

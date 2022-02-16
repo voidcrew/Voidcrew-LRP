@@ -1,22 +1,11 @@
-/proc/get_step_multiz(atom/ref, dir)
-	var/multiz_dir = NONE
+/proc/get_step_multiz(ref, dir)
 	if(dir & UP)
 		dir &= ~UP
-		multiz_dir = UP
-	else if(dir & DOWN)
+		return get_step(SSmapping.get_turf_above(get_turf(ref)), dir)
+	if(dir & DOWN)
 		dir &= ~DOWN
-		multiz_dir = DOWN
-	var/turf/my_turf = get_turf(ref)
-	if(dir)
-		my_turf = get_step(my_turf, dir)
-		if(!my_turf)
-			return
-	switch(multiz_dir)
-		if(UP)
-			return my_turf.above()
-		if(DOWN)
-			return my_turf.below()
-	return my_turf
+		return get_step(SSmapping.get_turf_below(get_turf(ref)), dir)
+	return get_step(ref, dir)
 
 /proc/get_dir_multiz(turf/us, turf/them)
 	us = get_turf(us)
@@ -39,13 +28,7 @@
 		return (dir | get_dir(us, them))
 
 /turf/proc/above()
-	var/datum/virtual_level/zone = get_virtual_level()
-	if (!zone)
-		return
-	return zone.get_above_turf(src)
+	return get_step_multiz(src, UP)
 
 /turf/proc/below()
-	var/datum/virtual_level/zone = get_virtual_level()
-	if (!zone)
-		return
-	return zone.get_below_turf(src)
+	return get_step_multiz(src, DOWN)

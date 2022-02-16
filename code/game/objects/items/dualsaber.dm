@@ -3,15 +3,16 @@
  */
 /obj/item/dualsaber
 	icon = 'icons/obj/transforming_energy.dmi'
-	icon_state = "dualsaber"
+	icon_state = "dualsaber0"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	name = "double-bladed energy sword"
-	desc = "For when simply killing someone isn't enough."
+	desc = "Handle with care."
 	force = 3
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 5
+	sharpness = SHARP_EDGED
 	w_class = WEIGHT_CLASS_SMALL
 	hitsound = "swing_hit"
 	armour_penetration = 35
@@ -19,15 +20,19 @@
 	light_range = 6 //TWICE AS BRIGHT AS A REGULAR ESWORD
 	light_color = LIGHT_COLOR_ELECTRIC_GREEN
 	light_on = FALSE
-	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "tore", "lacerated", "ripped", "diced", "cut")
+	attack_verb_continuous = list("attacks", "slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
+	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
+	block_chance = 75
 	max_integrity = 200
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 70)
+	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 70)
 	resistance_flags = FIRE_PROOF
+	wound_bonus = -10
+	bare_wound_bonus = 20
 	var/w_class_on = WEIGHT_CLASS_BULKY
 	var/saber_color = "green"
 	var/two_hand_force = 34
 	var/hacked = FALSE
-	var/list/possible_colors = list("red", "blue", "green", "purple", "yellow")
+	var/list/possible_colors = list("red", "blue", "green", "purple")
 	var/wielded = FALSE // track wielded status on item
 
 /obj/item/dualsaber/ComponentInitialize()
@@ -39,12 +44,11 @@
 /obj/item/dualsaber/proc/on_wield(obj/item/source, mob/living/carbon/user)
 	SIGNAL_HANDLER
 
-	if(user && user.has_dna())
-		if(user.dna.check_mutation(HULK))
-			to_chat(user, "<span class='warning'>You lack the grace to wield this!</span>")
+	if(user?.has_dna())
+		if(user.dna.check_mutation(/datum/mutation/human/hulk))
+			to_chat(user, span_warning("You lack the grace to wield this!"))
 			return COMPONENT_TWOHANDED_BLOCK_WIELD
 	wielded = TRUE
-	sharpness = IS_SHARP
 	w_class = w_class_on
 	hitsound = 'sound/weapons/blade1.ogg'
 	START_PROCESSING(SSobj, src)
@@ -57,26 +61,26 @@
 	SIGNAL_HANDLER
 
 	wielded = FALSE
-	sharpness = initial(sharpness)
 	w_class = initial(w_class)
 	hitsound = "swing_hit"
 	STOP_PROCESSING(SSobj, src)
 	set_light_on(FALSE)
 
 
+/obj/item/dualsaber/get_sharpness()
+	return wielded * sharpness
+
 /obj/item/dualsaber/update_icon_state()
-	if(wielded)
-		icon_state = "dualsaber[saber_color]"
-	else
-		icon_state = "dualsaber"
+	icon_state = wielded ? "dualsaber[saber_color][wielded]" : "dualsaber0"
+	return ..()
 
 /obj/item/dualsaber/suicide_act(mob/living/carbon/user)
 	if(wielded)
-		user.visible_message("<span class='suicide'>[user] begins spinning way too fast! It looks like [user.p_theyre()] trying to commit suicide!</span>")
+		user.visible_message(span_suicide("[user] begins spinning way too fast! It looks like [user.p_theyre()] trying to commit suicide!"))
 
 		var/obj/item/bodypart/head/myhead = user.get_bodypart(BODY_ZONE_HEAD)//stole from chainsaw code
 		var/obj/item/organ/brain/B = user.getorganslot(ORGAN_SLOT_BRAIN)
-		B.organ_flags &= ~ORGAN_VITAL	//this cant possibly be a good idea
+		B.organ_flags &= ~ORGAN_VITAL //this cant possibly be a good idea
 		var/randdir
 		for(var/i in 1 to 24)//like a headless chicken!
 			if(user.is_holding(src))
@@ -87,14 +91,14 @@
 					myhead.drop_limb()
 				sleep(3)
 			else
-				user.visible_message("<span class='suicide'>[user] panics and starts choking to death!</span>")
+				user.visible_message(span_suicide("[user] panics and starts choking to death!"))
 				return OXYLOSS
 
 	else
-		user.visible_message("<span class='suicide'>[user] begins beating [user.p_them()]self to death with \the [src]'s handle! It probably would've been cooler if [user.p_they()] turned it on first!</span>")
+		user.visible_message(span_suicide("[user] begins beating [user.p_them()]self to death with \the [src]'s handle! It probably would've been cooler if [user.p_they()] turned it on first!"))
 	return BRUTELOSS
 
-/obj/item/dualsaber/Initialize()
+/obj/item/dualsaber/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, .proc/on_wield)
 	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, .proc/on_unwield)
@@ -109,8 +113,6 @@
 				set_light_color(LIGHT_COLOR_LIGHT_CYAN)
 			if("purple")
 				set_light_color(LIGHT_COLOR_LAVENDER)
-			if("yellow")
-				set_light_color(COLOR_YELLOW)
 
 /obj/item/dualsaber/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -118,8 +120,8 @@
 
 /obj/item/dualsaber/attack(mob/target, mob/living/carbon/human/user)
 	if(user.has_dna())
-		if(user.dna.check_mutation(HULK))
-			to_chat(user, "<span class='warning'>You grip the blade too hard and accidentally drop it!</span>")
+		if(user.dna.check_mutation(/datum/mutation/human/hulk))
+			to_chat(user, span_warning("You grip the blade too hard and accidentally drop it!"))
 			if(wielded)
 				user.dropItemToGround(src, force=TRUE)
 				return
@@ -134,7 +136,7 @@
 	dance_rotate(user, CALLBACK(user, /mob.proc/dance_flip))
 
 /obj/item/dualsaber/proc/impale(mob/living/user)
-	to_chat(user, "<span class='warning'>You twirl around a bit before losing your balance and impaling yourself on [src].</span>")
+	to_chat(user, span_warning("You twirl around a bit before losing your balance and impaling yourself on [src]."))
 	if(wielded)
 		user.take_bodypart_damage(20,25,check_armor = TRUE)
 	else
@@ -158,7 +160,7 @@
 		return 1
 
 /obj/item/dualsaber/ignition_effect(atom/A, mob/user)
-	// same as /obj/item/melee/transforming/energy, mostly
+	// same as /obj/item/melee/energy, mostly
 	if(!wielded)
 		return ""
 	var/in_mouth = ""
@@ -166,7 +168,7 @@
 		var/mob/living/carbon/C = user
 		if(C.wear_mask)
 			in_mouth = ", barely missing [user.p_their()] nose"
-	. = "<span class='warning'>[user] swings [user.p_their()] [name][in_mouth]. [user.p_they(TRUE)] light[user.p_s()] [user.p_their()] [A.name] in the process.</span>"
+	. = span_warning("[user] swings [user.p_their()] [name][in_mouth]. [user.p_they(TRUE)] light[user.p_s()] [A.loc == user ? "[user.p_their()] [A.name]" : A] in the process.")
 	playsound(loc, hitsound, get_clamped_volume(), TRUE, -1)
 	add_fingerprint(user)
 	// Light your candles while spinning around the room
@@ -184,17 +186,14 @@
 /obj/item/dualsaber/purple
 	possible_colors = list("purple")
 
-/obj/item/dualsaber/yellow
-	possible_colors = list("yellow")
-
 /obj/item/dualsaber/attackby(obj/item/W, mob/user, params)
 	if(W.tool_behaviour == TOOL_MULTITOOL)
 		if(!hacked)
 			hacked = TRUE
-			to_chat(user, "<span class='warning'>2XRNBW_ENGAGE</span>")
+			to_chat(user, span_warning("2XRNBW_ENGAGE"))
 			saber_color = "rainbow"
-			update_icon()
+			update_appearance()
 		else
-			to_chat(user, "<span class='warning'>It's starting to look like a triple rainbow - no, nevermind.</span>")
+			to_chat(user, span_warning("It's starting to look like a triple rainbow - no, nevermind."))
 	else
 		return ..()

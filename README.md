@@ -1,43 +1,48 @@
-# Voidcrew-LRP Codebase
+## /tg/station codebase
 
-[![Checks](https://github.com/Jackriip/Voidcrew-LRP/workflows/Checks/badge.svg)](https://github.com/Jackriip/Voidcrew-LRP/actions/workflows/ci_suite.yml) [![Percentage of issues still open](http://isitmaintained.com/badge/open/Jackriip/Voidcrew-LRP.svg)](https://isitmaintained.com/project/Jackriip/Voidcrew-LRP "Percentage of issues still open") [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/Jackriip/Voidcrew-LRP.svg)](https://isitmaintained.com/project/Jackriip/Voidcrew-LRP "Average time to resolve an issue") [![GitHub issues](https://img.shields.io/github/issues/Jackriip/Voidcrew-LRP)](https://github.com/Jackriip/Voidcrew-LRP/issues) ![GitHub top language](https://img.shields.io/github/languages/top/Jackriip/Voidcrew-LRP)
+[![Build Status](https://github.com/tgstation/tgstation/workflows/CI%20Suite/badge.svg)](https://github.com/tgstation/tgstation/actions?query=workflow%3A%22CI+Suite%22)
+[![Percentage of issues still open](https://isitmaintained.com/badge/open/tgstation/tgstation.svg)](https://isitmaintained.com/project/tgstation/tgstation "Percentage of issues still open")
+[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/tgstation/tgstation.svg)](https://isitmaintained.com/project/tgstation/tgstation "Average time to resolve an issue")
+![Coverage](https://img.shields.io/badge/coverage---3%25-red.svg)
 
-[![forthebadge](https://forthebadge.com/images/badges/built-with-resentment.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/contains-technical-debt.svg)](https://user-images.githubusercontent.com/8171642/50290880-ffef5500-043a-11e9-8270-a2e5b697c86c.png) [![forinfinityandbyond](https://user-images.githubusercontent.com/5211576/29499758-4efff304-85e6-11e7-8267-62919c3688a9.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
+[![resentment](https://forthebadge.com/images/badges/built-with-resentment.svg)](https://www.monkeyuser.com/assets/images/2019/131-bug-free.png) [![resentment](https://forthebadge.com/images/badges/contains-technical-debt.svg)](https://user-images.githubusercontent.com/8171642/50290880-ffef5500-043a-11e9-8270-a2e5b697c86c.png) [![forinfinityandbyond](https://user-images.githubusercontent.com/5211576/29499758-4efff304-85e6-11e7-8267-62919c3688a9.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
 
-* **Discord:** <https://discord.gg/vaawXjADXa>
+* **Website:** https://www.tgstation13.org
+* **Code:** https://github.com/tgstation/tgstation
+* **Wiki:** https://tgstation13.org/wiki/Main_Page
+* **Codedocs:** https://codedocs.tgstation13.org/
+* **/tg/station Discord:** https://tgstation13.org/phpBB/viewforum.php?f=60
+* **Coderbus Discord:** https://discord.gg/Vh8TJp9
 
-This is the codebase for the Shiptest fork - Voidcrew-LRP.
+This is the codebase for the /tg/station flavoured fork of SpaceStation 13.
 
-Voidcrew is a PVE focused SS13 server centered around ship-based gameplay. Instead of everyone being on a station, they have their own shuttles and crews. Travel the cosmos exploring planets, ancient runes, and floating asteroids.
+Space Station 13 is a paranoia-laden round-based roleplaying game set against the backdrop of a nonsensical, metal death trap masquerading as a space station, with charming spritework designed to represent the sci-fi setting and its dangerous undertones. Have fun, and survive!
 
 ## DOWNLOADING
+[Downloading](.github/guides/DOWNLOADING.md)
 
-[Downloading](.github/DOWNLOADING.md)
+[Running on the server](.github/guides/RUNNING_A_SERVER.md)
 
-[Running on the server](.github/RUNNING_A_SERVER.md)
+[Maps and Away Missions](.github/guides/MAPS_AND_AWAY_MISSIONS.md)
 
-[Maps and Away Missions](.github/MAPS_AND_AWAY_MISSIONS.md)
+## :exclamation: How to compile :exclamation:
 
-## Requirements for contributors
+On **2021-01-04** we have changed the way to compile the codebase.
 
-[Guidelines for Contributors](.github/CONTRIBUTING.md)
+**The quick way**. Find `bin/server.cmd` in this folder and double click it to automatically build and host the server on port 1337.
 
-[Documenting your code](.github/AUTODOC_GUIDE.md)
+**The long way**. Find `bin/build.cmd` in this folder, and double click it to initiate the build. It consists of multiple steps and might take around 1-5 minutes to compile. If it closes, it means it has finished its job. You can then [setup the server](.github/guides/RUNNING_A_SERVER.md) normally by opening `tgstation.dmb` in DreamDaemon.
 
-[Policy configuration system](.github/POLICYCONFIG.md)
+**Building tgstation in DreamMaker directly is now deprecated and might produce errors**, such as `'tgui.bundle.js': cannot find file`.
 
-## CODEBASE CREDITS
+**[How to compile in VSCode and other build options](tools/build/README.md).**
 
-* Shiptest, for the original codebase
-* Whitesands, for the original codebase
-* /tg/, for the original codebase of the original codebase
-* BeeStation, for the many QoL changes
-* Oracle, for the inspiration and wonderful features and sprites
-* Interstation, for bridging the gap between Oracle and Modern /tg/
-* YogStation, for multiple different features
-* Baystation, for the initial overmap concept and sprites
+## Contributors
+[Guides for Contributors](.github/CONTRIBUTING.md)
 
-And thank you to any other codebase not mentioned here that has been used in the code. Your wonderful contributions are known.
+[/tg/station HACKMD account](https://hackmd.io/@tgstation) - Design documentation here
+
+[Interested in some starting lore?](https://github.com/tgstation/common_core)
 
 ## LICENSE
 
@@ -53,5 +58,3 @@ The TGS DMAPI API is licensed as a subproject under the MIT license.
 See the footer of [code/__DEFINES/tgs.dm](./code/__DEFINES/tgs.dm) and [code/modules/tgs/LICENSE](./code/modules/tgs/LICENSE) for the MIT license.
 
 All assets including icons and sound are under a [Creative Commons 3.0 BY-SA license](https://creativecommons.org/licenses/by-sa/3.0/) unless otherwise indicated.
-
-All assets located in the `goon` and `whitesands/goon` directory are under a [Creative Commons 3.0 BY-NC-SA license](https://creativecommons.org/licenses/by-nc-sa/3.0/). Assets created by Goonstation.

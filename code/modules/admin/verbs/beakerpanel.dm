@@ -85,9 +85,9 @@
 					.select2-selection { border-radius: 0px !important; }
 
 					ul {
-						list-style-type: none; /* Remove bullets */
-						padding: 0; /* Remove padding */
-						margin: 0; /* Remove margins */
+					  list-style-type: none; /* Remove bullets */
+					  padding: 0; /* Remove padding */
+					  margin: 0; /* Remove margins */
 					}
 
 					ul li {
@@ -102,23 +102,23 @@
 					}
 
 					.remove-reagent {
-						background-color: #d03000;
+					background-color: #d03000;
 					}
 
 					.container-control {
-						width: 48%;
-						float: left;
-						padding-right: 10px;
+					  width: 48%;
+					  float: left;
+					  padding-right: 10px;
 					}
 					.reagent > div, .reagent-div {
 						float: right;
 						width: 200px;
 					}
 					input.reagent {
-						width: 50%;
+					  width: 50%;
 					}
 					.grenade-data {
-						display: inline-block;
+					  display: inline-block;
 					}
 				</style>
 				<script>
@@ -146,21 +146,21 @@
 
 					$('#spawn-grenade').click(function() {
 						var containers = $('div.container-control').map(function() {
-								var type = $(this).children('select\[name=containertype\]').select2("data")\[0\].id;
-								var reagents = $(this).find("li.reagent").map(function() {
-									return { "reagent": $(this).data("type"), "volume": $(this).find('input').val()};
-									}).get();
-								return {"container": type, "reagents": reagents };
-						}).get();
+					  	  var type = $(this).children('select\[name=containertype\]').select2("data")\[0\].id;
+					      var reagents = $(this).find("li.reagent").map(function() {
+					        return { "reagent": $(this).data("type"), "volume": $(this).find('input').val()};
+					        }).get();
+					     return {"container": type, "reagents": reagents };
+					  }).get();
 						var grenadeType = $('#grenade-type').val()
 						var grenadeData = {};
 						$('.grenade-data.'+grenadeType).find(':input').each(function() {
 							var ret = {};
 							grenadeData\[$(this).attr('name')\] = $(this).val();
 						});
-						$.ajax({
-								url: '',
-								data: {
+					  $.ajax({
+					      url: '',
+					      data: {
 									"_src_": "holder",
 									"admin_token": "[RawHrefToken()]",
 									"beakerpanel": "spawngrenade",
@@ -168,18 +168,18 @@
 									"grenadetype": grenadeType,
 									"grenadedata": JSON.stringify(grenadeData)
 								}
-							});
+					    });
 					});
 
 					$('.spawn-container').click(function() {
 						var container = $(this).parents('div.container-control')\[0\];
-						var type = $(container).children('select\[name=containertype\]').select2("data")\[0\].id;
-						var reagents = $(container).find("li.reagent").map(function() {
-							return { "reagent": $(this).data("type"), "volume": $(this).find('input').val()};
-							}).get();
-						$.ajax({
-							url: '',
-							data: {
+					  var type = $(container).children('select\[name=containertype\]').select2("data")\[0\].id;
+					  var reagents = $(container).find("li.reagent").map(function() {
+					  	return { "reagent": $(this).data("type"), "volume": $(this).find('input').val()};
+					    }).get();
+					  $.ajax({
+					  	url: '',
+					    data: {
 								"_src_": "holder",
 								"admin_token": "[RawHrefToken()]",
 								"beakerpanel": "spawncontainer",
@@ -191,44 +191,44 @@
 
 					$('.add-reagent').click(function() {
 						var select = $(this).parents('li').children('select').select2("data")\[0\];
-						var amount = $(this).parent().children('input').val();
-						addReagent($(this).parents('ul'), select.id, select.text, amount)
+					  var amount = $(this).parent().children('input').val();
+					  addReagent($(this).parents('ul'), select.id, select.text, amount)
 					})
 
 					$('.export-reagents').click(function() {
 						var container = $(this).parents('div.container-control')\[0\];
-						var ret = \[\];
-						var reagents = $(container).find("li.reagent").each(function() {
-							var reagentname = $(this).contents().filter(function(){ return this.nodeType == 3; })\[0\].nodeValue.toLowerCase().replace(/\\W/g, '');
-							ret.push(reagentname+"="+$(this).find('input').val());
-							});
-						prompt("Copy this value", ret.join(';'));
+					  var ret = \[\];
+					  var reagents = $(container).find("li.reagent").each(function() {
+					  	var reagentname = $(this).contents().filter(function(){ return this.nodeType == 3; })\[0\].nodeValue.toLowerCase().replace(/\\W/g, '');
+					    ret.push(reagentname+"="+$(this).find('input').val());
+					    });
+					  prompt("Copy this value", ret.join(';'));
 
 					});
 
 					$('.import-reagents').click(function() {
 						var macro = prompt("Enter a chemistry macro", "");
-						var parts = macro.split(';');
-						var container = $(this).parents('div.container-control')\[0\];
-						var ul = $(container).find("ul");
+					  var parts = macro.split(';');
+					  var container = $(this).parents('div.container-control')\[0\];
+					  var ul = $(container).find("ul");
 
-						$(parts).each(function() {
-							var reagentArr = this.split('=');
-							var thisReagent = $(reagents).filter(function() { return this.text.toLowerCase().replace(/\\W/g, '') == reagentArr\[0\] })\[0\];
-							addReagent(ul, thisReagent.id, thisReagent.text, reagentArr\[1\]);
-						});
+					  $(parts).each(function() {
+					  	var reagentArr = this.split('=');
+					    var thisReagent = $(reagents).filter(function() { return this.text.toLowerCase().replace(/\\W/g, '') == reagentArr\[0\] })\[0\];
+					    addReagent(ul, thisReagent.id, thisReagent.text, reagentArr\[1\]);
+					  });
 
 					});
 
 					$('#grenade-type').change(function() {
 						$('.grenade-data').hide();
-						$('.grenade-data.'+$(this).val()).show();
+					  $('.grenade-data.'+$(this).val()).show();
 					})
 
 					function addReagent(ul, reagentType, reagentName, amount)
 					{
 						$('<li class="reagent" data-type="'+reagentType+'">'+reagentName+'<div><input class="reagent" value="'+amount+'" />&nbsp;&nbsp;<button class="remove-reagent"><i class="far fa-trash-alt"></i>&nbsp;Remove</button></div></li>').insertBefore($(ul).children('li').last());
-						$(ul).children('li').last().prev().find('button').click(function() { $(this).parents('li').remove(); });
+					  $(ul).children('li').last().prev().find('button').click(function() { $(this).parents('li').remove(); });
 					}
 
 					function textSelection(selection)
@@ -261,9 +261,9 @@
 					<div class='uiContent'>
 
 		<div class="width: 100%">
-			<button id="spawn-grenade">
+		<button id="spawn-grenade">
 		<i class="fas fa-bomb"></i>&nbsp;Spawn grenade
-			</button>
+		</button>
 			<label for="grenade-type">Grenade type: </label>
 		<select id="grenade-type">
 			<option value="normal">Normal</option>

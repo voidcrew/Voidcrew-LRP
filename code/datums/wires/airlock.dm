@@ -5,10 +5,43 @@
 
 /datum/wires/airlock
 	holder_type = /obj/machinery/door/airlock
-	proper_name = "Airlock"
+	proper_name = "Generic Airlock"
 
 /datum/wires/airlock/secure
+	proper_name = "High Security Airlock"
 	randomize = TRUE
+
+/datum/wires/airlock/maint
+	dictionary_key = /datum/wires/airlock/maint
+	proper_name = "Maintenance Airlock"
+
+/datum/wires/airlock/command
+	dictionary_key = /datum/wires/airlock/command
+	proper_name = "Command Airlock"
+
+/datum/wires/airlock/service
+	dictionary_key = /datum/wires/airlock/service
+	proper_name = "Service Airlock"
+
+/datum/wires/airlock/security
+	dictionary_key = /datum/wires/airlock/security
+	proper_name = "Security Airlock"
+
+/datum/wires/airlock/engineering
+	dictionary_key = /datum/wires/airlock/engineering
+	proper_name = "Engineering Airlock"
+
+/datum/wires/airlock/medbay
+	dictionary_key = /datum/wires/airlock/medbay
+	proper_name = "Medbay Airlock"
+
+/datum/wires/airlock/science
+	dictionary_key = /datum/wires/airlock/science
+	proper_name = "Science Airlock"
+
+/datum/wires/airlock/ai
+	dictionary_key = /datum/wires/airlock/ai
+	proper_name = "AI Airlock"
 
 /datum/wires/airlock/New(atom/holder)
 	wires = list(
@@ -29,6 +62,8 @@
 	return ..()
 
 /datum/wires/airlock/interactable(mob/user)
+	if(!..())
+		return FALSE
 	var/obj/machinery/door/airlock/A = holder
 	if(!issilicon(user) && A.isElectrified())
 		var/mob/living/carbon/carbon_user = user
@@ -63,22 +98,22 @@
 				return
 			if(!A.requiresID() || A.check_access(null))
 				if(A.density)
-					INVOKE_ASYNC(A, /obj/machinery/door/airlock.proc/open)
+					INVOKE_ASYNC(A, /obj/machinery/door/airlock.proc/open, 1)
 				else
-					INVOKE_ASYNC(A, /obj/machinery/door/airlock.proc/close)
+					INVOKE_ASYNC(A, /obj/machinery/door/airlock.proc/close, 1)
 		if(WIRE_BOLTS) // Pulse to toggle bolts (but only raise if power is on).
 			if(!A.locked)
 				A.bolt()
 			else
 				if(A.hasPower())
 					A.unbolt()
-			A.update_icon()
+			A.update_appearance()
 		if(WIRE_IDSCAN) // Pulse to disable emergency access and flash red lights.
 			if(A.hasPower() && A.density)
 				A.do_animate("deny")
 				if(A.emergency)
 					A.emergency = FALSE
-					A.update_icon()
+					A.update_appearance()
 		if(WIRE_AI) // Pulse to disable WIRE_AI control for 10 ticks (follows same rules as cutting).
 			if(A.aiControlDisabled == AI_WIRE_NORMAL)
 				A.aiControlDisabled = AI_WIRE_DISABLED
@@ -97,7 +132,7 @@
 			A.normalspeed = !A.normalspeed
 		if(WIRE_LIGHT)
 			A.lights = !A.lights
-			A.update_icon()
+			A.update_appearance()
 
 /obj/machinery/door/airlock/proc/reset_ai_wire()
 	if(aiControlDisabled == AI_WIRE_DISABLED)
@@ -152,7 +187,13 @@
 				A.close()
 		if(WIRE_LIGHT) // Cut to disable lights, mend to re-enable.
 			A.lights = mend
-			A.update_icon()
+			A.update_appearance()
 		if(WIRE_ZAP1, WIRE_ZAP2) // Ouch.
 			if(isliving(usr))
 				A.shock(usr, 50)
+
+/datum/wires/airlock/can_reveal_wires(mob/user)
+	if(HAS_TRAIT(user, TRAIT_KNOW_ENGI_WIRES))
+		return TRUE
+
+	return ..()

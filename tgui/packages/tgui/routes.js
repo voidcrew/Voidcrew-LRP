@@ -5,14 +5,15 @@
  */
 
 import { selectBackend } from './backend';
+import { Icon, Stack } from './components';
 import { selectDebug } from './debug/selectors';
 import { Window } from './layouts';
 
-const requireInterface = require.context('./interfaces', false, /\.js$/);
+const requireInterface = require.context('./interfaces');
 
 const routingError = (type, name) => () => {
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         {type === 'notFound' && (
           <div>Interface <b>{name}</b> was not found.</div>
@@ -27,8 +28,25 @@ const routingError = (type, name) => () => {
 
 const SuspendedWindow = () => {
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable />
+    </Window>
+  );
+};
+
+const RefreshingWindow = () => {
+  return (
+    <Window height={130} title="Loading" width={150}>
+      <Window.Content>
+        <Stack align="center" fill justify="center" vertical>
+          <Stack.Item>
+            <Icon color="blue" name="toolbox" spin size={4} />
+          </Stack.Item>
+          <Stack.Item>
+            Please wait...
+          </Stack.Item>
+        </Stack>
+      </Window.Content>
     </Window>
   );
 };
@@ -39,6 +57,9 @@ export const getRoutedComponent = store => {
   if (suspended) {
     return SuspendedWindow;
   }
+  if (config.refreshing) {
+    return RefreshingWindow;
+  }
   if (process.env.NODE_ENV !== 'production') {
     const debug = selectDebug(state);
     // Show a kitchen sink
@@ -47,15 +68,27 @@ export const getRoutedComponent = store => {
     }
   }
   const name = config?.interface;
+  const interfacePathBuilders = [
+    name => `./${name}.tsx`,
+    name => `./${name}.js`,
+    name => `./${name}/index.tsx`,
+    name => `./${name}/index.js`,
+  ];
   let esModule;
-  try {
-    esModule = requireInterface(`./${name}.js`);
-  }
-  catch (err) {
-    if (err.code === 'MODULE_NOT_FOUND') {
-      return routingError('notFound', name);
+  while (!esModule && interfacePathBuilders.length > 0) {
+    const interfacePathBuilder = interfacePathBuilders.shift();
+    const interfacePath = interfacePathBuilder(name);
+    try {
+      esModule = requireInterface(interfacePath);
     }
-    throw err;
+    catch (err) {
+      if (err.code !== 'MODULE_NOT_FOUND') {
+        throw err;
+      }
+    }
+  }
+  if (!esModule) {
+    return routingError('notFound', name);
   }
   const Component = esModule[name];
   if (!Component) {

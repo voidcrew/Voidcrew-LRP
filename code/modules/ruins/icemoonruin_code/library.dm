@@ -3,6 +3,7 @@
 	desc = "A dusty, scratched door with a thick lock attached."
 	icon = 'icons/obj/doors/puzzledoor/wood.dmi'
 	puzzle_id = "library"
+	open_message = "The door opens with a loud creak."
 
 /obj/item/keycard/library
 	name = "golden key"
@@ -12,7 +13,7 @@
 
 /obj/item/paper/crumpled/bloody/fluff/stations/lavaland/library/warning
 	name = "ancient note"
-	info = "<b>Here lies the vast collection of He Who Knows Ten Thousand Things. Damned be those who seek it's knowledge for power.</b>"
+	info = "<b>Here lies the vast collection of He Who Knows Ten Thousand Things. Damned be those who seek its knowledge for power.</b>"
 
 /obj/item/paper/crumpled/fluff/stations/lavaland/library/diary
 	name = "diary entry 13"

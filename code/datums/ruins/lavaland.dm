@@ -67,7 +67,8 @@
 	description = "Lumbering humanoids, made out of precious metals, move inside this ship. They frequently leave to mine more minerals, which they somehow turn into more of them. \
 	Seem very intent on research and individual liberty, and also geology-based naming?"
 	cost = 20
-	suffix = "lavaland_surface_golem_ship.dmm"
+	prefix = "_maps/RandomRuins/AnywhereRuins/"
+	suffix = "golem_ship.dmm"
 	allow_duplicates = FALSE
 
 /datum/map_template/ruin/lavaland/gaia
@@ -166,7 +167,8 @@
 	name = "Fountain Hall"
 	id = "fountain"
 	description = "The fountain has a warning on the side. DANGER: May have undeclared side effects that only become obvious when implemented."
-	suffix = "lavaland_surface_fountain_hall.dmm"
+	prefix = "_maps/RandomRuins/AnywhereRuins/"
+	suffix = "fountain_hall.dmm"
 	cost = 5
 
 /datum/map_template/ruin/lavaland/survivalcapsule
@@ -246,60 +248,3 @@
 	suffix = "lavaland_surface_elephant_graveyard.dmm"
 	allow_duplicates = FALSE
 	cost = 10
-
-/datum/map_template/ruin/lavaland/king_goat_boss
-	name = "King Goat Boss Ruin"
-	id = "kinggoatboss"
-	description = "Abandon All Hope Ye Who Enter Here."
-	suffix = "kinggoatboss.dmm"
-
-/datum/map_template/ruin/lavaland/comm_outpost
-	name = "Syndicate Comm Outpost"
-	id = "commoutpost"
-	description = "A forgotten outpost home to only a tragic tale."
-	suffix = "lavaland_surface_comm_outpost.dmm"
-	allow_duplicates = FALSE
-	cost = 5
-
-/datum/map_template/ruin/lavaland/dwarffortress
-	name = "Legion infested Dwarf Fortress"
-	id = "dwarffortress"
-	description = "A forgotten fortress home to only a tragic tale and infested corpses."
-	suffix = "lavaland_surface_dwarffortress.dmm"
-	allow_duplicates = FALSE
-
-/datum/map_template/ruin/lavaland/boss/bubblegum
-	name = "Bubblegum Ritual"
-	id = "bubblegum-ritual"
-	description = "A giant hulking flesh monster, cartoonishly named 'Bubblegum', has recently awoken here."
-	suffix = "bubblegum_ruin.dmm"
-
-/datum/map_template/ruin/lavaland/boss/drake
-	name = "Dragon Cave"
-	id = "dragon-cave"
-	description = "A dragon has taken lodging in this here cave, storing its riches and valuables."
-	suffix = "drake_ruin.dmm"
-
-/datum/map_template/ruin/lavaland/boss/colossus
-	name = "Colossus Cross"
-	id = "colossus-cross"
-	description = "The almighty one, here in this chunk of rock called lavaland."
-	suffix = "colossus_ruin.dmm"
-
-/datum/map_template/ruin/lavaland/ashwalker_shrine
-	name = "Ashwalker shrine"
-	id = "ashwalker_shrine"
-	description = "A destroyed ashwalker village. What even happened here?"
-	suffix = "ashwalker_shrine.dmm"
-
-/datum/map_template/ruin/lavaland/fuckedupandevilclub
-	name = "Evil Club"
-	id = "evil_club"
-	description = "A truly fucked up and evil club."
-	suffix = "lavaland_surface_fuckedupandevilclub.dmm"
-
-/datum/map_template/ruin/lavaland/spookycrash
-	name = "Spooky Crash"
-	id = "spooky_crash"
-	description = "A spooky looking crash."
-	suffix = "lavaland_surface_SPOOKYCRASH.dmm"

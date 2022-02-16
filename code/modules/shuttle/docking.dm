@@ -1,6 +1,7 @@
 /// This is the main proc. It instantly moves our mobile port to stationary port `new_dock`.
 /obj/docking_port/mobile/proc/initiate_docking(obj/docking_port/stationary/new_dock, movement_direction, force=FALSE)
 	// Crashing this ship with NO SURVIVORS
+
 	if(new_dock.get_docked() == src)
 		remove_ripples()
 		return DOCKING_SUCCESS
@@ -55,6 +56,19 @@
 		remove_ripples()
 		return
 
+	/*******************************************Hiding turfs if necessary*******************************************/
+	// TODO: Move this somewhere sane
+	var/list/new_hidden_turfs
+	if(hidden)
+		new_hidden_turfs = list()
+		for(var/i in 1 to old_turfs.len)
+			CHECK_TICK
+			var/turf/oldT = old_turfs[i]
+			if(old_turfs[oldT] & MOVE_TURF)
+				new_hidden_turfs += new_turfs[i]
+		SSshuttle.update_hidden_docking_ports(null, new_hidden_turfs)
+	/***************************************************************************************************************/
+
 	if(!force)
 		if(!check_dock(new_dock))
 			remove_ripples()
@@ -62,8 +76,6 @@
 		if(!canMove())
 			remove_ripples()
 			return DOCKING_IMMOBILIZED
-
-	kill_atmos_infos(old_turfs, new_turfs)
 
 	// Moving to the new location will trample the ripples there at the exact
 	// same time any mobs there are trampled, to avoid any discrepancy where
@@ -76,102 +88,70 @@
 
 	CHECK_TICK
 
+	/*******************************************Unhiding turfs if necessary******************************************/
+	if(new_hidden_turfs)
+		SSshuttle.update_hidden_docking_ports(hidden_turfs, null)
+		hidden_turfs = new_hidden_turfs
+	/****************************************************************************************************************/
+
 	check_poddoors()
 	new_dock.last_dock_time = world.time
 	setDir(new_dock.dir)
-	current_ship?.check_loc()
 
 	// remove any stragglers just in case, and clear the list
 	remove_ripples()
 	return DOCKING_SUCCESS
 
-/obj/docking_port/mobile/proc/kill_atmos_infos(list/old_turfs, list/new_turfs)
+/obj/docking_port/mobile/proc/preflight_check(list/old_turfs, list/new_turfs, list/areas_to_move, rotation)
+	for(var/i in 1 to length(old_turfs))
+		CHECK_TICK
+		var/turf/oldT = old_turfs[i]
+		var/turf/newT = new_turfs[i]
+		if(!newT)
+			return DOCKING_NULL_DESTINATION
+		if(!oldT)
+			return DOCKING_NULL_SOURCE
+
+		var/area/old_area = oldT.loc
+		var/move_mode = old_area.beforeShuttleMove(shuttle_areas) //areas
+
+		for(var/atom/movable/moving_atom as anything in oldT.contents)
+			CHECK_TICK
+			if(moving_atom.loc != oldT) //fix for multi-tile objects
+				continue
+			move_mode = moving_atom.beforeShuttleMove(newT, rotation, move_mode, src) //atoms
+
+		move_mode = oldT.fromShuttleMove(newT, move_mode) //turfs
+		move_mode = newT.toShuttleMove(oldT, move_mode, src) //turfs
+
+		if(move_mode & MOVE_AREA)
+			areas_to_move[old_area] = TRUE
+
+		old_turfs[oldT] = move_mode
+
+/obj/docking_port/mobile/proc/takeoff(list/old_turfs, list/new_turfs, list/moved_atoms, rotation, movement_direction, old_dock, area/underlying_old_area)
 	for(var/i in 1 to old_turfs.len)
 		var/turf/oldT = old_turfs[i]
 		var/turf/newT = new_turfs[i]
-		oldT.set_sleeping(TRUE)
-		newT.set_sleeping(TRUE)
+		var/move_mode = old_turfs[oldT]
 
-/obj/docking_port/mobile/proc/throw_exception(var/exception/e)
-	throw e
+		if(move_mode & MOVE_TURF)
+			oldT.onShuttleMove(newT, movement_force, movement_direction) //turfs
 
-/obj/docking_port/mobile/proc/preflight_check(list/old_turfs, list/new_turfs, list/areas_to_move, rotation)
-	var/list/exceptions_list = list()
-	for(var/i in 1 to old_turfs.len)
-		try
-			CHECK_TICK
-			var/turf/oldT = old_turfs[i]
-			var/turf/newT = new_turfs[i]
-			if(!newT)
-				return DOCKING_NULL_DESTINATION
-			if(!oldT)
-				return DOCKING_NULL_SOURCE
+		if(move_mode & MOVE_AREA)
+			var/area/shuttle_area = oldT.loc
+			shuttle_area.onShuttleMove(oldT, newT, underlying_old_area) //areas
 
-			var/move_mode
-			var/area/old_area = oldT.loc
+		if(move_mode & MOVE_CONTENTS)
+			for(var/k in oldT)
+				var/atom/movable/moving_atom = k
+				if(moving_atom.loc != oldT) //fix for multi-tile objects
+					continue
+				moving_atom.onShuttleMove(newT, oldT, movement_force, movement_direction, old_dock, src) //atoms
+				moved_atoms[moving_atom] = oldT
 
-			move_mode = old_area.beforeShuttleMove(shuttle_areas)											//areas
-
-			var/list/old_contents = oldT.contents
-			for(var/k in 1 to old_contents.len)
-				try
-					CHECK_TICK
-					var/atom/movable/moving_atom = old_contents[k]
-					if(moving_atom.loc != oldT) //fix for multi-tile objects
-						continue
-					move_mode = moving_atom.beforeShuttleMove(newT, rotation, move_mode, src)					//atoms
-				catch(var/exception/e2)
-					exceptions_list += e2
-
-			move_mode = oldT.fromShuttleMove(newT, move_mode)												//turfs
-
-			move_mode = newT.toShuttleMove(oldT, move_mode, src)											//turfs
-
-			if(move_mode & MOVE_AREA)
-				areas_to_move[old_area] = TRUE
-
-			old_turfs[oldT] = move_mode
-
-		catch(var/exception/e5)
-			exceptions_list += e5
-
-	for(var/exception/e6 in exceptions_list)
-		CHECK_TICK
-		throw_exception(e6)
-
-/obj/docking_port/mobile/proc/takeoff(list/old_turfs, list/new_turfs, list/moved_atoms, rotation, movement_direction, old_dock, area/underlying_old_area)
-	var/list/exceptions_list = list()
-	for(var/i in 1 to old_turfs.len)
-		try
-			var/turf/oldT = old_turfs[i]
-			var/turf/newT = new_turfs[i]
-			var/move_mode = old_turfs[oldT]
-			if(move_mode & MOVE_CONTENTS)
-				for(var/k in oldT)
-					try
-						var/atom/movable/moving_atom = k
-						if(moving_atom.loc != oldT) //fix for multi-tile objects
-							continue
-						moving_atom.onShuttleMove(newT, oldT, movement_force, movement_direction, old_dock, src)	//atoms
-						moved_atoms[moving_atom] = oldT
-					catch(var/exception/e1)
-						exceptions_list += e1
-
-			if(move_mode & MOVE_TURF)
-				oldT.onShuttleMove(newT, movement_force, movement_direction)									//turfs
-
-			if(move_mode & MOVE_AREA)
-				var/area/shuttle_area = oldT.loc
-				shuttle_area.onShuttleMove(oldT, newT, underlying_old_area)										//areas
-		catch(var/exception/e4)
-			exceptions_list += e4
-
-	for(var/exception/e5 in exceptions_list)
-		CHECK_TICK
-		throw_exception(e5)
 
 /obj/docking_port/mobile/proc/cleanup_runway(obj/docking_port/stationary/new_dock, list/old_turfs, list/new_turfs, list/areas_to_move, list/moved_atoms, rotation, movement_direction, area/underlying_old_area)
-	var/list/exceptions_list = list()
 	underlying_old_area.afterShuttleMove()
 
 	// Parallax handling
@@ -180,76 +160,59 @@
 	if(istype(new_dock, /obj/docking_port/stationary/transit))
 		new_parallax_dir = preferred_direction
 	for(var/i in 1 to areas_to_move.len)
-		try
-			CHECK_TICK
-			var/area/internal_area = areas_to_move[i]
-			internal_area.afterShuttleMove(new_parallax_dir)												//areas
-		catch(var/exception/e2)
-			exceptions_list += e2
+		CHECK_TICK
+		var/area/internal_area = areas_to_move[i]
+		internal_area.afterShuttleMove(new_parallax_dir) //areas
 
 	for(var/i in 1 to old_turfs.len)
-		try
-			CHECK_TICK
-			if(!(old_turfs[old_turfs[i]] & MOVE_TURF))
-				continue
-			var/turf/oldT = old_turfs[i]
-			var/turf/newT = new_turfs[i]
-			newT.afterShuttleMove(oldT, rotation)															//turfs
-		catch(var/exception/e3)
-			exceptions_list += e3
+		CHECK_TICK
+		if(!(old_turfs[old_turfs[i]] & MOVE_TURF))
+			continue
+		var/turf/old_turf = old_turfs[i]
+		var/turf/new_turf = new_turfs[i]
+		new_turf.afterShuttleMove(old_turf, rotation) //turfs
+		var/turf/new_ceiling = get_step_multiz(new_turf, UP) // check if a ceiling is needed
+		if(new_ceiling)
+			// generate ceiling
+			if(istype(new_ceiling, /turf/open/openspace)) // why is this needed? because we have 2 different typepaths for openspace
+				new_ceiling.ChangeTurf(/turf/open/floor/engine/hull/ceiling, list(/turf/open/openspace))
+			else if (istype(new_ceiling, /turf/open/space/openspace))
+				new_ceiling.ChangeTurf(/turf/open/floor/engine/hull/ceiling, list(/turf/open/space/openspace))
+		var/turf/old_ceiling = get_step_multiz(old_turf, UP)
+		if(old_ceiling && istype(old_ceiling, /turf/open/floor/engine/hull/ceiling)) // check if a ceiling was generated previously
+			// remove old ceiling
+			var/turf/open/floor/engine/hull/ceiling/old_shuttle_ceiling = old_ceiling
+			old_shuttle_ceiling.ChangeTurf(old_shuttle_ceiling.old_turf_type)
 
 	for(var/i in 1 to moved_atoms.len)
-		try
-			CHECK_TICK
-			var/atom/movable/moved_object = moved_atoms[i]
-			if(QDELETED(moved_object))
-				continue
-			var/turf/oldT = moved_atoms[moved_object]
-			moved_object.afterShuttleMove(oldT, movement_force, dir, preferred_direction, movement_direction, rotation)//atoms
-		catch(var/exception/e4)
-			exceptions_list += e4
+		CHECK_TICK
+		var/atom/movable/moved_object = moved_atoms[i]
+		if(QDELETED(moved_object))
+			continue
+		var/turf/oldT = moved_atoms[moved_object]
+		moved_object.afterShuttleMove(oldT, movement_force, dir, preferred_direction, movement_direction, rotation)//atoms
 
 	// lateShuttleMove (There had better be a really good reason for additional stages beyond this)
 
-		underlying_old_area.lateShuttleMove()
+	underlying_old_area.lateShuttleMove()
 
 	for(var/i in 1 to areas_to_move.len)
-		try
-			CHECK_TICK
-			var/area/internal_area = areas_to_move[i]
-			internal_area.lateShuttleMove()
-		catch(var/exception/e6)
-			exceptions_list += e6
+		CHECK_TICK
+		var/area/internal_area = areas_to_move[i]
+		internal_area.lateShuttleMove()
 
 	for(var/i in 1 to old_turfs.len)
-		try
-			CHECK_TICK
-			if(!(old_turfs[old_turfs[i]] & MOVE_CONTENTS | MOVE_TURF))
-				continue
-			var/turf/oldT = old_turfs[i]
-			var/turf/newT = new_turfs[i]
-			newT.lateShuttleMove(oldT)
-		catch(var/exception/e7)
-			exceptions_list += e7
+		CHECK_TICK
+		if(!(old_turfs[old_turfs[i]] & MOVE_CONTENTS | MOVE_TURF))
+			continue
+		var/turf/oldT = old_turfs[i]
+		var/turf/newT = new_turfs[i]
+		newT.lateShuttleMove(oldT)
 
 	for(var/i in 1 to moved_atoms.len)
-		try
-			CHECK_TICK
-			var/atom/movable/moved_object = moved_atoms[i]
-			if(QDELETED(moved_object))
-				continue
-			var/turf/oldT = moved_atoms[moved_object]
-			moved_object.lateShuttleMove(oldT, movement_force, movement_direction)
-		catch(var/exception/e8)
-			exceptions_list += e8
-
-	for(var/exception/e9 in exceptions_list)
 		CHECK_TICK
-		throw_exception(e9)
-
-/obj/docking_port/mobile/proc/reset_air()
-	var/list/turfs = return_ordered_turfs(x, y, z, dir)
-	for(var/i in 1 to length(turfs))
-		var/turf/open/T = turfs[i]
-		if(istype(T))
-			T.air.copy_from_turf(T)
+		var/atom/movable/moved_object = moved_atoms[i]
+		if(QDELETED(moved_object))
+			continue
+		var/turf/oldT = moved_atoms[moved_object]
+		moved_object.lateShuttleMove(oldT, movement_force, movement_direction)

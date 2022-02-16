@@ -1,179 +1,77 @@
-/datum/job/engineer
-	title = "Station Engineer"
-	department_head = list("Chief Engineer")
-	faction = "Station"
+/datum/job/station_engineer
+	title = JOB_STATION_ENGINEER
+	description = "Start the Supermatter, wire the solars, repair station hull \
+		and wiring damage."
+	department_head = list(JOB_CHIEF_ENGINEER)
+	faction = FACTION_STATION
 	total_positions = 5
 	spawn_positions = 5
 	supervisors = "the chief engineer"
 	selection_color = "#fff5cc"
 	exp_requirements = 60
-	exp_type = EXP_TYPE_CREW
-	wiki_page = "Station_Engineer" //WS Edit - Wikilinks/Warning
+	exp_required_type = EXP_TYPE_CREW
+	exp_granted_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/engineer
+	plasmaman_outfit = /datum/outfit/plasmaman/engineering
 
-	access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE,
-									ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_ATMOSPHERICS, ACCESS_TCOMSAT, ACCESS_MINERAL_STOREROOM, ACCESS_EVA)
-	minimal_access = list(ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE, ACCESS_MAINT_TUNNELS, ACCESS_MECH_ENGINE,
-									ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CONSTRUCTION, ACCESS_TCOMSAT, ACCESS_MINERAL_STOREROOM)
 	paycheck = PAYCHECK_MEDIUM
 	paycheck_department = ACCOUNT_ENG
 
+	liver_traits = list(TRAIT_ENGINEER_METABOLISM)
+
 	display_order = JOB_DISPLAY_ORDER_STATION_ENGINEER
+	bounty_types = CIV_JOB_ENG
+	departments_list = list(
+		/datum/job_department/engineering,
+		)
+
+	family_heirlooms = list(/obj/item/clothing/head/hardhat, /obj/item/screwdriver, /obj/item/wrench, /obj/item/weldingtool, /obj/item/crowbar, /obj/item/wirecutters)
+
+	mail_goodies = list(
+		/obj/item/storage/box/lights/mixed = 20,
+		/obj/item/lightreplacer = 10,
+		/obj/item/holosign_creator/engineering = 8,
+		/obj/item/clothing/head/hardhat/red/upgraded = 1
+	)
+	rpg_title = "Crystallomancer"
+	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
+
 
 /datum/outfit/job/engineer
 	name = "Station Engineer"
-	jobtype = /datum/job/engineer
+	jobtype = /datum/job/station_engineer
 
-	belt = /obj/item/storage/belt/utility/full/engi
-	l_pocket = /obj/item/pda/engineering
-	ears = /obj/item/radio/headset/headset_eng
+	id_trim = /datum/id_trim/job/station_engineer
 	uniform = /obj/item/clothing/under/rank/engineering/engineer
-	alt_uniform = /obj/item/clothing/under/rank/engineering/engineer/hazard //WS Edit - Alt Uniforms
-	dcoat = /obj/item/clothing/suit/hooded/wintercoat/engineering //WS Edit - Alt Uniforms
-	shoes = /obj/item/clothing/shoes/workboots
+	backpack_contents = list(
+		/obj/item/modular_computer/tablet/preset/advanced/engineering = 1,
+		)
+	belt = /obj/item/storage/belt/utility/full/engi
+	ears = /obj/item/radio/headset/headset_eng
 	head = /obj/item/clothing/head/hardhat
+	shoes = /obj/item/clothing/shoes/workboots
+	l_pocket = /obj/item/pda/engineering
 	r_pocket = /obj/item/t_scanner
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
 	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
-	courierbag = /obj/item/storage/backpack/messenger/engi
 
 	box = /obj/item/storage/box/survival/engineer
 	pda_slot = ITEM_SLOT_LPOCKET
-	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced=1)
+	skillchips = list(/obj/item/skillchip/job/engineer)
 
 /datum/outfit/job/engineer/gloved
 	name = "Station Engineer (Gloves)"
+
 	gloves = /obj/item/clothing/gloves/color/yellow
 
-/datum/outfit/job/engineer/gloved/rig
-	name = "Station Engineer (Hardsuit)"
-	mask = /obj/item/clothing/mask/breath
-	suit = /obj/item/clothing/suit/space/hardsuit/engine
+/datum/outfit/job/engineer/mod
+	name = "Station Engineer (MODsuit)"
+
 	suit_store = /obj/item/tank/internals/oxygen
+	back = /obj/item/mod/control/pre_equipped/engineering
 	head = null
+	mask = /obj/item/clothing/mask/breath
 	internals_slot = ITEM_SLOT_SUITSTORE
-
-//WS Edit Start - Alt-Job Titles
-/datum/outfit/job/engineer/electrician
-	name = "Station Engineer (Electrician)"
-
-	l_hand = /obj/item/storage/toolbox/electrical
-	gloves = /obj/item/clothing/gloves/color/grey
-	uniform = /obj/item/clothing/under/rank/engineering/engineer/electrician
-	alt_uniform = null
-	head = /obj/item/clothing/head/hardhat/orange
-
-/datum/outfit/job/engineer/enginetechnician
-	name = "Station Engineer (Engine Technician)"
-
-	uniform = /obj/item/clothing/under/rank/engineering/engineer/hazard
-	r_pocket = /obj/item/geiger_counter
-
-/datum/outfit/job/engineer/maintenancetechnician
-	name = "Station Engineer (Maintenance Technician)"
-
-	uniform = /obj/item/clothing/under/rank/engineering/engineer/maintenance_tech
-	alt_uniform = null
-	suit = /obj/item/clothing/suit/hazardvest
-	accessory = /obj/item/clothing/accessory/armband/engine
-	r_pocket = /obj/item/stack/cable_coil
-
-/datum/outfit/job/engineer/juniorengineer
-	name = "Station Engineer (Junior Engineer)"
-
-	uniform = /obj/item/clothing/under/rank/engineering/engineer/junior
-	alt_uniform = null
-	head = /obj/item/clothing/head/hardhat/orange
-
-/datum/outfit/job/engineer/seniorengineer
-	name = "Station Engineer (Senior Engineer)"
-
-	belt = null
-	uniform = /obj/item/clothing/under/suit/senior_engineer
-	alt_uniform = null
-	suit = /obj/item/clothing/suit/toggle/lawyer/orange
-	alt_suit = /obj/item/clothing/suit/hazardvest
-	dcoat = null
-	shoes = /obj/item/clothing/shoes/laceup
-	head = /obj/item/clothing/head/hardhat
-	neck = /obj/item/clothing/neck/tie/orange
-	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced=1, /obj/item/storage/belt/utility/full/engi=1)
-
-/datum/outfit/job/engineer/telecomsspecialist
-	name = "Station Engineer (Telecommunications Specialist)"
-
-	uniform = /obj/item/clothing/under/rank/engineering/engineer/telecomm_specialist
-	alt_uniform = null
-	head = /obj/item/clothing/head/hardhat/dblue
-
-//WS Edit End - Alt-Job Titles
-
-//Shiptest Outfits
-
-/datum/outfit/job/engineer/solgov
-	name = "Ship Engineer (SolGov)"
-
-	uniform = /obj/item/clothing/under/solgov
-	accessory = /obj/item/clothing/accessory/armband/engine
-	head = /obj/item/clothing/head/hardhat/orange
-	suit =  /obj/item/clothing/suit/hazardvest
-
-/datum/outfit/job/engineer/solgov/rebel
-	name = "Ship Engineer (Deserter)"
-
-	uniform = /obj/item/clothing/under/syndicate/camo
-
-/datum/outfit/job/engineer/pirate
-	name = "Ship's Engineer (Pirate)"
-
-	uniform = /obj/item/clothing/under/costume/sailor
-	head = /obj/item/clothing/head/bandana
-	shoes = /obj/item/clothing/shoes/jackboots
-
-/datum/outfit/job/engineer/corporate
-	name = "Ship's Engineer (Corporate)"
-
-	uniform = /obj/item/clothing/under/rank/engineering/engineer/maintenance_tech
-	glasses = /obj/item/clothing/glasses/sunglasses
-	shoes = /obj/item/clothing/shoes/jackboots
-
-/datum/outfit/job/engineer/hazard
-	name = "Ship's Engineer (Hazard)"
-
-	uniform = /obj/item/clothing/under/rank/engineering/engineer/hazard
-	alt_uniform = null
-	head = /obj/item/clothing/head/hardhat
-	suit = /obj/item/clothing/suit/toggle/hazard
-	alt_suit = /obj/item/clothing/suit/hazardvest
-
-/datum/outfit/job/engineer/syndicate
-	name = "Ship Technician (Engineer)"
-
-	id = /obj/item/card/id/syndicate_command/crew_id
-	ears = /obj/item/radio/headset/syndicate/alt
-	uniform = /obj/item/clothing/under/syndicate/aclfgrunt
-	belt = /obj/item/storage/belt/utility/syndicate
-	accessory = /obj/item/clothing/accessory/armband/engine
-	glasses = /obj/item/clothing/glasses/sunglasses
-	shoes = /obj/item/clothing/shoes/jackboots
-
-/datum/outfit/job/engineer/gec
-	name = "Station Engineer (GEC)"
-
-	uniform = /obj/item/clothing/under/syndicate/intern
-	suit = /obj/item/clothing/suit/toggle/hazard
-	head = /obj/item/clothing/head/hardhat
-	ears = /obj/item/radio/headset/syndicate/alt
-	id = /obj/item/card/id/syndicate_command/crew_id
-
-/datum/outfit/job/engineer/syndicate/gorlex
-	name = "Mechanic (Gorlex Marauders)"
-
-	uniform = /obj/item/clothing/under/syndicate/gorlex
-	belt = /obj/item/storage/belt/utility/syndicate
-	shoes = /obj/item/clothing/shoes/workboots
-	alt_uniform = null
-	glasses = null

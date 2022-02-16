@@ -13,21 +13,24 @@
 	var/spawned_loot = FALSE
 	tamperproof = 90
 
-/obj/structure/closet/crate/secure/loot/Initialize()
+	// Stop people from "diving into" the crate accidentally, and then detonating it.
+	divable = FALSE
+
+/obj/structure/closet/crate/secure/loot/Initialize(mapload)
 	. = ..()
 	var/list/digits = list("1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
 	code = ""
-	for(var/i = 0, i < codelen, i++)
+	for(var/i in 1 to codelen)
 		var/dig = pick(digits)
 		code += dig
 		digits -= dig  //there are never matching digits in the answer
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
-/obj/structure/closet/crate/secure/loot/attack_hand(mob/user)
+/obj/structure/closet/crate/secure/loot/attack_hand(mob/user, list/modifiers)
 	if(locked)
-		to_chat(user, "<span class='notice'>The crate is locked with a Deca-code lock.</span>")
+		to_chat(user, span_notice("The crate is locked with a Deca-code lock."))
 		var/input = input(usr, "Enter [codelen] digits. All digits must be unique.", "Deca-Code Lock", "") as text|null
-		if(user.canUseTopic(src, BE_CLOSE))
+		if(user.canUseTopic(src, BE_CLOSE) && locked)
 			var/list/sanitised = list()
 			var/sanitycheck = TRUE
 			var/char = ""
@@ -35,22 +38,19 @@
 			for(var/i = 1, i <= length_input, i += length(char)) //put the guess into a list
 				char = input[i]
 				sanitised += text2num(char)
-			for(var/i = 1, i <= length(sanitised) - 1, i++) //compare each digit in the guess to all those following it
-				for(var/j = i + 1, j <= length(sanitised), j++)
+			for(var/i in 1 to length(sanitised) - 1) //compare each digit in the guess to all those following it
+				for(var/j in i + 1 to length(sanitised))
 					if(sanitised[i] == sanitised[j])
 						sanitycheck = FALSE //if a digit is repeated, reject the input
 			if(input == code)
-				to_chat(user, "<span class='notice'>The crate unlocks!</span>")
-				locked = FALSE
-				cut_overlays()
-				add_overlay("securecrateg")
-				tamperproof = 0 // set explosion chance to zero, so we dont accidently hit it with a multitool and instantly die
 				if(!spawned_loot)
 					spawn_loot()
+				tamperproof = 0 // set explosion chance to zero, so we dont accidently hit it with a multitool and instantly die
+				togglelock(user)
 			else if(!input || !sanitycheck || length(sanitised) != codelen)
-				to_chat(user, "<span class='notice'>You leave the crate alone.</span>")
+				to_chat(user, span_notice("You leave the crate alone."))
 			else
-				to_chat(user, "<span class='warning'>A red light flashes.</span>")
+				to_chat(user, span_warning("A red light flashes."))
 				lastattempt = input
 				attempts--
 				if(attempts == 0)
@@ -66,11 +66,11 @@
 /obj/structure/closet/crate/secure/loot/attackby(obj/item/W, mob/user)
 	if(locked)
 		if(W.tool_behaviour == TOOL_MULTITOOL)
-			to_chat(user, "<span class='notice'>DECA-CODE LOCK REPORT:</span>")
+			to_chat(user, span_notice("DECA-CODE LOCK REPORT:"))
 			if(attempts == 1)
-				to_chat(user, "<span class='warning'>* Anti-Tamper Bomb will activate on next failed access attempt.</span>")
+				to_chat(user, span_warning("* Anti-Tamper Bomb will activate on next failed access attempt."))
 			else
-				to_chat(user, "<span class='notice'>* Anti-Tamper Bomb will activate after [attempts] failed access attempts.</span>")
+				to_chat(user, span_notice("* Anti-Tamper Bomb will activate after [attempts] failed access attempts."))
 			if(lastattempt != null)
 				var/bulls = 0 //right position, right number
 				var/cows = 0 //wrong position but in the puzzle
@@ -94,148 +94,153 @@
 					lastattempt_it += length(lastattempt_char)
 					code_it += length(code_char)
 
-				to_chat(user, "<span class='notice'>Last code attempt, [lastattempt], had [bulls] correct digits at correct positions and [cows] correct digits at incorrect positions.</span>")
+				to_chat(user, span_notice("Last code attempt, [lastattempt], had [bulls] correct digits at correct positions and [cows] correct digits at incorrect positions."))
 			return
 	return ..()
-
-/obj/structure/closet/secure/loot/dive_into(mob/living/user)
-	if(!locked)
-		return ..()
-	to_chat(user, "<span class='notice'>That seems like a stupid idea.</span>")
-	return FALSE
 
 /obj/structure/closet/crate/secure/loot/emag_act(mob/user)
 	if(locked)
 		boom(user)
+		return
+	return ..()
 
-/obj/structure/closet/crate/secure/loot/togglelock(mob/user)
-	if(locked)
+/obj/structure/closet/crate/secure/loot/togglelock(mob/user, silent = FALSE)
+	if(!locked)
+		. = ..()
+		if(locked)
+			//reset the anti-tampering, number of attempts and last attempt when the lock is re-enabled.
+			tamperproof = initial(tamperproof)
+			attempts = initial(attempts)
+			lastattempt = null
+		return
+	if(tamperproof)
 		boom(user)
-	else
-		if (qdel_on_open)
-			qdel(src)
-		..()
+		return
+	if (qdel_on_open)
+		qdel(src)
+		return
+	return ..()
 
 /obj/structure/closet/crate/secure/loot/deconstruct(disassembled = TRUE)
 	if(locked)
 		boom()
-	else
-		if (qdel_on_open)
-			qdel(src)
-		..()
+		return
+	return ..()
 
 /obj/structure/closet/crate/secure/loot/proc/spawn_loot()
-	var/loot = rand(1,100) //different crates with varying chances of spawning
-	//Voidcrew edit
-	//Completly refactored the lootdrops of the crates, highest chance to lowest chance
+	var/loot = rand(1,100) //100 different crates with varying chances of spawning
 	switch(loot)
-		if(1 to 10)
-			// Xenobio starter pack. 10% Chance
-			new /obj/item/slimecross/recurring/grey(src)
-			new /obj/item/stack/sheet/mineral/plasma/five(src)
-			new /obj/item/storage/box/monkeycubes(src)
-			new /obj/item/circuitboard/machine/processor/slime(src)
-			new /obj/item/circuitboard/computer/xenobiology(src)
-		if(11 to 21)
-			// Material pack (Common). 10% chance
-			new /obj/item/stack/sheet/mineral/plasma/twenty(src)
-			new /obj/item/stack/sheet/metal/fifty(src)
-			new /obj/item/stack/sheet/glass/fifty(src)
-			new /obj/item/stack/sheet/plasteel/twenty(src)
-		if(22 to 32)
-			// Powercells (Common). 10% Chance
-			new /obj/item/stock_parts/cell/upgraded/plus(src)
-			new /obj/item/stock_parts/cell/upgraded(src)
-		if(33 to 38)
-			// Makeshift Weapons Pack. 5% chance
-			new /obj/item/spear/bonespear(src)
-			new /obj/item/spear(src)
-		if(39 to 44)
-			// Utility Recuring. 5% chance
-			new /obj/item/slimecross/recurring/metal(src)
-			new /obj/item/slimecross/recurring/darkpurple(src)
-			new /obj/item/slimecross/recurring/silver(src)
-		if(45 to 50)
-			// Material pack (Uncommon). 5% Chance
-			new /obj/item/stack/sheet/mineral/uranium/five(src)
-			new /obj/item/stack/sheet/mineral/gold/five(src)
-			new /obj/item/stack/sheet/mineral/silver/five(src)
-			new /obj/item/stack/sheet/mineral/titanium/five(src)
-		if(51 to 56)
-			// Powercells (Uncommon). 5% chance
-			new /obj/item/stock_parts/cell/high(src)
-			new /obj/item/stock_parts/cell/high/plus(src)
-		if(57 to 61)
-			// Combat Recurring. 5% Chance
-			new /obj/item/slimecross/recurring/oil(src)
-			new /obj/item/slimecross/recurring/gold(src)
-		if(62 to 65)
-			// Material pack (Exotic). 3% Chance
-			new /obj/item/stack/sheet/mineral/bananium/five(src)
-			new /obj/item/stack/sheet/mineral/abductor/five(src)
-			new /obj/item/stack/sheet/mineral/coal/five(src)
-		if(66 to 69)
-			// Powercells (Exotic). 3% Chance
-			new /obj/item/stock_parts/cell/high/slime/hypercharged(src)
-			new /obj/item/stock_parts/cell/high/slime(src)
-			new /obj/item/stock_parts/cell/pulse/pistol(src)
-		if(70 to 73)
-			// Ayyductor Surgery Tools. 3% Chance
-			new /obj/item/scalpel/alien(src)
-			new /obj/item/hemostat/alien(src)
-			new /obj/item/retractor/alien(src)
-			new /obj/item/circular_saw/alien(src)
-			new /obj/item/surgicaldrill/alien(src)
-			new /obj/item/cautery/alien(src)
-		if(74 to 77)
-			// Ayyductor Tools. 3% chance
-			new /obj/item/multitool/abductor(src)
-			new /obj/item/screwdriver/abductor(src)
-			new /obj/item/crowbar/abductor(src)
-			new /obj/item/wrench/abductor(src)
-			new /obj/item/wirecutters/abductor(src)
-			new /obj/item/weldingtool/abductor(src)
-		if(78 to 79)
-			// Uplink, 10 TC. 1% Chance
-			new /obj/item/uplink/old(src)
-		if(80 to 81)
-			// Nukie Implant kit. 1% Chance
-			new /obj/item/implanter/storage(src)
-			new /obj/item/implanter/stealth(src)
-		if(82 to 83)
-			// Krav Mega Gloves. 1% Chance
-			new /obj/item/clothing/gloves/krav_maga/combatglovesplus(src)
-		if(84 to 85)
-			// Bulldog Shotgun + Magazines
-			new /obj/item/gun/ballistic/shotgun/bulldog/unrestricted(src)
-			new /obj/item/ammo_box/magazine/m12g/slug(src)
-			new /obj/item/ammo_box/magazine/m12g(src)
-		if(86 to 87)
-			// Nuclear Bomb. 1% Chance
-			new /obj/machinery/nuclearbomb(src)
-		if(88 to 89)
-			// Strange Seeds X50. 1% Chance
-			for(var/i in 1 to 50)
-				new /obj/item/seeds/random(src)
-		if(90 to 91)
-			// Armed syndicate minibomb sized explosion. 1% Chance
-			explosion(src,1,2,4,2)
-		if(92 to 93)
-			// A goat. 1% Chance
-			new /mob/living/simple_animal/hostile/retaliate/goat(src)
-		if(94 to 95)
-			// A cosmos bedsheet, and 10 random bedsheets. 1% Chance
-			new /obj/item/bedsheet/cosmos(src)
-			for(var/x in 1 to 10)
-				new /obj/item/bedsheet/random(src)
-		if(95 to 96)
-			// Alot of booze. 1% Chance
-			for(var/a in 1 to 5)
-				new /obj/item/storage/cans/sixbeer(src)
-		if(97 to 98)
-			// Advanced RCD. Ranged capablity and extended storage. 1% Chance
-			new /obj/item/construction/rcd/arcd(src)
-		if(99 to 100)
-			// Singo Toy. 1% Chance
-			new /obj/item/toy/spinningtoy(src)
+		if(1 to 5) //5% chance
+			new /obj/item/reagent_containers/food/drinks/bottle/rum(src)
+			new /obj/item/reagent_containers/food/drinks/bottle/whiskey(src)
+			new /obj/item/reagent_containers/food/drinks/bottle/whiskey(src)
+			new /obj/item/lighter(src)
+			new /obj/item/reagent_containers/food/drinks/bottle/absinthe/premium(src)
+			for(var/i in 1 to 3)
+				new /obj/item/clothing/mask/cigarette/rollie(src)
+		if(6 to 10)
+			new /obj/item/melee/skateboard/pro(src)
+		if(11 to 15)
+			new /mob/living/simple_animal/bot/secbot/honkbot(src)
+		if(16 to 20)
+			new /obj/item/stack/ore/diamond(src, 10)
+		if(21 to 25)
+			for(var/i in 1 to 5)
+				new /obj/item/poster/random_contraband(src)
+		if(26 to 30)
+			new /obj/item/vending_refill/sovietsoda(src)
+			var/obj/item/circuitboard/machine/vendor/board = new (src)
+			board.set_type(/obj/machinery/vending/sovietsoda)
+		if(31 to 35)
+			new /obj/item/seeds/firelemon(src)
+		if(36 to 40)
+			for(var/i in 1 to 5)
+				new /obj/item/toy/snappop/phoenix(src)
+		if(41 to 45)
+			new /obj/item/pda/clear(src)
+		if(46 to 50)
+			new /obj/item/storage/box/syndie_kit/chameleon/broken
+		if(51 to 52) // 2% chance
+			new /obj/item/melee/baton(src)
+		if(53 to 54)
+			new /obj/item/toy/balloon/corgi(src)
+		if(55 to 56)
+			var/newitem = pick(subtypesof(/obj/item/toy/mecha))
+			new newitem(src)
+		if(57 to 58)
+			new /obj/item/toy/balloon/syndicate(src)
+		if(59 to 60)
+			new /obj/item/borg/upgrade/modkit/aoe/mobs(src)
+			new /obj/item/clothing/suit/space(src)
+			new /obj/item/clothing/head/helmet/space(src)
+		if(61 to 62)
+			for(var/i in 1 to 5)
+				new /obj/item/clothing/head/kitty(src)
+				new /obj/item/clothing/neck/petcollar(src)
+		if(63 to 64)
+			new /obj/item/clothing/shoes/kindle_kicks(src)
+		if(65 to 66)
+			new /obj/item/clothing/suit/ianshirt(src)
+			new /obj/item/clothing/suit/hooded/ian_costume(src)
+		if(67 to 68)
+			new /obj/item/toy/plush/awakenedplushie(src)
+		if(69 to 70)
+			new /obj/item/stack/ore/bluespace_crystal(src, 5)
+		if(71 to 72)
+			new /obj/item/toy/plush/snakeplushie(src)
+		if(73 to 74)
+			new /mob/living/simple_animal/pet/gondola(src)
+		if(75 to 76)
+			new /obj/item/bikehorn/airhorn(src)
+		if(77 to 78)
+			new /obj/item/toy/plush/lizard_plushie(src)
+		if(79 to 80)
+			new /obj/item/stack/sheet/mineral/bananium(src, 10)
+		if(81 to 82)
+			new /obj/item/bikehorn/airhorn(src)
+		if(83 to 84)
+			new /obj/item/toy/plush/beeplushie(src)
+		if(85 to 86)
+			new /obj/item/defibrillator/compact(src)
+		if(87) //1% chance
+			new /obj/item/weed_extract(src)
+		if(88)
+			new /obj/item/reagent_containers/food/drinks/bottle/lizardwine(src)
+		if(89)
+			new /obj/item/melee/energy/sword/bananium(src)
+		if(90)
+			new /obj/item/dnainjector/wackymut(src)
+		if(91)
+			for(var/i in 1 to 30)
+				new /mob/living/basic/cockroach(src)
+		if(92)
+			new /obj/item/katana(src)
+		if(93)
+			new /obj/item/dnainjector/xraymut(src)
+		if(94)
+			new /mob/living/simple_animal/hostile/mimic/crate(src)
+			qdel_on_open = TRUE
+		if(95)
+			new /obj/item/toy/plush/nukeplushie(src)
+		if(96)
+			new /obj/item/banhammer(src)
+			for(var/i in 1 to 3)
+				var/obj/effect/mine/sound/bwoink/mine = new (src)
+				mine.set_anchored(FALSE)
+				mine.move_resist = MOVE_RESIST_DEFAULT
+		if(97)
+			for(var/i in 1 to 4)
+				new /obj/item/clothing/mask/balaclava(src)
+			new /obj/item/gun/ballistic/shotgun/toy(src)
+			new /obj/item/gun/ballistic/automatic/pistol/toy(src)
+			new /obj/item/gun/ballistic/automatic/toy/unrestricted(src)
+			new /obj/item/gun/ballistic/automatic/l6_saw/toy/unrestricted(src)
+			new /obj/item/ammo_box/foambox(src)
+		if(98)
+			for(var/i in 1 to 3)
+				new /mob/living/simple_animal/hostile/bee/toxin(src)
+		if(99)
+			new /obj/item/implanter/sad_trombone(src)
+		if(100)
+			new /obj/item/melee/skateboard/hoverboard(src)
 	spawned_loot = TRUE

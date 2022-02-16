@@ -3,11 +3,11 @@
 /datum/reagent/method_patch_test
 	name = "method patch test"
 
-/datum/reagent/method_patch_test/expose_mob(mob/living/target, method = PATCH, reac_volume, show_message = TRUE)
+/datum/reagent/method_patch_test/expose_mob(mob/living/target, methods = PATCH, reac_volume, show_message = TRUE)
 	. = ..()
-	if(method == PATCH)
+	if(methods & PATCH)
 		target.health = 90
-	if(method == INJECT)
+	if(methods & INJECT)
 		target.health = 80
 
 /datum/unit_test/reagent_mob_expose/Run()
@@ -25,7 +25,7 @@
 	drink.reagents.add_reagent(/datum/reagent/phlogiston, 10)
 	drink.attack(human, human)
 	TEST_ASSERT_EQUAL(human.fire_stacks, 1, "Human does not have fire stacks after taking phlogiston")
-	human.Life()
+	human.Life(SSMOBS_DT)
 	TEST_ASSERT(human.fire_stacks > 1, "Human fire stacks did not increase after life tick")
 
 	// TOUCH
@@ -37,7 +37,7 @@
 	TEST_ASSERT_EQUAL(human.drowsyness, 0, "Human is drowsy at the start of testing")
 	drink.reagents.clear_reagents()
 	drink.reagents.add_reagent(/datum/reagent/nitrous_oxide, 10)
-	drink.reagents.trans_to(human, 10, method = VAPOR)
+	drink.reagents.trans_to(human, 10, methods = VAPOR)
 	TEST_ASSERT_NOTEQUAL(human.drowsyness, 0, "Human is not drowsy after exposure to vapors")
 
 	// PATCH
@@ -50,9 +50,9 @@
 
 	// INJECT
 	syringe.reagents.add_reagent(/datum/reagent/method_patch_test, 1)
-	syringe.mode = SYRINGE_INJECT
-	syringe.afterattack(human, human, TRUE)
+	syringe.melee_attack_chain(human, human)
 	TEST_ASSERT_EQUAL(human.health, 80, "Human health did not update after injection from syringe")
 
 /datum/unit_test/reagent_mob_expose/Destroy()
 	SSmobs.ignite()
+	return ..()

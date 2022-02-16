@@ -2,11 +2,6 @@
 /datum/language/sylvan
 	name = "Sylvan"
 	desc = "A complicated, ancient language spoken by sentient plants."
-	speech_verb = "expresses"
-	ask_verb = "inquires"
-	exclaim_verb = "declares"
-	sing_verb = "serenades"
-	flags = LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD //WS Edit- Language icon hiding
 	key = "h"
 	space_chance = 20
 	syllables = list(

@@ -21,7 +21,9 @@
 	var/list/parsed_bounds
 	/// Offset bounds. Same as parsed_bounds until load().
 	var/list/bounds
-	var/did_expand = FALSE
+
+	///any turf in this list is skipped inside of build_coordinate
+	var/list/turf_blacklist = list()
 
 	// raw strings used to represent regexes more accurately
 	// '' used to avoid confusing syntax highlighting
@@ -39,9 +41,9 @@
 /// - `x_offset`, `y_offset`, `z_offset`: Positions representign where to load the map (Optional).
 /// - `cropMap`: When true, the map will be cropped to fit the existing world dimensions (Optional).
 /// - `measureOnly`: When true, no changes will be made to the world (Optional).
-/// - `no_changeturf`: When true, [turf/AfterChange] won't be called on loaded turfs
+/// - `no_changeturf`: When true, [/turf/proc/AfterChange] won't be called on loaded turfs
 /// - `x_lower`, `x_upper`, `y_lower`, `y_upper`: Coordinates (relative to the map) to crop to (Optional).
-/// - `placeOnTop`: Whether to use [turf/PlaceOnTop] rather than [turf/ChangeTurf] (Optional).
+/// - `placeOnTop`: Whether to use [/turf/proc/PlaceOnTop] rather than [/turf/proc/ChangeTurf] (Optional).
 /proc/load_map(dmm_file as file, x_offset as num, y_offset as num, z_offset as num, cropMap as num, measureOnly as num, no_changeturf as num, x_lower = -INFINITY as num, x_upper = INFINITY as num, y_lower = -INFINITY as num, y_upper = INFINITY as num, placeOnTop = FALSE as num)
 	var/datum/parsed_map/parsed = new(dmm_file, x_lower, x_upper, y_lower, y_upper, measureOnly)
 	if(parsed.bounds && !measureOnly)
@@ -146,13 +148,16 @@
 	var/list/bounds
 	src.bounds = bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
 
-	for(var/I in gridSets)
-		var/datum/grid_set/gset = I
+	//used for sending the maxx and maxy expanded global signals at the end of this proc
+	var/has_expanded_world_maxx = FALSE
+	var/has_expanded_world_maxy = FALSE
+
+	for(var/datum/grid_set/gset as anything in gridSets)
 		var/ycrd = gset.ycrd + y_offset - 1
 		var/zcrd = gset.zcrd + z_offset - 1
 		if(!cropMap && ycrd > world.maxy)
 			world.maxy = ycrd // Expand Y here.  X is expanded in the loop below
-			did_expand = TRUE
+			has_expanded_world_maxy = TRUE
 		var/zexpansion = zcrd > world.maxz
 		if(zexpansion)
 			if(cropMap)
@@ -160,26 +165,25 @@
 			else
 				while (zcrd > world.maxz) //create a new z_level if needed
 					world.incrementMaxZ()
-					did_expand = FALSE
 			if(!no_changeturf)
 				WARNING("Z-level expansion occurred without no_changeturf set, this may cause problems when /turf/AfterChange is called")
 
 		for(var/line in gset.gridLines)
-			if((ycrd - y_offset + 1) < y_lower || (ycrd - y_offset + 1) > y_upper)				//Reverse operation and check if it is out of bounds of cropping.
+			if((ycrd - y_offset + 1) < y_lower || (ycrd - y_offset + 1) > y_upper) //Reverse operation and check if it is out of bounds of cropping.
 				--ycrd
 				continue
 			if(ycrd <= world.maxy && ycrd >= 1)
 				var/xcrd = gset.xcrd + x_offset - 1
 				for(var/tpos = 1 to length(line) - key_len + 1 step key_len)
-					if((xcrd - x_offset + 1) < x_lower || (xcrd - x_offset + 1) > x_upper)			//Same as above.
+					if((xcrd - x_offset + 1) < x_lower || (xcrd - x_offset + 1) > x_upper) //Same as above.
 						++xcrd
-						continue								//X cropping.
+						continue //X cropping.
 					if(xcrd > world.maxx)
 						if(cropMap)
 							break
 						else
 							world.maxx = xcrd
-							did_expand = TRUE
+							has_expanded_world_maxx = TRUE
 
 					if(xcrd >= 1)
 						var/model_key = copytext(line, tpos, tpos + key_len)
@@ -208,18 +212,17 @@
 		CHECK_TICK
 
 	if(!no_changeturf)
-		for(var/t in block(locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]), locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ])))
-			var/turf/T = t
+		for(var/turf/T as anything in block(locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]), locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ])))
 			//we do this after we load everything in. if we don't; we'll have weird atmos bugs regarding atmos adjacent turfs
 			T.AfterChange(CHANGETURF_IGNORE_AIR)
+
+	if(has_expanded_world_maxx || has_expanded_world_maxy)
+		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPANDED_WORLD_BOUNDS, has_expanded_world_maxx, has_expanded_world_maxy)
 
 	#ifdef TESTING
 	if(turfsSkipped)
 		testing("Skipped loading [turfsSkipped] default turfs")
 	#endif
-
-	if(did_expand)
-		world.refresh_atmos_grid()
 
 	return TRUE
 
@@ -311,6 +314,10 @@
 	//Instanciation
 	////////////////
 
+	for (var/turf_in_blacklist in turf_blacklist)
+		if (crds == turf_in_blacklist) //if the given turf is blacklisted, dont do anything with it
+			return
+
 	//The next part of the code assumes there's ALWAYS an /area AND a /turf on a given tile
 	//first instance the /area and remove it from the members list
 	index = members.len
@@ -367,15 +374,12 @@
 
 	if(crds)
 		if(ispath(path, /turf))
-			var/old_virtual_z = crds.virtual_z
 			if(placeOnTop)
 				. = crds.PlaceOnTop(null, path, CHANGETURF_DEFER_CHANGE | (no_changeturf ? CHANGETURF_SKIP : NONE))
 			else if(!no_changeturf)
 				. = crds.ChangeTurf(path, null, CHANGETURF_DEFER_CHANGE)
 			else
-				. = create_turf(path, crds , old_virtual_z)//first preloader pass
-			var/turf/new_turf = .
-			new_turf.virtual_z = old_virtual_z //UNDER NO CIRCUMSTANCES LOOSE THIS VARIABLE
+				. = create_atom(path, crds)//first preloader pass
 		else
 			. = create_atom(path, crds)//first preloader pass
 
@@ -387,10 +391,6 @@
 		SSatoms.map_loader_stop()
 		stoplag()
 		SSatoms.map_loader_begin()
-
-/datum/parsed_map/proc/create_turf(path, crds, virtual_z)
-	set waitfor = FALSE
-	. = new path (crds, virtual_z)
 
 /datum/parsed_map/proc/create_atom(path, crds)
 	set waitfor = FALSE
@@ -488,4 +488,9 @@
 
 /datum/parsed_map/Destroy()
 	..()
+	turf_blacklist.Cut()
+	parsed_bounds.Cut()
+	bounds.Cut()
+	grid_models.Cut()
+	gridSets.Cut()
 	return QDEL_HINT_HARDDEL_NOW

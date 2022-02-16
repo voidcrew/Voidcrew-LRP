@@ -1,10 +1,12 @@
 /obj/item/gun/ballistic/automatic/pistol
-	name = "stechkin pistol"
-	desc = "A small, easily concealable 10mm handgun. Has a threaded barrel for suppressors."
+	name = "makarov pistol"
+	desc = "A small, easily concealable 9mm handgun. Has a threaded barrel for suppressors."
 	icon_state = "pistol"
 	w_class = WEIGHT_CLASS_SMALL
-	mag_type = /obj/item/ammo_box/magazine/m10mm
+	mag_type = /obj/item/ammo_box/magazine/m9mm
 	can_suppress = TRUE
+	burst_size = 1
+	fire_delay = 0
 	actions_types = list()
 	bolt_type = BOLT_TYPE_LOCKING
 	fire_sound = 'sound/weapons/gun/pistol/shot.ogg'
@@ -20,9 +22,7 @@
 	bolt_drop_sound = 'sound/weapons/gun/pistol/drop_small.ogg'
 	fire_sound_volume = 90
 	bolt_wording = "slide"
-	fire_rate = 3
-	automatic = 0
-	weapon_weight = WEAPON_LIGHT
+	suppressor_x_offset = 4
 
 /obj/item/gun/ballistic/automatic/pistol/no_mag
 	spawnwithmagazine = FALSE
@@ -35,12 +35,11 @@
 /obj/item/gun/ballistic/automatic/pistol/m1911
 	name = "\improper M1911"
 	desc = "A classic .45 handgun with a small magazine capacity."
-
 	icon_state = "m1911"
 	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = /obj/item/ammo_box/magazine/m45
 	can_suppress = FALSE
-	fire_sound = 'sound/weapons/gun/pistol/shot.ogg'
+	fire_sound = 'sound/weapons/gun/pistol/shot_alt.ogg'
 	rack_sound = 'sound/weapons/gun/pistol/rack.ogg'
 	lock_back_sound = 'sound/weapons/gun/pistol/slide_lock.ogg'
 	bolt_drop_sound = 'sound/weapons/gun/pistol/slide_drop.ogg'
@@ -56,7 +55,7 @@
 	mag_type = /obj/item/ammo_box/magazine/m50
 	can_suppress = FALSE
 	mag_display = TRUE
-	fire_sound = 'sound/weapons/gun/rifle/shot_alt.ogg'
+	fire_sound = 'sound/weapons/gun/rifle/shot.ogg'
 	rack_sound = 'sound/weapons/gun/pistol/rack.ogg'
 	lock_back_sound = 'sound/weapons/gun/pistol/slide_lock.ogg'
 	bolt_drop_sound = 'sound/weapons/gun/pistol/slide_drop.ogg'
@@ -64,68 +63,40 @@
 /obj/item/gun/ballistic/automatic/pistol/deagle/gold
 	desc = "A gold plated Desert Eagle folded over a million times by superior martian gunsmiths. Uses .50 AE ammo."
 	icon_state = "deagleg"
-	item_state = "deagleg"
+	inhand_icon_state = "deagleg"
 
 /obj/item/gun/ballistic/automatic/pistol/deagle/camo
 	desc = "A Deagle brand Deagle for operators operating operationally. Uses .50 AE ammo."
 	icon_state = "deaglecamo"
-	item_state = "deagleg"
+	inhand_icon_state = "deagleg"
 
-/obj/item/gun/ballistic/automatic/pistol/APS
-	name = "stechkin APS pistol"
-	desc = "The original Russian version of a widely used Syndicate sidearm. Uses 9mm ammo."
+/obj/item/gun/ballistic/automatic/pistol/aps
+	name = "stechkin APS machine pistol"
+	desc = "An old Soviet machine pistol. It fires quickly, but kicks like a mule. Uses 9mm ammo. Has a threaded barrel for suppressors."
 	icon_state = "aps"
-	w_class = WEIGHT_CLASS_SMALL
-	mag_type = /obj/item/ammo_box/magazine/pistolm9mm
-	can_suppress = FALSE
-	fire_rate = 4
-	automatic = 1
+	w_class = WEIGHT_CLASS_NORMAL
+	mag_type = /obj/item/ammo_box/magazine/m9mm_aps
+	can_suppress = TRUE
+	burst_size = 3
+	fire_delay = 1
+	spread = 10
+	actions_types = list(/datum/action/item_action/toggle_firemode)
+	suppressor_x_offset = 6
 
 /obj/item/gun/ballistic/automatic/pistol/stickman
 	name = "flat gun"
 	desc = "A 2 dimensional gun.. what?"
 	icon_state = "flatgun"
+	mag_display = FALSE
+	show_bolt_icon = FALSE
 
-/obj/item/gun/ballistic/automatic/pistol/stickman/pickup(mob/living/user)
-	SHOULD_CALL_PARENT(0)
-	to_chat(user, "<span class='notice'>As you try to pick up [src], it slips out of your grip..</span>")
+/obj/item/gun/ballistic/automatic/pistol/stickman/equipped(mob/user, slot)
+	..()
+	to_chat(user, span_notice("As you try to manipulate [src], it slips out of your possession.."))
 	if(prob(50))
-		to_chat(user, "<span class='notice'>..and vanishes from your vision! Where the hell did it go?</span>")
+		to_chat(user, span_notice("..and vanishes from your vision! Where the hell did it go?"))
 		qdel(src)
 		user.update_icons()
 	else
-		to_chat(user, "<span class='notice'>..and falls into view. Whew, that was a close one.</span>")
+		to_chat(user, span_notice("..and falls into view. Whew, that was a close one."))
 		user.dropItemToGround(src)
-
-/obj/item/gun/ballistic/automatic/pistol/disposable
-	name = "disposable gun"
-	desc = "An exceedingly flimsy gun that is extremely cheap and easy to produce. You get what you pay for."
-	icon_state = "disposable"
-	w_class = WEIGHT_CLASS_NORMAL
-	mag_type = /obj/item/ammo_box/magazine/disposable
-	custom_materials = list(/datum/material/plastic=2000)
-	can_suppress = FALSE
-	var/random_icon = TRUE
-
-/obj/item/gun/ballistic/automatic/pistol/disposable/Initialize()
-	..()
-	var/picked = pick("none","red","purple","yellow","green","dark")
-	if(random_icon)
-		if(picked == "none")
-			return
-		icon_state = "disposable_[picked]"
-
-/obj/item/gun/ballistic/automatic/pistol/disposable/eject_magazine(mob/user)
-	to_chat(user, "<span class='warning'>Theres no magazine to eject!</span>")
-	return
-
-/obj/item/gun/ballistic/automatic/pistol/disposable/insert_magazine(mob/user)
-	to_chat(user, "<span class='warning'>Theres no magazine to replace!</span>")
-	return
-
-/obj/item/gun/ballistic/automatic/pistol/disposable/pizza
-	name = "pizza disposable gun"
-	desc = "How horrible. Whoever you point at with this won't be very cheesed to meet you." //this is a warcrime against itallians
-	icon_state = "disposable_pizza"
-	random_icon = FALSE
-	custom_materials = list(/datum/material/pizza=2000)

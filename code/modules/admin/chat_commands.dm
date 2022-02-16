@@ -1,57 +1,24 @@
 #define TGS_STATUS_THROTTLE 5
 
-/datum/tgs_chat_command/restart
-	name = "restart"
-	help_text = "Restarts the server if there are no active admins on."
-
-/datum/tgs_chat_command/restart/Run(datum/tgs_chat_user/sender, params)
-	var/active_admins = FALSE
-	for(var/client/C in GLOB.admins)
-		if(!C.is_afk() && check_rights_for(C, R_SERVER))
-			active_admins = TRUE
-			break
-	if(!active_admins)
-		SSticker.Reboot("Restart requested from the discord.", "discord")
-		return "Rebooting..."
-	else
-		return "There are active admins on the server! Ask them to restart."
-
-/datum/tgs_chat_command/join
-	name = "join"
-	help_text = "Sends a join link."
-
-/datum/tgs_chat_command/join/Run(datum/tgs_chat_user/sender, params)
-	return "<[world.internet_address]:[world.port]>"
-
 /datum/tgs_chat_command/tgsstatus
 	name = "status"
 	help_text = "Gets the admincount, playercount, gamemode, and true game mode of the server"
 	admin_only = TRUE
-	var/last_tgs_status = 0
 
 /datum/tgs_chat_command/tgsstatus/Run(datum/tgs_chat_user/sender, params)
-	var/rtod = REALTIMEOFDAY
-	if(rtod - last_tgs_status < TGS_STATUS_THROTTLE)
-		return
-	last_tgs_status = rtod
 	var/list/adm = get_admin_counts()
 	var/list/allmins = adm["total"]
 	var/status = "Admins: [allmins.len] (Active: [english_list(adm["present"])] AFK: [english_list(adm["afk"])] Stealth: [english_list(adm["stealth"])] Skipped: [english_list(adm["noflags"])]). "
-	status += "Players: [GLOB.clients.len] (Active: [get_active_player_count(0,1,0)]). Mode: [SSticker.mode ? SSticker.mode.name : "Not started"]."
+	status += "Players: [GLOB.clients.len] (Active: [get_active_player_count(0,1,0)]). Round has [SSticker.HasRoundStarted() ? "" : "not "]started."
 	return status
 
 /datum/tgs_chat_command/tgscheck
 	name = "check"
 	help_text = "Gets the playercount, gamemode, and address of the server"
-	var/last_tgs_check = 0
 
 /datum/tgs_chat_command/tgscheck/Run(datum/tgs_chat_user/sender, params)
-	var/rtod = REALTIMEOFDAY
-	if(rtod - last_tgs_check < TGS_STATUS_THROTTLE)
-		return
-	last_tgs_check = rtod
 	var/server = CONFIG_GET(string/server)
-	return "[GLOB.round_id ? "Round #[GLOB.round_id]: " : ""][GLOB.clients.len] players, Mode: [GLOB.master_mode]; Round [SSticker.HasRoundStarted() ? (SSticker.IsRoundInProgress() ? "Active" : "Finishing") : "Starting"] -- [server ? server : "[world.internet_address]:[world.port]"]"
+	return "[GLOB.round_id ? "Round #[GLOB.round_id]: " : ""][GLOB.clients.len] players on [SSmapping.config.map_name]; Round [SSticker.HasRoundStarted() ? (SSticker.IsRoundInProgress() ? "Active" : "Finishing") : "Starting"] -- [server ? server : "[world.internet_address]:[world.port]"]"
 
 /datum/tgs_chat_command/ahelp
 	name = "ahelp"
@@ -71,9 +38,7 @@
 			target = AH.initiator_ckey
 		else
 			return "Ticket #[id] not found!"
-	var/res = TgsPm(target, all_params.Join(" "), sender.friendly_name)
-	if(res != "Message Successful")
-		return res
+	return TgsPm(target, all_params.Join(" "), sender.friendly_name)
 
 /datum/tgs_chat_command/namecheck
 	name = "namecheck"
@@ -116,11 +81,7 @@ GLOBAL_LIST(round_end_notifiees)
 	admin_only = TRUE
 
 /datum/tgs_chat_command/sdql/Run(datum/tgs_chat_user/sender, params)
-	if(GLOB.AdminProcCaller)
-		return "Unable to run query, another admin proc call is in progress. Try again later."
-	GLOB.AdminProcCaller = "CHAT_[sender.friendly_name]"	//_ won't show up in ckeys so it'll never match with a real admin
-	var/list/results = world.SDQL2_query(params, GLOB.AdminProcCaller, GLOB.AdminProcCaller)
-	GLOB.AdminProcCaller = null
+	var/list/results = HandleUserlessSDQL(sender.friendly_name, params)
 	if(!results)
 		return "Query produced no output"
 	var/list/text_res = results.Copy(1, 3)

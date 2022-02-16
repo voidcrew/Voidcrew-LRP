@@ -1,7 +1,10 @@
 //Vars that will not be copied when using /DuplicateObject
 GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 	"tag", "datum_components", "area", "type", "loc", "locs", "vars", "parent", "parent_type", "verbs", "ckey", "key",
-	"power_supply", "contents", "reagents", "stat", "x", "y", "z", "group", "atmos_adjacent_turfs", "comp_lookup"
+	"power_supply", "contents", "reagents", "stat", "x", "y", "z", "group", "atmos_adjacent_turfs", "comp_lookup",
+	"important_recursive_contents", "bodyparts", "internal_organs", "hand_bodyparts", "overlays_standing", "hud_list",
+	"actions", "AIStatus", "appearance", "managed_overlays", "managed_vis_overlays", "computer_id", "lastKnownIP", "implants",
+	"tgui_shared_states"
 	))
 
 /proc/DuplicateObject(atom/original, perfectcopy = TRUE, sameloc, atom/newloc = null, nerf, holoitem)
@@ -20,8 +23,8 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 			if(islist(original.vars[V]))
 				var/list/L = original.vars[V]
 				O.vars[V] = L.Copy()
-			else if(istype(original.vars[V], /datum))
-				continue	// this would reference the original's object, that will break when it is used or deleted.
+			else if(istype(original.vars[V], /datum) || ismob(original.vars[V]))
+				continue // this would reference the original's object, that will break when it is used or deleted.
 			else
 				O.vars[V] = original.vars[V]
 
@@ -34,7 +37,7 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 			var/obj/item/I = O
 			I.damtype = STAMINA // thou shalt not
 
-		N.update_icon()
+		N.update_appearance()
 		if(ismachinery(O))
 			var/obj/machinery/M = O
 			M.power_change()
@@ -52,6 +55,11 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 				contained_atom.flags_1 |= HOLOGRAM_1
 			if(M.circuit)
 				M.circuit.flags_1 |= HOLOGRAM_1
+
+	if(ismob(O)) //Overlays are carried over despite disallowing them, if a fix is found remove this.
+		var/mob/M = O
+		M.cut_overlays()
+		M.regenerate_icons()
 	return O
 
 
@@ -60,29 +68,32 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 	//Returns: Nothing.
 	//Notes: Attempts to move the contents of one area to another area.
 	//       Movement based on lower left corner. Tiles that do not fit
-	//		 into the new area will not be moved.
+	//  into the new area will not be moved.
 
 	if(!A || !src)
 		return 0
+
+	var/list/turfs_src = get_area_turfs(src.type)
+	var/list/turfs_trg = get_area_turfs(A.type)
 
 	var/src_min_x = 99999
 	var/src_min_y = 99999
 	var/list/refined_src = new/list()
 
-	for (var/turf/T in contents)
+	for (var/turf/T in turfs_src)
 		src_min_x = min(src_min_x,T.x)
 		src_min_y = min(src_min_y,T.y)
-	for (var/turf/T in contents)
+	for (var/turf/T in turfs_src)
 		refined_src[T] = "[T.x - src_min_x].[T.y - src_min_y]"
 
 	var/trg_min_x = 99999
 	var/trg_min_y = 99999
 	var/list/refined_trg = new/list()
 
-	for (var/turf/T in A.contents)
+	for (var/turf/T in turfs_trg)
 		trg_min_x = min(trg_min_x,T.x)
 		trg_min_y = min(trg_min_y,T.y)
-	for (var/turf/T in A.contents)
+	for (var/turf/T in turfs_trg)
 		refined_trg["[T.x - trg_min_x].[T.y - trg_min_y]"] = T
 
 	var/list/toupdate = new/list()
@@ -112,13 +123,13 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 			var/obj/O2 = DuplicateObject(O , perfectcopy=TRUE, newloc = B, nerf=nerf_weapons, holoitem=TRUE)
 			if(!O2)
 				continue
-			copiedobjs += O2.GetAllContents()
+			copiedobjs += O2.get_all_contents()
 
 		for(var/mob/M in T)
 			if(iscameramob(M))
 				continue // If we need to check for more mobs, I'll add a variable
 			var/mob/SM = DuplicateObject(M , perfectcopy=TRUE, newloc = B, holoitem=TRUE)
-			copiedobjs += SM.GetAllContents()
+			copiedobjs += SM.get_all_contents()
 
 		for(var/V in T.vars - GLOB.duplicate_forbidden_vars)
 			if(V == "air")
@@ -131,6 +142,6 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 
 	if(toupdate.len)
 		for(var/turf/T1 in toupdate)
-			CALCULATE_ADJACENT_TURFS(T1)
+			CALCULATE_ADJACENT_TURFS(T1, KILL_EXCITED)
 
 	return copiedobjs

@@ -61,6 +61,13 @@
 	glass_type = /obj/machinery/door/airlock/medical/glass
 	airlock_type = /obj/machinery/door/airlock/medical
 
+/obj/structure/door_assembly/door_assembly_hydro
+	name = "hydroponics airlock assembly"
+	icon = 'icons/obj/doors/airlocks/station/hydroponics.dmi'
+	base_name = "hydroponics airlock"
+	glass_type = /obj/machinery/door/airlock/hydroponics/glass
+	airlock_type = /obj/machinery/door/airlock/hydroponics
+
 /obj/structure/door_assembly/door_assembly_mai
 	name = "maintenance airlock assembly"
 	icon = 'icons/obj/doors/airlocks/station/maintenance.dmi'
@@ -226,9 +233,9 @@
 
 /obj/structure/door_assembly/door_assembly_titanium
 	name = "titanium airlock assembly"
-	icon = 'whitesands/icons/obj/doors/airlocks/shuttle/shuttle.dmi'
+	icon = 'icons/obj/doors/airlocks/shuttle/shuttle.dmi'
 	base_name = "shuttle airlock"
-	overlays_file = 'whitesands/icons/obj/doors/airlocks/shuttle/overlays.dmi'
+	overlays_file = 'icons/obj/doors/airlocks/shuttle/overlays.dmi'
 	glass_type = /obj/machinery/door/airlock/titanium/glass
 	airlock_type = /obj/machinery/door/airlock/titanium
 	mineral = "titanium"
@@ -247,7 +254,7 @@
 	base_name = "bronze airlock"
 	airlock_type = /obj/machinery/door/airlock/bronze
 	noglass = TRUE
-	material_type = /obj/item/stack/tile/bronze
+	material_type = /obj/item/stack/sheet/bronze
 
 /obj/structure/door_assembly/door_assembly_bronze/seethru
 	airlock_type = /obj/machinery/door/airlock/bronze/seethru

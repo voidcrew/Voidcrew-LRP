@@ -4,13 +4,18 @@
 	name = "bottle"
 	desc = "A small bottle."
 	icon_state = "bottle"
-	item_state = "atoxinbottle"
+	fill_icon_state = "bottle"
+	inhand_icon_state = "atoxinbottle"
+	worn_icon_state = "bottle"
 	possible_transfer_amounts = list(5,10,15,25,30)
 	volume = 30
-	fill_icon_thresholds = list(0, 10, 30, 50, 70)
-	can_have_cap = TRUE
-	cap_icon_state = "bottle_cap"
-	cap_on = TRUE
+	fill_icon_thresholds = list(0, 1, 20, 40, 60, 80, 100)
+
+/obj/item/reagent_containers/glass/bottle/Initialize(mapload)
+	. = ..()
+	if(!icon_state)
+		icon_state = "bottle"
+	update_appearance()
 
 /obj/item/reagent_containers/glass/bottle/epinephrine
 	name = "epinephrine bottle"
@@ -35,11 +40,13 @@
 /obj/item/reagent_containers/glass/bottle/morphine
 	name = "morphine bottle"
 	desc = "A small bottle of morphine."
+	icon = 'icons/obj/chemical.dmi'
 	list_reagents = list(/datum/reagent/medicine/morphine = 30)
 
 /obj/item/reagent_containers/glass/bottle/chloralhydrate
 	name = "chloral hydrate bottle"
 	desc = "A small bottle of Choral Hydrate. Mickey's Favorite!"
+	icon_state = "bottle20"
 	list_reagents = list(/datum/reagent/toxin/chloralhydrate = 15)
 
 /obj/item/reagent_containers/glass/bottle/mannitol
@@ -47,10 +54,20 @@
 	desc = "A small bottle of Mannitol. Useful for healing brain damage."
 	list_reagents = list(/datum/reagent/medicine/mannitol = 30)
 
-/obj/item/reagent_containers/glass/bottle/charcoal
-	name = "charcoal bottle"
-	desc = "A small bottle of charcoal, which removes toxins and other chemicals from the bloodstream."
-	list_reagents = list(/datum/reagent/medicine/charcoal = 30)
+/obj/item/reagent_containers/glass/bottle/multiver
+	name = "multiver bottle"
+	desc = "A small bottle of multiver, which removes toxins and other chemicals from the bloodstream but causes shortness of breath. All effects scale with the amount of reagents in the patient."
+	list_reagents = list(/datum/reagent/medicine/c2/multiver = 30)
+
+/obj/item/reagent_containers/glass/bottle/calomel
+	name = "calomel bottle"
+	desc = "A small bottle of calomel, which quickly purges all chemicals from the patient. Causes toxin damage if the patient is not heavily injured."
+	list_reagents = list(/datum/reagent/medicine/calomel = 30)
+
+/obj/item/reagent_containers/glass/bottle/syriniver
+	name = "syriniver bottle"
+	desc = "A small bottle of syriniver."
+	list_reagents = list(/datum/reagent/medicine/c2/syriniver = 30)
 
 /obj/item/reagent_containers/glass/bottle/mutagen
 	name = "unstable mutagen bottle"
@@ -88,9 +105,6 @@
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "holyflask"
 	list_reagents = list(/datum/reagent/medicine/adminordrazine = 30)
-	can_have_cap = FALSE
-	cap_icon_state = null
-	cap_on = FALSE
 
 /obj/item/reagent_containers/glass/bottle/capsaicin
 	name = "Capsaicin Bottle"
@@ -105,9 +119,10 @@
 /obj/item/reagent_containers/glass/bottle/traitor
 	name = "syndicate bottle"
 	desc = "A small bottle. Contains a random nasty chemical."
+	icon = 'icons/obj/chemical.dmi'
 	var/extra_reagent = null
 
-/obj/item/reagent_containers/glass/bottle/traitor/Initialize()
+/obj/item/reagent_containers/glass/bottle/traitor/Initialize(mapload)
 	. = ..()
 	extra_reagent = pick(/datum/reagent/toxin/polonium, /datum/reagent/toxin/histamine, /datum/reagent/toxin/formaldehyde, /datum/reagent/toxin/venom, /datum/reagent/toxin/fentanyl, /datum/reagent/toxin/cyanide)
 	reagents.add_reagent(extra_reagent, 3)
@@ -185,12 +200,38 @@
 /obj/item/reagent_containers/glass/bottle/salglu_solution
 	name = "saline-glucose solution bottle"
 	desc = "A small bottle of saline-glucose solution."
+	icon_state = "bottle1"
 	list_reagents = list(/datum/reagent/medicine/salglu_solution = 30)
 
 /obj/item/reagent_containers/glass/bottle/atropine
 	name = "atropine bottle"
 	desc = "A small bottle of atropine."
 	list_reagents = list(/datum/reagent/medicine/atropine = 30)
+
+/obj/item/reagent_containers/glass/bottle/random_buffer
+	name = "Buffer bottle"
+	desc = "A small bottle of chemical buffer."
+
+/obj/item/reagent_containers/glass/bottle/random_buffer/Initialize(mapload)
+	. = ..()
+	if(prob(50))
+		name = "Acidic buffer bottle"
+		desc = "A small bottle of acidic buffer."
+		reagents.add_reagent(/datum/reagent/reaction_agent/acidic_buffer, 30)
+	else
+		name = "Basic buffer bottle"
+		desc = "A small bottle of basic buffer."
+		reagents.add_reagent(/datum/reagent/reaction_agent/basic_buffer, 30)
+
+/obj/item/reagent_containers/glass/bottle/acidic_buffer
+	name = "Acidic buffer bottle"
+	desc = "A small bottle of acidic buffer."
+	list_reagents = list(/datum/reagent/reaction_agent/acidic_buffer = 30)
+
+/obj/item/reagent_containers/glass/bottle/basic_buffer
+	name = "Basic buffer bottle"
+	desc = "A small bottle of basic buffer."
+	list_reagents = list(/datum/reagent/reaction_agent/basic_buffer = 30)
 
 /obj/item/reagent_containers/glass/bottle/romerol
 	name = "romerol bottle"
@@ -236,6 +277,7 @@
 /obj/item/reagent_containers/glass/bottle/brainrot
 	name = "Brainrot culture bottle"
 	desc = "A small bottle. Contains Cryptococcus Cosmosis culture in synthblood medium."
+	icon_state = "bottle3"
 	spawned_disease = /datum/disease/brainrot
 
 /obj/item/reagent_containers/glass/bottle/magnitis
@@ -272,12 +314,6 @@
 	name = "BVAK bottle"
 	desc = "A small bottle containing Bio Virus Antidote Kit."
 	list_reagents = list(/datum/reagent/vaccine/fungal_tb = 30)
-
-/obj/item/reagent_containers/glass/bottle/necropolis_seed
-	name = "bowl of blood"
-	desc = "A clay bowl containing a fledgling spire, preserved in blood. When consumed, allows the user to transform into an avatar of the Necropolis. A robust virologist may be able to unlock its full potential..."
-	icon_state = "mortar_bone"
-	spawned_disease = /datum/disease/advance/necropolis
 
 //Oldstation.dmm chemical storage bottles
 
@@ -385,7 +421,34 @@
 	name = "thermite bottle"
 	list_reagents = list(/datum/reagent/thermite = 30)
 
-/obj/item/reagent_containers/glass/bottle/nitroglycerin
-	name = "nitroglycerin bottle"
-	desc = "A small bottle. A red warning label alerts you to the fact that it contains nitrated glycerol."
-	list_reagents = list(/datum/reagent/nitroglycerin = 30)
+// Bottles for mail goodies.
+
+/obj/item/reagent_containers/glass/bottle/clownstears
+	name = "bottle of distilled clown misery"
+	desc = "A small bottle. Contains a mythical liquid used by sublime bartenders; made from the unhappiness of clowns."
+	list_reagents = list(/datum/reagent/consumable/clownstears = 30)
+
+/obj/item/reagent_containers/glass/bottle/saltpetre
+	name = "saltpetre bottle"
+	desc = "A small bottle. Contains saltpetre."
+	list_reagents = list(/datum/reagent/saltpetre = 30)
+
+/obj/item/reagent_containers/glass/bottle/flash_powder
+	name = "flash powder bottle"
+	desc = "A small bottle. Contains flash powder."
+	list_reagents = list(/datum/reagent/flash_powder = 30)
+
+/obj/item/reagent_containers/glass/bottle/exotic_stabilizer
+	name = "exotic stabilizer bottle"
+	desc = "A small bottle. Contains exotic stabilizer."
+	list_reagents = list(/datum/reagent/exotic_stabilizer = 30)
+
+/obj/item/reagent_containers/glass/bottle/leadacetate
+	name = "lead acetate bottle"
+	desc = "A small bottle. Contains lead acetate."
+	list_reagents = list(/datum/reagent/toxin/leadacetate = 30)
+
+/obj/item/reagent_containers/glass/bottle/caramel
+	name = "bottle of caramel"
+	desc = "A bottle containing caramalized sugar, also known as caramel. Do not lick."
+	list_reagents = list(/datum/reagent/consumable/caramel = 30)

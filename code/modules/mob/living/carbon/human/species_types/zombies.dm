@@ -2,13 +2,30 @@
 
 /datum/species/zombie
 	// 1spooky
-	name = "\improper High-Functioning Zombie"
-	id = SPECIES_ZOMBIE
+	name = "High-Functioning Zombie"
+	id = SPECIES_ZOMBIE_HALLOWEEN
 	say_mod = "moans"
 	sexes = 0
-	meat = /obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/zombie
-	species_traits = list(NOBLOOD,NOZOMBIE,NOTRANSSTING)
-	inherent_traits = list(TRAIT_NOMETABOLISM,TRAIT_TOXIMMUNE,TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_RADIMMUNE,TRAIT_EASYDISMEMBER,TRAIT_LIMBATTACHMENT,TRAIT_NOBREATH,TRAIT_NODEATH,TRAIT_FAKEDEATH,TRAIT_NOCLONELOSS)
+	meat = /obj/item/food/meat/slab/human/mutant/zombie
+	species_traits = list(NOBLOOD,NOZOMBIE,NOTRANSSTING, HAS_FLESH, HAS_BONE)
+	inherent_traits = list(
+		TRAIT_ADVANCEDTOOLUSER,
+		TRAIT_CAN_STRIP,
+		TRAIT_NOMETABOLISM,
+		TRAIT_NOHUNGER,
+		TRAIT_TOXIMMUNE,
+		TRAIT_RESISTCOLD,
+		TRAIT_RESISTHIGHPRESSURE,
+		TRAIT_RESISTLOWPRESSURE,
+		TRAIT_RADIMMUNE,
+		TRAIT_EASYDISMEMBER,
+		TRAIT_EASILY_WOUNDED,
+		TRAIT_LIMBATTACHMENT,
+		TRAIT_NOBREATH,
+		TRAIT_NODEATH,
+		TRAIT_FAKEDEATH,
+		TRAIT_NOCLONELOSS,
+	)
 	inherent_biotypes = MOB_UNDEAD|MOB_HUMANOID
 	mutanttongue = /obj/item/organ/tongue/zombie
 	var/static/list/spooks = list('sound/hallucinations/growl1.ogg','sound/hallucinations/growl2.ogg','sound/hallucinations/growl3.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/wail.ogg')
@@ -19,32 +36,27 @@
 	bodytemp_heat_damage_limit = FIRE_MINIMUM_TEMPERATURE_TO_EXIST // Take damage at fire temp
 	bodytemp_cold_damage_limit = MINIMUM_TEMPERATURE_TO_MOVE // take damage below minimum movement temp
 
-	species_chest = /obj/item/bodypart/chest/zombie
-	species_head = /obj/item/bodypart/head/zombie
-	species_l_arm = /obj/item/bodypart/l_arm/zombie
-	species_r_arm = /obj/item/bodypart/r_arm/zombie
-	species_l_leg = /obj/item/bodypart/l_leg/zombie
-	species_r_leg = /obj/item/bodypart/r_leg/zombie
-
 /datum/species/zombie/check_roundstart_eligible()
 	if(SSevents.holidays && SSevents.holidays[HALLOWEEN])
 		return TRUE
 	return ..()
 
 /datum/species/zombie/infectious
-	name = "\improper Infectious Zombie"
-	id = "memezombies"
-	examine_limb_id = "zombie"
+	name = "Infectious Zombie"
+	id = SPECIES_ZOMBIE
+	limbs_id = "zombie"
 	mutanthands = /obj/item/zombie_hand
 	armor = 20 // 120 damage to KO a zombie, which kills it
 	speedmod = 1.6
 	mutanteyes = /obj/item/organ/eyes/night_vision/zombie
-	var/heal_rate = 1
-	var/regen_cooldown = 0
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | ERT_SPAWN
+	/// The rate the zombies regenerate at
+	var/heal_rate = 0.5
+	/// The cooldown before the zombie can start regenerating
+	COOLDOWN_DECLARE(regen_cooldown)
 
 /// Zombies do not stabilize body temperature they are the walking dead and are cold blooded
-/datum/species/zombie/natural_bodytemperature_stabilization(datum/gas_mixture/environment, mob/living/carbon/human/H)
+/datum/species/zombie/body_temperature_core(mob/living/carbon/human/humi, delta_time, times_fired)
 	return
 
 /datum/species/zombie/infectious/check_roundstart_eligible()
@@ -53,24 +65,28 @@
 /datum/species/zombie/infectious/spec_stun(mob/living/carbon/human/H,amount)
 	. = min(20, amount)
 
-/datum/species/zombie/infectious/apply_damage(damage, damagetype = BRUTE, def_zone = null, blocked, mob/living/carbon/human/H, forced = FALSE)
+/datum/species/zombie/infectious/apply_damage(damage, damagetype = BRUTE, def_zone = null, blocked, mob/living/carbon/human/H, spread_damage = FALSE, forced = FALSE, wound_bonus = 0, bare_wound_bonus = 0, sharpness = NONE, attack_direction = null)
 	. = ..()
 	if(.)
-		regen_cooldown = world.time + REGENERATION_DELAY
+		COOLDOWN_START(src, regen_cooldown, REGENERATION_DELAY)
 
-/datum/species/zombie/infectious/spec_life(mob/living/carbon/C)
+/datum/species/zombie/infectious/spec_life(mob/living/carbon/C, delta_time, times_fired)
 	. = ..()
-	C.a_intent = INTENT_HARM // THE SUFFERING MUST FLOW
+	C.set_combat_mode(TRUE) // THE SUFFERING MUST FLOW
 
 	//Zombies never actually die, they just fall down until they regenerate enough to rise back up.
 	//They must be restrained, beheaded or gibbed to stop being a threat.
-	if(regen_cooldown < world.time)
+	if(COOLDOWN_FINISHED(src, regen_cooldown))
 		var/heal_amt = heal_rate
 		if(HAS_TRAIT(C, TRAIT_CRITICAL_CONDITION))
 			heal_amt *= 2
-		C.heal_overall_damage(heal_amt,heal_amt)
-		C.adjustToxLoss(-heal_amt)
-	if(!HAS_TRAIT(C, TRAIT_CRITICAL_CONDITION) && prob(4))
+		C.heal_overall_damage(heal_amt * delta_time, heal_amt * delta_time)
+		C.adjustToxLoss(-heal_amt * delta_time)
+		for(var/i in C.all_wounds)
+			var/datum/wound/iter_wound = i
+			if(DT_PROB(2-(iter_wound.severity/2), delta_time))
+				iter_wound.remove_wound()
+	if(!HAS_TRAIT(C, TRAIT_CRITICAL_CONDITION) && DT_PROB(2, delta_time))
 		playsound(C, pick(spooks), 50, TRUE, 10)
 
 //Congrats you somehow died so hard you stopped being a zombie
@@ -94,38 +110,19 @@
 		infection.Insert(C)
 
 // Your skin falls off
-/datum/species/human/krokodil_addict
-	name = "\improper Human"
-	id = SPECIES_GOOFZOMBIE
-	examine_limb_id = SPECIES_HUMAN
+/datum/species/krokodil_addict
+	name = "Human"
+	id = SPECIES_ADDICT
+	limbs_id = "zombie" //They look like zombies
 	sexes = 0
-	meat = /obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/zombie
+	meat = /obj/item/food/meat/slab/human/mutant/zombie
 	mutanttongue = /obj/item/organ/tongue/zombie
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | ERT_SPAWN
-
-	species_chest = /obj/item/bodypart/chest/zombie
-	species_head = /obj/item/bodypart/head/zombie
-	species_l_arm = /obj/item/bodypart/l_arm/zombie
-	species_r_arm = /obj/item/bodypart/r_arm/zombie
-	species_l_leg = /obj/item/bodypart/l_leg/zombie
-	species_r_leg = /obj/item/bodypart/r_leg/zombie
-
-/datum/species/human/krokodil_addict/replace_body(mob/living/carbon/C, datum/species/new_species)
-	..()
-	var/skintone
-	if(ishuman(C))
-		var/mob/living/carbon/human/H = C
-		skintone = H.skin_tone
-
-	for(var/obj/item/bodypart/BP as anything in C.bodyparts)
-		if(IS_ORGANIC_LIMB(BP))
-			if(BP.body_zone == BODY_ZONE_HEAD || BP.body_zone == BODY_ZONE_CHEST)
-				BP.is_dimorphic = TRUE
-			BP.skin_tone ||= skintone
-			BP.limb_id = SPECIES_HUMAN
-			BP.should_draw_greyscale = TRUE
-			BP.name = "human [parse_zone(BP.body_zone)]"
-			BP.update_limb()
-
+	species_traits = list(HAS_FLESH, HAS_BONE)
+	inherent_traits = list(
+		TRAIT_ADVANCEDTOOLUSER,
+		TRAIT_CAN_STRIP,
+		TRAIT_EASILY_WOUNDED,
+	)
 
 #undef REGENERATION_DELAY

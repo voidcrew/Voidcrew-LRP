@@ -10,13 +10,13 @@
 	icon_screen = "comm_monitor"
 	desc = "Monitors the details of the telecommunications network it's synced with."
 
-	var/screen = 0				// the screen number:
-	var/list/machinelist = list()	// the machines located by the computer
+	var/screen = 0 // the screen number:
+	var/list/machinelist = list() // the machines located by the computer
 	var/obj/machinery/telecomms/SelectedMachine
 
-	var/network = "NULL"		// the network to probe
+	var/network = "NULL" // the network to probe
 
-	var/temp = ""				// temporary feedback messages
+	var/temp = "" // temporary feedback messages
 	circuit = /obj/item/circuitboard/computer/comm_monitor
 
 /obj/machinery/computer/telecomms/monitor/ui_interact(mob/user)
@@ -24,7 +24,10 @@
 	var/dat = "<TITLE>Telecommunications Monitor</TITLE><center><b>Telecommunications Monitor</b></center>"
 
 	switch(screen)
-		// --- Main Menu ---
+
+
+	  // --- Main Menu ---
+
 		if(0)
 			dat += "<br>[temp]<br><br>"
 			dat += "<br>Current Network: <a href='?src=[REF(src)];network=1'>[network]</a><br>"
@@ -37,7 +40,9 @@
 			else
 				dat += "<a href='?src=[REF(src)];operation=probe'>\[Probe Network\]</a>"
 
-		// --- Viewing Machine ---
+
+	  // --- Viewing Machine ---
+
 		if(1)
 			dat += "<br>[temp]<br>"
 			dat += "<center><a href='?src=[REF(src)];operation=mainmenu'>\[Main Menu\]</a></center>"
@@ -48,6 +53,8 @@
 				if(!T.hide)
 					dat += "<li><a href='?src=[REF(src)];viewmachine=[T.id]'>[REF(T.id)] [T.name]</a> ([T.id])</li>"
 			dat += "</ol>"
+
+
 
 	user << browse(dat, "window=comm_monitor;size=575x400")
 	onclose(user, "server_control")
@@ -100,16 +107,12 @@
 
 	if(href_list["network"])
 
-		var/newnet = stripped_input(usr, "Which network do you want to view?", "Comm Monitor", network)
+		var/newnet = tgui_input_text(usr, "Which network do you want to view?", "Comm Monitor", network, 15)
 		if(newnet && ((usr in range(1, src)) || issilicon(usr)))
-			if(length(newnet) > 15)
-				temp = "<font color = #D70B00>- FAILED: NETWORK TAG STRING TOO LENGHTLY -</font color>"
-
-			else
-				network = newnet
-				screen = 0
-				machinelist = list()
-				temp = "<font color = #336699>- NEW NETWORK TAG SET IN ADDRESS \[[network]\] -</font color>"
+			network = newnet
+			screen = 0
+			machinelist = list()
+			temp = "<font color = #336699>- NEW NETWORK TAG SET IN ADDRESS \[[network]\] -</font color>"
 
 	updateUsrDialog()
 	return

@@ -33,7 +33,7 @@
 	var/perlin_zoom = 65
 
 ///Seeds the rust-g perlin noise with a random number.
-/datum/map_generator/jungle_generator/generate_terrain(var/list/turfs)
+/datum/map_generator/jungle_generator/generate_terrain(list/turfs)
 	. = ..()
 	var/height_seed = rand(0, 50000)
 	var/humidity_seed = rand(0, 50000)
@@ -46,9 +46,6 @@
 
 		var/height = text2num(rustg_noise_get_at_coordinates("[height_seed]", "[drift_x]", "[drift_y]"))
 
-		var/area/A = gen_turf.loc //meet my friends, Ctrl+C and Ctrl+V!
-		if(!(A.area_flags & CAVES_ALLOWED))
-			continue
 
 		var/datum/biome/selected_biome
 		if(height <= 0.85) //If height is less than 0.85, we generate biomes based on the heat and humidity of the area.
@@ -88,7 +85,14 @@
 	icon = 'icons/turf/debug.dmi'
 	icon_state = "genturf"
 
+/turf/open/genturf/alternative //currently used for edge cases in which you want a certain type of map generation intermingled with other genturfs
+	name = "alternative ungenerated turf"
+	desc = "If you see this, and you're not a ghost, yell at coders pretty loudly"
+	icon_state = "genturf_alternative"
+
 /area/mine/planetgeneration
 	name = "planet generation area"
-	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
+	static_lighting = FALSE
+	base_lighting_alpha = 255
+
 	map_generator = /datum/map_generator/jungle_generator

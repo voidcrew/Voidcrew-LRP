@@ -104,6 +104,8 @@
 /obj/structure/overmap/ship/simulated/proc/destroy_ship(force = FALSE)
 	if ((length(shuttle.get_all_humans()) > 0) && !force)
 		return
+	if ((is_active_crew() != SHUTTLE_ACTIVE_CREW) && !force)
+		return
 	shuttle.jumpToNullSpace()
 	message_admins("\[SHUTTLE]: [shuttle.name] has been deleted!")
 	log_admin("\[SHUTTLE]: [shuttle.name] has been deleted!")
@@ -424,7 +426,8 @@
 			deletion_timer = addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE, (TIMER_STOPPABLE|TIMER_UNIQUE))
 		if (OVERMAP_SHIP_IDLE, OVERMAP_SHIP_DOCKING)
 			message_admins("\[SHUTTLE]: [name] has been queued for ruin conversion in [SHIP_RUIN / 600] minutes! [ADMIN_COORDJMP(shuttle.loc)]")
-			deletion_timer = addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), SHIP_RUIN, (TIMER_STOPPABLE|TIMER_UNIQUE))
+			//deletion_timer = addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), SHIP_RUIN, (TIMER_STOPPABLE|TIMER_UNIQUE))
+			deletion_timer = addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE, (TIMER_STOPPABLE|TIMER_UNIQUE))
 #undef SHIP_SIZE_THRESHOLD
 
 #undef SHIP_DOCKED_REPAIR_TIME

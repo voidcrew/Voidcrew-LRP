@@ -14,7 +14,7 @@
 	var/static/list/stray_spawnable_supply_packs = list() ///List of default spawnable supply packs, filtered from the cargo list
 
 /datum/round_event/stray_cargo/announce(fake)
-	priority_announce("Stray cargo pod detected on long-range scanners. Expected location of impact: [impact_area.name].", "Collision Alert", zlevel = impact_area.virtual_z())
+	priority_announce("Stray cargo pod detected on long-range scanners. Expected location of impact: [impact_area.name].", "Collision Alert")
 
 /**
 * Tries to find a valid area, throws an error if none are found
@@ -53,9 +53,9 @@
 	var/datum/supply_pack/SP = new pack_type
 	var/obj/structure/closet/crate/crate = SP.generate(null)
 	crate.locked = FALSE //Unlock secure crates
-	crate.update_icon()
+	crate.update_appearance()
 	var/obj/structure/closet/supplypod/pod = make_pod()
-	new /obj/effect/DPtarget(LZ, pod, crate)
+	new /obj/effect/pod_landingzone(LZ, pod, crate)
 
 ///Handles the creation of the pod, in case it needs to be modified beforehand
 /datum/round_event/stray_cargo/proc/make_pod()
@@ -67,14 +67,16 @@
 	var/static/list/allowed_areas
 	if(!allowed_areas)
 		///Places that shouldn't explode
-		var/list/safe_area_types = typecacheof(list(
-			/area/ship/science/ai_chamber,
-			/area/ship/engineering
-		))
+		var/static/list/safe_area_types = typecacheof(list(
+		/area/ai_monitored/turret_protected/ai,
+		/area/ai_monitored/turret_protected/ai_upload,
+		/area/engineering,
+		/area/shuttle,
+	))
 
 		///Subtypes from the above that actually should explode.
-		var/list/unsafe_area_subtypes = typecacheof(list())
-		allowed_areas = make_associative(typesof(/area/ship)) - safe_area_types + unsafe_area_subtypes
+		var/static/list/unsafe_area_subtypes = typecacheof(list(/area/engineering/break_room))
+		allowed_areas = make_associative(GLOB.the_station_areas) - safe_area_types + unsafe_area_subtypes
 	var/list/possible_areas = typecache_filter_list(GLOB.sortedAreas,allowed_areas)
 	if (length(possible_areas))
 		return pick(possible_areas)

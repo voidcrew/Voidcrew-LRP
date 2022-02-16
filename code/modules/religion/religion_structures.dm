@@ -6,116 +6,124 @@
 	density = TRUE
 	anchored = TRUE
 	layer = TABLE_LAYER
-	climbable = TRUE
-	pass_flags_self = LETPASSTHROW
+	pass_flags_self = PASSSTRUCTURE | PASSTABLE | LETPASSTHROW
 	can_buckle = TRUE
 	buckle_lying = 90 //we turn to you!
-	var/datum/religion_sect/sect_to_altar // easy access!
-	var/datum/religion_rites/performing_rite
-
-/obj/structure/altar_of_gods/examine(mob/user)
-	. = ..()
-	var/can_i_see = FALSE
-	if(isobserver(user))
-		can_i_see = TRUE
-	else if(isliving(user))
-		var/mob/living/L = user
-		if(L.mind?.holy_role)
-			can_i_see = TRUE
-
-	if(!can_i_see || !sect_to_altar)
-		return
-
-	. += "<span class='notice'>The sect currently has [round(sect_to_altar.favor)] favor with [GLOB.deity].</span>"
-	if(!sect_to_altar.rites_list)
-		return
-	. += "List of available Rites:"
-	. += sect_to_altar.rites_list
-
+	///Avoids having to check global everytime by referencing it locally.
+	var/datum/religion_sect/sect_to_altar
 
 /obj/structure/altar_of_gods/Initialize(mapload)
 	. = ..()
-	if(GLOB.religious_sect)
-		sect_to_altar = GLOB.religious_sect
-		if(sect_to_altar.altar_icon)
-			icon = sect_to_altar.altar_icon
-		if(sect_to_altar.altar_icon_state)
-			icon_state = sect_to_altar.altar_icon_state
+	reflect_sect_in_icons()
+	GLOB.chaplain_altars += src
+	AddElement(/datum/element/climbable)
 
-/obj/structure/altar_of_gods/attack_hand(mob/living/user)
+/obj/structure/altar_of_gods/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/religious_tool, ALL, FALSE, CALLBACK(src, .proc/reflect_sect_in_icons))
+
+/obj/structure/altar_of_gods/Destroy()
+	GLOB.chaplain_altars -= src
+	return ..()
+
+/obj/structure/altar_of_gods/update_overlays()
+	. = ..()
+	. += "convertaltarcandle"
+
+/obj/structure/altar_of_gods/attack_hand(mob/living/user, list/modifiers)
 	if(!Adjacent(user) || !user.pulling)
 		return ..()
 	if(!isliving(user.pulling))
 		return ..()
 	var/mob/living/pushed_mob = user.pulling
 	if(pushed_mob.buckled)
-		to_chat(user, "<span class='warning'>[pushed_mob] is buckled to [pushed_mob.buckled]!</span>")
+		to_chat(user, span_warning("[pushed_mob] is buckled to [pushed_mob.buckled]!"))
 		return ..()
-	to_chat(user,"<span class='notice>You try to coax [pushed_mob] onto [src]...</span>")
+	to_chat(user, span_notice("You try to coax [pushed_mob] onto [src]..."))
 	if(!do_after(user,(5 SECONDS),target = pushed_mob))
 		return ..()
 	pushed_mob.forceMove(loc)
 	return ..()
 
-/obj/structure/altar_of_gods/attackby(obj/item/C, mob/user, params)
-	//If we can sac, we do nothing but the sacrifice instead of typical attackby behavior (IE damage the structure)
-	if(sect_to_altar?.can_sacrifice(C,user))
-		sect_to_altar.on_sacrifice(C,user)
-		return TRUE
+/obj/structure/altar_of_gods/examine_more(mob/user)
+	if(!isobserver(user))
+		return ..()
+	. = list(span_notice("<i>You examine [src] closer, and note the following...</i>"))
+	if(GLOB.religion)
+		. += list(span_notice("Deity: [GLOB.deity]."))
+		. += list(span_notice("Religion: [GLOB.religion]."))
+		. += list(span_notice("Bible: [GLOB.bible_name]."))
+	if(GLOB.religious_sect)
+		. += list(span_notice("Sect: [GLOB.religious_sect]."))
+		. += list(span_notice("Favor: [GLOB.religious_sect.favor]."))
+	var/chaplains = get_chaplains()
+	if(isAdminObserver(user) && chaplains)
+		. += list(span_notice("Chaplains: [chaplains]."))
+
+/obj/structure/altar_of_gods/proc/reflect_sect_in_icons()
+	if(GLOB.religious_sect)
+		sect_to_altar = GLOB.religious_sect
+		if(sect_to_altar.altar_icon)
+			icon = sect_to_altar.altar_icon
+		if(sect_to_altar.altar_icon_state)
+			icon_state = sect_to_altar.altar_icon_state
+	update_appearance() //Light the candles!
+
+/obj/structure/altar_of_gods/proc/get_chaplains()
+	var/chaplain_string = ""
+	for(var/mob/living/carbon/human/potential_chap in GLOB.player_list)
+		if(potential_chap.key && is_chaplain_job(potential_chap.mind?.assigned_role))
+			if(chaplain_string)
+				chaplain_string += ", "
+			chaplain_string += "[potential_chap] ([potential_chap.key])"
+	return chaplain_string
+
+/obj/item/ritual_totem
+	name = "ritual totem"
+	desc = "A wooden totem with strange carvings on it."
+	icon_state = "ritual_totem"
+	inhand_icon_state = "sheet-wood"
+	lefthand_file = 'icons/mob/inhands/misc/sheets_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/sheets_righthand.dmi'
+	//made out of a single sheet of wood
+	custom_materials = list(/datum/material/wood = MINERAL_MATERIAL_AMOUNT)
+	item_flags = NO_PIXEL_RANDOM_DROP
+
+/obj/item/ritual_totem/Initialize(mapload)
 	. = ..()
-	//everything below is assumed you're bibling it up
-	if(!istype(C, /obj/item/storage/book/bible))
-		return
-	if(sect_to_altar)
-		if(!sect_to_altar.rites_list)
-			to_chat(user, "<span class='notice'>Your sect doesn't have any rites to perform!")
-			return
-		var/rite_select = input(user,"Select a rite to perform!","Select a rite",null) in sect_to_altar.rites_list
-		if(!rite_select || !user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
-			to_chat(user,"<span class ='warning'>You cannot perform the rite at this time.</span>")
-			return
-		var/selection2type = sect_to_altar.rites_list[rite_select]
-		performing_rite = new selection2type(src)
-		if(!performing_rite.perform_rite(user, src))
-			QDEL_NULL(performing_rite)
-		else
-			performing_rite.invoke_effect(user, src)
-			sect_to_altar.adjust_favor(-performing_rite.favor_cost)
-			QDEL_NULL(performing_rite)
-		return
+	AddComponent(/datum/component/anti_magic, TRUE, TRUE, FALSE, null, 1, FALSE, CALLBACK(src, .proc/block_magic), CALLBACK(src, .proc/expire))//one charge of anti_magic
+	AddComponent(/datum/component/religious_tool, RELIGION_TOOL_INVOKE, FALSE)
 
-	if(user.mind.holy_role != HOLY_ROLE_HIGHPRIEST)
-		to_chat(user, "<span class='warning'>You are not the high priest, and therefore cannot select a religious sect.")
-		return
+/obj/item/ritual_totem/proc/block_magic(mob/user, major)
+	if(major)
+		to_chat(user, span_warning("[src] consumes the magic within itself!"))
 
-	var/list/available_options = generate_available_sects(user)
-	if(!available_options)
-		return
+/obj/item/ritual_totem/proc/expire(mob/user)
+	to_chat(user, span_warning("[src] quickly decays into rot!"))
+	qdel(src)
+	new /obj/effect/decal/cleanable/ash(drop_location())
 
-	var/sect_select = input(user,"Select a sect (You CANNOT revert this decision!)","Select a Sect",null) in available_options
-	if(!sect_select || !user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
-		to_chat(user,"<span class ='warning'>You cannot select a sect at this time.</span>")
-		return
-	var/type_selected = available_options[sect_select]
-	GLOB.religious_sect = new type_selected()
-	for(var/i in GLOB.player_list)
-		if(!isliving(i))
-			continue
-		var/mob/living/am_i_holy_living = i
-		if(!am_i_holy_living.mind?.holy_role)
-			continue
-		GLOB.religious_sect.on_conversion(am_i_holy_living)
-	sect_to_altar = GLOB.religious_sect
-	if(sect_to_altar.altar_icon)
-		icon = sect_to_altar.altar_icon
-	if(sect_to_altar.altar_icon_state)
-		icon_state = sect_to_altar.altar_icon_state
+/obj/item/ritual_totem/can_be_pulled(user, grab_state, force)
+	. = ..()
+	return FALSE //no
 
+/obj/item/ritual_totem/examine(mob/user)
+	. = ..()
+	var/is_holy = user.mind?.holy_role
+	if(is_holy)
+		. += span_notice("[src] can only be moved by important followers of [GLOB.deity].")
 
-
-/obj/structure/altar_of_gods/proc/generate_available_sects(mob/user) //eventually want to add sects you get from unlocking certain achievements
-	. = list()
-	for(var/i in subtypesof(/datum/religion_sect))
-		var/datum/religion_sect/not_a_real_instance_rs = i
-		if(initial(not_a_real_instance_rs.starter))
-			. += list(initial(not_a_real_instance_rs.name) = i)
+/obj/item/ritual_totem/pickup(mob/taker)
+	var/initial_loc = loc
+	var/holiness = taker.mind?.holy_role
+	var/no_take = FALSE
+	if(holiness == NONE)
+		to_chat(taker, span_warning("Try as you may, you're seemingly unable to pick [src] up!"))
+		no_take = TRUE
+	else if(holiness == HOLY_ROLE_DEACON) //deacons cannot pick them up either
+		no_take = TRUE
+		to_chat(taker, span_warning("You cannot pick [src] up. It seems you aren't important enough to [GLOB.deity] to do that."))
+	..()
+	if(no_take)
+		taker.dropItemToGround(src)
+		forceMove(initial_loc)

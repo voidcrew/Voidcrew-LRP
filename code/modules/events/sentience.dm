@@ -3,17 +3,17 @@ GLOBAL_LIST_INIT(high_priority_sentience, typecacheof(list(
 	/mob/living/simple_animal/parrot,
 	/mob/living/simple_animal/hostile/lizard,
 	/mob/living/simple_animal/sloth,
-	/mob/living/simple_animal/mouse/brown/Tom,
+	/mob/living/simple_animal/mouse/brown/tom,
 	/mob/living/simple_animal/hostile/retaliate/goat,
 	/mob/living/simple_animal/chicken,
-	/mob/living/simple_animal/cow,
+	/mob/living/basic/cow,
 	/mob/living/simple_animal/hostile/retaliate/bat,
 	/mob/living/simple_animal/hostile/carp/cayenne,
 	/mob/living/simple_animal/butterfly,
-	/mob/living/simple_animal/hostile/retaliate/poison/snake,
+	/mob/living/simple_animal/hostile/retaliate/snake,
 	/mob/living/simple_animal/hostile/retaliate/goose/vomit,
 	/mob/living/simple_animal/bot/mulebot,
-	/mob/living/simple_animal/bot/secbot/beepsky
+	/mob/living/simple_animal/bot/secbot/beepsky,
 )))
 
 /datum/round_event_control/sentience
@@ -42,7 +42,7 @@ GLOBAL_LIST_INIT(high_priority_sentience, typecacheof(list(
 
 /datum/round_event/ghost_role/sentience/spawn_role()
 	var/list/mob/dead/observer/candidates
-	candidates = get_candidates(ROLE_ALIEN, null, ROLE_ALIEN)
+	candidates = get_candidates(ROLE_ALIEN, ROLE_ALIEN)
 
 	// find our chosen mob to breathe life into
 	// Mobs have to be simple animals, mindless, on station, and NOT holograms.
@@ -55,6 +55,9 @@ GLOBAL_LIST_INIT(high_priority_sentience, typecacheof(list(
 	var/list/low_pri = list()
 
 	for(var/mob/living/simple_animal/L in GLOB.alive_mob_list)
+		var/turf/T = get_turf(L)
+		if(!T || !is_station_level(T.z))
+			continue
 		if((L in GLOB.player_list) || L.mind || (L.flags_1 & HOLOGRAM_1))
 			continue
 		if(is_type_in_typecache(L, GLOB.high_priority_sentience))
@@ -91,7 +94,7 @@ GLOBAL_LIST_INIT(high_priority_sentience, typecacheof(list(
 
 		spawned_mobs += SA
 
-		to_chat(SA, "<span class='userdanger'>Hello world!</span>")
+		to_chat(SA, span_userdanger("Hello world!"))
 		to_chat(SA, "<span class='warning'>Due to freak radiation and/or chemicals \
 			and/or lucky chance, you have gained human level intelligence \
 			and the ability to speak and understand human language!</span>")

@@ -1,4 +1,4 @@
-/*/datum/round_event_control/space_dust
+/datum/round_event_control/space_dust
 	name = "Minor Space Dust"
 	typepath = /datum/round_event/space_dust
 	weight = 200
@@ -7,8 +7,8 @@
 	alert_observers = FALSE
 
 /datum/round_event/space_dust
-	startWhen		= 1
-	endWhen			= 2
+	startWhen = 1
+	endWhen = 2
 	fakeable = FALSE
 
 /datum/round_event/space_dust/start()
@@ -28,4 +28,4 @@
 	fakeable = FALSE
 
 /datum/round_event/sandstorm/tick()
-	spawn_meteors(10, GLOB.meteorsC)*/ // WS Edit - Removes the 100% Free Lag button
+	spawn_meteors(10, GLOB.meteorsC)
