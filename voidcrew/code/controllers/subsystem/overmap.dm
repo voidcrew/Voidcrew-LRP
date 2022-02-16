@@ -230,6 +230,11 @@ SUBSYSTEM_DEF(overmap)
 				target_area = /area/overmap_encounter/planetoid/jungle
 				surface = /turf/open/floor/plating/dirt/jungle
 				weather_controller_type = /datum/weather_controller/lush
+			if(DYNAMIC_WORLD_BEACH) // VOID EDIT
+				mapgen = new /datum/map_generator/beach_generator
+				target_area = /area/overmap_encounter/planetoid/beach
+				surface = /turf/open/floor/plating/beach/sand/lit
+				weather_controller_type = /datum/weather_controller/lush
 			if(DYNAMIC_WORLD_ASTEROID)
 				ruin_list = null
 				mapgen = new /datum/map_generator/cave_generator/asteroid

@@ -68,6 +68,7 @@
 		probabilities = list(DYNAMIC_WORLD_LAVA = min(length(SSmapping.lava_ruins_templates), 20),
 		DYNAMIC_WORLD_ICE = min(length(SSmapping.ice_ruins_templates), 20),
 		DYNAMIC_WORLD_JUNGLE = min(length(SSmapping.jungle_ruins_templates), 20),
+		DYNAMIC_WORLD_BEACH = min(length(SSmapping.jungle_ruins_templates), 15), // VOID EDIT
 		DYNAMIC_WORLD_SAND = min(length(SSmapping.sand_ruins_templates), 20),
 		DYNAMIC_WORLD_SPACERUIN = min(length(SSmapping.space_ruins_templates), 20),
 		DYNAMIC_WORLD_ROCKPLANET = min(length(SSmapping.rock_ruins_templates), 20),
@@ -98,6 +99,12 @@
 			planet = DYNAMIC_WORLD_JUNGLE
 			icon_state = "globe"
 			color = COLOR_LIME
+		if(DYNAMIC_WORLD_BEACH)
+			name = "strange beach planet"
+			desc = "A very weak energy signal originating from a planet with lots of water and beer."
+			planet = DYNAMIC_WORLD_BEACH
+			icon_state = "globe"
+			color = COLOR_BLUE
 		if(DYNAMIC_WORLD_SAND)
 			name = "strange sand planet"
 			desc = "A very weak energy signal originating from a planet with many traces of silica."
@@ -260,6 +267,9 @@
 /obj/structure/overmap/dynamic/jungle
 	force_encounter = DYNAMIC_WORLD_JUNGLE
 
+/obj/structure/overmap/dynamic/beach
+	force_encounter = DYNAMIC_WORLD_BEACH // VOID EDIT
+
 /obj/structure/overmap/dynamic/rock
 	force_encounter = DYNAMIC_WORLD_ROCKPLANET
 
@@ -306,6 +316,11 @@
 	name = "\improper Jungle Planetoid"
 	sound_environment = SOUND_ENVIRONMENT_FOREST
 	ambientsounds = AWAY_MISSION
+
+/area/overmap_encounter/planetoid/beach // VOID EDIT
+	name = "\improper Beach Planetoid"
+	sound_environment = SOUND_ENVIRONMENT_FOREST
+	ambientsounds = BEACH
 
 /area/overmap_encounter/planetoid/rockplanet
 	name = "\improper Rocky Planetoid"
