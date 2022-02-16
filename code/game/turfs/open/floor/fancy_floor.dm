@@ -174,6 +174,23 @@
 	slowdown = 1.5
 	planetary_atmos = FALSE
 
+/turf/open/floor/grass/fakesnow
+	gender = PLURAL
+	name = "aesthetic snow flooring"
+	icon = 'icons/turf/snow.dmi'
+	desc = "Safely recreated turf for your hellplanet-scaping. Looks cold."
+	icon_state = "snow"
+	broken_states = list("snow_dug")
+	floor_tile = /obj/item/stack/tile/mineral/snow
+	ore_type = /obj/item/stack/sheet/mineral/snow
+	slowdown = 0
+	footstep = FOOTSTEP_SAND
+	barefootstep = FOOTSTEP_SAND
+	clawfootstep = FOOTSTEP_SAND
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+
+/turf/open/floor/grass/fakesnow/spawniconchange()
+	return
 
 /turf/open/floor/grass/fakebasalt //Heart is not a real planeteer power
 	name = "aesthetic volcanic flooring"

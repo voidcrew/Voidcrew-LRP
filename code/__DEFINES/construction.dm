@@ -66,9 +66,9 @@
 //The amount of materials you get from a sheet of mineral like iron/diamond/glass etc
 #define MINERAL_MATERIAL_AMOUNT 2000
 //The maximum size of a stack object.
-#define MAX_STACK_SIZE 50
+#define MAX_STACK_SIZE 75
 //maximum amount of cable in a coil
-#define MAXCOIL 30
+#define MAXCOIL 60
 
 //tablecrafting defines
 #define CAT_NONE ""

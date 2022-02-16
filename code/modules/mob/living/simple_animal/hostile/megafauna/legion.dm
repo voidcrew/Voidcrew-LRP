@@ -284,7 +284,8 @@
 	var/datum/weather_controller/weather_controller = SSmapping.get_map_zone_weather_controller(user_turf)
 	var/datum/weather/A
 	if(weather_controller.current_weathers)
-		for(var/datum/weather/W as anything in weather_controller.current_weathers)
+		for(var/i in weather_controller.current_weathers)
+			var/datum/weather/W = weather_controller.current_weathers[i]
 			if(W.my_controller.mapzone.is_in_bounds(user_turf) && W.area_type == user_area.type)
 				A = W
 				break

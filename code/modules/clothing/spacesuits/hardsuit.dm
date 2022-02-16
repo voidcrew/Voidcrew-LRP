@@ -264,7 +264,7 @@
 	heat_protection = HEAD
 	armor = list("melee" = 30, "bullet" = 5, "laser" = 10, "energy" = 20, "bomb" = 50, "bio" = 100, "rad" = 50, "fire" = 50, "acid" = 75)
 	light_range = 7
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/resonator, /obj/item/mining_scanner, /obj/item/t_scanner/adv_mining_scanner, /obj/item/gun/energy/kinetic_accelerator, /obj/item/pinpointer/deepcore)
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/resonator, /obj/item/mining_scanner, /obj/item/t_scanner/adv_mining_scanner, /obj/item/gun/energy/kinetic_accelerator)
 
 /obj/item/clothing/head/helmet/space/hardsuit/mining/Initialize()
 	. = ..()
@@ -310,7 +310,7 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	armor = list("melee" = 45, "bullet" = 20, "laser" = 20, "energy" = 30, "bomb" = 65, "bio" = 100, "rad" = 75, "fire" = 75, "acid" = 100)
 	light_range = 10
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/resonator, /obj/item/mining_scanner, /obj/item/t_scanner/adv_mining_scanner, /obj/item/gun/energy/kinetic_accelerator, /obj/item/pinpointer/deepcore)
+	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/resonator, /obj/item/mining_scanner, /obj/item/t_scanner/adv_mining_scanner, /obj/item/gun/energy/kinetic_accelerator)
 
 	//Syndicate hardsuit
 /obj/item/clothing/head/helmet/space/hardsuit/syndi
@@ -1040,7 +1040,7 @@
 	name = "pilot space suit"
 	icon_state = "space-pilot"
 	item_state = "space-pilot"
-	desc = "A lightweight, unarmored space suit designed for mech and spacepod pilots. Special attachment points make mounting and dismounting from spacepods and mechs much easier."
+	desc = "A lightweight, unarmored space suit designed for mech pilots. Special attachment points make mounting and dismounting from mechs much easier."
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | FAST_EMBARK
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/exo/large
 
@@ -1048,7 +1048,7 @@
 	name = "pilot helmet"
 	icon_state = "space-pilot-plain"
 	item_state = "space-pilot-plain"
-	desc = "A specialized space helmet designed for mech and spacepod pilots. Offers limited impact protection."
+	desc = "A specialized space helmet designed for mech pilots. Offers limited impact protection."
 	var/skin = "plain"
 	var/blurb = " Its simple design is quite ancient."
 	up = FALSE
@@ -1080,7 +1080,7 @@
 		if("corvid")
 			blurb = " It is sloppily painted with thin teal and red paint. There are some dark stains on the lining..."
 
-	desc = "A specialized space helmet designed for mech and spacepod pilots. Offers limited impact protection.[blurb]"
+	desc = "A specialized space helmet designed for mech pilots. Offers limited impact protection.[blurb]"
 	update_icon_state()
 
 /obj/item/clothing/head/helmet/space/pilot/random/New()

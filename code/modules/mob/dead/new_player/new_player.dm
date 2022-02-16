@@ -347,13 +347,16 @@
 			continue
 		if((length(S.shuttle.spawn_points) < 1) || !S.join_allowed)
 			continue
-		shuttle_choices[S.name + " ([S.source_template.short_name ? S.source_template.short_name : "Unknown-class"])"] = S //Try to get the class name
+		shuttle_choices["[isnull(S.password) ? "" : "(L) "]" + S.name + " ([S.source_template.short_name ? S.source_template.short_name : "Unknown-class"])"] = S //Try to get the class name
 
 	var/obj/structure/overmap/ship/simulated/selected_ship = shuttle_choices[tgui_input_list(src, "Select ship to spawn on.", "Welcome, [client?.prefs.real_name || "User"].", shuttle_choices)]
 	if(!selected_ship)
 		return
 
 	if(selected_ship == "Purchase")
+		if (!GLOB.ship_buying)
+			alert(src, "Buying ships is disabled!")
+			return LateChoices()
 		var/datum/map_template/shuttle/template = SSmapping.ship_purchase_list[tgui_input_list(src, "Please select ship to purchase!", "Welcome, [client.prefs.real_name].", SSmapping.ship_purchase_list)]
 		if(!template)
 			return LateChoices()
@@ -381,6 +384,14 @@
 			to_chat(usr, "<span class='danger'>Ship spawned, but you were unable to be spawned. You can likely try to spawn in the ship through joining normally, but if not, please contact an admin.</span>")
 			new_player_panel()
 		return
+
+	//password checking
+	if(!isnull(selected_ship.password))
+		var/attempt = stripped_input(src, "Enter the ship's password!", "Enter Password")
+		if (attempt != selected_ship.password)
+			to_chat(src, "Incorrect password!")
+			return LateChoices() //Send them back to shuttle selection
+
 
 	if(selected_ship.memo)
 		var/memo_accept = tgui_alert(src, "Current ship memo: [selected_ship.memo]", "[selected_ship.name] Memo", list("OK", "Cancel"))
