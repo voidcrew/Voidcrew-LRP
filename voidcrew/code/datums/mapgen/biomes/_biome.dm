@@ -39,7 +39,6 @@
 		/mob/living/simple_animal/pet/cat/cak,
 		/mob/living/simple_animal/hostile/retaliate/poison/snake,
 		/mob/living/simple_animal/slime/random,
-		/mob/living/simple_animal/hostile/venus_human_trap/beach,
 		/mob/living/simple_animal/hostile/poison/bees/queen/beach
 	)
 	fauna_density = 1.2
@@ -104,4 +103,4 @@
 		/obj/structure/flora/rock/pile,
 		/obj/structure/spawner/serpent
 	)
-	flora_density = 0.6
+	flora_density = 0.8

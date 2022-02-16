@@ -5,6 +5,7 @@
 	light_color = LIGHT_COLOR_BLUE
 
 /turf/open/water/beach/deep
-	color = "#000a7a"
+	color = "#0617d6"
+	light_color = LIGHT_COLOR_DARK_BLUE
 
 
