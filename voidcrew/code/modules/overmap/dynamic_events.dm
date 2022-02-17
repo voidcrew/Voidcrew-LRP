@@ -13,7 +13,7 @@
 	///If the level should be preserved. Useful for if you want to build an autismfort or something.
 	var/preserve_level = FALSE
 	///What kind of planet the level is, if it's a planet at all.
-	var/planet
+	var/datum/overmap/planet
 	///List of probabilities for each type of planet.
 	var/static/list/probabilities
 	///The planet that will be forced to load
