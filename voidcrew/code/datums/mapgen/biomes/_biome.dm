@@ -55,10 +55,7 @@
 		/obj/structure/fluff/beach_umbrella,
 		/obj/structure/fluff/beach_umbrella/engine,
 		/obj/item/storage/cans/sixbeer,
-		/obj/item/lighter,
 		/obj/item/clothing/mask/cigarette/rollie/cannabis,
-		/obj/item/clothing/mask/cigarette/rollie/mindbreaker,
-		/obj/item/clothing/mask/cigarette/cigar/havana,
 		/obj/item/clothing/under/shorts/purple,
 		/obj/item/clothing/under/shorts/red
 	)
@@ -69,13 +66,11 @@
 	flora_types = list(
 		/obj/vehicle/ridden/atv/beach,
 		/obj/machinery/jukebox/disco/beach,
-		/obj/item/gun/ballistic/revolver/golden,
 		/obj/effect/spawner/bundle/costume/mafia/white,
 		/obj/machinery/vending/boozeomat/all_access/beach,
 		/obj/structure/flora/tree/palm,
 		/obj/item/toy/beach_ball,
-		/obj/structure/fluff/beach_umbrella,
-		/obj/item/lighter/clockwork
+		/obj/structure/fluff/beach_umbrella
 	)
 	flora_density = 1
 	fauna_types = list(/mob/living/simple_animal/hostile/jungle/mega_arachnid/beach)
