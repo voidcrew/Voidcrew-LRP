@@ -17,7 +17,7 @@
 	///List of probabilities for each type of planet.
 	var/static/list/probabilities
 	///The planet that will be forced to load
-	var/force_encounter
+	var/datum/overmap/planet/force_encounter
 
 /obj/structure/overmap/dynamic/Initialize(mapload)
 	. = ..()
@@ -63,74 +63,30 @@
   * Chooses a type of level for the dynamic level to use.
   */
 /obj/structure/overmap/dynamic/proc/choose_level_type()
-	var/chosen
-	if(!probabilities)
-		probabilities = list(DYNAMIC_WORLD_LAVA = min(length(SSmapping.lava_ruins_templates), 20),
-		DYNAMIC_WORLD_ICE = min(length(SSmapping.ice_ruins_templates), 20),
-		DYNAMIC_WORLD_JUNGLE = min(length(SSmapping.jungle_ruins_templates), 20),
-		DYNAMIC_WORLD_SAND = min(length(SSmapping.sand_ruins_templates), 20),
-		DYNAMIC_WORLD_SPACERUIN = min(length(SSmapping.space_ruins_templates), 20),
-		DYNAMIC_WORLD_ROCKPLANET = min(length(SSmapping.rock_ruins_templates), 20),
-		//DYNAMIC_WORLD_REEBE = 1, //very rare because of major lack of skil //TODO, make removing no teleport not break things, then it can be reenabled
-		DYNAMIC_WORLD_ASTEROID = 30)
+	var/datum/overmap/planet/chosen
+	if (isnull(probabilities))
+		probabilities = list()
+		for (var/path in subtypesof(/datum/overmap/planet))
+			var/datum/overmap/planet/temp_planet = new path
+			probabilities |= list(temp_planet.type = min(length(temp_planet.ruin_list), temp_planet.spawn_rate))
+			qdel(temp_planet)
 
-	if(force_encounter)
+	if(!isnull(force_encounter))
 		chosen = force_encounter
 	else
 		chosen = pickweight(probabilities)
-	mass = rand(50, 100) * 1000000 //50 to 100 million tonnes //this was a stupid feature
-	switch(chosen)
-		if(DYNAMIC_WORLD_LAVA)
-			name = "strange lava planet"
-			desc = "A very weak energy signal originating from a planet with lots of seismic and volcanic activity."
-			planet = DYNAMIC_WORLD_LAVA
-			icon_state = "globe"
-			color = COLOR_ORANGE
-		if(DYNAMIC_WORLD_ICE)
-			name = "strange ice planet"
-			desc = "A very weak energy signal originating from a planet with traces of water and extremely low temperatures."
-			planet = DYNAMIC_WORLD_ICE
-			icon_state = "globe"
-			color = COLOR_BLUE_LIGHT
-		if(DYNAMIC_WORLD_JUNGLE)
-			name = "strange jungle planet"
-			desc = "A very weak energy signal originating from a planet teeming with life."
-			planet = DYNAMIC_WORLD_JUNGLE
-			icon_state = "globe"
-			color = COLOR_LIME
-		if(DYNAMIC_WORLD_SAND)
-			name = "strange sand planet"
-			desc = "A very weak energy signal originating from a planet with many traces of silica."
-			planet = DYNAMIC_WORLD_SAND
-			icon_state = "globe"
-			color = COLOR_GRAY
-		if(DYNAMIC_WORLD_ROCKPLANET)
-			name = "strange rock planet"
-			desc = "A very weak energy signal originating from a abandoned industrial planet."
-			planet = DYNAMIC_WORLD_ROCKPLANET
-			icon_state = "globe"
-			color = COLOR_BROWN
-		if(DYNAMIC_WORLD_REEBE)
-			name = "???"
-			desc = "Some sort of strange portal. Theres no identification of what this is."
-			planet = DYNAMIC_WORLD_REEBE
-			icon_state = "wormhole"
-			color = COLOR_YELLOW
-		if(DYNAMIC_WORLD_ASTEROID)
-			name = "large asteroid"
-			desc = "A large asteroid with significant traces of minerals."
-			planet = DYNAMIC_WORLD_ASTEROID
-			icon_state = "asteroid"
-			mass = rand(1, 1000) * 100
-			color = COLOR_GRAY
-		if(DYNAMIC_WORLD_SPACERUIN)
-			name = "weak energy signal"
-			desc = "A very weak energy signal emenating from space."
-			planet = DYNAMIC_WORLD_SPACERUIN
-			icon_state = "strange_event"
-			color = null
-			mass = 0 //Space doesn't weigh anything
+
+	chosen = new chosen
+
+	name = chosen.name
+	desc = chosen.desc
+	planet = chosen.type
+	icon_state = chosen.icon_state
+	color = chosen.color
+
 	desc += !preserve_level && "It may not still be here if you leave it."
+
+	qdel(chosen)
 
 /**
   * Load a level for a ship that's visiting the level.
@@ -249,28 +205,28 @@
 	qdel(src)
 
 /obj/structure/overmap/dynamic/lava
-	force_encounter = DYNAMIC_WORLD_LAVA
+	force_encounter = /datum/overmap/planet/lava
 
 /obj/structure/overmap/dynamic/ice
-	force_encounter = DYNAMIC_WORLD_ICE
+	force_encounter = /datum/overmap/planet/ice
 
 /obj/structure/overmap/dynamic/sand
-	force_encounter = DYNAMIC_WORLD_SAND
+	force_encounter = /datum/overmap/planet/sand
 
 /obj/structure/overmap/dynamic/jungle
-	force_encounter = DYNAMIC_WORLD_JUNGLE
+	force_encounter = /datum/overmap/planet/jungle
 
 /obj/structure/overmap/dynamic/rock
-	force_encounter = DYNAMIC_WORLD_ROCKPLANET
+	force_encounter = /datum/overmap/planet/rock
 
 /obj/structure/overmap/dynamic/reebe
-	force_encounter = DYNAMIC_WORLD_REEBE
+	force_encounter = /datum/overmap/planet/reebe
 
 /obj/structure/overmap/dynamic/asteroid
-	force_encounter = DYNAMIC_WORLD_ASTEROID
+	force_encounter = /datum/overmap/planet/asteroid
 
 /obj/structure/overmap/dynamic/energy_signal
-	force_encounter = DYNAMIC_WORLD_SPACERUIN
+	force_encounter = /datum/overmap/planet/space
 
 /area/overmap_encounter
 	name = "\improper Overmap Encounter"

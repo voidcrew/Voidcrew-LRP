@@ -8,6 +8,8 @@
 	///Colour of the planet
 	var/color = COLOR_WHITE
 
+	///Planet spawn rate
+	var/spawn_rate = 20
 	///Overmap planet type
 	var/planet = DYNAMIC_WORLD_ASTEROID
 
@@ -99,6 +101,7 @@
 	color = COLOR_YELLOW
 	planet = DYNAMIC_WORLD_REEBE
 	icon_state = "wormhole"
+	spawn_rate = -1
 
 	mapgen = /datum/map_generator/cave_generator/reebe
 	target_area = /area/overmap_encounter/planetoid/reebe
@@ -113,6 +116,7 @@
 	color = COLOR_GRAY
 	planet = DYNAMIC_WORLD_ASTEROID
 	icon_state = "asteroid"
+	spawn_rate = 30
 
 	ruin_list = null
 	mapgen = /datum/map_generator/cave_generator/asteroid
