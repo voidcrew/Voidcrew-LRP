@@ -21,13 +21,16 @@
 		return TRUE
 
 /obj/machinery/computer/autopilot/ui_interact(mob/user, datum/tgui/ui)
-	if(!ship && !reload_ship())
+	if(ship.is_player_in_crew(user) || !isliving(user) || isAdminGhostAI(user))
+		if(!ship && !reload_ship())
+			return
+		ui = SStgui.try_update_ui(user, src, ui)
+		if(!ui)
+			ui = new(user, src, "ShuttleConsole", name)
+			ui.open()
+	else
+		say("ERROR: Unrecognized bio-signature detected")
 		return
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "ShuttleConsole", name)
-		ui.open()
-
 /obj/machinery/computer/autopilot/ui_data(mob/user)
 	var/list/data = list()
 	var/obj/docking_port/mobile/M = ship.shuttle
