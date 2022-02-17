@@ -48,7 +48,7 @@
 
 	var/datum/overmap/planet/temp_planet = new planet
 	name = temp_planet.name
-	desc = temp_planet.desc + "[preserve_level ? "" : "It may not still be here if you leave it."]"
+	desc = temp_planet.desc + "[preserve_level ? "" : " It may not still be here if you leave it."]"
 	icon_state = temp_planet.icon_state
 	color = temp_planet.color
 	qdel(temp_planet)
