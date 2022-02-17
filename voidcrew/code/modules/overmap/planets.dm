@@ -8,12 +8,9 @@
 	///Colour of the planet
 	var/color = COLOR_WHITE
 
+	/* Planet Generation */
 	///Planet spawn rate
 	var/spawn_rate = 20
-	///Overmap planet type
-	var/planet = DYNAMIC_WORLD_ASTEROID
-
-	/* Planet Generation */
 	///The list of ruins that can spawn here
 	var/list/ruin_list
 	///The map generator to use
@@ -29,7 +26,6 @@
 	name = "strange lava planet"
 	desc = "A very weak energy signal originating from a planet with lots of seismic and volcanic activity."
 	color = COLOR_ORANGE
-	planet = DYNAMIC_WORLD_LAVA
 
 	mapgen = /datum/map_generator/cave_generator/lavaland
 	target_area = /area/overmap_encounter/planetoid/lava
@@ -43,7 +39,6 @@
 	name = "strange ice planet"
 	desc = "A very weak energy signal originating from a planet with traces of water and extremely low temperatures."
 	color = COLOR_BLUE_LIGHT
-	planet = DYNAMIC_WORLD_ICE
 
 	mapgen = /datum/map_generator/cave_generator/icemoon
 	target_area = /area/overmap_encounter/planetoid/ice
@@ -57,7 +52,6 @@
 	name = "strange sand planet"
 	desc = "A very weak energy signal originating from a planet with many traces of silica."
 	color = COLOR_GRAY
-	planet = DYNAMIC_WORLD_SAND
 
 	mapgen = /datum/map_generator/cave_generator/whitesands
 	target_area = /area/overmap_encounter/planetoid/sand
@@ -71,7 +65,6 @@
 	name = "strange jungle planet"
 	desc = "A very weak energy signal originating from a planet teeming with life."
 	color = COLOR_LIME
-	planet = DYNAMIC_WORLD_JUNGLE
 
 	mapgen = /datum/map_generator/jungle_generator
 	target_area = /area/overmap_encounter/planetoid/jungle
@@ -85,7 +78,6 @@
 	name = "strange rock planet"
 	desc = "A very weak energy signal originating from a abandoned industrial planet."
 	color = COLOR_BROWN
-	planet = DYNAMIC_WORLD_ROCKPLANET
 
 	mapgen = /datum/map_generator/cave_generator/rockplanet
 	target_area = /area/overmap_encounter/planetoid/rockplanet
@@ -99,10 +91,9 @@
 	name = "???"
 	desc = "Some sort of strange portal. Theres no identification of what this is."
 	color = COLOR_YELLOW
-	planet = DYNAMIC_WORLD_REEBE
 	icon_state = "wormhole"
-	spawn_rate = -1
 
+	spawn_rate = -1
 	mapgen = /datum/map_generator/cave_generator/reebe
 	target_area = /area/overmap_encounter/planetoid/reebe
 	surface = /turf/open/chasm/reebe_void
@@ -114,10 +105,9 @@
 	name = "large asteroid"
 	desc = "A large asteroid with significant traces of minerals."
 	color = COLOR_GRAY
-	planet = DYNAMIC_WORLD_ASTEROID
 	icon_state = "asteroid"
-	spawn_rate = 30
 
+	spawn_rate = 30
 	ruin_list = null
 	mapgen = /datum/map_generator/cave_generator/asteroid
 
@@ -125,7 +115,6 @@
 	name = "weak energy signal"
 	desc = "A very weak energy signal emenating from space."
 	color = null
-	planet = DYNAMIC_WORLD_SPACERUIN
 	icon_state = "strange_event"
 
 /datum/overmap/planet/space/New()
