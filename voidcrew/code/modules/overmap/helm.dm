@@ -217,6 +217,7 @@
 				to_chat(usr, "The given password is too long. Password unchanged.")
 				return
 			current_ship.password = new_pass
+			log_game("[key_name(usr)] has password locked their ship ([current_ship.name]) with the password: [current_ship.password]")
 			return
 		if("toggle_kos")
 			current_ship.set_ship_faction("KOS")
