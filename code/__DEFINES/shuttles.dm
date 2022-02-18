@@ -14,12 +14,6 @@
 #define EMERGENCY_ESCAPED_OR_ENDGAMED (SSshuttle.emergency && ((SSshuttle.emergency.mode == SHUTTLE_ESCAPE) || (SSshuttle.emergency.mode == SHUTTLE_ENDGAME)))
 #define EMERGENCY_AT_LEAST_DOCKED (SSshuttle.emergency && SSshuttle.emergency.mode != SHUTTLE_IDLE && SSshuttle.emergency.mode != SHUTTLE_RECALL && SSshuttle.emergency.mode != SHUTTLE_CALL)
 
-// Jump status defines
-#define BS_JUMP_IDLE 0
-#define BS_JUMP_CALLED 1
-#define BS_JUMP_INITIATED 2
-#define BS_JUMP_COMPLETED 3
-
 // Shuttle return values
 #define SHUTTLE_CAN_DOCK "can_dock"
 #define SHUTTLE_NOT_A_DOCKING_PORT "not a docking port"
