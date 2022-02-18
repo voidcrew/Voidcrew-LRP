@@ -177,11 +177,11 @@ SUBSYSTEM_DEF(overmap)
 /datum/controller/subsystem/overmap/proc/spawn_initial_ships(num)
 #ifndef UNIT_TESTS
 	var/templates = list()
-	log_admin("number of ships loaded: [num]")
-	for(var/i=1,i<=num,i++)
+	log_admin("\[SHUTTLE]: Number of ships loaded: [num]")
+	for(var/i in 1 to num)
 		var/datum/map_template/shuttle/selected_template = SSmapping.maplist[pick(SSmapping.maplist)]
 		templates += selected_template
-		INIT_ANNOUNCE("Loading [selected_template.name]...")
+		INIT_ANNOUNCE("\[SHUTTLE]: Loading [selected_template.name]...")
 		SSshuttle.load_template(selected_template)
 	if(SSdbcore.Connect())
 		var/datum/map_template/shuttle/selected_template = templates[1]
@@ -197,12 +197,12 @@ SUBSYSTEM_DEF(overmap)
   */
 /datum/controller/subsystem/overmap/proc/spawn_initial_combat_ships(num)
 #ifndef UNIT_TESTS
-	for(var/i=1,i<=num,i++)
+	for(var/i in 1 to num)
 		var/datum/map_template/shuttle/nt_ship = SSmapping.nt_ship_list[pick(SSmapping.nt_ship_list)]
 		var/datum/map_template/shuttle/syn_ship = SSmapping.syn_ship_list[pick(SSmapping.syn_ship_list)]
-		INIT_ANNOUNCE("Loading [nt_ship.name]...")
+		INIT_ANNOUNCE("\[SHUTTLE]: Loading [nt_ship.name]...")
 		SSshuttle.load_template(nt_ship)
-		INIT_ANNOUNCE("Loading [syn_ship.name]...")
+		INIT_ANNOUNCE("\[SHUTTLE]: Loading [syn_ship.name]...")
 		SSshuttle.load_template(syn_ship)
 #endif
 
