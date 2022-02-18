@@ -1,16 +1,5 @@
 #define LINKIFY_READY(string, value) "<a href='byond://?src=[REF(src)];ready=[value]'>[string]</a>"
 
-//Get the password cost for a ship
-/proc/get_password_cost(ship_cost)
-	if(ship_cost > 0 && ship_cost <= 450)
-		return ship_cost * 1
-	if(ship_cost > 450 && ship_cost <= 750)
-		return ship_cost * 0.7
-	if(ship_cost > 750 && ship_cost <= 5000)
-		return ship_cost * 0.4
-	else
-		return 0
-
 /mob/dead/new_player
 	var/ready = 0
 	var/spawning = 0//Referenced when you want to delete the new_player later on in the code.
@@ -351,9 +340,7 @@
 			employmentCabinet.addFile(employee)
 
 /mob/dead/new_player/proc/LateChoices()
-	var/password = ""
-	var/password_cost = 0
-	var/total_cost = 0
+
 	var/balance = usr.client.get_metabalance()
 	var/list/shuttle_choices = list("Purchase ship..." = "Purchase") //Dummy for purchase option
 
@@ -387,14 +374,16 @@
 						alert(src, "The ship limit of [template.limit] has been reached this round.")
 						return
 		//Password creation
+		var/password = ""
+		var/total_cost = template.cost
 		if (!template.disable_passwords)
-			password_cost = get_password_cost(template.cost)
+			var/password_cost = template.get_password_cost()
 			// Prompt for password purchasing
 			var/password_choice = tgui_alert(src, "Enable password protection for [password_cost] voidcoins", "Password Protection", list("Yes", "No"))
 			if(password_choice == null)
 				return LateChoices()
 			if(password_choice == "Yes")
-				total_cost = password_cost + template.cost
+				total_cost += password_cost
 				if(SSdbcore.IsConnected() && balance < total_cost)
 					alert(src, "You have insufficient metabalance to cover this purchase! (Price: [total_cost] | Balance: [balance])")
 					return LateChoices()
@@ -413,10 +402,7 @@
 			new_player_panel()
 			return
 		//Withdraw coins for the purchase
-		if (total_cost != 0)
-			usr.client.inc_metabalance(-total_cost, TRUE, "buying [template.name]")
-		else
-			usr.client.inc_metabalance(-template.cost, TRUE, "buying [template.name]")
+		usr.client.inc_metabalance(-total_cost, TRUE, "buying [template.name]")
 		SSblackbox.record_feedback("tally", "ship_purchased", 1, template.name) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		if(!AttemptLateSpawn(target.current_ship.job_slots[1], target.current_ship)) //Try to spawn as the first listed job in the job slots (usually captain)
 			to_chat(usr, "<span class='danger'>Ship spawned, but you were unable to be spawned. You can likely try to spawn in the ship through joining normally, but if not, please contact an admin.</span>")

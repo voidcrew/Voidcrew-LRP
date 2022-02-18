@@ -60,6 +60,15 @@
 				++xcrd
 			--ycrd
 
+/datum/map_template/shuttle/proc/get_password_cost()
+	switch (cost)
+		if (1 to 450)
+			return cost * 1
+		if (451 to 750)
+			return cost * 0.6
+		else
+			return cost * 0.4
+
 /datum/map_template/shuttle/load(turf/T, centered, register=TRUE)
 	. = ..()
 	if(!.)
