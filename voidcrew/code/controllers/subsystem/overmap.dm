@@ -97,7 +97,7 @@ SUBSYSTEM_DEF(overmap)
 	if (generator_type != OVERMAP_GENERATOR_SOLAR)
 		return
 
-	var/star
+	var/path
 	startype = pick(SMALLSTAR, MEDSTAR, TWOSTAR, BIGSTAR)
 	switch (startype)
 		if (TWOSTAR)
