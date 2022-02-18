@@ -43,8 +43,7 @@
   */
 /obj/structure/overmap/dynamic/proc/choose_level_type()
 	if(isnull(planet))
-		generate_probabilites()
-		planet = pickweight(probabilities)
+		planet = pickweight(SSovermap.spawn_probability)
 
 	var/datum/overmap/planet/temp_planet = new planet
 	name = temp_planet.name
@@ -52,15 +51,6 @@
 	icon_state = temp_planet.icon_state
 	color = temp_planet.color
 	qdel(temp_planet)
-
-/obj/structure/overmap/dynamic/proc/generate_probabilites()
-	if (!isnull(probabilities))
-		return
-	probabilities = list()
-	for (var/path in subtypesof(/datum/overmap/planet))
-		var/datum/overmap/planet/temp_planet = new path
-		probabilities |= list(temp_planet.type = min(length(temp_planet.ruin_list), temp_planet.spawn_rate))
-		qdel(temp_planet)
 
 /**
   * Load a level for a ship that's visiting the level.

@@ -31,6 +31,9 @@ SUBSYSTEM_DEF(overmap)
 	///Cooldown on dynamically loading encounters
 	var/encounter_cooldown = 0
 
+	///Planet spawning probability
+	var/static/list/spawn_probability = list()
+
 /**
   * Creates an overmap object for shuttles, triggers initialization procs for ships
   */
@@ -39,48 +42,18 @@ SUBSYSTEM_DEF(overmap)
 	simulated_ships = list()
 	events = list()
 
-	generator_type = CONFIG_GET(string/overmap_generator_type)
-	if (!generator_type)
-		generator_type = OVERMAP_GENERATOR_RANDOM
-
-	if (generator_type == OVERMAP_GENERATOR_SOLAR)
-		var/obj/structure/overmap/star/center
-		startype = pick(SMALLSTAR,TWOSTAR,MEDSTAR,BIGSTAR)
-		if(startype == SMALLSTAR)
-			center = new(locate(size / 2, size / 2, 1))
-		if(startype == TWOSTAR)
-			var/obj/structure/overmap/star/big/binary/S
-			S = new(locate(size / 2, size / 2, 1))
-			center = S
-		if(startype == MEDSTAR)
-			var/obj/structure/overmap/star/medium/S
-			S = new(locate(size / 2, size / 2, 1))
-			center = S
-		if(startype == BIGSTAR)
-			var/obj/structure/overmap/star/big/S
-			S = new(locate(size / 2, size / 2, 1))
-			center = S
-		var/list/unsorted_turfs = get_areatype_turfs(/area/overmap)
-		// SSovermap.size - 2 = area of the overmap w/o borders
-		radius_tiles = list()
-		for(var/i in 1 to (size - 2) / 2)
-			radius_tiles += list(list()) // gift-wrapped list for you <3
-			for(var/turf/T in unsorted_turfs)
-				var/dist = round(sqrt((T.x - center.x) ** 2 + (T.y - center.y) ** 2))
-				if (dist != i)
-					continue
-				radius_tiles[i] += T
-				unsorted_turfs -= T
-
+	initialize_generator()
+	generate_probabilites()
 	create_map()
 
 	return ..()
 
 /datum/controller/subsystem/overmap/fire()
-	if(events_enabled)
-		for(var/obj/structure/overmap/event/E as anything in events)
-			if(E?.affect_multiple_times && E?.close_overmap_objects)
-				E.apply_effect()
+	if(!events_enabled)
+		return
+	for(var/obj/structure/overmap/event/event as anything in events)
+		if(event?.affect_multiple_times && event?.close_overmap_objects)
+			event.apply_effect()
 
 /**
   * Creates an overmap ship object for the provided mobile docking port if one does not already exist.
@@ -115,12 +88,44 @@ SUBSYSTEM_DEF(overmap)
 
 	spawn_initial_ships()
 
+/datum/controller/subsystem/overmap/proc/initialize_generator()
+	generator_type = CONFIG_GET(string/overmap_generator_type)
+	if (!generator_type)
+		generator_type = OVERMAP_GENERATOR_RANDOM
+		return
+
+	if (generator_type != OVERMAP_GENERATOR_SOLAR)
+		return
+
+	var/star
+	startype = pick(SMALLSTAR, MEDSTAR, TWOSTAR, BIGSTAR)
+	switch (startype)
+		if (TWOSTAR)
+			path = new /obj/structure/overmap/star/big/binary
+		if (MEDSTAR)
+			path = new /obj/structure/overmap/star/medium
+		if (BIGSTAR)
+			path = new /obj/structure/overmap/star/big
+	var/obj/structure/overmap/star/center = path
+	center.loc = locate(size / 2, size / 2, 1)
+
+	var/list/unsorted_turfs = get_areatype_turfs(/area/overmap)
+	radius_tiles = list()
+	for(var/i in 1 to (size - 2) / 2)
+		radius_tiles += list(list()) // gift-wrapped list for you <3
+		for(var/turf/turf in unsorted_turfs)
+			var/dist = round(sqrt((turf.x - center.x) ** 2 + (turf.y - center.y) ** 2))
+			if (dist != i)
+				continue
+			radius_tiles[i] += turf
+			unsorted_turfs -= turf
+
 /**
   * VERY Simple random generation for overmap events, spawns the event in a random turf and sometimes spreads it out similar to ores
   */
 /datum/controller/subsystem/overmap/proc/spawn_events()
 	var/max_clusters = CONFIG_GET(number/max_overmap_event_clusters)
-	for(var/i=1, i<=max_clusters, i++)
+	for(var/i in 1 to max_clusters)
 		spawn_event_cluster(pick(subtypesof(/obj/structure/overmap/event)), get_unused_overmap_square())
 
 /datum/controller/subsystem/overmap/proc/spawn_events_in_orbits()
@@ -339,3 +344,9 @@ SUBSYSTEM_DEF(overmap)
 		events = SSovermap.events
 	if(istype(SSovermap.radius_tiles))
 		radius_tiles = SSovermap.radius_tiles
+
+/datum/controller/subsystem/overmap/proc/generate_probabilites()
+	for (var/path in subtypesof(/datum/overmap/planet))
+		var/datum/overmap/planet/temp_planet = new path
+		spawn_probability |= list(temp_planet.type = min(length(temp_planet.ruin_list), temp_planet.spawn_rate))
+		qdel(temp_planet)

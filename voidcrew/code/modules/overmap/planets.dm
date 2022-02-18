@@ -93,7 +93,7 @@
 	color = COLOR_YELLOW
 	icon_state = "wormhole"
 
-	spawn_rate = -1
+	spawn_rate = -1 // disabled because reebe sucks for natural gen
 	mapgen = /datum/map_generator/cave_generator/reebe
 	target_area = /area/overmap_encounter/planetoid/reebe
 	surface = /turf/open/chasm/reebe_void
