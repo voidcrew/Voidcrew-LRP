@@ -527,7 +527,7 @@
 /datum/virtual_level/proc/get_mind_mobs()
 	. = list()
 	for(var/mob/living/living_mob as anything in GLOB.mob_living_list)
-		if(!living_mob.mind)
+		if(!living_mob.mind || living_mob.stat == DEAD)
 			continue
 		if(is_in_bounds(living_mob))
 			. += living_mob
