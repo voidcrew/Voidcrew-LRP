@@ -72,7 +72,7 @@
 		/obj/item/toy/beach_ball,
 		/obj/structure/fluff/beach_umbrella
 	)
-	flora_density = 1
+	flora_density = 0.8
 	fauna_types = list(/mob/living/simple_animal/hostile/jungle/mega_arachnid/beach)
 	fauna_density = 0.1
 
@@ -85,15 +85,13 @@
 		/obj/structure/flora/rock/pile,
 		/obj/vehicle/ridden/lavaboat/dragon
 	)
-	flora_density = 0.4
+	flora_density = 0.6
 
 /datum/biome/ocean/deep
 	turf_type = /turf/open/water/beach/deep
 	fauna_types = list(/mob/living/simple_animal/hostile/carp/megacarp/beach)
 	fauna_density = 0.5
 	flora_types = list(
-		/obj/structure/flora/rock,
-		/obj/structure/flora/rock/pile,
 		/obj/structure/spawner/serpent
 	)
-	flora_density = 0.8
+	flora_density = 0.6
