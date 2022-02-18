@@ -376,18 +376,17 @@
 		//Password creation
 		if (template.disable_passwords == 0)
 			var/password_choice = tgui_alert(src, "Enable password protection for [password_cost] voidcoins", "Password Protection", list("Yes", "No"))
-			//Withdraw coins
-			if(SSdbcore.IsConnected() && usr.client.get_metabalance() < password_cost)
-				alert(src, "You have insufficient metabalance to cover this purchase! (Price: [password_cost])")
-				return
 			if(password_choice == "Yes")
+				if(SSdbcore.IsConnected() && usr.client.get_metabalance() < (template.cost + password_cost))
+					alert(src, "You have insufficient metabalance to cover this purchase! (Price: [password_cost])")
+					return
 				password  = stripped_input(usr, "Enter your new ship password.", "New Password")
 				if(!password || !length(password))
 					return
 				if(length(password) > 50)
 					to_chat(usr, "The given password is too long. Password unchanged.")
 					return
-			usr.client.inc_metabalance(-password_cost, TRUE, "purchased ship password protection")
+				usr.client.inc_metabalance(-password_cost, TRUE, "purchased ship password protection")
 		close_spawn_windows()
 		to_chat(usr, "<span class='danger'>Your [template.name] is being prepared. Please be patient!</span>")
 		var/obj/docking_port/mobile/target = SSshuttle.load_template(template)
