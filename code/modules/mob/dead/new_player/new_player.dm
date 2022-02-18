@@ -342,6 +342,7 @@
 /mob/dead/new_player/proc/LateChoices()
 	var/password = ""
 	var/password_cost = 500
+	var/balance = usr.client.get_metabalance()
 	var/list/shuttle_choices = list("Purchase ship..." = "Purchase") //Dummy for purchase option
 
 	for(var/obj/structure/overmap/ship/simulated/S as anything in SSovermap.simulated_ships)
@@ -362,8 +363,8 @@
 		var/datum/map_template/shuttle/template = SSmapping.ship_purchase_list[tgui_input_list(src, "Please select ship to purchase!", "Welcome, [client.prefs.real_name].", SSmapping.ship_purchase_list)]
 		if(!template)
 			return LateChoices()
-		if(SSdbcore.IsConnected() && usr.client.get_metabalance() < template.cost)
-			alert(src, "You have insufficient metabalance to cover this purchase! (Price: [template.cost])")
+		if(SSdbcore.IsConnected() && balance < template.cost)
+			alert(src, "You have insufficient metabalance to cover this purchase! (Price: [template.cost] | Balance: [balance])")
 			return
 		if(template.limit)
 			var/count = 0
@@ -377,8 +378,8 @@
 		if (template.disable_passwords == 0)
 			var/password_choice = tgui_alert(src, "Enable password protection for [password_cost] voidcoins", "Password Protection", list("Yes", "No"))
 			if(password_choice == "Yes")
-				if(SSdbcore.IsConnected() && usr.client.get_metabalance() < (template.cost + password_cost))
-					alert(src, "You have insufficient metabalance to cover this purchase! (Price: [password_cost])")
+				if(SSdbcore.IsConnected() && balance < (template.cost + password_cost))
+					alert(src, "You have insufficient metabalance to cover this purchase! (Price: [password_cost] | Balance: [balance])")
 					return
 				password  = stripped_input(usr, "Enter your new ship password.", "New Password")
 				if(!password || !length(password))
