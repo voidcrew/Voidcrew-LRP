@@ -341,9 +341,9 @@
 
 /mob/dead/new_player/proc/LateChoices()
 	var/password = ""
-	var/low_cost = [0,400]
-	var/medium_cost = [400,700]
-	var/high_cost = [600,2000]
+	var/low_cost = list(0,400)
+	var/medium_cost = list(400,700)
+	var/high_cost = list(700,2000)
 	var/password_cost = 0
 	var/total_cost = 0
 	var/balance = usr.client.get_metabalance()
@@ -385,7 +385,7 @@
 			if(template.cost > medium_cost[0] && template.cost <= medium_cost[1])
 				password_cost = template.cost * 0.7
 			if(template.cost > high_cost[0] && template.cost <= high_cost[1])
-				password_cost = template_cost * 0.5
+				password_cost = template.cost * 0.5
 			else
 				password_cost = 0
 			// Capture the total cost of the purchase
@@ -402,6 +402,7 @@
 				if(length(password) > 50)
 					to_chat(usr, "The given password is too long. Password unchanged.")
 					return
+
 		close_spawn_windows()
 		to_chat(usr, "<span class='danger'>Your [template.name] is being prepared. Please be patient!</span>")
 		var/obj/docking_port/mobile/target = SSshuttle.load_template(template)
