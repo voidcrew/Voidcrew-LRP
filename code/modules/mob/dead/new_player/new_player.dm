@@ -7,7 +7,7 @@
 	if(ship_cost > 450 && ship_cost <= 750)
 		return ship_cost * 0.7
 	if(ship_cost > 750 && ship_cost <= 5000)
-		return ship_cost * 0.5
+		return ship_cost * 0.4
 	else
 		return 0
 
