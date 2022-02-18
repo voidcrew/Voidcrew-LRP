@@ -10,7 +10,7 @@
 
 	var/port_x_offset
 	var/port_y_offset
-
+	var/disable_passwords
 	var/limit
 	var/cost
 	var/short_name

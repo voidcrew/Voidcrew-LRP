@@ -49,6 +49,8 @@
 	var/fixed_name
 	///Timer for ship deletion
 	var/deletion_timer
+	///Whether or not passwords are disallowed on this ship
+	var/password_disabled = FALSE
 
 	///The ships password
 	var/password
@@ -63,6 +65,7 @@
 	name = shuttle.name
 	source_template = _source_template
 	prefix = source_template.prefix
+	password_disabled = _source_template.disable_passwords
 	update_ship_color()
 	calculate_mass()
 #ifdef UNIT_TESTS

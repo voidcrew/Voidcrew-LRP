@@ -340,6 +340,8 @@
 			employmentCabinet.addFile(employee)
 
 /mob/dead/new_player/proc/LateChoices()
+	var/password = ""
+	var/password_cost = 500
 	var/list/shuttle_choices = list("Purchase ship..." = "Purchase") //Dummy for purchase option
 
 	for(var/obj/structure/overmap/ship/simulated/S as anything in SSovermap.simulated_ships)
@@ -371,6 +373,21 @@
 					if(template.limit <= count)
 						alert(src, "The ship limit of [template.limit] has been reached this round.")
 						return
+		//Password creation
+		if (template.disable_passwords == 0)
+			var/password_choice = tgui_alert(src, "Enable password protection for [password_cost] voidcoins", "Password Protection", list("Yes", "No"))
+			//Withdraw coins
+			if(SSdbcore.IsConnected() && usr.client.get_metabalance() < password_cost)
+				alert(src, "You have insufficient metabalance to cover this purchase! (Price: [password_cost])")
+				return
+			if(password_choice == "Yes")
+				password  = stripped_input(usr, "Enter your new ship password.", "New Password")
+				if(!password || !length(password))
+					return
+				if(length(password) > 50)
+					to_chat(usr, "The given password is too long. Password unchanged.")
+					return
+			usr.client.inc_metabalance(-password_cost, TRUE, "purchased ship password protection")
 		close_spawn_windows()
 		to_chat(usr, "<span class='danger'>Your [template.name] is being prepared. Please be patient!</span>")
 		var/obj/docking_port/mobile/target = SSshuttle.load_template(template)
@@ -383,6 +400,10 @@
 		if(!AttemptLateSpawn(target.current_ship.job_slots[1], target.current_ship)) //Try to spawn as the first listed job in the job slots (usually captain)
 			to_chat(usr, "<span class='danger'>Ship spawned, but you were unable to be spawned. You can likely try to spawn in the ship through joining normally, but if not, please contact an admin.</span>")
 			new_player_panel()
+		//Password assignment
+		if (password != "")
+			target.current_ship.password = password
+			log_game("[key_name(usr)] has password locked their ship ([target.current_ship.name]) with the password: [target.current_ship.password]")
 		return
 
 	//password checking
@@ -391,7 +412,6 @@
 		if (attempt != selected_ship.password)
 			to_chat(src, "Incorrect password!")
 			return LateChoices() //Send them back to shuttle selection
-
 
 	if(selected_ship.memo)
 		var/memo_accept = tgui_alert(src, "Current ship memo: [selected_ship.memo]", "[selected_ship.name] Memo", list("OK", "Cancel"))

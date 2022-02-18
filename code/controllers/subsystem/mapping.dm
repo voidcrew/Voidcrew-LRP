@@ -230,6 +230,8 @@ SUBSYSTEM_DEF(mapping)
 				continue
 
 			S.job_slots[job_slot] = slots
+
+		S.disable_passwords = data["disable_passwords"] == 1 ? 1 : 0
 		if(isnum(data["cost"]))
 			S.cost = data["cost"]
 			ship_purchase_list["[S.prefix] [S.name] ([S.cost] [CONFIG_GET(string/metacurrency_name)]s)"] = S // VOIDCREW
