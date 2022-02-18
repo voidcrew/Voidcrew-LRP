@@ -379,7 +379,7 @@
 						alert(src, "The ship limit of [template.limit] has been reached this round.")
 						return
 		//Password creation
-		if (template.disable_passwords == 0)
+		if (!template.disable_passwords)
 			if(template.cost > low_cost[0] && template.cost <= low_cost[1])
 				password_cost = template.cost * 0.9
 			if(template.cost > medium_cost[0] && template.cost <= medium_cost[1])
