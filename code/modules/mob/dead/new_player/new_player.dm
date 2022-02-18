@@ -341,7 +341,11 @@
 
 /mob/dead/new_player/proc/LateChoices()
 	var/password = ""
-	var/password_cost = 500
+	var/low_cost = [0,400]
+	var/medium_cost = [400,700]
+	var/high_cost = [600,2000]
+	var/password_cost = 0
+	var/total_cost = 0
 	var/balance = usr.client.get_metabalance()
 	var/list/shuttle_choices = list("Purchase ship..." = "Purchase") //Dummy for purchase option
 
@@ -376,10 +380,21 @@
 						return
 		//Password creation
 		if (template.disable_passwords == 0)
+			if(template.cost > low_cost[0] && template.cost <= low_cost[1])
+				password_cost = template.cost * 0.9
+			if(template.cost > medium_cost[0] && template.cost <= medium_cost[1])
+				password_cost = template.cost * 0.7
+			if(template.cost > high_cost[0] && template.cost <= high_cost[1])
+				password_cost = template_cost * 0.5
+			else
+				password_cost = 0
+			// Capture the total cost of the purchase
+			total_cost = password_cost + template.cost
+			// Prompt for password purchasing
 			var/password_choice = tgui_alert(src, "Enable password protection for [password_cost] voidcoins", "Password Protection", list("Yes", "No"))
 			if(password_choice == "Yes")
-				if(SSdbcore.IsConnected() && balance < (template.cost + password_cost))
-					alert(src, "You have insufficient metabalance to cover this purchase! (Price: [password_cost] | Balance: [balance])")
+				if(SSdbcore.IsConnected() && balance < total_cost)
+					alert(src, "You have insufficient metabalance to cover this purchase! (Price: [total_cost] | Balance: [balance])")
 					return
 				password  = stripped_input(usr, "Enter your new ship password.", "New Password")
 				if(!password || !length(password))
@@ -387,7 +402,6 @@
 				if(length(password) > 50)
 					to_chat(usr, "The given password is too long. Password unchanged.")
 					return
-				usr.client.inc_metabalance(-password_cost, TRUE, "purchased ship password protection")
 		close_spawn_windows()
 		to_chat(usr, "<span class='danger'>Your [template.name] is being prepared. Please be patient!</span>")
 		var/obj/docking_port/mobile/target = SSshuttle.load_template(template)
@@ -395,7 +409,11 @@
 			to_chat(usr, "<span class='danger'>There was an error loading the ship (You have not been charged). Please contact admins!</span>")
 			new_player_panel()
 			return
-		usr.client.inc_metabalance(-template.cost, TRUE, "buying [template.name]")
+		//Withdraw coins for the purchase
+		if (total_cost != 0)
+			usr.client.inc_metabalance(-total_cost, TRUE, "buying [template.name]")
+		else
+			usr.client.inc_metabalance(-template.cost, TRUE, "buying [template.name]")
 		SSblackbox.record_feedback("tally", "ship_purchased", 1, template.name) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		if(!AttemptLateSpawn(target.current_ship.job_slots[1], target.current_ship)) //Try to spawn as the first listed job in the job slots (usually captain)
 			to_chat(usr, "<span class='danger'>Ship spawned, but you were unable to be spawned. You can likely try to spawn in the ship through joining normally, but if not, please contact an admin.</span>")
