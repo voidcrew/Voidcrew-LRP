@@ -1,5 +1,16 @@
 #define LINKIFY_READY(string, value) "<a href='byond://?src=[REF(src)];ready=[value]'>[string]</a>"
 
+//Get the password cost for a ship
+/proc/get_password_cost(ship_cost)
+	if(ship_cost > 0 && ship_cost <= 450)
+		return ship_cost * 1
+	if(ship_cost > 450 && ship_cost <= 750)
+		return ship_cost * 0.7
+	if(ship_cost > 750 && ship_cost <= 5000)
+		return ship_cost * 0.5
+	else
+		return 0
+
 /mob/dead/new_player
 	var/ready = 0
 	var/spawning = 0//Referenced when you want to delete the new_player later on in the code.
@@ -341,9 +352,6 @@
 
 /mob/dead/new_player/proc/LateChoices()
 	var/password = ""
-	var/low_cost = list(0,400)
-	var/medium_cost = list(400,700)
-	var/high_cost = list(700,2000)
 	var/password_cost = 0
 	var/total_cost = 0
 	var/balance = usr.client.get_metabalance()
@@ -380,27 +388,21 @@
 						return
 		//Password creation
 		if (!template.disable_passwords)
-			if(template.cost > low_cost[0] && template.cost <= low_cost[1])
-				password_cost = template.cost * 0.9
-			if(template.cost > medium_cost[0] && template.cost <= medium_cost[1])
-				password_cost = template.cost * 0.7
-			if(template.cost > high_cost[0] && template.cost <= high_cost[1])
-				password_cost = template.cost * 0.5
-			else
-				password_cost = 0
-			// Capture the total cost of the purchase
-			total_cost = password_cost + template.cost
+			password_cost = get_password_cost(template.cost)
 			// Prompt for password purchasing
 			var/password_choice = tgui_alert(src, "Enable password protection for [password_cost] voidcoins", "Password Protection", list("Yes", "No"))
+			if(password_choice == null)
+				return
 			if(password_choice == "Yes")
+				total_cost = password_cost + template.cost
 				if(SSdbcore.IsConnected() && balance < total_cost)
 					alert(src, "You have insufficient metabalance to cover this purchase! (Price: [total_cost] | Balance: [balance])")
 					return
-				password  = stripped_input(usr, "Enter your new ship password.", "New Password")
+				password = stripped_input(src, "Enter your new ship password.", "New Password")
 				if(!password || !length(password))
 					return
 				if(length(password) > 50)
-					to_chat(usr, "The given password is too long. Password unchanged.")
+					to_chat(src, "The given password is too long. Password unchanged.")
 					return
 
 		close_spawn_windows()
