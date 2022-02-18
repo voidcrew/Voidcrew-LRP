@@ -32,10 +32,6 @@
 /obj/effect/turf_decal/industrial/warning,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/cargo)
-"aB" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/mineral/titanium/yellow,
-/area/ship/cargo)
 "bq" = (
 /obj/structure/closet/crate,
 /obj/item/storage/bag/ore,
@@ -215,9 +211,6 @@
 /turf/open/floor/mineral/titanium/yellow,
 /area/ship/cargo)
 "dO" = (
-/obj/machinery/mineral/equipment_vendor/golem{
-	icon = 'whitesands/icons/obj/machines/vending.dmi'
-	},
 /obj/effect/turf_decal/industrial/outline/yellow,
 /obj/effect/turf_decal/trimline/yellow/line,
 /obj/effect/turf_decal/corner/neutral{
@@ -229,6 +222,7 @@
 /obj/effect/turf_decal/corner/neutral{
 	dir = 4
 	},
+/obj/machinery/mineral/equipment_vendor/golem,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/cargo)
 "ea" = (
@@ -851,17 +845,6 @@
 	},
 /turf/open/floor/plating,
 /area/ship/engineering)
-"pm" = (
-/obj/item/pod_parts/pod_frame/fore_starboard,
-/obj/effect/turf_decal/trimline/yellow/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/corner/neutral,
-/obj/effect/turf_decal/corner/neutral{
-	dir = 8
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/ship/cargo)
 "ps" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -1339,12 +1322,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
 /area/ship/crew)
-"vW" = (
-/obj/effect/turf_decal/industrial/outline/yellow,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/pod_parts/pod_frame/aft_starboard,
-/turf/open/floor/mineral/plastitanium,
-/area/ship/cargo)
 "wa" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/trimline/yellow/line{
@@ -2368,7 +2345,6 @@
 /area/ship/science)
 "On" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/pod_parts/pod_frame/aft_port,
 /turf/open/floor/mineral/titanium/yellow,
 /area/ship/cargo)
 "OB" = (
@@ -2597,7 +2573,6 @@
 "SX" = (
 /obj/effect/turf_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/pod_parts/pod_frame/fore_port,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/cargo)
 "Ta" = (
@@ -3162,8 +3137,8 @@ WY
 wz
 dt
 hP
-pm
-aB
+UU
+On
 Ng
 nD
 SS
@@ -3225,7 +3200,7 @@ hP
 Bb
 Mw
 On
-aB
+On
 av
 ki
 "}
@@ -3285,7 +3260,7 @@ ar
 sS
 nD
 VS
-vW
+SX
 SX
 Vh
 "}
@@ -3445,7 +3420,7 @@ cC
 Bb
 WL
 Qs
-aB
+On
 bq
 Vh
 "}
@@ -3505,7 +3480,7 @@ IX
 ZH
 ZH
 oO
-aB
+On
 Sl
 Vh
 "}
