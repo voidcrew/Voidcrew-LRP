@@ -68,7 +68,7 @@
 		probabilities = list(DYNAMIC_WORLD_LAVA = min(length(SSmapping.lava_ruins_templates), 20),
 		DYNAMIC_WORLD_ICE = min(length(SSmapping.ice_ruins_templates), 20),
 		DYNAMIC_WORLD_JUNGLE = min(length(SSmapping.jungle_ruins_templates), 20),
-		DYNAMIC_WORLD_BEACH = min(length(SSmapping.beach_ruins_templates), 8),
+		DYNAMIC_WORLD_BEACH = min(length(SSmapping.beach_ruins_templates), 15),
 		DYNAMIC_WORLD_SAND = min(length(SSmapping.sand_ruins_templates), 20),
 		DYNAMIC_WORLD_SPACERUIN = min(length(SSmapping.space_ruins_templates), 20),
 		DYNAMIC_WORLD_ROCKPLANET = min(length(SSmapping.rock_ruins_templates), 20),
