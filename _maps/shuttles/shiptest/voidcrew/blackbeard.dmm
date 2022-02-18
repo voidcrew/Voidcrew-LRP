@@ -48,7 +48,7 @@
 /obj/structure/grille,
 /obj/structure/window/plasma/reinforced/plastitanium,
 /obj/machinery/door/poddoor{
-	id = blackbeardblastdoor1
+	id = "blackbeardblastdoor1"
 	},
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -85,9 +85,7 @@
 	},
 /area/ship/hallway/fore)
 "bM" = (
-/obj/machinery/door/airlock/external{
-	id_tag = bbairlock2
-	},
+/obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /obj/structure/catwalk/over/plated_catwalk/dark,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
@@ -409,7 +407,7 @@
 /obj/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/grille,
 /obj/machinery/door/poddoor{
-	id = bbwindowblastdoors1
+	id = "bbwindowblastdoors1"
 	},
 /turf/open/floor/plating,
 /area/ship/hallway/fore)
@@ -467,7 +465,7 @@
 /area/ship/engineering)
 "kx" = (
 /obj/machinery/door/poddoor{
-	id = bbwindowblastdoors1
+	id = "bbwindowblastdoors1"
 	},
 /obj/structure/grille,
 /obj/structure/window/plasma/reinforced/plastitanium,
@@ -650,7 +648,7 @@
 /area/ship/engineering)
 "pX" = (
 /obj/machinery/button/door{
-	id = bbblastdoors2;
+	id = "bbblastdoors2";
 	pixel_y = 24
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -782,7 +780,7 @@
 /obj/structure/window/plasma/reinforced/plastitanium,
 /obj/structure/grille,
 /obj/machinery/door/poddoor{
-	id = bbwindowblastdoors1
+	id = "bbwindowblastdoors1"
 	},
 /turf/open/floor/plating,
 /area/ship/hallway/central)
@@ -804,7 +802,7 @@
 /obj/structure/fans/tiny,
 /obj/structure/fans/tiny/invisible,
 /obj/machinery/door/poddoor{
-	id = bbblastdoors2
+	id = "bbblastdoors2"
 	},
 /turf/open/floor/plating,
 /area/ship/cargo)
@@ -947,9 +945,7 @@
 	},
 /area/ship/cargo)
 "BG" = (
-/obj/machinery/door/airlock/external{
-	id_tag = bbairlock4
-	},
+/obj/machinery/door/airlock/external,
 /obj/structure/catwalk/over/plated_catwalk/dark,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -960,9 +956,7 @@
 	},
 /area/ship/hallway/central)
 "BS" = (
-/obj/machinery/door/airlock/external{
-	id_tag = bbairlock3
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/hallway/central)
@@ -1118,7 +1112,7 @@
 /obj/structure/grille,
 /obj/structure/window/plasma/reinforced/plastitanium,
 /obj/machinery/door/poddoor{
-	id = blackbeardblastdoor1
+	id = "blackbeardblastdoor1"
 	},
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
@@ -1194,9 +1188,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ship/hallway/central)
 "Id" = (
-/obj/machinery/door/airlock/external{
-	id_tag = bbairlock3
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/docking_port/mobile{
 	dir = 2;
@@ -1220,12 +1212,12 @@
 	dir = 1
 	},
 /obj/machinery/button/door{
-	id = bbwindowblastdoors1;
+	id = "bbwindowblastdoors1";
 	pixel_x = 8;
 	pixel_y = 24
 	},
 /obj/machinery/button/door{
-	id = blackbeardblastdoor1;
+	id = "blackbeardblastdoor1"
 	pixel_x = -8;
 	pixel_y = 24
 	},
@@ -1268,9 +1260,7 @@
 /turf/closed/wall/mineral/plastitanium,
 /area/ship/hallway/fore)
 "KU" = (
-/obj/machinery/door/airlock/external{
-	id_tag = bbairlock4
-	},
+/obj/machinery/door/airlock/external,
 /obj/structure/catwalk/over/plated_catwalk/dark,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
@@ -1326,9 +1316,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ship/cargo)
 "Ol" = (
-/obj/machinery/door/airlock/external{
-	id_tag = bbairlock1
-	},
+/obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -1355,7 +1343,7 @@
 /obj/structure/grille,
 /obj/structure/window/plasma/reinforced/plastitanium,
 /obj/machinery/door/poddoor{
-	id = blackbeardblastdoor1
+	id = "blackbeardblastdoor1"
 	},
 /obj/structure/cable/yellow,
 /turf/open/floor/plating,
@@ -1568,7 +1556,7 @@
 	icon_state = "floor5-old"
 	},
 /obj/machinery/button/door{
-	id = bbblastdoors2;
+	id = "bbblastdoors2"
 	pixel_y = -24
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -1608,9 +1596,7 @@
 	},
 /area/ship/engineering)
 "UB" = (
-/obj/machinery/door/airlock/external{
-	id_tag = bbairlock2
-	},
+/obj/machinery/door/airlock/external,
 /obj/structure/catwalk/over/plated_catwalk/dark,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
@@ -1710,7 +1696,7 @@
 "Yt" = (
 /obj/structure/window/plasma/reinforced/plastitanium,
 /obj/machinery/door/poddoor{
-	id = bbwindowblastdoors1
+	id = "bbwindowblastdoors1"
 	},
 /obj/structure/grille,
 /turf/open/floor/plating,
@@ -1719,7 +1705,7 @@
 /obj/structure/grille,
 /obj/structure/window/plasma/reinforced/plastitanium,
 /obj/machinery/door/poddoor{
-	id = blackbeardblastdoor1
+	id = "blackbeardblastdoor1"
 	},
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
