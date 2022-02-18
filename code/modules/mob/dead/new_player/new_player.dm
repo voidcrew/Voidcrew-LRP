@@ -377,7 +377,7 @@
 			return LateChoices()
 		if(SSdbcore.IsConnected() && balance < template.cost)
 			alert(src, "You have insufficient metabalance to cover this purchase! (Price: [template.cost] | Balance: [balance])")
-			return
+			return LateChoices()
 		if(template.limit)
 			var/count = 0
 			for(var/obj/structure/overmap/ship/simulated/X in SSovermap.simulated_ships)
@@ -392,18 +392,18 @@
 			// Prompt for password purchasing
 			var/password_choice = tgui_alert(src, "Enable password protection for [password_cost] voidcoins", "Password Protection", list("Yes", "No"))
 			if(password_choice == null)
-				return
+				return LateChoices()
 			if(password_choice == "Yes")
 				total_cost = password_cost + template.cost
 				if(SSdbcore.IsConnected() && balance < total_cost)
 					alert(src, "You have insufficient metabalance to cover this purchase! (Price: [total_cost] | Balance: [balance])")
-					return
+					return LateChoices()
 				password = stripped_input(src, "Enter your new ship password.", "New Password")
 				if(!password || !length(password))
-					return
+					return LateChoices()
 				if(length(password) > 50)
 					to_chat(src, "The given password is too long. Password unchanged.")
-					return
+					return LateChoices()
 
 		close_spawn_windows()
 		to_chat(usr, "<span class='danger'>Your [template.name] is being prepared. Please be patient!</span>")
