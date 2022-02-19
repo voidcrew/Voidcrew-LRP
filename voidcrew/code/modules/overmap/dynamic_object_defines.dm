@@ -14,8 +14,6 @@
 	var/preserve_level = FALSE
 	///What kind of planet the level is, if it's a planet at all.
 	var/datum/overmap/planet/planet
-	///List of probabilities for each type of planet.
-	var/static/list/probabilities
 
 /obj/structure/overmap/dynamic/lava
 	planet = /datum/overmap/planet/lava
