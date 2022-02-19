@@ -10,7 +10,7 @@
 
 	var/port_x_offset
 	var/port_y_offset
-
+	var/disable_passwords
 	var/limit
 	var/cost
 	var/short_name
@@ -59,6 +59,15 @@
 					return
 				++xcrd
 			--ycrd
+
+/datum/map_template/shuttle/proc/get_password_cost()
+	switch (cost)
+		if (1 to 450)
+			return cost * 1
+		if (451 to 750)
+			return cost * 0.6
+		else
+			return cost * 0.4
 
 /datum/map_template/shuttle/load(turf/T, centered, register=TRUE)
 	. = ..()

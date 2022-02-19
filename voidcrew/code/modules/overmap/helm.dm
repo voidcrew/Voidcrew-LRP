@@ -209,16 +209,6 @@
 				say("Error: [COOLDOWN_TIMELEFT(current_ship, rename_cooldown)/10] seconds until ship designation can be changed..")
 			update_static_data(usr, ui)
 			return
-		if("set_password")
-			var/new_pass = stripped_input(usr, "Enter your new ship password.", "New Password")
-			if(!new_pass || !length(new_pass))
-				return
-			if(length(new_pass) > 50)
-				to_chat(usr, "The given password is too long. Password unchanged.")
-				return
-			current_ship.password = new_pass
-			log_game("[key_name(usr)] has password locked their ship ([current_ship.name]) with the password: [current_ship.password]")
-			return
 		if("toggle_kos")
 			current_ship.set_ship_faction("KOS")
 			update_static_data(usr, ui)
