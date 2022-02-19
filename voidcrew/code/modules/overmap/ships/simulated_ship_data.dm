@@ -133,5 +133,5 @@
 		return -1
 	if(!istext(ship_type))
 		return -1
-	var/list/to_insert = list("ship" = ship_type, "purchased" = 1)
+	var/list/to_insert = list(list("ship" = ship_type, "purchased" = 1))
 	SSdbcore.MassInsert(format_table_name("ship_purchases"), to_insert, duplicate_key = "ON DUPLICATE KEY UPDATE purchased = purchased + VALUES(purchased)")
