@@ -138,5 +138,6 @@
 	worth += C.air_contents.get_moles(GAS_TRITIUM)*5
 	worth += C.air_contents.get_moles(GAS_PLUOXIUM)*5
 	worth += C.air_contents.get_moles(GAS_FREON)*5
+	worth += C.air_contents.get_moles(GAS_PLASMA)*4 //VOIDCREW EDIT
 	return worth
 
