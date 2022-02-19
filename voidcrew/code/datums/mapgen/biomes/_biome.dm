@@ -59,7 +59,7 @@
 		/obj/item/clothing/under/shorts/purple,
 		/obj/item/clothing/under/shorts/red
 	)
-	flora_density = 1
+	flora_density = 0.5
 
 /datum/biome/beach/dense
 	turf_type = /turf/open/floor/plating/beach/sand/lit/dense
@@ -90,7 +90,4 @@
 /datum/biome/ocean/deep
 	turf_type = /turf/open/water/beach/deep
 	flora_types = list(/obj/structure/spawner/serpent)
-	flora_density = 0.5
-
-// /datum/biome/mountain/beach
-// 	turf_type = /turf/closed/mineral/random/jungle
+	flora_density = 0.1

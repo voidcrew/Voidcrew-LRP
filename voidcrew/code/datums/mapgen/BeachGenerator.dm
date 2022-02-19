@@ -1,6 +1,10 @@
 //the random offset applied to square coordinates, causes intermingling at biome borders
 #define BIOME_RANDOM_SQUARE_DRIFT 2
 
+var/open_turf_types = list(/turf/open/floor/plating/asteroid = 1)
+///Weighted list of the types that spawns if the turf is closed
+var/closed_turf_types =  list(/turf/closed/mineral/random/volcanic = 1)
+
 /datum/map_generator/beach_generator
 	///2D list of all biomes based on heat and humidity combos.
 	var/list/possible_biomes = list(
@@ -51,7 +55,7 @@
 			continue
 
 		var/datum/biome/selected_biome
-		if(height <= 0.85) //If height is less than 0.85, we generate biomes based on the heat and humidity of the area.
+		if(height <= 0.95) //If height is less than 0.95, we generate biomes based on the heat and humidity of the area.
 			var/humidity = text2num(rustg_noise_get_at_coordinates("[humidity_seed]", "[drift_x]", "[drift_y]"))
 			var/heat = text2num(rustg_noise_get_at_coordinates("[heat_seed]", "[drift_x]", "[drift_y]"))
 			var/heat_level //Type of heat zone we're in LOW-MEDIUM-HIGH
@@ -76,7 +80,7 @@
 				if(0.75 to 1)
 					humidity_level = BIOME_HIGH_HUMIDITY
 			selected_biome = possible_biomes[heat_level][humidity_level]
-		else //Over 0.85; It's a mountain
+		else //Over 0.95; It's a mountain
 			selected_biome = /datum/biome/mountain
 		selected_biome = SSmapping.biomes[selected_biome] //Get the instance of this biome from SSmapping
 		selected_biome.generate_turf(gen_turf)
