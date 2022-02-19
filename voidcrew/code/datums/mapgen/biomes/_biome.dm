@@ -74,12 +74,12 @@
 	)
 	flora_density = 0.6
 	fauna_types = list(/mob/living/simple_animal/hostile/jungle/mega_arachnid/beach)
-	fauna_density = 0.1
+	fauna_density = 0.05
 
 /datum/biome/ocean
 	turf_type = /turf/open/water/beach
 	fauna_types = list(/mob/living/simple_animal/beachcarp, /mob/living/simple_animal/hostile/carp/beach)
-	fauna_density = 0.5
+	fauna_density = 0.3
 	flora_types = list(
 		/obj/structure/flora/rock,
 		/obj/structure/flora/rock/pile,
