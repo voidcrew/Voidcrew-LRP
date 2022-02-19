@@ -1,6 +1,6 @@
 /datum/design/miningcore_shell
 	name = "Bluespace Mining Shell"
-	desc = "A shell used for the Bluespace Miner requires stabilized gibonite to finish"
+	desc = "An unfinished Bluespace Mining Core that requires stabilized gibtonite to finish."
 	id = "miningcore_shell"
 	build_type = PROTOLATHE
 	materials = list(/datum/material/plasma = 2000,
