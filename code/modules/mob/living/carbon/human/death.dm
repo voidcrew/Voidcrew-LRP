@@ -67,6 +67,7 @@ GLOBAL_LIST_EMPTY(dead_players_during_shift)
 		INVOKE_ASYNC(is_devil(src), /datum/antagonist/devil.proc/beginResurrectionCheck, src)
 
 	to_chat(src, "<h1>You have died. You can come back to life by using the respawn button in the OOC tab.</h1>")
+	QDEL_IN(src, 1)
 
 /mob/living/carbon/human/proc/makeSkeleton()
 	ADD_TRAIT(src, TRAIT_DISFIGURED, TRAIT_GENERIC)
