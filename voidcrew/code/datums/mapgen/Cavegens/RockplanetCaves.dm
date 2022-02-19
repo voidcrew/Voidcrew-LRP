@@ -60,7 +60,7 @@
 	smooth_icon = 'icons/turf/walls/red_wall.dmi'
 	base_icon_state = "red_wall"
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
-	turf_type = /turf/open/floor/plating/asteroid
+	turf_type = /turf/open/floor/plating/asteroid/rockplanet
 	mineralSpawnChanceList = list(/obj/item/stack/ore/uranium = 7, /obj/item/stack/ore/diamond = 1, /obj/item/stack/ore/gold = 5,
 		/obj/item/stack/ore/silver = 7, /obj/item/stack/ore/plasma = 15, /obj/item/stack/ore/iron = 55, /obj/item/stack/ore/titanium = 6,
 		/turf/closed/mineral/gibtonite/rockplanet = 4, /obj/item/stack/ore/bluespace_crystal = 1)
@@ -74,8 +74,17 @@
 	base_icon_state = "red_wall"
 
 
+/turf/open/floor/plating/asteroid/rockplanet
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+	baseturfs = /turf/open/floor/plating/asteroid/rockplanet
+
 /turf/open/floor/plating/rockplanet
-	baseturfs = /turf/open/floor/plating/asteroid
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+	baseturfs = /turf/open/floor/plating/asteroid/rockplanet
 
 /turf/open/floor/plating/rust/rockplanet
-	baseturfs = /turf/open/floor/plating/asteroid
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+	baseturfs = /turf/open/floor/plating/asteroid/rockplanet
