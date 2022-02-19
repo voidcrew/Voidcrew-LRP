@@ -507,3 +507,21 @@
 		return TRUE
 	else
 		return FALSE
+
+// Generic storage compartment, accepts any and all items, but less storage + no bonuses like organ healing
+// perfect for storing literally anything so it won't litter your loot monkey ship
+/obj/machinery/smartfridge/generic_storage
+	name = "storage compartment"
+	desc = "A bluespace-powered compartment for storing any and all kinds of items one would happen to find in the vastness of outer space."
+	icon_state = "donkvendor"
+	icon = 'icons/obj/lavaland/donkvendor.dmi'
+	max_n_of_items = 150
+	visible_contents = FALSE
+
+/obj/machinery/smartfridge/accept_check(obj/item/inserted_item)
+	if(istype(inserted_item, /obj/item/storage/backpack)) //it's too smart to allow you to minmax the storage with backpacks. boxes and other things are fine though
+		return FALSE
+
+/obj/machinery/smartfridge/organ/RefreshParts()
+	for(var/obj/item/stock_parts/matter_bin/new_bin in component_parts)
+		max_n_of_items = 150 * new_bin.rating
