@@ -7,7 +7,7 @@
 			continue
 		if((length(S.shuttle.spawn_points) < 1) || !S.join_allowed)
 			continue
-		shuttle_choices[S.name + " ([S.source_template.short_name ? S.source_template.short_name : "Unknown-class"])"] = S //Try to get the class name
+		shuttle_choices["[isnull(S.password) ? "" : "(L) "]" + S.name + " ([S.source_template.short_name ? S.source_template.short_name : "Unknown-class"])"] = S //Try to get the class name
 
 	var/obj/structure/overmap/ship/simulated/selected_ship = shuttle_choices[tgui_input_list(src, "Select ship to spawn on.", "Welcome, [client?.prefs.real_name || "User"].", shuttle_choices)]
 	if(!selected_ship)
@@ -31,6 +31,25 @@
 				if(template.limit <= count)
 					alert(src, "The ship limit of [template.limit] has been reached this round.")
 					return
+		//Password creation
+		var/password
+		var/total_cost = template.parts_needed
+		if (!template.disable_passwords)
+			var/password_cost = template.get_password_cost()
+			// Prompt for password purchasing
+			var/password_choice = tgui_alert(src, "Enable password protection for [password_cost] extra parts", "Password Protection", list("Yes", "No"))
+			if(password_choice == "Yes")
+				total_cost += password_cost
+				if(!usr.client.get_ship_parts(template.prefix, total_cost, template.ship_level))
+					alert(src, "You lack the parts needed to build this ship! (Required: \
+						[template.parts_needed][template.prefix == FACTION_NEUTRAL ? " [template.ship_level]" : ""] [template.prefix] parts)")
+					return LateChoices()
+				password = stripped_input(src, "Enter your new ship password.", "New Password")
+				if(!password || !length(password))
+					return LateChoices()
+				if(length(password) > 50)
+					to_chat(src, "The given password is too long. Password unchanged.")
+					return LateChoices()
 		to_chat(usr, "<span class='danger'>Your [template.name] is being prepared. Please be patient!</span>")
 		var/obj/docking_port/mobile/target = SSshuttle.load_template(template)
 		if(!istype(target))
@@ -42,6 +61,11 @@
 		if(!AttemptLateSpawn(target.current_ship.job_slots[1], target.current_ship)) //Try to spawn as the first listed job in the job slots (usually captain)
 			to_chat(usr, "<span class='danger'>Ship spawned, but you were unable to be spawned. You can likely try to spawn in the ship through joining normally, but if not, please contact an admin.</span>")
 			new_player_panel()
+		return
+		//Password assignment
+		if(!isnull(password))
+			target.current_ship.password = password
+			log_game("[key_name(usr)] has password locked their ship ([target.current_ship.name]) with the password: [target.current_ship.password]")
 		return
 
 	if(selected_ship.memo)
