@@ -103,12 +103,6 @@ const SharedContent = (props, context) => {
               onClick={() => act('return')} />
             </>
         )}>
-        <Button
-        tooltip="Set Password"
-        content="Set Password"
-        currentValue="Set Password"
-        disabled={isViewer}
-        onClick={() => act('set_password')}/>
       </Section>
       <Section title="Radar">
         <Table>

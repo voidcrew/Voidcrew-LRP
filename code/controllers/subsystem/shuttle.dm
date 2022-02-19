@@ -19,15 +19,6 @@ SUBSYSTEM_DEF(shuttle)
 	/// Assoc list of an object that has attempted transit to the amount of times it has failed to do so
 	var/list/transit_request_failures = list()
 
-	/// Timer ID of the timer used for telling which stage of an endround "jump" the ships are in
-	var/jump_timer
-	/// Current state of the jump
-	var/jump_mode = BS_JUMP_IDLE
-	/// Time taken for bluespace jump to begin after it is requested (in deciseconds)
-	var/jump_request_time = 6000
-	/// Time taken for a bluespace jump to complete after it initiates (in deciseconds)
-	var/jump_completion_time = 1200
-
 	/// Whether express consoles are blocked from ordering anything or not
 	var/supplyBlocked = FALSE
 	/// Order number given to next cargo order
@@ -88,30 +79,6 @@ SUBSYSTEM_DEF(shuttle)
 				M.transit_failure()
 		if(MC_TICK_CHECK)
 			break
-
-/// Requests a bluespace jump, which, after jump_request_time deciseconds, will initiate a bluespace jump.
-/datum/controller/subsystem/shuttle/proc/request_jump(modifier = 1)
-	jump_mode = BS_JUMP_CALLED
-	jump_timer = addtimer(CALLBACK(src, .proc/initiate_jump), jump_request_time * modifier, TIMER_STOPPABLE)
-	priority_announce("Preparing for jump. ETD: [jump_request_time * modifier / 600] minutes.", null, null, "Priority")
-
-/// Cancels a currently requested bluespace jump. Can only be done after the jump has been requested but before the jump has actually begun.
-/datum/controller/subsystem/shuttle/proc/cancel_jump()
-	if(jump_mode != BS_JUMP_CALLED)
-		return
-	deltimer(jump_timer)
-	jump_mode = BS_JUMP_IDLE
-	priority_announce("Bluespace jump cancelled.", null, null, "Priority")
-
-/// Initiates a bluespace jump, ending the round after a delay of jump_completion_time deciseconds. This cannot be interrupted by conventional means.
-/datum/controller/subsystem/shuttle/proc/initiate_jump()
-	jump_mode = BS_JUMP_INITIATED
-	for(var/obj/docking_port/mobile/M as anything in mobile)
-		M.hyperspace_sound(HYPERSPACE_WARMUP, M.shuttle_areas)
-		M.on_emergency_launch()
-
-	priority_announce("Jump initiated. ETA: [jump_completion_time / 600] minutes.", null, null, "Priority")
-	jump_timer = addtimer(VARSET_CALLBACK(src, jump_mode, BS_JUMP_COMPLETED), jump_completion_time)
 
 /datum/controller/subsystem/shuttle/proc/request_transit_dock(obj/docking_port/mobile/M)
 	if(!istype(M))

@@ -34,6 +34,9 @@ SUBSYSTEM_DEF(overmap)
 	///Planet spawning probability
 	var/static/list/spawn_probability = list()
 
+	///Number of initial ships to spawn in
+	var/initial_ship_count = 1
+
 /**
   * Creates an overmap object for shuttles, triggers initialization procs for ships
   */
@@ -86,7 +89,10 @@ SUBSYSTEM_DEF(overmap)
 		spawn_events()
 		spawn_ruin_levels()
 
-	spawn_initial_ships()
+	spawn_initial_ships(CONFIG_GET(number/initial_shuttle_count))
+	var/initial_combat_pairs = CONFIG_GET(number/initial_combat_shuttle_pairs)
+	if (initial_combat_pairs)
+		spawn_initial_combat_ships(initial_combat_pairs)
 
 /datum/controller/subsystem/overmap/proc/initialize_generator()
 	generator_type = CONFIG_GET(string/overmap_generator_type)
@@ -173,17 +179,36 @@ SUBSYSTEM_DEF(overmap)
 				continue
 			spawn_event_cluster(type, T, chance / 2)
 
-/datum/controller/subsystem/overmap/proc/spawn_initial_ships()
+/datum/controller/subsystem/overmap/proc/spawn_initial_ships(num)
 #ifndef UNIT_TESTS
-	var/datum/map_template/shuttle/selected_template = SSmapping.maplist[pick(SSmapping.maplist)]
-	INIT_ANNOUNCE("Loading [selected_template.name]...")
-	SSshuttle.load_template(selected_template)
+	var/templates = list()
+	log_admin("\[SHUTTLE]: Number of ships loaded: [num]")
+	for(var/i in 1 to num)
+		var/datum/map_template/shuttle/selected_template = SSmapping.maplist[pick(SSmapping.maplist)]
+		templates += selected_template
+		INIT_ANNOUNCE("SHUTTLE: Loading [selected_template.name]...")
+		SSshuttle.load_template(selected_template)
 	if(SSdbcore.Connect())
+		var/datum/map_template/shuttle/selected_template = templates[1]
 		var/datum/DBQuery/query_round_map_name = SSdbcore.NewQuery({"
 			UPDATE [format_table_name("round")] SET map_name = :map_name WHERE id = :round_id
 		"}, list("map_name" = selected_template.name, "round_id" = GLOB.round_id))
 		query_round_map_name.Execute()
 		qdel(query_round_map_name)
+#endif
+
+/**
+  * Creates a pair of combat shuttles
+  */
+/datum/controller/subsystem/overmap/proc/spawn_initial_combat_ships(num)
+#ifndef UNIT_TESTS
+	for(var/i in 1 to num)
+		var/datum/map_template/shuttle/nt_ship = SSmapping.nt_ship_list[pick(SSmapping.nt_ship_list)]
+		var/datum/map_template/shuttle/syn_ship = SSmapping.syn_ship_list[pick(SSmapping.syn_ship_list)]
+		INIT_ANNOUNCE("SHUTTLE: Loading [nt_ship.name]...")
+		SSshuttle.load_template(nt_ship)
+		INIT_ANNOUNCE("SHUTTLE: Loading [syn_ship.name]...")
+		SSshuttle.load_template(syn_ship)
 #endif
 
 /**
