@@ -1,288 +1,5768 @@
-"af" = (/obj/structure/spider/stickyweb,/mob/living/simple_animal/hostile/poison/giant_spider/hunter{melee_damage_lower = 20; melee_damage_upper = 35; poison_per_bite = 3},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"aw" = (/obj/structure/cable{icon_state = "1-8"},/turf/open/floor/pod,/area/ship/hallway/aft)
-"aD" = (/obj/structure/spider/stickyweb,/obj/structure/cable{icon_state = "0-4"},/obj/machinery/power/apc/auto_name/north{nightshift_lights = 1},/mob/living/simple_animal/hostile/poison/giant_spider/nurse{melee_damage_lower = 10; melee_damage_upper = 15; poison_per_bite = 10},/turf/open/floor/pod,/area/ship/hallway/aft)
-"aH" = (/obj/machinery/computer/apc_control,/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"bs" = (/obj/structure/cable{icon_state = "0-2"},/obj/machinery/power/apc/auto_name/north{nightshift_lights = 1},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"bt" = (/turf/open/floor/plating,/area/ship/hallway/port)
-"bL" = (/mob/living/simple_animal/hostile/poison/giant_spider/tarantula{damage_coeff = list("brute" = 1, "fire" = 1, "toxin" = 1, "clone" = 1, "stamina" = 0, "oxygen" = 0); deathmessage = "falls to the ground."; deathsound = 'sound\voice\hiss5.ogg'; desc = "A titanic, black and red broodmother spider. It has a weird S painted on its back."; health = 1000; maxHealth = 1000; melee_damage_lower = 45; melee_damage_upper = 60; name = "Giant Broodmother"; poison_per_bite = 3; poison_type = /datum/reagent/toxin/cyanide; speed = 1; unsuitable_atmos_damage = 0},/obj/effect/decal/cleanable/blood/gibs/body,/turf/open/floor/mineral/plastitanium/red,/area/ship/science)
-"bP" = (/obj/machinery/light/dim{dir = 1},/obj/item/kirbyplants/random,/turf/open/floor/pod,/area/ship/hallway/port)
-"bR" = (/obj/machinery/computer/atmos_alert,/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"bY" = (/obj/structure/spider/cocoon,/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"cn" = (/obj/item/shard{icon_state = "small"},/obj/structure/spider/stickyweb,/obj/effect/decal/cleanable/blood/tracks{dir = 8; icon_state = "tracks"},/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"cJ" = (/obj/structure/spider/stickyweb,/obj/structure/spider/cocoon,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"cR" = (/turf/closed/wall/mineral/plastitanium/nodiagonal,/area/ship/hallway/port)
-"dq" = (/obj/structure/spider/stickyweb,/turf/open/floor/plating,/area/ship/hallway/port)
-"dF" = (/obj/structure/cable{icon_state = "1-4"},/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"dG" = (/obj/machinery/light/broken{dir = 4},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"dR" = (/obj/machinery/power/port_gen/pacman/uranium,/obj/item/stack/sheet/mineral/uranium/twenty,/obj/structure/cable{icon_state = "0-2"},/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"dT" = (/mob/living/simple_animal/hostile/poison/giant_spider/hunter{melee_damage_lower = 20; melee_damage_upper = 35; poison_per_bite = 3},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"en" = (/obj/machinery/computer/warrant,/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"eu" = (/obj/item/kirbyplants/random,/turf/open/floor/pod,/area/ship/hallway/aft)
-"ez" = (/obj/item/ammo_casing/a556{dir = 9},/obj/structure/spider/stickyweb,/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"eD" = (/obj/machinery/door/poddoor/shutters{id = scspidership4},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"eG" = (/turf/closed/wall/mineral/plastitanium,/area/ship/hallway/aft)
-"eM" = (/obj/structure/chair/office{dir = 1},/obj/structure/spider/stickyweb,/obj/effect/decal/cleanable/blood/tracks{dir = 4; icon_state = "tracks"},/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"eU" = (/obj/structure/spider/stickyweb,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"fh" = (/turf/open/floor/pod,/area/ship/hallway/starboard)
-"fj" = (/obj/item/shard{icon_state = "small"},/obj/structure/spider/stickyweb,/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"fx" = (/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"fz" = (/obj/structure/cable{icon_state = "1-2"},/turf/open/floor/pod,/area/ship/hallway/port)
-"fI" = (/obj/machinery/power/apc/auto_name/north{nightshift_lights = 1},/obj/structure/cable{icon_state = "0-8"},/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"fW" = (/obj/effect/turf_decal/trimline/lightgrey/warning,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"ge" = (/turf/open/floor/mineral/plastitanium,/area/ship/hallway/aft)
-"gm" = (/obj/machinery/light/dim{dir = 1},/obj/machinery/suit_storage_unit{helmet_type = /obj/item/clothing/head/helmet/space/syndicate/black/red; mask_type = /obj/item/clothing/mask/gas/syndicate; suit_type = /obj/item/clothing/suit/space/syndicate/black/red},/turf/open/floor/mineral/plastitanium,/area/ship/hallway/aft)
-"gp" = (/mob/living/simple_animal/hostile/poison/giant_spider/nurse{melee_damage_lower = 10; melee_damage_upper = 15; poison_per_bite = 10},/turf/open/floor/mineral/plastitanium/red,/area/ship/science)
-"gI" = (/mob/living/simple_animal/hostile/poison/giant_spider{melee_damage_lower = 25; melee_damage_upper = 35; poison_per_bite = 0},/turf/open/floor/mineral/plastitanium/red,/area/ship/science)
-"gO" = (/obj/structure/table_frame,/obj/item/shard,/obj/structure/spider/stickyweb,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"gV" = (/obj/effect/decal/cleanable/blood/gibs/down,/obj/effect/decal/cleanable/blood/tracks{dir = 5; icon_state = "tracks"},/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"hc" = (/obj/machinery/light/dim{dir = 1},/obj/machinery/power/port_gen/pacman/uranium,/obj/item/stack/sheet/mineral/uranium/twenty,/obj/structure/cable{icon_state = "0-2"},/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"hr" = (/obj/structure/door_assembly/door_assembly_com,/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"hs" = (/turf/open/space/basic,/area/space)
-"hE" = (/obj/structure/chair/greyscale{dir = 4},/turf/open/floor/pod,/area/ship/hallway/aft)
-"hJ" = (/obj/item/stack/sheet/metal{amount = 5},/obj/item/stack/cable_coil/red{amount = 5},/obj/structure/spider/stickyweb,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"ik" = (/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/pod,/area/ship/hallway/port)
-"is" = (/obj/structure/table/reinforced,/obj/item/aiModule/core/full/cybersun,/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"iJ" = (/obj/structure/cable{icon_state = "1-2"},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"iK" = (/obj/structure/grille,/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,/obj/machinery/door/poddoor{id = scspidership},/turf/open/floor/plating,/area/ship/bridge)
-"iL" = (/turf/open/floor/pod,/area/ship/hallway/port)
-"kc" = (/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"kj" = (/obj/machinery/computer,/obj/structure/spider/stickyweb,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"kK" = (/obj/structure/cable{icon_state = "1-2"},/obj/structure/cable{icon_state = "1-8"},/turf/open/floor/pod,/area/ship/hallway/port)
-"kO" = (/obj/item/kirbyplants/random,/obj/machinery/light/broken{dir = 1},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"kR" = (/turf/closed/wall/mineral/plastitanium,/area/ship/science)
-"lm" = (/obj/effect/decal/cleanable/blood/tracks{dir = 6; icon_state = "tracks"},/obj/structure/cable{icon_state = "1-8"},/turf/open/floor/pod,/area/ship/hallway/starboard)
-"lS" = (/obj/structure/spider/stickyweb,/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"md" = (/obj/structure/spider/stickyweb,/obj/structure/spider/cocoon,/obj/item/clothing/under/syndicate/cybersun,/turf/open/floor/mineral/plastitanium/red,/area/ship/science)
-"mj" = (/obj/structure/cable{icon_state = "1-2"},/obj/item/phone,/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"mk" = (/obj/structure/closet/crate,/obj/effect/spawner/lootdrop/maintenance/four,/turf/open/floor/plating,/area/ship/hallway/starboard)
-"mt" = (/obj/effect/decal/cleanable/blood,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"nb" = (/turf/closed/wall/mineral/plastitanium/nodiagonal,/area/ship/hallway/aft)
-"nk" = (/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"nq" = (/mob/living/simple_animal/hostile/poison/giant_spider/nurse{melee_damage_lower = 10; melee_damage_upper = 15; poison_per_bite = 10},/obj/structure/spider/stickyweb,/obj/structure/cable{icon_state = "2-4"},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"ns" = (/turf/open/floor/carpet/nanoweave,/area/ship/hallway/aft)
-"nu" = (/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/pod,/area/ship/hallway/starboard)
-"nE" = (/obj/effect/turf_decal/trimline/lightgrey/warning,/obj/structure/spider/stickyweb,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"nZ" = (/obj/effect/decal/cleanable/blood/gibs,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"oj" = (/obj/machinery/light/dim{dir = 1},/obj/item/kirbyplants/random,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"oB" = (/obj/machinery/computer/crew/syndie,/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"oK" = (/obj/structure/grille,/obj/structure/window/plasma/reinforced/plastitanium,/turf/open/floor/plating,/area/ship/hallway/aft)
-"oO" = (/obj/structure/closet/crate,/obj/item/reagent_containers/food/snacks/rationpack,/obj/item/reagent_containers/food/snacks/rationpack,/obj/item/reagent_containers/food/snacks/rationpack,/obj/item/reagent_containers/food/snacks/rationpack,/obj/item/reagent_containers/food/snacks/rationpack,/obj/item/reagent_containers/food/drinks/waterbottle/large,/obj/item/reagent_containers/food/drinks/waterbottle/large,/obj/item/reagent_containers/food/drinks/waterbottle/large,/obj/item/reagent_containers/food/drinks/waterbottle/large,/obj/item/reagent_containers/food/drinks/waterbottle/large,/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"oP" = (/obj/structure/spider/stickyweb,/obj/effect/decal/cleanable/blood/tracks{dir = 8; icon_state = "tracks"},/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"oW" = (/obj/effect/decal/cleanable/blood/tracks,/turf/open/floor/mineral/plastitanium/red,/area/ship/science)
-"oZ" = (/mob/living/simple_animal/hostile/poison/giant_spider{melee_damage_lower = 25; melee_damage_upper = 35; poison_per_bite = 0},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"pl" = (/obj/structure/cable{icon_state = "4-8"},/obj/structure/spider/stickyweb,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"pr" = (/obj/structure/chair/greyscale{dir = 8},/turf/open/floor/pod,/area/ship/hallway/aft)
-"qa" = (/obj/structure/spider/stickyweb,/obj/item/kirbyplants/random,/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/pod,/area/ship/hallway/port)
-"qj" = (/obj/structure/spider/stickyweb,/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/pod,/area/ship/hallway/starboard)
-"qH" = (/obj/structure/door_assembly/door_assembly_science{anchored = 1},/obj/structure/cable{icon_state = "1-2"},/turf/open/floor/mineral/plastitanium,/area/ship/hallway/port)
-"qZ" = (/obj/effect/decal/cleanable/blood/tracks,/obj/structure/cable{icon_state = "1-2"},/turf/open/floor/pod,/area/ship/hallway/starboard)
-"re" = (/obj/machinery/door/airlock/maintenance,/obj/structure/barricade/wooden/crude,/turf/open/floor/plating,/area/ship/hallway/starboard)
-"rp" = (/turf/open/floor/plating,/area/ship/hallway/starboard)
-"rA" = (/obj/machinery/light/small{dir = 4},/obj/item/storage/toolbox/syndicate,/turf/open/floor/plating,/area/ship/hallway/starboard)
-"rU" = (/obj/machinery/light/dim,/obj/structure/spider/stickyweb,/turf/open/floor/pod,/area/ship/hallway/aft)
-"rW" = (/obj/structure/frame/computer{dir = 4},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"sd" = (/mob/living/simple_animal/hostile/poison/giant_spider/nurse{melee_damage_lower = 15; melee_damage_type = "toxin"; melee_damage_upper = 25},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"sf" = (/obj/item/wrench/syndie,/obj/effect/decal/cleanable/blood/footprints{dir = 1; pixel_x = -10; pixel_y = 10},/obj/structure/cable{icon_state = "1-2"},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"sT" = (/obj/structure/spider/stickyweb,/obj/structure/cable{icon_state = "1-4"},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"tL" = (/obj/structure/spider/stickyweb,/mob/living/simple_animal/hostile/poison/giant_spider/nurse{melee_damage_lower = 10; melee_damage_upper = 15; poison_per_bite = 10},/turf/open/floor/pod,/area/ship/hallway/starboard)
-"tO" = (/obj/structure/spider/stickyweb,/obj/structure/spider/cocoon,/turf/open/floor/mineral/plastitanium/red,/area/ship/science)
-"tP" = (/obj/machinery/light/dim{dir = 1},/obj/structure/spider/stickyweb,/obj/item/kirbyplants/random,/turf/open/floor/pod,/area/ship/hallway/starboard)
-"tU" = (/turf/open/floor/pod,/area/ship/hallway/aft)
-"uu" = (/obj/machinery/computer/atmos_control,/obj/machinery/light/broken{dir = 1},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"ux" = (/obj/machinery/door/poddoor{id = scspidership},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"uF" = (/obj/structure/fans/tiny,/obj/machinery/door/airlock/external/glass,/turf/open/floor/mineral/plastitanium,/area/ship/hallway/aft)
-"vi" = (/obj/machinery/door/poddoor/preopen{id = scspidership3},/obj/structure/spider/stickyweb,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"vm" = (/obj/item/stack/sheet/metal{amount = 5},/obj/item/stack/cable_coil/red{amount = 5},/obj/structure/cable{icon_state = "1-2"},/turf/open/floor/mineral/plastitanium,/area/ship/hallway/starboard)
-"vv" = (/obj/structure/spider/stickyweb,/obj/effect/decal/cleanable/blood,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"wc" = (/obj/structure/spider/stickyweb,/obj/effect/decal/cleanable/blood/tracks{dir = 5; icon_state = "tracks"},/turf/open/floor/pod,/area/ship/hallway/starboard)
-"wm" = (/mob/living/simple_animal/hostile/poison/giant_spider/nurse{melee_damage_lower = 10; melee_damage_upper = 15; poison_per_bite = 10},/turf/open/floor/pod,/area/ship/hallway/port)
-"wL" = (/obj/structure/grille,/obj/structure/window/plasma/reinforced/plastitanium,/turf/open/floor/plating,/area/ship/hallway/port)
-"wQ" = (/obj/item/stack/sheet/glass{amount = 2},/obj/item/stack/cable_coil/red{amount = 5},/obj/effect/decal/cleanable/blood/footprints{dir = 1},/obj/structure/cable{icon_state = "1-2"},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"xa" = (/obj/item/shard{icon_state = "medium"},/obj/structure/spider/stickyweb,/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"xB" = (/mob/living/simple_animal/hostile/syndicate/melee/sword/space/stormtrooper{desc = "A commander from the Spider Clan."; name = "Spider Clan Commander"},/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"xV" = (/obj/structure/table/reinforced,/obj/item/clothing/suit/space/hardsuit/cybersun,/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"yg" = (/mob/living/simple_animal/hostile/poison/giant_spider{melee_damage_lower = 25; melee_damage_upper = 35; poison_per_bite = 0},/obj/structure/spider/stickyweb,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"yM" = (/obj/machinery/light/broken{dir = 1},/turf/open/floor/pod,/area/ship/hallway/aft)
-"yU" = (/obj/machinery/light/dim,/obj/item/gun/ballistic/automatic/pistol/APS,/obj/effect/decal/cleanable/blood,/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"yW" = (/obj/machinery/door/airlock/maintenance,/turf/open/floor/plating,/area/ship/hallway/aft)
-"zn" = (/obj/machinery/door/airlock/external/glass,/turf/open/floor/mineral/plastitanium,/area/ship/hallway/aft)
-"zw" = (/obj/structure/spider/stickyweb,/obj/machinery/vending/cola/random,/obj/machinery/light/broken{dir = 8},/turf/open/floor/pod,/area/ship/hallway/aft)
-"Ab" = (/obj/machinery/light/dim{dir = 4},/obj/machinery/vending/snack/random,/turf/open/floor/pod,/area/ship/hallway/aft)
-"Au" = (/obj/structure/table/glass,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"Ax" = (/obj/structure/door_assembly/door_assembly_hatch{anchored = 1},/obj/structure/cable{icon_state = "1-2"},/turf/open/floor/pod,/area/ship/hallway/aft)
-"AB" = (/obj/structure/table/reinforced,/obj/item/jammer,/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"AQ" = (/turf/closed/wall/mineral/plastitanium,/area/ship/hallway/starboard)
-"Be" = (/obj/structure/grille,/obj/structure/window/plasma/reinforced/plastitanium,/turf/open/floor/plating,/area/ship/science)
-"Bl" = (/obj/structure/chair/office{dir = 1},/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"Bu" = (/obj/item/ammo_casing/a556{dir = 10},/mob/living/simple_animal/hostile/poison/giant_spider/hunter/viper{alpha = 80; health = 125; maxHealth = 125; melee_damage_lower = 15; melee_damage_upper = 20},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"BA" = (/obj/structure/chair/office{dir = 1},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"BG" = (/obj/machinery/light/broken,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"Cs" = (/obj/item/ammo_casing/a556{dir = 5},/mob/living/simple_animal/hostile/poison/giant_spider/hunter/viper{alpha = 80; health = 125; maxHealth = 125; melee_damage_lower = 15; melee_damage_upper = 20},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"CR" = (/obj/item/ammo_casing/a556{dir = 5},/obj/machinery/light/broken,/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"CU" = (/obj/structure/spider/stickyweb,/obj/effect/decal/cleanable/blood/tracks{dir = 1; icon_state = "tracks"},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"CV" = (/turf/open/floor/mineral/plastitanium/red,/area/ship/science)
-"CW" = (/obj/machinery/light/dim,/obj/item/storage/firstaid/o2,/obj/structure/closet/emcloset/anchored,/turf/open/floor/mineral/plastitanium,/area/ship/hallway/aft)
-"Db" = (/obj/item/stack/sheet/metal{amount = 5},/obj/item/stack/cable_coil/red{amount = 5},/turf/open/floor/mineral/plastitanium,/area/ship/hallway/port)
-"Df" = (/turf/closed/wall/mineral/plastitanium/nodiagonal,/area/ship/hallway/starboard)
-"Dp" = (/obj/structure/spider/stickyweb,/turf/open/floor/pod,/area/ship/hallway/starboard)
-"DR" = (/obj/machinery/door/airlock/hatch{state_open = 1},/obj/machinery/door/poddoor/shutters/indestructible{id = scspidership2},/turf/open/floor/pod,/area/ship/hallway/aft)
-"Ei" = (/obj/structure/spider/stickyweb,/turf/open/floor/pod,/area/ship/hallway/port)
-"Eo" = (/obj/structure/table/glass,/obj/item/research_notes/loot/medium,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"EN" = (/obj/machinery/door/airlock/command/glass,/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"EQ" = (/obj/machinery/light/dim,/obj/structure/closet/emcloset/anchored,/obj/item/storage/firstaid/o2,/turf/open/floor/mineral/plastitanium,/area/ship/hallway/aft)
-"Fc" = (/obj/machinery/light/dim,/turf/open/floor/mineral/plastitanium,/area/ship/hallway/aft)
-"Fp" = (/obj/structure/barricade/sandbags,/turf/open/floor/plating,/area/ship/hallway/starboard)
-"FB" = (/obj/structure/cable{icon_state = "4-8"},/obj/machinery/light/broken{dir = 1},/turf/open/floor/pod,/area/ship/hallway/port)
-"FH" = (/obj/effect/decal/cleanable/blood/tracks{dir = 4; icon_state = "tracks"},/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"FV" = (/obj/item/paper/fluff{desc = "An automatically generated message for command staff."; info = "Welcome to the Spider Clan Biological Development Facility! Co-funded with Cybersun Induestries, this enormous facility is equipped with state-of-the-art biological technology. As the Captain of this ship, you are tasked with overseeing the development of prototype arachnid-type biological weaponry. The Command Centre is equipped with a panic room behind the communications console in case of an enemy attack. We are looking forward to your results."; name = "Welcome!"},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"GJ" = (/obj/effect/decal/cleanable/blood,/turf/open/floor/mineral/plastitanium/red,/area/ship/science)
-"GQ" = (/obj/effect/decal/cleanable/blood/innards,/obj/effect/decal/cleanable/blood/gibs/core,/obj/machinery/button/door{desc = "A remote control switch for blast doors."; id = scspidership; name = "Blast Door Control"; pixel_x = -24},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"GR" = (/obj/effect/decal/cleanable/blood/splatter,/turf/open/floor/mineral/plastitanium/red,/area/ship/science)
-"GW" = (/obj/effect/decal/cleanable/blood/tracks{dir = 8; icon_state = "tracks"},/turf/open/floor/pod,/area/ship/hallway/starboard)
-"Hy" = (/obj/machinery/computer{desc = "A computer long since rendered non-functional due to lack of maintenance. Spitting out error messages."; name = "Broken Computer"},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"HP" = (/turf/closed/wall/mineral/plastitanium/nodiagonal,/area/ship/science)
-"HQ" = (/obj/structure/closet/crate,/obj/effect/spawner/lootdrop/maintenance,/turf/open/floor/plating,/area/ship/hallway/port)
-"HU" = (/obj/structure/spider/stickyweb,/obj/structure/cable{icon_state = "1-2"},/turf/open/floor/pod,/area/ship/hallway/port)
-"HV" = (/obj/structure/spider/stickyweb,/obj/item/kirbyplants/random,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"HW" = (/obj/structure/spider/stickyweb,/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"Id" = (/obj/structure/closet/crate,/obj/effect/spawner/lootdrop/maintenance/five,/obj/machinery/light/small{dir = 4},/turf/open/floor/plating,/area/ship/hallway/port)
-"If" = (/obj/structure/cable{icon_state = "0-4"},/obj/machinery/power/apc/auto_name/west{nightshift_lights = 1},/turf/open/floor/pod,/area/ship/hallway/starboard)
-"Jo" = (/obj/structure/table/reinforced,/obj/item/ammo_box/magazine/pistolm9mm,/obj/item/ammo_box/magazine/pistolm9mm,/obj/item/ammo_box/magazine/pistolm9mm,/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"Jz" = (/obj/structure/spider/stickyweb,/obj/structure/cable{icon_state = "2-4"},/turf/open/floor/pod,/area/ship/hallway/port)
-"JS" = (/obj/structure/spider/cocoon,/obj/structure/spider/stickyweb,/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"JZ" = (/turf/closed/wall/mineral/plastitanium/nodiagonal,/area/ship/bridge)
-"Kj" = (/obj/structure/spider/stickyweb,/obj/machinery/vending/snack/random,/turf/open/floor/pod,/area/ship/hallway/aft)
-"Km" = (/obj/machinery/syndicatebomb/self_destruct{anchored = 1},/obj/structure/cable{icon_state = "4-8"},/obj/structure/cable{icon_state = "2-8"},/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"Kr" = (/obj/effect/decal/cleanable/blood/splatter,/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"Kv" = (/obj/structure/spider/stickyweb,/turf/open/floor/mineral/plastitanium/red,/area/ship/science)
-"KC" = (/obj/structure/spider/stickyweb,/mob/living/simple_animal/hostile/poison/giant_spider{melee_damage_lower = 25; melee_damage_upper = 35; poison_per_bite = 0},/turf/open/floor/pod,/area/ship/hallway/port)
-"Lc" = (/obj/item/stack/sheet/plasteel,/obj/item/stack/cable_coil/red{amount = 5},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"Lt" = (/obj/item/stack/sheet/metal{amount = 5},/obj/item/stack/cable_coil/red{amount = 5},/obj/structure/spider/stickyweb,/obj/effect/decal/cleanable/blood/tracks{dir = 1; icon_state = "tracks"},/turf/open/floor/mineral/plastitanium,/area/ship/hallway/starboard)
-"LF" = (/obj/structure/spider/stickyweb,/turf/open/floor/carpet/nanoweave,/area/ship/hallway/aft)
-"LI" = (/obj/structure/table/glass,/obj/item/research_notes/loot/small,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"Ma" = (/obj/structure/spider/stickyweb,/obj/effect/decal/cleanable/blood/tracks{dir = 8; icon_state = "tracks"},/obj/structure/cable{icon_state = "1-2"},/turf/open/floor/pod,/area/ship/hallway/starboard)
-"Me" = (/obj/structure/table,/obj/item/book/random,/turf/open/floor/pod,/area/ship/hallway/aft)
-"Mz" = (/obj/machinery/computer/camera_advanced,/obj/machinery/light/broken{dir = 1},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"MC" = (/obj/structure/cable{icon_state = "1-2"},/obj/machinery/light/broken{dir = 8},/turf/open/floor/pod,/area/ship/hallway/port)
-"MO" = (/obj/structure/table/glass,/obj/item/research_notes/loot/tiny,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"ND" = (/mob/living/simple_animal/hostile/syndicate/ranged/shotgun{desc = "A survivor from the disaster."; dir = 1; name = "Spider Clan Survivor"},/turf/open/floor/plating,/area/ship/hallway/starboard)
-"NY" = (/obj/machinery/light/dim,/turf/open/floor/pod,/area/ship/hallway/aft)
-"OK" = (/obj/structure/table/reinforced,/obj/item/research_notes/loot/genius,/obj/machinery/light/broken{dir = 1},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"OQ" = (/obj/item/stack/sheet/plasteel,/obj/item/stack/cable_coil/red{amount = 5},/obj/item/shard,/obj/structure/spider/stickyweb,/obj/effect/decal/cleanable/blood/tracks{dir = 8; icon_state = "tracks"},/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"OT" = (/obj/effect/decal/cleanable/blood/tracks{dir = 8; icon_state = "tracks"},/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"Pi" = (/obj/structure/table/reinforced,/obj/item/storage/box/syndie_kit/imp_microbomb,/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"PA" = (/obj/structure/spider/stickyweb,/obj/structure/spider/cocoon,/obj/structure/cable,/obj/machinery/power/apc/auto_name/east{nightshift_lights = 1},/turf/open/floor/pod,/area/ship/hallway/port)
-"PK" = (/mob/living/simple_animal/hostile/poison/giant_spider/nurse{melee_damage_lower = 10; melee_damage_upper = 15; poison_per_bite = 10},/obj/structure/spider/stickyweb,/obj/machinery/light/dim{dir = 4},/turf/open/floor/pod,/area/ship/hallway/starboard)
-"PO" = (/mob/living/simple_animal/hostile/poison/giant_spider/hunter{melee_damage_lower = 20; melee_damage_upper = 35; poison_per_bite = 3},/obj/structure/cable{icon_state = "1-2"},/turf/open/floor/pod,/area/ship/hallway/port)
-"Qi" = (/obj/structure/table,/turf/open/floor/pod,/area/ship/hallway/aft)
-"QL" = (/obj/machinery/door/poddoor/preopen{id = scspidership3},/obj/effect/decal/cleanable/blood/tracks,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"QU" = (/obj/structure/spider/stickyweb,/obj/structure/cable{icon_state = "4-8"},/obj/structure/cable{icon_state = "1-4"},/turf/open/floor/pod,/area/ship/hallway/starboard)
-"Rl" = (/obj/structure/spider/cocoon,/obj/machinery/button/door{desc = "A remote control switch for emergency shutters."; id = scspidership2; name = "Shutter Control"; pixel_x = 24},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"Ro" = (/obj/machinery/computer,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"Rw" = (/obj/structure/falsewall/plastitanium,/obj/structure/cable{icon_state = "1-2"},/turf/open/floor/plating,/area/ship/bridge)
-"RD" = (/mob/living/simple_animal/hostile/poison/giant_spider/nurse{melee_damage_lower = 10; melee_damage_upper = 15; poison_per_bite = 10},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"RQ" = (/obj/effect/decal/cleanable/blood/gibs/core,/obj/machinery/light/broken,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"RS" = (/mob/living/simple_animal/hostile/poison/giant_spider/hunter{melee_damage_lower = 20; melee_damage_upper = 35; poison_per_bite = 3},/turf/open/floor/carpet/nanoweave,/area/ship/hallway/aft)
-"So" = (/mob/living/simple_animal/hostile/syndicate/ranged/shotgun/space/stormtrooper{desc = "The captain of the facility."; name = "Spider Clan Captain"},/obj/machinery/power/terminal{dir = 1},/obj/structure/cable{icon_state = "0-8"},/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"Sz" = (/obj/item/ammo_casing/a556{dir = 4},/obj/structure/spider/stickyweb,/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"SW" = (/obj/structure/grille,/obj/structure/window/plasma/reinforced/plastitanium,/turf/open/floor/plating,/area/ship/hallway/starboard)
-"Tc" = (/obj/effect/decal/cleanable/blood/tracks{dir = 8; icon_state = "tracks"},/obj/machinery/light/broken{dir = 1},/turf/open/floor/pod,/area/ship/hallway/starboard)
-"Tg" = (/obj/structure/spider/stickyweb,/obj/structure/spider/cocoon,/obj/effect/decal/cleanable/blood,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"Tj" = (/obj/structure/lattice/catwalk,/obj/structure/marker_beacon,/turf/open/space/basic,/area/ship/hallway/aft)
-"TC" = (/obj/structure/spider/stickyweb,/mob/living/simple_animal/hostile/poison/giant_spider/hunter{melee_damage_lower = 20; melee_damage_upper = 35; poison_per_bite = 3},/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/pod,/area/ship/hallway/port)
-"TR" = (/obj/effect/decal/cleanable/blood/tracks{dir = 10},/turf/open/floor/pod,/area/ship/hallway/starboard)
-"Uc" = (/obj/machinery/door/airlock/hatch,/turf/open/floor/pod,/area/ship/hallway/aft)
-"Uj" = (/obj/item/ammo_casing/a556{dir = 10},/obj/structure/spider/stickyweb,/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"UG" = (/mob/living/simple_animal/hostile/poison/giant_spider/hunter{melee_damage_lower = 20; melee_damage_upper = 35; poison_per_bite = 3},/obj/structure/spider/stickyweb,/obj/structure/spider/cocoon,/turf/open/floor/plating,/area/ship/hallway/port)
-"UX" = (/obj/item/ammo_casing/a556,/obj/effect/decal/cleanable/blood/gibs/old,/obj/structure/spider/stickyweb,/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"Vf" = (/obj/item/reagent_containers/food/drinks/waterbottle/empty,/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"Vp" = (/obj/structure/spider/stickyweb,/obj/machinery/light/broken{dir = 1},/turf/open/floor/pod,/area/ship/hallway/aft)
-"VJ" = (/obj/structure/spider/stickyweb,/obj/effect/decal/cleanable/blood/tracks,/obj/structure/cable{icon_state = "1-2"},/turf/open/floor/pod,/area/ship/hallway/starboard)
-"VR" = (/obj/machinery/light/broken{dir = 8},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"We" = (/obj/item/stack/sheet/plasteel,/obj/item/stack/cable_coil/red{amount = 5},/obj/structure/spider/stickyweb,/obj/effect/decal/cleanable/blood/tracks{dir = 8; icon_state = "tracks"},/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"Wq" = (/obj/machinery/light/dim{dir = 1},/obj/item/reagent_containers/food/drinks/waterbottle/empty,/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"WJ" = (/obj/effect/turf_decal/trimline/lightgrey/warning,/obj/effect/decal/cleanable/blood/tracks,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"WU" = (/obj/structure/spider/stickyweb,/obj/structure/cable{icon_state = "2-8"},/obj/structure/cable{icon_state = "1-2"},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"Xa" = (/obj/effect/decal/cleanable/blood/tracks{dir = 10},/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"Xj" = (/obj/machinery/power/smes,/obj/structure/cable{icon_state = "0-4"},/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"Xu" = (/turf/closed/wall/mineral/plastitanium,/area/ship/hallway/port)
-"XI" = (/obj/structure/spider/stickyweb,/obj/effect/decal/cleanable/blood,/turf/open/floor/mineral/plastitanium/red,/area/ship/science)
-"XL" = (/obj/structure/spider/stickyweb,/obj/machinery/button/door{desc = "A remote control switch for emergency shutters."; id = scspidership4; name = "Shutter Control"; pixel_x = 24},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"XX" = (/mob/living/simple_animal/hostile/poison/giant_spider{melee_damage_lower = 25; melee_damage_upper = 35; poison_per_bite = 0},/obj/effect/decal/cleanable/blood/tracks,/obj/structure/cable{icon_state = "2-8"},/turf/open/floor/pod,/area/ship/hallway/starboard)
-"Yr" = (/obj/structure/table/reinforced,/obj/item/paper/fluff{desc = "A note left by a researcher."; info = "Robert, please check the wiring on the blast doors. I know I sound paranoid I could swear I saw them opening for a second. It's better to be safe than sorry."; name = "Note for Robert"},/obj/machinery/button/door{desc = "A remote control switch for blast doors."; id = scspidership3; name = "Blast Door Control"; pixel_y = 24},/obj/machinery/light/broken{dir = 1},/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"Yt" = (/obj/machinery/light/dim{dir = 1},/obj/structure/tank_dispenser/oxygen,/turf/open/floor/mineral/plastitanium,/area/ship/hallway/aft)
-"YE" = (/obj/effect/decal/cleanable/blood/tracks{dir = 4; icon_state = "tracks"},/obj/structure/cable{icon_state = "4-8"},/obj/structure/spider/stickyweb,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"YH" = (/obj/structure/mecha_wreckage/mauler,/obj/structure/spider/stickyweb,/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"YL" = (/obj/structure/spider/stickyweb,/turf/open/floor/pod,/area/ship/hallway/aft)
-"Zp" = (/obj/item/ammo_casing/a556,/obj/effect/decal/cleanable/blood/gibs/down,/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/carpet/red_gold,/area/ship/bridge)
-"Zr" = (/obj/structure/table/glass,/obj/item/reagent_containers/syringe/spider_extract,/turf/open/floor/mineral/plastitanium,/area/ship/science)
-"Zx" = (/obj/structure/cable{icon_state = "1-4"},/obj/structure/cable{icon_state = "4-8"},/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"ZH" = (/obj/structure/table/reinforced,/obj/item/grenade/c4,/obj/item/grenade/c4,/obj/item/grenade/c4/x4,/obj/item/grenade/c4/x4,/turf/open/floor/circuit/red/anim,/area/ship/bridge)
-"ZJ" = (/obj/machinery/vending/cola/random,/turf/open/floor/pod,/area/ship/hallway/aft)
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"af" = (
+/obj/structure/spider/stickyweb,
+/mob/living/simple_animal/hostile/poison/giant_spider/hunter{
+	melee_damage_lower = 20;
+	melee_damage_upper = 35;
+	poison_per_bite = 3
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"aw" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
+"aD" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/auto_name/north{
+	nightshift_lights = 1
+	},
+/mob/living/simple_animal/hostile/poison/giant_spider/nurse{
+	melee_damage_lower = 10;
+	melee_damage_upper = 15;
+	poison_per_bite = 10
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
+"aH" = (
+/obj/machinery/computer/apc_control,
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"bs" = (
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/auto_name/north{
+	nightshift_lights = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"bt" = (
+/turf/open/floor/plating,
+/area/ship/hallway/port)
+"bL" = (
+/mob/living/simple_animal/hostile/poison/giant_spider/tarantula{
+	damage_coeff = list("brute" = 1, "fire" = 1, "toxin" = 1, "clone" = 1, "stamina" = 0, "oxygen" = 0);
+	deathmessage = "falls to the ground.";
+	deathsound = 'sound/voice/hiss5.ogg';
+	desc = "A titanic, black and red broodmother spider. It has a weird S painted on its back.";
+	health = 1000;
+	maxHealth = 1000;
+	melee_damage_lower = 45;
+	melee_damage_upper = 60;
+	name = "Giant Broodmother";
+	poison_per_bite = 3;
+	poison_type = /datum/reagent/toxin/cyanide;
+	speed = 1;
+	unsuitable_atmos_damage = 0
+	},
+/obj/effect/decal/cleanable/blood/gibs/body,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ship/science)
+"bP" = (
+/obj/machinery/light/dim{
+	dir = 1
+	},
+/obj/item/kirbyplants/random,
+/turf/open/floor/pod,
+/area/ship/hallway/port)
+"bR" = (
+/obj/machinery/computer/atmos_alert,
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"bY" = (
+/obj/structure/spider/cocoon,
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"cn" = (
+/obj/item/shard{
+	icon_state = "small"
+	},
+/obj/structure/spider/stickyweb,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 8;
+	icon_state = "tracks"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"cJ" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/cocoon,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"cR" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ship/hallway/port)
+"dq" = (
+/obj/structure/spider/stickyweb,
+/turf/open/floor/plating,
+/area/ship/hallway/port)
+"dF" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"dG" = (
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"dR" = (
+/obj/machinery/power/port_gen/pacman/uranium,
+/obj/item/stack/sheet/mineral/uranium/twenty,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"dT" = (
+/mob/living/simple_animal/hostile/poison/giant_spider/hunter{
+	melee_damage_lower = 20;
+	melee_damage_upper = 35;
+	poison_per_bite = 3
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"en" = (
+/obj/machinery/computer/warrant,
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"eu" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
+"ez" = (
+/obj/item/ammo_casing/a556{
+	dir = 9
+	},
+/obj/structure/spider/stickyweb,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"eD" = (
+/obj/machinery/door/poddoor/shutters{
+	id = "scspidership4";
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"eG" = (
+/turf/closed/wall/mineral/plastitanium,
+/area/ship/hallway/aft)
+"eM" = (
+/obj/structure/chair/office{
+	dir = 1
+	},
+/obj/structure/spider/stickyweb,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4;
+	icon_state = "tracks"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"eU" = (
+/obj/structure/spider/stickyweb,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"fh" = (
+/turf/open/floor/pod,
+/area/ship/hallway/starboard)
+"fj" = (
+/obj/item/shard{
+	icon_state = "small"
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"fx" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"fz" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/port)
+"fI" = (
+/obj/machinery/power/apc/auto_name/north{
+	nightshift_lights = 1
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"fW" = (
+/obj/effect/turf_decal/trimline/lightgrey/warning,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"ge" = (
+/turf/open/floor/mineral/plastitanium,
+/area/ship/hallway/aft)
+"gm" = (
+/obj/machinery/light/dim{
+	dir = 1
+	},
+/obj/machinery/suit_storage_unit{
+	helmet_type = /obj/item/clothing/head/helmet/space/syndicate/black/red;
+	mask_type = /obj/item/clothing/mask/gas/syndicate;
+	suit_type = /obj/item/clothing/suit/space/syndicate/black/red
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/hallway/aft)
+"gp" = (
+/mob/living/simple_animal/hostile/poison/giant_spider/nurse{
+	melee_damage_lower = 10;
+	melee_damage_upper = 15;
+	poison_per_bite = 10
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/ship/science)
+"gI" = (
+/mob/living/simple_animal/hostile/poison/giant_spider{
+	melee_damage_lower = 25;
+	melee_damage_upper = 35;
+	poison_per_bite = 0
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/ship/science)
+"gO" = (
+/obj/structure/table_frame,
+/obj/item/shard,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"gV" = (
+/obj/effect/decal/cleanable/blood/gibs/down,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 5;
+	icon_state = "tracks"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"hc" = (
+/obj/machinery/light/dim{
+	dir = 1
+	},
+/obj/machinery/power/port_gen/pacman/uranium,
+/obj/item/stack/sheet/mineral/uranium/twenty,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"hr" = (
+/obj/structure/door_assembly/door_assembly_com,
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"hs" = (
+/turf/open/space/basic,
+/area/space)
+"hE" = (
+/obj/structure/chair/greyscale{
+	dir = 4
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
+"hJ" = (
+/obj/item/stack/sheet/metal{
+	amount = 5
+	},
+/obj/item/stack/cable_coil/red{
+	amount = 5
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"ik" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/port)
+"is" = (
+/obj/structure/table/reinforced,
+/obj/item/aiModule/core/full/cybersun,
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"iJ" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"iK" = (
+/obj/structure/grille,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
+/obj/machinery/door/poddoor{
+	id = "cspidership"
+	},
+/turf/open/floor/plating,
+/area/ship/bridge)
+"iL" = (
+/turf/open/floor/pod,
+/area/ship/hallway/port)
+"kc" = (
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"kj" = (
+/obj/machinery/computer,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"kK" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/port)
+"kO" = (
+/obj/item/kirbyplants/random,
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"kR" = (
+/turf/closed/wall/mineral/plastitanium,
+/area/ship/science)
+"lm" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 6;
+	icon_state = "tracks"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/starboard)
+"lS" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"md" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/cocoon,
+/obj/item/clothing/under/syndicate/cybersun,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ship/science)
+"mj" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/item/phone,
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"mk" = (
+/obj/structure/closet/crate,
+/obj/effect/spawner/lootdrop/maintenance/four,
+/turf/open/floor/plating,
+/area/ship/hallway/starboard)
+"mt" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"nb" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ship/hallway/aft)
+"nk" = (
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"nq" = (
+/mob/living/simple_animal/hostile/poison/giant_spider/nurse{
+	melee_damage_lower = 10;
+	melee_damage_upper = 15;
+	poison_per_bite = 10
+	},
+/obj/structure/spider/stickyweb,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"ns" = (
+/turf/open/floor/carpet/nanoweave,
+/area/ship/hallway/aft)
+"nu" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/starboard)
+"nE" = (
+/obj/effect/turf_decal/trimline/lightgrey/warning,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"nZ" = (
+/obj/effect/decal/cleanable/blood/gibs,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"oj" = (
+/obj/machinery/light/dim{
+	dir = 1
+	},
+/obj/item/kirbyplants/random,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"oB" = (
+/obj/machinery/computer/crew/syndie,
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"oK" = (
+/obj/structure/grille,
+/obj/structure/window/plasma/reinforced/plastitanium,
+/turf/open/floor/plating,
+/area/ship/hallway/aft)
+"oO" = (
+/obj/structure/closet/crate,
+/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"oP" = (
+/obj/structure/spider/stickyweb,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 8;
+	icon_state = "tracks"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"oW" = (
+/obj/effect/decal/cleanable/blood/tracks,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ship/science)
+"oZ" = (
+/mob/living/simple_animal/hostile/poison/giant_spider{
+	melee_damage_lower = 25;
+	melee_damage_upper = 35;
+	poison_per_bite = 0
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"pl" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"pr" = (
+/obj/structure/chair/greyscale{
+	dir = 8
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
+"qa" = (
+/obj/structure/spider/stickyweb,
+/obj/item/kirbyplants/random,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/port)
+"qj" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/starboard)
+"qH" = (
+/obj/structure/door_assembly/door_assembly_science{
+	anchored = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/hallway/port)
+"qZ" = (
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/starboard)
+"re" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/barricade/wooden/crude,
+/turf/open/floor/plating,
+/area/ship/hallway/starboard)
+"rp" = (
+/turf/open/floor/plating,
+/area/ship/hallway/starboard)
+"rA" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/item/storage/toolbox/syndicate,
+/turf/open/floor/plating,
+/area/ship/hallway/starboard)
+"rU" = (
+/obj/machinery/light/dim,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
+"rW" = (
+/obj/structure/frame/computer{
+	dir = 4
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"sd" = (
+/mob/living/simple_animal/hostile/poison/giant_spider/nurse{
+	melee_damage_lower = 15;
+	melee_damage_type = "toxin";
+	melee_damage_upper = 25
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"sf" = (
+/obj/item/wrench/syndie,
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 1;
+	pixel_x = -10;
+	pixel_y = 10
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"sT" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"tL" = (
+/obj/structure/spider/stickyweb,
+/mob/living/simple_animal/hostile/poison/giant_spider/nurse{
+	melee_damage_lower = 10;
+	melee_damage_upper = 15;
+	poison_per_bite = 10
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/starboard)
+"tO" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/cocoon,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ship/science)
+"tP" = (
+/obj/machinery/light/dim{
+	dir = 1
+	},
+/obj/structure/spider/stickyweb,
+/obj/item/kirbyplants/random,
+/turf/open/floor/pod,
+/area/ship/hallway/starboard)
+"tU" = (
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
+"uu" = (
+/obj/machinery/computer/atmos_control,
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"ux" = (
+/obj/machinery/door/poddoor{
+	id = "cspidership"
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"uF" = (
+/obj/structure/fans/tiny,
+/obj/machinery/door/airlock/external/glass,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/hallway/aft)
+"vi" = (
+/obj/machinery/door/poddoor/preopen{
+	id = "cspidership3"
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"vm" = (
+/obj/item/stack/sheet/metal{
+	amount = 5
+	},
+/obj/item/stack/cable_coil/red{
+	amount = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/hallway/starboard)
+"vv" = (
+/obj/structure/spider/stickyweb,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"wc" = (
+/obj/structure/spider/stickyweb,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 5;
+	icon_state = "tracks"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/starboard)
+"wm" = (
+/mob/living/simple_animal/hostile/poison/giant_spider/nurse{
+	melee_damage_lower = 10;
+	melee_damage_upper = 15;
+	poison_per_bite = 10
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/port)
+"wL" = (
+/obj/structure/grille,
+/obj/structure/window/plasma/reinforced/plastitanium,
+/turf/open/floor/plating,
+/area/ship/hallway/port)
+"wQ" = (
+/obj/item/stack/sheet/glass{
+	amount = 2
+	},
+/obj/item/stack/cable_coil/red{
+	amount = 5
+	},
+/obj/effect/decal/cleanable/blood/footprints{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"xa" = (
+/obj/item/shard{
+	icon_state = "medium"
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"xB" = (
+/mob/living/simple_animal/hostile/syndicate/melee/sword/space/stormtrooper{
+	desc = "A commander from the Spider Clan.";
+	name = "Spider Clan Commander"
+	},
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"xV" = (
+/obj/structure/table/reinforced,
+/obj/item/clothing/suit/space/hardsuit/cybersun,
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"yg" = (
+/mob/living/simple_animal/hostile/poison/giant_spider{
+	melee_damage_lower = 25;
+	melee_damage_upper = 35;
+	poison_per_bite = 0
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"yM" = (
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
+"yU" = (
+/obj/machinery/light/dim,
+/obj/item/gun/ballistic/automatic/pistol/APS,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"yW" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/open/floor/plating,
+/area/ship/hallway/aft)
+"zn" = (
+/obj/machinery/door/airlock/external/glass,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/hallway/aft)
+"zw" = (
+/obj/structure/spider/stickyweb,
+/obj/machinery/vending/cola/random,
+/obj/machinery/light/broken{
+	dir = 8
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
+"Ab" = (
+/obj/machinery/light/dim{
+	dir = 4
+	},
+/obj/machinery/vending/snack/random,
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
+"Au" = (
+/obj/structure/table/glass,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"Ax" = (
+/obj/structure/door_assembly/door_assembly_hatch{
+	anchored = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
+"AB" = (
+/obj/structure/table/reinforced,
+/obj/item/jammer,
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"AQ" = (
+/turf/closed/wall/mineral/plastitanium,
+/area/ship/hallway/starboard)
+"Be" = (
+/obj/structure/grille,
+/obj/structure/window/plasma/reinforced/plastitanium,
+/turf/open/floor/plating,
+/area/ship/science)
+"Bl" = (
+/obj/structure/chair/office{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"Bu" = (
+/obj/item/ammo_casing/a556{
+	dir = 10
+	},
+/mob/living/simple_animal/hostile/poison/giant_spider/hunter/viper{
+	alpha = 80;
+	health = 125;
+	maxHealth = 125;
+	melee_damage_lower = 15;
+	melee_damage_upper = 20
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"BA" = (
+/obj/structure/chair/office{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"BG" = (
+/obj/machinery/light/broken,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"Cs" = (
+/obj/item/ammo_casing/a556{
+	dir = 5
+	},
+/mob/living/simple_animal/hostile/poison/giant_spider/hunter/viper{
+	alpha = 80;
+	health = 125;
+	maxHealth = 125;
+	melee_damage_lower = 15;
+	melee_damage_upper = 20
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"CR" = (
+/obj/item/ammo_casing/a556{
+	dir = 5
+	},
+/obj/machinery/light/broken,
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"CU" = (
+/obj/structure/spider/stickyweb,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 1;
+	icon_state = "tracks"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"CV" = (
+/turf/open/floor/mineral/plastitanium/red,
+/area/ship/science)
+"CW" = (
+/obj/machinery/light/dim,
+/obj/item/storage/firstaid/o2,
+/obj/structure/closet/emcloset/anchored,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/hallway/aft)
+"Db" = (
+/obj/item/stack/sheet/metal{
+	amount = 5
+	},
+/obj/item/stack/cable_coil/red{
+	amount = 5
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/hallway/port)
+"Df" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ship/hallway/starboard)
+"Dp" = (
+/obj/structure/spider/stickyweb,
+/turf/open/floor/pod,
+/area/ship/hallway/starboard)
+"DR" = (
+/obj/machinery/door/airlock/hatch{
+	state_open = 1
+	},
+/obj/machinery/door/poddoor/shutters/indestructible{
+	id = "cspidership2"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
+"Ei" = (
+/obj/structure/spider/stickyweb,
+/turf/open/floor/pod,
+/area/ship/hallway/port)
+"Eo" = (
+/obj/structure/table/glass,
+/obj/item/research_notes/loot/medium,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"EN" = (
+/obj/machinery/door/airlock/command/glass,
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"EQ" = (
+/obj/machinery/light/dim,
+/obj/structure/closet/emcloset/anchored,
+/obj/item/storage/firstaid/o2,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/hallway/aft)
+"Fc" = (
+/obj/machinery/light/dim,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/hallway/aft)
+"Fp" = (
+/obj/structure/barricade/sandbags,
+/turf/open/floor/plating,
+/area/ship/hallway/starboard)
+"FB" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/port)
+"FH" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4;
+	icon_state = "tracks"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"FV" = (
+/obj/item/paper/fluff{
+	desc = "An automatically generated message for command staff.";
+	info = "Welcome to the Spider Clan Biological Development Facility! Co-funded with Cybersun Induestries, this enormous facility is equipped with state-of-the-art biological technology. As the Captain of this ship, you are tasked with overseeing the development of prototype arachnid-type biological weaponry. The Command Centre is equipped with a panic room behind the communications console in case of an enemy attack. We are looking forward to your results.";
+	name = "Welcome!"
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"GJ" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ship/science)
+"GQ" = (
+/obj/effect/decal/cleanable/blood/innards,
+/obj/effect/decal/cleanable/blood/gibs/core,
+/obj/machinery/button/door{
+	desc = "A remote control switch for blast doors.";
+	id = "cspidership";
+	name = "Blast Door Control";
+	pixel_x = -24
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"GR" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ship/science)
+"GW" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 8;
+	icon_state = "tracks"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/starboard)
+"Hy" = (
+/obj/machinery/computer{
+	desc = "A computer long since rendered non-functional due to lack of maintenance. Spitting out error messages.";
+	name = "Broken Computer"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"HP" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ship/science)
+"HQ" = (
+/obj/structure/closet/crate,
+/obj/effect/spawner/lootdrop/maintenance,
+/turf/open/floor/plating,
+/area/ship/hallway/port)
+"HU" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/port)
+"HV" = (
+/obj/structure/spider/stickyweb,
+/obj/item/kirbyplants/random,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"HW" = (
+/obj/structure/spider/stickyweb,
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"Id" = (
+/obj/structure/closet/crate,
+/obj/effect/spawner/lootdrop/maintenance/five,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/ship/hallway/port)
+"If" = (
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/auto_name/west{
+	nightshift_lights = 1
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/starboard)
+"Jo" = (
+/obj/structure/table/reinforced,
+/obj/item/ammo_box/magazine/pistolm9mm,
+/obj/item/ammo_box/magazine/pistolm9mm,
+/obj/item/ammo_box/magazine/pistolm9mm,
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"Jz" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/port)
+"JS" = (
+/obj/structure/spider/cocoon,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"JZ" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ship/bridge)
+"Kj" = (
+/obj/structure/spider/stickyweb,
+/obj/machinery/vending/snack/random,
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
+"Km" = (
+/obj/machinery/syndicatebomb/self_destruct{
+	anchored = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"Kr" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"Kv" = (
+/obj/structure/spider/stickyweb,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ship/science)
+"KC" = (
+/obj/structure/spider/stickyweb,
+/mob/living/simple_animal/hostile/poison/giant_spider{
+	melee_damage_lower = 25;
+	melee_damage_upper = 35;
+	poison_per_bite = 0
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/port)
+"Lc" = (
+/obj/item/stack/sheet/plasteel,
+/obj/item/stack/cable_coil/red{
+	amount = 5
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"Lt" = (
+/obj/item/stack/sheet/metal{
+	amount = 5
+	},
+/obj/item/stack/cable_coil/red{
+	amount = 5
+	},
+/obj/structure/spider/stickyweb,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 1;
+	icon_state = "tracks"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/hallway/starboard)
+"LF" = (
+/obj/structure/spider/stickyweb,
+/turf/open/floor/carpet/nanoweave,
+/area/ship/hallway/aft)
+"LI" = (
+/obj/structure/table/glass,
+/obj/item/research_notes/loot/small,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"Ma" = (
+/obj/structure/spider/stickyweb,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 8;
+	icon_state = "tracks"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/starboard)
+"Me" = (
+/obj/structure/table,
+/obj/item/book/random,
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
+"Mz" = (
+/obj/machinery/computer/camera_advanced,
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"MC" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/light/broken{
+	dir = 8
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/port)
+"MO" = (
+/obj/structure/table/glass,
+/obj/item/research_notes/loot/tiny,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"ND" = (
+/mob/living/simple_animal/hostile/syndicate/ranged/shotgun{
+	desc = "A survivor from the disaster.";
+	dir = 1;
+	name = "Spider Clan Survivor"
+	},
+/turf/open/floor/plating,
+/area/ship/hallway/starboard)
+"NY" = (
+/obj/machinery/light/dim,
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
+"OK" = (
+/obj/structure/table/reinforced,
+/obj/item/research_notes/loot/genius,
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"OQ" = (
+/obj/item/stack/sheet/plasteel,
+/obj/item/stack/cable_coil/red{
+	amount = 5
+	},
+/obj/item/shard,
+/obj/structure/spider/stickyweb,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 8;
+	icon_state = "tracks"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"OT" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 8;
+	icon_state = "tracks"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"Pi" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/box/syndie_kit/imp_microbomb,
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"PA" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/cocoon,
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/east{
+	nightshift_lights = 1
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/port)
+"PK" = (
+/mob/living/simple_animal/hostile/poison/giant_spider/nurse{
+	melee_damage_lower = 10;
+	melee_damage_upper = 15;
+	poison_per_bite = 10
+	},
+/obj/structure/spider/stickyweb,
+/obj/machinery/light/dim{
+	dir = 4
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/starboard)
+"PO" = (
+/mob/living/simple_animal/hostile/poison/giant_spider/hunter{
+	melee_damage_lower = 20;
+	melee_damage_upper = 35;
+	poison_per_bite = 3
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/port)
+"Qi" = (
+/obj/structure/table,
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
+"QL" = (
+/obj/machinery/door/poddoor/preopen{
+	id = "cspidership3"
+	},
+/obj/effect/decal/cleanable/blood/tracks,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"QU" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/starboard)
+"Rl" = (
+/obj/structure/spider/cocoon,
+/obj/machinery/button/door{
+	desc = "A remote control switch for emergency shutters.";
+	id = "cspidership2";
+	name = "Shutter Control";
+	pixel_x = 24
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"Ro" = (
+/obj/machinery/computer,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"Rw" = (
+/obj/structure/falsewall/plastitanium,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/plating,
+/area/ship/bridge)
+"RD" = (
+/mob/living/simple_animal/hostile/poison/giant_spider/nurse{
+	melee_damage_lower = 10;
+	melee_damage_upper = 15;
+	poison_per_bite = 10
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"RQ" = (
+/obj/effect/decal/cleanable/blood/gibs/core,
+/obj/machinery/light/broken,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"RS" = (
+/mob/living/simple_animal/hostile/poison/giant_spider/hunter{
+	melee_damage_lower = 20;
+	melee_damage_upper = 35;
+	poison_per_bite = 3
+	},
+/turf/open/floor/carpet/nanoweave,
+/area/ship/hallway/aft)
+"So" = (
+/mob/living/simple_animal/hostile/syndicate/ranged/shotgun/space/stormtrooper{
+	desc = "The captain of the facility.";
+	name = "Spider Clan Captain"
+	},
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"Sz" = (
+/obj/item/ammo_casing/a556{
+	dir = 4
+	},
+/obj/structure/spider/stickyweb,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"SW" = (
+/obj/structure/grille,
+/obj/structure/window/plasma/reinforced/plastitanium,
+/turf/open/floor/plating,
+/area/ship/hallway/starboard)
+"Tc" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 8;
+	icon_state = "tracks"
+	},
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/starboard)
+"Tg" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/cocoon,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"Tj" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/marker_beacon,
+/turf/open/space/basic,
+/area/ship/hallway/aft)
+"TC" = (
+/obj/structure/spider/stickyweb,
+/mob/living/simple_animal/hostile/poison/giant_spider/hunter{
+	melee_damage_lower = 20;
+	melee_damage_upper = 35;
+	poison_per_bite = 3
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/port)
+"TR" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 10
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/starboard)
+"Uc" = (
+/obj/machinery/door/airlock/hatch,
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
+"Uj" = (
+/obj/item/ammo_casing/a556{
+	dir = 10
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"UG" = (
+/mob/living/simple_animal/hostile/poison/giant_spider/hunter{
+	melee_damage_lower = 20;
+	melee_damage_upper = 35;
+	poison_per_bite = 3
+	},
+/obj/structure/spider/stickyweb,
+/obj/structure/spider/cocoon,
+/turf/open/floor/plating,
+/area/ship/hallway/port)
+"UX" = (
+/obj/item/ammo_casing/a556,
+/obj/effect/decal/cleanable/blood/gibs/old,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"Vf" = (
+/obj/item/reagent_containers/food/drinks/waterbottle/empty,
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"Vp" = (
+/obj/structure/spider/stickyweb,
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
+"VJ" = (
+/obj/structure/spider/stickyweb,
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/starboard)
+"VR" = (
+/obj/machinery/light/broken{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"We" = (
+/obj/item/stack/sheet/plasteel,
+/obj/item/stack/cable_coil/red{
+	amount = 5
+	},
+/obj/structure/spider/stickyweb,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 8;
+	icon_state = "tracks"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"Wq" = (
+/obj/machinery/light/dim{
+	dir = 1
+	},
+/obj/item/reagent_containers/food/drinks/waterbottle/empty,
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"WJ" = (
+/obj/effect/turf_decal/trimline/lightgrey/warning,
+/obj/effect/decal/cleanable/blood/tracks,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"WU" = (
+/obj/structure/spider/stickyweb,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"Xa" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"Xj" = (
+/obj/machinery/power/smes,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"Xu" = (
+/turf/closed/wall/mineral/plastitanium,
+/area/ship/hallway/port)
+"XI" = (
+/obj/structure/spider/stickyweb,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ship/science)
+"XL" = (
+/obj/structure/spider/stickyweb,
+/obj/machinery/button/door{
+	desc = "A remote control switch for emergency shutters.";
+	id = "cspidership4";
+	name = "Shutter Control";
+	pixel_x = 24
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"XX" = (
+/mob/living/simple_animal/hostile/poison/giant_spider{
+	melee_damage_lower = 25;
+	melee_damage_upper = 35;
+	poison_per_bite = 0
+	},
+/obj/effect/decal/cleanable/blood/tracks,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/open/floor/pod,
+/area/ship/hallway/starboard)
+"Yr" = (
+/obj/structure/table/reinforced,
+/obj/item/paper/fluff{
+	desc = "A note left by a researcher.";
+	info = "Robert, please check the wiring on the blast doors. I know I sound paranoid I could swear I saw them opening for a second. It's better to be safe than sorry.";
+	name = "Note for Robert"
+	},
+/obj/machinery/button/door{
+	desc = "A remote control switch for blast doors.";
+	id = "cspidership3";
+	name = "Blast Door Control";
+	pixel_y = 24
+	},
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"Yt" = (
+/obj/machinery/light/dim{
+	dir = 1
+	},
+/obj/structure/tank_dispenser/oxygen,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/hallway/aft)
+"YE" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4;
+	icon_state = "tracks"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/spider/stickyweb,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"YH" = (
+/obj/structure/mecha_wreckage/mauler,
+/obj/structure/spider/stickyweb,
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"YL" = (
+/obj/structure/spider/stickyweb,
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
+"Zp" = (
+/obj/item/ammo_casing/a556,
+/obj/effect/decal/cleanable/blood/gibs/down,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/carpet/red_gold,
+/area/ship/bridge)
+"Zr" = (
+/obj/structure/table/glass,
+/obj/item/reagent_containers/syringe/spider_extract,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/science)
+"Zx" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"ZH" = (
+/obj/structure/table/reinforced,
+/obj/item/grenade/c4,
+/obj/item/grenade/c4,
+/obj/item/grenade/c4/x4,
+/obj/item/grenade/c4/x4,
+/turf/open/floor/circuit/red/anim,
+/area/ship/bridge)
+"ZJ" = (
+/obj/machinery/vending/cola/random,
+/turf/open/floor/pod,
+/area/ship/hallway/aft)
 
 (1,1,1) = {"
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshskRHPHPHPBeBeHPHPBeBeBeHPHPBeBeHPHPHPkRhshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshskRHPHPHPHPdTHVHPKvKvKvCVKvHPHVoZHPHPHPHPkRhshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshsHPKvCVKvBekceUBetOCVCVXIKvBekckcBeKvKvgpHPhshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshskRHPCVCVKvhJkckcBeCVGJbLCVmdBeeUkceDKvCVKvHPkRhshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshsHPHPtOCVCVBekceUBeKvCVoWCVCVBesdeUBeKvgICVHPHPhshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshskRHPHPHPBeHPHPeUdGHPKvCVoWGRtOHPVRXLHPHPBeHPHPHPkRhshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshsHPAugOEoHykckcafkcHPHPviQLviHPHPvvkccJbsHyLILIZrHPhshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshskRHPEokceUBAeUeUkccJRoYrnEWJfWOKkjmtygkciJBAkckcMOHPkRhshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshsBekOeUkcnZeUkcnqfxlSBlplfxXaYEFHeMFHFHgVWUkcRDcJkcojBehshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshsBeTgkcygkceUmtiJeURQkceUkceUdTeUBGeUkcCUiJeUeUkckceUBehshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshsXucRcRcRcRcRcRDbqHJZJZJZJZJZJZJZJZJZJZJZLtvmDfDfDfDfDfDfAQhshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshswLbPiLJzikqaFBTCkKJZishcdRXjKmfIoOWqJoJZTRMaTcGWwcfhtLtPSWhshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshswLiLwmfzKCEiEiiLPAJZABdFZxSomjxBVfnkxVJZIfQUqjnuXXDpfhfhSWhshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshsXucRcRcRfziLcRcRcRcRJZPiJZJZJZRwJZJZJZZHJZDfDfDfDfVJDpDfDfDfAQhshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshscRHQIdcRHUiLwLhshshsJZJZMzoBaHwQenbRuuJZJZhshshsSWqZfhrerprpDfhshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshscRbtbtcRPOEiJZJZJZJZJZJZGQHWrWsfFVHWRlJZJZJZJZJZJZVJfhDfFpFpDfhshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshscRbtUGcRMCEiuxENuxENuxJSHWCsHWsTSzZpezKrcnWeOTOQoPlmPKDfrpNDDfhshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshscRdqbtcRHUiLuxENuxENuxHWyUHWbYUXBuYHCRUjhruxxaLcfjfhfhDfmkrADfhshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshseGnbyWnbnbAxUcJZJZJZJZJZJZJZiKiKiKiKiKJZJZJZJZJZJZJZDRDRnbnbnbnbeGhshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshsnbeuYLtUaDawYLYLtUYLtUtUtUVptUtUtUtUtUtUyMtUtUtUtUtUtUtUtUtUtUeunbhshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshsnbzwRSnsnsLFnsnsLFnsnsnsnsnsnsnsnsnsnsnsnsnsnsnsnsnsnsnsnsnsnsAbnbhshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshsnbKjnsYLtUYLtUYLtUtUYLeuhEMeprtUtUtUhEQipreutUtUtUtUtUtUtUtUnsZJnbhshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshsnbtULFYLnbnbnbnbnbnbnbnboKoKoKoKoKoKoKoKoKnbnbnbnbnbnbnbnbtUnstUnbhshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshsoKYLnstUoKhshshshshshshshshshshshshshshshshshshshshshshsoKtUnstUoKhshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshsoKtUnsYLoKhshshshshshshshshshshshshshshshshshshshshshshsoKtUnstUoKhshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshsoKtUnstUoKhshshshshshshshshshshshshshshshshshshshshshshsoKtUnstUoKhshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshsoKYLnstUoKhshshshshshshshshshshshshshshshshshshshshshshsoKtUnstUoKhshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshsoKtUnstUoKhshshshshshshshshshshshshshshshshshshshshshshsoKtUnstUoKhshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshsoKNYnsrUoKhshshshshshshshshshshshshshshshshshshshshshshsoKNYnsNYoKhshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshsnbnbznnbnbhshshshshshshshshshshshshshshshshshshshshshshsnbnbznnbnbhshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshsnbgmgeYtnbhshshshshshshshshshshshshshshshshshshshshshshsnbYtgegmnbhshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshsoKgegegeoKhshshshshshshshshshshshshshshshshshshshshshshsoKgegegeoKhshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshsnbEQgeFcnbhshshshshshshshshshshshshshshshshshshshshshshsnbFcgeCWnbhshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshsnbnbuFnbnbhshshshshshshshshshshshshshshshshshshshshshshsnbnbuFnbnbhshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshsTjhshshsTjhshshshshshshshshshshshshshshshshshshshshshshsTjhshshsTjhshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
-hshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshshs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(2,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(3,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(4,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(5,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(6,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(7,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(8,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(9,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(10,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(11,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(12,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(13,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(14,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(15,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(16,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+eG
+nb
+nb
+nb
+nb
+oK
+oK
+oK
+oK
+oK
+oK
+nb
+nb
+oK
+nb
+nb
+Tj
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(17,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+Xu
+cR
+cR
+cR
+cR
+nb
+eu
+zw
+Kj
+tU
+YL
+tU
+tU
+YL
+tU
+NY
+nb
+gm
+ge
+EQ
+nb
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(18,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+Xu
+wL
+wL
+cR
+HQ
+bt
+bt
+dq
+yW
+YL
+RS
+ns
+LF
+ns
+ns
+ns
+ns
+ns
+ns
+zn
+ge
+ge
+ge
+uF
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(19,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+kR
+Be
+Be
+cR
+bP
+iL
+cR
+Id
+bt
+UG
+bt
+nb
+tU
+ns
+YL
+YL
+tU
+YL
+tU
+tU
+tU
+rU
+nb
+Yt
+ge
+Fc
+nb
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(20,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+kR
+HP
+HP
+kO
+Tg
+cR
+iL
+wm
+cR
+cR
+cR
+cR
+cR
+nb
+aD
+ns
+tU
+nb
+oK
+oK
+oK
+oK
+oK
+oK
+nb
+nb
+oK
+nb
+nb
+Tj
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(21,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+kR
+HP
+HP
+Au
+Eo
+eU
+kc
+cR
+Jz
+fz
+fz
+HU
+PO
+MC
+HU
+Ax
+aw
+LF
+YL
+nb
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(22,1,1) = {"
+hs
+hs
+hs
+hs
+kR
+HP
+HP
+HP
+HP
+gO
+kc
+kc
+yg
+cR
+ik
+KC
+iL
+iL
+Ei
+Ei
+iL
+Uc
+YL
+ns
+tU
+nb
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(23,1,1) = {"
+hs
+hs
+hs
+kR
+HP
+Kv
+CV
+tO
+HP
+Eo
+eU
+nZ
+kc
+cR
+qa
+Ei
+cR
+wL
+JZ
+ux
+ux
+JZ
+YL
+ns
+YL
+nb
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(24,1,1) = {"
+hs
+hs
+hs
+HP
+HP
+CV
+CV
+CV
+Be
+Hy
+BA
+eU
+eU
+cR
+FB
+Ei
+cR
+hs
+JZ
+EN
+EN
+JZ
+tU
+LF
+tU
+nb
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(25,1,1) = {"
+hs
+hs
+hs
+HP
+HP
+Kv
+Kv
+CV
+HP
+kc
+eU
+kc
+mt
+Db
+TC
+iL
+cR
+hs
+JZ
+ux
+ux
+JZ
+YL
+ns
+tU
+nb
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(26,1,1) = {"
+hs
+hs
+hs
+HP
+HP
+Be
+hJ
+Be
+HP
+kc
+eU
+nq
+iJ
+qH
+kK
+PA
+cR
+hs
+JZ
+EN
+EN
+JZ
+tU
+ns
+YL
+nb
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(27,1,1) = {"
+hs
+hs
+hs
+Be
+dT
+kc
+kc
+kc
+eU
+af
+kc
+fx
+eU
+JZ
+JZ
+JZ
+JZ
+JZ
+JZ
+ux
+ux
+JZ
+tU
+ns
+eu
+nb
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(28,1,1) = {"
+hs
+hs
+hs
+Be
+HV
+eU
+kc
+eU
+dG
+kc
+cJ
+lS
+RQ
+JZ
+is
+AB
+Pi
+JZ
+JZ
+JS
+HW
+JZ
+tU
+ns
+hE
+oK
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(29,1,1) = {"
+hs
+hs
+hs
+HP
+HP
+Be
+Be
+Be
+HP
+HP
+Ro
+Bl
+kc
+JZ
+hc
+dF
+JZ
+Mz
+GQ
+HW
+yU
+JZ
+Vp
+ns
+Me
+oK
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(30,1,1) = {"
+hs
+hs
+hs
+HP
+Kv
+tO
+CV
+Kv
+Kv
+HP
+Yr
+pl
+eU
+JZ
+dR
+Zx
+JZ
+oB
+HW
+Cs
+HW
+iK
+tU
+ns
+pr
+oK
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(31,1,1) = {"
+hs
+hs
+hs
+Be
+Kv
+CV
+GJ
+CV
+CV
+vi
+nE
+fx
+kc
+JZ
+Xj
+So
+JZ
+aH
+rW
+HW
+bY
+iK
+tU
+ns
+tU
+oK
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(32,1,1) = {"
+hs
+hs
+hs
+Be
+Kv
+CV
+bL
+oW
+oW
+QL
+WJ
+Xa
+eU
+JZ
+Km
+mj
+Rw
+wQ
+sf
+sT
+UX
+iK
+tU
+ns
+tU
+oK
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(33,1,1) = {"
+hs
+hs
+hs
+Be
+CV
+XI
+CV
+CV
+GR
+vi
+fW
+YE
+dT
+JZ
+fI
+xB
+JZ
+en
+FV
+Sz
+Bu
+iK
+tU
+ns
+tU
+oK
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(34,1,1) = {"
+hs
+hs
+hs
+HP
+Kv
+Kv
+md
+CV
+tO
+HP
+OK
+FH
+eU
+JZ
+oO
+Vf
+JZ
+bR
+HW
+Zp
+YH
+iK
+tU
+ns
+hE
+oK
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(35,1,1) = {"
+hs
+hs
+hs
+HP
+HP
+Be
+Be
+Be
+HP
+HP
+kj
+eM
+BG
+JZ
+Wq
+nk
+JZ
+uu
+Rl
+ez
+CR
+JZ
+tU
+ns
+Qi
+oK
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(36,1,1) = {"
+hs
+hs
+hs
+Be
+HV
+kc
+eU
+sd
+VR
+vv
+mt
+FH
+eU
+JZ
+Jo
+xV
+ZH
+JZ
+JZ
+Kr
+Uj
+JZ
+yM
+ns
+pr
+oK
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(37,1,1) = {"
+hs
+hs
+hs
+Be
+oZ
+kc
+kc
+eU
+XL
+kc
+yg
+FH
+kc
+JZ
+JZ
+JZ
+JZ
+JZ
+JZ
+cn
+hr
+JZ
+tU
+ns
+eu
+nb
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(38,1,1) = {"
+hs
+hs
+hs
+HP
+HP
+Be
+eD
+Be
+HP
+cJ
+kc
+gV
+CU
+Lt
+TR
+If
+Df
+hs
+JZ
+We
+ux
+JZ
+tU
+ns
+tU
+nb
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(39,1,1) = {"
+hs
+hs
+hs
+HP
+HP
+Kv
+Kv
+Kv
+HP
+bs
+iJ
+WU
+iJ
+vm
+Ma
+QU
+Df
+hs
+JZ
+OT
+xa
+JZ
+tU
+ns
+tU
+nb
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(40,1,1) = {"
+hs
+hs
+hs
+HP
+HP
+Kv
+CV
+gI
+Be
+Hy
+BA
+kc
+eU
+Df
+Tc
+qj
+Df
+hs
+JZ
+OQ
+Lc
+JZ
+tU
+ns
+tU
+nb
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(41,1,1) = {"
+hs
+hs
+hs
+kR
+HP
+gp
+Kv
+CV
+HP
+LI
+kc
+RD
+eU
+Df
+GW
+nu
+Df
+SW
+JZ
+oP
+fj
+JZ
+tU
+ns
+tU
+nb
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(42,1,1) = {"
+hs
+hs
+hs
+hs
+kR
+HP
+HP
+HP
+HP
+LI
+kc
+cJ
+kc
+Df
+wc
+XX
+VJ
+qZ
+VJ
+lm
+fh
+DR
+tU
+ns
+tU
+nb
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(43,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+kR
+HP
+HP
+Zr
+MO
+kc
+kc
+Df
+fh
+Dp
+Dp
+fh
+fh
+PK
+fh
+DR
+tU
+ns
+tU
+nb
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(44,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+kR
+HP
+HP
+oj
+eU
+Df
+tL
+fh
+Df
+re
+Df
+Df
+Df
+nb
+tU
+ns
+tU
+nb
+oK
+oK
+oK
+oK
+oK
+oK
+nb
+nb
+oK
+nb
+nb
+Tj
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(45,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+kR
+Be
+Be
+Df
+tP
+fh
+Df
+rp
+Fp
+rp
+mk
+nb
+tU
+ns
+tU
+tU
+tU
+tU
+tU
+tU
+tU
+NY
+nb
+Yt
+ge
+Fc
+nb
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(46,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+AQ
+SW
+SW
+Df
+rp
+Fp
+ND
+rA
+nb
+tU
+ns
+ns
+ns
+ns
+ns
+ns
+ns
+ns
+ns
+zn
+ge
+ge
+ge
+uF
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(47,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+AQ
+Df
+Df
+Df
+Df
+nb
+eu
+Ab
+ZJ
+tU
+tU
+tU
+tU
+tU
+tU
+NY
+nb
+gm
+ge
+CW
+nb
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(48,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+eG
+nb
+nb
+nb
+nb
+oK
+oK
+oK
+oK
+oK
+oK
+nb
+nb
+oK
+nb
+nb
+Tj
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(49,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(50,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(51,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(52,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(53,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(54,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(55,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(56,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(57,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(58,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(59,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(60,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(61,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(62,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(63,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+"}
+(64,1,1) = {"
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
+hs
 "}

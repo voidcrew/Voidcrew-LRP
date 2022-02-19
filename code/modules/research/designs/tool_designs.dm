@@ -102,6 +102,7 @@
 	category = list("Tool Designs")
 	departmental_flags =  DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
 
+/*
 /datum/design/rapid_shuttle_designator
 	name = "Rapid Shuttle Designator"
 	desc = "A tool that can be used to designate a shuttle for a shuttle launch."
@@ -111,6 +112,7 @@
 	build_path = /obj/item/shuttle_creator
 	category = list("Tool Designs")
 	departmental_flags =  DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
+*/
 
 /////////////////////////////////////////
 //////////////Alien Tools////////////////

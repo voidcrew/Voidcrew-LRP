@@ -19,6 +19,9 @@ SUBSYSTEM_DEF(mapping)
 
 	var/list/maplist
 	var/list/ship_purchase_list
+	var/list/nt_ship_list // VOID EDIT
+	var/list/syn_ship_list // VOID EDIT
+
 
 	var/list/shuttle_templates = list()
 	var/list/shelter_templates = list()
