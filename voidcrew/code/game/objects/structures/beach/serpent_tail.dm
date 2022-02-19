@@ -4,7 +4,7 @@
 	desc = "A tail of a serpent. Terrible monsters are pouring out from all around it."
 	icon = 'voidcrew/icons/mob/beach/serpent.dmi'
 	faction = list("beach")
-	max_mobs = 5
+	max_mobs = 3
 	max_integrity = 650
 	mob_types = list(/mob/living/simple_animal/hostile/carp/megacarp)
 

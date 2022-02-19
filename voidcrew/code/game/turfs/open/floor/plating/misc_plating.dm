@@ -8,6 +8,5 @@
 
 /turf/open/floor/plating/grass/lit
 	light_range = 2
-	light_power = 0.40
-	light_color = "#1b8a1b94"
+	light_power = 0.80
 	baseturfs = /turf/open/floor/plating/beach/sand

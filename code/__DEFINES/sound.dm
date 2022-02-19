@@ -102,7 +102,8 @@
 
 #define REEBE list('sound/ambience/ambireebe1.ogg', 'sound/ambience/ambireebe2.ogg', 'sound/ambience/ambireebe3.ogg')
 
-
+// VOID EDIT
+#define BEACH list('sound/ambience/shore.ogg', 'sound/ambience/seag1.ogg','sound/ambience/seag2.ogg','sound/ambience/seag2.ogg','sound/ambience/ambiodd.ogg','sound/ambience/ambinice.ogg')
 
 #define CREEPY_SOUNDS list( \
 	'sound/effects/ghost.ogg', 'sound/effects/ghost2.ogg', \
