@@ -19,6 +19,9 @@ SUBSYSTEM_DEF(mapping)
 
 	var/list/maplist
 	var/list/ship_purchase_list
+	var/list/nt_ship_list // VOID EDIT
+	var/list/syn_ship_list // VOID EDIT
+
 
 	var/list/shuttle_templates = list()
 	var/list/shelter_templates = list()
@@ -168,6 +171,8 @@ SUBSYSTEM_DEF(mapping)
 #define CHECK_LIST_EXISTS(X) if(!islist(data[X])) { log_world("[##X] missing from json!"); continue; }
 /datum/controller/subsystem/mapping/proc/load_ship_templates()
 	maplist = list()
+	nt_ship_list = list()
+	syn_ship_list = list()
 	ship_purchase_list = list()
 	var/list/filelist = flist("_maps/configs/")
 	for(var/filename in filelist)
@@ -230,6 +235,8 @@ SUBSYSTEM_DEF(mapping)
 				continue
 
 			S.job_slots[job_slot] = slots
+
+		S.disable_passwords = data["disable_passwords"] ? TRUE : FALSE
 		if(isnum(data["cost"]))
 			S.cost = data["cost"]
 			ship_purchase_list["[S.prefix] [S.name] ([S.cost] [CONFIG_GET(string/metacurrency_name)]s)"] = S // VOIDCREW
@@ -239,6 +246,11 @@ SUBSYSTEM_DEF(mapping)
 		map_templates[S.file_name] = S
 		if(isnum(data["roundstart"]) && data["roundstart"])
 			maplist[S.name] = S
+		switch(S.prefix)
+			if("NT-C")
+				nt_ship_list[S.name] = S
+			if("SYN-C")
+				syn_ship_list[S.name] = S
 #undef CHECK_STRING_EXISTS
 #undef CHECK_LIST_EXISTS
 

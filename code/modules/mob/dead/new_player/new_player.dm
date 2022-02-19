@@ -340,6 +340,8 @@
 			employmentCabinet.addFile(employee)
 
 /mob/dead/new_player/proc/LateChoices()
+
+	var/balance = usr.client.get_metabalance()
 	var/list/shuttle_choices = list("Purchase ship..." = "Purchase") //Dummy for purchase option
 
 	for(var/obj/structure/overmap/ship/simulated/S as anything in SSovermap.simulated_ships)
@@ -360,9 +362,9 @@
 		var/datum/map_template/shuttle/template = SSmapping.ship_purchase_list[tgui_input_list(src, "Please select ship to purchase!", "Welcome, [client.prefs.real_name].", SSmapping.ship_purchase_list)]
 		if(!template)
 			return LateChoices()
-		if(SSdbcore.IsConnected() && usr.client.get_metabalance() < template.cost)
-			alert(src, "You have insufficient metabalance to cover this purchase! (Price: [template.cost])")
-			return
+		if(SSdbcore.IsConnected() && balance < template.cost)
+			alert(src, "You have insufficient metabalance to cover this purchase! (Price: [template.cost] | Balance: [balance])")
+			return LateChoices()
 		if(template.limit)
 			var/count = 0
 			for(var/obj/structure/overmap/ship/simulated/X in SSovermap.simulated_ships)
@@ -371,6 +373,27 @@
 					if(template.limit <= count)
 						alert(src, "The ship limit of [template.limit] has been reached this round.")
 						return
+		//Password creation
+		var/password = ""
+		var/total_cost = template.cost
+		if (!template.disable_passwords)
+			var/password_cost = template.get_password_cost()
+			// Prompt for password purchasing
+			var/password_choice = tgui_alert(src, "Enable password protection for [password_cost] voidcoins", "Password Protection", list("Yes", "No"))
+			if(password_choice == null)
+				return LateChoices()
+			if(password_choice == "Yes")
+				total_cost += password_cost
+				if(SSdbcore.IsConnected() && balance < total_cost)
+					alert(src, "You have insufficient metabalance to cover this purchase! (Price: [total_cost] | Balance: [balance])")
+					return LateChoices()
+				password = stripped_input(src, "Enter your new ship password.", "New Password")
+				if(!password || !length(password))
+					return LateChoices()
+				if(length(password) > 50)
+					to_chat(src, "The given password is too long. Password unchanged.")
+					return LateChoices()
+
 		close_spawn_windows()
 		to_chat(usr, "<span class='danger'>Your [template.name] is being prepared. Please be patient!</span>")
 		var/obj/docking_port/mobile/target = SSshuttle.load_template(template)
@@ -378,11 +401,16 @@
 			to_chat(usr, "<span class='danger'>There was an error loading the ship (You have not been charged). Please contact admins!</span>")
 			new_player_panel()
 			return
-		usr.client.inc_metabalance(-template.cost, TRUE, "buying [template.name]")
+		//Withdraw coins for the purchase
+		usr.client.inc_metabalance(-total_cost, TRUE, "buying [template.name]")
 		SSblackbox.record_feedback("tally", "ship_purchased", 1, template.name) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		if(!AttemptLateSpawn(target.current_ship.job_slots[1], target.current_ship)) //Try to spawn as the first listed job in the job slots (usually captain)
 			to_chat(usr, "<span class='danger'>Ship spawned, but you were unable to be spawned. You can likely try to spawn in the ship through joining normally, but if not, please contact an admin.</span>")
 			new_player_panel()
+		//Password assignment
+		if (password != "")
+			target.current_ship.password = password
+			log_game("[key_name(usr)] has password locked their ship ([target.current_ship.name]) with the password: [target.current_ship.password]")
 		return
 
 	//password checking
@@ -391,7 +419,6 @@
 		if (attempt != selected_ship.password)
 			to_chat(src, "Incorrect password!")
 			return LateChoices() //Send them back to shuttle selection
-
 
 	if(selected_ship.memo)
 		var/memo_accept = tgui_alert(src, "Current ship memo: [selected_ship.memo]", "[selected_ship.name] Memo", list("OK", "Cancel"))
