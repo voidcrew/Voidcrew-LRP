@@ -1,5 +1,5 @@
 /datum/map_generator/cave_generator/rockplanet
-	open_turf_types = list(/turf/open/floor/plating/asteroid = 50,
+	open_turf_types = list(/turf/open/floor/plating/asteroid/rockplanet = 50,
 						/turf/open/floor/plating/rust/rockplanet = 10,
 						/turf/open/floor/plating/rockplanet = 5)
 
@@ -72,9 +72,11 @@
 	icon_state = "redrock"
 	smooth_icon = 'icons/turf/walls/red_wall.dmi'
 	base_icon_state = "red_wall"
+	turf_type = /turf/open/floor/plating/asteroid/rockplanet
 
 
 /turf/open/floor/plating/asteroid/rockplanet
+	name = "rockplanet sand"
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
 	baseturfs = /turf/open/floor/plating/asteroid/rockplanet
