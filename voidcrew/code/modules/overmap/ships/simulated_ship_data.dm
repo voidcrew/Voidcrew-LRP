@@ -127,3 +127,11 @@
 	if (is_ssd)
 		return SHUTTLE_SSD_CREW
 	return SHUTTLE_INACTIVE_CREW
+
+/datum/controller/subsystem/blackbox/proc/update_ship_bought(ship_type)
+	if(!SSdbcore.Connect())
+		return -1
+	if(!istext(ship_type))
+		return -1
+	var/list/to_insert = list("ship" = ship_type, "purchased" = 1)
+	SSdbcore.MassInsert(format_table_name("ship_purchases"), to_insert, duplicate_key = "ON DUPLICATE KEY UPDATE purchased = purchased + VALUES(purchased)")

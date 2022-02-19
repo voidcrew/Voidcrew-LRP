@@ -611,3 +611,13 @@ CREATE TABLE `mentor_memo` (
   `edits` text,
   PRIMARY KEY (`ckey`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `ship_purchases`
+--
+DROP TABLE IF EXISTS `ship_purchases`;
+CREATE TABLE `ship_purchases` (
+  `ship` VARCHAR(64) NOT NULL,
+  `purchased` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`ship`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

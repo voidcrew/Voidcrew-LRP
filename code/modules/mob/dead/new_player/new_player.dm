@@ -380,6 +380,7 @@
 			return
 		usr.client.inc_metabalance(-template.cost, TRUE, "buying [template.name]")
 		SSblackbox.record_feedback("tally", "ship_purchased", 1, template.name) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+		SSblackbox.update_ship_bought(template.name)
 		if(!AttemptLateSpawn(target.current_ship.job_slots[1], target.current_ship)) //Try to spawn as the first listed job in the job slots (usually captain)
 			to_chat(usr, "<span class='danger'>Ship spawned, but you were unable to be spawned. You can likely try to spawn in the ship through joining normally, but if not, please contact an admin.</span>")
 			new_player_panel()
