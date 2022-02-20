@@ -274,7 +274,8 @@ SUBSYSTEM_DEF(overmap)
 	if(!isnull(planet_type))
 		planet_type = new planet_type
 		ruin_list = get_ruin_list(planet_type.ruin_type)
-		mapgen = new planet_type.mapgen
+		if(!isnull(planet_type.mapgen))
+			mapgen = new planet_type.mapgen
 		target_area = planet_type.target_area
 		surface = planet_type.surface
 		weather_controller_type = planet_type.weather_controller_type
