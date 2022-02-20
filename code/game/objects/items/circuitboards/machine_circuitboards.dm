@@ -486,6 +486,12 @@
 	. = ..()
 	. += "<span class='info'>[src] is set to [fridges_name_paths[build_path]]. You can use a screwdriver to reconfigure it.</span>"
 
+/obj/item/circuitboard/machine/smartfridge/compstorage
+	name = "Storage Compartment (Machine Board)"
+	build_path = /obj/machinery/smartfridge/compstorage
+	req_components = list(/obj/item/stock_parts/matter_bin = 2,
+		/obj/item/stack/ore/bluespace_crystal = 2,
+		/obj/item/stack/cable_coil = 2)
 
 /obj/item/circuitboard/machine/space_heater
 	name = "Space Heater (Machine Board)"

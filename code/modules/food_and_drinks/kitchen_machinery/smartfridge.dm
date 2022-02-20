@@ -17,6 +17,8 @@
 	var/allow_ai_retrieve = FALSE
 	var/list/initial_contents
 	var/visible_contents = TRUE
+// Whether the fridge can be unanchored without having to deconstruct it. Default = TRUE
+	var/can_be_unanchored = TRUE
 
 /obj/machinery/smartfridge/Initialize()
 	. = ..()
@@ -42,7 +44,7 @@
 /obj/machinery/smartfridge/update_icon_state()
 	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 	if(!machine_stat)
-		SSvis_overlays.add_vis_overlay(src, icon, "smartfridge-light-mask", EMISSIVE_LAYER, EMISSIVE_PLANE, dir, alpha)
+		SSvis_overlays.add_vis_overlay(src, icon, "[initial(icon_state)]-light-mask", EMISSIVE_LAYER, EMISSIVE_PLANE, dir, alpha)
 		if (visible_contents)
 			switch(contents.len)
 				if(0)
@@ -75,7 +77,7 @@
 	if(default_pry_open(O))
 		return
 
-	if(default_unfasten_wrench(user, O))
+	if(can_be_unanchored = TRUE && default_unfasten_wrench(user, O))
 		power_change()
 		return
 
@@ -510,18 +512,17 @@
 
 // Generic storage compartment, accepts any and all items, but less storage + no bonuses like organ healing
 // perfect for storing literally anything so it won't litter your loot monkey ship
-/obj/machinery/smartfridge/generic_storage
+/obj/machinery/smartfridge/compstorage
 	name = "storage compartment"
 	desc = "A bluespace-powered compartment for storing any and all kinds of items one would happen to find in the vastness of outer space."
-	icon_state = "donkvendor"
-	icon = 'icons/obj/lavaland/donkvendor.dmi'
+	icon_state = "storagecomp"
 	max_n_of_items = 150
-	visible_contents = FALSE
+	can_be_unanchored = FALSE
 
-/obj/machinery/smartfridge/accept_check(obj/item/inserted_item)
+/obj/machinery/smartfridge/compstorage/accept_check(obj/item/inserted_item)
 	if(istype(inserted_item, /obj/item/storage/backpack)) //it's too smart to allow you to minmax the storage with backpacks. boxes and other things are fine though
 		return FALSE
 
-/obj/machinery/smartfridge/organ/RefreshParts()
+/obj/machinery/smartfridge/compstorage/RefreshParts()
 	for(var/obj/item/stock_parts/matter_bin/new_bin in component_parts)
 		max_n_of_items = 150 * new_bin.rating
