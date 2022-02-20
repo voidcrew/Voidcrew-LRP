@@ -18,7 +18,7 @@
 	var/list/initial_contents
 	var/visible_contents = TRUE
 // Whether the fridge can be unanchored without having to deconstruct it. Default = TRUE
-	var/can_be_unanchored = TRUE
+	var/can_unanchor = TRUE
 
 /obj/machinery/smartfridge/Initialize()
 	. = ..()
@@ -77,7 +77,7 @@
 	if(default_pry_open(O))
 		return
 
-	if(can_be_unanchored = TRUE && default_unfasten_wrench(user, O))
+	if(can_be_unanchored == TRUE && default_unfasten_wrench(user, O))
 		power_change()
 		return
 
@@ -517,7 +517,7 @@
 	desc = "A bluespace-powered compartment for storing any and all kinds of items one would happen to find in the vastness of outer space."
 	icon_state = "storagecomp"
 	max_n_of_items = 150
-	can_be_unanchored = FALSE
+	can_unanchor = FALSE
 
 /obj/machinery/smartfridge/compstorage/accept_check(obj/item/inserted_item)
 	if(istype(inserted_item, /obj/item/storage/backpack)) //it's too smart to allow you to minmax the storage with backpacks. boxes and other things are fine though
