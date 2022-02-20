@@ -226,9 +226,9 @@
 /datum/techweb_node/advanced_bluespace
 	id = "bluespace_storage"
 	display_name = "Advanced Bluespace Storage"
-	description = "With the use of bluespace we can create even more advanced storage devices than we could have ever done"
+	description = "With the use of bluespace we can create even more advanced storage devices than we could have ever done."
 	prereq_ids = list("micro_bluespace", "janitor")
-	design_ids = list("bag_holding")
+	design_ids = list("bag_holding", "compstorage")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
 	export_price = 3000
 

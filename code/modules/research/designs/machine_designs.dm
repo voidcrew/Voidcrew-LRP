@@ -332,6 +332,12 @@
 	build_path = /obj/item/circuitboard/machine/smartfridge
 	category = list ("Misc. Machinery")
 
+/datum/design/board/smartfridge/compstorage
+	name = "Machine Design (Storage Compartment Board)"
+	desc = "The circuit board for a storage compartment."
+	id = "compstorage"
+	build_path = /obj/item/circuitboard/machine/smartfridge/compstorage
+	category = list ("Misc. Machinery")
 
 /datum/design/board/monkey_recycler
 	name = "Machine Design (Monkey Recycler Board)"
