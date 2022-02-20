@@ -1,4 +1,3 @@
-
 //Tropical
 /datum/biome/tropical
 	turf_type = /turf/open/floor/plating/dirt/jungle/dark

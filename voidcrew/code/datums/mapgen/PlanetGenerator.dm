@@ -5,6 +5,43 @@
 	var/mountain_height = 0.85
 	var/perlin_zoom = 65
 
+	///Weighted list of the types that spawns if the turf is open
+	var/open_turf_types = list(/turf/open/floor/plating/asteroid = 1)
+	///Weighted list of the types that spawns if the turf is closed
+	var/closed_turf_types =  list(/turf/closed/mineral/random/volcanic = 1)
+
+
+	///Weighted list of extra features that can spawn in the area, such as geysers.
+	var/list/feature_spawn_list = list(/obj/structure/geyser/random = 1)
+	///Weighted list of mobs that can spawn in the area.
+	var/list/mob_spawn_list = list(/mob/living/simple_animal/hostile/asteroid/goliath/beast/random = 50, /obj/structure/spawner/lavaland/goliath = 3, \
+		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random = 40, /obj/structure/spawner/lavaland = 2, \
+		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/random = 30, /obj/structure/spawner/lavaland/legion = 3, \
+		SPAWN_MEGAFAUNA = 4, /mob/living/simple_animal/hostile/asteroid/goldgrub = 10)
+	///Weighted list of flora that can spawn in the area.
+	var/list/flora_spawn_list = list(/obj/structure/flora/ash/leaf_shroom = 2 , /obj/structure/flora/ash/cap_shroom = 2 , /obj/structure/flora/ash/stem_shroom = 2 , /obj/structure/flora/ash/cacti = 1, /obj/structure/flora/ash/tall_shroom = 2)
+	// Weighted list of Megafauna that can spawn in the caves
+	// var/list/megafauna_spawn_list
+
+
+	///Base chance of spawning a mob
+	var/mob_spawn_chance = 6
+	///Base chance of spawning flora
+	var/flora_spawn_chance = 2
+	///Base chance of spawning features
+	var/feature_spawn_chance = 0.1
+	///Unique ID for this spawner
+	var/string_gen
+
+	///Chance of cells starting closed
+	var/initial_closed_chance = 45
+	///Amount of smoothing iterations
+	var/smoothing_iterations = 20
+	///How much neighbours does a dead cell need to become alive
+	var/birth_limit = 4
+	///How little neighbours does a alive cell need to die
+	var/death_limit = 3
+
 
 /datum/map_generator/planet_generator/generate_terrain(var/list/turfs)
 	. = ..()
@@ -38,7 +75,9 @@
 				planet_type = new /datum/planet/tropical() // placeholder
 			else
 				planet_type = new /datum/planet/tropical() // placeholder strange
-				// planet_type = /datum/planet/tropical
+
+	var/start_time = REALTIMEOFDAY
+	string_gen = rustg_cnoise_generate("[initial_closed_chance]", "[smoothing_iterations]", "[birth_limit]", "[death_limit]", "[world.maxx]", "[world.maxy]") //Generate the raw CA data
 
 	for(var/t in turfs) //Go through all the turfs and generate them
 		var/turf/gen_turf = t
@@ -78,11 +117,20 @@
 				if(0.75 to 1)
 					humidity_level = "biome_high_humidity"
 			selected_biome = heat_level[humidity_level]
+			selected_biome = SSmapping.biomes[selected_biome] //Get the instance of this biome from SSmapping
+			selected_biome.generate_turf(gen_turf)
+			CHECK_TICK
 		else //Over mountain_height; It's a mountain
-			selected_biome = /datum/biome/mountain
-		selected_biome = SSmapping.biomes[selected_biome] //Get the instance of this biome from SSmapping
-		selected_biome.generate_turf(gen_turf)
-		CHECK_TICK
+			// selected_biome = /datum/biome/mountain
+			var/closed = text2num(string_gen[world.maxx * (gen_turf.y - 1) + gen_turf.x])
+			var/stored_flags
+			if(gen_turf.flags_1 & NO_RUINS_1)
+				stored_flags |= NO_RUINS_1
+			var/turf/new_turf = pickweight(closed ? closed_turf_types : open_turf_types)
+			new_turf = gen_turf.ChangeTurf(new_turf, initial(new_turf.baseturfs), CHANGETURF_DEFER_CHANGE)
+			new_turf.flags_1 |= stored_flags
+
+
 
 /turf/open/genturf
 	name = "ungenerated turf"
