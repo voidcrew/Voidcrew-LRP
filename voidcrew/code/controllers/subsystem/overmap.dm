@@ -112,6 +112,8 @@ SUBSYSTEM_DEF(overmap)
 	if(startype == null)
 		log_runtime("no star type found")
 	switch (startype)
+		if (SMALLSTAR)
+			path = new /obj/structure/overmap/star
 		if (TWOSTAR)
 			path = new /obj/structure/overmap/star/big/binary
 		if (MEDSTAR)
@@ -408,5 +410,5 @@ SUBSYSTEM_DEF(overmap)
 /datum/controller/subsystem/overmap/proc/generate_probabilites()
 	for (var/path in subtypesof(/datum/overmap/planet))
 		var/datum/overmap/planet/temp_planet = new path
-		spawn_probability |= list(temp_planet.type = min(length(get_ruin_list(temp_planet.ruin_type)), temp_planet.spawn_rate))
+		spawn_probability |= list(temp_planet.type = temp_planet.spawn_rate)
 		qdel(temp_planet)

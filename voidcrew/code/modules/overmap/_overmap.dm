@@ -82,6 +82,9 @@
 	var/atom/movable/screen/plane_master/lighting/cam_plane_master
 	var/atom/movable/screen/background/cam_background
 
+	/// Check that someone already act with this.
+	var/concerned = FALSE
+
 /obj/structure/overmap/Initialize(mapload)
 	. = ..()
 	SSovermap.overmap_objects += src

@@ -121,23 +121,31 @@
 	cost = 25
 	unit_name = "security barrier"
 	export_types = list(/obj/item/grenade/barrier, /obj/structure/barricade/security)
-/*WS Begin - Cargo Rebalance?
 
 /datum/export/large/gas_canister
 	cost = 10 //Base cost of canister. You get more for nice gases inside.
 	unit_name = "Gas Canister"
 	export_types = list(/obj/machinery/portable_atmospherics/canister)
+
 /datum/export/large/gas_canister/get_cost(obj/O)
 	var/obj/machinery/portable_atmospherics/canister/C = O
 	var/worth = 10
-
+	//BASE GASSES
+	worth += C.air_contents.get_moles(GAS_O2)*1
+	worth += C.air_contents.get_moles(GAS_N2)*0.5
+	worth += C.air_contents.get_moles(GAS_CO2)*1
+	worth += C.air_contents.get_moles(GAS_PLASMA)*4
+	worth += C.air_contents.get_moles(GAS_MIASMA)*3
+	//MIXTURES
+	worth += C.air_contents.get_moles(GAS_NITROUS)*5
+	worth += C.air_contents.get_moles(GAS_TRITIUM)*12
+	worth += C.air_contents.get_moles(GAS_H2O)*1.5
+	worth += C.air_contents.get_moles(GAS_CO2)*0.5
 	worth += C.air_contents.get_moles(GAS_BZ)*4
+	worth += C.air_contents.get_moles(GAS_PLUOXIUM)*14
+	worth += C.air_contents.get_moles(GAS_NITRYL)*20
 	worth += C.air_contents.get_moles(GAS_STIMULUM)*100
+	worth += C.air_contents.get_moles(GAS_FREON)*30
 	worth += C.air_contents.get_moles(GAS_HYPERNOB)*1000
-	worth += C.air_contents.get_moles(GAS_MIASMA)*10
-	worth += C.air_contents.get_moles(GAS_TRITIUM)*5
-	worth += C.air_contents.get_moles(GAS_PLUOXIUM)*5
-	worth += C.air_contents.get_moles(GAS_FREON)*5
 	return worth
 
-WS end */
