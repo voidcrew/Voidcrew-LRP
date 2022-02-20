@@ -106,6 +106,8 @@ SUBSYSTEM_DEF(overmap)
 	var/path
 	startype = pick(SMALLSTAR, MEDSTAR, TWOSTAR, BIGSTAR)
 	switch (startype)
+		if (SMALLSTAR)
+			path = new /obj/structure/overmap/star
 		if (TWOSTAR)
 			path = new /obj/structure/overmap/star/big/binary
 		if (MEDSTAR)
