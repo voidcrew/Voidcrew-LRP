@@ -52,3 +52,4 @@
 #define RUIN_TYPE_ROCK "rock"
 #define RUIN_TYPE_REEBE "reebe"
 #define RUIN_TYPE_SPACE "space"
+#define RUIN_TYPE_BEACH "beach"

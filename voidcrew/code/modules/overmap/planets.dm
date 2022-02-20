@@ -105,3 +105,15 @@
 	icon_state = "strange_event"
 
 	ruin_type = RUIN_TYPE_SPACE
+
+/datum/overmap/planet/beach
+	name = "strange beach planet"
+	desc = "A very weak energy signal originating from a planet with lots of water and beer."
+	color = COLOR_BLUE
+
+	ruin_type = RUIN_TYPE_BEACH
+	mapgen = /datum/map_generator/beach_generator
+	target_area = /area/overmap_encounter/planetoid/beach
+	surface = /turf/open/floor/plating/beach/sand/lit
+	weather_controller_type = /datum/weather_controller/lush
+

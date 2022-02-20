@@ -30,6 +30,9 @@
 /obj/structure/overmap/dynamic/rock
 	planet = /datum/overmap/planet/rock
 
+/obj/structure/overmap/dynamic/beach
+	planet = /datum/overmap/planet/beach
+
 /obj/structure/overmap/dynamic/reebe
 	planet = /datum/overmap/planet/reebe
 
