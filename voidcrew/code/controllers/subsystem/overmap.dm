@@ -106,6 +106,8 @@ SUBSYSTEM_DEF(overmap)
 	var/path
 	startype = pick(SMALLSTAR, MEDSTAR, TWOSTAR, BIGSTAR)
 	switch (startype)
+		if (SMALLSTAR)
+			path = new /obj/structure/overmap/star
 		if (TWOSTAR)
 			path = new /obj/structure/overmap/star/big/binary
 		if (MEDSTAR)
@@ -262,7 +264,8 @@ SUBSYSTEM_DEF(overmap)
 	if(!isnull(planet_type))
 		planet_type = new planet_type
 		ruin_list = get_ruin_list(planet_type.ruin_type)
-		mapgen = new planet_type.mapgen
+		if(!isnull(planet_type.mapgen))
+			mapgen = new planet_type.mapgen
 		target_area = planet_type.target_area
 		surface = planet_type.surface
 		weather_controller_type = planet_type.weather_controller_type
@@ -398,5 +401,5 @@ SUBSYSTEM_DEF(overmap)
 /datum/controller/subsystem/overmap/proc/generate_probabilites()
 	for (var/path in subtypesof(/datum/overmap/planet))
 		var/datum/overmap/planet/temp_planet = new path
-		spawn_probability |= list(temp_planet.type = min(length(get_ruin_list(temp_planet.ruin_type)), temp_planet.spawn_rate))
+		spawn_probability |= list(temp_planet.type = temp_planet.spawn_rate)
 		qdel(temp_planet)
