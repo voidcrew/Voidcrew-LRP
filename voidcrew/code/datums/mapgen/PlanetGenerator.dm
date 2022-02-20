@@ -20,8 +20,6 @@
 		SPAWN_MEGAFAUNA = 4, /mob/living/simple_animal/hostile/asteroid/goldgrub = 10)
 	///Weighted list of flora that can spawn in the area.
 	var/list/flora_spawn_list = list(/obj/structure/flora/ash/leaf_shroom = 2 , /obj/structure/flora/ash/cap_shroom = 2 , /obj/structure/flora/ash/stem_shroom = 2 , /obj/structure/flora/ash/cacti = 1, /obj/structure/flora/ash/tall_shroom = 2)
-	// Weighted list of Megafauna that can spawn in the caves
-	// var/list/megafauna_spawn_list
 
 
 	///Base chance of spawning a mob
@@ -83,14 +81,12 @@
 		var/turf/gen_turf = t
 		var/drift_x = (gen_turf.x + rand(-2, 2)) / perlin_zoom
 		var/drift_y = (gen_turf.y + rand(-2, 2)) / perlin_zoom
-
 		var/height = text2num(rustg_noise_get_at_coordinates("[height_seed]", "[drift_x]", "[drift_y]"))
-
 		var/area/A = gen_turf.loc //meet my friends, Ctrl+C and Ctrl+V!
 		if(!(A.area_flags & CAVES_ALLOWED))
 			continue
-
 		var/datum/biome/selected_biome
+
 		if(height <= 0.85) //If height is less than 0.85, we generate biomes based on the heat and humidity of the area.
 			var/humidity = text2num(rustg_noise_get_at_coordinates("[humidity_seed]", "[drift_x]", "[drift_y]"))
 			var/heat = text2num(rustg_noise_get_at_coordinates("[heat_seed]", "[drift_x]", "[drift_y]"))
@@ -118,10 +114,21 @@
 					humidity_level = "biome_high_humidity"
 			selected_biome = heat_level[humidity_level]
 			selected_biome = SSmapping.biomes[selected_biome] //Get the instance of this biome from SSmapping
-			selected_biome.generate_turf(gen_turf)
+
+
+			//ACTUAL BIOME CREATION CODE
+			gen_turf.ChangeTurf(turf_type, initial(turf_type.baseturfs), CHANGETURF_DEFER_CHANGE)
+			var/area/A = gen_turf.loc
+			if(length(fauna_types) && prob(fauna_density) && (A.area_flags & MOB_SPAWN_ALLOWED))
+				var/mob/fauna = pick(fauna_types)
+				new fauna(gen_turf)
+
+			if(length(flora_types) && prob(flora_density) && (A.area_flags & FLORA_ALLOWED))
+				var/obj/structure/flora = pick(flora_types)
+				new flora(gen_turf)
+
 			CHECK_TICK
-		else //Over mountain_height; It's a mountain
-			// selected_biome = /datum/biome/mountain
+		else //CAVE CREATION CODE
 			var/closed = text2num(string_gen[world.maxx * (gen_turf.y - 1) + gen_turf.x])
 			var/stored_flags
 			if(gen_turf.flags_1 & NO_RUINS_1)
