@@ -31,6 +31,9 @@ SUBSYSTEM_DEF(overmap)
 	///Cooldown on dynamically loading encounters
 	var/encounter_cooldown = 0
 
+	///Planet spawning probability
+	var/static/list/spawn_probability = list()
+
 	///Number of initial ships to spawn in
 	var/initial_ship_count = 1
 
@@ -42,48 +45,18 @@ SUBSYSTEM_DEF(overmap)
 	simulated_ships = list()
 	events = list()
 
-	generator_type = CONFIG_GET(string/overmap_generator_type)
-	if (!generator_type)
-		generator_type = OVERMAP_GENERATOR_RANDOM
-
-	if (generator_type == OVERMAP_GENERATOR_SOLAR)
-		var/obj/structure/overmap/star/center
-		startype = pick(SMALLSTAR,TWOSTAR,MEDSTAR,BIGSTAR)
-		if(startype == SMALLSTAR)
-			center = new(locate(size / 2, size / 2, 1))
-		if(startype == TWOSTAR)
-			var/obj/structure/overmap/star/big/binary/S
-			S = new(locate(size / 2, size / 2, 1))
-			center = S
-		if(startype == MEDSTAR)
-			var/obj/structure/overmap/star/medium/S
-			S = new(locate(size / 2, size / 2, 1))
-			center = S
-		if(startype == BIGSTAR)
-			var/obj/structure/overmap/star/big/S
-			S = new(locate(size / 2, size / 2, 1))
-			center = S
-		var/list/unsorted_turfs = get_areatype_turfs(/area/overmap)
-		// SSovermap.size - 2 = area of the overmap w/o borders
-		radius_tiles = list()
-		for(var/i in 1 to (size - 2) / 2)
-			radius_tiles += list(list()) // gift-wrapped list for you <3
-			for(var/turf/T in unsorted_turfs)
-				var/dist = round(sqrt((T.x - center.x) ** 2 + (T.y - center.y) ** 2))
-				if (dist != i)
-					continue
-				radius_tiles[i] += T
-				unsorted_turfs -= T
-
+	initialize_generator()
+	generate_probabilites()
 	create_map()
 
 	return ..()
 
 /datum/controller/subsystem/overmap/fire()
-	if(events_enabled)
-		for(var/obj/structure/overmap/event/E as anything in events)
-			if(E?.affect_multiple_times && E?.close_overmap_objects)
-				E.apply_effect()
+	if(!events_enabled)
+		return
+	for(var/obj/structure/overmap/event/event as anything in events)
+		if(event?.affect_multiple_times && event?.close_overmap_objects)
+			event.apply_effect()
 
 /**
   * Creates an overmap ship object for the provided mobile docking port if one does not already exist.
@@ -121,12 +94,46 @@ SUBSYSTEM_DEF(overmap)
 	if (initial_combat_pairs)
 		spawn_initial_combat_ships(initial_combat_pairs)
 
+/datum/controller/subsystem/overmap/proc/initialize_generator()
+	generator_type = CONFIG_GET(string/overmap_generator_type)
+	if (!generator_type)
+		generator_type = OVERMAP_GENERATOR_RANDOM
+		return
+
+	if (generator_type != OVERMAP_GENERATOR_SOLAR)
+		return
+
+	var/path
+	startype = pick(SMALLSTAR, MEDSTAR, TWOSTAR, BIGSTAR)
+	switch (startype)
+		if (SMALLSTAR)
+			path = new /obj/structure/overmap/star
+		if (TWOSTAR)
+			path = new /obj/structure/overmap/star/big/binary
+		if (MEDSTAR)
+			path = new /obj/structure/overmap/star/medium
+		if (BIGSTAR)
+			path = new /obj/structure/overmap/star/big
+	var/obj/structure/overmap/star/center = path
+	center.loc = locate(size / 2, size / 2, 1)
+
+	var/list/unsorted_turfs = get_areatype_turfs(/area/overmap)
+	radius_tiles = list()
+	for(var/i in 1 to (size - 2) / 2)
+		radius_tiles += list(list()) // gift-wrapped list for you <3
+		for(var/turf/turf in unsorted_turfs)
+			var/dist = round(sqrt((turf.x - center.x) ** 2 + (turf.y - center.y) ** 2))
+			if (dist != i)
+				continue
+			radius_tiles[i] += turf
+			unsorted_turfs -= turf
+
 /**
   * VERY Simple random generation for overmap events, spawns the event in a random turf and sometimes spreads it out similar to ores
   */
 /datum/controller/subsystem/overmap/proc/spawn_events()
 	var/max_clusters = CONFIG_GET(number/max_overmap_event_clusters)
-	for(var/i=1, i<=max_clusters, i++)
+	for(var/i in 1 to max_clusters)
 		spawn_event_cluster(pick(subtypesof(/obj/structure/overmap/event)), get_unused_overmap_square())
 
 /datum/controller/subsystem/overmap/proc/spawn_events_in_orbits()
@@ -218,59 +225,51 @@ SUBSYSTEM_DEF(overmap)
 		new /obj/structure/overmap/dynamic(get_unused_overmap_square_in_radius())
 
 /**
+ * ##get_ruin_list
+ *
+ * Returns the SSmapping list of ruins, according to the given desired ruin type
+ *
+ * Arguments:
+ * * ruin_type - a string, depicting the desired ruin type
+ */
+/datum/controller/subsystem/overmap/proc/get_ruin_list(ruin_type)
+	switch(ruin_type) // temporary because SSmapping needs a refactor to make this any better
+		if (RUIN_TYPE_LAVA)
+			return SSmapping.lava_ruins_templates
+		if (RUIN_TYPE_ICE)
+			return SSmapping.ice_ruins_templates
+		if (RUIN_TYPE_SAND)
+			return SSmapping.sand_ruins_templates
+		if (RUIN_TYPE_ROCK)
+			return SSmapping.rock_ruins_templates
+		if (RUIN_TYPE_JUNGLE)
+			return SSmapping.jungle_ruins_templates
+		if (RUIN_TYPE_REEBE)
+			return SSmapping.yellow_ruins_templates
+		if (RUIN_TYPE_SPACE)
+			return SSmapping.space_ruins_templates
+
+/**
   * Reserves a square dynamic encounter area, and spawns a ruin in it if one is supplied.
   * * on_planet - If the encounter should be on a generated planet. Required, as it will be otherwise inaccessible.
   * * target - The ruin to spawn, if any
   * * ruin_type - The ruin to spawn. Don't pass this argument if you want it to randomly select based on planet type.
   */
-/datum/controller/subsystem/overmap/proc/spawn_dynamic_encounter(planet_type, ruin = TRUE, ignore_cooldown = FALSE, datum/map_template/ruin/ruin_type)
+/datum/controller/subsystem/overmap/proc/spawn_dynamic_encounter(datum/overmap/planet/planet_type, ruin = TRUE, ignore_cooldown = FALSE, datum/map_template/ruin/ruin_type)
 	var/list/ruin_list
 	var/datum/map_generator/mapgen
 	var/area/target_area
 	var/turf/surface = /turf/open/space
 	var/datum/weather_controller/weather_controller_type
-	if(planet_type)
-		switch(planet_type)
-			if(DYNAMIC_WORLD_LAVA)
-				ruin_list = SSmapping.lava_ruins_templates
-				mapgen = new /datum/map_generator/cave_generator/lavaland
-				target_area = /area/overmap_encounter/planetoid/lava
-				surface = /turf/open/floor/plating/asteroid/basalt/lava_land_surface
-				weather_controller_type = /datum/weather_controller/lavaland
-			if(DYNAMIC_WORLD_ICE)
-				ruin_list = SSmapping.ice_ruins_templates
-				mapgen = new /datum/map_generator/cave_generator/icemoon
-				target_area = /area/overmap_encounter/planetoid/ice
-				surface = /turf/open/floor/plating/asteroid/snow/icemoon
-				weather_controller_type = /datum/weather_controller/snow_planet
-			if(DYNAMIC_WORLD_SAND)
-				ruin_list = SSmapping.sand_ruins_templates
-				mapgen = new /datum/map_generator/cave_generator/whitesands
-				target_area = /area/overmap_encounter/planetoid/sand
-				surface = /turf/open/floor/plating/asteroid/whitesands
-				weather_controller_type = /datum/weather_controller/desert
-			if(DYNAMIC_WORLD_JUNGLE)
-				ruin_list = SSmapping.jungle_ruins_templates
-				mapgen = new /datum/map_generator/jungle_generator
-				target_area = /area/overmap_encounter/planetoid/jungle
-				surface = /turf/open/floor/plating/dirt/jungle
-				weather_controller_type = /datum/weather_controller/lush
-			if(DYNAMIC_WORLD_ASTEROID)
-				ruin_list = null
-				mapgen = new /datum/map_generator/cave_generator/asteroid
-			if(DYNAMIC_WORLD_ROCKPLANET)
-				ruin_list = SSmapping.rock_ruins_templates
-				mapgen = new /datum/map_generator/cave_generator/rockplanet
-				target_area = /area/overmap_encounter/planetoid/rockplanet
-				surface = /turf/open/floor/plating/asteroid
-				weather_controller_type = /datum/weather_controller/chlorine //let's go??
-			if(DYNAMIC_WORLD_REEBE)
-				ruin_list = SSmapping.yellow_ruins_templates
-				mapgen = new /datum/map_generator/cave_generator/reebe
-				target_area = /area/overmap_encounter/planetoid/reebe
-				surface = /turf/open/chasm/reebe_void
-			if(DYNAMIC_WORLD_SPACERUIN)
-				ruin_list = SSmapping.space_ruins_templates
+	if(!isnull(planet_type))
+		planet_type = new planet_type
+		ruin_list = get_ruin_list(planet_type.ruin_type)
+		if(!isnull(planet_type.mapgen))
+			mapgen = new planet_type.mapgen
+		target_area = planet_type.target_area
+		surface = planet_type.surface
+		weather_controller_type = planet_type.weather_controller_type
+		qdel(planet_type)
 
 	if(ruin && ruin_list && !ruin_type)
 		ruin_type = ruin_list[pick(ruin_list)]
@@ -398,3 +397,9 @@ SUBSYSTEM_DEF(overmap)
 		events = SSovermap.events
 	if(istype(SSovermap.radius_tiles))
 		radius_tiles = SSovermap.radius_tiles
+
+/datum/controller/subsystem/overmap/proc/generate_probabilites()
+	for (var/path in subtypesof(/datum/overmap/planet))
+		var/datum/overmap/planet/temp_planet = new path
+		spawn_probability |= list(temp_planet.type = temp_planet.spawn_rate)
+		qdel(temp_planet)

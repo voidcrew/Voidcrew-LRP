@@ -1,24 +1,3 @@
-/obj/structure/overmap/dynamic
-	name = "weak energy signature"
-	desc = "A very weak energy signal. It may not still be here if you leave it."
-	icon_state = "strange_event"
-	///The active turf reservation, if there is one
-	var/datum/map_zone/mapzone
-	///The preset ruin template to load, if/when it is loaded.
-	var/datum/map_template/template
-	///The docking port in the reserve
-	var/obj/docking_port/stationary/reserve_dock
-	///The docking port in the reserve
-	var/obj/docking_port/stationary/reserve_dock_secondary
-	///If the level should be preserved. Useful for if you want to build an autismfort or something.
-	var/preserve_level = FALSE
-	///What kind of planet the level is, if it's a planet at all.
-	var/planet
-	///List of probabilities for each type of planet.
-	var/static/list/probabilities
-	///The planet that will be forced to load
-	var/force_encounter
-
 /obj/structure/overmap/dynamic/Initialize(mapload)
 	. = ..()
 	choose_level_type()
@@ -32,6 +11,7 @@
 
 /obj/structure/overmap/dynamic/Destroy()
 	. = ..()
+	remove_docks()
 	remove_mapzone()
 
 /obj/structure/overmap/dynamic/proc/remove_mapzone()
@@ -39,12 +19,26 @@
 		mapzone.clear_reservation()
 		QDEL_NULL(mapzone)
 
+/obj/structure/overmap/dynamic/proc/remove_docks()
+	if(reserve_dock)
+		qdel(reserve_dock, TRUE)
+		reserve_dock = null
+	if(reserve_dock_secondary)
+		qdel(reserve_dock_secondary, TRUE)
+		reserve_dock_secondary = null
+
 /obj/structure/overmap/dynamic/ship_act(mob/user, obj/structure/overmap/ship/simulated/acting)
+	if(concerned)
+		to_chat(user, "<span class='notice'>Too much traffic, try again later!</span>")
+		return
+	concerned = TRUE
+
 	var/prev_state = acting.state
 	acting.state = OVERMAP_SHIP_ACTING //This is so the controls are locked while loading the level to give both a sense of confirmation and to prevent people from moving the ship
 	. = load_level(acting.shuttle)
 	if(.)
 		acting.state = prev_state
+		concerned = FALSE
 	else
 		var/dock_to_use = null
 		if(!reserve_dock.get_docked())
@@ -54,83 +48,26 @@
 
 		if(!dock_to_use)
 			acting.state = prev_state
+			concerned = FALSE
 			to_chat(user, "<span class='notice'>All potential docking locations occupied.</span>")
 			return
 		adjust_dock_to_shuttle(dock_to_use, acting.shuttle)
 		to_chat(user, "<span class='notice'>[acting.dock(src, dock_to_use)]</span>") //If a value is returned from load_level(), say that, otherwise, commence docking
+	concerned = FALSE
 
 /**
   * Chooses a type of level for the dynamic level to use.
   */
 /obj/structure/overmap/dynamic/proc/choose_level_type()
-	var/chosen
-	if(!probabilities)
-		probabilities = list(DYNAMIC_WORLD_LAVA = min(length(SSmapping.lava_ruins_templates), 20),
-		DYNAMIC_WORLD_ICE = min(length(SSmapping.ice_ruins_templates), 20),
-		DYNAMIC_WORLD_JUNGLE = min(length(SSmapping.jungle_ruins_templates), 20),
-		DYNAMIC_WORLD_SAND = min(length(SSmapping.sand_ruins_templates), 20),
-		DYNAMIC_WORLD_SPACERUIN = min(length(SSmapping.space_ruins_templates), 20),
-		DYNAMIC_WORLD_ROCKPLANET = min(length(SSmapping.rock_ruins_templates), 20),
-		//DYNAMIC_WORLD_REEBE = 1, //very rare because of major lack of skil //TODO, make removing no teleport not break things, then it can be reenabled
-		DYNAMIC_WORLD_ASTEROID = 30)
+	if(isnull(planet))
+		planet = pickweight(SSovermap.spawn_probability)
 
-	if(force_encounter)
-		chosen = force_encounter
-	else
-		chosen = pickweight(probabilities)
-	mass = rand(50, 100) * 1000000 //50 to 100 million tonnes //this was a stupid feature
-	switch(chosen)
-		if(DYNAMIC_WORLD_LAVA)
-			name = "strange lava planet"
-			desc = "A very weak energy signal originating from a planet with lots of seismic and volcanic activity."
-			planet = DYNAMIC_WORLD_LAVA
-			icon_state = "globe"
-			color = COLOR_ORANGE
-		if(DYNAMIC_WORLD_ICE)
-			name = "strange ice planet"
-			desc = "A very weak energy signal originating from a planet with traces of water and extremely low temperatures."
-			planet = DYNAMIC_WORLD_ICE
-			icon_state = "globe"
-			color = COLOR_BLUE_LIGHT
-		if(DYNAMIC_WORLD_JUNGLE)
-			name = "strange jungle planet"
-			desc = "A very weak energy signal originating from a planet teeming with life."
-			planet = DYNAMIC_WORLD_JUNGLE
-			icon_state = "globe"
-			color = COLOR_LIME
-		if(DYNAMIC_WORLD_SAND)
-			name = "strange sand planet"
-			desc = "A very weak energy signal originating from a planet with many traces of silica."
-			planet = DYNAMIC_WORLD_SAND
-			icon_state = "globe"
-			color = COLOR_GRAY
-		if(DYNAMIC_WORLD_ROCKPLANET)
-			name = "strange rock planet"
-			desc = "A very weak energy signal originating from a abandoned industrial planet."
-			planet = DYNAMIC_WORLD_ROCKPLANET
-			icon_state = "globe"
-			color = COLOR_BROWN
-		if(DYNAMIC_WORLD_REEBE)
-			name = "???"
-			desc = "Some sort of strange portal. Theres no identification of what this is."
-			planet = DYNAMIC_WORLD_REEBE
-			icon_state = "wormhole"
-			color = COLOR_YELLOW
-		if(DYNAMIC_WORLD_ASTEROID)
-			name = "large asteroid"
-			desc = "A large asteroid with significant traces of minerals."
-			planet = DYNAMIC_WORLD_ASTEROID
-			icon_state = "asteroid"
-			mass = rand(1, 1000) * 100
-			color = COLOR_GRAY
-		if(DYNAMIC_WORLD_SPACERUIN)
-			name = "weak energy signal"
-			desc = "A very weak energy signal emenating from space."
-			planet = DYNAMIC_WORLD_SPACERUIN
-			icon_state = "strange_event"
-			color = null
-			mass = 0 //Space doesn't weigh anything
-	desc += !preserve_level && "It may not still be here if you leave it."
+	var/datum/overmap/planet/temp_planet = new planet
+	name = temp_planet.name
+	desc = temp_planet.desc + "[preserve_level ? "" : " It may not still be here if you leave it."]"
+	icon_state = temp_planet.icon_state
+	color = temp_planet.color
+	qdel(temp_planet)
 
 /**
   * Load a level for a ship that's visiting the level.
@@ -209,25 +146,24 @@
   * Unloads the reserve, deletes the linked docking port, and moves to a random location if there's no client-having, alive mobs.
   */
 /obj/structure/overmap/dynamic/proc/unload_level()
-	if(preserve_level)
+	if(preserve_level || concerned || !mapzone)
 		return
 
-	if(mapzone)
-		if(length(mapzone.get_mind_mobs()))
-			return //Dont fuck over stranded people? tbh this shouldn't be called on this condition, instead of bandaiding it inside
-		if(SSovermap.generator_type == OVERMAP_GENERATOR_SOLAR)
-			forceMove(SSovermap.get_unused_overmap_square_in_radius())
-		else
-			forceMove(SSovermap.get_unused_overmap_square())
-		choose_level_type()
-		remove_mapzone()
+	if(length(mapzone.get_mind_mobs()))
+		return //Dont fuck over stranded people? tbh this shouldn't be called on this condition, instead of bandaiding it inside
 
-	if(reserve_dock)
-		qdel(reserve_dock, TRUE)
-		reserve_dock = null
-	if(reserve_dock_secondary)
-		qdel(reserve_dock_secondary, TRUE)
-		reserve_dock_secondary = null
+	concerned = TRUE //Prevent someone to act with this while it reloads
+
+	remove_docks()
+	remove_mapzone() //Take a lot of time
+
+	if(SSovermap.generator_type == OVERMAP_GENERATOR_SOLAR)
+		forceMove(SSovermap.get_unused_overmap_square_in_radius())
+	else
+		forceMove(SSovermap.get_unused_overmap_square())
+	choose_level_type()
+
+	concerned = FALSE //Now it can be raided again
 
 /obj/structure/overmap/dynamic/empty
 	name = "Empty Space"
@@ -247,83 +183,3 @@
 
 	remove_mapzone()
 	qdel(src)
-
-/obj/structure/overmap/dynamic/lava
-	force_encounter = DYNAMIC_WORLD_LAVA
-
-/obj/structure/overmap/dynamic/ice
-	force_encounter = DYNAMIC_WORLD_ICE
-
-/obj/structure/overmap/dynamic/sand
-	force_encounter = DYNAMIC_WORLD_SAND
-
-/obj/structure/overmap/dynamic/jungle
-	force_encounter = DYNAMIC_WORLD_JUNGLE
-
-/obj/structure/overmap/dynamic/rock
-	force_encounter = DYNAMIC_WORLD_ROCKPLANET
-
-/obj/structure/overmap/dynamic/reebe
-	force_encounter = DYNAMIC_WORLD_REEBE
-
-/obj/structure/overmap/dynamic/asteroid
-	force_encounter = DYNAMIC_WORLD_ASTEROID
-
-/obj/structure/overmap/dynamic/energy_signal
-	force_encounter = DYNAMIC_WORLD_SPACERUIN
-
-/area/overmap_encounter
-	name = "\improper Overmap Encounter"
-	icon_state = "away"
-	area_flags = HIDDEN_AREA | UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | NOTELEPORT
-	flags_1 = CAN_BE_DIRTY_1
-	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
-	sound_environment = SOUND_ENVIRONMENT_STONEROOM
-	ambientsounds = RUINS
-	outdoors = TRUE
-
-/area/overmap_encounter/planetoid
-	name = "\improper Unknown Planetoid"
-	sound_environment = SOUND_ENVIRONMENT_MOUNTAINS
-	has_gravity = STANDARD_GRAVITY
-	always_unpowered = TRUE
-
-/area/overmap_encounter/planetoid/lava
-	name = "\improper Volcanic Planetoid"
-	ambientsounds = MINING
-
-/area/overmap_encounter/planetoid/ice
-	name = "\improper Frozen Planetoid"
-	sound_environment = SOUND_ENVIRONMENT_CAVE
-	ambientsounds = SPOOKY
-
-/area/overmap_encounter/planetoid/sand
-	name = "\improper Sandy Planetoid"
-	sound_environment = SOUND_ENVIRONMENT_QUARRY
-	ambientsounds = MINING
-
-/area/overmap_encounter/planetoid/jungle
-	name = "\improper Jungle Planetoid"
-	sound_environment = SOUND_ENVIRONMENT_FOREST
-	ambientsounds = AWAY_MISSION
-
-/area/overmap_encounter/planetoid/rockplanet
-	name = "\improper Rocky Planetoid"
-	sound_environment = SOUND_ENVIRONMENT_HANGAR
-	ambientsounds = MAINTENANCE
-
-/area/overmap_encounter/planetoid/rockplanet/explored//for use in ruins
-	area_flags = UNIQUE_AREA
-	area_flags = VALID_TERRITORY | UNIQUE_AREA
-
-/area/overmap_encounter/planetoid/reebe
-	name = "\improper Yellow Space"
-	sound_environment = SOUND_ENVIRONMENT_MOUNTAINS
-	ambientsounds = REEBE
-
-/area/overmap_encounter/planetoid/reebe/Entered(atom/movable/AM)
-	. = ..()
-	if(ismob(AM))
-		var/mob/M = AM
-		if(M.client)
-			addtimer(CALLBACK(M.client, /client/proc/play_reebe_ambience), 900)
