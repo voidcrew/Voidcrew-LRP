@@ -85,3 +85,5 @@ var/closed_turf_types =  list(/turf/closed/mineral/random/volcanic = 1)
 		selected_biome = SSmapping.biomes[selected_biome] //Get the instance of this biome from SSmapping
 		selected_biome.generate_turf(gen_turf)
 		CHECK_TICK
+
+#undef BIOME_RANDOM_SQUARE_DRIFT
