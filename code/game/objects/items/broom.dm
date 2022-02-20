@@ -60,7 +60,13 @@
 			if(target_bin)
 				garbage.forceMove(target_bin)
 			else if(target_compstorage)
-				garbage.forceMove(target_compstorage)
+				if(target_compstorage.accept_check(garbage))
+					target_compstorage.load(garbage)
+					if(target_compstorage.visible_contents)
+						target_compstorage.update_icon()
+				else
+					to_chat(user, "<span class='warning'>\The [src] smartly refuses [O].</span>")
+					continue
 			else
 				garbage.Move(new_item_loc, user.dir)
 			i++

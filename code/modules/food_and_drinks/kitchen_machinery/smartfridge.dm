@@ -17,7 +17,7 @@
 	var/allow_ai_retrieve = FALSE
 	var/list/initial_contents
 	var/visible_contents = TRUE
-// Whether the fridge can be unanchored without having to deconstruct it. Default = TRUE
+	///Whether the fridge can be unanchored without having to deconstruct it. Default = TRUE
 	var/can_unanchor = TRUE
 
 /obj/machinery/smartfridge/Initialize()
@@ -67,6 +67,9 @@
 ********************/
 
 /obj/machinery/smartfridge/attackby(obj/item/O, mob/user, params)
+	if(user.a_intent == INTENT_HARM)
+		return ..()
+
 	if(default_deconstruction_screwdriver(user, icon_state, icon_state, O))
 		cut_overlays()
 		if(panel_open)
@@ -77,15 +80,21 @@
 	if(default_pry_open(O))
 		return
 
-	if(can_be_unanchored == TRUE && default_unfasten_wrench(user, O))
-		power_change()
-		return
+	if(O.tool_behaviour == TOOL_WRENCH)
+		if(can_unanchor)
+			default_unfasten_wrench(user, O)
+			power_change()
+			return
+		else
+			to_chat(user, "<span class='warning'>This machine is firmly bolted to the ground and cannot be unanchored!</span>")
 
 	if(default_deconstruction_crowbar(O))
 		updateUsrDialog()
 		return
 
 	if(!machine_stat)
+		if(panel_open)
+			return FALSE
 
 		if(contents.len >= max_n_of_items)
 			to_chat(user, "<span class='warning'>\The [src] is full!</span>")
@@ -128,13 +137,9 @@
 				to_chat(user, "<span class='warning'>There is nothing in [O] to put in [src]!</span>")
 				return FALSE
 
-	if(user.a_intent != INTENT_HARM)
 		to_chat(user, "<span class='warning'>\The [src] smartly refuses [O].</span>")
 		updateUsrDialog()
 		return FALSE
-	else
-		return ..()
-
 
 
 /obj/machinery/smartfridge/proc/accept_check(obj/item/O)
@@ -518,11 +523,14 @@
 	desc = "A bluespace-powered compartment for storing any and all kinds of items one would happen to find in the vastness of outer space."
 	icon_state = "storagecomp"
 	max_n_of_items = 150
+	circuit = /obj/item/circuitboard/machine/smartfridge/compstorage
 	can_unanchor = FALSE
 
 /obj/machinery/smartfridge/compstorage/accept_check(obj/item/inserted_item)
 	if(istype(inserted_item, /obj/item/storage/backpack)) //it's too smart to allow you to minmax the storage with backpacks. boxes and other things are fine though
 		return FALSE
+	else
+		return TRUE
 
 /obj/machinery/smartfridge/compstorage/RefreshParts()
 	for(var/obj/item/stock_parts/matter_bin/new_bin in component_parts)

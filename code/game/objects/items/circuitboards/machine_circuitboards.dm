@@ -492,6 +492,7 @@
 	req_components = list(/obj/item/stock_parts/matter_bin = 2,
 		/obj/item/stack/ore/bluespace_crystal = 2,
 		/obj/item/stack/cable_coil = 2)
+	needs_anchored = TRUE
 
 /obj/item/circuitboard/machine/space_heater
 	name = "Space Heater (Machine Board)"
