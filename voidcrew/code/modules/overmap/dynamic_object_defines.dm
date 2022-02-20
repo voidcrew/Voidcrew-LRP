@@ -98,3 +98,8 @@
 	var/mob/mob = atom
 	if(mob.client)
 		addtimer(CALLBACK(mob.client, /client/proc/play_reebe_ambience), 900)
+
+/area/overmap_encounter/planetoid/beach
+	name = "\improper Beach Planetoid"
+	sound_environment = SOUND_ENVIRONMENT_FOREST
+	ambientsounds = BEACH
