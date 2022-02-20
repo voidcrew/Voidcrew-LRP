@@ -61,7 +61,8 @@
 	color = COLOR_LIME
 
 	ruin_type = RUIN_TYPE_JUNGLE
-	mapgen = /datum/map_generator/jungle_generator
+	// mapgen = /datum/map_generator/jungle_generator
+	mapgen = /datum/map_generator/planet_generator
 	target_area = /area/overmap_encounter/planetoid/jungle
 	surface = /turf/open/floor/plating/dirt/jungle
 	weather_controller_type = /datum/weather_controller/lush
