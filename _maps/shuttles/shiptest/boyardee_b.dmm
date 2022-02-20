@@ -10,6 +10,10 @@
 /obj/machinery/atmospherics/components/unary/outlet_injector/layer4,
 /turf/open/floor/plating/airless,
 /area/ship/external)
+"au" = (
+/obj/structure/table/optable,
+/turf/open/floor/plasteel/mono/white,
+/area/ship/medical)
 "ay" = (
 /obj/structure/chair/office{
 	dir = 1
@@ -32,10 +36,6 @@
 "bq" = (
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/ship/storage)
-"bL" = (
-/obj/machinery/suit_storage_unit/syndicate,
-/turf/open/floor/mineral/plastitanium/red,
-/area/ruin/space/has_grav/deepstorage/armory)
 "bM" = (
 /obj/machinery/airalarm/all_access{
 	dir = 8;
@@ -51,6 +51,9 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/storage)
+"bX" = (
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
+/area/ship/security/armory)
 "ce" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 8
@@ -131,6 +134,11 @@
 	},
 /turf/open/floor/plasteel/tech,
 /area/ship/crew/canteen)
+"dc" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/firstaid/regular,
+/turf/open/floor/plasteel/tech,
+/area/ship/crew/canteen)
 "dl" = (
 /obj/machinery/light{
 	dir = 1
@@ -183,6 +191,18 @@
 /obj/structure/table/wood/poker,
 /turf/open/floor/carpet/black,
 /area/ship/crew/canteen)
+"ei" = (
+/obj/machinery/smartfridge/bloodbank/preloaded{
+	density = 0;
+	pixel_x = -32
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/turf/open/floor/plasteel/mono/white,
+/area/ship/medical)
 "eV" = (
 /turf/open/floor/carpet/black,
 /area/ship/crew/canteen)
@@ -372,8 +392,23 @@
 	},
 /turf/open/floor/pod/dark,
 /area/ship/cargo)
+"iU" = (
+/obj/machinery/power/apc/auto_name/east,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/security/armory)
 "jb" = (
 /obj/machinery/door/airlock/medical/glass,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /turf/open/floor/plasteel/mono/dark,
 /area/ship/medical)
 "jh" = (
@@ -407,9 +442,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/structure/closet/syndicate{
-	name = "dusty armory closet"
-	},
 /obj/item/clothing/under/suit/waiter,
 /obj/item/clothing/under/suit/waiter,
 /obj/item/clothing/under/suit/waiter,
@@ -423,6 +455,12 @@
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/shoes/laceup,
 /obj/effect/turf_decal/box,
+/obj/structure/closet/secure_closet/wall{
+	icon_state = "sec_wall";
+	name = "safe";
+	pixel_y = -31;
+	req_one_access = list(25,1)
+	},
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
 "jq" = (
@@ -430,6 +468,19 @@
 /obj/item/toy/cards/deck/syndicate,
 /turf/open/floor/wood,
 /area/ship/crew/canteen)
+"jr" = (
+/obj/structure/rack,
+/obj/structure/window/reinforced/spawner/west,
+/obj/item/gun/ballistic/derringer,
+/obj/item/gun/ballistic/derringer,
+/obj/item/ammo_box/c38,
+/obj/item/ammo_box/c38,
+/obj/item/ammo_box/c38,
+/obj/item/ammo_box/c38,
+/obj/machinery/door/window/northright,
+/obj/item/disk/design_disk/ammo_38_hunting,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ship/security/armory)
 "jv" = (
 /obj/effect/turf_decal/industrial/warning,
 /turf/open/floor/pod/dark,
@@ -476,20 +527,6 @@
 /obj/structure/table/wood/poker,
 /turf/open/floor/carpet/black,
 /area/ship/crew/canteen)
-"kj" = (
-/obj/structure/closet/secure_closet/wall{
-	icon_state = "sec_wall";
-	name = "safe";
-	pixel_y = -31;
-	req_one_access = list(25,1)
-	},
-/obj/item/stack/sheet/mineral/silver/fifty,
-/obj/machinery/airalarm/all_access{
-	dir = 8;
-	pixel_x = 24
-	},
-/turf/open/floor/mineral/plastitanium/red,
-/area/ship/cargo)
 "kD" = (
 /obj/structure/rack,
 /obj/structure/window/reinforced/spawner/east,
@@ -596,6 +633,12 @@
 	gpstag = "SYNTROOPSHIP1";
 	pixel_x = -9;
 	pixel_y = 7
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/item/radio/intercom{
+	pixel_x = -27
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/cargo)
@@ -707,12 +750,14 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
-"nz" = (
-/obj/machinery/vending/wallmed{
-	pixel_x = -26
+"nA" = (
+/obj/machinery/airalarm/all_access{
+	dir = 8;
+	pixel_x = 24
 	},
-/turf/open/floor/plasteel/mono/white,
-/area/ship/medical)
+/obj/machinery/suit_storage_unit/syndicate,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ship/security/armory)
 "nF" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
 /obj/structure/cable/yellow{
@@ -758,18 +803,21 @@
 /turf/open/floor/plasteel/tech,
 /area/ship/crew/canteen)
 "om" = (
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/ship/medical)
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 9
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
 "oO" = (
 /obj/structure/chair/wood,
 /turf/open/floor/carpet/red,
 /area/ship/crew/canteen)
-"oX" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
-	dir = 8
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/ship/security/armory)
 "pg" = (
 /obj/machinery/firealarm{
 	pixel_y = -28
@@ -884,6 +932,16 @@
 /area/ship/maintenance)
 "rj" = (
 /obj/machinery/stasis,
+/obj/machinery/button/door{
+	id = b-class-medbay-windows;
+	name = "Medbay Privacy Shutters";
+	pixel_x = -26;
+	pixel_y = -5
+	},
+/obj/item/radio/intercom{
+	pixel_x = -26;
+	pixel_y = 5
+	},
 /turf/open/floor/plasteel/mono/white,
 /area/ship/medical)
 "rr" = (
@@ -921,9 +979,20 @@
 	},
 /turf/open/floor/plating,
 /area/ship/maintenance)
-"rQ" = (
-/turf/open/floor/plasteel/mono/white,
-/area/ship/medical)
+"rZ" = (
+/obj/structure/closet/secure_closet/wall{
+	icon_state = "sec_wall";
+	name = "safe";
+	pixel_y = -31;
+	req_one_access = list(25,1)
+	},
+/obj/item/stack/sheet/mineral/silver/fifty,
+/obj/machinery/airalarm/all_access{
+	dir = 8;
+	pixel_x = 24
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/ship/cargo)
 "sg" = (
 /obj/machinery/smartfridge/drinks,
 /turf/closed/wall,
@@ -938,6 +1007,10 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/cargo)
+"sR" = (
+/obj/machinery/suit_storage_unit/syndicate,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ship/security/armory)
 "tq" = (
 /obj/structure/bed,
 /obj/item/bedsheet/random,
@@ -963,9 +1036,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/crew)
-"ua" = (
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/ship/security/armory)
 "uB" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/drinkingglasses,
@@ -989,10 +1059,21 @@
 	},
 /turf/open/floor/carpet/red,
 /area/ship/crew/canteen)
-"uS" = (
-/obj/machinery/power/apc/auto_name/east,
-/turf/open/floor/mineral/plastitanium,
-/area/ship/security/armory)
+"uV" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
 "vb" = (
 /obj/effect/turf_decal/box,
 /obj/item/reagent_containers/food/condiment/enzyme,
@@ -1013,8 +1094,8 @@
 	pixel_x = 24;
 	pixel_y = -24
 	},
-/obj/structure/closet/secure_closet/freezer/fridge{
-	pixel_y = -26
+/obj/structure/closet/secure_closet/freezer/wall{
+	pixel_y = -31
 	},
 /turf/open/floor/plasteel/mono/dark,
 /area/ship/bridge)
@@ -1060,14 +1141,6 @@
 "vv" = (
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ship/bridge)
-"vA" = (
-/obj/machinery/airalarm/all_access{
-	dir = 8;
-	pixel_x = 24
-	},
-/obj/machinery/suit_storage_unit/syndicate,
-/turf/open/floor/mineral/plastitanium/red,
-/area/ship/security/armory)
 "vZ" = (
 /turf/template_noop,
 /area/template_noop)
@@ -1207,14 +1280,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
-"zI" = (
-/obj/machinery/button/door{
-	id = b-class-medbay-windows;
-	name = "Medbay Privacy Shutters";
-	pixel_x = -26
-	},
-/turf/open/floor/plasteel/mono/white,
-/area/ship/medical)
 "zM" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1271,6 +1336,18 @@
 	},
 /turf/open/floor/carpet/black,
 /area/ship/crew/canteen)
+"Bx" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/security/armory)
 "BE" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 8
@@ -1293,18 +1370,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/ship/crew)
-"BR" = (
-/obj/structure/rack,
-/obj/structure/window/reinforced/spawner/west,
-/obj/item/gun/ballistic/derringer,
-/obj/item/gun/ballistic/derringer,
-/obj/item/ammo_box/c38,
-/obj/item/ammo_box/c38,
-/obj/item/ammo_box/c38,
-/obj/item/ammo_box/c38,
-/obj/machinery/door/window/northright,
-/turf/open/floor/mineral/plastitanium/red,
-/area/ship/security/armory)
 "BV" = (
 /obj/structure/chair/wood,
 /turf/open/floor/carpet/black,
@@ -1439,13 +1504,6 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/crew)
-"Et" = (
-/obj/machinery/light_switch{
-	pixel_x = 24;
-	pixel_y = -24
-	},
-/turf/open/floor/plasteel/dark,
-/area/ship/bridge)
 "Eu" = (
 /obj/machinery/firealarm{
 	pixel_y = -28
@@ -1457,30 +1515,9 @@
 "EE" = (
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ship/storage)
-"EN" = (
-/obj/machinery/power/apc/auto_name/south,
-/obj/structure/rack,
-/obj/item/storage/firstaid/advanced,
-/obj/item/storage/firstaid/toxin,
-/obj/item/storage/firstaid/tactical,
-/obj/structure/window/reinforced/spawner/west,
-/obj/structure/window/reinforced/spawner/east,
-/obj/machinery/door/window/northleft,
-/obj/item/holosign_creator/medical,
-/turf/open/floor/plasteel/mono/white,
-/area/ship/medical)
 "ES" = (
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
-"EZ" = (
-/obj/structure/rack,
-/obj/structure/window/reinforced/spawner/east,
-/obj/structure/window/reinforced/spawner/west,
-/obj/item/gun/energy/laser,
-/obj/item/gun/energy/laser/iot,
-/obj/machinery/door/window/northright,
-/turf/open/floor/mineral/plastitanium/red,
-/area/ship/security/armory)
 "Fl" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 8
@@ -1550,6 +1587,15 @@
 /obj/effect/turf_decal/industrial/warning,
 /turf/open/floor/pod/dark,
 /area/ship/cargo)
+"Gr" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/plasteel/mono/white,
+/area/ship/medical)
 "GG" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1576,11 +1622,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ship/crew)
 "GU" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/poddoor{
-	id = b-class-medbay-windows
-	},
-/turf/open/floor/plating,
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ship/medical)
 "GV" = (
 /obj/machinery/computer/autopilot{
@@ -1633,6 +1675,9 @@
 	dir = 1
 	},
 /obj/structure/ore_box,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/open/floor/pod/dark,
 /area/ship/cargo)
 "HY" = (
@@ -1707,13 +1752,13 @@
 /obj/item/clothing/under/rank/civilian/bartender/skirt,
 /obj/item/clothing/suit/apron/purple_bartender,
 /obj/item/toy/figure/bartender,
-/obj/item/gun/ballistic/shotgun/automatic/combat/compact,
 /obj/item/storage/box/lethalshot,
 /obj/item/storage/box/lethalshot,
-/obj/item/storage/belt/bandolier,
 /obj/item/storage/box/rubbershot,
 /obj/item/storage/box/rubbershot,
 /obj/item/card/emag,
+/obj/item/storage/belt/bandolier,
+/obj/item/gun/ballistic/shotgun/automatic/combat/compact,
 /turf/open/floor/wood,
 /area/ship/crew/canteen)
 "JF" = (
@@ -1785,6 +1830,15 @@
 	},
 /turf/open/floor/carpet/red,
 /area/ship/crew/canteen)
+"Lc" = (
+/obj/structure/rack,
+/obj/structure/window/reinforced/spawner/east,
+/obj/structure/window/reinforced/spawner/west,
+/obj/item/gun/energy/laser,
+/obj/item/gun/energy/laser/iot,
+/obj/machinery/door/window/northright,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ship/security/armory)
 "Ld" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
@@ -1866,6 +1920,15 @@
 	},
 /turf/open/floor/plating,
 /area/ship/maintenance)
+"No" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 8
+	},
+/turf/open/floor/plasteel/mono/white,
+/area/ship/medical)
 "Nw" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
 /obj/structure/chair/wood{
@@ -1873,18 +1936,6 @@
 	},
 /turf/open/floor/carpet/black,
 /area/ship/crew/canteen)
-"NQ" = (
-/obj/machinery/airalarm/all_access{
-	dir = 1;
-	pixel_y = -24
-	},
-/obj/structure/table,
-/obj/item/storage/backpack/duffelbag/syndie/surgery,
-/obj/structure/window/reinforced/spawner/west,
-/obj/structure/window/reinforced/spawner/east,
-/obj/machinery/door/window/northleft,
-/turf/open/floor/plasteel/mono/white,
-/area/ship/medical)
 "NT" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/effect/turf_decal/industrial/warning{
@@ -1953,15 +2004,6 @@
 	},
 /turf/open/floor/carpet/red,
 /area/ship/crew/canteen)
-"Pi" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 8
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/ship/security/armory)
 "Pk" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 8
@@ -1996,9 +2038,17 @@
 /turf/open/floor/pod/dark,
 /area/ship/cargo)
 "PN" = (
-/obj/structure/table/optable,
-/turf/open/floor/plasteel/mono/white,
-/area/ship/medical)
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
 "PV" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 8
@@ -2080,6 +2130,18 @@
 /obj/item/storage/toolbox/syndicate,
 /turf/open/floor/plating,
 /area/ship/maintenance)
+"QV" = (
+/obj/machinery/airalarm/all_access{
+	dir = 1;
+	pixel_y = -24
+	},
+/obj/structure/table,
+/obj/item/storage/backpack/duffelbag/syndie/surgery,
+/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner/east,
+/obj/machinery/door/window/northleft,
+/turf/open/floor/plasteel/mono/white,
+/area/ship/medical)
 "Rf" = (
 /obj/machinery/status_display/shuttle,
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
@@ -2105,6 +2167,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/open/floor/plating,
 /area/ship/cargo)
@@ -2205,6 +2270,15 @@
 "Tr" = (
 /turf/open/floor/carpet/red,
 /area/ship/crew/canteen)
+"TC" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/security/armory)
 "TF" = (
 /obj/structure/table/reinforced,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
@@ -2273,6 +2347,22 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
+"Ub" = (
+/obj/machinery/defibrillator_mount/loaded{
+	pixel_x = -26
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/plasteel/mono/white,
+/area/ship/medical)
 "Uq" = (
 /obj/machinery/power/shuttle/engine/fueled/plasma{
 	dir = 4
@@ -2367,6 +2457,19 @@
 	},
 /turf/open/floor/carpet/red,
 /area/ship/crew/canteen)
+"VB" = (
+/obj/machinery/power/apc/auto_name/south,
+/obj/structure/rack,
+/obj/item/storage/firstaid/advanced,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/tactical,
+/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner/east,
+/obj/machinery/door/window/northleft,
+/obj/item/holosign_creator/medical,
+/obj/structure/cable,
+/turf/open/floor/plasteel/mono/white,
+/area/ship/medical)
 "VO" = (
 /obj/machinery/atmospherics/components/unary/tank/air{
 	piping_layer = 2
@@ -2403,10 +2506,6 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/cargo)
-"WS" = (
-/obj/machinery/status_display/shuttle,
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
-/area/ship/bridge)
 "WU" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 6
@@ -2421,10 +2520,12 @@
 /turf/open/floor/plasteel/mono/dark,
 /area/ship/bridge)
 "Xd" = (
-/obj/structure/table/reinforced,
-/obj/item/storage/firstaid,
-/turf/open/floor/plasteel/tech,
-/area/ship/crew/canteen)
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor{
+	id = b-class-medbay-windows
+	},
+/turf/open/floor/plating,
+/area/ship/medical)
 "Xg" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 1
@@ -2531,6 +2632,10 @@
 	},
 /turf/open/floor/carpet/red,
 /area/ship/crew/canteen)
+"Zl" = (
+/obj/machinery/status_display/shuttle,
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/ship/bridge)
 "Zz" = (
 /obj/machinery/cryopod{
 	dir = 1
@@ -2719,7 +2824,7 @@ vZ
 vZ
 aa
 Sa
-Xd
+dc
 TL
 Qn
 uM
@@ -3058,7 +3163,7 @@ Ym
 fM
 Co
 mg
-ZN
+uV
 ZN
 TF
 Rh
@@ -3079,7 +3184,7 @@ HF
 jN
 jv
 FA
-ES
+PN
 ES
 ng
 Ob
@@ -3089,18 +3194,18 @@ vb
 Ap
 Fl
 GG
-kj
+rZ
 Ap
 vZ
 "}
 (25,1,1) = {"
 yi
-om
+GU
 Xv
 Xv
 Xv
-WS
-ES
+Zl
+PN
 ES
 Ia
 wB
@@ -3116,32 +3221,32 @@ vZ
 "}
 (26,1,1) = {"
 vZ
-GU
+Xd
 rj
-zI
-nz
+Ub
+ei
 jb
-ES
+om
 ES
 ES
 Po
 ES
-Et
+ES
 Eu
-ua
-bL
-Pi
+bX
+sR
+Bx
 kD
-ua
+bX
 vZ
 "}
 (27,1,1) = {"
 vZ
-GU
+Xd
 OD
-rQ
-NQ
-om
+No
+QV
+GU
 vv
 Ua
 vh
@@ -3149,20 +3254,20 @@ vh
 vh
 Hb
 vv
-ua
-bL
-oX
-EZ
-ua
+bX
+sR
+TC
+Lc
+bX
 vZ
 "}
 (28,1,1) = {"
 vZ
+Xd
+au
+Gr
+VB
 GU
-PN
-rQ
-EN
-om
 Mp
 Mp
 mr
@@ -3170,20 +3275,20 @@ mz
 GV
 Mp
 Mp
-ua
-vA
-uS
-BR
-ua
+bX
+nA
+iU
+jr
+bX
 vZ
 "}
 (29,1,1) = {"
 vZ
+Xd
+Xd
+Xd
+Xd
 GU
-GU
-GU
-GU
-om
 vZ
 Mp
 Mp
@@ -3191,10 +3296,10 @@ Mp
 Mp
 Mp
 vZ
-ua
-ua
-ua
-ua
-ua
+bX
+bX
+bX
+bX
+bX
 vZ
 "}
