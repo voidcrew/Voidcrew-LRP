@@ -11,6 +11,7 @@
 
 /obj/structure/overmap/dynamic/Destroy()
 	. = ..()
+	remove_docks()
 	remove_mapzone()
 
 /obj/structure/overmap/dynamic/proc/remove_mapzone()
@@ -18,12 +19,26 @@
 		mapzone.clear_reservation()
 		QDEL_NULL(mapzone)
 
+/obj/structure/overmap/dynamic/proc/remove_docks()
+	if(reserve_dock)
+		qdel(reserve_dock, TRUE)
+		reserve_dock = null
+	if(reserve_dock_secondary)
+		qdel(reserve_dock_secondary, TRUE)
+		reserve_dock_secondary = null
+
 /obj/structure/overmap/dynamic/ship_act(mob/user, obj/structure/overmap/ship/simulated/acting)
+	if(concerned)
+		to_chat(user, "<span class='notice'>Too much traffic, try again later!</span>")
+		return
+	concerned = TRUE
+
 	var/prev_state = acting.state
 	acting.state = OVERMAP_SHIP_ACTING //This is so the controls are locked while loading the level to give both a sense of confirmation and to prevent people from moving the ship
 	. = load_level(acting.shuttle)
 	if(.)
 		acting.state = prev_state
+		concerned = FALSE
 	else
 		var/dock_to_use = null
 		if(!reserve_dock.get_docked())
@@ -33,10 +48,12 @@
 
 		if(!dock_to_use)
 			acting.state = prev_state
+			concerned = FALSE
 			to_chat(user, "<span class='notice'>All potential docking locations occupied.</span>")
 			return
 		adjust_dock_to_shuttle(dock_to_use, acting.shuttle)
 		to_chat(user, "<span class='notice'>[acting.dock(src, dock_to_use)]</span>") //If a value is returned from load_level(), say that, otherwise, commence docking
+	concerned = FALSE
 
 /**
   * Chooses a type of level for the dynamic level to use.
@@ -129,25 +146,24 @@
   * Unloads the reserve, deletes the linked docking port, and moves to a random location if there's no client-having, alive mobs.
   */
 /obj/structure/overmap/dynamic/proc/unload_level()
-	if(preserve_level)
+	if(preserve_level || concerned || !mapzone)
 		return
 
-	if(mapzone)
-		if(length(mapzone.get_mind_mobs()))
-			return //Dont fuck over stranded people? tbh this shouldn't be called on this condition, instead of bandaiding it inside
-		if(SSovermap.generator_type == OVERMAP_GENERATOR_SOLAR)
-			forceMove(SSovermap.get_unused_overmap_square_in_radius())
-		else
-			forceMove(SSovermap.get_unused_overmap_square())
-		choose_level_type()
-		remove_mapzone()
+	if(length(mapzone.get_mind_mobs()))
+		return //Dont fuck over stranded people? tbh this shouldn't be called on this condition, instead of bandaiding it inside
 
-	if(reserve_dock)
-		qdel(reserve_dock, TRUE)
-		reserve_dock = null
-	if(reserve_dock_secondary)
-		qdel(reserve_dock_secondary, TRUE)
-		reserve_dock_secondary = null
+	concerned = TRUE //Prevent someone to act with this while it reloads
+
+	remove_docks()
+	remove_mapzone() //Take a lot of time
+
+	if(SSovermap.generator_type == OVERMAP_GENERATOR_SOLAR)
+		forceMove(SSovermap.get_unused_overmap_square_in_radius())
+	else
+		forceMove(SSovermap.get_unused_overmap_square())
+	choose_level_type()
+
+	concerned = FALSE //Now it can be raided again
 
 /obj/structure/overmap/dynamic/empty
 	name = "Empty Space"
