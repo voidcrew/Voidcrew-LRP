@@ -510,7 +510,8 @@
 	else
 		return FALSE
 
-// Generic storage compartment, accepts any and all items, but less storage + no bonuses like organ healing
+// Generic storage compartment, accepts any and all items, but less storage
+// + no bonuses like organ healing and can't be moved without deconstructing it;
 // perfect for storing literally anything so it won't litter your loot monkey ship
 /obj/machinery/smartfridge/compstorage
 	name = "storage compartment"
