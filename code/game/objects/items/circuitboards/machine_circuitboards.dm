@@ -489,7 +489,7 @@
 /obj/item/circuitboard/machine/smartfridge/compstorage
 	name = "Storage Compartment (Machine Board)"
 	build_path = /obj/machinery/smartfridge/compstorage
-	req_components = list(/obj/item/stock_parts/matter_bin = 2,
+	req_components = list(/obj/item/stock_parts/matter_bin = 1,
 		/obj/item/stack/ore/bluespace_crystal = 2,
 		/obj/item/stack/cable_coil = 2)
 	needs_anchored = TRUE

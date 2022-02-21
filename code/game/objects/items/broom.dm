@@ -66,7 +66,7 @@
 						target_compstorage.update_icon()
 				else
 					to_chat(user, "<span class='warning'>\The [src] smartly refuses [garbage].</span>")
-					continue //if the check doesn't go through, we don't move the item at all
+					continue //if the check doesn't go through, we (hopefully) don't move the item at all
 			else
 				garbage.Move(new_item_loc, user.dir)
 			i++
@@ -79,6 +79,7 @@
 		if(target_compstorage)
 			target_compstorage.update_icon()
 			to_chat(user, "<span class='notice'>You sweep the pile of items into [target_compstorage].</span>")
+			playsound(loc, 'sound/items/pshoom.ogg', 20, TRUE, -1)
 		playsound(loc, 'sound/weapons/thudswoosh.ogg', 30, TRUE, -1)
 
 /obj/item/pushbroom/proc/janicart_insert(mob/user, obj/structure/janitorialcart/J) //bless you whoever fixes this copypasta
