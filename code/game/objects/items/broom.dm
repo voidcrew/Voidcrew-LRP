@@ -60,20 +60,20 @@
 			if(target_bin)
 				garbage.forceMove(target_bin)
 			else if(target_compstorage)
-				if(target_compstorage.accept_check(garbage))
+				if(target_compstorage.accept_check(garbage)) //compstorage can't accept backpacks so we run a check here
 					target_compstorage.load(garbage)
-					if(target_compstorage.visible_contents)
+					if(target_compstorage.visible_contents) //compstorage has visible contents on by default but just in case it doesn't
 						target_compstorage.update_icon()
 				else
-					to_chat(user, "<span class='warning'>\The [src] smartly refuses [O].</span>")
-					continue
+					to_chat(user, "<span class='warning'>\The [src] smartly refuses [garbage].</span>")
+					continue //if the check doesn't go through, we don't move the item at all
 			else
 				garbage.Move(new_item_loc, user.dir)
 			i++
 		if(i > 19)
 			break
 	if(i > 0)
-		if (target_bin)
+		if(target_bin)
 			target_bin.update_icon()
 			to_chat(user, "<span class='notice'>You sweep the pile of garbage into [target_bin].</span>")
 		if(target_compstorage)
