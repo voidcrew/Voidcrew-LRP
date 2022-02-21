@@ -94,4 +94,3 @@
 		if(can_spawn)
 			new picked_mob(new_turf)
 			new_turf.flags_1 |= NO_LAVA_GEN_1
-

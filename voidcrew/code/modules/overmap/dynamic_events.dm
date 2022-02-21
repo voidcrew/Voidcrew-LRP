@@ -183,3 +183,94 @@
 
 	remove_mapzone()
 	qdel(src)
+<<<<<<< HEAD
+=======
+
+/obj/structure/overmap/dynamic/lava
+	force_encounter = DYNAMIC_WORLD_LAVA
+
+/obj/structure/overmap/dynamic/ice
+	force_encounter = DYNAMIC_WORLD_ICE
+
+/obj/structure/overmap/dynamic/sand
+	force_encounter = DYNAMIC_WORLD_SAND
+
+/obj/structure/overmap/dynamic/jungle
+	force_encounter = DYNAMIC_WORLD_JUNGLE
+
+/obj/structure/overmap/dynamic/beach
+	force_encounter = DYNAMIC_WORLD_BEACH // VOID EDIT
+
+/obj/structure/overmap/dynamic/rock
+	force_encounter = DYNAMIC_WORLD_ROCKPLANET
+
+/obj/structure/overmap/dynamic/reebe
+	force_encounter = DYNAMIC_WORLD_REEBE
+
+/obj/structure/overmap/dynamic/asteroid
+	force_encounter = DYNAMIC_WORLD_ASTEROID
+
+/obj/structure/overmap/dynamic/energy_signal
+	force_encounter = DYNAMIC_WORLD_SPACERUIN
+
+/area/overmap_encounter
+	name = "\improper Overmap Encounter"
+	icon_state = "away"
+	area_flags = HIDDEN_AREA | UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | NOTELEPORT
+	flags_1 = CAN_BE_DIRTY_1
+	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	sound_environment = SOUND_ENVIRONMENT_STONEROOM
+	ambientsounds = RUINS
+	outdoors = TRUE
+
+/area/overmap_encounter/planetoid
+	name = "\improper Unknown Planetoid"
+	sound_environment = SOUND_ENVIRONMENT_MOUNTAINS
+	has_gravity = STANDARD_GRAVITY
+	always_unpowered = TRUE
+
+/area/overmap_encounter/planetoid/lava
+	name = "\improper Volcanic Planetoid"
+	ambientsounds = MINING
+
+/area/overmap_encounter/planetoid/ice
+	name = "\improper Frozen Planetoid"
+	sound_environment = SOUND_ENVIRONMENT_CAVE
+	ambientsounds = SPOOKY
+
+/area/overmap_encounter/planetoid/sand
+	name = "\improper Sandy Planetoid"
+	sound_environment = SOUND_ENVIRONMENT_QUARRY
+	ambientsounds = MINING
+
+/area/overmap_encounter/planetoid/jungle
+	name = "\improper Jungle Planetoid"
+	sound_environment = SOUND_ENVIRONMENT_FOREST
+	ambientsounds = AWAY_MISSION
+
+/area/overmap_encounter/planetoid/beach // VOID EDIT
+	name = "\improper Beach Planetoid"
+	sound_environment = SOUND_ENVIRONMENT_FOREST
+	ambientsounds = BEACH
+
+/area/overmap_encounter/planetoid/rockplanet
+	name = "\improper Rocky Planetoid"
+	sound_environment = SOUND_ENVIRONMENT_HANGAR
+	ambientsounds = MAINTENANCE
+
+/area/overmap_encounter/planetoid/rockplanet/explored//for use in ruins
+	area_flags = UNIQUE_AREA
+	area_flags = VALID_TERRITORY | UNIQUE_AREA
+
+/area/overmap_encounter/planetoid/reebe
+	name = "\improper Yellow Space"
+	sound_environment = SOUND_ENVIRONMENT_MOUNTAINS
+	ambientsounds = REEBE
+
+/area/overmap_encounter/planetoid/reebe/Entered(atom/movable/AM)
+	. = ..()
+	if(ismob(AM))
+		var/mob/M = AM
+		if(M.client)
+			addtimer(CALLBACK(M.client, /client/proc/play_reebe_ambience), 900)
+>>>>>>> planet-changes
