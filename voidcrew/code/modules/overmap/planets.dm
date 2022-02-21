@@ -22,6 +22,18 @@
 	///Weather controller for planet specific weather
 	var/datum/weather_controller/weather_controller_type
 
+/datum/overmap/planet/generated
+	name = "strange planet"
+	desc = "A very weak energy signal originating from a planet teeming with life."
+	color = COLOR_DARK_CYAN
+
+	ruin_type = RUIN_TYPE_JUNGLE
+	mapgen = /datum/map_generator/planet_generator
+
+	target_area = /area/overmap_encounter/planetoid/dynamic
+	surface = /turf/open/floor/plating/dirt/jungle
+	weather_controller_type = /datum/weather_controller/lush
+
 /datum/overmap/planet/lava
 	name = "strange lava planet"
 	desc = "A very weak energy signal originating from a planet with lots of seismic and volcanic activity."
@@ -61,8 +73,7 @@
 	color = COLOR_LIME
 
 	ruin_type = RUIN_TYPE_JUNGLE
-	// mapgen = /datum/map_generator/jungle_generator
-	mapgen = /datum/map_generator/planet_generator
+	mapgen = /datum/map_generator/jungle_generator
 	target_area = /area/overmap_encounter/planetoid/jungle
 	surface = /turf/open/floor/plating/dirt/jungle
 	weather_controller_type = /datum/weather_controller/lush

@@ -15,6 +15,7 @@
 	///What kind of planet the level is, if it's a planet at all.
 	var/datum/overmap/planet/planet
 
+
 /obj/structure/overmap/dynamic/lava
 	planet = /datum/overmap/planet/lava
 
@@ -26,6 +27,9 @@
 
 /obj/structure/overmap/dynamic/jungle
 	planet = /datum/overmap/planet/jungle
+
+/obj/structure/overmap/dynamic/generated
+	planet = /datum/overmap/planet/generated
 
 /obj/structure/overmap/dynamic/rock
 	planet = /datum/overmap/planet/rock
@@ -55,6 +59,12 @@
 	has_gravity = STANDARD_GRAVITY
 	always_unpowered = TRUE
 
+/area/overmap_encounter/planetoid/cave
+	name = "\improper Mysterious Cave"
+	sound_environment = SOUND_ENVIRONMENT_CAVE
+	ambientsounds = SPOOKY
+	outdoors = FALSE
+
 /area/overmap_encounter/planetoid/lava
 	name = "\improper Volcanic Planetoid"
 	ambientsounds = MINING
@@ -71,6 +81,11 @@
 
 /area/overmap_encounter/planetoid/jungle
 	name = "\improper Jungle Planetoid"
+	sound_environment = SOUND_ENVIRONMENT_FOREST
+	ambientsounds = AWAY_MISSION
+
+/area/overmap_encounter/planetoid/dynamic
+	name = "\improper Dynamic Planetoid"
 	sound_environment = SOUND_ENVIRONMENT_FOREST
 	ambientsounds = AWAY_MISSION
 

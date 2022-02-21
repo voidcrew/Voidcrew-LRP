@@ -1,98 +1,63 @@
-// #define BIOME_RANDOM_SQUARE_DRIFT 2
-
 /datum/map_generator/planet_generator
 	var/name = "Planet Generator"
 	var/mountain_height = 0.85
 	var/perlin_zoom = 65
 
-	///Weighted list of the types that spawns if the turf is open
-	var/open_turf_types = list(/turf/open/floor/plating/asteroid = 1)
-	///Weighted list of the types that spawns if the turf is closed
-	var/closed_turf_types =  list(/turf/closed/mineral/random/volcanic = 1)
-
-
-	///Weighted list of extra features that can spawn in the area, such as geysers.
-	var/list/feature_spawn_list = list(/obj/structure/geyser/random = 1)
-	///Weighted list of mobs that can spawn in the area.
-	var/list/mob_spawn_list = list(/mob/living/simple_animal/hostile/asteroid/goliath/beast/random = 50, /obj/structure/spawner/lavaland/goliath = 3, \
-		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random = 40, /obj/structure/spawner/lavaland = 2, \
-		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/random = 30, /obj/structure/spawner/lavaland/legion = 3, \
-		SPAWN_MEGAFAUNA = 4, /mob/living/simple_animal/hostile/asteroid/goldgrub = 10)
-	///Weighted list of flora that can spawn in the area.
-	var/list/flora_spawn_list = list(/obj/structure/flora/ash/leaf_shroom = 2 , /obj/structure/flora/ash/cap_shroom = 2 , /obj/structure/flora/ash/stem_shroom = 2 , /obj/structure/flora/ash/cacti = 1, /obj/structure/flora/ash/tall_shroom = 2)
-
-
-	///Base chance of spawning a mob
-	var/mob_spawn_chance = 6
-	///Base chance of spawning flora
-	var/flora_spawn_chance = 2
-	///Base chance of spawning features
-	var/feature_spawn_chance = 0.1
-	///Unique ID for this spawner
-	var/string_gen
-
-	///Chance of cells starting closed
-	var/initial_closed_chance = 45
-	///Amount of smoothing iterations
-	var/smoothing_iterations = 20
-	///How much neighbours does a dead cell need to become alive
-	var/birth_limit = 4
-	///How little neighbours does a alive cell need to die
-	var/death_limit = 3
-
-
 /datum/map_generator/planet_generator/generate_terrain(var/list/turfs)
 	. = ..()
+
 	var/planet_heat_level = rand(1, 4)
-	var/strange = FALSE
+	// var/strange = pick (prob(85); FALSE, prob(15); TRUE)
+	var/datum/planet/planet_type
+
+	var/initial_closed_chance = 45
+	var/smoothing_iterations = 20
+	var/birth_limit = 4
+	var/death_limit = 3
+
 	var/height_seed = rand(0, 50000)
 	var/humidity_seed = rand(0, 50000)
 	var/heat_seed = rand(0, 50000)
-	var/datum/planet/planet_type
-
-	strange = pick (prob(85); FALSE, prob(15); TRUE)
 
 	switch(planet_heat_level)
 		if(1)
-			if (!strange)
-				planet_type = new /datum/planet/tropical() // placeholder
-			else
-				planet_type = new /datum/planet/tropical() // placeholder strange
+			planet_type = new /datum/planet/jungle()
 		if(2)
-			if (!strange)
-				planet_type = new /datum/planet/tropical() // placeholder
-			else
-				planet_type = new /datum/planet/tropical() // placeholder strange
+			planet_type = new /datum/planet/jungle()
 		if(3)
-			if (!strange)
-				planet_type = new /datum/planet/tropical() // placeholder
-			else
-				planet_type = new /datum/planet/tropical() // placeholder strange
+			planet_type = new /datum/planet/jungle()
 		if(4)
-			if (!strange)
-				planet_type = new /datum/planet/tropical() // placeholder
-			else
-				planet_type = new /datum/planet/tropical() // placeholder strange
+			planet_type = new /datum/planet/jungle()
 
-	var/start_time = REALTIMEOFDAY
-	string_gen = rustg_cnoise_generate("[initial_closed_chance]", "[smoothing_iterations]", "[birth_limit]", "[death_limit]", "[world.maxx]", "[world.maxy]") //Generate the raw CA data
+	var/string_gen = rustg_cnoise_generate("[initial_closed_chance]", "[smoothing_iterations]", "[birth_limit]", "[death_limit]", "[world.maxx]", "[world.maxy]") //Generate the raw CA data
 
-	for(var/t in turfs) //Go through all the turfs and generate them
+	for(var/t in turfs)
 		var/turf/gen_turf = t
-		var/drift_x = (gen_turf.x + rand(-2, 2)) / perlin_zoom
-		var/drift_y = (gen_turf.y + rand(-2, 2)) / perlin_zoom
+		var/drift_x = (gen_turf.x + rand(-BIOME_RANDOM_SQUARE_DRIFT, BIOME_RANDOM_SQUARE_DRIFT)) / perlin_zoom
+		var/drift_y = (gen_turf.y + rand(-BIOME_RANDOM_SQUARE_DRIFT, BIOME_RANDOM_SQUARE_DRIFT)) / perlin_zoom
+
+		var/heat = text2num(rustg_noise_get_at_coordinates("[heat_seed]", "[drift_x]", "[drift_y]"))
 		var/height = text2num(rustg_noise_get_at_coordinates("[height_seed]", "[drift_x]", "[drift_y]"))
-		var/area/A = gen_turf.loc //meet my friends, Ctrl+C and Ctrl+V!
+		var/humidity = text2num(rustg_noise_get_at_coordinates("[humidity_seed]", "[drift_x]", "[drift_y]"))
+		var/heat_level
+		var/humidity_level
+		var/datum/revamped_biome/selected_biome
+		var/datum/revamped_biome/cave/selected_cave_biome
+
+		var/area/A = gen_turf.loc
 		if(!(A.area_flags & CAVES_ALLOWED))
 			continue
-		var/datum/biome/selected_biome
 
-		if(height <= 0.85) //If height is less than 0.85, we generate biomes based on the heat and humidity of the area.
-			var/humidity = text2num(rustg_noise_get_at_coordinates("[humidity_seed]", "[drift_x]", "[drift_y]"))
-			var/heat = text2num(rustg_noise_get_at_coordinates("[heat_seed]", "[drift_x]", "[drift_y]"))
-			var/heat_level //Type of heat zone we're in LOW-MEDIUM-HIGH
-			var/humidity_level  //Type of humidity zone we're in LOW-MEDIUM-HIGH
-
+		switch(humidity)
+			if(0 to 0.25)
+				humidity_level = "biome_lowest_humidity"
+			if(0.25 to 0.5)
+				humidity_level = "biome_low_humidity"
+			if(0.5 to 0.75)
+				humidity_level = "biome_medium_humidity"
+			if(0.75 to 1)
+				humidity_level = "biome_high_humidity"
+		if(height <= mountain_height)
 			switch(heat)
 				if(0 to 0.25)
 					heat_level = planet_type.coldest_biomes
@@ -102,42 +67,26 @@
 					heat_level = planet_type.warm_biomes
 				if(0.75 to 1)
 					heat_level = planet_type.hot_biomes
-
-			switch(humidity)
-				if(0 to 0.25)
-					humidity_level = "biome_lowest_humidity"
-				if(0.25 to 0.5)
-					humidity_level = "biome_low_humidity"
-				if(0.5 to 0.75)
-					humidity_level = "biome_medium_humidity"
-				if(0.75 to 1)
-					humidity_level = "biome_high_humidity"
 			selected_biome = heat_level[humidity_level]
-			selected_biome = SSmapping.biomes[selected_biome] //Get the instance of this biome from SSmapping
+			selected_biome = SSmapping.revamped_biomes[selected_biome]
+			selected_biome.generate_overworld(gen_turf)
+			CHECK_TICK_HIGH_PRIORITY
 
+		else
+			switch(heat)
+				if(0 to 0.25)
+					heat_level = planet_type.coldest_cave_biomes
+				if(0.25 to 0.5)
+					heat_level = planet_type.cold_cave_biomes
+				if(0.5 to 0.75)
+					heat_level = planet_type.warm_cave_biomes
+				if(0.75 to 1)
+					heat_level = planet_type.hot_cave_biomes
+			selected_cave_biome = heat_level[humidity_level]
+			selected_cave_biome = SSmapping.revamped_biomes[selected_cave_biome]
+			selected_cave_biome.generate_caves(gen_turf, string_gen)
 
-			//ACTUAL BIOME CREATION CODE
-			gen_turf.ChangeTurf(turf_type, initial(turf_type.baseturfs), CHANGETURF_DEFER_CHANGE)
-			var/area/A = gen_turf.loc
-			if(length(fauna_types) && prob(fauna_density) && (A.area_flags & MOB_SPAWN_ALLOWED))
-				var/mob/fauna = pick(fauna_types)
-				new fauna(gen_turf)
-
-			if(length(flora_types) && prob(flora_density) && (A.area_flags & FLORA_ALLOWED))
-				var/obj/structure/flora = pick(flora_types)
-				new flora(gen_turf)
-
-			CHECK_TICK
-		else //CAVE CREATION CODE
-			var/closed = text2num(string_gen[world.maxx * (gen_turf.y - 1) + gen_turf.x])
-			var/stored_flags
-			if(gen_turf.flags_1 & NO_RUINS_1)
-				stored_flags |= NO_RUINS_1
-			var/turf/new_turf = pickweight(closed ? closed_turf_types : open_turf_types)
-			new_turf = gen_turf.ChangeTurf(new_turf, initial(new_turf.baseturfs), CHANGETURF_DEFER_CHANGE)
-			new_turf.flags_1 |= stored_flags
-
-
+			CHECK_TICK_HIGH_PRIORITY
 
 /turf/open/genturf
 	name = "ungenerated turf"

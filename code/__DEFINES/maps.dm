@@ -137,13 +137,6 @@ require only minor tweaks.
 #define BIOME_HIGHMEDIUM_HUMIDITY "highmedium_humidity"
 #define BIOME_HIGH_HUMIDITY "high_humidity"
 
-// #define BIOME_LOWEST_HUMIDITY "lowest_humidity"
-// #define BIOME_MEDIUM_HUMIDITY "medium_humidity"
-
-// #define COLDEST_BIOMES "coldest_biomes"
-// #define COLD_BIOMES "cold_biomes"
-// #define WARM_BIOMES "warm_biomes"
-// #define HOT_BIOMES "hot_biomes"
 #define ALLOCATION_FREE 1
 #define ALLOCATION_QUADRANT 2
 
