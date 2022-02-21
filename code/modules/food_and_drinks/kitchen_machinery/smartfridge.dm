@@ -13,9 +13,13 @@
 	active_power_usage = 100
 	circuit = /obj/item/circuitboard/machine/smartfridge
 
+	//Max item capacity of a fridge
 	var/max_n_of_items = 1500
+	//Whether AIs can remotely dispense items from the fridge
 	var/allow_ai_retrieve = FALSE
+	//Stuff that comes preloaded with the fridge
 	var/list/initial_contents
+	//Whether the fridge visibly fills up (changes the sprite) the more items there are in it
 	var/visible_contents = TRUE
 	///Whether the fridge can be unanchored without having to deconstruct it. Default = TRUE
 	var/can_unanchor = TRUE
@@ -33,8 +37,8 @@
 				load(new typekey(src))
 
 /obj/machinery/smartfridge/RefreshParts()
-	for(var/obj/item/stock_parts/matter_bin/B in component_parts)
-		max_n_of_items = 1500 * B.rating
+	for(var/obj/item/stock_parts/matter_bin/new_bin in component_parts)
+		max_n_of_items = 1500 * new_bin.rating
 
 /obj/machinery/smartfridge/examine(mob/user)
 	. = ..()
@@ -45,7 +49,7 @@
 	SSvis_overlays.remove_vis_overlay(src, managed_vis_overlays)
 	if(!machine_stat)
 		SSvis_overlays.add_vis_overlay(src, icon, "[initial(icon_state)]-light-mask", EMISSIVE_LAYER, EMISSIVE_PLANE, dir, alpha)
-		if (visible_contents)
+		if(visible_contents)
 			switch(contents.len)
 				if(0)
 					icon_state = "[initial(icon_state)]"
@@ -66,29 +70,29 @@
 *   Item Adding
 ********************/
 
-/obj/machinery/smartfridge/attackby(obj/item/O, mob/user, params)
+/obj/machinery/smartfridge/attackby(obj/item/attack_item, mob/user, params)
 	if(user.a_intent == INTENT_HARM)
 		return ..()
 
-	if(default_deconstruction_screwdriver(user, icon_state, icon_state, O))
+	if(default_deconstruction_screwdriver(user, icon_state, icon_state, attack_item))
 		cut_overlays()
 		if(panel_open)
 			add_overlay("[initial(icon_state)]-panel")
 		updateUsrDialog()
 		return
 
-	if(default_pry_open(O))
+	if(default_pry_open(attack_item))
 		return
 
-	if(O.tool_behaviour == TOOL_WRENCH)
+	if(attack_item.tool_behaviour == TOOL_WRENCH)
 		if(can_unanchor)
-			default_unfasten_wrench(user, O)
+			default_unfasten_wrench(user, attack_item)
 			power_change()
 			return
 		else
 			to_chat(user, "<span class='warning'>This machine is firmly bolted to the ground and cannot be unanchored!</span>")
 
-	if(default_deconstruction_crowbar(O))
+	if(default_deconstruction_crowbar(attack_item))
 		updateUsrDialog()
 		return
 
@@ -100,73 +104,73 @@
 			to_chat(user, "<span class='warning'>\The [src] is full!</span>")
 			return FALSE
 
-		if(accept_check(O))
-			load(O)
-			user.visible_message("<span class='notice'>[user] adds \the [O] to \the [src].</span>", "<span class='notice'>You add \the [O] to \the [src].</span>")
+		if(accept_check(attack_item))
+			load(attack_item)
+			user.visible_message("<span class='notice'>[user] adds \the [attack_item] to \the [src].</span>", "<span class='notice'>You add \the [attack_item] to \the [src].</span>")
 			updateUsrDialog()
-			if (visible_contents)
+			if(visible_contents)
 				update_icon()
 			return TRUE
 
-		if(istype(O, /obj/item/storage/bag))
-			var/obj/item/storage/P = O
+		if(istype(attack_item, /obj/item/storage/bag))
+			var/obj/item/storage/loading_bag = attack_item
 			var/loaded = 0
-			for(var/obj/G in P.contents)
+			for(var/obj/bag_item in loading_bag.contents)
 				if(contents.len >= max_n_of_items)
 					break
-				if(accept_check(G))
-					load(G)
+				if(accept_check(bag_item))
+					load(bag_item)
 					loaded++
 			updateUsrDialog()
 
 			if(loaded)
 				if(contents.len >= max_n_of_items)
 					user.visible_message(
-						"<span class='notice'>[user] loads \the [src] with \the [O].</span>", \
-						"<span class='notice'>You fill \the [src] with \the [O].</span>")
+						"<span class='notice'>[user] loads \the [src] with \the [attack_item].</span>", \
+						"<span class='notice'>You fill \the [src] with \the [attack_item].</span>")
 				else
 					user.visible_message(
-						"<span class='notice'>[user] loads \the [src] with \the [O].</span>", \
-						"<span class='notice'>You load \the [src] with \the [O].</span>")
-				if(O.contents.len > 0)
+						"<span class='notice'>[user] loads \the [src] with \the [attack_item].</span>", \
+						"<span class='notice'>You load \the [src] with \the [attack_item].</span>")
+				if(attack_item.contents.len > 0)
 					to_chat(user, "<span class='warning'>Some items are refused.</span>")
-				if (visible_contents)
+				if(visible_contents)
 					update_icon()
 				return TRUE
 			else
-				to_chat(user, "<span class='warning'>There is nothing in [O] to put in [src]!</span>")
+				to_chat(user, "<span class='warning'>There is nothing in [attack_item] to put in [src]!</span>")
 				return FALSE
 
-		to_chat(user, "<span class='warning'>\The [src] smartly refuses [O].</span>")
+		to_chat(user, "<span class='warning'>\The [src] smartly refuses [attack_item].</span>")
 		updateUsrDialog()
 		return FALSE
 
 
-/obj/machinery/smartfridge/proc/accept_check(obj/item/O)
-	if(istype(O, /obj/item/reagent_containers/food/snacks/grown/) || istype(O, /obj/item/seeds/) || istype(O, /obj/item/grown/))
+/obj/machinery/smartfridge/proc/accept_check(obj/item/inserted_item)
+	if(istype(inserted_item, /obj/item/reagent_containers/food/snacks/grown/) || istype(inserted_item, /obj/item/seeds/) || istype(inserted_item, /obj/item/grown/))
 		return TRUE
 	return FALSE
 
-/obj/machinery/smartfridge/proc/load(obj/item/O)
-	if(ismob(O.loc))
-		var/mob/M = O.loc
-		if(!M.transferItemToLoc(O, src))
-			to_chat(usr, "<span class='warning'>\the [O] is stuck to your hand, you cannot put it in \the [src]!</span>")
+/obj/machinery/smartfridge/proc/load(obj/item/inserted_item)
+	if(ismob(inserted_item.loc))
+		var/mob/fridge_user = inserted_item.loc
+		if(!fridge_user.transferItemToLoc(inserted_item, src))
+			to_chat(usr, "<span class='warning'>\the [inserted_item] is stuck to your hand, you cannot put it in \the [src]!</span>")
 			return FALSE
 		else
 			return TRUE
 	else
-		if(SEND_SIGNAL(O.loc, COMSIG_CONTAINS_STORAGE))
-			return SEND_SIGNAL(O.loc, COMSIG_TRY_STORAGE_TAKE, O, src)
+		if(SEND_SIGNAL(inserted_item.loc, COMSIG_CONTAINS_STORAGE))
+			return SEND_SIGNAL(inserted_item.loc, COMSIG_TRY_STORAGE_TAKE, inserted_item, src)
 		else
-			O.forceMove(src)
+			inserted_item.forceMove(src)
 			return TRUE
 
-///Really simple proc, just moves the object "O" into the hands of mob "M" if able, done so I could modify the proc a little for the organ fridge
-/obj/machinery/smartfridge/proc/dispense(obj/item/O, mob/M)
-	if(!M.put_in_hands(O))
-		O.forceMove(drop_location())
-		adjust_item_drop_location(O)
+///Really simple proc, just moves the object "dispensed_item" into the hands of mob "fridge_user" if able, done so I could modify the proc a little for the organ fridge //they never actually modified the proc lmao
+/obj/machinery/smartfridge/proc/dispense(obj/item/dispensed_item, mob/fridge_user)
+	if(!fridge_user.put_in_hands(dispensed_item))
+		dispensed_item.forceMove(drop_location())
+		adjust_item_drop_location(dispensed_item)
 
 
 /obj/machinery/smartfridge/ui_interact(mob/user, datum/tgui/ui)
@@ -181,13 +185,13 @@
 
 	var/listofitems = list()
 	for (var/I in src)
-		var/atom/movable/O = I
-		if (!QDELETED(O))
-			var/md5name = md5(O.name)				// This needs to happen because of a bug in a TGUI component, https://github.com/ractivejs/ractive/issues/744
+		var/atom/movable/stored_item = I
+		if (!QDELETED(stored_item))
+			var/md5name = md5(stored_item.name)				// This needs to happen because of a bug in a TGUI component, https://github.com/ractivejs/ractive/issues/744
 			if (listofitems[md5name])				// which is fixed in a version we cannot use due to ie8 incompatibility
 				listofitems[md5name]["amount"]++	// The good news is, #30519 made smartfridge UIs non-auto-updating
 			else
-				listofitems[md5name] = list("name" = O.name, "type" = O.type, "amount" = 1)
+				listofitems[md5name] = list("name" = stored_item.name, "type" = stored_item.type, "amount" = 1)
 	sortList(listofitems)
 
 	.["contents"] = listofitems
@@ -219,21 +223,21 @@
 				return FALSE
 
 			if(desired == 1 && Adjacent(usr) && !issilicon(usr))
-				for(var/obj/item/O in src)
-					if(O.name == params["name"])
-						dispense(O, usr)
+				for(var/obj/item/stored_item in src)
+					if(stored_item.name == params["name"])
+						dispense(stored_item, usr)
 						break
-				if (visible_contents)
+				if(visible_contents)
 					update_icon()
 				return TRUE
 
-			for(var/obj/item/O in src)
+			for(var/obj/item/stored_item in src)
 				if(desired <= 0)
 					break
-				if(O.name == params["name"])
-					dispense(O, usr)
+				if(stored_item.name == params["name"])
+					dispense(stored_item, usr)
 					desired--
-			if (visible_contents)
+			if(visible_contents)
 				update_icon()
 			return TRUE
 	return FALSE
@@ -317,12 +321,12 @@
 			SStgui.update_uis(src)
 			update_icon()
 
-/obj/machinery/smartfridge/drying_rack/accept_check(obj/item/O)
-	if(istype(O, /obj/item/reagent_containers/food/snacks/))
-		var/obj/item/reagent_containers/food/snacks/S = O
-		if(S.dried_type)
+/obj/machinery/smartfridge/drying_rack/accept_check(obj/item/inserted_item)
+	if(istype(inserted_item, /obj/item/reagent_containers/food/snacks/))
+		var/obj/item/reagent_containers/food/snacks/dryable_snack = inserted_item
+		if(dryable_snack.dried_type)
 			return TRUE
-	if(istype(O, /obj/item/stack/sheet/wethide))
+	if(istype(inserted_item, /obj/item/stack/sheet/wethide))
 		return TRUE
 	return FALSE
 
@@ -336,19 +340,19 @@
 	update_icon()
 
 /obj/machinery/smartfridge/drying_rack/proc/rack_dry()
-	for(var/obj/item/reagent_containers/food/snacks/S in src)
-		if(S.dried_type == S.type)//if the dried type is the same as the object's type, don't bother creating a whole new item...
-			S.add_atom_colour("#ad7257", FIXED_COLOUR_PRIORITY)
-			S.dry = TRUE
-			S.forceMove(drop_location())
+	for(var/obj/item/reagent_containers/food/snacks/drying_snack in src)
+		if(drying_snack.dried_type == drying_snack.type)//if the dried type is the same as the object's type, don't bother creating a whole new item...
+			drying_snack.add_atom_colour("#ad7257", FIXED_COLOUR_PRIORITY)
+			drying_snack.dry = TRUE
+			drying_snack.forceMove(drop_location())
 		else
-			var/dried = S.dried_type
+			var/dried = drying_snack.dried_type
 			new dried(drop_location())
-			qdel(S)
+			qdel(drying_snack)
 		return TRUE
-	for(var/obj/item/stack/sheet/wethide/WL in src)
-		new /obj/item/stack/sheet/leather(drop_location(), WL.amount)
-		qdel(WL)
+	for(var/obj/item/stack/sheet/wethide/drying_leather in src)
+		new /obj/item/stack/sheet/leather(drop_location(), drying_leather.amount)
+		qdel(drying_leather)
 		return TRUE
 	return FALSE
 
@@ -366,10 +370,10 @@
 	name = "drink showcase"
 	desc = "A refrigerated storage unit for tasty tasty alcohol."
 
-/obj/machinery/smartfridge/drinks/accept_check(obj/item/O)
-	if(!istype(O, /obj/item/reagent_containers) || (O.item_flags & ABSTRACT) || !O.reagents || !O.reagents.reagent_list.len)
+/obj/machinery/smartfridge/drinks/accept_check(obj/item/inserted_item)
+	if(!istype(inserted_item, /obj/item/reagent_containers) || (inserted_item.item_flags & ABSTRACT) || !inserted_item.reagents || !inserted_item.reagents.reagent_list.len)
 		return FALSE
-	if(istype(O, /obj/item/reagent_containers/glass) || istype(O, /obj/item/reagent_containers/food/drinks) || istype(O, /obj/item/reagent_containers/food/condiment))
+	if(istype(inserted_item, /obj/item/reagent_containers/glass) || istype(inserted_item, /obj/item/reagent_containers/food/drinks) || istype(inserted_item, /obj/item/reagent_containers/food/condiment))
 		return TRUE
 
 // ----------------------------
@@ -378,8 +382,8 @@
 /obj/machinery/smartfridge/food
 	desc = "A refrigerated storage unit for food."
 
-/obj/machinery/smartfridge/food/accept_check(obj/item/O)
-	if(istype(O, /obj/item/reagent_containers/food/snacks/))
+/obj/machinery/smartfridge/food/accept_check(obj/item/inserted_item)
+	if(istype(inserted_item, /obj/item/reagent_containers/food/snacks/))
 		return TRUE
 	return FALSE
 
@@ -390,10 +394,10 @@
 	name = "smart slime extract storage"
 	desc = "A refrigerated storage unit for slime extracts."
 
-/obj/machinery/smartfridge/extract/accept_check(obj/item/O)
-	if(istype(O, /obj/item/slime_extract))
+/obj/machinery/smartfridge/extract/accept_check(obj/item/inserted_item)
+	if(istype(inserted_item, /obj/item/slime_extract))
 		return TRUE
-	if(istype(O, /obj/item/slime_scanner))
+	if(istype(inserted_item, /obj/item/slime_scanner))
 		return TRUE
 	return FALSE
 
@@ -409,36 +413,36 @@
 	max_n_of_items = 20	//vastly lower to prevent processing too long
 	var/repair_rate = 0
 
-/obj/machinery/smartfridge/organ/accept_check(obj/item/O)
-	if(isorgan(O) || isbodypart(O))
+/obj/machinery/smartfridge/organ/accept_check(obj/item/inserted_item)
+	if(isorgan(inserted_item) || isbodypart(inserted_item))
 		return TRUE
 	return FALSE
 
-/obj/machinery/smartfridge/organ/load(obj/item/O)
+/obj/machinery/smartfridge/organ/load(obj/item/inserted_item)
 	. = ..()
 	if(!.)	//if the item loads, clear can_decompose
 		return
-	if(isorgan(O))
-		var/obj/item/organ/organ = O
+	if(isorgan(inserted_item))
+		var/obj/item/organ/organ = inserted_item
 		organ.organ_flags |= ORGAN_FROZEN
 
 /obj/machinery/smartfridge/organ/RefreshParts()
-	for(var/obj/item/stock_parts/matter_bin/B in component_parts)
-		max_n_of_items = 20 * B.rating
-		repair_rate = max(0, STANDARD_ORGAN_HEALING * (B.rating - 1))
+	for(var/obj/item/stock_parts/matter_bin/new_bin in component_parts)
+		max_n_of_items = 20 * new_bin.rating
+		repair_rate = max(0, STANDARD_ORGAN_HEALING * (new_bin.rating - 1))
 
 /obj/machinery/smartfridge/organ/process()
 	for(var/organ in contents)
-		var/obj/item/organ/O = organ
-		if(!istype(O))
+		var/obj/item/organ/healing_organ = organ
+		if(!istype(healing_organ))
 			return
-		O.applyOrganDamage(-repair_rate)
+		healing_organ.applyOrganDamage(-repair_rate)
 
 /obj/machinery/smartfridge/organ/Exited(atom/movable/AM, atom/newLoc)
 	. = ..()
 	if(isorgan(AM))
-		var/obj/item/organ/O = AM
-		O.organ_flags &= ~ORGAN_FROZEN
+		var/obj/item/organ/dispensed_organ = AM
+		dispensed_organ.organ_flags &= ~ORGAN_FROZEN
 
 // -----------------------------
 // Chemistry Medical Smartfridge
@@ -447,7 +451,7 @@
 	name = "smart chemical storage"
 	desc = "A refrigerated storage unit for medicine storage."
 
-/obj/machinery/smartfridge/chemistry/accept_check(obj/item/O)
+/obj/machinery/smartfridge/chemistry/accept_check(obj/item/inserted_item)
 	var/static/list/chemfridge_typecache = typecacheof(list(
 					/obj/item/reagent_containers/syringe,
 					/obj/item/reagent_containers/glass/bottle,
@@ -457,20 +461,20 @@
 					/obj/item/reagent_containers/chem_pack
 	))
 
-	if(istype(O, /obj/item/storage/pill_bottle))
-		if(O.contents.len)
-			for(var/obj/item/I in O)
-				if(!accept_check(I))
+	if(istype(inserted_item, /obj/item/storage/pill_bottle))
+		if(inserted_item.contents.len)
+			for(var/obj/item/bottle_contents in inserted_item)
+				if(!accept_check(bottle_contents))
 					return FALSE
 			return TRUE
 		return FALSE
-	if(!istype(O, /obj/item/reagent_containers) || (O.item_flags & ABSTRACT))
+	if(!istype(inserted_item, /obj/item/reagent_containers) || (inserted_item.item_flags & ABSTRACT))
 		return FALSE
-	if(istype(O, /obj/item/reagent_containers/pill)) // empty pill prank ok
+	if(istype(inserted_item, /obj/item/reagent_containers/pill)) // empty pill prank ok
 		return TRUE
-	if(!O.reagents || !O.reagents.reagent_list.len) // other empty containers not accepted
+	if(!inserted_item.reagents || !inserted_item.reagents.reagent_list.len) // other empty containers not accepted
 		return FALSE
-	if(is_type_in_typecache(O, chemfridge_typecache))
+	if(is_type_in_typecache(inserted_item, chemfridge_typecache))
 		return TRUE
 	return FALSE
 
@@ -509,8 +513,8 @@
 	pass_flags = PASSTABLE
 	visible_contents = FALSE
 
-/obj/machinery/smartfridge/disks/accept_check(obj/item/O)
-	if(istype(O, /obj/item/disk/))
+/obj/machinery/smartfridge/disks/accept_check(obj/item/inserted_item)
+	if(istype(inserted_item, /obj/item/disk/))
 		return TRUE
 	else
 		return FALSE

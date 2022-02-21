@@ -79,6 +79,7 @@
 		if(target_compstorage)
 			target_compstorage.update_icon()
 			to_chat(user, "<span class='notice'>You sweep the pile of items into [target_compstorage].</span>")
+			playsound(loc, 'sound/items/pshoom.ogg', 20, TRUE, -1)
 		playsound(loc, 'sound/weapons/thudswoosh.ogg', 30, TRUE, -1)
 
 /obj/item/pushbroom/proc/janicart_insert(mob/user, obj/structure/janitorialcart/J) //bless you whoever fixes this copypasta
