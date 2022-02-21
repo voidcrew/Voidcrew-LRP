@@ -197,6 +197,9 @@
 	dir = 1;
 	pixel_y = -24
 	},
+/obj/structure/frame/machine,
+/obj/item/storage/box/stockparts/basic,
+/obj/item/circuitboard/machine/autolathe,
 /turf/open/floor/plasteel,
 /area/ship/maintenance/fore)
 "gh" = (
@@ -1031,7 +1034,9 @@
 /turf/open/floor/plasteel,
 /area/ship/maintenance/fore)
 "Da" = (
-/obj/machinery/door/poddoor/shutters,
+/obj/machinery/door/poddoor/shutters{
+	id = "Mcargotide"
+	},
 /turf/open/floor/plasteel,
 /area/ship/maintenance/central)
 "Dh" = (
@@ -1046,6 +1051,7 @@
 "DF" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/trash/can,
+/obj/structure/frame/machine,
 /turf/open/floor/plasteel,
 /area/ship/maintenance/fore)
 "DV" = (
