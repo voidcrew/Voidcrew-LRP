@@ -93,7 +93,7 @@ export const AuxConsoleCommands = (props, context) => {
               consoleMode: CONSOLE_MODE_AUTOPILOT,
             })} />
           <Button
-            content="Subverter"
+            content="Interdictor"
             disabled={!subverter}
             selected={consoleMode === CONSOLE_MODE_SUBVERTER}
             onClick={() => act('set_view', {
@@ -225,7 +225,7 @@ const SubverterConsoleContent = (props, context) => {
         </Box>
       </Box>
       <Section
-        title="Subverter GUI"
+        title="Interdictor GUI"
         level={2}>
         <LabeledList>
           <LabeledList.Item label="Target">
