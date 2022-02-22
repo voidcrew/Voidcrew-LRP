@@ -7,7 +7,7 @@
 #define SUBVERTER_SPICINESS 150
 
 /obj/machinery/subverter
-	name = "subverter"
+	name = "interdictor"
 	desc = "A piece of equipment used to upload programs to other vessels. It has no interface: It could be linked to an auxillary console or the wires could be pulsed manually."
 	icon = 'voidcrew/icons/obj/machines/space_hacking.dmi'
 	icon_state = "subverter"
