@@ -2,7 +2,9 @@
 	var/list/coldest_biomes
 	var/list/cold_biomes
 	var/list/warm_biomes
+	var/list/perfect_biomes
 	var/list/hot_biomes
+	var/list/hottest_biomes
 	var/list/coldest_cave_biomes
 	var/list/cold_cave_biomes
 	var/list/warm_cave_biomes

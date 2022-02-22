@@ -1,4 +1,4 @@
-/datum/planet/tropical
+// /datum/planet/tropical
 	// coldest_biomes = list(
 	// 	BIOME_LOWEST_HUMIDTY = /datum/biome/tropical/beach,
 	// 	BIOME_LOW_HUMIDITY = /datum/biome/tropical/beach/shore,

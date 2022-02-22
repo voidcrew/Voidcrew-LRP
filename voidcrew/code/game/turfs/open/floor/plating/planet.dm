@@ -11,3 +11,14 @@
 	light_range = 2
 	light_power = 0.8
 	light_color = LIGHT_COLOR_BLUEGREEN
+/turf/open/floor/plating/dirt/old
+	icon_state = "oldsmoothdirt"
+/turf/open/floor/plating/dirt/old/lit
+	light_power = 1
+	light_range = 2
+/turf/open/floor/plating/dirt/old/dark
+	icon_state =  "oldsmoothdarkdirt"
+/turf/open/floor/plating/dirt/old/dark/lit
+	light_power = 1
+	light_range = 2
+

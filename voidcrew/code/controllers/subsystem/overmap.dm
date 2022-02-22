@@ -271,6 +271,8 @@ SUBSYSTEM_DEF(overmap)
 	var/area/target_area
 	var/turf/surface = /turf/open/space
 	var/datum/weather_controller/weather_controller_type
+	// var/datum/planet/planet_template
+	var/datum/planet/planet_template
 	if(!isnull(planet_type))
 		planet_type = new planet_type
 		ruin_list = get_ruin_list(planet_type.ruin_type)
@@ -279,6 +281,8 @@ SUBSYSTEM_DEF(overmap)
 		target_area = planet_type.target_area
 		surface = planet_type.surface
 		weather_controller_type = planet_type.weather_controller_type
+		if(!(isnull(planet_type.planet_template)))
+			planet_template = new planet_type.planet_template
 		qdel(planet_type)
 
 	if(ruin && ruin_list && !ruin_type)
@@ -308,8 +312,11 @@ SUBSYSTEM_DEF(overmap)
 			)
 		ruin_type.load(ruin_turf)
 
-	if(mapgen)
-		mapgen.generate_terrain(vlevel.get_unreserved_block())
+	if (!isnull(mapgen) && istype(mapgen, /datum/map_generator/planet_generator) && !isnull(planet_template))
+		mapgen.generate_terrain(vlevel.get_unreserved_block(), planet_template)
+	else
+		if (!isnull(mapgen))
+			mapgen.generate_terrain(vlevel.get_unreserved_block())
 
 	if(weather_controller_type)
 		new weather_controller_type(mapzone)

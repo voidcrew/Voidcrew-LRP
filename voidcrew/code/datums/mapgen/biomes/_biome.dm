@@ -16,6 +16,7 @@
 	var/turf/picked_turf = pickweight(open_turf_types)
 	var/turf/open/new_turf = gen_turf.ChangeTurf(picked_turf, initial(picked_turf.baseturfs), CHANGETURF_DEFER_CHANGE)
 	generate_features(new_turf)
+	CHECK_TICK
 
 /datum/revamped_biome/cave/proc/generate_caves(var/turf/gen_turf, var/string_gen)
 	var/area/A = gen_turf.loc
@@ -32,14 +33,18 @@
 	new_turf = gen_turf.ChangeTurf(new_turf, initial(new_turf.baseturfs), CHANGETURF_DEFER_CHANGE)
 	new_turf.flags_1 |= stored_flags
 
+	CHECK_TICK
+
 	//Overwrite turf areas with cave areas to combat weather
 	var/area/overmap_encounter/planetoid/cave/new_area = GLOB.areas_by_type[/area/overmap_encounter/planetoid/cave] || new
 	var/area/old_area = get_area(new_turf)
 	new_area.contents += new_turf
 	new_turf.change_area(old_area, new_area)
+	CHECK_TICK
 
 	if(!closed)
 		generate_features(new_turf)
+	CHECK_TICK
 
 /datum/revamped_biome/proc/generate_features(var/turf/new_turf)
 	//FLORA SPAWNING
@@ -94,3 +99,4 @@
 		if(can_spawn)
 			new picked_mob(new_turf)
 			new_turf.flags_1 |= NO_LAVA_GEN_1
+	CHECK_TICK

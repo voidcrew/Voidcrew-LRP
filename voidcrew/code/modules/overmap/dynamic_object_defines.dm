@@ -28,9 +28,6 @@
 /obj/structure/overmap/dynamic/jungle
 	planet = /datum/overmap/planet/jungle
 
-/obj/structure/overmap/dynamic/generated
-	planet = /datum/overmap/planet/generated
-
 /obj/structure/overmap/dynamic/rock
 	planet = /datum/overmap/planet/rock
 

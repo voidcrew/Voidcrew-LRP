@@ -21,18 +21,8 @@
 	var/turf/surface = /turf/open/space
 	///Weather controller for planet specific weather
 	var/datum/weather_controller/weather_controller_type
-
-/datum/overmap/planet/generated
-	name = "strange planet"
-	desc = "A very weak energy signal originating from a planet teeming with life."
-	color = COLOR_DARK_CYAN
-
-	ruin_type = RUIN_TYPE_JUNGLE
-	mapgen = /datum/map_generator/planet_generator
-
-	target_area = /area/overmap_encounter/planetoid/dynamic
-	surface = /turf/open/floor/plating/dirt/jungle
-	weather_controller_type = /datum/weather_controller/lush
+	///A planet template that contains a list of biomes to use
+	var/datum/planet/planet_template
 
 /datum/overmap/planet/lava
 	name = "strange lava planet"
@@ -40,7 +30,7 @@
 	color = COLOR_ORANGE
 
 	ruin_type = RUIN_TYPE_LAVA
-	mapgen = /datum/map_generator/cave_generator/lavaland
+	mapgen = /datum/map_generator/planet_generator/lava
 	target_area = /area/overmap_encounter/planetoid/lava
 	surface = /turf/open/floor/plating/asteroid/basalt/lava_land_surface
 	weather_controller_type = /datum/weather_controller/lavaland
@@ -51,10 +41,11 @@
 	color = COLOR_BLUE_LIGHT
 
 	ruin_type = RUIN_TYPE_ICE
-	mapgen = /datum/map_generator/cave_generator/icemoon
+	mapgen = /datum/map_generator/planet_generator/snow
 	target_area = /area/overmap_encounter/planetoid/ice
 	surface = /turf/open/floor/plating/asteroid/snow/icemoon
 	weather_controller_type = /datum/weather_controller/snow_planet
+	planet_template = /datum/planet/snow
 
 /datum/overmap/planet/sand
 	name = "strange sand planet"
@@ -73,10 +64,11 @@
 	color = COLOR_LIME
 
 	ruin_type = RUIN_TYPE_JUNGLE
-	mapgen = /datum/map_generator/jungle_generator
+	mapgen = /datum/map_generator/planet_generator
 	target_area = /area/overmap_encounter/planetoid/jungle
 	surface = /turf/open/floor/plating/dirt/jungle
 	weather_controller_type = /datum/weather_controller/lush
+	planet_template = /datum/planet/jungle
 
 /datum/overmap/planet/rock
 	name = "strange rock planet"
