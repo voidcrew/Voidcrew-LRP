@@ -83,7 +83,7 @@ export const AuxConsoleCommands = (props, context) => {
   const { subverter } = data;
   const { consoleMode } = data.view;
   return (
-    <Section title="Auxillary Switches">
+    <Section title="Auxiliary Switches">
       <LabeledList>
         <LabeledList.Item label="Mode">
           <Button

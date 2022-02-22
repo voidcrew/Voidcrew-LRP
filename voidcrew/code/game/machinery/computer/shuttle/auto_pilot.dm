@@ -1,5 +1,5 @@
 /obj/machinery/computer/autopilot
-	name = "auxillary shuttle console"
+	name = "auxiliary shuttle console"
 	desc = "A control computer that extends the shuttle's functionality."
 	icon_screen = "shuttle"
 	icon_keyboard = "tech_key"
