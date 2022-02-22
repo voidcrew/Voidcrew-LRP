@@ -3,7 +3,7 @@
 	desc = "A disk containing a single antiviral node, good for preventing one ship subversion. Load into helm."
 	random_color = FALSE
 	color = "#FFFF00"
-	custom_materials = list(/datum/material/iron=300, /datum/material/glass=100)
+	custom_materials = list(/datum/material/iron = 300, /datum/material/glass = 100)
 
 /datum/supply_pack/security/antivirus_crate
 	name = "Antivirus Crate"
