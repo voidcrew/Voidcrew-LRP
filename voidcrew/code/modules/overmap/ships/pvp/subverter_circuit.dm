@@ -2,7 +2,7 @@
 	name = "Interdictor (Machine Board)"
 	icon_state = "engineering"
 	build_path = /obj/machinery/subverter
-	custom_materials = list(/datum/material/glass=1000, /datum/material/bluespace=8000)
+	custom_materials = list(/datum/material/glass = 1000, /datum/material/bluespace = 8000)
 	req_components = list(
 		/obj/item/stock_parts/scanning_module = 1,
 		/obj/item/stock_parts/micro_laser = 2, //engine_cooldown
