@@ -13,7 +13,7 @@
 	name = "Machine Design (Interdictor)"
 	desc = "The circuit board for an interdictor."
 	id = "shuttle_subverter"
-	materials = list(/datum/material/glass=1000, /datum/material/bluespace=8000)
+	materials = list(/datum/material/glass = 1000, /datum/material/bluespace = 8000)
 	build_path = /obj/item/circuitboard/machine/subverter
 	category = list("Shuttle Machinery")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
