@@ -135,6 +135,9 @@
 /obj/item/dnainjector/thermal,
 /obj/item/storage/box/firingpins,
 /obj/item/storage/box/firingpins,
+/obj/item/ammo_box/magazine/m50,
+/obj/item/ammo_box/magazine/m50,
+/obj/item/ammo_box/magazine/m50,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "az" = (
@@ -195,8 +198,14 @@
 	icon_state = "control_kill";
 	lethal = 1;
 	name = "Ship turret control panel";
-	pixel_y = 32;
+	pixel_x = -32;
 	req_access = null;
+	req_one_access_txt = "150"
+	},
+/obj/machinery/button/door{
+	id = "fsarmory";
+	name = "armory lockdown controls";
+	pixel_y = 32;
 	req_one_access_txt = "150"
 	},
 /turf/open/floor/mineral/plastitanium/red,
@@ -230,11 +239,15 @@
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "aO" = (
 /obj/machinery/light,
+/obj/machinery/suit_storage_unit/syndicate{
+	name = "captain's suit storage unit";
+	suit_type = /obj/item/clothing/suit/space/hardsuit/syndi/elite
+	},
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "aQ" = (
 /obj/machinery/door/airlock/grunge{
-	name = "Syndicate Ship Airlock";
+	name = "Bathroom";
 	req_one_access_txt = "150"
 	},
 /turf/open/floor/plasteel/dark,
@@ -277,6 +290,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/vending/toyliberationstation,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/syndicate_forgotten_cargopod)
 "aY" = (
@@ -293,7 +307,10 @@
 /area/ruin/space/has_grav/syndicate_forgotten_cargopod)
 "bc" = (
 /obj/machinery/light,
-/mob/living/simple_animal/hostile/nanotrasen/ranged/assault,
+/mob/living/simple_animal/hostile/nanotrasen/ranged/assault{
+	desc = "They have severe burns!";
+	health = 40
+	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "bd" = (
@@ -310,6 +327,8 @@
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/rods/fifty,
 /obj/item/shuttle_creator,
+/obj/item/stack/sheet/mineral/wood/fifty,
+/obj/item/stack/sheet/mineral/wood/fifty,
 /turf/open/floor/pod/dark,
 /area/ruin/space/has_grav/powered/syndicate_forgotten_vault)
 "bg" = (
@@ -367,6 +386,10 @@
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "bo" = (
 /obj/machinery/light,
+/obj/item/multitool/syndie{
+	desc = "An old syndicate multitool. Its screen is flickering.";
+	name = "old multitool"
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/syndicate_forgotten_cargopod)
 "bp" = (
@@ -379,6 +402,18 @@
 /obj/item/storage/bag/ore,
 /obj/item/pickaxe/drill,
 /obj/item/mining_scanner,
+/obj/item/syndie_crusher{
+	pixel_x = 5;
+	pixel_y = 6
+	},
+/obj/item/syndie_crusher{
+	pixel_x = 5;
+	pixel_y = 6
+	},
+/obj/item/syndie_crusher{
+	pixel_x = 5;
+	pixel_y = 6
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/syndicate_forgotten_cargopod)
 "bq" = (
@@ -388,6 +423,16 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/porta_turret/syndicate/energy{
+	armor = list("melee" = 80, "bullet" = 30, "laser" = 80, "energy" = 70, "bomb" = 50, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 100);
+	desc = "An upgraded energy blaster auto-turret equipped with more reinforced armor. It also uses a more experimental laser lens.";
+	dir = 10;
+	name = "Armory Turret";
+	on = 0;
+	shot_delay = 10;
+	throw_speed = 4;
+	use_power = 1
+	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "bs" = (
@@ -395,6 +440,7 @@
 /area/ruin/unpowered/no_grav)
 "bt" = (
 /obj/machinery/light,
+/obj/machinery/holopad/emergency/command,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "bu" = (
@@ -437,7 +483,7 @@
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "by" = (
 /obj/machinery/door/airlock/grunge{
-	name = "Syndicate Ship Airlock";
+	name = "Main Dormitory";
 	req_one_access_txt = "150"
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -505,18 +551,12 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "bJ" = (
-/obj/machinery/suit_storage_unit/syndicate{
-	helmet_type = /obj/item/clothing/head/helmet/space/syndicate/black;
-	suit_type = /obj/item/clothing/suit/space/syndicate/black
-	},
+/obj/machinery/suit_storage_unit/syndicate,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "bK" = (
-/obj/machinery/suit_storage_unit/syndicate{
-	helmet_type = /obj/item/clothing/head/helmet/space/syndicate/black;
-	suit_type = /obj/item/clothing/suit/space/syndicate/black
-	},
 /obj/machinery/light,
+/obj/machinery/suit_storage_unit/syndicate,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "bL" = (
@@ -688,7 +728,7 @@
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "cm" = (
 /obj/machinery/door/airlock/grunge{
-	name = "Syndicate Ship Airlock";
+	name = "Medical Bay";
 	req_one_access_txt = "150"
 	},
 /turf/open/floor/mineral/plastitanium/red,
@@ -707,9 +747,8 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "cp" = (
-/obj/machinery/door/window{
-	armor = list("melee" = 50, "bullet" = 50, "laser" = 50, "energy" = 50, "bomb" = 10, "bio" = 100, "rad" = 100, "fire" = 70, "acid" = 100);
-	name = "Control room";
+/obj/machinery/door/airlock/grunge{
+	name = "Armory";
 	req_one_access_txt = "150"
 	},
 /turf/open/floor/mineral/plastitanium/red,
@@ -725,7 +764,9 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "cr" = (
-/obj/machinery/vending/cigarette/syndicate,
+/obj/machinery/vending/cigarette/syndicate{
+	all_items_free = 1
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "cs" = (
@@ -738,6 +779,7 @@
 /area/ruin/space/has_grav/syndicate_forgotten_cargopod)
 "ct" = (
 /obj/machinery/vending/medical/syndicate_access{
+	all_items_free = 1;
 	premium = list(/obj/item/reagent_containers/medigel/synthflesh = 2, /obj/item/storage/pill_bottle/psicodine = 2, /obj/item/reagent_containers/hypospray/medipen = 3, /obj/item/storage/belt/medical = 3, /obj/item/sensor_device = 2, /obj/item/pinpointer/crew = 2, /obj/item/storage/firstaid = 5, /obj/item/storage/firstaid/advanced = 2, /obj/item/storage/firstaid/tactical = 1, /obj/item/shears = 1, /obj/item/plunger/reinforced = 2)
 	},
 /turf/open/floor/plastic,
@@ -802,10 +844,20 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "cJ" = (
-/obj/machinery/door/window{
-	dir = 1;
-	name = "Spare equipment";
+/obj/machinery/door/airlock/grunge{
+	name = "Telecommunications";
 	req_one_access_txt = "150"
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/syndicate_forgotten_ship)
+"cK" = (
+/obj/machinery/door/airlock/grunge{
+	name = "Armory";
+	req_one_access_txt = "150"
+	},
+/obj/machinery/door/poddoor/multi_tile/two_tile_hor{
+	id = "fsarmory";
+	name = "armory lockdown"
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
@@ -862,7 +914,7 @@
 /obj/machinery/atmospherics/pipe/simple/supplymain/hidden{
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/nanotrasen/elite,
+/mob/living/simple_animal/hostile/nanotrasen/ranged/assault,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "cR" = (
@@ -924,7 +976,7 @@
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "cZ" = (
 /obj/machinery/door/airlock/grunge{
-	name = "Syndicate Ship Airlock";
+	name = "Toilet";
 	req_one_access_txt = "150"
 	},
 /obj/effect/turf_decal/corner/black{
@@ -965,39 +1017,15 @@
 /turf/open/floor/pod/dark,
 /area/ruin/space/has_grav/powered/syndicate_forgotten_vault)
 "df" = (
-/obj/structure/closet/syndicate{
-	anchored = 1;
-	armor = list("melee" = 70, "bullet" = 40, "laser" = 40, "energy" = 30, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 70, "acid" = 60);
-	desc = "A basic closet for all your villainous needs.";
-	locked = 1;
-	name = "Closet";
-	req_one_access_txt = "150";
-	secure = 1
-	},
-/obj/item/clothing/under/syndicate/combat,
-/obj/item/clothing/gloves/combat,
-/obj/item/clothing/shoes/combat,
-/obj/item/clothing/mask/gas/syndicate,
-/obj/item/clothing/under/syndicate/skirt,
+/obj/structure/table/reinforced,
+/obj/item/multitool/syndie,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "dg" = (
-/obj/structure/closet/syndicate{
-	anchored = 1;
-	armor = list("melee" = 70, "bullet" = 40, "laser" = 40, "energy" = 30, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 70, "acid" = 60);
-	desc = "A basic closet for all your villainous needs.";
-	locked = 1;
-	name = "Closet";
-	req_one_access_txt = "150";
-	secure = 1
+/obj/machinery/telecomms/allinone{
+	intercept = 1;
+	on = 0
 	},
-/obj/item/clothing/head/HoS/beret/syndicate,
-/obj/item/clothing/suit/armor/vest/capcarapace/syndicate,
-/obj/item/clothing/mask/gas/syndicate,
-/obj/item/clothing/under/syndicate,
-/obj/item/clothing/under/syndicate/skirt,
-/obj/item/clothing/gloves/combat,
-/obj/item/clothing/shoes/combat,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "dh" = (
@@ -1067,7 +1095,7 @@
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "dn" = (
 /obj/machinery/door/airlock/grunge{
-	name = "Syndicate Ship Airlock";
+	name = "Engine Room";
 	req_one_access_txt = "150"
 	},
 /turf/open/floor/plating,
@@ -1151,9 +1179,20 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
+"eO" = (
+/obj/machinery/vending/security/marine{
+	all_items_free = 1
+	},
+/obj/item/gun_voucher/syndicate,
+/obj/item/gun_voucher/syndicate,
+/obj/item/gun_voucher/syndicate,
+/obj/item/gun_voucher/syndicate,
+/obj/item/gun_voucher/syndicate,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/syndicate_forgotten_ship)
 "eY" = (
 /obj/machinery/door/airlock/grunge{
-	name = "Syndicate Ship Airlock";
+	name = "Crew Quarters";
 	req_one_access_txt = "150"
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{
@@ -1165,6 +1204,65 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/syndicate_forgotten_ship)
+"fV" = (
+/obj/machinery/door/poddoor/multi_tile/two_tile_ver{
+	id = "fspod";
+	name = "cargo pod door"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/syndicate_forgotten_cargopod)
+"hA" = (
+/obj/structure/closet/crate/secure/gear{
+	name = "ration crate";
+	req_one_access_txt = "150"
+	},
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/reagent_containers/food/snacks/rationpack,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "iC" = (
@@ -1271,6 +1369,10 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
+"tl" = (
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/syndicate_forgotten_cargopod)
 "tu" = (
 /obj/machinery/door/airlock/external{
 	name = "Syndicate ship airlock";
@@ -1321,12 +1423,22 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
+"uB" = (
+/obj/machinery/telecomms/relay/preset/ruskie,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/syndicate_forgotten_ship)
 "uC" = (
 /obj/structure/sign/number/two{
 	dir = 1
 	},
 /turf/closed/wall/r_wall/syndicate,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
+"uF" = (
+/obj/item/stack/marker_beacon/thirty,
+/obj/item/stack/marker_beacon/thirty,
+/obj/item/stack/marker_beacon/thirty,
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/syndicate_forgotten_cargopod)
 "vf" = (
 /obj/machinery/door/poddoor{
 	id = "fslockdown";
@@ -1389,6 +1501,11 @@
 	name = "Engine Hatch";
 	req_one_access_txt = "150"
 	},
+/obj/machinery/door/poddoor{
+	id = "fslockdown";
+	name = "Ship blast door";
+	state_open = 1
+	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "BZ" = (
@@ -1411,6 +1528,16 @@
 "DI" = (
 /obj/structure/sign/number/one,
 /turf/closed/wall/r_wall/syndicate,
+/area/ruin/space/has_grav/syndicate_forgotten_ship)
+"DR" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/autolathe/hacked{
+	desc = "A Syndicate-brand autolathe with its safeties shorted out.";
+	name = "syndicate autolathe"
+	},
+/turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "Eh" = (
 /obj/machinery/computer/crew/syndie{
@@ -1483,6 +1610,15 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
+"GR" = (
+/obj/machinery/button/door{
+	id = "fsarmory";
+	name = "armory lockdown controls";
+	pixel_y = 32;
+	req_one_access_txt = "150"
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/syndicate_forgotten_ship)
 "Ha" = (
 /obj/structure/cable,
 /obj/machinery/power/terminal{
@@ -1538,6 +1674,11 @@
 	name = "Engine Hatch";
 	req_one_access_txt = "150"
 	},
+/obj/machinery/door/poddoor{
+	id = "fslockdown";
+	name = "Ship blast door";
+	state_open = 1
+	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "Nx" = (
@@ -1547,7 +1688,7 @@
 	state_open = 1
 	},
 /obj/machinery/door/airlock/grunge{
-	name = "Captain's room";
+	name = "Engine Room";
 	req_one_access_txt = "150"
 	},
 /obj/structure/cable{
@@ -1560,6 +1701,13 @@
 	dir = 6
 	},
 /turf/open/floor/plating,
+/area/ruin/space/has_grav/syndicate_forgotten_ship)
+"Oo" = (
+/mob/living/simple_animal/hostile/nanotrasen/ranged/assault,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ruin/space/has_grav/syndicate_forgotten_ship)
+"Pp" = (
+/turf/closed/wall/r_wall/syndicate/nodiagonal,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "PP" = (
 /obj/structure/catwalk,
@@ -1601,6 +1749,15 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/syndicate_forgotten_cargopod)
+"Th" = (
+/obj/machinery/button/door{
+	id = "fspod";
+	name = "Cargo pod blast door";
+	pixel_y = 32;
+	req_one_access_txt = "150"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/syndicate_forgotten_cargopod)
 "UB" = (
 /obj/machinery/power/apc/syndicate{
 	dir = 1;
@@ -1613,6 +1770,19 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
+"Vm" = (
+/obj/machinery/door/airlock/grunge{
+	name = "Shower";
+	req_one_access_txt = "150"
+	},
+/obj/effect/turf_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/turf_decal/corner/black{
+	dir = 4
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/syndicate_forgotten_ship)
 "VD" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer1{
 	dir = 4
@@ -1624,6 +1794,16 @@
 	icon_state = "4-8"
 	},
 /turf/open/floor/mineral/plastitanium,
+/area/ruin/space/has_grav/syndicate_forgotten_ship)
+"VH" = (
+/obj/structure/window/plasma/reinforced/plastitanium,
+/obj/machinery/door/poddoor{
+	id = "fsarmory";
+	name = "Armory blast door";
+	state_open = 1
+	},
+/obj/structure/grille,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/syndicate_forgotten_ship)
 "VU" = (
 /obj/machinery/atmospherics/components/unary/tank/toxins{
@@ -2042,7 +2222,7 @@ aa
 aa
 aa
 aa
-bZ
+Pp
 ap
 ap
 bZ
@@ -2056,7 +2236,7 @@ af
 bZ
 ap
 ap
-bZ
+Pp
 aa
 aa
 aa
@@ -2230,9 +2410,9 @@ aa
 aa
 aa
 bZ
-bZ
+Pp
 Nx
-bZ
+Pp
 bZ
 bZ
 bZ
@@ -2512,7 +2692,7 @@ aa
 aa
 aa
 ac
-bZ
+Pp
 co
 bZ
 aI
@@ -2570,7 +2750,7 @@ eY
 bZ
 bZ
 bZ
-bZ
+aQ
 bZ
 bZ
 bZ
@@ -2678,7 +2858,7 @@ ba
 bq
 bb
 bb
-bj
+Th
 bl
 bb
 bb
@@ -2712,7 +2892,7 @@ al
 aQ
 bI
 bI
-cZ
+Vm
 dc
 bZ
 aa
@@ -2821,7 +3001,7 @@ bb
 Fp
 Ta
 bj
-bj
+uF
 bb
 bs
 ba
@@ -2841,7 +3021,7 @@ aa
 aa
 aa
 bZ
-ai
+DR
 al
 bZ
 bP
@@ -3040,7 +3220,7 @@ cR
 cX
 aF
 al
-al
+hA
 bZ
 ah
 bZ
@@ -3054,8 +3234,8 @@ ba
 ba
 ba
 bb
-bb
-bb
+tl
+fV
 bb
 ba
 ba
@@ -3171,9 +3351,9 @@ aa
 aa
 bZ
 bZ
+VH
 bZ
-bZ
-aw
+GR
 aw
 aw
 aw
@@ -3183,7 +3363,7 @@ aw
 aw
 aw
 bZ
-bZ
+au
 bZ
 bZ
 aa
@@ -3219,10 +3399,10 @@ aa
 bZ
 aG
 aw
-bZ
+cK
 aw
 aw
-aw
+Oo
 cB
 cT
 aw
@@ -3231,7 +3411,7 @@ aw
 aw
 bZ
 df
-df
+uB
 bZ
 aa
 aa
@@ -3312,7 +3492,7 @@ aa
 aa
 ac
 bZ
-aw
+eO
 bZ
 aw
 cu
