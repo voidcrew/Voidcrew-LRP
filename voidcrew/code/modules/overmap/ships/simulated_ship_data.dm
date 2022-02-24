@@ -68,7 +68,7 @@
 	crewmembers.Add(new_cremate)
 	RegisterSignal(crewmate, COMSIG_MOB_DEATH, .proc/handle_inactive_ship)
 	//Adds a faction hud to a newplayer documentation in _HELPERS/game.dm
-	add_faction_hud(FACTION_HUD_GENERAL, prefix, crewmate)
+	add_faction_hud(FACTION_HUD_GENERAL, faction_prefix, crewmate)
 
 	if (!isnull(source_template.antag_datum))
 		var/datum/antagonist/ship_datum = new source_template.antag_datum

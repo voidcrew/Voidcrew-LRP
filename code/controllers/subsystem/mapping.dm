@@ -202,7 +202,7 @@ SUBSYSTEM_DEF(mapping)
 		else
 			S.short_name = copytext(S.name, 1, 20)
 		if(istext(data["prefix"]))
-			S.prefix = data["prefix"]
+			S.faction_prefix = data["prefix"]
 		if(islist(data["namelists"]))
 			S.name_categories = data["namelists"]
 
@@ -239,14 +239,14 @@ SUBSYSTEM_DEF(mapping)
 		S.disable_passwords = data["disable_passwords"] ? TRUE : FALSE
 		if(isnum(data["cost"]))
 			S.cost = data["cost"]
-			ship_purchase_list["[S.prefix] [S.name] ([S.cost] [CONFIG_GET(string/metacurrency_name)]s)"] = S // VOIDCREW
+			ship_purchase_list["[S.faction_prefix] [S.name] ([S.cost] [CONFIG_GET(string/metacurrency_name)]s)"] = S // VOIDCREW
 		if(isnum(data["limit"]))
 			S.limit = data["limit"]
 		shuttle_templates[S.file_name] = S
 		map_templates[S.file_name] = S
 		if(isnum(data["roundstart"]) && data["roundstart"])
 			maplist[S.name] = S
-		switch(S.prefix)
+		switch(S.faction_prefix)
 			if("NT-C")
 				nt_ship_list[S.name] = S
 			if("SYN-C")
