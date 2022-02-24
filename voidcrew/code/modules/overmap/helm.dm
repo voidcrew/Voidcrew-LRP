@@ -197,9 +197,9 @@
 			if(!new_name)
 				return
 			new_name = trim(new_name)
-			var/prefix = current_ship.prefix
-			if (!(findtext(new_name, "KOS") || findtext(new_name, prefix)))
-				new_name = "[prefix] [new_name]"
+			var/faction_prefix = current_ship.faction_prefix
+			if (!(findtext(new_name, "KOS") || findtext(new_name, faction_prefix)))
+				new_name = "[faction_prefix] [new_name]"
 			if (!length(new_name) || new_name == current_ship.name)
 				return
 			if(!reject_bad_text(new_name, MAX_CHARTER_LEN))
