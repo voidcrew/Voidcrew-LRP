@@ -2,14 +2,14 @@
 
 /obj/structure/overmap/ship/simulated
 	var/obj/machinery/computer/helm/most_recent_helm // For sending messages to the target's helm
-	var/engine_cooldown = 0 // The point in time when your engines will work again
+	//Cooldown for when you get subverted and cannot control the ship anymore
+	COOLDOWN_DECLARE(engine_cooldown)
+	//How many subversion attempts you can block
 	var/antivirus_nodes = 0
-	var/sub_grace = 0
+	//How long you are immune to being subverted
+	COOLDOWN_DECLARE(sub_grace)
 
-/obj/machinery/computer/helm/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
-	..()
-	current_ship.most_recent_helm = src
-
+//For uploading an antivirus
 /obj/machinery/computer/helm/attackby(obj/item/O, mob/user, params)
 	if (istype(O, /obj/item/disk/antivirus))
 		current_ship.antivirus_nodes++
@@ -23,33 +23,33 @@
 	. = ..()
 	. += "<span class='notice'>It has [current_ship.antivirus_nodes] antiviral node[current_ship.antivirus_nodes > 1 ? "s" : ""] installed.</span>"
 
+/**
+*	Try to block a sub attempt. If successful, use up an antivirus node and return TRUE
+*/
 /obj/structure/overmap/ship/simulated/proc/run_antivirus()
 	. = FALSE
 	if (antivirus_nodes > 0)
 		antivirus_nodes--
 		return TRUE
 
-/obj/structure/overmap/ship/simulated/proc/stall_engines(var/amount)
-	engine_cooldown = world.time + amount
-
-/obj/structure/overmap/ship/simulated/proc/grace_period()
-	sub_grace = world.time + SHIP_GRACE_TIME
-
+/**
+*	You just survived a subversion, start the grace period and make the helm say something
+*/
 /obj/structure/overmap/ship/simulated/proc/systems_restored()
-	grace_period()
+	COOLDOWN_START(src, sub_grace, SHIP_GRACE_TIME)
 	most_recent_helm.say("Helm controls restored!")
 
-/obj/structure/overmap/ship/simulated/proc/sub_blocked(obj/machinery/subverter/attacker)
-	most_recent_helm.say("Viral agent blocked. Source: [attacker.ship.name]")
-
+//Prevent subverted ship from being able to do anything
 /obj/machinery/computer/helm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	if (world.time < current_ship.engine_cooldown)
+	if (!COOLDOWN_FINISHED(current_ship, engine_cooldown))
 		say("Helm controls subverted!")
 	else
 		return ..()
 
 /obj/machinery/computer/autopilot/ui_act(action, params)
-	if (world.time < ship.engine_cooldown)
+	if (!COOLDOWN_FINISHED(ship, engine_cooldown))
 		say("Auxillary console unresponsive!")
 	else
 		return ..()
+
+#undef SHIP_GRACE_TIME

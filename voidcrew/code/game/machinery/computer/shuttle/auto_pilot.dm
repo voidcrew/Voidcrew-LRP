@@ -27,9 +27,9 @@
 	if(port?.current_ship)
 		ship = port.current_ship
 		return TRUE
-
+/*
 /obj/machinery/computer/autopilot/attackby(obj/item/O, mob/user, params)
-	if(istype(O, /obj/item/multitool))
+	if(multitool_act(usr, O))
 		var/obj/item/multitool/multi = O
 		if(multi.buffer && istype(multi.buffer, /obj/machinery/subverter) && multi.buffer != src)
 			var/obj/machinery/subverter/masheen = multi.buffer
@@ -42,6 +42,20 @@
 			visible_message("Saved [src] to buffer.")
 	else
 		. = ..()
+*/
+/obj/machinery/computer/autopilot/multitool_act(mob/living/user, obj/item/item)
+	. = ..()
+	var/obj/item/multitool/multi = item
+	if(multi.buffer && istype(multi.buffer, /obj/machinery/subverter) && multi.buffer != src)
+		var/obj/machinery/subverter/masheen = multi.buffer
+		sub = masheen
+		masheen.aux = src
+		visible_message("Linked to [masheen]!")
+		say("External device found! Subverter mode enabled.")
+	else
+		multi.buffer = src
+		visible_message("Saved [src] to buffer.")
+	return TRUE
 
 /obj/machinery/computer/autopilot/ui_interact(mob/user, datum/tgui/ui)
 	if(ship.is_player_in_crew(user) || !isliving(user) || isAdminGhostAI(user))
@@ -56,11 +70,11 @@
 		return
 /obj/machinery/computer/autopilot/ui_data(mob/user)
 	var/list/data = list()
-	var/obj/docking_port/mobile/M = ship.shuttle
+	var/obj/docking_port/mobile/mobile = ship.shuttle
 
 	data["view"] = tgui_view_state
 
-	data["docked_location"] = M ? M.get_status_text_tgui() : "Unknown"
+	data["docked_location"] = mobile ? mobile.get_status_text_tgui() : "Unknown"
 	data["locations"] = list()
 	data["locked"] = FALSE
 	data["authorization_required"] = FALSE
@@ -85,19 +99,19 @@
 			else
 				data["status"] = "Flying | Autopilot inactive"
 
-	for(var/obj/structure/overmap/O in view(ship.sensor_range, get_turf(ship)))
-		if(O == ship.loc || istype(O, /obj/structure/overmap/event) || O == ship)
+	for(var/obj/structure/overmap/object in view(ship.sensor_range, get_turf(ship)))
+		if(object == ship.loc || istype(object, /obj/structure/overmap/event) || object == ship)
 			continue
 		var/list/location_data = list(
-			id = REF(O),
-			name = O.name
+			id = REF(object),
+			name = object.name
 		)
 		data["locations"] += list(location_data)
 	if(length(data["locations"]) == 1)
 		for(var/location in data["locations"])
 			destination = location["id"]
 			data["destination"] = destination
-	if(!length(data["locations"]))
+	else if(!length(data["locations"]))
 		data["locked"] = TRUE
 		data["status"] = "Locked"
 	/*
@@ -105,40 +119,44 @@
 	*/
 
 	data["subverter"] = sub
-	if (sub)
-		data["ships"] = list()
-		data["locked_b"] = FALSE
-		data["recharge_time_str"] = (sub.subverter_cooldown - world.time) > 0 ? sub.get_recharge_str() : "--:--"
-		data["selected_target"] = subvert_target
-		data["status_b"] = "Ready"
-		if(!ship?.shuttle)
-			data["status_b"] = "Missing"
-			return data
+	if (!sub)
+		data["locked_b"] = TRUE
+		data["status_b"] = "No interdictor connected"
+		data["selected_target"] = null
+		return data
+	data["ships"] = list()
+	data["locked_b"] = FALSE
+	data["recharge_time_str"] = (!COOLDOWN_FINISHED(sub, subverter_cooldown)) && sub ? sub.get_recharge_str() : "--:--"
+	data["selected_target"] = subvert_target
+	data["status_b"] = "Ready"
+	if(!ship?.shuttle)
+		data["status_b"] = "Missing"
+		return data
 
-		switch(ship.state)
-			if(OVERMAP_SHIP_UNDOCKING)
-				data["locked_b"] = TRUE
-			if(OVERMAP_SHIP_DOCKING)
-				data["locked_b"] = TRUE
+	switch(ship.state)
+		if(OVERMAP_SHIP_UNDOCKING)
+			data["locked_b"] = TRUE
+		if(OVERMAP_SHIP_DOCKING)
+			data["locked_b"] = TRUE
 
-		for(var/obj/structure/overmap/ship/simulated/O in view(ship.sensor_range, get_turf(ship)))
-			if(O == ship)
-				continue
-			var/list/location_data = list(
-				id = REF(O),
-				name = O.name
-			)
-			data["ships"] += list(location_data)
-		if(length(data["ships"]) == 1)
-			for(var/location in data["ships"])
-				subvert_target = location["id"]
-				data["selected_target"] = subvert_target
-		if(!length(data["ships"]))
-			data["locked_b"] = TRUE
-			data["status_b"] = "No Ships in Range"
-		if(world.time < sub.subverter_cooldown)
-			data["locked_b"] = TRUE
-			data["status_b"] = "Recharging"
+	for(var/obj/structure/overmap/ship/simulated/flying_ship in view(ship.sensor_range, get_turf(ship)))
+		if(flying_ship == ship)
+			continue
+		var/list/location_data = list(
+			id = REF(flying_ship),
+			name = flying_ship.name
+		)
+		data["ships"] += list(location_data)
+	if(length(data["ships"]) == 1)
+		for(var/location in data["ships"])
+			subvert_target = location["id"]
+			data["selected_target"] = subvert_target
+	else if(!length(data["ships"]))
+		data["locked_b"] = TRUE
+		data["status_b"] = "No Ships in Range"
+	if(!COOLDOWN_FINISHED(sub, subverter_cooldown))
+		data["locked_b"] = TRUE
+		data["status_b"] = "Recharging"
 	return data
 
 /obj/machinery/computer/autopilot/ui_act(action, params)

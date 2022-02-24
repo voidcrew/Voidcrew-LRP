@@ -1,29 +1,49 @@
+//Used in subvert_bark
 #define SUBVERTER_BARK_FAILURE 'sound/machines/buzz-two.ogg'
 #define SUBVERTER_BARK_SUCCESS 'sound/machines/ping.ogg'
-
+//Default value for how long the subverter must recharge between uses
 #define SUBVERTER_RECHARGE_TIME (2 MINUTES)
+//Default value for how long a subversion target cannot control the ship
 #define SUBVERTER_ENGINE_STALL_TIME (1 MINUTES)
-
+//How hot the subverter makes the room when used
 #define SUBVERTER_SPICINESS 150
+/**
+* These get returned by can_subvert, and are mostly used to make the helm console say different things when a subversion is attempted
+*/
+#define SUB_SUCCESS 0
+#define SUB_TARGET_IS_NEU 1
+#define SUB_WE_ARE_NEU 2
+#define SUB_TARGET_IS_ALLY 3
+#define SUB_RECHARGING 4
+#define SUB_TARGET_SUBVERTED 5
+#define SUB_TARGET_DOCKED 6
+#define SUB_TARGET_DOCKING 7
+#define SUB_TARGET_UNDOCKING 8
+#define SUB_TARGET_GRACE 9
+#define SUB_TARGET_ANTIVIRUS 10
 
 /obj/machinery/subverter
 	name = "interdictor"
-	desc = "A piece of equipment used to upload programs to other vessels. It has no interface: It could be linked to an auxillary console or the wires could be pulsed manually."
+	desc = "A piece of equipment used to upload programs to other vessels. It has no interface: It could be linked to an auxiliary console or the wires could be pulsed manually."
 	icon = 'voidcrew/icons/obj/machines/space_hacking.dmi'
 	icon_state = "subverter"
 	density = TRUE
 	use_power = IDLE_POWER_USE
-	idle_power_usage = 10
+	idle_power_usage = 100
 	active_power_usage = 1000
 	circuit = /obj/item/circuitboard/machine/subverter
 	layer = BELOW_OBJ_LAYER
+	//Which ship the subverter is on
 	var/obj/structure/overmap/ship/simulated/ship
+	//Linked auxiliary console
 	var/obj/machinery/computer/autopilot/aux
+	//Standard machine stuff
 	var/hacked = FALSE
 	var/disabled = FALSE
 	var/shocked = FALSE
-	//TODO: keep track of which map the subverter is on
-	var/subverter_cooldown = 0
+	//Cooldown that handles the subverter recharging
+	COOLDOWN_DECLARE(subverter_cooldown)
+	//Used to handle higher tier parts affecting the subverter
 	var/sub_recharge = SUBVERTER_RECHARGE_TIME
 	var/sub_engine = SUBVERTER_ENGINE_STALL_TIME
 	var/spiciness = SUBVERTER_SPICINESS
@@ -32,158 +52,215 @@
 	. = ..()
 	wires = new /datum/wires/subverter(src)
 	update_stats()
-	subverter_cooldown = world.time + sub_recharge
+	COOLDOWN_START(src, subverter_cooldown, sub_recharge)
 
 /obj/machinery/subverter/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	ship = port.current_ship
 
 /obj/machinery/subverter/on_deconstruction()
-	//unlink autopilot
 	if (aux)
 		aux.sub = null
 		aux = null
 	..()
 
+/**
+*	Returns formatted remaining time till the subverter finishes recharging
+*/
 /obj/machinery/subverter/proc/get_recharge_str()
-	. = (subverter_cooldown - world.time) / 10
+	. = COOLDOWN_TIMELEFT(src, subverter_cooldown) / 10
 	. *= . > 0
 	return "[add_leading(num2text((. / 60) % 60), 2, "0")]:[add_leading(num2text(. % 60), 2, "0")]"
 
+/**
+*	Causes subverter to make a certain sound and the aux console to display a certain message
+*	Exist to prevent player confusion when the subversion attempt fails
+*
+*	message - what the aux console will say
+*	soundin - sound the subverter will make
+*/
 /obj/machinery/subverter/proc/subvert_bark(message, soundin = SUBVERTER_BARK_FAILURE)
 	if (aux)
 		aux.say(message)
 	playsound(loc, soundin, 90, 1, 0)
 
-/*
-	This handles the different contexts a subverter could bark in response to.
-	There is also a single-line version of the logical operations in "can_subvert" (note that it excludes the antivirus check)
-
-	antag - Set to true if you want to ignore factions entirely
+/**
+*	This handles the different contexts a subverter could bark in response to.
+*	It will call subvert_bark with parameters that fit the situation.
+*
+*	subvert_flag - The context of the subversion attempt, returned by can_subvert
+*	obj/structure/overmap/ship/simulated/target_ship - The target ship of the subversion attempt
+*	bark_success_message - (optional) Text displayed upon a successful subversion
 */
-/obj/machinery/subverter/proc/bark_processing(obj/structure/overmap/ship/simulated/target_ship, antag = FALSE, bark_success_message = "Agent was successful! Bringing [target_ship.name] out of hyperspace.")
-	. = FALSE
-	if (!antag)
-		if (target_ship.prefix == "NEU")
+/obj/machinery/subverter/proc/bark_processing(subvert_flag, obj/structure/overmap/ship/simulated/target_ship, bark_success_message = "Agent was successful! Bringing [target_ship.name] out of hyperspace.")
+	switch (subvert_flag)
+		if (SUB_SUCCESS)
+			subvert_bark(bark_success_message, SUBVERTER_BARK_SUCCESS)
+		if (SUB_TARGET_IS_NEU)
 			subvert_bark("Cannot subvert NEU vessels!")
-			return
+		if (SUB_WE_ARE_NEU)
+			subvert_bark("NEU Vessels cannot use the subverter!")
+		if (SUB_TARGET_IS_ALLY)
+			subvert_bark("Cannot subvert allied vessels!")
+		if (SUB_RECHARGING)
+			subvert_bark("Subverter recharging!")
+		if (SUB_TARGET_SUBVERTED)
+			subvert_bark("Target vessel is already subverted.")
+		if (SUB_TARGET_DOCKED)
+			subvert_bark("Target vessel is currently docked (outside of hyperspace).")
+		if (SUB_TARGET_DOCKING)
+			subvert_bark("Target vessel is currently docking.")
+		if (SUB_TARGET_UNDOCKING)
+			subvert_bark("Target vessel is currently undocking.")
+		if (SUB_TARGET_GRACE)
+			subvert_bark("Cannot subvert that vessel currently (Grace period).")
+		if (SUB_TARGET_ANTIVIRUS)
+			subvert_bark("Agent failed! Reason: Antivirus")
+		else
+			subvert_bark("Failed to subvert (Unknown error)")
+
+/**
+*	Returns int used to determine the context of the subversion attempt
+*
+*	obj/structure/overmap/ship/simulated/target_ship - The target ship of the subversion attempt
+*	antag - (optional) Not really used but if set to TRUE, will ignore factions. If antag ships are added they will likely use this
+*/
+/obj/machinery/subverter/proc/can_subvert(obj/structure/overmap/ship/simulated/target_ship, antag = FALSE)
+	if (target_ship.prefix == "NEU")
+		return SUB_TARGET_IS_NEU
+	if (!antag)
 		if (ship)
 			if (ship.prefix == "NEU")
-				subvert_bark("NEU Vessels cannot use the subverter!")
-				return
+				return SUB_WE_ARE_NEU
 			if (ship.prefix != "KOS")
 				if (ship.prefix == target_ship.prefix)
-					subvert_bark("Cannot subvert allied vessels!")
-					return
-	if (world.time < subverter_cooldown)
-		subvert_bark("Subverter recharging!")
-		return
-	if (world.time < target_ship.engine_cooldown)
-		subvert_bark("Target vessel is already subverted.")
-		return
+					return SUB_TARGET_IS_ALLY
+	if (!COOLDOWN_FINISHED(src, subverter_cooldown))
+		return SUB_RECHARGING
+	if (!COOLDOWN_FINISHED(target_ship, engine_cooldown))
+		return SUB_TARGET_SUBVERTED
 	if (target_ship.state == OVERMAP_SHIP_IDLE)
-		subvert_bark("Target vessel is currently docked (outside of hyperspace).")
-		return
+		return SUB_TARGET_DOCKED
 	if (target_ship.state == OVERMAP_SHIP_DOCKING)
-		subvert_bark("Target vessel is currently docking.")
-		return
+		return SUB_TARGET_DOCKING
 	if (target_ship.state == OVERMAP_SHIP_UNDOCKING)
-		subvert_bark("Target vessel is currently undocking.")
-		return
-	if (world.time < target_ship.sub_grace)
-		subvert_bark("Cannot subvert that vessel currently (Grace period).")
-		return
+		return SUB_TARGET_UNDOCKING
+	if (!COOLDOWN_FINISHED(target_ship, sub_grace))
+		return SUB_TARGET_GRACE
 	if (target_ship.antivirus_nodes > 0)
-		subvert_bark("Agent failed! Reason: Antivirus")
-		return
-	if (!can_subvert(target_ship))
-		subvert_bark("Failed to subvert (Unknown error)")
-		return
-	subvert_bark(bark_success_message, SUBVERTER_BARK_SUCCESS)
-	return TRUE
+		return SUB_TARGET_ANTIVIRUS
+	return SUB_SUCCESS
 
-//quick maths
-/obj/machinery/subverter/proc/can_subvert(obj/structure/overmap/ship/simulated/target_ship, antag = FALSE)
-	return !(((!antag) && (target_ship.prefix == "NEU" || (ship && (ship.prefix == "NEU" || (ship.prefix != "KOS" && ship.prefix == target_ship.prefix))))) || world.time < subverter_cooldown || world.time < target_ship.engine_cooldown || world.time < target_ship.sub_grace || target_ship.state != OVERMAP_SHIP_FLYING)
+/**
+*	Whether or not the subversion attempt should cause the subverter to activate.
+*	Does not necessarily mean the subversion attempt will actually work (antivirus)
+*
+*	sub_flag - subversion context to check (see can_subvert)
+*/
+/obj/machinery/subverter/proc/considered_valid_target(sub_flag)
+	return (sub_flag == SUB_SUCCESS) || (sub_flag == SUB_TARGET_ANTIVIRUS)
 
+/**
+*	Cause ship to dock in empty space forcibly
+*
+*	obj/structure/overmap/ship/simulated/target_ship - The ship that will dock
+*/
 /obj/machinery/subverter/proc/force_dock(obj/structure/overmap/ship/simulated/target_ship)
 	target_ship.decelerate(target_ship.max_speed)
 	target_ship.dock_in_empty_space(usr)
-	target_ship.stall_engines(sub_engine)
+	COOLDOWN_START(target_ship, engine_cooldown, sub_engine)
 	target_ship.most_recent_helm.say("CRITICAL ERROR: SYSTEM TAKEOVER")
 	playsound(target_ship.most_recent_helm, 'voidcrew/sound/voice/booterattack.ogg', 100, 0, 0)
 
+/**
+*	Begin the actual subversion attempt
+*
+*	obj/structure/overmap/ship/simulated/target_ship - Target ship of the attempt
+*/
 /obj/machinery/subverter/proc/attempt_to_subvert(obj/structure/overmap/ship/simulated/target_ship)
 	. = FALSE
-	bark_processing(target_ship)
-	if (can_subvert(target_ship))
-		subverter_cooldown = world.time + sub_recharge
-		its_gettin_hot_in_here()
-		//use_power(active_power_usage)
-		if (!target_ship.run_antivirus())
-			force_dock(target_ship)
-			addtimer(CALLBACK(target_ship, /obj/structure/overmap/ship/simulated/.proc/systems_restored), target_ship.engine_cooldown - world.time)
-			return TRUE
-		else
-			target_ship.sub_blocked(src)
+	var/can_sub_flag = can_subvert(target_ship)
+	bark_processing(can_sub_flag, target_ship)
+	if (!considered_valid_target(can_sub_flag))
+		return
+	COOLDOWN_START(src, subverter_cooldown, sub_recharge)
+	its_gettin_hot_in_here()
+	//use_power(active_power_usage)
+	if (!target_ship.run_antivirus())
+		force_dock(target_ship)
+		addtimer(CALLBACK(target_ship, /obj/structure/overmap/ship/simulated/.proc/systems_restored), COOLDOWN_TIMELEFT(target_ship, engine_cooldown))
+		return TRUE
+	else
+		target_ship.most_recent_helm.say("Viral agent blocked. Source: [ship.name]")
 
+/**
+*	Update the machine's stats depending on the parts
+*/
 /obj/machinery/subverter/proc/update_stats()
 	sub_recharge = SUBVERTER_RECHARGE_TIME
 	sub_engine = SUBVERTER_ENGINE_STALL_TIME
 	active_power_usage = 1000
-	for(var/obj/item/stock_parts/micro_laser/B in component_parts)
-		sub_engine += (B.rating-1) * (15 SECONDS)
-	for(var/obj/item/stock_parts/manipulator/M in component_parts)
-		sub_recharge -= (M.rating-1) * (5 SECONDS)
-	for(var/obj/item/stock_parts/capacitor/P in component_parts)
-		active_power_usage /= P.rating
-		spiciness /= P.rating
+	for(var/obj/item/stock_parts/micro_laser/laser in component_parts)
+		sub_engine += (laser.rating-1) * (15 SECONDS)
+	for(var/obj/item/stock_parts/manipulator/manip in component_parts)
+		sub_recharge -= (manip.rating-1) * (5 SECONDS)
+	for(var/obj/item/stock_parts/capacitor/capac in component_parts)
+		active_power_usage /= capac.rating
+		spiciness /= capac.rating
 
 /obj/machinery/subverter/RefreshParts()
 	update_stats()
 
+/**
+*	Causes the air around the subverter to heat up
+*/
 /obj/machinery/subverter/proc/its_gettin_hot_in_here()
-	//var/turf/T = get_turf(src)
-	var/turf/L = loc
-	var/datum/gas_mixture/env = L.return_air()
+	var/turf/sub_location = get_turf(src)
+	var/datum/gas_mixture/env = sub_location.return_air()
 	env.set_temperature(env.return_temperature()+spiciness)
 	air_update_turf()
 
-/*
-	Manual subverting for those who can't afford an auxillary console
+/**
+*	Manual subverting for those who can't afford an auxiliary console
+*
+*	state - Whether or not the subverter got hacked
 */
 /obj/machinery/subverter/proc/adjust_hacked(state)
 	hacked = state
-	if (hacked)
-		if (ship.prefix == "NEU")
-			subvert_bark("NEU Vessels cannot use the subverter!")
+	if (!hacked)
+		return
+	if (ship.prefix == "NEU")
+		subvert_bark("NEU Vessels cannot use the subverter!")
+		return
+	//find nearest non-allied pvp ship and attempt to subvert
+	var/obj/structure/overmap/ship/simulated/nearest
+	var/ship_min_dist
+	var/can_sub_flag
+	for (var/obj/structure/overmap/ship/simulated/ship_in_view in view(ship.sensor_range, get_turf(ship)))
+		can_sub_flag = can_subvert(ship_in_view)
+		if (ship_in_view == ship || !considered_valid_target(can_sub_flag))
+			continue
+		if (!nearest)
+			nearest = ship_in_view
+			ship_min_dist = get_dist(ship, nearest)
 		else
-			//find nearest non-allied pvp ship and attempt to subvert
-			var/obj/structure/overmap/ship/simulated/N
-			var/ship_min_dist
-			for (var/obj/structure/overmap/ship/simulated/O in view(ship.sensor_range, get_turf(ship)))
-				if (O == ship || !can_subvert(O))
-					continue
-				if (!N)
-					N = O
-					ship_min_dist = get_dist(ship, N)
-				else
-					var/ship_dist = get_dist(ship, O)
-					if (ship_dist < ship_min_dist)
-						N = O
-						ship_min_dist = ship_dist
-			if (N)
-				attempt_to_subvert(N)
-			else
-				subvert_bark("No subvertable vessels detected.")
+			var/ship_dist = get_dist(ship, ship_in_view)
+			if (ship_dist < ship_min_dist)
+				nearest = ship_in_view
+				ship_min_dist = ship_dist
+	if (nearest)
+		attempt_to_subvert(nearest)
+	else
+		subvert_bark("No subvertable vessels detected.")
 
+//Normal machine hacking stuff
 /obj/machinery/subverter/proc/shock(mob/user, prb)
-	if(machine_stat & (BROKEN|NOPOWER))		// unpowered, no shock
+	if(machine_stat & (BROKEN|NOPOWER))
 		return FALSE
 	if(!prob(prb))
 		return FALSE
-	var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
-	s.set_up(5, 1, src)
-	s.start()
+	var/datum/effect_system/spark_spread/spark = new /datum/effect_system/spark_spread
+	spark.set_up(5, 1, src)
+	spark.start()
 	if (electrocute_mob(user, get_area(src), src, 0.7, TRUE))
 		return TRUE
 	else
@@ -201,35 +278,52 @@
 			if(!wires.is_cut(wire))
 				disabled = FALSE
 
-/obj/machinery/subverter/attackby(obj/item/O, mob/user, params)
-	if(default_deconstruction_screwdriver(user, "subverter_t", "subverter", O))
+/obj/machinery/subverter/attackby(obj/item/item, mob/user, params)
+	if(default_deconstruction_screwdriver(user, "subverter_t", "subverter", item))
 		updateUsrDialog()
 		return TRUE
-
-	if(default_deconstruction_crowbar(O))
+	if(default_deconstruction_crowbar(item))
 		return TRUE
-
-	if(panel_open && is_wire_tool(O))
+	if(panel_open && is_wire_tool(item))
 		wires.interact(user)
 		return TRUE
-
-	if(istype(O, /obj/item/multitool))
-		var/obj/item/multitool/multi = O
-		if(multi.buffer && istype(multi.buffer, /obj/machinery/computer/autopilot) && multi.buffer != src)
-			var/obj/machinery/computer/autopilot/console = multi.buffer
-			console.sub = src
-			aux = console
-			visible_message("Linked to [console]!")
-			aux.say("External device found! Subverter mode enabled.")
-		else
-			multi.buffer = src
-			visible_message("Saved [src] to buffer.")
-		return TRUE
-
 	if(user.a_intent == INTENT_HARM)
 		return ..()
-
 	if(machine_stat)
 		return TRUE
-
 	return ..()
+
+/obj/machinery/subverter/multitool_act(mob/living/user, obj/item/item)
+	. = ..()
+	if (panel_open)
+		wires.interact(user)
+		return TRUE
+	var/obj/item/multitool/multi = item
+	if(multi.buffer && istype(multi.buffer, /obj/machinery/computer/autopilot) && multi.buffer != src) //for linking to aux console
+		var/obj/machinery/computer/autopilot/console = multi.buffer
+		console.sub = src
+		aux = console
+		visible_message("Linked to [console]!")
+		aux.say("External device found! Subverter mode enabled.")
+	else
+		multi.buffer = src
+		visible_message("Saved [src] to buffer.")
+	return TRUE
+
+#undef SUBVERTER_BARK_FAILURE
+#undef SUBVERTER_BARK_SUCCESS
+#undef SUBVERTER_RECHARGE_TIME
+#undef SUBVERTER_ENGINE_STALL_TIME
+#undef SUBVERTER_SPICINESS
+
+#undef SUB_SUCCESS
+#undef SUB_TARGET_IS_NEU
+#undef SUB_WE_ARE_NEU
+#undef SUB_TARGET_IS_ALLY
+#undef SUB_RECHARGING
+#undef SUB_TARGET_SUBVERTED
+#undef SUB_TARGET_DOCKED
+#undef SUB_TARGET_DOCKING
+#undef SUB_TARGET_UNDOCKING
+#undef SUB_TARGET_GRACE
+#undef SUB_TARGET_ANTIVIRUS

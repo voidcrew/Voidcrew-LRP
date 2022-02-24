@@ -86,6 +86,7 @@
 
 /obj/machinery/computer/helm/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	current_ship = port.current_ship
+	current_ship.most_recent_helm = src
 
 /**
  * This proc manually rechecks that the helm computer is connected to a proper ship
