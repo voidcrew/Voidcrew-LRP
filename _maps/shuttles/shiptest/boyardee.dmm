@@ -129,10 +129,7 @@
 	dir = 8;
 	pixel_x = 24
 	},
-/obj/machinery/disposal/bin,
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
+/obj/machinery/vending/hydroseeds,
 /turf/open/floor/wood,
 /area/ship/crew)
 "cN" = (
@@ -563,6 +560,9 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
+/obj/structure/sign/warning/vacuum{
+	pixel_y = -32
+	},
 /turf/open/floor/plasteel/dark,
 /area/ship/cargo)
 "lG" = (
@@ -934,9 +934,6 @@
 	icon_state = "1-2"
 	},
 /obj/effect/landmark/observer_start,
-/obj/structure/disposalpipe/junction{
-	dir = 1
-	},
 /turf/open/floor/carpet/nanoweave,
 /area/ship/crew)
 "rH" = (
@@ -1044,7 +1041,13 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/vending/hydroseeds,
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/structure/sign/warning/vacuum{
+	pixel_x = 32
+	},
 /turf/open/floor/wood,
 /area/ship/crew)
 "up" = (
@@ -2136,6 +2139,9 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
+/obj/structure/sign/warning/vacuum{
+	pixel_y = -32
+	},
 /turf/open/floor/plasteel/dark,
 /area/ship/crew/canteen)
 "Mj" = (
@@ -2357,7 +2363,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/junction{
+	dir = 1
+	},
 /turf/open/floor/carpet/nanoweave,
 /area/ship/crew)
 "Qa" = (
