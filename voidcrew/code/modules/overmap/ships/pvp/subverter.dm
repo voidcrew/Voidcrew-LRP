@@ -179,7 +179,7 @@
 /obj/machinery/subverter/proc/attempt_to_subvert(obj/structure/overmap/ship/simulated/target_ship)
 	. = FALSE
 	var/can_sub_flag = can_subvert(target_ship)
-	bark_processing(can_sub_flag, target_ship)
+	bark_processing(can_sub_flag)
 	if (!considered_valid_target(can_sub_flag))
 		return
 	COOLDOWN_START(src, subverter_cooldown, sub_recharge)
