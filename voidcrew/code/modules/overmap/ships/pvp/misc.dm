@@ -2,11 +2,11 @@
 
 /obj/structure/overmap/ship/simulated
 	var/obj/machinery/computer/helm/most_recent_helm // For sending messages to the target's helm
-	//Cooldown for when you get subverted and cannot control the ship anymore
+	///Cooldown for when you get subverted and cannot control the ship anymore
 	COOLDOWN_DECLARE(engine_cooldown)
-	//How many subversion attempts you can block
+	///How many subversion attempts you can block
 	var/antivirus_nodes = 0
-	//How long you are immune to being subverted
+	///How long you are immune to being subverted
 	COOLDOWN_DECLARE(sub_grace)
 
 //For uploading an antivirus

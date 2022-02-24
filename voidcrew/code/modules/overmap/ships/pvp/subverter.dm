@@ -33,19 +33,21 @@
 	active_power_usage = 1000
 	circuit = /obj/item/circuitboard/machine/subverter
 	layer = BELOW_OBJ_LAYER
-	//Which ship the subverter is on
+	///Which ship the subverter is on
 	var/obj/structure/overmap/ship/simulated/ship
-	//Linked auxiliary console
+	///Linked auxiliary console
 	var/obj/machinery/computer/autopilot/aux
-	//Standard machine stuff
+	///Standard machine stuff
 	var/hacked = FALSE
 	var/disabled = FALSE
 	var/shocked = FALSE
-	//Cooldown that handles the subverter recharging
+	///Cooldown that handles the subverter recharging
 	COOLDOWN_DECLARE(subverter_cooldown)
-	//Used to handle higher tier parts affecting the subverter
+	///recharge time, gets affected by parts
 	var/sub_recharge = SUBVERTER_RECHARGE_TIME
+	///how long the target ship becomes immobile, affected by parts
 	var/sub_engine = SUBVERTER_ENGINE_STALL_TIME
+	///how hot the subverter makes the room, affected by parts
 	var/spiciness = SUBVERTER_SPICINESS
 
 /obj/machinery/subverter/Initialize()
@@ -61,14 +63,13 @@
 	if (aux)
 		aux.sub = null
 		aux = null
-	..()
+	return ..()
 
 /**
 *	Returns formatted remaining time till the subverter finishes recharging
 */
 /obj/machinery/subverter/proc/get_recharge_str()
 	. = COOLDOWN_TIMELEFT(src, subverter_cooldown) / 10
-	. *= . > 0
 	return "[add_leading(num2text((. / 60) % 60), 2, "0")]:[add_leading(num2text(. % 60), 2, "0")]"
 
 /**
@@ -88,10 +89,9 @@
 *	It will call subvert_bark with parameters that fit the situation.
 *
 *	subvert_flag - The context of the subversion attempt, returned by can_subvert
-*	obj/structure/overmap/ship/simulated/target_ship - The target ship of the subversion attempt
 *	bark_success_message - (optional) Text displayed upon a successful subversion
 */
-/obj/machinery/subverter/proc/bark_processing(subvert_flag, obj/structure/overmap/ship/simulated/target_ship, bark_success_message = "Agent was successful! Bringing [target_ship.name] out of hyperspace.")
+/obj/machinery/subverter/proc/bark_processing(subvert_flag, bark_success_message = "Agent was successful! Bringing target vessel out of hyperspace.")
 	switch (subvert_flag)
 		if (SUB_SUCCESS)
 			subvert_bark(bark_success_message, SUBVERTER_BARK_SUCCESS)
@@ -263,8 +263,6 @@
 	spark.start()
 	if (electrocute_mob(user, get_area(src), src, 0.7, TRUE))
 		return TRUE
-	else
-		return FALSE
 
 /obj/machinery/subverter/proc/reset(wire)
 	switch(wire)
