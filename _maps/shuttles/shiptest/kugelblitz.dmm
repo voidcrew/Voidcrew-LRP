@@ -1602,7 +1602,9 @@
 /area/ship/medical)
 "xC" = (
 /obj/machinery/mineral/ore_redemption{
-	dir = 8
+	dir = 8;
+	input_dir = 4;
+	output_dir = 8
 	},
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/science/robotics)
@@ -2198,6 +2200,9 @@
 "Jx" = (
 /obj/machinery/cryopod{
 	dir = 1
+	},
+/obj/machinery/computer/cryopod{
+	pixel_y = 32
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/crew)
@@ -2876,10 +2881,6 @@
 	},
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/engineering)
-"Yv" = (
-/obj/machinery/computer/cryopod,
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/ship/crew)
 "Yy" = (
 /obj/effect/turf_decal/techfloor/orange{
 	dir = 9
@@ -2994,7 +2995,7 @@ Zf
 Zf
 Zf
 pC
-Yv
+pC
 Jx
 wN
 Ws
