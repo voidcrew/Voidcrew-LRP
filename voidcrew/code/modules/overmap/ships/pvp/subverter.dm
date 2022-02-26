@@ -130,14 +130,14 @@
 *	antag - (optional) Not really used but if set to TRUE, will ignore factions. If antag ships are added they will likely use this
 */
 /obj/machinery/subverter/proc/can_subvert(obj/structure/overmap/ship/simulated/target_ship, antag = FALSE)
-	if (target_ship.prefix == "NEU")
+	if (target_ship.faction_prefix == "NEU")
 		return SUB_TARGET_IS_NEU
 	if (!antag)
 		if (ship)
-			if (ship.prefix == "NEU")
+			if (ship.faction_prefix == "NEU")
 				return SUB_WE_ARE_NEU
-			if (ship.prefix != "KOS")
-				if (ship.prefix == target_ship.prefix)
+			if (ship.faction_prefix != "KOS")
+				if (ship.faction_prefix == target_ship.faction_prefix)
 					return SUB_TARGET_IS_ALLY
 	if (!COOLDOWN_FINISHED(src, subverter_cooldown))
 		return SUB_RECHARGING
@@ -245,7 +245,7 @@
 	hacked = state
 	if (!hacked)
 		return
-	if (ship.prefix == "NEU")
+	if (ship.faction_prefix == "NEU")
 		subvert_bark("NEU Vessels cannot use the subverter!")
 		return
 	//find nearest non-allied pvp ship and attempt to subvert
