@@ -6,7 +6,7 @@
 //Default value for how long a subversion target cannot control the ship
 #define SUBVERTER_ENGINE_STALL_TIME (1 MINUTES)
 //How hot the subverter makes the room when used
-#define SUBVERTER_SPICINESS 150
+#define SUBVERTER_SPICINESS 300
 /**
 * These get returned by can_subvert, and are mostly used to make the helm console say different things when a subversion is attempted
 */
@@ -21,6 +21,7 @@
 #define SUB_TARGET_UNDOCKING 8
 #define SUB_TARGET_GRACE 9
 #define SUB_TARGET_ANTIVIRUS 10
+#define SUB_OUT_OF_RANGE 11
 
 /obj/machinery/subverter
 	name = "interdictor"
@@ -49,6 +50,8 @@
 	var/sub_engine = SUBVERTER_ENGINE_STALL_TIME
 	///how hot the subverter makes the room, affected by parts
 	var/spiciness = SUBVERTER_SPICINESS
+	///range of the subverter, affected by parts
+	var/range = 0
 
 /obj/machinery/subverter/Initialize()
 	. = ..()
@@ -115,6 +118,8 @@
 			subvert_bark("Cannot subvert that vessel currently (Grace period).")
 		if (SUB_TARGET_ANTIVIRUS)
 			subvert_bark("Agent failed! Reason: Antivirus")
+		if (SUB_OUT_OF_RANGE)
+			subvert_bark("Target vessel is out of range ([range] tiles).")
 		else
 			subvert_bark("Failed to subvert (Unknown error)")
 
@@ -136,6 +141,8 @@
 					return SUB_TARGET_IS_ALLY
 	if (!COOLDOWN_FINISHED(src, subverter_cooldown))
 		return SUB_RECHARGING
+	if (get_dist(ship, target_ship) > range)
+		return SUB_OUT_OF_RANGE
 	if (!COOLDOWN_FINISHED(target_ship, engine_cooldown))
 		return SUB_TARGET_SUBVERTED
 	if (target_ship.state == OVERMAP_SHIP_IDLE)
@@ -187,10 +194,18 @@
 	//use_power(active_power_usage)
 	if (!target_ship.run_antivirus())
 		force_dock(target_ship)
+		//If the ships under us, update our interaction list
+		if (target_ship.loc == ship.loc)
+			for (var/obj/structure/overmap/add in get_turf(ship))
+				if (add == ship)
+					continue
+				LAZYOR(ship.close_overmap_objects, add)
+			LAZYREMOVE(ship.close_overmap_objects, target_ship) //prevent confusion, since you wanna dock in the empty space
 		addtimer(CALLBACK(target_ship, /obj/structure/overmap/ship/simulated/.proc/systems_restored), COOLDOWN_TIMELEFT(target_ship, engine_cooldown))
 		return TRUE
 	else
 		target_ship.most_recent_helm.say("Viral agent blocked. Source: [ship.name]")
+		COOLDOWN_START(target_ship, sub_grace, 5 MINUTES)
 
 /**
 *	Update the machine's stats depending on the parts
@@ -206,6 +221,8 @@
 	for(var/obj/item/stock_parts/capacitor/capac in component_parts)
 		active_power_usage /= capac.rating
 		spiciness /= capac.rating
+	for(var/obj/item/stock_parts/scanning_module/scanner in component_parts)
+		range = scanner.rating - 1
 
 /obj/machinery/subverter/RefreshParts()
 	update_stats()
@@ -325,3 +342,4 @@
 #undef SUB_TARGET_UNDOCKING
 #undef SUB_TARGET_GRACE
 #undef SUB_TARGET_ANTIVIRUS
+#undef SUB_OUT_OF_RANGE
