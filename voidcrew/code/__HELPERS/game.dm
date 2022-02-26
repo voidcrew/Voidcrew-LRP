@@ -6,7 +6,7 @@
  * * obj/structure/overmap/ship/simulated/ship - Simulated ship that contains the ship's prefix
  */
 /proc/NotifyFaction(mob/living/carbon/human/character, obj/structure/overmap/ship/simulated/ship)
-	switch(ship.source_template.prefix)
+	switch(ship.source_template.faction_prefix)
 		if("NT-C")
 			to_chat(character, "<h1>Your faction: Nanotrasen Combat Vessel (NT-C)</h1>")
 			to_chat(character, "<h1>NT-C enemies: SYN-C and KOS</h1>")
