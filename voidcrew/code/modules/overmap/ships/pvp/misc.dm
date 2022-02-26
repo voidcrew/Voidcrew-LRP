@@ -97,9 +97,6 @@
 	if (acting.state != OVERMAP_SHIP_FLYING)
 		acting.most_recent_helm.say("Must be in hyperspace to request docking.")
 		return
-	/*if (!is_still() || !acting.is_still())
-		acting.most_recent_helm.say("Both ships must be stationary.") //Might be annoying if this was a condition
-		return*/
 	if (loc != acting.loc)
 		acting.most_recent_helm.say("Not in docking range.")
 		return

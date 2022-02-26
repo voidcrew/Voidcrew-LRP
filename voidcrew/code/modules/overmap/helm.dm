@@ -243,7 +243,10 @@
 		if("dock_req_success")
 			current_ship.requesting_ship.most_recent_helm.say("Request accepted!")
 			playsound(current_ship.requesting_ship.most_recent_helm.loc, 'sound/machines/ping.ogg', 90, 1, 0)
-			current_ship.duo_dock(usr, current_ship.requesting_ship)
+			if (current_ship.loc == current_ship.requesting_ship.loc)
+				current_ship.duo_dock(usr, current_ship.requesting_ship)
+			else // The request disappears when the ships move away so this shouldn't happen, but just in case
+				current_ship.most_recent_helm.say("Requesting ship moved away. Cancelling dock.")
 			current_ship.requesting_ship.sent_request = FALSE
 			current_ship.requesting_ship = null
 			return

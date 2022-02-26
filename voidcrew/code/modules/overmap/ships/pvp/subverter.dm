@@ -191,7 +191,6 @@
 		return
 	COOLDOWN_START(src, subverter_cooldown, sub_recharge)
 	its_gettin_hot_in_here()
-	//use_power(active_power_usage)
 	if (!target_ship.run_antivirus())
 		force_dock(target_ship)
 		//If the ships under us, update our interaction list
@@ -251,9 +250,8 @@
 	//find nearest non-allied pvp ship and attempt to subvert
 	var/obj/structure/overmap/ship/simulated/nearest
 	var/ship_min_dist
-	var/can_sub_flag
 	for (var/obj/structure/overmap/ship/simulated/ship_in_view in view(ship.sensor_range, get_turf(ship)))
-		can_sub_flag = can_subvert(ship_in_view)
+		var/can_sub_flag = can_subvert(ship_in_view)
 		if (ship_in_view == ship || !considered_valid_target(can_sub_flag))
 			continue
 		if (!nearest)
