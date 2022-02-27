@@ -34,6 +34,7 @@
 	target_area = /area/overmap_encounter/planetoid/lava
 	surface = /turf/open/floor/plating/asteroid/basalt/lava_land_surface
 	weather_controller_type = /datum/weather_controller/lavaland
+	planet_template = /datum/planet/lava
 
 /datum/overmap/planet/ice
 	name = "strange ice planet"
@@ -76,10 +77,12 @@
 	color = COLOR_BROWN
 
 	ruin_type = RUIN_TYPE_ROCK
-	mapgen = /datum/map_generator/cave_generator/rockplanet
+	// mapgen = /datum/map_generator/cave_generator/rockplanet
+	mapgen = /datum/map_generator/planet_generator/lava
 	target_area = /area/overmap_encounter/planetoid/rockplanet
 	surface = /turf/open/floor/plating/asteroid
 	weather_controller_type = /datum/weather_controller/chlorine
+	planet_template = /datum/planet/rock
 
 /datum/overmap/planet/reebe
 	name = "???"

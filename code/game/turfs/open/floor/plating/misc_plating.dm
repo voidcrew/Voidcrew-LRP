@@ -179,6 +179,7 @@
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	icon_state = "ironsand1"
 
 /turf/open/floor/plating/ironsand/Initialize(mapload, inherited_virtual_z)
 	. = ..()
