@@ -20,6 +20,8 @@
 "bd" = (
 /obj/effect/turf_decal/industrial/outline,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/item/circuitboard/machine/mining_equipment_vendor,
+/obj/structure/closet/crate,
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/cargo)
 "bl" = (
@@ -258,10 +260,13 @@
 /obj/effect/turf_decal/industrial/outline,
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
 /obj/item/flashlight/lantern/syndicate,
 /obj/item/flashlight/lantern/syndicate,
-/obj/item/mining_scanner,
-/obj/item/mining_scanner,
+/obj/item/flashlight/lantern/syndicate,
+/obj/item/t_scanner/adv_mining_scanner/lesser,
+/obj/item/t_scanner/adv_mining_scanner/lesser,
+/obj/item/t_scanner/adv_mining_scanner/lesser,
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/storage)
 "fi" = (
@@ -1145,6 +1150,12 @@
 /obj/machinery/airalarm/all_access{
 	pixel_y = 24
 	},
+/obj/item/storage/box/emptysandbags,
+/obj/item/syndie_crusher{
+	pixel_x = 5;
+	pixel_y = 6
+	},
+/obj/item/gps/mining,
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/storage)
 "tI" = (
@@ -1548,6 +1559,12 @@
 	dir = 1;
 	pixel_y = 28
 	},
+/obj/item/storage/box/emptysandbags,
+/obj/item/syndie_crusher{
+	pixel_x = 5;
+	pixel_y = 6
+	},
+/obj/item/gps/mining,
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/storage)
 "zZ" = (
@@ -2832,14 +2849,8 @@
 /obj/structure/sign/poster/contraband/random{
 	pixel_x = -32
 	},
-/obj/item/syndie_crusher{
-	pixel_x = 5;
-	pixel_y = -2
-	},
-/obj/item/syndie_crusher{
-	pixel_x = 5;
-	pixel_y = 6
-	},
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/storage)
 "VR" = (
@@ -2880,6 +2891,7 @@
 	dir = 4;
 	pixel_x = -24
 	},
+/obj/item/disk/design_disk/ammo_c10mm,
 /turf/open/floor/carpet/red,
 /area/ship/cargo/office)
 "Wc" = (

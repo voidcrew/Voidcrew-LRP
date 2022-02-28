@@ -44,7 +44,7 @@
 	///The map template the shuttle was spawned from, if it was indeed created from a template. CAN BE NULL (ex. custom-built ships).
 	var/datum/map_template/shuttle/source_template
 	/// The prefix the shuttle currently possesses
-	var/prefix
+	var/faction_prefix
     ///Snips the prefix off the ship when renaming to stop duplicate prefixes from existing
 	var/fixed_name
 	///Timer for ship deletion
@@ -62,13 +62,13 @@
 		CRASH("Simulated overmap ship created without associated shuttle!")
 	name = shuttle.name
 	source_template = _source_template
-	prefix = source_template.prefix
+	faction_prefix = source_template.faction_prefix
 	update_ship_color()
 	calculate_mass()
 #ifdef UNIT_TESTS
 	set_ship_name("[source_template]")
 #else
-	set_ship_name("[source_template.prefix] [pick_list_replacements(SHIP_NAMES_FILE, pick(source_template.name_categories))]", TRUE)
+	set_ship_name("[source_template.faction_prefix] [pick_list_replacements(SHIP_NAMES_FILE, pick(source_template.name_categories))]", TRUE)
 #endif
 	refresh_engines()
 	check_loc()
@@ -349,15 +349,15 @@
 /obj/structure/overmap/ship/simulated/proc/set_ship_faction(faction_change)
 	if(!COOLDOWN_FINISHED(src, faction_cooldown))
 		return
-	if(faction_change == prefix || (faction_change == "return" && prefix == "NEU"))
+	if(faction_change == faction_prefix || (faction_change == "return" && faction_prefix == "NEU"))
 		return
 	COOLDOWN_START(src, faction_cooldown, FACTION_COOLDOWN_TIME)
-	fixed_name = (length(prefix)+1)
+	fixed_name = (length(faction_prefix)+1)
 	if(faction_change == "return")
-		prefix = source_template.prefix
+		faction_prefix = source_template.faction_prefix
 	else
-		prefix = faction_change
-	name = "[prefix] [copytext(name, fixed_name)]"
+		faction_prefix = faction_change
+	name = "[faction_prefix] [copytext(name, fixed_name)]"
 	set_ship_name(name, ignore_cooldown = TRUE)
 	update_crew_hud()
 	update_ship_color()
@@ -366,7 +366,7 @@
   * Updates the ships icon to make it easier to distinguish between factions
   */
 /obj/structure/overmap/ship/simulated/proc/update_ship_color()
-	switch(prefix)
+	switch(faction_prefix)
 		if("SYN-C")
 			color = "#F10303"
 		if("NT-C")
@@ -385,7 +385,7 @@
 		if (isnull(member.resolve()))
 			continue
 		remove_faction_hud(FACTION_HUD_GENERAL, member.resolve())
-		add_faction_hud(FACTION_HUD_GENERAL, prefix, member.resolve())
+		add_faction_hud(FACTION_HUD_GENERAL, faction_prefix, member.resolve())
 
 /obj/structure/overmap/ship/simulated/update_icon_state()
 	if(mass < SHIP_SIZE_THRESHOLD)
