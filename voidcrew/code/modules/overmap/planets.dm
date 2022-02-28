@@ -59,6 +59,18 @@
 	surface = /turf/open/floor/plating/asteroid/whitesands
 	weather_controller_type = /datum/weather_controller/desert
 
+/datum/overmap/planet/beach
+	name = "strange beach planet"
+	desc = "A very weak energy signal originating from a planet with many traces of fish."
+	color = COLOR_NAVY
+
+	ruin_type = RUIN_TYPE_BEACH
+	mapgen = /datum/map_generator/planet_generator/beach
+	target_area = /area/overmap_encounter/planetoid/beach
+	surface = /turf/open/floor/plating/beach/sand/lit
+	weather_controller_type = /datum/weather_controller/lush
+	planet_template = /datum/planet/beach
+
 /datum/overmap/planet/jungle
 	name = "strange jungle planet"
 	desc = "A very weak energy signal originating from a planet teeming with life."

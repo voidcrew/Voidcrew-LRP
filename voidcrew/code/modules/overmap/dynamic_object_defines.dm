@@ -25,6 +25,9 @@
 /obj/structure/overmap/dynamic/sand
 	planet = /datum/overmap/planet/sand
 
+/obj/structure/overmap/dynamic/beach
+	planet = /datum/overmap/planet/beach
+
 /obj/structure/overmap/dynamic/jungle
 	planet = /datum/overmap/planet/jungle
 
@@ -75,6 +78,11 @@
 	name = "\improper Sandy Planetoid"
 	sound_environment = SOUND_ENVIRONMENT_QUARRY
 	ambientsounds = MINING
+
+/area/overmap_encounter/planetoid/beach
+	name = "\improper Beach Planetoid"
+	sound_environment = SOUND_ENVIRONMENT_FOREST
+	ambientsounds = BEACH
 
 /area/overmap_encounter/planetoid/jungle
 	name = "\improper Jungle Planetoid"

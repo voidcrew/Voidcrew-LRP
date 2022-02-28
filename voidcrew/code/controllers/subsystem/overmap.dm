@@ -258,6 +258,8 @@ SUBSYSTEM_DEF(overmap)
 			return SSmapping.yellow_ruins_templates
 		if (RUIN_TYPE_SPACE)
 			return SSmapping.space_ruins_templates
+		if (RUIN_TYPE_BEACH)
+			return SSmapping.beach_ruins_templates
 
 /**
   * Reserves a square dynamic encounter area, and spawns a ruin in it if one is supplied.
