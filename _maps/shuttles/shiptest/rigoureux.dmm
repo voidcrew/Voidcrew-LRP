@@ -934,9 +934,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
-	dir = 4
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -947,6 +944,9 @@
 /obj/machinery/door/window/westleft{
 	dir = 4;
 	name = "Mining Room"
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 1
 	},
 /turf/open/floor/plating,
 /area/ship/engineering)
@@ -1514,12 +1514,6 @@
 	},
 /turf/open/floor/carpet/nanoweave/red,
 /area/ship/security/prison)
-"tA" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
-	dir = 1
-	},
-/turf/open/floor/plasteel/dark,
-/area/ship/engineering)
 "tE" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
 	dir = 8
@@ -1810,8 +1804,12 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ship/security/prison)
 "xh" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 8
+	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -2097,9 +2095,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
@@ -2109,12 +2104,6 @@
 /obj/structure/catwalk/over,
 /turf/open/floor/plating,
 /area/ship/engineering)
-"AE" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
-	dir = 1
-	},
-/turf/open/floor/plasteel/dark,
-/area/ship/engineering)
 "AH" = (
 /obj/structure/bed,
 /obj/item/bedsheet/random,
@@ -2122,11 +2111,11 @@
 /turf/open/floor/carpet/nanoweave,
 /area/ship/crew)
 "AM" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 10
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
-	dir = 10
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -2633,8 +2622,8 @@
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 6
 	},
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -2849,6 +2838,9 @@
 /area/ship/cargo)
 "IB" = (
 /obj/effect/landmark/start/shaft_miner,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/ship/engineering)
 "IH" = (
@@ -2955,7 +2947,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
 /turf/open/floor/carpet/nanoweave/purple,
 /area/ship/crew/canteen)
 "JL" = (
@@ -3373,6 +3364,9 @@
 "Pp" = (
 /obj/structure/window/reinforced/spawner/west{
 	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/engineering)
@@ -3803,12 +3797,7 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/starboard)
 "TU" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 6
-	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
 /turf/open/floor/carpet/nanoweave/purple,
 /area/ship/crew/canteen)
 "TZ" = (
@@ -3900,9 +3889,7 @@
 /turf/open/floor/plating,
 /area/ship/engineering)
 "Vj" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
@@ -3975,13 +3962,6 @@
 /obj/structure/sign/solgov_seal,
 /turf/open/floor/carpet/nanoweave/red,
 /area/ship/security)
-"VS" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
-/turf/open/floor/carpet/nanoweave/purple,
-/area/ship/crew/canteen)
 "VW" = (
 /obj/machinery/door/poddoor/shutters{
 	id = "riggerwindows";
@@ -4018,9 +3998,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
@@ -4044,6 +4021,9 @@
 /obj/item/clothing/gloves/color/black,
 /obj/item/clothing/head/hardhat/mining,
 /obj/item/clothing/head/hardhat/mining,
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/ship/engineering)
 "WL" = (
@@ -4152,13 +4132,6 @@
 	},
 /turf/open/floor/carpet/nanoweave/red,
 /area/ship/security/prison)
-"XZ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
-/turf/open/floor/carpet/nanoweave/purple,
-/area/ship/crew/canteen)
 "Yb" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -4187,13 +4160,13 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
 /obj/structure/catwalk/over,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/ship/engineering)
 "Yv" = (
@@ -4864,7 +4837,7 @@ Do
 HD
 Tq
 AC
-tA
+WM
 CG
 jx
 qy
@@ -4898,7 +4871,7 @@ BH
 eh
 Tq
 Yc
-AE
+WM
 ww
 WM
 ph
@@ -5026,7 +4999,7 @@ vi
 Uf
 YG
 JG
-XZ
+BH
 rL
 yp
 BS
@@ -5059,8 +5032,8 @@ GU
 li
 bo
 Dw
+BH
 VB
-VS
 Vj
 yp
 Pj
