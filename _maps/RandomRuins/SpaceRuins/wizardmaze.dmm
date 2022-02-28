@@ -42,7 +42,7 @@
 	})
 "bv" = (
 /obj/effect/portal/permanent/one_way{
-	id = "portalnumero1"
+	id = "portalnumero30"
 	},
 /turf/open/floor/carpet/red,
 /area/wizard_station{
@@ -142,7 +142,7 @@
 	})
 "jv" = (
 /obj/effect/portal/permanent/one_way{
-	id = "portalnumero2"
+	id = "portalnumero20"
 	},
 /turf/open/floor/carpet/red,
 /area/wizard_station{
@@ -217,8 +217,11 @@
 	name = "Wizard's Unholy Maze"
 	})
 "tq" = (
-/obj/effect/portal/permanent/one_way{
-	id = "portalnumero3"
+/obj/effect/landmark/portal_exit{
+	id = "portalnumero20"
+	},
+/obj/machinery/light/floor{
+	alpha = 0
 	},
 /turf/open/floor/carpet/red,
 /area/wizard_station{
@@ -377,11 +380,8 @@
 	name = "Wizard's Unholy Maze"
 	})
 "Ak" = (
-/obj/effect/landmark/portal_exit{
-	id = "portalnumero1"
-	},
-/obj/machinery/light/floor{
-	alpha = 0
+/obj/effect/portal/permanent/one_way{
+	id = "portalnumero10"
 	},
 /turf/open/floor/carpet/red,
 /area/wizard_station{
@@ -622,7 +622,7 @@
 	})
 "Nz" = (
 /obj/effect/landmark/portal_exit{
-	id = "portalnumero2"
+	id = "portalnumero10"
 	},
 /obj/machinery/light/floor{
 	alpha = 0
@@ -668,7 +668,7 @@
 	})
 "XJ" = (
 /obj/effect/landmark/portal_exit{
-	id = "portalnumero3"
+	id = "portalnumero30"
 	},
 /turf/open/floor/carpet/blue,
 /area/wizard_station{
@@ -2057,7 +2057,7 @@ Nn
 wO
 qu
 jA
-tq
+HF
 wO
 wO
 ZQ
@@ -2110,7 +2110,7 @@ wO
 wO
 wO
 jA
-Yx
+tq
 jA
 wO
 jA
@@ -2118,7 +2118,7 @@ gr
 jA
 wO
 jA
-Id
+Nz
 jA
 wO
 jA
@@ -2187,9 +2187,9 @@ IL
 jA
 Nn
 wO
-tq
+HF
 jA
-tq
+HF
 wO
 wO
 wO
@@ -2309,13 +2309,13 @@ tK
 wO
 ix
 jA
-vk
+jv
 wO
 bb
 jA
 Mu
 wO
-Ga
+Ak
 jA
 Gy
 wO
@@ -2323,7 +2323,7 @@ oy
 jA
 oy
 wO
-jv
+vk
 jA
 oy
 wO
@@ -2439,25 +2439,25 @@ tK
 jA
 tK
 wO
-vk
+jv
 jA
-vk
+jv
 wO
 bb
 jA
 bb
 wO
-Ga
+Ak
 jA
-Ga
+Ak
 wO
 oy
 jA
 ST
 wO
-jv
+vk
 jA
-jv
+vk
 wO
 wO
 ZQ
@@ -2830,7 +2830,7 @@ wO
 wO
 iH
 jA
-HF
+bv
 wO
 Mr
 jA
@@ -2919,7 +2919,7 @@ AL
 jA
 wO
 jA
-Ak
+Id
 jA
 wO
 wO
@@ -2984,7 +2984,7 @@ ST
 jA
 ST
 wO
-jv
+vk
 jA
 Ne
 wO
@@ -3115,9 +3115,9 @@ nO
 jA
 nO
 wO
-bv
+Ga
 jA
-bv
+Ga
 wO
 wO
 ZQ
@@ -3182,7 +3182,7 @@ jX
 jA
 wO
 jA
-Nz
+Yx
 jA
 wO
 wO
@@ -3247,9 +3247,9 @@ Nn
 jA
 nO
 wO
-tq
+HF
 jA
-bv
+Ga
 wO
 ZQ
 ZQ
@@ -3499,7 +3499,7 @@ ix
 jA
 ix
 wO
-vk
+jv
 jA
 Mu
 wO
@@ -3509,7 +3509,7 @@ bb
 wO
 vY
 jA
-Ga
+Ak
 wO
 wO
 ZQ
