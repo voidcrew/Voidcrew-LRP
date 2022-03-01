@@ -18,6 +18,7 @@
 	new /obj/item/clothing/under/rank/security/head_of_security/skirt(src)
 	new /obj/item/clothing/under/rank/security/head_of_security/alt(src)
 	new /obj/item/clothing/under/rank/security/head_of_security/alt/skirt(src)
+	new /obj/item/clothing/suit/space/hardsuit/security/hos(src)
 	new /obj/item/clothing/head/HoS(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses/gars/supergars(src)
@@ -37,9 +38,9 @@
 	new /obj/item/storage/photo_album/HoS(src)
 
 /obj/structure/closet/secure_closet/pilot_officer // Snowflake map item for VoidTest
-	name = "/proper pilot officer's locker"
+	name = "\proper pilot officer's locker"
 	desc = "A storage unit containing useful equipment for a spacecraft pilot or mechanic."
-	req_access = list(ACCESS_SECURITY)
+	req_one_access = list(ACCESS_SECURITY, ACCESS_MINERAL_STOREROOM)
 	icon_state = "sec"
 
 /obj/structure/closet/secure_closet/pilot_officer/PopulateContents()
