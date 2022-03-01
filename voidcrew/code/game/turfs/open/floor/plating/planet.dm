@@ -22,6 +22,15 @@
 	light_power = 1
 	light_range = 2
 
+/turf/open/floor/plating/dirt/dry
+	icon = 'voidcrew/icons/turf/civ13-floors.dmi'
+	icon_state = "dirt"
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+
+/turf/open/floor/plating/dirt/dry/lit
+	light_power = 1
+	light_range = 2
+
 /turf/open/floor/plating/grass/lava
 	name = "lava grass"
 	baseturfs = /turf/open/floor/plating/grass/lava
@@ -73,3 +82,43 @@
 /turf/open/floor/plating/tunnel/Initialize(mapload, inherited_virtual_z)
 	. = ..()
 	icon_state = "[base_icon_state][pick("intact", "dirty", "rusty", "chess", "chess2", "hole", "wastelandfull", "wastelandfullvar", "wasteland")]"
+
+/turf/open/floor/plating/mossy_stone
+	icon = 'voidcrew/icons/turf/civ13-floors.dmi'
+	icon_state = "stone_old"
+	base_icon_state = "stone"
+
+/turf/open/floor/plating/stone/Initialize(mapload, inherited_virtual_z)
+	. = ..()
+	icon_state = "[base_icon_state]_[pick("old", "old1", "old2")]"
+
+/turf/open/floor/plating/dust
+	icon = 'voidcrew/icons/turf/civ13-floors.dmi'
+	icon_state = "dust1"
+	base_icon_state = "dust"
+
+/turf/open/floor/plating/dust/Initialize(mapload, inherited_virtual_z)
+	. = ..()
+	icon_state = "[base_icon_state][pick("1", "2")]"
+
+/turf/open/floor/plating/dust/lit
+	light_power = 1
+	light_range = 2
+
+/turf/open/floor/plating/sand
+	icon = 'voidcrew/icons/turf/civ13-beach.dmi'
+	icon_state = "desert0"
+	base_icon_state = "desert"
+	light_range = 2
+	light_power = 1
+
+/turf/open/floor/plating/sand/Initialize(mapload, inherited_virtual_z)
+	. = ..()
+	icon_state = "[base_icon_state][rand(0,5)]"
+
+/turf/open/floor/plating/sand/dark
+	icon_state = "desert6"
+
+/turf/open/floor/plating/sand/dark/Initialize(mapload, inherited_virtual_z)
+	. = ..()
+	icon_state = "[base_icon_state][rand(6,8)]"

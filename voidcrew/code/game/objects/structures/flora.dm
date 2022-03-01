@@ -107,6 +107,16 @@
 	icon_state = "lavarocks"
 	desc = "A pile of rocks."
 
+/obj/structure/flora/rock/asteroid
+	icon = 'voidcrew/icons/turf/civ13-floors.dmi'
+	icon_state = "asteroid0"
+	base_icon_state = "asteroid"
+	density = FALSE
+
+/obj/structure/flora/rock/asteroid/Initialize()
+	. = ..()
+	icon_state = "[base_icon_state][rand(0,9)]"
+
 /obj/structure/flora/tree/dead/hell
 	name = "lava tree"
 	icon = 'voidcrew/icons/obj/flora/lavatrees.dmi'
@@ -134,9 +144,15 @@
 	. = ..()
 	color = pick( "#846996", "#7b4e99", "#924fab")
 
+/obj/structure/flora/tree/stonepine
+	icon = 'voidcrew/icons/obj/flora/tall_trees.dmi'
+	icon_state = "stonepine_0"
+	pixel_x = -16
+	anchored = TRUE
+
 //Tall tree (grey)
 /obj/structure/flora/tree/dead/tall
-	icon = 'voidcrew/icons/obj/flora/tall_trees_dead.dmi'
+	icon = 'voidcrew/icons/obj/flora/tall_trees.dmi'
 	icon_state = "tree_1"
 	pixel_x = -16
 	resistance_flags = LAVA_PROOF
@@ -144,3 +160,40 @@
 /obj/structure/flora/tree/dead/tall/Initialize()
 	. = ..()
 	icon_state = "tree_[rand(1, 3)]"
+
+/obj/structure/flora/tree/dead/tall/grey
+	icon = 'voidcrew/icons/obj/flora/tall_trees_dead.dmi'
+
+/obj/structure/flora/deadgrass
+	icon = 'voidcrew/icons/obj/flora/dead_jungleflora.dmi'
+	icon_state = "1"
+
+/obj/structure/flora/deadgrass/Initialize()
+	. = ..()
+	icon_state = "[rand(1,30)]"
+
+/obj/structure/flora/deadgrass/tall
+	icon = 'voidcrew/icons/obj/flora/wild.dmi'
+	icon_state = "tall_grass_6"
+
+/obj/structure/flora/deadgrass/tall/Initialize()
+	. = ..()
+	icon_state = "[pick("tall_grass_6", "tall_grass_7")]"
+
+/obj/structure/flora/deadgrass/tall/dense
+	icon = 'voidcrew/icons/obj/flora/wild.dmi'
+	icon_state = "tall_grass_8"
+
+/obj/structure/flora/deadgrass/tall/dense/Initialize()
+	. = ..()
+	icon_state = "[pick("tall_grass_8", "tall_grass_9")]"
+
+/obj/structure/flora/branches
+	icon = 'voidcrew/icons/obj/flora/wild.dmi'
+	icon_state = "stick1"
+	base_icon_state = "stick"
+
+/obj/structure/flora/branches/Initialize()
+	. = ..()
+	icon_state = "[base_icon_state][rand(1,5)]"
+

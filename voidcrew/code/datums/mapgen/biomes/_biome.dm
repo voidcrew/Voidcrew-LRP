@@ -61,7 +61,7 @@
 
 	//FEATURE SPAWNING HERE
 	var/atom/spawned_feature
-	if(feature_spawn_list && prob(feature_spawn_chance))
+	if(feature_spawn_list && prob(feature_spawn_chance) && !spawned_flora)
 		var/can_spawn = TRUE
 
 		if(!(A.area_flags & FLORA_ALLOWED))

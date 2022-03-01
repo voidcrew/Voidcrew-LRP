@@ -13,7 +13,7 @@
 /datum/revamped_biome/lavaland/forest
 	open_turf_types = list(/turf/open/floor/plating/asteroid/purple/lit = 1)
 	flora_spawn_list = list(
-		/obj/structure/flora/tree/dead/tall = 1,
+		/obj/structure/flora/tree/dead/tall/grey = 1,
 		/obj/structure/flora/tree/dead/barren/purple = 1,
 		/obj/structure/flora/ausbushes/fullgrass/hell = 10,
 		/obj/structure/flora/ausbushes/sparsegrass/hell = 5
@@ -24,7 +24,7 @@
 	flora_spawn_list = list(
 		/obj/structure/flora/rock/pile/lava = 5,
 		/obj/structure/flora/rock/lava = 5,
-		/obj/structure/flora/tree/dead/tall = 10,
+		/obj/structure/flora/tree/dead/tall/grey = 10,
 		/obj/structure/flora/ausbushes/fullgrass/hell = 40,
 		/obj/structure/flora/ausbushes/sparsegrass/hell = 20,
 		/obj/structure/flora/ausbushes/hell = 2
@@ -49,7 +49,7 @@
 	feature_spawn_chance = 5
 	feature_spawn_list = list(
 		/obj/structure/flora/tree/dead/barren/purple = 1,
-		/obj/structure/flora/tree/dead/tall = 1,
+		/obj/structure/flora/tree/dead/tall/grey = 1,
 	)
 
 /datum/revamped_biome/lavaland/plains/dense/mixed

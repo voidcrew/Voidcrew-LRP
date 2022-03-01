@@ -74,10 +74,10 @@
 	sound_environment = SOUND_ENVIRONMENT_CAVE
 	ambientsounds = SPOOKY
 
-/area/overmap_encounter/planetoid/sand
-	name = "\improper Sandy Planetoid"
-	sound_environment = SOUND_ENVIRONMENT_QUARRY
-	ambientsounds = MINING
+// /area/overmap_encounter/planetoid/sand
+// 	name = "\improper Sandy Planetoid"
+// 	sound_environment = SOUND_ENVIRONMENT_QUARRY
+// 	ambientsounds = MINING
 
 /area/overmap_encounter/planetoid/beach
 	name = "\improper Beach Planetoid"
@@ -102,6 +102,11 @@
 /area/overmap_encounter/planetoid/rockplanet/explored//for use in ruins
 	area_flags = UNIQUE_AREA
 	area_flags = VALID_TERRITORY | UNIQUE_AREA
+
+/area/overmap_encounter/planetoid/wasteland
+	name = "\improper Apocalyptic Planetoid"
+	sound_environment = SOUND_ENVIRONMENT_HANGAR
+	ambientsounds = MINING
 
 /area/overmap_encounter/planetoid/reebe
 	name = "\improper Yellow Space"

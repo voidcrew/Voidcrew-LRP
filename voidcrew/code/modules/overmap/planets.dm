@@ -83,18 +83,26 @@
 	weather_controller_type = /datum/weather_controller/lush
 	planet_template = /datum/planet/jungle
 
-/datum/overmap/planet/rock
-	name = "strange rock planet"
+/datum/overmap/planet/wasteland
+	name = "strange apocalyptic planet"
 	desc = "A very weak energy signal originating from a abandoned industrial planet."
-	color = COLOR_BROWN
-
+	color = COLOR_BEIGE
 	ruin_type = RUIN_TYPE_ROCK
-	// mapgen = /datum/map_generator/cave_generator/rockplanet
 	mapgen = /datum/map_generator/planet_generator/lava
-	target_area = /area/overmap_encounter/planetoid/rockplanet
+	target_area = /area/overmap_encounter/planetoid/wasteland
 	surface = /turf/open/floor/plating/asteroid
-	weather_controller_type = /datum/weather_controller/chlorine
+	weather_controller_type = /datum/weather_controller/wasteland
 	planet_template = /datum/planet/rock
+
+// /datum/overmap/planet/rock
+// 	name = "strange rock planet"
+// 	desc = "A very weak energy signal originating from a abandoned industrial planet."
+// 	color = COLOR_BROWN
+// 	ruin_type = RUIN_TYPE_ROCK
+// 	mapgen = /datum/map_generator/cave_generator/rockplanet
+// 	target_area = /area/overmap_encounter/planetoid/rockplanet
+// 	surface = /turf/open/floor/plating/asteroid
+// 	weather_controller_type = /datum/weather_controller/chlorine
 
 /datum/overmap/planet/reebe
 	name = "???"
