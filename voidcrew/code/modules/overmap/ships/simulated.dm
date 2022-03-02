@@ -53,6 +53,9 @@
 	///The ships password
 	var/password
 
+	/// Which docking port the ship is occupying
+	var/dock_index
+
 /obj/structure/overmap/ship/simulated/Initialize(mapload, obj/docking_port/mobile/_shuttle, datum/map_template/shuttle/_source_template)
 	. = ..()
 	SSovermap.simulated_ships += src
@@ -101,12 +104,32 @@
 			throw_atom_into_space(M)
 	destroy_ship()
 
+/**
+*	To properly fix the bug of two ships docking at the same time causing issues,
+*	we need to keep track of whether or not a ship is requesting to dock at a
+*	port IMMEDIATELY after the command is issued.
+*	This also includes keeping track of when the ship is no longer there, upon which
+*	the bools need to be set to false.
+*	This function should be called whenever an action occurs that would remove a ship from the map
+*/
+/obj/structure/overmap/ship/simulated/proc/update_docked_bools()
+	var/obj/structure/overmap/dynamic/dockable_place = docked
+	if (!dockable_place)
+		return
+	if (dock_index == 1)
+		dockable_place.first_dock_taken = FALSE
+		dock_index = 0
+	else if (dock_index == 2)
+		dockable_place.second_dock_taken = FALSE
+		dock_index = 0
+
 /obj/structure/overmap/ship/simulated/proc/destroy_ship(force = FALSE)
 	if ((length(shuttle.get_all_humans()) > 0) && !force)
 		return
 	if ((is_active_crew() == SHUTTLE_ACTIVE_CREW) && !force)
 		return
 	shuttle.jumpToNullSpace()
+	update_docked_bools()
 	message_admins("\[SHUTTLE]: [shuttle.name] has been deleted!")
 	log_admin("\[SHUTTLE]: [shuttle.name] has been deleted!")
 	qdel(src)
@@ -116,12 +139,12 @@
   * * user - Mob that started the action
   * * object - Overmap object to act on
   */
-/obj/structure/overmap/ship/simulated/proc/overmap_object_act(mob/user, obj/structure/overmap/object)
+/obj/structure/overmap/ship/simulated/proc/overmap_object_act(mob/user, obj/structure/overmap/object, obj/structure/overmap/ship/simulated/optional_partner)
 	if(!is_still() || state != OVERMAP_SHIP_FLYING)
 		to_chat(user, "<span class='warning'>Ship must be still to interact!</span>")
 		return
 
-	INVOKE_ASYNC(object, /obj/structure/overmap/.proc/ship_act, user, src)
+	INVOKE_ASYNC(object, /obj/structure/overmap/.proc/ship_act, user, src, optional_partner)
 
 /**
   * Docks the shuttle by requesting a port at the requested spot.
@@ -134,7 +157,7 @@
 	shuttle.request(dock_to_use)
 
 	priority_announce("Beginning docking procedures. Completion in [(shuttle.callTime + 1 SECONDS)/10] seconds.", "Docking Announcement", sender_override = name, zlevel = shuttle.virtual_z())
-
+	docked = to_dock //this wasnt getting updated at all before which is strange
 	addtimer(CALLBACK(src, .proc/complete_dock, WEAKREF(to_dock)), shuttle.callTime + 1 SECONDS)
 	state = OVERMAP_SHIP_DOCKING
 	return "Commencing docking..."
@@ -150,6 +173,8 @@
 		return "Ship not docked!"
 	if(!shuttle)
 		return "Shuttle not found!"
+	update_docked_bools()
+	docked = null
 	shuttle.destination = null
 	shuttle.mode = SHUTTLE_IGNITING
 	shuttle.setTimer(shuttle.ignitionTime)

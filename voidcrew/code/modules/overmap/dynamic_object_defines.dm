@@ -14,6 +14,9 @@
 	var/preserve_level = FALSE
 	///What kind of planet the level is, if it's a planet at all.
 	var/datum/overmap/planet/planet
+	///Keep track of whether or not the docks have been reserved by a ship. This is required to prevent issues where two ships will attempt to dock in the same place due to unfortunate timing
+	var/first_dock_taken = FALSE
+	var/second_dock_taken = FALSE
 
 /obj/structure/overmap/dynamic/lava
 	planet = /datum/overmap/planet/lava

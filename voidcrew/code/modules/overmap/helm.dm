@@ -82,10 +82,14 @@
 
 /obj/machinery/computer/helm/proc/do_jump()
 	priority_announce("Bluespace Jump Initiated.", sender_override="[current_ship.name] Bluespace Pylon", sound='sound/magic/lightningbolt.ogg', zlevel=virtual_z())
+	// You can't bluespace jump while docked, but maybe admeme does it? In which case without this that docking spot would just stay taken. Just a precaution
+	current_ship.update_docked_bools()
+	current_ship.docked = null
 	current_ship.shuttle.intoTheSunset()
 
 /obj/machinery/computer/helm/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	current_ship = port.current_ship
+	current_ship.most_recent_helm = src
 
 /**
  * This proc manually rechecks that the helm computer is connected to a proper ship
@@ -132,6 +136,18 @@
 
 /obj/machinery/computer/helm/ui_data(mob/user)
 	. = list()
+	//dock requesting stuff
+	if (current_ship.requesting_ship)
+		if (current_ship.loc == current_ship.requesting_ship.loc)
+			.["dock_request"] = current_ship.requesting_ship
+			.["dock_req_name"] = current_ship.requesting_ship.name
+		else
+			current_ship.requesting_ship.most_recent_helm.say("Ship has moved out of range.")
+			current_ship.requesting_ship.sent_request = FALSE
+			current_ship.requesting_ship = null
+	else
+		.["dock_request"] = null
+
 	.["integrity"] = current_ship.integrity
 	.["calibrating"] = calibrating
 	.["otherInfo"] = list()
@@ -223,6 +239,22 @@
 			return
 		if("reload_engines")
 			current_ship.refresh_engines()
+			return
+		if("dock_req_success")
+			current_ship.requesting_ship.most_recent_helm.say("Request accepted!")
+			playsound(current_ship.requesting_ship.most_recent_helm.loc, 'sound/machines/ping.ogg', 90, 1, 0)
+			if (current_ship.loc == current_ship.requesting_ship.loc)
+				current_ship.duo_dock(usr, current_ship.requesting_ship)
+			else // The request disappears when the ships move away so this shouldn't happen, but just in case
+				current_ship.most_recent_helm.say("Requesting ship moved away. Cancelling dock.")
+			current_ship.requesting_ship.sent_request = FALSE
+			current_ship.requesting_ship = null
+			return
+		if("dock_req_failure")
+			current_ship.requesting_ship.most_recent_helm.say("Request denied.")
+			playsound(current_ship.requesting_ship.most_recent_helm.loc, 'sound/machines/ping.ogg', 90, 1, 0)
+			current_ship.requesting_ship.sent_request = FALSE
+			current_ship.requesting_ship = null
 			return
 
 	switch(current_ship.state) // Ship state-limited topics
