@@ -602,7 +602,7 @@
 	},
 /obj/structure/closet/wall{
 	dir = 4;
-	icon_door = "wardrobe_blue";
+	icon_door = null;
 	name = "bridge crew's closet";
 	pixel_x = -28
 	},
@@ -1445,6 +1445,7 @@
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/storage/bag/ore,
 /turf/open/floor/plasteel,
 /area/ship/maintenance/fore)
 "xk" = (
@@ -1951,7 +1952,7 @@
 	},
 /obj/structure/closet/wall{
 	dir = 4;
-	icon_door = "wardrobe_blue";
+	icon_door = null;
 	name = "captain's closet";
 	pixel_x = -28
 	},
@@ -2047,7 +2048,7 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ship/engineering)
 "FK" = (
-/obj/machinery/stasis,
+/obj/structure/table/optable,
 /obj/effect/turf_decal/borderfloor{
 	dir = 1
 	},
@@ -2239,17 +2240,16 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ship/bridge)
 "JZ" = (
-/obj/structure/table,
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/machinery/defibrillator_mount/loaded{
 	pixel_y = 32
 	},
-/obj/machinery/computer/med_data/laptop,
 /obj/effect/turf_decal/borderfloor{
 	dir = 1
 	},
+/obj/machinery/computer/operating,
 /turf/open/floor/plasteel/white,
 /area/ship/medical)
 "Ki" = (
@@ -2411,6 +2411,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/auto_name/west,
+/obj/item/mining_scanner,
 /turf/open/floor/plasteel/dark,
 /area/ship/cargo)
 "Mp" = (
