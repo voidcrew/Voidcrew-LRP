@@ -585,21 +585,11 @@
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/oxygen_input,
 /turf/open/floor/engine/o2,
 /area/ship/engineering)
-"jl" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
-	dir = 1
-	},
-/turf/open/floor/wood/bamboo,
-/area/ship/crew/dorm)
 "jq" = (
 /obj/structure/window/plasma/reinforced/spawner/east,
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/nitrogen_input,
 /turf/open/floor/engine/n2,
 /area/ship/engineering)
-"jt" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
-/turf/open/floor/plasteel/patterned/grid,
-/area/ship/cargo)
 "jv" = (
 /obj/machinery/atmospherics/pipe/simple/green/visible{
 	dir = 4
@@ -716,10 +706,6 @@
 	},
 /turf/open/floor/plasteel/patterned/ridged,
 /area/ship/cargo)
-"la" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
-/turf/open/floor/carpet/nanoweave/red,
-/area/ship/security)
 "lc" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/oxygen_output,
 /turf/open/floor/engine/o2,
@@ -790,10 +776,6 @@
 	id = "corpseclockdown"
 	},
 /turf/open/floor/plating,
-/area/ship/security)
-"mg" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
-/turf/open/floor/carpet/nanoweave/red,
 /area/ship/security)
 "mB" = (
 /obj/effect/turf_decal/siding/blue/corner{
@@ -1545,12 +1527,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/engineering)
-"xF" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
-	dir = 1
-	},
-/turf/open/floor/carpet/nanoweave,
-/area/ship/crew/office)
 "xL" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -2109,6 +2085,10 @@
 	},
 /turf/open/floor/carpet/nanoweave/blue,
 /area/ship/bridge)
+"Gr" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
+/turf/open/floor/carpet/nanoweave/red,
+/area/ship/security)
 "Gy" = (
 /obj/machinery/door/airlock/wood,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
@@ -2271,6 +2251,12 @@
 /obj/structure/closet/cardboard,
 /obj/item/stack/sheet/metal/fifty,
 /obj/item/stack/sheet/glass/fifty,
+/turf/open/floor/plasteel/patterned/grid,
+/area/ship/cargo)
+"IC" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 1
+	},
 /turf/open/floor/plasteel/patterned/grid,
 /area/ship/cargo)
 "IE" = (
@@ -2498,15 +2484,6 @@
 	},
 /turf/open/floor/carpet/stellar,
 /area/ship/crew/office)
-"Ln" = (
-/obj/effect/turf_decal/siding/red{
-	dir = 4
-	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
-	dir = 8
-	},
-/turf/open/floor/plasteel,
-/area/ship/hallway/starboard)
 "Lq" = (
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/plasteel/dark,
@@ -2677,6 +2654,12 @@
 /obj/structure/sign/warning/electricshock,
 /turf/closed/wall/r_wall,
 /area/ship/engineering)
+"Nh" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/wood/bamboo,
+/area/ship/crew/dorm)
 "Nr" = (
 /obj/structure/chair/comfy{
 	dir = 4
@@ -2887,6 +2870,21 @@
 /obj/structure/sign/warning/vacuum/external,
 /turf/closed/wall/r_wall,
 /area/ship/hallway/starboard)
+"QD" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/carpet/nanoweave,
+/area/ship/crew/office)
+"QF" = (
+/obj/effect/turf_decal/siding/red{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/ship/hallway/starboard)
 "QM" = (
 /obj/structure/table/wood,
 /obj/structure/cable{
@@ -2947,12 +2945,6 @@
 	},
 /turf/open/floor/plating,
 /area/ship/hallway/starboard)
-"Su" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
-	dir = 1
-	},
-/turf/open/floor/plasteel/patterned/grid,
-/area/ship/cargo)
 "SA" = (
 /obj/structure/chair/sofa/left{
 	dir = 1
@@ -3124,6 +3116,10 @@
 /obj/item/clothing/suit/jacket/letterman_nanotrasen,
 /turf/open/floor/carpet/nanoweave/beige,
 /area/ship/crew/dorm)
+"Vv" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/turf/open/floor/carpet/nanoweave/red,
+/area/ship/security)
 "Vw" = (
 /obj/machinery/computer/helm,
 /turf/open/floor/carpet,
@@ -3369,6 +3365,10 @@
 /obj/structure/sign/warning/vacuum,
 /turf/closed/wall/r_wall,
 /area/ship/cargo)
+"ZE" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/turf/open/floor/plasteel/patterned/grid,
+/area/ship/cargo)
 
 (1,1,1) = {"
 Aq
@@ -3480,7 +3480,7 @@ Nr
 tM
 Nr
 tM
-xF
+QD
 tk
 wf
 JE
@@ -3651,9 +3651,9 @@ VA
 VA
 tk
 PW
-jt
-jt
-Su
+ZE
+ZE
+IC
 ss
 Od
 eU
@@ -3944,7 +3944,7 @@ fO
 Al
 lx
 Ml
-jl
+Nh
 rF
 Tw
 sm
@@ -4060,7 +4060,7 @@ rK
 in
 tv
 FZ
-Ln
+QF
 tv
 Yn
 rF
@@ -4185,8 +4185,8 @@ PH
 AR
 JW
 mf
-mg
-la
+Gr
+Vv
 oI
 Xw
 hi
