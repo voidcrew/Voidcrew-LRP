@@ -22,17 +22,11 @@
 /obj/structure/overmap/dynamic/ice
 	planet = /datum/overmap/planet/ice
 
-/obj/structure/overmap/dynamic/sand
-	planet = /datum/overmap/planet/sand
-
 /obj/structure/overmap/dynamic/beach
 	planet = /datum/overmap/planet/beach
 
 /obj/structure/overmap/dynamic/jungle
 	planet = /datum/overmap/planet/jungle
-
-/obj/structure/overmap/dynamic/rock
-	planet = /datum/overmap/planet/rock
 
 /obj/structure/overmap/dynamic/reebe
 	planet = /datum/overmap/planet/reebe
@@ -74,11 +68,6 @@
 	sound_environment = SOUND_ENVIRONMENT_CAVE
 	ambientsounds = SPOOKY
 
-// /area/overmap_encounter/planetoid/sand
-// 	name = "\improper Sandy Planetoid"
-// 	sound_environment = SOUND_ENVIRONMENT_QUARRY
-// 	ambientsounds = MINING
-
 /area/overmap_encounter/planetoid/beach
 	name = "\improper Beach Planetoid"
 	sound_environment = SOUND_ENVIRONMENT_FOREST
@@ -93,11 +82,6 @@
 	name = "\improper Dynamic Planetoid"
 	sound_environment = SOUND_ENVIRONMENT_FOREST
 	ambientsounds = AWAY_MISSION
-
-/area/overmap_encounter/planetoid/rockplanet
-	name = "\improper Rocky Planetoid"
-	sound_environment = SOUND_ENVIRONMENT_HANGAR
-	ambientsounds = MAINTENANCE
 
 /area/overmap_encounter/planetoid/rockplanet/explored//for use in ruins
 	area_flags = UNIQUE_AREA

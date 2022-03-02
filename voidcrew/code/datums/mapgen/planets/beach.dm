@@ -12,7 +12,7 @@
 		"biome_low_humidity" = /datum/revamped_biome/beach/dense,
 		"biome_medium_humidity" = /datum/revamped_biome/ocean,
 		"biome_high_humidity" = /datum/revamped_biome/ocean,
-		"biome_highest_humidity" = /datum/revamped_biome/ocean/deep
+		"biome_highest_humidity" = /datum/revamped_biome/ocean/deep/pirate
 	)
 	warm_biomes = list(
 		"biome_lowest_humidity" = /datum/revamped_biome/grass,
@@ -26,7 +26,7 @@
 		"biome_low_humidity" = /datum/revamped_biome/beach,
 		"biome_medium_humidity" = /datum/revamped_biome/beach/dense,
 		"biome_high_humidity" = /datum/revamped_biome/beach/dense,
-		"biome_highest_humidity" = /datum/revamped_biome/ocean
+		"biome_highest_humidity" = /datum/revamped_biome/ocean/deep/pirate
 	)
 	hot_biomes = list(
 		"biome_lowest_humidity" = /datum/revamped_biome/grass,

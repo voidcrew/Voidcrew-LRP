@@ -1,14 +1,14 @@
 /datum/planet/jungle
 	//NORMAL BIOMES
 	coldest_biomes = list(
-		"biome_lowest_humidity" = /datum/revamped_biome/wasteland,
-		"biome_low_humidity" = /datum/revamped_biome/wasteland,
+		"biome_lowest_humidity" = /datum/revamped_biome/jungle_wasteland,
+		"biome_low_humidity" = /datum/revamped_biome/jungle_wasteland,
 		"biome_medium_humidity" = /datum/revamped_biome/jungle/plains,
 		"biome_high_humidity" = /datum/revamped_biome/jungle/plains,
 		"biome_highest_humidity" = /datum/revamped_biome/mudlands
 	)
 	cold_biomes = list(
-		"biome_lowest_humidity" = /datum/revamped_biome/wasteland,
+		"biome_lowest_humidity" = /datum/revamped_biome/jungle_wasteland,
 		"biome_low_humidity" = /datum/revamped_biome/jungle/plains,
 		"biome_medium_humidity" = /datum/revamped_biome/jungle/plains,
 		"biome_high_humidity" = /datum/revamped_biome/mudlands,

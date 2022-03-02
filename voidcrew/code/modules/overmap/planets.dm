@@ -48,17 +48,6 @@
 	weather_controller_type = /datum/weather_controller/snow_planet
 	planet_template = /datum/planet/snow
 
-/datum/overmap/planet/sand
-	name = "strange sand planet"
-	desc = "A very weak energy signal originating from a planet with many traces of silica."
-	color = COLOR_GRAY
-
-	ruin_type = RUIN_TYPE_SAND
-	mapgen = /datum/map_generator/cave_generator/whitesands
-	target_area = /area/overmap_encounter/planetoid/sand
-	surface = /turf/open/floor/plating/asteroid/whitesands
-	weather_controller_type = /datum/weather_controller/desert
-
 /datum/overmap/planet/beach
 	name = "strange beach planet"
 	desc = "A very weak energy signal originating from a planet with many traces of fish."
@@ -87,22 +76,13 @@
 	name = "strange apocalyptic planet"
 	desc = "A very weak energy signal originating from a abandoned industrial planet."
 	color = COLOR_BEIGE
-	ruin_type = RUIN_TYPE_ROCK
+
+	ruin_type = RUIN_TYPE_WASTELAND
 	mapgen = /datum/map_generator/planet_generator/lava
 	target_area = /area/overmap_encounter/planetoid/wasteland
-	surface = /turf/open/floor/plating/asteroid
+	surface = /turf/open/floor/plating/wasteland/lit
 	weather_controller_type = /datum/weather_controller/wasteland
-	planet_template = /datum/planet/rock
-
-// /datum/overmap/planet/rock
-// 	name = "strange rock planet"
-// 	desc = "A very weak energy signal originating from a abandoned industrial planet."
-// 	color = COLOR_BROWN
-// 	ruin_type = RUIN_TYPE_ROCK
-// 	mapgen = /datum/map_generator/cave_generator/rockplanet
-// 	target_area = /area/overmap_encounter/planetoid/rockplanet
-// 	surface = /turf/open/floor/plating/asteroid
-// 	weather_controller_type = /datum/weather_controller/chlorine
+	planet_template = /datum/planet/wasteland
 
 /datum/overmap/planet/reebe
 	name = "???"

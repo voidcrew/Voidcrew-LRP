@@ -1,5 +1,5 @@
 /mob/living/simple_animal/beachcarp
-	name = "void carp"
+	name = "friendly carp"
 	desc = "A not-so ferocious, fang-bearing creature that resembles a fish."
 	icon = 'icons/mob/carp.dmi'
 	icon_state = "base"
@@ -23,15 +23,46 @@
 	friendly_verb_continuous = "nibbles"
 	friendly_verb_simple = "nibble"
 
-/mob/living/simple_animal/voidcarp/Life()
+
+/mob/living/simple_animal/beachcarp/Life()
 	..()
 	//CARP movement
 	if(!ckey && !stat)
-		if(isturf(loc) && !resting && !buckled)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
+		if(isturf(loc) && !resting && !buckled) //This is so it only moves if it's not inside a closet, gentics machine, etc.
 			turns_since_move++
 			if(turns_since_move >= turns_per_move)
 				var/east_vs_west = pick(4,8)
 				if(Process_Spacemove(east_vs_west))
-					Move(get_step(src,east_vs_west), east_vs_west)
+					var/turf/step = get_step(src,east_vs_west)
+					if (istype(step, /turf/open/water)) //Only allow fish to move onto water tiles
+						Move(step, east_vs_west)
 					turns_since_move = 0
 	regenerate_icons()
+
+/mob/living/simple_animal/beachcarp/bass
+	name = "bass"
+	desc = "A delicious green fish"
+	icon = 'voidcrew/icons/mob/beach/fish.dmi'
+	icon_state = "bass-swim"
+	icon_dead = "bass-dead"
+
+/mob/living/simple_animal/beachcarp/trout
+	name = "trout"
+	desc = "A delicious grey fish"
+	icon = 'voidcrew/icons/mob/beach/fish.dmi'
+	icon_state = "trout-swim"
+	icon_dead = "trout-dead"
+
+/mob/living/simple_animal/beachcarp/salmon
+	name = "salmon"
+	desc = "A delicious blue fish"
+	icon = 'voidcrew/icons/mob/beach/fish.dmi'
+	icon_state = "salmon-swim"
+	icon_dead = "salmon-dead"
+
+/mob/living/simple_animal/beachcarp/perch
+	name = "salmon"
+	desc = "An adorable yellow fish"
+	icon = 'voidcrew/icons/mob/beach/fish.dmi'
+	icon_state = "perch-swim"
+	icon_dead = "perch-dead"

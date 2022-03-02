@@ -1,4 +1,4 @@
-/datum/planet/rock
+/datum/planet/wasteland
 	//NORMAL BIOMES
 	coldest_biomes = list(
 		"biome_lowest_humidity" = /datum/revamped_biome/ruins,
@@ -9,9 +9,9 @@
 	)
 	cold_biomes = list(
 		"biome_lowest_humidity" = /datum/revamped_biome/wasteland,
-		"biome_low_humidity" = /datum/revamped_biome/ruins,
+		"biome_low_humidity" = /datum/revamped_biome/wasteland,
 		"biome_medium_humidity" = /datum/revamped_biome/wasteland/forest,
-		"biome_high_humidity" = /datum/revamped_biome/wasteland,
+		"biome_high_humidity" = /datum/revamped_biome/ruins,
 		"biome_highest_humidity" = /datum/revamped_biome/wasteland/plains
 	)
 	warm_biomes = list(
@@ -19,10 +19,10 @@
 		"biome_low_humidity" = /datum/revamped_biome/wasteland,
 		"biome_medium_humidity" = /datum/revamped_biome/wasteland/forest,
 		"biome_high_humidity" = /datum/revamped_biome/wasteland/plains,
-		"biome_highest_humidity" = /datum/revamped_biome/ruins
+		"biome_highest_humidity" = /datum/revamped_biome/nuclear
 	)
 	perfect_biomes = list(
-		"biome_lowest_humidity" = /datum/revamped_biome/ruins,
+		"biome_lowest_humidity" = /datum/revamped_biome/nuclear,
 		"biome_low_humidity" = /datum/revamped_biome/wasteland/forest,
 		"biome_medium_humidity" = /datum/revamped_biome/wasteland/forest,
 		"biome_high_humidity" = /datum/revamped_biome/wasteland/plains,
@@ -31,13 +31,13 @@
 	hot_biomes = list(
 		"biome_lowest_humidity" = /datum/revamped_biome/wasteland,
 		"biome_low_humidity" = /datum/revamped_biome/wasteland/forest,
-		"biome_medium_humidity" = /datum/revamped_biome/ruins,
+		"biome_medium_humidity" = /datum/revamped_biome/wasteland,
 		"biome_high_humidity" = /datum/revamped_biome/nuclear,
-		"biome_highest_humidity" = /datum/revamped_biome/nuclear
+		"biome_highest_humidity" = /datum/revamped_biome/wasteland
 	)
 	hottest_biomes = list(
 		"biome_lowest_humidity" = /datum/revamped_biome/wasteland,
-		"biome_low_humidity" = /datum/revamped_biome/ruins,
+		"biome_low_humidity" = /datum/revamped_biome/wasteland/forest,
 		"biome_medium_humidity" = /datum/revamped_biome/wasteland,
 		"biome_high_humidity" = /datum/revamped_biome/nuclear,
 		"biome_highest_humidity" = /datum/revamped_biome/nuclear

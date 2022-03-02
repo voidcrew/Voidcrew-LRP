@@ -1,33 +1,51 @@
 /datum/revamped_biome/wasteland
 	open_turf_types = list(/turf/open/floor/plating/wasteland/lit = 1)
 	flora_spawn_list = list(
-		/obj/structure/flora/rock/asteroid = 15,
-		/obj/structure/flora/tree/dead/tall = 1,
-		/obj/structure/flora/rock = 1,
-		/obj/structure/flora/ash/cacti = 2,
+		/obj/structure/flora/rock/asteroid = 30,
+		/obj/structure/flora/tree/dead/tall = 10,
+		/obj/structure/flora/tree/dead_pine = 4,
+		/obj/structure/flora/tree/dead_african = 1,
+		/obj/structure/flora/rock = 10,
+		/obj/structure/flora/cactus = 10
 	)
 	flora_spawn_chance = 5
 	feature_spawn_list = list(
-		/obj/item/storage/firstaid = 10,
-		/obj/item/bodypart/r_arm/robot = 10,
-		/obj/item/assembly/prox_sensor = 10,
-		/obj/item/healthanalyzer = 10,
-		/obj/effect/mine/explosive = 2,
-		/obj/structure/geyser/random = 1,
-		/obj/item/shard = 10,
-		/obj/item/stack/cable_coil/cut = 10,
-		/obj/item/stack/rods = 10
+		/obj/item/bodypart/r_arm/robot = 40,
+		/obj/item/assembly/prox_sensor = 40,
+		/obj/effect/mine/explosive = 8,
+		/obj/structure/geyser/random = 4,
+		/obj/item/shard = 30,
+		/obj/item/stack/cable_coil/cut = 30,
+		/obj/item/stack/rods = 30,
+		/obj/structure/elite_tumor = 1
 	)
-	feature_spawn_chance = 1
+	feature_spawn_chance = 3
+	mob_spawn_chance = 15
+	mob_spawn_list = list(
+		/mob/living/simple_animal/hostile/asteroid/whitesands/ranged/hunter = 10,
+		/mob/living/simple_animal/hostile/asteroid/whitesands/ranged/gunslinger = 7,
+		/mob/living/simple_animal/hostile/asteroid/whitesands = 15,
+		/mob/living/simple_animal/hostile/hivebot/rapid/wasteland = 5,
+		/mob/living/simple_animal/hostile/poison/giant_spider/wasteland = 5,
+		/mob/living/simple_animal/hostile/poison/giant_spider/tarantula/wasteland = 1
+	)
 
 /datum/revamped_biome/wasteland/plains
 	open_turf_types = list(/turf/open/floor/plating/dust/lit = 1)
 	flora_spawn_list = list(/obj/structure/flora/deadgrass/tall = 50, /obj/structure/flora/deadgrass/tall/dense = 5, /obj/structure/flora/rock = 1)
 	flora_spawn_chance = 45
+	mob_spawn_chance = 25
 
 /datum/revamped_biome/wasteland/forest
 	open_turf_types = list(/turf/open/floor/plating/dirt/dry/lit = 1)
-	flora_spawn_list = list(/obj/structure/flora/tree/dead/tall = 10, /obj/structure/flora/branches = 20, /obj/structure/flora/deadgrass = 30, /obj/structure/flora/tree/stonepine = 1)
+	flora_spawn_list = list(
+		/obj/structure/flora/tree/dead/tall = 35,
+		/obj/structure/flora/branches = 10,
+		/obj/structure/flora/deadgrass = 80,
+		/obj/structure/elite_tumor = 1,
+		/obj/structure/flora/tree/dead_pine = 15,
+		/obj/structure/flora/tree/dead_african = 4
+	)
 	flora_spawn_chance = 25
 
 /datum/revamped_biome/nuclear
@@ -37,13 +55,23 @@
 		/obj/structure/radioactive = 1,
 		/obj/structure/radioactive/stack = 1,
 		/obj/structure/radioactive/waste = 1,
-		/obj/item/stack/ore/slag = 1
+		/obj/item/stack/ore/slag = 1,
+		/obj/structure/flora/cactus = 5
 	)
 	flora_spawn_chance = 1
-	flora_spawn_list = list(/obj/structure/flora/rock = 20, /obj/effect/decal/cleanable/greenglow = 10, /obj/structure/elite_tumor = 1)
+	flora_spawn_list = list(/obj/structure/flora/rock = 30, /obj/effect/decal/cleanable/greenglow = 30, /obj/structure/elite_tumor = 1)
+	mob_spawn_chance = 20
+	mob_spawn_list = list(
+		/mob/living/simple_animal/hostile/asteroid/whitesands/ranged/hunter = 10,
+		/mob/living/simple_animal/hostile/asteroid/whitesands/ranged/gunslinger = 7,
+		/mob/living/simple_animal/hostile/asteroid/whitesands = 15,
+		/mob/living/simple_animal/hostile/hivebot/rapid/wasteland = 5,
+		/mob/living/simple_animal/hostile/poison/giant_spider/wasteland = 5,
+		/mob/living/simple_animal/hostile/poison/giant_spider/tarantula/wasteland = 1
+	)
 
 /datum/revamped_biome/ruins
-	open_turf_types = list(/turf/open/floor/plating/dust/lit = 30, /turf/open/floor/plating/rust = 1)
+	open_turf_types = list(/turf/open/floor/plating/dust/lit = 45, /turf/open/floor/plating/rust = 1)
 	feature_spawn_chance = 5
 	feature_spawn_list = list(
 		/obj/structure/barrel/flaming = 3,
@@ -52,16 +80,34 @@
 		/obj/item/shard = 6,
 		/obj/item/stack/cable_coil/cut = 6,
 		/obj/effect/mine/explosive = 1,
-		/obj/item/reagent_containers/food/snacks/canned/beans = 1
+		/obj/item/reagent_containers/food/snacks/canned/beans = 1,
+		/obj/item/reagent_containers/food/drinks/drinkingglass/filled/nuka_cola = 1,
+		/obj/structure/mecha_wreckage/ripley = 3,
+		/obj/structure/mecha_wreckage/ripley/firefighter = 1,
+		/obj/structure/mecha_wreckage/ripley/mkii = 1,
+		/obj/item/gun/ballistic/rifle/boltaction/polymer = 1,
+		/obj/item/gun/ballistic/bow = 1
 	)
-	flora_spawn_chance = 5
+	flora_spawn_chance = 1
 	flora_spawn_list = list(
-		/obj/structure/girder = 45, /obj/structure/barricade/sandbags = 25, /obj/item/gun/ballistic/rifle/boltaction/polymer = 1, /obj/item/gun/ballistic/bow = 1
+		/obj/structure/girder = 1
+	)
+	mob_spawn_chance = 1
+	mob_spawn_list = list(
+		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/wasteland = 15,
+		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/crystal/wasteland = 1,
+		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/forgotten/wasteland = 1
 	)
 
 /datum/revamped_biome/cave/wasteland
 	open_turf_types = list(/turf/open/floor/plating/dirt/dry = 1, /turf/open/floor/plating/dust = 1)
 	closed_turf_types = list(/turf/closed/mineral/random/asteroid = 1)
+	mob_spawn_chance = 1
+	mob_spawn_list = list(
+		/mob/living/simple_animal/hostile/asteroid/fugu/wasteland = 1,
+		/mob/living/simple_animal/hostile/bear/cave = 1,
+		/mob/living/simple_animal/hostile/asteroid/wolf/wasteland/random = 1
+	)
 	flora_spawn_chance = 10
 	flora_spawn_list = list(
 		/obj/structure/flora/rock = 5,
@@ -102,14 +148,22 @@
 		/obj/item/stack/cable_coil/cut = 1,
 		/obj/effect/mine/explosive = 1,
 		/obj/item/ammo_casing/caseless/arrow/bone = 1,
+		/obj/item/healthanalyzer = 1,
 		/obj/item/gun/ballistic/bow = 1,
+		/obj/item/storage/firstaid = 1
 	)
 	feature_spawn_chance = 5
 	flora_spawn_list = list(/obj/structure/flora/rock = 1)
 	flora_spawn_chance = 1
+	mob_spawn_chance = 5
+	mob_spawn_list = list(
+		/mob/living/simple_animal/hostile/poison/giant_spider/tarantula/wasteland = 1,
+		/mob/living/simple_animal/hostile/asteroid/goliath/beast/wasteland = 5,
+		/mob/living/simple_animal/hostile/asteroid/goliath/beast/ancient/wasteland = 2
+	)
 
 /datum/revamped_biome/cave/mossy_stone
-	open_turf_types = list(/turf/open/floor/plating/mossy_stone = 1)
+	open_turf_types = list(/turf/open/floor/plating/mossy_stone = 5, /turf/open/floor/plating/dirt/dry = 1)
 	feature_spawn_list = list(
 		/obj/effect/decal/cleanable/greenglow = 30,
 		/obj/machinery/portable_atmospherics/canister/toxins = 15,
@@ -128,3 +182,10 @@
 		/obj/structure/flora/ash/stem_shroom = 4,
 	)
 	flora_spawn_chance = 1
+	mob_spawn_chance = 5
+	mob_spawn_list = list(
+		/mob/living/simple_animal/hostile/blob/blobbernaut/independent/wasteland = 1,
+		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/magmawing/wasteland = 4,
+		/mob/living/simple_animal/hostile/asteroid/goldgrub = 3,
+		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/wasteland = 3
+	)

@@ -31,7 +31,7 @@
 	mob_spawn_chance = 0.05
 	mob_spawn_list = list(/mob/living/simple_animal/hostile/poison/giant_spider/tarantula = 1)
 
-/datum/revamped_biome/wasteland
+/datum/revamped_biome/jungle_wasteland
 	open_turf_types = list(/turf/open/floor/plating/dirt/jungle/wasteland/lit = 1)
 
 /datum/revamped_biome/jungle/water

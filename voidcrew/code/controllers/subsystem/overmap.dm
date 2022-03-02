@@ -248,10 +248,6 @@ SUBSYSTEM_DEF(overmap)
 			return SSmapping.lava_ruins_templates
 		if (RUIN_TYPE_ICE)
 			return SSmapping.ice_ruins_templates
-		if (RUIN_TYPE_SAND)
-			return SSmapping.sand_ruins_templates
-		if (RUIN_TYPE_ROCK)
-			return SSmapping.rock_ruins_templates
 		if (RUIN_TYPE_JUNGLE)
 			return SSmapping.jungle_ruins_templates
 		if (RUIN_TYPE_REEBE)
@@ -260,7 +256,8 @@ SUBSYSTEM_DEF(overmap)
 			return SSmapping.space_ruins_templates
 		if (RUIN_TYPE_BEACH)
 			return SSmapping.beach_ruins_templates
-
+		if (RUIN_TYPE_WASTELAND)
+			return SSmapping.wasteland_ruins_templates
 /**
   * Reserves a square dynamic encounter area, and spawns a ruin in it if one is supplied.
   * * on_planet - If the encounter should be on a generated planet. Required, as it will be otherwise inaccessible.

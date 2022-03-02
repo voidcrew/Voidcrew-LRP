@@ -26,6 +26,7 @@
 	icon = 'voidcrew/icons/turf/civ13-floors.dmi'
 	icon_state = "dirt"
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	baseturfs = /turf/open/floor/plating/dirt/dry
 
 /turf/open/floor/plating/dirt/dry/lit
 	light_power = 1
@@ -56,6 +57,7 @@
 	icon = 'voidcrew/icons/turf/floors/wasteland.dmi'
 	icon_state = "wasteland1"
 	base_icon_state = "wasteland"
+	baseturfs = /turf/open/floor/plating/wasteland
 
 /turf/open/floor/plating/wasteland/Initialize(mapload, inherited_virtual_z)
 	. = ..()
@@ -69,6 +71,7 @@
 	icon = 'voidcrew/icons/turf/wasteland-floors.dmi'
 	icon_state = "rubblefull"
 	base_icon_state = "rubble"
+	baseturfs = /turf/open/floor/plating/rubble
 
 /turf/open/floor/plating/rubble/Initialize(mapload, inherited_virtual_z)
 	. = ..()
@@ -78,6 +81,7 @@
 	icon = 'voidcrew/icons/turf/wasteland-floors.dmi'
 	icon_state = "tunnelintact"
 	base_icon_state = "tunnel"
+	baseturfs = /turf/open/floor/plating/tunnel
 
 /turf/open/floor/plating/tunnel/Initialize(mapload, inherited_virtual_z)
 	. = ..()
@@ -87,6 +91,7 @@
 	icon = 'voidcrew/icons/turf/civ13-floors.dmi'
 	icon_state = "stone_old"
 	base_icon_state = "stone"
+	baseturfs = /turf/open/floor/plating/mossy_stone
 
 /turf/open/floor/plating/stone/Initialize(mapload, inherited_virtual_z)
 	. = ..()
@@ -96,6 +101,7 @@
 	icon = 'voidcrew/icons/turf/civ13-floors.dmi'
 	icon_state = "dust1"
 	base_icon_state = "dust"
+	baseturfs = /turf/open/floor/plating/dust
 
 /turf/open/floor/plating/dust/Initialize(mapload, inherited_virtual_z)
 	. = ..()
@@ -111,6 +117,7 @@
 	base_icon_state = "desert"
 	light_range = 2
 	light_power = 1
+	baseturfs = /turf/open/floor/plating/sand
 
 /turf/open/floor/plating/sand/Initialize(mapload, inherited_virtual_z)
 	. = ..()

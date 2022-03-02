@@ -150,6 +150,16 @@
 	pixel_x = -16
 	anchored = TRUE
 
+/obj/structure/flora/tree/dead_pine
+	icon = 'voidcrew/icons/obj/flora/bigtrees.dmi'
+	icon_state = "med_pine_dead"
+	pixel_x = -16
+
+/obj/structure/flora/tree/dead_african
+	icon = 'voidcrew/icons/obj/flora/bigtrees.dmi'
+	icon_state = "african_acacia_dead"
+	pixel_x = -16
+
 //Tall tree (grey)
 /obj/structure/flora/tree/dead/tall
 	icon = 'voidcrew/icons/obj/flora/tall_trees.dmi'
@@ -197,3 +207,8 @@
 	. = ..()
 	icon_state = "[base_icon_state][rand(1,5)]"
 
+/obj/structure/flora/cactus
+	icon = 'voidcrew/icons/obj/flora/bigtrees.dmi'
+	icon_state = "cactus"
+	pixel_x = -16
+	density = TRUE
