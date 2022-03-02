@@ -135,8 +135,7 @@
 
 /obj/item/pickaxe/improvised
 	name = "improvised pickaxe"
-	desc = "A pickaxe made with a knife and crowbar held together with sinew, how does it not break?"
-	icon = 'voidcrew/icons/obj/mining.dmi'
+	desc = "A pickaxe made with a knife and crowbar taped together, how does it not break?"
 	icon_state = "ipickaxe"
 	item_state = "ipickaxe"
 	force = 10
