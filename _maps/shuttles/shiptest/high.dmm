@@ -208,7 +208,7 @@
 /turf/open/floor/wood/maple,
 /area/ship/crew)
 "dQ" = (
-/obj/machinery/modular_computer/console,
+/obj/machinery/modular_computer/console/preset/civilian,
 /obj/effect/turf_decal/siding/white{
 	dir = 5
 	},
@@ -275,11 +275,13 @@
 /turf/open/floor/plating,
 /area/ship/cargo)
 "eB" = (
-/obj/machinery/light/floor,
 /obj/structure/filingcabinet,
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = 26
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/open/floor/wood/maple,
 /area/ship/crew)
@@ -562,7 +564,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ship/hallway/central)
 "iL" = (
-/obj/machinery/light/small{
+/obj/machinery/light{
 	dir = 4
 	},
 /obj/structure/table/wood,
@@ -1318,6 +1320,7 @@
 	dir = 4;
 	pixel_x = 26
 	},
+/obj/structure/tank_dispenser,
 /turf/open/floor/plasteel/dark,
 /area/ship/engineering)
 "ur" = (
@@ -2060,10 +2063,12 @@
 /area/ship/engineering)
 "FO" = (
 /obj/item/kirbyplants/random,
-/obj/machinery/light/floor,
 /obj/machinery/power/apc/auto_name/north,
 /obj/structure/cable{
 	icon_state = "0-4"
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/open/floor/wood/maple,
 /area/ship/crew)
@@ -2502,7 +2507,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ship/hallway/central)
 "LM" = (
-/obj/machinery/modular_computer/console{
+/obj/machinery/modular_computer/console/preset/civilian{
 	dir = 8
 	},
 /turf/open/floor/carpet,
