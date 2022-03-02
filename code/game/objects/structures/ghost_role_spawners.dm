@@ -186,7 +186,7 @@
 	golems, so that no golem may ever be forced to serve again."
 
 /obj/effect/mob_spawn/human/golem/Initialize(mapload, datum/species/golem/species = null, mob/creator = null)
-	notify_ghosts("A fre golem shell is now available", flashwindow = FALSE, notify_suiciders = FALSE)
+	notify_ghosts("A free golem shell is now available", flashwindow = FALSE, notify_suiciders = FALSE)
 	if(species) //spawners list uses object name to register so this goes before ..()
 		name += " ([initial(species.prefix)])"
 		mob_species = species
