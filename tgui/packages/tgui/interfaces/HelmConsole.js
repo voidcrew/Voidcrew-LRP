@@ -86,9 +86,9 @@ const SharedContent = (props, context) => {
           )}
         </LabeledList>
       </Section>
-      <Section title = "Factions"
+      <Section title="Factions"
         buttons={(
-            <>
+          <>
             <Button
               tooltip="Toggle KOS"
               tooltipPosition="left"
@@ -101,9 +101,8 @@ const SharedContent = (props, context) => {
               icon="fas fa-flag"
               disabled={isViewer}
               onClick={() => act('return')} />
-            </>
-        )}>
-      </Section>
+          </>
+        )} />
       <Section title="Radar">
         <Table>
           <Table.Row bold>
@@ -169,22 +168,22 @@ const ShipContent = (props, context) => {
     x,
     y,
     dock_request,
-    dock_req_name
+    dock_req_name,
   } = data;
   return (
     <>
-        {!!dock_request && (
-        <Section title = "Docking Request">
+      {!!dock_request && (
+        <Section title="Docking Request">
           <LabeledList>
             <LabeledList.Item label={dock_req_name}>
               <Button
                 content="Accept"
-                color = "good"
+                color="good"
                 disabled={isViewer}
                 onClick={() => act('dock_req_success')} />
               <Button
-                content = "Decline"
-                color = "bad"
+                content="Decline"
+                color="bad"
                 disabled={isViewer}
                 onClick={() => act('dock_req_failure')} />
             </LabeledList.Item>
