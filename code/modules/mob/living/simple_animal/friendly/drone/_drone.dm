@@ -115,7 +115,6 @@
 	"<span class='warning'><u>If you do not have the regular drone laws, follow your laws to the best of your ability.</u></span>"
 
 /mob/living/simple_animal/drone/Initialize()
-	notify_ghosts("A drone shell has been created", flashwindow = FALSE, ignore_key = POLL_IGNORE_DRONE, notify_suiciders = FALSE)
 	. = ..()
 	GLOB.drones_list += src
 	access_card = new /obj/item/card/id(src)
