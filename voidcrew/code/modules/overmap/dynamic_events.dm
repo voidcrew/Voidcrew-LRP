@@ -27,7 +27,7 @@
 		qdel(reserve_dock_secondary, TRUE)
 		reserve_dock_secondary = null
 
-/obj/structure/overmap/dynamic/ship_act(mob/user, obj/structure/overmap/ship/simulated/acting)
+/obj/structure/overmap/dynamic/ship_act(mob/user, obj/structure/overmap/ship/simulated/acting, obj/structure/overmap/ship/simulated/optional_partner)
 	if(concerned)
 		to_chat(user, "<span class='notice'>Too much traffic, try again later!</span>")
 		return
@@ -41,11 +41,14 @@
 		concerned = FALSE
 	else
 		var/dock_to_use = null
-		if(!reserve_dock.get_docked())
-			dock_to_use = reserve_dock
-		else if(!reserve_dock_secondary.get_docked())
+		if(!reserve_dock.get_docked() && !first_dock_taken)
+			dock_to_use = reserve_dock //This assigns what port the shuttle will eventually try to dock into, but it does not immediately update the port's docked status
+			first_dock_taken = TRUE
+			acting.dock_index = 1
+		else if(!reserve_dock_secondary.get_docked() && !second_dock_taken)
 			dock_to_use = reserve_dock_secondary
-
+			second_dock_taken = TRUE
+			acting.dock_index = 2
 		if(!dock_to_use)
 			acting.state = prev_state
 			concerned = FALSE
@@ -54,6 +57,9 @@
 		adjust_dock_to_shuttle(dock_to_use, acting.shuttle)
 		to_chat(user, "<span class='notice'>[acting.dock(src, dock_to_use)]</span>") //If a value is returned from load_level(), say that, otherwise, commence docking
 	concerned = FALSE
+	// For request docking
+	if (optional_partner)
+		ship_act(user, optional_partner)
 
 /**
   * Chooses a type of level for the dynamic level to use.

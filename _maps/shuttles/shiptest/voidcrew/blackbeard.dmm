@@ -1217,7 +1217,7 @@
 	pixel_y = 24
 	},
 /obj/machinery/button/door{
-	id = "blackbeardblastdoor1"
+	id = "blackbeardblastdoor1";
 	pixel_x = -8;
 	pixel_y = 24
 	},
@@ -1556,7 +1556,7 @@
 	icon_state = "floor5-old"
 	},
 /obj/machinery/button/door{
-	id = "bbblastdoors2"
+	id = "bbblastdoors2";
 	pixel_y = -24
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -1732,7 +1732,9 @@
 	},
 /area/ship/bridge)
 "ZO" = (
-/obj/machinery/vending/security/marine,
+/obj/machinery/vending/security/marine{
+	all_items_free = 1
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/crew)
 "ZR" = (
