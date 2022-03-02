@@ -42,7 +42,6 @@ jobs:
           bash tools/ci/check_changelogs.sh
           tgui/bin/tgui --lint
           bash tools/ci/check_grep.sh
-          bash tools/ci/check_misc.sh
           tools/bootstrap/python -m ci.check_regex --log-changes-only
           tools/bootstrap/python -m dmi.test
           tools/bootstrap/python -m mapmerge2.dmm_test
