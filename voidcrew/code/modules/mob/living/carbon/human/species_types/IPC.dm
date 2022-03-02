@@ -56,8 +56,8 @@
 	default_features = list("ipc_screen" = "BSOD", "ipc_antenna" = "None")
 	burnmod = 1.25
 	heatmod = 1.5
-	brutemod = 1
-	siemens_coeff = 1.5
+	brutemod = 1.5
+	siemens_coeff = 1
 	reagent_tag = PROCESS_SYNTHETIC
 	species_gibs = "robotic"
 	attack_sound = 'sound/items/trayhit1.ogg'
