@@ -19,6 +19,7 @@
 	assignedrole = "Lifebringer"
 
 /obj/effect/mob_spawn/human/seed_vault/Initialize(mapload)
+	. = ..()
 	notify_ghosts("A preserved Terrarium is available", flashwindow = FALSE, notify_suiciders = FALSE)
 
 /obj/effect/mob_spawn/human/seed_vault/special(mob/living/new_spawn)
