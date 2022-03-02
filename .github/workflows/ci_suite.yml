@@ -39,6 +39,7 @@ jobs:
       #  uses: AODocs/check-eol@v1.1
       - name: Run Linters
         run: |
+          pip install pyyaml
           bash tools/ci/check_filedirs.sh shiptest.dme
           bash tools/ci/check_changelogs.sh
           find . -name "*.php" -print0 | xargs -0 -n1 php -l
