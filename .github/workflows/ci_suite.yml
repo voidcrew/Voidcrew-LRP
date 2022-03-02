@@ -36,16 +36,13 @@ jobs:
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
           bash tools/ci/install_auxmos.sh
           tools/bootstrap/python -c ''
-      #- name: Check line endings
-      #  uses: AODocs/check-eol@v1.1
       - name: Run Linters
         run: |
           bash tools/ci/check_filedirs.sh shiptest.dme
           bash tools/ci/check_changelogs.sh
-          find . -name "*.php" -print0 | xargs -0 -n1 php -l
-          find . -name "*.json" -not -path "*/node_modules/*" -print0 | xargs -0 tools/bootstrap/python ./tools/json_verifier.py
           tgui/bin/tgui --lint
           bash tools/ci/check_grep.sh
+          bash tools/ci/check_misc.sh
           tools/bootstrap/python -m ci.check_regex --log-changes-only
           tools/bootstrap/python -m dmi.test
           tools/bootstrap/python -m mapmerge2.dmm_test
