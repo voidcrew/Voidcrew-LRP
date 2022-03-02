@@ -23,7 +23,7 @@
 	})
 "ap" = (
 /obj/structure/grille,
-/obj/structure/window/reinforced/fulltile,
+/obj/structure/window/shuttle,
 /obj/machinery/door/poddoor{
 	id = "phpublicblastdoors"
 	},
@@ -113,9 +113,6 @@
 /turf/open/floor/wood/maple,
 /area/ship/crew/chapel/office)
 "bR" = (
-/obj/structure/sign/poster/official/random{
-	pixel_x = 32
-	},
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plasteel{
 	icon_state = "steel"
@@ -363,7 +360,7 @@
 /area/ship/crew/canteen)
 "dR" = (
 /obj/machinery/button/door{
-	id = "phcargooneblastdoor2";
+	id = "phcargooneblastdoor2;";
 	name = "Internal Hanger Blast Door Control";
 	pixel_y = 24
 	},
@@ -480,7 +477,9 @@
 /area/ship/medical)
 "fa" = (
 /obj/structure/grille,
-/obj/structure/window/reinforced/tinted/fulltile,
+/obj/structure/window/shuttle/tinted{
+	name = "tinted shuttle window"
+	},
 /turf/open/floor/plating,
 /area/ship/crew/chapel)
 "fb" = (
@@ -661,12 +660,15 @@
 	icon_state = "warningfulltile"
 	},
 /obj/machinery/button/door{
-	id = "phcargooneblastdoor";
+	id = "phcargooneblastdoor;";
 	name = "External Hanger Blastdoor Control";
 	pixel_y = 24
 	},
 /obj/machinery/camera{
 	dir = 8
+	},
+/obj/structure/sign/poster/official/random{
+	pixel_x = 32
 	},
 /turf/open/floor/plasteel{
 	icon_state = "steel"
@@ -1080,7 +1082,7 @@
 /area/ship/crew/chapel)
 "lM" = (
 /obj/structure/grille,
-/obj/structure/window/reinforced/fulltile,
+/obj/structure/window/shuttle,
 /turf/open/floor/plating,
 /area/ship/crew/chapel)
 "mf" = (
@@ -1297,7 +1299,7 @@
 /area/ship/medical)
 "pY" = (
 /obj/machinery/button/door{
-	id = "phcargooneblastdoor3";
+	id = "phcargooneblastdoor3;";
 	name = "Internal Hanger Blast Door Control";
 	pixel_y = -24
 	},
@@ -1350,7 +1352,7 @@
 /area/ship/security)
 "qr" = (
 /obj/machinery/button/door{
-	id = "phcargooneblastdoor2";
+	id = "phcargooneblastdoor2;";
 	name = "Internal Hanger Blastdoor Control";
 	pixel_y = -24
 	},
@@ -1584,7 +1586,7 @@
 /area/ship/engineering/electrical)
 "tn" = (
 /obj/structure/grille,
-/obj/structure/window/reinforced/fulltile,
+/obj/structure/window/shuttle,
 /obj/machinery/door/poddoor{
 	id = "phbridgeblastdoors"
 	},
@@ -1848,7 +1850,7 @@
 	})
 "wg" = (
 /obj/machinery/button/door{
-	id = "phcargooneblastdoor3";
+	id = "phcargooneblastdoor3;";
 	name = "Internal Hanger Blast Door Control";
 	pixel_y = -24
 	},
@@ -1858,7 +1860,8 @@
 /obj/machinery/atmospherics/components/trinary/mixer/airmix/flipped{
 	dir = 1;
 	node1_concentration = 0.21;
-	node2_concentration = 0.79
+	node2_concentration = 0.79;
+	piping_layer = 3
 	},
 /turf/open/floor/engine,
 /area/ship/engineering/atmospherics)
@@ -2006,7 +2009,7 @@
 	id = "phalanx_crematorium"
 	},
 /obj/machinery/button/crematorium{
-	id = "phalanx_crematorium";
+	id = "phalanx_crematorium;";
 	pixel_x = -24
 	},
 /obj/machinery/light/small{
@@ -2031,7 +2034,7 @@
 /area/ship/crew/canteen)
 "yk" = (
 /obj/structure/grille,
-/obj/structure/window/reinforced/fulltile,
+/obj/structure/window/shuttle,
 /obj/machinery/door/poddoor{
 	id = "phpublicblastdoors"
 	},
@@ -2191,7 +2194,7 @@
 	icon_state = "warningfulltile"
 	},
 /obj/machinery/button/door{
-	id = "phcargooneblastdoor4";
+	id = "phcargooneblastdoor4;";
 	name = "External Hanger Blast Door Control";
 	pixel_y = -24
 	},
@@ -2417,7 +2420,7 @@
 /area/ship/engineering/electrical)
 "Ce" = (
 /obj/machinery/button/door{
-	id = "phcargooneblastdoor2";
+	id = "phcargooneblastdoor2;";
 	name = "Internal Blastdoor Control";
 	pixel_y = -24
 	},
@@ -2539,6 +2542,12 @@
 	},
 /turf/open/floor/carpet/lone,
 /area/ship/crew/chapel)
+"Di" = (
+/obj/structure/sign/nanotrasen,
+/turf/closed/wall/mineral/titanium,
+/area/ship/cargo{
+	name = "Cargo Bay Two"
+	})
 "Dr" = (
 /turf/open/floor/plasteel/mono/white,
 /area/ship/crew/canteen)
@@ -2679,7 +2688,7 @@
 	})
 "Ey" = (
 /obj/machinery/button/door{
-	id = "phcargooneblastdoor2";
+	id = "phcargooneblastdoor2;";
 	name = "Internal Hanger Blast Door Control";
 	pixel_y = 24
 	},
@@ -2752,7 +2761,7 @@
 	icon_state = "warningfulltile"
 	},
 /obj/machinery/button/door{
-	id = "phcargooneblastdoor";
+	id = "phcargooneblastdoor;";
 	name = "External Hanger Blastdoor Control";
 	pixel_y = 24
 	},
@@ -3062,7 +3071,6 @@
 	})
 "Je" = (
 /obj/structure/closet/secure_closet/freezer/fridge/open,
-/obj/item/reagent_containers/food/condiment/enzyme,
 /turf/open/floor/plasteel/mono,
 /area/ship/crew/canteen/kitchen)
 "Jf" = (
@@ -3099,6 +3107,12 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/mono,
 /area/ship/crew/canteen)
+"JC" = (
+/obj/structure/sign/nanotrasen,
+/turf/closed/wall/mineral/titanium,
+/area/ship/cargo{
+	name = "Cargo Bay One"
+	})
 "JE" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -3114,7 +3128,7 @@
 /area/ship/crew/canteen/kitchen)
 "JL" = (
 /obj/structure/grille,
-/obj/structure/window/reinforced/fulltile,
+/obj/structure/window/shuttle,
 /turf/open/floor/plating,
 /area/ship/crew/canteen)
 "JM" = (
@@ -3555,7 +3569,7 @@
 	icon_state = "warningfulltile"
 	},
 /obj/machinery/button/door{
-	id = "phcargooneblastdoor4";
+	id = "phcargooneblastdoor4;";
 	name = "External Hanger Blast Door Control";
 	pixel_y = -24
 	},
@@ -3786,13 +3800,13 @@
 /area/ship/engineering/atmospherics)
 "QK" = (
 /obj/machinery/button/door{
-	id = "phbridgeblastdoors";
+	id = "phbridgeblastdoors;";
 	name = "Bridge Blastdoor Control";
 	pixel_x = -24;
 	pixel_y = -5
 	},
 /obj/machinery/button/door{
-	id = "phpublicblastdoors";
+	id = "phpublicblastdoors;";
 	name = "Service Blastdoor Control";
 	pixel_x = -24;
 	pixel_y = 5
@@ -4087,7 +4101,7 @@
 	})
 "TO" = (
 /obj/machinery/button/door{
-	id = "phcargooneblastdoor3";
+	id = "phcargooneblastdoor3;";
 	name = "Internal Hanger Blast Door Control";
 	pixel_y = 24
 	},
@@ -5588,7 +5602,7 @@ IP
 wc
 wc
 wc
-wc
+JC
 wc
 KG
 PM
@@ -5611,7 +5625,7 @@ PM
 PM
 IP
 Ex
-Ex
+Di
 Ex
 Ex
 Ex
