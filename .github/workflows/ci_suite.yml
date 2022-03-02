@@ -31,6 +31,7 @@ jobs:
       - name: Install Tools
         run: |
           pip3 install setuptools
+          pip install pyyaml
           bash tools/ci/install_node.sh
           bash tools/ci/install_spaceman_dmm.sh dreamchecker
           bash tools/ci/install_auxmos.sh
@@ -39,7 +40,6 @@ jobs:
       #  uses: AODocs/check-eol@v1.1
       - name: Run Linters
         run: |
-          pip install pyyaml
           bash tools/ci/check_filedirs.sh shiptest.dme
           bash tools/ci/check_changelogs.sh
           find . -name "*.php" -print0 | xargs -0 -n1 php -l
