@@ -45,11 +45,10 @@
 	var/datum/map_template/shuttle/source_template
 	/// The prefix the shuttle currently possesses
 	var/faction_prefix
-    ///Snips the prefix off the ship when renaming to stop duplicate prefixes from existing
-	var/fixed_name
 	///Timer for ship deletion
 	var/deletion_timer
-
+	///Name of the Ship with the faction appended to it
+	var/display_name
 	///The ships password
 	var/password
 
@@ -66,12 +65,13 @@
 	name = shuttle.name
 	source_template = _source_template
 	faction_prefix = source_template.faction_prefix
+	display_name = "[faction_prefix] [name]"
 	update_ship_color()
 	calculate_mass()
 #ifdef UNIT_TESTS
 	set_ship_name("[source_template]")
 #else
-	set_ship_name("[source_template.faction_prefix] [pick_list_replacements(SHIP_NAMES_FILE, pick(source_template.name_categories))]", TRUE)
+	set_ship_name("[pick_list_replacements(SHIP_NAMES_FILE, pick(source_template.name_categories))]", TRUE)
 #endif
 	refresh_engines()
 	check_loc()
@@ -354,18 +354,22 @@
 /**
   * Sets the ship, shuttle, and shuttle areas to a new name.
   */
-/obj/structure/overmap/ship/simulated/proc/set_ship_name(new_name, ignore_cooldown = FALSE)
-	if(!new_name || new_name == name || !COOLDOWN_FINISHED(src, rename_cooldown))
+/obj/structure/overmap/ship/simulated/proc/set_ship_name(new_name, ignore_cooldown = FALSE, bypass_same_name = FALSE)
+	if(bypass_same_name == FALSE)
+		if(!new_name || new_name == name)
+			return
+	if(!COOLDOWN_FINISHED(src, rename_cooldown))
 		return
 	if(name != initial(name))
 		priority_announce("The [name] has been renamed to the [new_name].", "Docking Announcement", sender_override = new_name, zlevel = shuttle.virtual_z())
 	message_admins("[key_name_admin(usr)] renamned vessel '[name]' to '[new_name]'")
 	name = new_name
 	shuttle.name = new_name
+	display_name = "[faction_prefix] [name]"
 	if(!ignore_cooldown)
 		COOLDOWN_START(src, rename_cooldown, 5 MINUTES)
 	for(var/area/shuttle_area as anything in shuttle.shuttle_areas)
-		shuttle_area.rename_area("[new_name] [initial(shuttle_area.name)]")
+		shuttle_area.rename_area("[display_name] [initial(shuttle_area.name)]")
 	return TRUE
 
 /**
@@ -377,13 +381,11 @@
 	if(faction_change == faction_prefix || (faction_change == "return" && faction_prefix == "NEU"))
 		return
 	COOLDOWN_START(src, faction_cooldown, FACTION_COOLDOWN_TIME)
-	fixed_name = (length(faction_prefix)+1)
 	if(faction_change == "return")
 		faction_prefix = source_template.faction_prefix
 	else
 		faction_prefix = faction_change
-	name = "[faction_prefix] [copytext(name, fixed_name)]"
-	set_ship_name(name, ignore_cooldown = TRUE)
+	set_ship_name(name, ignore_cooldown = TRUE, bypass_same_name = TRUE)
 	update_crew_hud()
 	update_ship_color()
 
