@@ -48,13 +48,13 @@ export const AuxConsole = (props, context) => {
         </Modal>
       )}
       <Window.Content>
-		<AuxConsoleCommands />
-		{consoleMode === CONSOLE_MODE_AUTOPILOT && (
-			<ShuttleConsoleContent />
-		)}
+        <AuxConsoleCommands />
+        {consoleMode === CONSOLE_MODE_AUTOPILOT && (
+          <ShuttleConsoleContent />
+        )}
         {consoleMode === CONSOLE_MODE_SUBVERTER && (
-			<SubverterConsoleContent />
-		)}
+          <SubverterConsoleContent />
+        )}
       </Window.Content>
     </Window>
   );
