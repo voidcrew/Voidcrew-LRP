@@ -356,7 +356,7 @@
   */
 /obj/structure/overmap/ship/simulated/proc/set_ship_name(new_name, ignore_cooldown = FALSE, bypass_same_name = FALSE)
 	if(bypass_same_name == FALSE)
-		if(!new_name || new_name == name
+		if(!new_name || new_name == name)
 			return
 	if(!COOLDOWN_FINISHED(src, rename_cooldown)))
 		return
