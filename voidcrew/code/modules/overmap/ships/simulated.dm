@@ -356,8 +356,10 @@
   */
 /obj/structure/overmap/ship/simulated/proc/set_ship_name(new_name, ignore_cooldown = FALSE, bypass_same_name = FALSE)
 	if(bypass_same_name == FALSE)
-		if(!new_name || new_name == name || !COOLDOWN_FINISHED(src, rename_cooldown))
+		if(!new_name || new_name == name
 			return
+	if(!COOLDOWN_FINISHED(src, rename_cooldown)))
+		return
 	if(name != initial(name))
 		priority_announce("The [name] has been renamed to the [new_name].", "Docking Announcement", sender_override = new_name, zlevel = shuttle.virtual_z())
 	message_admins("[key_name_admin(usr)] renamned vessel '[name]' to '[new_name]'")
