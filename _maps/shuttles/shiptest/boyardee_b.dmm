@@ -1238,18 +1238,23 @@
 /turf/open/floor/plating,
 /area/ship/cargo)
 "yx" = (
-/obj/structure/table/reinforced,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 5
 	},
-/obj/item/reagent_containers/food/drinks/beer{
-	pixel_x = 5;
-	pixel_y = -2
+/obj/machinery/droneDispenser{
+	cooldownTime = 6000;
+	desc = "A hefty machine that, when supplied with power, will periodically create a wildcard ingredients box. Does not need to be manually operated.";
+	dispense_type = obj/item/storage/box/ingredients/wildcard;
+	end_create_message = "dispenses a box of ingredients.";
+	glass_cost = 0;
+	maximum_idle = 2;
+	metal_cost = 0;
+	name = "Ingredients dispenser";
+	power_used = 10000
 	},
-/obj/item/table_bell,
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
 "yJ" = (
@@ -2173,6 +2178,11 @@
 	icon_state = "1-2"
 	},
 /obj/structure/table/reinforced,
+/obj/item/reagent_containers/food/drinks/beer{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/item/table_bell,
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
 "Rm" = (
