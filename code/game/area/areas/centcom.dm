@@ -67,6 +67,7 @@
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	requires_power = FALSE
 	has_gravity = STANDARD_GRAVITY
+	area_flags = NOTELEPORT
 	flags_1 = NONE
 
 /area/tdome/arena
@@ -143,6 +144,7 @@
 	icon_state = "yellow"
 	requires_power = FALSE
 	has_gravity = STANDARD_GRAVITY
+	area_flags = NOTELEPORT
 	flags_1 = NONE
 
 /area/ctf/control_room
