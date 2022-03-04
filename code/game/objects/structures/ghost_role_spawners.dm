@@ -18,6 +18,10 @@
 	Estimated time of last contact: Deployment, 5000 millennia ago."
 	assignedrole = "Lifebringer"
 
+/obj/effect/mob_spawn/human/seed_vault/Initialize(mapload)
+	. = ..()
+	notify_ghosts("A preserved Terrarium is available", flashwindow = FALSE, notify_suiciders = FALSE)
+
 /obj/effect/mob_spawn/human/seed_vault/special(mob/living/new_spawn)
 	var/plant_name = pick("Tomato", "Potato", "Broccoli", "Carrot", "Ambrosia", "Pumpkin", "Ivy", "Kudzu", "Banana", "Moss", "Flower", "Bloom", "Root", "Bark", "Glowshroom", "Petal", "Leaf", \
 	"Venus", "Sprout","Cocoa", "Strawberry", "Citrus", "Oak", "Cactus", "Pepper", "Juniper")
@@ -183,6 +187,7 @@
 	golems, so that no golem may ever be forced to serve again."
 
 /obj/effect/mob_spawn/human/golem/Initialize(mapload, datum/species/golem/species = null, mob/creator = null)
+	notify_ghosts("A free golem shell is now available", flashwindow = FALSE, notify_suiciders = FALSE)
 	if(species) //spawners list uses object name to register so this goes before ..()
 		name += " ([initial(species.prefix)])"
 		mob_species = species
@@ -276,6 +281,7 @@
 	assignedrole = "Hermit"
 
 /obj/effect/mob_spawn/human/hermit/Initialize(mapload)
+	notify_ghosts("A malfunctioning cryostasis sleeper is available", flashwindow = FALSE, notify_suiciders = FALSE)
 	. = ..()
 	var/arrpee = rand(1,4)
 	switch(arrpee)
@@ -693,6 +699,10 @@
 	backpack_contents = list(/obj/item/gun/ballistic/automatic/pistol/deagle)
 	assignedrole = "Ancient Crew"
 
+/obj/effect/mob_spawn/human/oldcap/Initialize(mapload)
+	notify_ghosts("An old cryogenics pod has been created", flashwindow = FALSE, notify_suiciders = FALSE)
+	. = ..()
+
 /obj/effect/mob_spawn/human/oldcap/Destroy()
 	new/obj/structure/showcase/machinery/oldpod/used(drop_location())
 	return ..()
@@ -775,6 +785,7 @@
 	assignedrole = "Cybersun Captain"
 
 /obj/effect/mob_spawn/human/syndicatespace/syndicaptain/Initialize(mapload)
+	notify_ghosts("A stranded syndicate ship has spawned", flashwindow = FALSE, notify_suiciders = FALSE)
 	. = ..()
 	var/policy = get_policy(ROLE_SYNDICATE_CYBERSUN_CAPTAIN)
 	if(policy)
