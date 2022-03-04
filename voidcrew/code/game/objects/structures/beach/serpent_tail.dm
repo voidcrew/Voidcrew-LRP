@@ -4,16 +4,16 @@
 	desc = "A tail of a serpent. Terrible monsters are pouring out from all around it."
 	icon = 'voidcrew/icons/mob/beach/serpent.dmi'
 	faction = list("beach")
-	max_mobs = 3
+	max_mobs = 2
+	spawn_time = 150
 	max_integrity = 650
-	mob_types = list(/mob/living/simple_animal/hostile/carp/megacarp)
+	mob_types = list(/mob/living/simple_animal/hostile/carp/megacarp/beach)
 
 	move_resist = INFINITY
 	anchored = TRUE
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
 
 	var/gps = null
-	var/obj/effect/light_emitter/tail/tail_emitted_light
 
 GLOBAL_LIST_INIT(serpenttails, list())
 /obj/structure/spawner/serpent/Initialize()
@@ -45,3 +45,6 @@ GLOBAL_LIST_INIT(serpenttails, list())
 	GLOB.tendrils -= src
 	QDEL_NULL(gps)
 	return ..()
+
+/obj/structure/spawner/serpent/pirate
+	mob_types = list(/mob/living/simple_animal/hostile/pirate/melee/beach, /mob/living/simple_animal/hostile/pirate/ranged/beach)

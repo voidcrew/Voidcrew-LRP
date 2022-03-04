@@ -1,6 +1,6 @@
 /mob/living/simple_animal/beachcarp
-	name = "friendly carp"
-	desc = "A not-so ferocious, fang-bearing creature that resembles a fish."
+	name = "carp"
+	desc = "A passive, fang-bearing creature that resembles a fish."
 	icon = 'icons/mob/carp.dmi'
 	icon_state = "base"
 	icon_living = "base"

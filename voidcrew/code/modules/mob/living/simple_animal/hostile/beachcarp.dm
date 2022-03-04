@@ -1,8 +1,9 @@
 /mob/living/simple_animal/hostile/carp/beach
 	faction = list("beach")
+	name = "judge"
 	icon = 'voidcrew/icons/mob/beach/aquatic.dmi'
 	icon_state = "judge"
-	icon_dead = "judge_dead"
+	icon_dead = "judge_dead" // lol
 	maxHealth = 40
 	health = 40
 
@@ -26,11 +27,13 @@
 	icon = 'voidcrew/icons/mob/beach/aquatic.dmi'
 	icon_state = "grump"
 	icon_dead = "grump_dead"
+	maxHealth = 10
+	health = 10
 
 /mob/living/simple_animal/hostile/carp/megacarp/beach
 	faction = list("beach")
 	icon = 'voidcrew/icons/mob/beach/aquatic.dmi'
 	icon_state = "shark"
 	icon_dead = "shark_dead"
-	maxHealth = 70
-	health = 70
+	maxHealth = 50
+	health = 50

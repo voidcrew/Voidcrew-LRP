@@ -120,8 +120,7 @@
 	)
 	feature_spawn_chance = 1
 	feature_spawn_list = list(
-		/obj/structure/spawner/ice_moon/demonic_portal/blobspore = 20,
-		/obj/structure/spawner/ice_moon/demonic_portal/hivebot = 20,
+		/obj/structure/spawner/cave = 1,
 		/obj/structure/closet/crate/grave = 40,
 		/obj/structure/closet/crate/grave/lead_researcher = 20,
 		/obj/item/pickaxe/rusted = 40,
@@ -140,17 +139,17 @@
 		/obj/effect/spawner/lootdrop/maintenance = 10,
 		/obj/item/stack/rods = 5,
 		/obj/structure/closet/crate/secure/loot = 1,
-		/obj/structure/spawner/mining = 1,
-		/obj/structure/barrel/flaming = 1,
-		/obj/structure/reagent_dispensers/fueltank = 1,
-		/obj/structure/girder = 1,
-		/obj/item/shard = 1,
-		/obj/item/stack/cable_coil/cut = 1,
-		/obj/effect/mine/explosive = 1,
-		/obj/item/ammo_casing/caseless/arrow/bone = 1,
-		/obj/item/healthanalyzer = 1,
-		/obj/item/gun/ballistic/bow = 1,
-		/obj/item/storage/firstaid = 1
+		/obj/structure/spawner/cave = 1,
+		/obj/structure/barrel/flaming = 2,
+		/obj/structure/reagent_dispensers/fueltank = 2,
+		/obj/structure/girder = 2,
+		/obj/item/shard = 2,
+		/obj/item/stack/cable_coil/cut = 2,
+		/obj/effect/mine/explosive = 2,
+		/obj/item/ammo_casing/caseless/arrow/bone = 2,
+		/obj/item/healthanalyzer = 2,
+		/obj/item/gun/ballistic/bow = 2,
+		/obj/item/storage/firstaid = 2
 	)
 	feature_spawn_chance = 5
 	flora_spawn_list = list(/obj/structure/flora/rock = 1)
@@ -171,7 +170,7 @@
 		/obj/machinery/portable_atmospherics/canister/carbon_dioxide = 15,
 		/obj/structure/barrel/flaming = 20,
 		/obj/structure/geyser/random = 1,
-		/obj/structure/spawner/mining = 1,
+		/obj/structure/spawner/cave = 1,
 		/obj/item/gun/ballistic/shotgun/doublebarrel/improvised/sawn = 1
 	)
 	feature_spawn_chance = 5

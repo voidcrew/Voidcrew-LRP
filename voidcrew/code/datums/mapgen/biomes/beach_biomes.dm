@@ -94,13 +94,12 @@
 		/obj/structure/flora/rock/pile = 1
 	)
 	flora_spawn_chance = 1
-	feature_spawn_chance = 0.5
+	feature_spawn_chance = 0.2
 	feature_spawn_list = list(/obj/vehicle/ridden/lavaboat/dragon = 1)
 
 /datum/revamped_biome/ocean/deep
-	mob_spawn_chance = 5
+	mob_spawn_chance = 2
 	mob_spawn_list = list(
-		/mob/living/simple_animal/hostile/carp/megacarp/beach = 10,
 		/mob/living/simple_animal/beachcarp = 1,
 		/mob/living/simple_animal/hostile/carp/beach = 1,
 		/mob/living/simple_animal/hostile/carp/beach/small = 1,
@@ -110,13 +109,8 @@
 		/mob/living/simple_animal/beachcarp/perch = 1
 	)
 	open_turf_types = list(/turf/open/water/beach/deep = 1)
-	feature_spawn_chance = 1
+	feature_spawn_chance = 0.5
 	feature_spawn_list = list(
-		/obj/structure/spawner/serpent = 1
+		/obj/structure/spawner/serpent = 1,
+		/obj/structure/spawner/serpent/pirate = 1
 	)
-
-/datum/revamped_biome/ocean/deep/pirate
-	open_turf_types = list(/turf/open/floor/plating/beach/sand/lit = 1)
-	mob_spawn_list = list(/mob/living/simple_animal/hostile/pirate/melee = 5, /mob/living/simple_animal/hostile/pirate/ranged = 1)
-	feature_spawn_chance = 1
-	feature_spawn_list = list(/obj/structure/closet/crate/necropolis/tendril = 1)
