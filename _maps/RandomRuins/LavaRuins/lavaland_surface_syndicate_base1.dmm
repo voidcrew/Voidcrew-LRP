@@ -680,6 +680,8 @@
 	pixel_x = -3;
 	pixel_y = -3
 	},
+/obj/item/wallframe/defib_mount,
+/obj/item/defibrillator,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered/syndicate_lava_base/cargo)
 "ed" = (
@@ -999,9 +1001,9 @@
 /obj/item/tank/internals/emergency_oxygen/double,
 /obj/item/tank/internals/emergency_oxygen/double,
 /obj/item/tank/internals/emergency_oxygen/double,
-/obj/item/clothing/mask/gas,
-/obj/item/clothing/mask/gas,
-/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas/syndicate,
+/obj/item/clothing/mask/gas/syndicate,
+/obj/item/clothing/mask/gas/syndicate,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered/syndicate_lava_base/cargo)
 "eY" = (
@@ -2046,6 +2048,7 @@
 /obj/item/storage/box/fakesyndiesuit,
 /obj/item/toy/figure/syndie,
 /obj/item/inducer/syndicate,
+/obj/item/defibrillator/compact/combat/loaded,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered/syndicate_lava_base/main)
 "it" = (
@@ -5057,6 +5060,10 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
 	dir = 8
+	},
+/obj/structure/closet/secure_closet/freezer/kitchen/wall{
+	dir = 4;
+	pixel_x = -32
 	},
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered/syndicate_lava_base/bar)
