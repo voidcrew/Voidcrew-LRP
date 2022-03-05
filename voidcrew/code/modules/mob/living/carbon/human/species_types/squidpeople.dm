@@ -40,7 +40,7 @@
 	var/datum/action/innate/change_color/change_color = new
 	//var/datum/action/cooldown/spit_ink/spit_ink = new
 	change_color.Grant(human)
-	spit_ink.Grant(human)
+	//spit_ink.Grant(human)
 
 /datum/species/squid/on_species_loss(mob/living/carbon/human/human)
 	. = ..()
