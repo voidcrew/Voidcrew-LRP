@@ -149,6 +149,11 @@
 	important_info = "DO NOT abandon the base."
 	outfit = /datum/outfit/lavaland_syndicate/comms
 
+
+/obj/effect/mob_spawn/human/lavaland_syndicate/comms(mapload)
+	. = ..()
+	notify_ghosts("A lavaland syndicate comms agent is now available", flashwindow = FALSE, notify_suiciders = FALSE)
+
 /obj/effect/mob_spawn/human/lavaland_syndicate/comms/space
 	short_desc = "You are a syndicate agent, assigned to a small listening post station situated near your hated enemy's top secret research facility: Space Station 13."
 	flavour_text = "Monitor enemy activity as best you can, and try to keep a low profile. Monitor enemy activity as best you can, and try to keep a low profile. Use the communication equipment to provide support to any field agents, and sow disinformation to throw Nanotrasen off your trail. Do not let the base fall into enemy hands!"
