@@ -30,6 +30,14 @@
 	build_path = /obj/item/multitool/syndie
 	category = list("Imported")
 
+/datum/design/SyndieScrewdriver
+	name = "Screwdriver"
+	id = "SyndiScrewdriver"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 75)
+	build_path = /obj/item/screwdriver/nuke
+	category = list("Imported")
+
 /obj/item/disk/design_disk/adv/syndietools
 	name = "Design Disk - Syndicate tools"
 	desc = "A design disk containing the pattern for Syndicate tools."
@@ -41,3 +49,4 @@
 	blueprints[2] = new /datum/design/SyndieCrowbar()
 	blueprints[3] = new /datum/design/SyndieWirecutters()
 	blueprints[4] = new /datum/design/SyndieMultitool()
+	blueprints[5] = new /datum/design/SyndieScrewdriver()
