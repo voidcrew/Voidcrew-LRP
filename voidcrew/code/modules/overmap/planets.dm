@@ -56,7 +56,7 @@
 	ruin_type = RUIN_TYPE_BEACH
 	mapgen = /datum/map_generator/planet_generator/beach
 	target_area = /area/overmap_encounter/planetoid/beach
-	surface = /turf/open/floor/plating/beach/sand/lit
+	surface = /turf/open/floor/plating/asteroid/sand/beach/lit
 	weather_controller_type = /datum/weather_controller/lush
 	planet_template = /datum/planet/beach
 

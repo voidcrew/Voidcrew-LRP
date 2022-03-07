@@ -11,12 +11,14 @@
 		/obj/structure/flora/junglebush/large = 1
 	)
 	flora_spawn_chance = 20
-	mob_spawn_chance = 0.05
-	mob_spawn_list = list(/mob/living/simple_animal/hostile/gorilla = 1)
+	mob_spawn_chance = 0.5
+	mob_spawn_list = list(/mob/living/carbon/monkey = 5)
 
 /datum/revamped_biome/jungle/dense
 	flora_spawn_chance = 30
 	open_turf_types = list(/turf/open/floor/plating/grass/jungle = 1, /turf/open/floor/plating/dirt/jungle/dark = 9)
+	mob_spawn_chance = 1
+	mob_spawn_list = list(/mob/living/simple_animal/hostile/gorilla/beach = 1, /mob/living/carbon/monkey = 5)
 
 /datum/revamped_biome/jungle/plains
 	open_turf_types = list(/turf/open/floor/plating/grass/jungle/lit = 1)
@@ -107,13 +109,3 @@
 	mob_spawn_list = list(/mob/living/simple_animal/slime/random = 1, /mob/living/simple_animal/hostile/lightgeist = 1)
 	feature_spawn_chance = 0.1
 	feature_spawn_list = list(/obj/item/rod_of_asclepius = 1)
-
-// /datum/revamped_biome/cave/scorching
-
-// /datum/revamped_biome/cave/plasma
-
-// /datum/revamped_biome/cave/spooky
-
-// /datum/revamped_biome/cave/cult
-
-

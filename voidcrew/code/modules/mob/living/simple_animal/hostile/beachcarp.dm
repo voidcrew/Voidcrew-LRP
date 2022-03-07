@@ -35,5 +35,6 @@
 	icon = 'voidcrew/icons/mob/beach/aquatic.dmi'
 	icon_state = "shark"
 	icon_dead = "shark_dead"
+	pixel_x = 0
 	maxHealth = 50
 	health = 50

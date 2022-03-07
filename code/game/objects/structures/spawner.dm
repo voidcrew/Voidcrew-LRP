@@ -40,11 +40,11 @@ GLOBAL_LIST_INIT(astroloot, list(
 	var/mob_types = list(/mob/living/simple_animal/hostile/carp)
 	var/spawn_text = "emerges from"
 	var/faction = list("hostile")
-	var/datum/component/spawner/spawner_type = /datum/component/spawner
+	var/datum/component/spawner_type = /datum/component/spawner // VOID EDIT, allows us to run RemoveComponent on it later
 
 /obj/structure/spawner/Initialize()
 	. = ..()
-	spawner_type = AddComponent(spawner_type, mob_types, spawn_time, faction, spawn_text, max_mobs)
+	spawner_type = AddComponent(spawner_type, mob_types, spawn_time, faction, spawn_text, max_mobs) // VOID EDIT
 
 /obj/structure/spawner/attack_animal(mob/living/simple_animal/M)
 	if(faction_check(faction, M.faction, FALSE)&&!M.client)

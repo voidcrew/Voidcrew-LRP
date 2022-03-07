@@ -49,7 +49,7 @@
 	flora_spawn_chance = 25
 
 /datum/revamped_biome/nuclear
-	open_turf_types = list(/turf/open/floor/plating/sand = 5, /turf/open/floor/plating/sand/dark = 1)
+	open_turf_types = list(/turf/open/floor/plating/asteroid/sand/lit = 5, /turf/open/floor/plating/asteroid/sand/dark/lit = 1)
 	feature_spawn_chance = 1
 	feature_spawn_list = list(
 		/obj/structure/radioactive = 1,
@@ -81,12 +81,9 @@
 		/obj/item/stack/cable_coil/cut = 6,
 		/obj/effect/mine/explosive = 1,
 		/obj/item/reagent_containers/food/snacks/canned/beans = 1,
-		/obj/item/reagent_containers/food/drinks/drinkingglass/filled/nuka_cola = 1,
 		/obj/structure/mecha_wreckage/ripley = 3,
 		/obj/structure/mecha_wreckage/ripley/firefighter = 1,
-		/obj/structure/mecha_wreckage/ripley/mkii = 1,
-		/obj/item/gun/ballistic/rifle/boltaction/polymer = 1,
-		/obj/item/gun/ballistic/bow = 1
+		/obj/structure/mecha_wreckage/ripley/mkii = 1
 	)
 	flora_spawn_chance = 1
 	flora_spawn_list = list(
@@ -101,7 +98,7 @@
 
 /datum/revamped_biome/cave/wasteland
 	open_turf_types = list(/turf/open/floor/plating/dirt/dry = 1, /turf/open/floor/plating/dust = 1)
-	closed_turf_types = list(/turf/closed/mineral/random/asteroid = 1)
+	closed_turf_types = list(/turf/closed/mineral/random/high_chance/wasteland = 1)
 	mob_spawn_chance = 1
 	mob_spawn_list = list(
 		/mob/living/simple_animal/hostile/asteroid/fugu/wasteland = 1,
@@ -120,7 +117,7 @@
 	)
 	feature_spawn_chance = 1
 	feature_spawn_list = list(
-		/obj/structure/spawner/cave = 1,
+		/obj/structure/spawner/cave = 20,
 		/obj/structure/closet/crate/grave = 40,
 		/obj/structure/closet/crate/grave/lead_researcher = 20,
 		/obj/item/pickaxe/rusted = 40,
@@ -134,12 +131,12 @@
 
 /datum/revamped_biome/cave/rubble
 	open_turf_types = list(/turf/open/floor/plating/rubble = 1, /turf/open/floor/plating/tunnel = 6)
-	closed_turf_types = list(/turf/closed/wall/r_wall/rust = 1, /turf/closed/wall/rust = 4, /turf/closed/mineral/random/asteroid = 10)
+	closed_turf_types = list(/turf/closed/wall/r_wall/rust = 1, /turf/closed/wall/rust = 4,/turf/closed/mineral/random/high_chance/wasteland = 10)
 	feature_spawn_list = list(
 		/obj/effect/spawner/lootdrop/maintenance = 10,
 		/obj/item/stack/rods = 5,
 		/obj/structure/closet/crate/secure/loot = 1,
-		/obj/structure/spawner/cave = 1,
+		/obj/structure/spawner/cave = 2,
 		/obj/structure/barrel/flaming = 2,
 		/obj/structure/reagent_dispensers/fueltank = 2,
 		/obj/structure/girder = 2,
@@ -148,7 +145,6 @@
 		/obj/effect/mine/explosive = 2,
 		/obj/item/ammo_casing/caseless/arrow/bone = 2,
 		/obj/item/healthanalyzer = 2,
-		/obj/item/gun/ballistic/bow = 2,
 		/obj/item/storage/firstaid = 2
 	)
 	feature_spawn_chance = 5
@@ -170,17 +166,13 @@
 		/obj/machinery/portable_atmospherics/canister/carbon_dioxide = 15,
 		/obj/structure/barrel/flaming = 20,
 		/obj/structure/geyser/random = 1,
-		/obj/structure/spawner/cave = 1,
-		/obj/item/gun/ballistic/shotgun/doublebarrel/improvised/sawn = 1
+		/obj/structure/spawner/cave = 5
 	)
 	feature_spawn_chance = 5
 	flora_spawn_list = list(
-		/obj/structure/flora/rock = 2,
-		/obj/structure/flora/ash/leaf_shroom = 4,
-		/obj/structure/flora/ash/cap_shroom = 4,
-		/obj/structure/flora/ash/stem_shroom = 4,
+		/obj/structure/flora/glowshroom = 20,
 	)
-	flora_spawn_chance = 1
+	flora_spawn_chance = 30
 	mob_spawn_chance = 5
 	mob_spawn_list = list(
 		/mob/living/simple_animal/hostile/blob/blobbernaut/independent/wasteland = 1,

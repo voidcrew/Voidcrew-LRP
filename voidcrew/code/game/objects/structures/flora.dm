@@ -212,3 +212,15 @@
 	icon_state = "cactus"
 	pixel_x = -16
 	density = TRUE
+
+/obj/structure/flora/glowshroom
+	icon = 'voidcrew/icons/obj/flora/wild.dmi'
+	icon_state = "glowshroom0"
+	base_icon_state = "glowshroom"
+	light_color = LIGHT_COLOR_ELECTRIC_GREEN
+	light_range = 3
+	light_power = 1
+
+/obj/structure/flora/glowshroom/Initialize()
+	. = ..()
+	icon_state = "[base_icon_state][rand(0,3)]"

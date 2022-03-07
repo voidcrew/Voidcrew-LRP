@@ -22,6 +22,7 @@
 	stop_automated_movement = 1
 	friendly_verb_continuous = "nibbles"
 	friendly_verb_simple = "nibble"
+	turns_per_move = 2
 
 
 /mob/living/simple_animal/beachcarp/Life()

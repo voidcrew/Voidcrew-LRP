@@ -38,3 +38,57 @@
 /turf/open/floor/plating/asteroid/purple/lit
 	light_power = 1
 	light_range = 2
+
+/turf/open/floor/plating/asteroid/sand
+	icon = 'voidcrew/icons/turf/civ13-beach.dmi'
+	icon_state = "desert"
+	environment_type = "desert"
+	base_icon_state = "desert"
+	baseturfs = /turf/open/floor/plating/asteroid/sand
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	digResult = /obj/item/stack/ore/glass
+	planetary_atmos = TRUE
+
+/turf/open/floor/plating/asteroid/sand/Initialize(mapload, inherited_virtual_z)
+	. = ..()
+	icon_state = "[base_icon_state][rand(0,5)]"
+
+/turf/open/floor/plating/asteroid/sand/lit
+	light_range = 2
+	light_power = 1
+
+/turf/open/floor/plating/asteroid/sand/dark
+	icon_state = "desert6"
+
+/turf/open/floor/plating/asteroid/sand/dark/Initialize(mapload, inherited_virtual_z)
+	. = ..()
+	icon_state = "[base_icon_state][rand(6,8)]"
+
+/turf/open/floor/plating/asteroid/sand/dark/lit
+	light_range = 2
+	light_power = 1
+
+/turf/open/floor/plating/asteroid/sand/beach
+	planetary_atmos = TRUE
+	icon = 'icons/misc/beach.dmi'
+	icon_state = "sand"
+	base_icon_state = "sand"
+
+/turf/open/floor/plating/asteroid/sand/beach/Initialize(mapload, inherited_virtual_z)
+	. = ..()
+	icon_state = "[base_icon_state]"
+
+/turf/open/floor/plating/asteroid/sand/beach/lit
+	light_range = 2
+	light_power = 0.80
+	light_color = LIGHT_COLOR_TUNGSTEN
+
+/turf/open/floor/plating/asteroid/sand/beach/dense
+	icon_state = "light_sand"
+	planetary_atmos = TRUE
+	base_icon_state = "light_sand"
+
+/turf/open/floor/plating/asteroid/sand/beach/dense/lit
+	light_range = 2
+	light_power = 0.80
+	light_color = LIGHT_COLOR_TUNGSTEN

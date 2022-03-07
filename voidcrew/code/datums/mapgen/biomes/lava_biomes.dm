@@ -7,8 +7,18 @@
 		/obj/structure/flora/ash/whitesands/fern = 5,
 		/obj/structure/flora/ash/whitesands/fireblossom = 1
 	)
-	feature_spawn_chance = 0.1
-	feature_spawn_list = list(/obj/structure/flora/rock = 1)
+	feature_spawn_chance = 0.3
+	feature_spawn_list = list(/obj/structure/flora/rock = 5, /obj/structure/elite_tumor = 1, /obj/structure/geyser/random = 1)
+	mob_spawn_chance = 4
+	mob_spawn_list = list(
+		/mob/living/simple_animal/hostile/asteroid/goliath/beast/random = 50,
+		/obj/structure/spawner/lavaland/goliath = 3,
+		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random = 40,
+		/obj/structure/spawner/lavaland = 3,
+		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/random = 30,
+		/obj/structure/spawner/lavaland/legion = 3,
+		/mob/living/simple_animal/hostile/asteroid/goldgrub = 10
+	)
 
 /datum/revamped_biome/lavaland/forest
 	open_turf_types = list(/turf/open/floor/plating/asteroid/purple/lit = 1)

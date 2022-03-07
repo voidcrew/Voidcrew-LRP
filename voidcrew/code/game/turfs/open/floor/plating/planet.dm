@@ -110,22 +110,3 @@
 /turf/open/floor/plating/dust/lit
 	light_power = 1
 	light_range = 2
-
-/turf/open/floor/plating/sand
-	icon = 'voidcrew/icons/turf/civ13-beach.dmi'
-	icon_state = "desert0"
-	base_icon_state = "desert"
-	light_range = 2
-	light_power = 1
-	baseturfs = /turf/open/floor/plating/sand
-
-/turf/open/floor/plating/sand/Initialize(mapload, inherited_virtual_z)
-	. = ..()
-	icon_state = "[base_icon_state][rand(0,5)]"
-
-/turf/open/floor/plating/sand/dark
-	icon_state = "desert6"
-
-/turf/open/floor/plating/sand/dark/Initialize(mapload, inherited_virtual_z)
-	. = ..()
-	icon_state = "[base_icon_state][rand(6,8)]"

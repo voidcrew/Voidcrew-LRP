@@ -39,7 +39,6 @@
 		"biome_lowest_humidity" = /datum/revamped_biome/snow/forest/dense,
 		"biome_low_humidity" = /datum/revamped_biome/snow/forest,
 		"biome_medium_humidity" = /datum/revamped_biome/snow/thawed,
-		// "biome_high_humidity" = /datum/revamped_biome/plasma,
 		"biome_high_humidity" = /datum/revamped_biome/snow/forest/dense,
 		"biome_highest_humidity" = /datum/revamped_biome/snow/thawed
 	)
