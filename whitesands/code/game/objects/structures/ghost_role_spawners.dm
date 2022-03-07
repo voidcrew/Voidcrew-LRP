@@ -17,7 +17,7 @@
 	id = /obj/item/card/id/away/slime
 	assignedrole = "Slime Rancher"
 
-/obj/effect/mob_spawn/human/slime_rancher/initialize(mapload)
+/obj/effect/mob_spawn/human/slime_rancher/Initialize(mapload)
 	. = ..()
 	notify_ghosts("A slime rancher is available", flashwindow = FALSE, notify_suiciders = FALSE)
 

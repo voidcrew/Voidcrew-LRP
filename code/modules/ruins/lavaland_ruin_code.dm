@@ -150,7 +150,7 @@
 	outfit = /datum/outfit/lavaland_syndicate/comms
 
 
-/obj/effect/mob_spawn/human/lavaland_syndicate/comms(mapload)
+/obj/effect/mob_spawn/human/lavaland_syndicate/comms/Initialize(mapload)
 	. = ..()
 	notify_ghosts("A lavaland syndicate comms agent is now available", flashwindow = FALSE, notify_suiciders = FALSE)
 
