@@ -97,9 +97,6 @@ SUBSYSTEM_DEF(overmap)
 /datum/controller/subsystem/overmap/proc/initialize_generator()
 	generator_type = CONFIG_GET(string/overmap_generator_type)
 
-	if(generator_type == null)
-		log_runtime("generator_type set to NULL")
-
 	if (!generator_type)
 		generator_type = OVERMAP_GENERATOR_RANDOM
 		return
@@ -109,8 +106,6 @@ SUBSYSTEM_DEF(overmap)
 
 	var/path
 	startype = pick(SMALLSTAR, MEDSTAR, TWOSTAR, BIGSTAR)
-	if(startype == null)
-		log_runtime("no star type found")
 	switch (startype)
 		if (SMALLSTAR)
 			path = new /obj/structure/overmap/star
@@ -121,10 +116,6 @@ SUBSYSTEM_DEF(overmap)
 		if (BIGSTAR)
 			path = new /obj/structure/overmap/star/big
 	var/obj/structure/overmap/star/center = path
-	if (center == null)
-		log_runtime("No center found")
-		log_runtime("Startype: [startype]")
-		log_runtime("path: [path]")
 	center.loc = locate(size / 2, size / 2, 1)
 
 	var/list/unsorted_turfs = get_areatype_turfs(/area/overmap)
@@ -270,7 +261,6 @@ SUBSYSTEM_DEF(overmap)
 	var/area/target_area
 	var/turf/surface = /turf/open/space
 	var/datum/weather_controller/weather_controller_type
-	// var/datum/planet/planet_template
 	var/datum/planet/planet_template
 	if(!isnull(planet_type))
 		planet_type = new planet_type

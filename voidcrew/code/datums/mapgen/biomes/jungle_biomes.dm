@@ -1,4 +1,4 @@
-/datum/revamped_biome/jungle
+/datum/biome/jungle
 	open_turf_types = list(/turf/open/floor/plating/grass/jungle/lit = 1)
 	flora_spawn_list = list(
 		/obj/structure/flora/grass/jungle = 1,
@@ -11,40 +11,41 @@
 		/obj/structure/flora/junglebush/large = 1
 	)
 	flora_spawn_chance = 20
-	mob_spawn_chance = 0.5
+	mob_spawn_chance = 0.3
 	mob_spawn_list = list(/mob/living/carbon/monkey = 5)
 
-/datum/revamped_biome/jungle/dense
+/datum/biome/jungle/dense
 	flora_spawn_chance = 30
 	open_turf_types = list(/turf/open/floor/plating/grass/jungle = 1, /turf/open/floor/plating/dirt/jungle/dark = 9)
-	mob_spawn_chance = 1
-	mob_spawn_list = list(/mob/living/simple_animal/hostile/gorilla/beach = 1, /mob/living/carbon/monkey = 5)
+	mob_spawn_chance = 0.6
+	mob_spawn_list = list(/mob/living/simple_animal/hostile/gorilla/beach = 1, /mob/living/carbon/monkey = 3)
 
-/datum/revamped_biome/jungle/plains
+/datum/biome/jungle/plains
 	open_turf_types = list(/turf/open/floor/plating/grass/jungle/lit = 1)
 	flora_spawn_chance = 7
 	mob_spawn_chance = 1
 	mob_spawn_list = list(/mob/living/carbon/monkey = 1)
 
-/datum/revamped_biome/mudlands
+/datum/biome/mudlands
 	open_turf_types = list(/turf/open/floor/plating/dirt/jungle/dark/lit = 1)
 	flora_spawn_list = list(/obj/structure/flora/grass/jungle = 1, /obj/structure/flora/grass/jungle/b = 1, /obj/structure/flora/rock/jungle = 1)
 	flora_spawn_chance = 3
 	mob_spawn_chance = 0.05
 	mob_spawn_list = list(/mob/living/simple_animal/hostile/poison/giant_spider/tarantula = 1)
 
-/datum/revamped_biome/jungle_wasteland
+/datum/biome/jungle_wasteland
 	open_turf_types = list(/turf/open/floor/plating/dirt/jungle/wasteland/lit = 1)
 
-/datum/revamped_biome/jungle/water
+/datum/biome/jungle/water
 	open_turf_types = list(/turf/open/water/jungle/lit = 1)
 	mob_spawn_chance = 1
 	mob_spawn_list = list(/mob/living/simple_animal/hostile/carp = 1)
 	flora_spawn_chance = 1
 	flora_spawn_list = list(/obj/structure/flora/rock = 1)
 
-/datum/revamped_biome/cave/jungle
+/datum/biome/cave/jungle
 	open_turf_types = list(/turf/open/floor/plating/dirt/jungle = 10, /turf/open/floor/plating/dirt/jungle/dark = 10)
+	closed_turf_types = list(/turf/closed/mineral/random/jungle = 1)
 	flora_spawn_chance = 5
 	flora_spawn_list = list(
 		/obj/structure/flora/rock/jungle = 1,
@@ -61,7 +62,7 @@
 	feature_spawn_chance = 1
 	feature_spawn_list = list(/obj/item/pickaxe/rusted = 1, /obj/structure/closet/crate/grave/lead_researcher = 1, /obj/structure/closet/crate/grave = 1, /obj/item/shovel = 1, /obj/structure/closet/crate/secure/loot = 1)
 
-/datum/revamped_biome/cave/jungle/dirt
+/datum/biome/cave/jungle/dirt
 	open_turf_types = list(/turf/open/floor/plating/dirt/jungle/wasteland = 1)
 	flora_spawn_list = list(
 		/obj/structure/flora/junglebush = 1,
@@ -73,8 +74,9 @@
 		/obj/structure/flora/grass/jungle/b = 1,
 	)
 
-/datum/revamped_biome/cave/lush
+/datum/biome/cave/lush
 	open_turf_types = list(/turf/open/floor/plating/grass/jungle = 1)
+	closed_turf_types = list(/turf/closed/mineral/random/jungle = 1)
 	flora_spawn_chance = 25
 	flora_spawn_list = list(
 		/obj/structure/flora/tree/jungle/small = 1,
@@ -102,7 +104,7 @@
 	mob_spawn_chance = 1
 	mob_spawn_list = list(/mob/living/simple_animal/hostile/poison/bees/toxin = 1, /mob/living/simple_animal/hostile/mushroom = 1, /mob/living/simple_animal/slime/pet = 1)
 
-/datum/revamped_biome/cave/lush/bright
+/datum/biome/cave/lush/bright
 	open_turf_types = list(/turf/open/floor/plating/grass/jungle/lit = 12, /turf/open/water/jungle/lit = 1)
 	flora_spawn_chance = 40
 	mob_spawn_chance = 1

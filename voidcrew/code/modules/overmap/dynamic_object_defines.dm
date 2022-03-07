@@ -83,10 +83,6 @@
 	sound_environment = SOUND_ENVIRONMENT_FOREST
 	ambientsounds = AWAY_MISSION
 
-/area/overmap_encounter/planetoid/rockplanet/explored//for use in ruins
-	area_flags = UNIQUE_AREA
-	area_flags = VALID_TERRITORY | UNIQUE_AREA
-
 /area/overmap_encounter/planetoid/wasteland
 	name = "\improper Apocalyptic Planetoid"
 	sound_environment = SOUND_ENVIRONMENT_HANGAR

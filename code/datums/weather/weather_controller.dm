@@ -87,9 +87,6 @@
 			/datum/weather/hailstorm = 20
 			)
 
-// /datum/weather_controller/desert
-// 	possible_weathers = list(/datum/weather/sandstorm = 100)
-
 /datum/weather_controller/wasteland
 	possible_weathers = list(/datum/weather/sandstorm = 30, /datum/weather/acid_rain = 60, /datum/weather/shroud_storm = 10)
 

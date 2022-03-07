@@ -1,3 +1,5 @@
+#define BIOME_RANDOM_SQUARE_DRIFT 2
+
 /datum/map_generator/planet_generator
 	var/name = "Planet Generator"
 	var/mountain_height = 0.85
@@ -26,8 +28,8 @@
 		var/humidity = text2num(rustg_noise_get_at_coordinates("[humidity_seed]", "[drift_x]", "[drift_y]"))
 		var/heat_level
 		var/humidity_level
-		var/datum/revamped_biome/selected_biome
-		var/datum/revamped_biome/cave/selected_cave_biome
+		var/datum/biome/selected_biome
+		var/datum/biome/cave/selected_cave_biome
 
 		var/area/A = gen_turf.loc
 		if(!(A.area_flags & CAVES_ALLOWED))
@@ -59,7 +61,7 @@
 				if(0.80 to 1)
 					heat_level = planet_type.hottest_biomes
 			selected_biome = heat_level[humidity_level]
-			selected_biome = SSmapping.revamped_biomes[selected_biome]
+			selected_biome = SSmapping.biomes[selected_biome]
 			selected_biome.generate_overworld(gen_turf)
 		else
 			switch(heat)
@@ -72,7 +74,7 @@
 				if(0.75 to 1)
 					heat_level = planet_type.hot_cave_biomes
 			selected_cave_biome = heat_level[humidity_level]
-			selected_cave_biome = SSmapping.revamped_biomes[selected_cave_biome]
+			selected_cave_biome = SSmapping.biomes[selected_cave_biome]
 			selected_cave_biome.generate_caves(gen_turf, string_gen)
 		CHECK_TICK
 

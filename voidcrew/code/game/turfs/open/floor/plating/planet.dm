@@ -36,12 +36,11 @@
 	name = "lava grass"
 	baseturfs = /turf/open/floor/plating/grass/lava
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
-	planetary_atmos = TRUE
 	desc = "Smells like burnt hair."
 	icon_state = "grass"
 	base_icon_state = "grass"
+	planetary_atmos = TRUE
 	smooth_icon = 'voidcrew/icons/turf/floors/lava_grass_red.dmi'
-	layer = MID_TURF_LAYER
 	light_power = 1
 	light_range = 2
 
