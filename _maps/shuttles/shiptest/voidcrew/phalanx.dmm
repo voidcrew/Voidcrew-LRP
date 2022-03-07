@@ -104,6 +104,9 @@
 	dir = 4
 	},
 /obj/machinery/light/small,
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8
+	},
 /turf/open/floor/carpet/black,
 /area/ship/crew/chapel/office)
 "bR" = (
@@ -482,7 +485,6 @@
 /turf/open/floor/plasteel/white,
 /area/ship/medical)
 "fa" = (
-/obj/structure/grille,
 /obj/effect/spawner/structure/window/reinforced/tinted,
 /turf/open/floor/plating,
 /area/ship/crew/chapel)
@@ -749,7 +751,7 @@
 /obj/item/storage/fancy/candle_box{
 	pixel_y = -2
 	},
-/obj/effect/turf_decal/siding/wood/corner,
+/obj/effect/turf_decal/siding/wood,
 /turf/open/floor/carpet/black,
 /area/ship/crew/chapel/office)
 "hJ" = (
@@ -1118,6 +1120,9 @@
 	},
 /area/ship/cargo)
 "lF" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/ship/crew/chapel)
 "lM" = (
@@ -1558,11 +1563,10 @@
 	pixel_x = 5
 	},
 /obj/machinery/light_switch{
-	pixel_y = -23
+	pixel_y = -32;
+	pixel_x = 3
 	},
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 8
-	},
+/obj/effect/turf_decal/siding/wood,
 /turf/open/floor/carpet/black,
 /area/ship/crew/chapel/office)
 "si" = (
@@ -1930,6 +1934,9 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/auto_name/north,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/ship/crew/chapel)
 "wg" = (
@@ -2109,6 +2116,9 @@
 	},
 /obj/machinery/firealarm{
 	pixel_x = 26
+	},
+/obj/machinery/light/small{
+	dir = 4
 	},
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/medical/morgue)
@@ -3080,6 +3090,9 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wood/corner,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/open/floor/carpet/black,
 /area/ship/crew/chapel/office)
 "HY" = (
