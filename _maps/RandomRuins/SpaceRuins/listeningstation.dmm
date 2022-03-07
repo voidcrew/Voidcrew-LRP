@@ -309,7 +309,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
-/turf/open/space/basic,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/listeningstation)
 "gV" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -335,7 +335,8 @@
 "hT" = (
 /obj/structure/closet/secure_closet/freezer/kitchen/wall{
 	dir = 4;
-	pixel_x = -32
+	pixel_x = -32;
+	req_access = list(150)
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 1
@@ -382,10 +383,6 @@
 "kH" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 10
-	},
-/obj/machinery/camera{
-	dir = 9;
-	network = list("Listeningpost")
 	},
 /obj/machinery/light/small{
 	dir = 4
@@ -540,7 +537,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
-/turf/open/space/basic,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/listeningstation)
 "qG" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector/layer4{
@@ -643,6 +640,13 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"vc" = (
+/obj/item/bombcore/badmin{
+	anchored = 1;
+	invisibility = 100
+	},
+/turf/closed/wall/r_wall,
+/area/ruin/space/has_grav/listeningstation)
 "vE" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -657,10 +661,6 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
-/obj/machinery/computer/security/telescreen{
-	network = list("Listeningpost");
-	pixel_y = 26
-	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/listeningstation)
 "wI" = (
@@ -922,7 +922,6 @@
 /area/ruin/space/has_grav/listeningstation)
 "Kz" = (
 /obj/machinery/power/apc/syndicate{
-	dir = 4;
 	name = "Syndicate Listening Post APC";
 	pixel_y = -24
 	},
@@ -1597,7 +1596,7 @@ ac
 ac
 ag
 ag
-ag
+vc
 ag
 ag
 qi
@@ -1868,7 +1867,7 @@ ac
 ac
 ac
 ac
-aL
+ac
 cp
 VJ
 BP
@@ -1879,7 +1878,7 @@ ac
 Cf
 CW
 gW
-ac
+aL
 qi
 pX
 mf
@@ -1919,7 +1918,7 @@ ac
 ac
 ac
 ac
-aL
+ac
 mf
 qi
 mf
@@ -1989,7 +1988,7 @@ ab
 ab
 ab
 ac
-ac
+aL
 ac
 ac
 ac
@@ -2149,7 +2148,7 @@ ab
 ab
 ab
 ac
-aL
+ac
 HC
 mD
 Kr
