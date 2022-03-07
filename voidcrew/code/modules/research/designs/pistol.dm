@@ -32,12 +32,12 @@
 	build_path = /obj/item/gun/ballistic/automatic/pistol/disposable/pizza
 	category = list("Imported")
 
-/obj/item/disk/design_disk/disposable_gun
+/obj/item/disk/design_disk/adv/disposable_gun
 	name = "Design Disk - Disposable Gun"
 	desc = "A design disk containing designs for a cheap and disposable gun."
 	illustration = "gun"
 
-/obj/item/disk/design_disk/disposable_gun/Initialize()
+/obj/item/disk/design_disk/adv/disposable_gun/Initialize()
 	. = ..()
 	var/datum/design/disposable_gun/G = new
 	var/datum/design/pizza_disposable_gun/P = new
