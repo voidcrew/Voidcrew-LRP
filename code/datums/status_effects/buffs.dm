@@ -197,6 +197,7 @@
 				BP.max_damage *= 10
 				BP.brute_dam *= 10
 				BP.burn_dam *= 10
+				BP.bone_break_threshold *= 10
 		owner.toxloss *= 10
 		owner.oxyloss *= 10
 		owner.cloneloss *= 10
@@ -281,6 +282,7 @@
 			BP.brute_dam *= 0.1
 			BP.burn_dam *= 0.1
 			BP.max_damage /= 10
+			BP.bone_break_threshold /= 10
 	owner.toxloss *= 0.1
 	owner.oxyloss *= 0.1
 	owner.cloneloss *= 0.1

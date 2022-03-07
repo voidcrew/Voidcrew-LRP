@@ -45,13 +45,15 @@
 	var/datum/map_template/shuttle/source_template
 	/// The prefix the shuttle currently possesses
 	var/faction_prefix
-    ///Snips the prefix off the ship when renaming to stop duplicate prefixes from existing
-	var/fixed_name
 	///Timer for ship deletion
 	var/deletion_timer
-
+	///Name of the Ship with the faction appended to it
+	var/display_name
 	///The ships password
 	var/password
+
+	/// Which docking port the ship is occupying
+	var/dock_index
 
 /obj/structure/overmap/ship/simulated/Initialize(mapload, obj/docking_port/mobile/_shuttle, datum/map_template/shuttle/_source_template)
 	. = ..()
@@ -63,12 +65,13 @@
 	name = shuttle.name
 	source_template = _source_template
 	faction_prefix = source_template.faction_prefix
+	display_name = "[faction_prefix] [name]"
 	update_ship_color()
 	calculate_mass()
 #ifdef UNIT_TESTS
 	set_ship_name("[source_template]")
 #else
-	set_ship_name("[source_template.faction_prefix] [pick_list_replacements(SHIP_NAMES_FILE, pick(source_template.name_categories))]", TRUE)
+	set_ship_name("[pick_list_replacements(SHIP_NAMES_FILE, pick(source_template.name_categories))]", TRUE)
 #endif
 	refresh_engines()
 	check_loc()
@@ -101,12 +104,32 @@
 			throw_atom_into_space(M)
 	destroy_ship()
 
+/**
+*	To properly fix the bug of two ships docking at the same time causing issues,
+*	we need to keep track of whether or not a ship is requesting to dock at a
+*	port IMMEDIATELY after the command is issued.
+*	This also includes keeping track of when the ship is no longer there, upon which
+*	the bools need to be set to false.
+*	This function should be called whenever an action occurs that would remove a ship from the map
+*/
+/obj/structure/overmap/ship/simulated/proc/update_docked_bools()
+	var/obj/structure/overmap/dynamic/dockable_place = docked
+	if (!dockable_place)
+		return
+	if (dock_index == 1)
+		dockable_place.first_dock_taken = FALSE
+		dock_index = 0
+	else if (dock_index == 2)
+		dockable_place.second_dock_taken = FALSE
+		dock_index = 0
+
 /obj/structure/overmap/ship/simulated/proc/destroy_ship(force = FALSE)
 	if ((length(shuttle.get_all_humans()) > 0) && !force)
 		return
 	if ((is_active_crew() == SHUTTLE_ACTIVE_CREW) && !force)
 		return
 	shuttle.jumpToNullSpace()
+	update_docked_bools()
 	message_admins("\[SHUTTLE]: [shuttle.name] has been deleted!")
 	log_admin("\[SHUTTLE]: [shuttle.name] has been deleted!")
 	qdel(src)
@@ -116,12 +139,12 @@
   * * user - Mob that started the action
   * * object - Overmap object to act on
   */
-/obj/structure/overmap/ship/simulated/proc/overmap_object_act(mob/user, obj/structure/overmap/object)
+/obj/structure/overmap/ship/simulated/proc/overmap_object_act(mob/user, obj/structure/overmap/object, obj/structure/overmap/ship/simulated/optional_partner)
 	if(!is_still() || state != OVERMAP_SHIP_FLYING)
 		to_chat(user, "<span class='warning'>Ship must be still to interact!</span>")
 		return
 
-	INVOKE_ASYNC(object, /obj/structure/overmap/.proc/ship_act, user, src)
+	INVOKE_ASYNC(object, /obj/structure/overmap/.proc/ship_act, user, src, optional_partner)
 
 /**
   * Docks the shuttle by requesting a port at the requested spot.
@@ -134,7 +157,7 @@
 	shuttle.request(dock_to_use)
 
 	priority_announce("Beginning docking procedures. Completion in [(shuttle.callTime + 1 SECONDS)/10] seconds.", "Docking Announcement", sender_override = name, zlevel = shuttle.virtual_z())
-
+	docked = to_dock //this wasnt getting updated at all before which is strange
 	addtimer(CALLBACK(src, .proc/complete_dock, WEAKREF(to_dock)), shuttle.callTime + 1 SECONDS)
 	state = OVERMAP_SHIP_DOCKING
 	return "Commencing docking..."
@@ -150,6 +173,8 @@
 		return "Ship not docked!"
 	if(!shuttle)
 		return "Shuttle not found!"
+	update_docked_bools()
+	docked = null
 	shuttle.destination = null
 	shuttle.mode = SHUTTLE_IGNITING
 	shuttle.setTimer(shuttle.ignitionTime)
@@ -329,18 +354,22 @@
 /**
   * Sets the ship, shuttle, and shuttle areas to a new name.
   */
-/obj/structure/overmap/ship/simulated/proc/set_ship_name(new_name, ignore_cooldown = FALSE)
-	if(!new_name || new_name == name || !COOLDOWN_FINISHED(src, rename_cooldown))
+/obj/structure/overmap/ship/simulated/proc/set_ship_name(new_name, ignore_cooldown = FALSE, bypass_same_name = FALSE)
+	if(bypass_same_name == FALSE)
+		if(!new_name || new_name == name)
+			return
+	if(!COOLDOWN_FINISHED(src, rename_cooldown))
 		return
 	if(name != initial(name))
 		priority_announce("The [name] has been renamed to the [new_name].", "Docking Announcement", sender_override = new_name, zlevel = shuttle.virtual_z())
 	message_admins("[key_name_admin(usr)] renamned vessel '[name]' to '[new_name]'")
 	name = new_name
 	shuttle.name = new_name
+	display_name = "[faction_prefix] [name]"
 	if(!ignore_cooldown)
 		COOLDOWN_START(src, rename_cooldown, 5 MINUTES)
 	for(var/area/shuttle_area as anything in shuttle.shuttle_areas)
-		shuttle_area.rename_area("[new_name] [initial(shuttle_area.name)]")
+		shuttle_area.rename_area("[display_name] [initial(shuttle_area.name)]")
 	return TRUE
 
 /**
@@ -352,13 +381,11 @@
 	if(faction_change == faction_prefix || (faction_change == "return" && faction_prefix == "NEU"))
 		return
 	COOLDOWN_START(src, faction_cooldown, FACTION_COOLDOWN_TIME)
-	fixed_name = (length(faction_prefix)+1)
 	if(faction_change == "return")
 		faction_prefix = source_template.faction_prefix
 	else
 		faction_prefix = faction_change
-	name = "[faction_prefix] [copytext(name, fixed_name)]"
-	set_ship_name(name, ignore_cooldown = TRUE)
+	set_ship_name(name, ignore_cooldown = TRUE, bypass_same_name = TRUE)
 	update_crew_hud()
 	update_ship_color()
 

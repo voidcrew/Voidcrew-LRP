@@ -15,6 +15,9 @@
 	dir = 4
 	},
 /obj/machinery/power/smes/engineering,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
 /turf/open/floor/pod/dark,
 /area/ship/crew)
 "bo" = (
@@ -166,15 +169,13 @@
 /turf/open/floor/pod/dark,
 /area/ship/crew)
 "sn" = (
-/obj/machinery/power/apc/syndicate{
-	dir = 8;
-	name = "Syndicate Drop Ship APC";
-	pixel_y = 25
+/obj/structure/table/reinforced,
+/obj/machinery/airalarm/syndicate{
+	pixel_y = 24
 	},
 /obj/structure/cable{
-	icon_state = "0-2"
+	icon_state = "4-8"
 	},
-/obj/structure/table/reinforced,
 /turf/open/floor/pod/dark,
 /area/ship/crew)
 "ss" = (
@@ -262,11 +263,16 @@
 /turf/open/floor/plasteel/dark,
 /area/ship/crew)
 "EO" = (
-/obj/machinery/airalarm/syndicate{
-	pixel_y = 24
-	},
 /obj/structure/table/reinforced,
 /obj/item/disk/design_disk/ammo_c9mm,
+/obj/machinery/power/apc/syndicate{
+	dir = 8;
+	name = "Syndicate Drop Ship APC";
+	pixel_y = 25
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
 /turf/open/floor/pod/dark,
 /area/ship/crew)
 "Fa" = (
@@ -473,9 +479,6 @@
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 20
 	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /turf/open/floor/plating,
 /area/ship/crew)
 "PJ" = (
@@ -618,21 +621,6 @@
 	dir = 8;
 	name = "fuel pump"
 	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/open/floor/plasteel/dark,
-/area/ship/crew)
-"ZK" = (
-/obj/effect/turf_decal/corner/red{
-	dir = 1
-	},
-/obj/effect/turf_decal/corner/red{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/open/floor/plasteel/dark,
 /area/ship/crew)
 "ZZ" = (
@@ -679,7 +667,7 @@ Tn
 (4,1,1) = {"
 Tn
 sn
-ZK
+ss
 ZJ
 BQ
 ka
