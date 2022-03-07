@@ -1,4 +1,4 @@
-// Hey! Listen! Update \config\spaceruinblacklist.txt with your new ruins!
+// Hey! Listen! Update \config\ruins\spaceruinblacklist.txt with your new ruins!
 
 /datum/map_template/ruin/space
 	prefix = "_maps/RandomRuins/SpaceRuins/"
@@ -23,6 +23,38 @@
 	suffix = "excavator_DK.dmm"
 	name = "Excavator DK Class"
 	description = "A heavily damaged DK class excavator"
+
+/datum/map_template/ruin/space/asteroid1
+	id = "asteroid1"
+	suffix = "asteroid1.dmm"
+	name = "Asteroid 1"
+	description = "I-spy with my little eye, something beginning with R."
+
+
+/datum/map_template/ruin/space/asteroid2
+	id = "asteroid2"
+	suffix = "asteroid2.dmm"
+	name = "Asteroid 2"
+	description = "Oh my god, a giant rock!"
+
+/datum/map_template/ruin/space/asteroid3
+	id = "asteroid3"
+	suffix = "asteroid3.dmm"
+	name = "Asteroid 3"
+	description = "This asteroid floating in space has no official designation, because the scientist that discovered it deemed it 'super dull'."
+
+/datum/map_template/ruin/space/asteroid4
+	id = "asteroid4"
+	suffix = "asteroid4.dmm"
+	name = "Asteroid 4"
+	description = "Nanotrasen Escape Pods have a 100%* success rate, and a 99%* customer satisfaction rate. \
+	*Please note that these statistics are taken from pods that have successfully docked with a recovery vessel."
+
+/datum/map_template/ruin/space/asteroid5
+	id = "asteroid5"
+	suffix = "asteroid5.dmm"
+	name = "Asteroid 5"
+	description = "Oh my god, another giant rock!"
 
 /datum/map_template/ruin/space/deep_storage
 	id = "deep-storage"
