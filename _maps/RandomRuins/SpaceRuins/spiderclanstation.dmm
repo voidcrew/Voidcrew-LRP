@@ -20,7 +20,8 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/auto_name/north{
-	nightshift_lights = 1
+	nightshift_lights = 1;
+	start_charge = 0
 	},
 /mob/living/simple_animal/hostile/poison/giant_spider/nurse{
 	melee_damage_lower = 10;
@@ -38,7 +39,8 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/auto_name/north{
-	nightshift_lights = 1
+	nightshift_lights = 1;
+	start_charge = 0
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/science)
@@ -118,11 +120,11 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ship/science)
 "dR" = (
-/obj/machinery/power/port_gen/pacman/uranium,
 /obj/item/stack/sheet/mineral/uranium/twenty,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/machinery/power/port_gen/pacman/uranium,
 /turf/open/floor/circuit/red/anim,
 /area/ship/bridge)
 "dT" = (
@@ -153,7 +155,7 @@
 /area/ship/bridge)
 "eD" = (
 /obj/machinery/door/poddoor/shutters{
-	id = "scspidership4";
+	id = "scspidership4"
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/science)
@@ -202,7 +204,8 @@
 /area/ship/hallway/port)
 "fI" = (
 /obj/machinery/power/apc/auto_name/north{
-	nightshift_lights = 1
+	nightshift_lights = 1;
+	start_charge = 0
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -264,11 +267,11 @@
 /obj/machinery/light/dim{
 	dir = 1
 	},
-/obj/machinery/power/port_gen/pacman/uranium,
 /obj/item/stack/sheet/mineral/uranium/twenty,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/machinery/power/port_gen/pacman/uranium,
 /turf/open/floor/circuit/red/anim,
 /area/ship/bridge)
 "hr" = (
@@ -315,7 +318,7 @@
 /obj/structure/grille,
 /obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /obj/machinery/door/poddoor{
-	id = "cspidership"
+	id = "scspidership"
 	},
 /turf/open/floor/plating,
 /area/ship/bridge)
@@ -608,7 +611,7 @@
 /area/ship/bridge)
 "ux" = (
 /obj/machinery/door/poddoor{
-	id = "cspidership"
+	id = "scspidership"
 	},
 /turf/open/floor/carpet/red_gold,
 /area/ship/bridge)
@@ -619,7 +622,7 @@
 /area/ship/hallway/aft)
 "vi" = (
 /obj/machinery/door/poddoor/preopen{
-	id = "cspidership3"
+	id = "scspidership3"
 	},
 /obj/structure/spider/stickyweb,
 /turf/open/floor/mineral/plastitanium,
@@ -856,7 +859,7 @@
 	state_open = 1
 	},
 /obj/machinery/door/poddoor/shutters/indestructible{
-	id = "cspidership2"
+	id = "scspidership2"
 	},
 /turf/open/floor/pod,
 /area/ship/hallway/aft)
@@ -909,7 +912,7 @@
 "FV" = (
 /obj/item/paper/fluff{
 	desc = "An automatically generated message for command staff.";
-	info = "Welcome to the Spider Clan Biological Development Facility! Co-funded with Cybersun Induestries, this enormous facility is equipped with state-of-the-art biological technology. As the Captain of this ship, you are tasked with overseeing the development of prototype arachnid-type biological weaponry. The Command Centre is equipped with a panic room behind the communications console in case of an enemy attack. We are looking forward to your results.";
+	info = "Welcome to the Spider Clan Biological Development Facility! Co-funded with Cybersun Industries, this enormous facility is equipped with state-of-the-art biological technology. As the Captain of this ship, you are tasked with overseeing the development of prototype arachnid-type biological weaponry. The Command Centre is equipped with a panic room behind the communications console in case of an enemy attack. We are looking forward to your results.";
 	name = "Welcome!"
 	},
 /turf/open/floor/carpet/red_gold,
@@ -923,7 +926,7 @@
 /obj/effect/decal/cleanable/blood/gibs/core,
 /obj/machinery/button/door{
 	desc = "A remote control switch for blast doors.";
-	id = "cspidership";
+	id = "scspidership";
 	name = "Blast Door Control";
 	pixel_x = -24
 	},
@@ -984,7 +987,8 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/auto_name/west{
-	nightshift_lights = 1
+	nightshift_lights = 1;
+	start_charge = 0
 	},
 /turf/open/floor/pod,
 /area/ship/hallway/starboard)
@@ -1170,7 +1174,8 @@
 /obj/structure/spider/cocoon,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/east{
-	nightshift_lights = 1
+	nightshift_lights = 1;
+	start_charge = 0
 	},
 /turf/open/floor/pod,
 /area/ship/hallway/port)
@@ -1203,7 +1208,7 @@
 /area/ship/hallway/aft)
 "QL" = (
 /obj/machinery/door/poddoor/preopen{
-	id = "cspidership3"
+	id = "scspidership3"
 	},
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/mineral/plastitanium,
@@ -1222,7 +1227,7 @@
 /obj/structure/spider/cocoon,
 /obj/machinery/button/door{
 	desc = "A remote control switch for emergency shutters.";
-	id = "cspidership2";
+	id = "scspidership2";
 	name = "Shutter Control";
 	pixel_x = 24
 	},
@@ -1444,7 +1449,7 @@
 /obj/structure/spider/stickyweb,
 /obj/machinery/button/door{
 	desc = "A remote control switch for emergency shutters.";
-	id = "cspidership4";
+	id = "scspidership4";
 	name = "Shutter Control";
 	pixel_x = 24
 	},
@@ -1466,12 +1471,12 @@
 /obj/structure/table/reinforced,
 /obj/item/paper/fluff{
 	desc = "A note left by a researcher.";
-	info = "Robert, please check the wiring on the blast doors. I know I sound paranoid I could swear I saw them opening for a second. It's better to be safe than sorry.";
+	info = "Robert, please check the wiring on the blast doors. I know I sound paranoid, but I could swear I saw them opening for a second. It's better to be safe than sorry.";
 	name = "Note for Robert"
 	},
 /obj/machinery/button/door{
 	desc = "A remote control switch for blast doors.";
-	id = "cspidership3";
+	id = "scspidership3";
 	name = "Blast Door Control";
 	pixel_y = 24
 	},
