@@ -30,7 +30,7 @@
 	build_path = /obj/item/multitool/syndie
 	category = list("Imported")
 
-/obj/item/disk/design_disk/adv/Syndietools
+/obj/item/disk/design_disk/adv/syndietools
 	name = "Design Disk - Syndicate tools"
 	desc = "A design disk containing the pattern for Syndicate tools."
 	illustration = "generic"
