@@ -67,6 +67,9 @@
 	dir = 4;
 	req_one_access = null
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/listeningstation)
 "bk" = (
@@ -155,6 +158,7 @@
 /obj/structure/toilet{
 	dir = 8
 	},
+/obj/machinery/light/small,
 /turf/open/floor/plasteel/showroomfloor,
 /area/ruin/space/has_grav/listeningstation)
 "cz" = (
@@ -257,6 +261,9 @@
 /obj/item/flashlight{
 	pixel_y = -12
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/space/has_grav/listeningstation)
 "fe" = (
@@ -322,6 +329,7 @@
 /obj/machinery/computer/security/telescreen/entertainment{
 	pixel_x = 30
 	},
+/obj/machinery/light,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/listeningstation)
 "hT" = (
@@ -379,6 +387,9 @@
 	dir = 9;
 	network = list("Listeningpost")
 	},
+/obj/machinery/light/small{
+	dir = 4
+	},
 /turf/open/floor/plating/asteroid,
 /area/ruin/space/has_grav/listeningstation)
 "ls" = (
@@ -416,6 +427,9 @@
 /obj/effect/turf_decal/corner/red{
 	dir = 8
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/listeningstation)
 "mD" = (
@@ -425,6 +439,9 @@
 /obj/item/pen,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 25
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/listeningstation)
@@ -531,6 +548,18 @@
 	},
 /turf/open/floor/plating/asteroid,
 /area/ruin/space/has_grav/listeningstation)
+"qU" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/ruin/space/has_grav/listeningstation)
 "sc" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
@@ -572,6 +601,9 @@
 "uj" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 9
+	},
+/obj/machinery/light/small{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/listeningstation)
@@ -643,6 +675,9 @@
 "xe" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/listeningstation)
@@ -766,6 +801,9 @@
 /obj/item/storage/box/donkpockets{
 	pixel_y = 3
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/open/floor/plasteel/white,
 /area/ruin/space/has_grav/listeningstation)
 "Cf" = (
@@ -838,6 +876,15 @@
 	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/listeningstation)
+"Hk" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/open/floor/plating/asteroid,
+/area/ruin/space/has_grav/listeningstation)
 "HC" = (
 /obj/machinery/telecomms/relay/preset/ruskie{
 	use_power = 0
@@ -882,6 +929,9 @@
 /obj/structure/cable/yellow,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 5
+	},
+/obj/machinery/light/small{
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/listeningstation)
@@ -953,6 +1003,9 @@
 	pixel_x = -24;
 	req_access_txt = "150";
 	specialfunctions = 4
+	},
+/obj/machinery/light/small{
+	dir = 8
 	},
 /turf/open/floor/plating/asteroid,
 /area/ruin/space/has_grav/listeningstation)
@@ -1060,6 +1113,9 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/corner/red,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/listeningstation)
 "Sg" = (
@@ -1141,6 +1197,9 @@
 /obj/item/wrench/syndie,
 /obj/structure/cable{
 	icon_state = "0-4"
+	},
+/obj/machinery/light/small{
+	dir = 1
 	},
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/listeningstation)
@@ -1366,7 +1425,7 @@ ab
 ab
 My
 sv
-dr
+Hk
 ab
 ab
 ab
@@ -1855,7 +1914,7 @@ ac
 ac
 ac
 ac
-wI
+qU
 ac
 ac
 ac
