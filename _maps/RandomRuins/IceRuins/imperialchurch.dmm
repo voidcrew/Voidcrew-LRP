@@ -449,12 +449,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/red,
 /area/icemoon)
-"AJ" = (
-/obj/structure/stairs,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
-/area/icemoon)
 "AX" = (
 /obj/structure/mineral_door/wood,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -651,8 +645,9 @@
 /turf/open/floor/carpet/red,
 /area/icemoon)
 "NK" = (
-/obj/structure/stairs,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/stairs{
+	dir = 1
+	},
 /area/icemoon)
 "Oi" = (
 /obj/structure/chair/pew{
@@ -769,10 +764,10 @@
 /turf/open/floor/plating/snowed,
 /area/icemoon)
 "Wi" = (
-/obj/structure/stairs,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/turf_decal/snow,
-/turf/open/floor/plating,
+/turf/open/floor/plasteel/stairs{
+	dir = 1
+	},
 /area/icemoon)
 "Wl" = (
 /mob/living/simple_animal/hostile/guardian/gravitokinetic,
@@ -1257,7 +1252,7 @@ KD
 AI
 Vv
 NK
-AJ
+NK
 cE
 Nz
 sj
