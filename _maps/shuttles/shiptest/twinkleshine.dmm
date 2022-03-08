@@ -2219,6 +2219,7 @@
 /area/ship/engineering/atmospherics)
 "tT" = (
 /obj/structure/closet/secure_closet{
+	anchored = 1;
 	icon_state = "med_secure";
 	name = "robotics";
 	req_access_txt = list(150)
@@ -2570,7 +2571,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/closet/secure_closet/chemical/heisenberg,
+/obj/structure/closet/secure_closet/chemical/heisenberg{
+	anchored = 1
+	},
 /obj/effect/turf_decal/corner/red/diagonal,
 /turf/open/floor/plasteel/white,
 /area/ship/medical)
