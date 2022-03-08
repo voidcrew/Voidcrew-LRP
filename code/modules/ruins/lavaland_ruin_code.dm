@@ -114,7 +114,7 @@
 	name = "Syndicate Bioweapon Scientist"
 	roundstart = FALSE
 	death = FALSE
-	random = TRUE
+//	random = TRUE
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper_s"
 	short_desc = "You are a syndicate science technician, employed in a top secret research facility developing biological weapons."

@@ -832,7 +832,9 @@
 /area/ruin/unpowered/syndicate_lava_base/chemistry)
 "ew" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/vending/syndichem,
+/obj/machinery/vending/syndichem{
+	all_items_free = 1
+	},
 /obj/effect/turf_decal/corner/white,
 /obj/effect/turf_decal/corner/white{
 	dir = 4
@@ -1155,7 +1157,9 @@
 "fq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/vending/assist,
+/obj/machinery/vending/assist{
+	all_items_free = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered/syndicate_lava_base/cargo)
 "fs" = (
@@ -1174,6 +1178,7 @@
 /obj/item/circuitboard/machine/smoke_machine,
 /obj/item/circuitboard/machine/autolathe,
 /obj/item/circuitboard/computer/operating,
+/obj/item/circuitboard/machine/ore_redemption,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered/syndicate_lava_base/cargo)
 "ft" = (
@@ -1343,6 +1348,9 @@
 	dir = 1;
 	name = "Arrival Hallway APC";
 	pixel_y = 24
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
 /turf/open/floor/plasteel,
 /area/ruin/unpowered/syndicate_lava_base/arrivals)
@@ -1891,6 +1899,7 @@
 /obj/machinery/airalarm/syndicate{
 	pixel_y = 24
 	},
+/obj/item/encryptionkey/wideband,
 /turf/open/floor/plasteel/grimy,
 /area/ruin/unpowered/syndicate_lava_base/dormitories)
 "hR" = (
@@ -1934,7 +1943,6 @@
 	},
 /obj/structure/tank_dispenser/plasma,
 /obj/machinery/power/apc/syndicate{
-	dir = 1;
 	name = "Cargo Bay APC";
 	pixel_y = -24
 	},
@@ -2517,7 +2525,9 @@
 	pixel_y = -32
 	},
 /obj/effect/turf_decal/industrial/warning,
-/obj/machinery/vending/engivend,
+/obj/machinery/vending/engivend{
+	all_items_free = 1
+	},
 /turf/open/floor/plasteel,
 /area/ruin/unpowered/syndicate_lava_base/engineering)
 "jY" = (
@@ -3047,10 +3057,6 @@
 	},
 /turf/open/floor/wood,
 /area/ruin/unpowered/syndicate_lava_base/bar)
-"lE" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/syndicate_lava_base/bar)
 "lG" = (
 /obj/structure/table,
 /obj/item/storage/box/syringes,
@@ -3372,7 +3378,7 @@
 /obj/effect/turf_decal/corner/white{
 	dir = 4
 	},
-/obj/machinery/computer,
+/obj/structure/frame/computer,
 /turf/open/floor/plasteel,
 /area/ruin/unpowered/syndicate_lava_base/medbay)
 "mF" = (
@@ -3464,7 +3470,7 @@
 	pixel_x = 2;
 	pixel_y = -3
 	},
-/obj/item/multitool,
+/obj/item/multitool/syndie,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/corner/red{
 	dir = 1
@@ -3487,6 +3493,9 @@
 /obj/effect/turf_decal/corner/white,
 /obj/effect/turf_decal/corner/white{
 	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/ruin/unpowered/syndicate_lava_base/medbay)
@@ -3700,6 +3709,9 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 8
 	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/open/floor/plasteel,
 /area/ruin/unpowered/syndicate_lava_base/arrivals)
 "nZ" = (
@@ -3877,7 +3889,7 @@
 	},
 /obj/item/storage/belt/medical,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/crowbar,
+/obj/item/crowbar/syndie,
 /obj/item/clothing/glasses/hud/health,
 /obj/item/clothing/neck/stethoscope,
 /turf/open/floor/plasteel/white,
@@ -5365,7 +5377,8 @@
 /area/ruin/unpowered/syndicate_lava_base/bar)
 "Ng" = (
 /obj/machinery/atmospherics/components/trinary/mixer/airmix/inverse{
-	dir = 1
+	dir = 1;
+	piping_layer = 2
 	},
 /turf/open/floor/plasteel,
 /area/ruin/unpowered/syndicate_lava_base/engineering)
@@ -5883,7 +5896,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/extinguisher_cabinet{
-	pixel_y = -30
+	pixel_x = -24
 	},
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -5891,9 +5904,7 @@
 /turf/open/floor/plating,
 /area/ruin/unpowered/syndicate_lava_base/engineering)
 "Vs" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 9
-	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 9
 	},
@@ -6942,7 +6953,7 @@ je
 iv
 jx
 jx
-lE
+kn
 kH
 qS
 MN
@@ -7088,8 +7099,8 @@ ha
 ha
 ha
 ha
-ha
-jP
+iN
+jy
 jM
 rC
 DK
