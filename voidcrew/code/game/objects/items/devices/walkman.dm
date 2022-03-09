@@ -6,15 +6,24 @@
 	icon_state = "walkman"
 	w_class = WEIGHT_CLASS_SMALL
 	actions_types = list(/datum/action/item_action/walkman/play_pause,/datum/action/item_action/walkman/next_song,/datum/action/item_action/walkman/restart_song)
+	//the cassette tape object
 	var/obj/item/device/cassette_tape/tape
+	//if the walkman is paused or not
 	var/paused = TRUE
+	//songs inside the current playlist
 	var/list/current_playlist = list()
+	//names of the songs inside the current playlist
 	var/list/current_songnames = list()
+	//Current song being played
 	var/sound/current_song
+	//Who's using the walkman
 	var/mob/current_listener
+	//where in the playlist you are
 	var/pl_index = 1
+	//volume the walkman starts at
 	var/volume = 25
-	var/design = 1 // What kind of walkman design style to use
+	// What kind of walkman design style to use
+	var/design = 1
 
 /obj/item/device/walkman/Initialize()
 	. = ..()
@@ -62,30 +71,40 @@
 		return
 	else
 		..()
+
 /obj/item/device/walkman/CtrlClick(mob/user)
 	if(tape)
 		next_song(user)
 		return
 
+///This is called when sound needs to be broken ie you die or lose access to it
 /obj/item/device/walkman/proc/break_sound()
 	var/sound/break_sound = sound(null, 0, 0, SOUND_CHANNEL_WALKMAN)
 	break_sound.priority = 255
 	update_song(break_sound, current_listener, 0)
 
-/obj/item/device/walkman/proc/update_song(sound/S, mob/M, flags = SOUND_UPDATE)
-	if(!istype(M) || !istype(S)) return
+/*Called when songs are updated ie volume change
+ *Arguements: mob/user -> the current user of the walkman
+ * sound/noise -> the sound that is being directed to the user
+ */
+/obj/item/device/walkman/proc/update_song(sound/noise, mob/user, flags = SOUND_UPDATE)
+	if(!istype(user) || !istype(noise)) return
 	if(HAS_TRAIT(M, TRAIT_DEAF))
 		flags |= SOUND_MUTE
-	S.status = flags
-	S.volume = src.volume
-	S.channel = SOUND_CHANNEL_WALKMAN
-	sound_to(M,S)
+	noise.status = flags
+	noise.volume = src.volume
+	noise.channel = SOUND_CHANNEL_WALKMAN
+	sound_to(user,noise)
 
+/*Called when music is paused by the user
+ *Arguements: mob/user -> the current user of the walkman
+ */
 /obj/item/device/walkman/proc/pause(mob/user)
 	if(!current_song) return
 	paused = TRUE
 	update_song(current_song,current_listener, SOUND_PAUSED | SOUND_UPDATE)
 
+///Handles the actual playing of the sound to the current_listener
 /obj/item/device/walkman/proc/play()
 	if(!current_song)
 		if(current_playlist.len > 0)
@@ -101,22 +120,27 @@
 
 	update_song(current_song,current_listener)
 
-/obj/item/device/walkman/proc/insert_tape(obj/item/device/cassette_tape/CT)
-	if(tape || !istype(CT)) return
+/*Called when
+ *Arguements: obj/item/device/cassette_tape/CT -> the cassette in question that you are inserting into the walkman
+ */
+/obj/item/device/walkman/proc/insert_tape(obj/item/device/cassette_tape/CTape)
+	if(tape || !istype(CTape)) return
 
-	tape = CT
-	CT.forceMove(src)
+	tape = CTape
+	CTape.forceMove(src)
 
 	update_icon()
 	paused = TRUE
 	pl_index = 1
 	if(tape.songs["side1"] && tape.songs["side2"])
-		var/list/L = tape.songs["[tape.flipped ? "side2" : "side1"]"]
-		for(var/S in L)
-			current_playlist += S
-			current_songnames += L[S]
+		var/list/list = tape.songs["[tape.flipped ? "side2" : "side1"]"]
+		for(var/song in list)
+			current_playlist += song
+			current_songnames += list[song]
 
-
+/*Called when you eject a tape
+ *Arguements: mob/user -> the current user of the walkman
+ */
 /obj/item/device/walkman/proc/eject_tape(mob/user)
 	if(!tape) return
 
@@ -131,6 +155,9 @@
 	update_icon()
 	playsound(src,'sound/weapons/handcuffs.ogg',20,1)
 
+/*Called when you need to go to next song either when it naturally ends or when user changes song manually
+ *Arguements: mob/user -> the current user of the walkman
+ */
 /obj/item/device/walkman/proc/next_song(mob/user)
 
 	if(current_playlist.len == 0) return
@@ -159,6 +186,7 @@
 		overlays += "+empty"
 
 	if(ishuman(loc))
+		//current human used to get location
 		var/mob/living/carbon/human/H = loc
 		H.regenerate_icons()
 
@@ -213,7 +241,9 @@
 	if(tmp < 0) tmp = 0
 	volume = tmp
 	update_song(current_song, current_listener)
-
+/* Called when you need to restart a song
+ * Arguements: mob/user -> the user that has triggered the reset
+ */
 /obj/item/device/walkman/proc/restart_song(mob/user)
 	if(!current_song) return
 
@@ -261,8 +291,8 @@
 
 /datum/action/item_action/walkman/next_song/Trigger()
 	if(target)
-		var/obj/item/device/walkman/WM = target
-		WM.next_song(owner)
+		var/obj/item/device/walkman/walkM = target
+		walkM.next_song(owner)
 
 /datum/action/item_action/walkman/restart_song
 	button_icon_state = "walkman_restart"
@@ -274,8 +304,8 @@
 
 /datum/action/item_action/walkman/restart_song/Trigger()
 	if(target)
-		var/obj/item/device/walkman/WM = target
-		WM.restart_song(owner)
+		var/obj/item/device/walkman/walkM = target
+		walkM.restart_song(owner)
 
 /*
 	TAPES
@@ -286,9 +316,13 @@
 	icon = 'voidcrew/icons/obj/walkman.dmi'
 	icon_state = "cassette_flip"
 	w_class = WEIGHT_CLASS_SMALL
+	//icon of the cassettes front side
 	var/side1_icon = "cassette"
+	//if the cassette is flipped, for playing second list of songs
 	var/flipped = FALSE //Tape side
+	//list of songs each side has to play
 	var/list/songs = list()
+	//the id of the cassette
 	var/id = 1
 
 /obj/item/device/cassette_tape/attack_self(mob/user)
