@@ -45,9 +45,11 @@
 		to_chat(user,("No Cassette to edit please insert a cassette to edit!"))
 		return
 	if(removal == FALSE)
+		//tgui choice to add to the reciever cassette from the sender cassette
 		var/choice = tgui_input_list(usr, "Select a track to add.", "Dual Cassette Deck", sender_list)
 		reciever_list.Add(choice)
 	else
+		//tgui choice to remove from the list of songs on the cassettes
 		var/choice = tgui_input_list(usr, "Select a track to remove.", "Dual Cassette Deck", reciever_list)
 		reciever_list.Remove(choice)
 
