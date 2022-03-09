@@ -401,13 +401,6 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
 /turf/open/floor/plasteel/mono,
 /area/ship/hallway/central)
-"fn" = (
-/obj/effect/turf_decal/corner_steel_grid{
-	dir = 8
-	},
-/obj/effect/turf_decal/corner_steel_grid,
-/turf/open/floor/plasteel,
-/area/ship/crew/office)
 "fu" = (
 /obj/machinery/light,
 /obj/machinery/power/apc/auto_name/south,
@@ -667,9 +660,8 @@
 	icon_state = "1-2"
 	},
 /obj/effect/turf_decal/corner_steel_grid{
-	dir = 8
+	dir = 10
 	},
-/obj/effect/turf_decal/corner_steel_grid,
 /turf/open/floor/plasteel,
 /area/ship/engineering/communications)
 "jm" = (
@@ -870,9 +862,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/turf_decal/corner_steel_grid,
 /obj/effect/turf_decal/corner_steel_grid{
-	dir = 8
+	dir = 10
 	},
 /turf/open/floor/plasteel,
 /area/ship/hallway/central)
@@ -1232,13 +1223,6 @@
 "qm" = (
 /turf/closed/wall/mineral/plastitanium,
 /area/ship/maintenance/starboard)
-"qo" = (
-/obj/effect/turf_decal/corner_steel_grid{
-	dir = 8
-	},
-/obj/effect/turf_decal/corner_steel_grid,
-/turf/open/floor/plasteel,
-/area/ship/hallway/central)
 "qu" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1481,9 +1465,8 @@
 /area/ship/cargo)
 "sV" = (
 /obj/effect/turf_decal/corner_steel_grid{
-	dir = 8
+	dir = 10
 	},
-/obj/effect/turf_decal/corner_steel_grid,
 /turf/open/floor/plasteel,
 /area/ship/engineering/communications)
 "te" = (
@@ -1550,16 +1533,12 @@
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
 /obj/structure/window/reinforced/spawner/west,
-/obj/effect/turf_decal/corner/red{
-	dir = 8
-	},
-/obj/effect/turf_decal/corner/red,
-/obj/effect/turf_decal/corner/red{
-	dir = 1
-	},
 /obj/machinery/airalarm/all_access{
 	dir = 1;
 	pixel_y = -24
+	},
+/obj/effect/turf_decal/corner/red/three_quarters{
+	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/security)
@@ -1618,17 +1597,11 @@
 	dir = 1
 	},
 /obj/structure/frame/machine,
-/obj/effect/turf_decal/corner/purple{
-	dir = 4
-	},
-/obj/effect/turf_decal/corner/purple{
-	dir = 1
-	},
-/obj/effect/turf_decal/corner/purple{
-	dir = 8
-	},
 /obj/effect/turf_decal/techfloor/corner,
 /obj/effect/turf_decal/techfloor/hole/right,
+/obj/effect/turf_decal/corner/purple/three_quarters{
+	dir = 4
+	},
 /turf/open/floor/plasteel/tech,
 /area/ship/hallway/central)
 "uy" = (
@@ -1717,13 +1690,6 @@
 /turf/open/floor/plasteel/grimy,
 /area/ship/crew/office)
 "vL" = (
-/obj/effect/turf_decal/corner/purple{
-	dir = 8
-	},
-/obj/effect/turf_decal/corner/purple,
-/obj/effect/turf_decal/corner/purple{
-	dir = 1
-	},
 /obj/effect/turf_decal/techfloor/corner{
 	dir = 4
 	},
@@ -1732,6 +1698,9 @@
 /obj/item/radio/intercom{
 	dir = 4;
 	pixel_x = -22
+	},
+/obj/effect/turf_decal/corner/purple/three_quarters{
+	dir = 1
 	},
 /turf/open/floor/plasteel/tech,
 /area/ship/hallway/central)
@@ -1742,16 +1711,10 @@
 	},
 /obj/item/kirbyplants/random,
 /obj/item/toy/prize/deathripley,
-/obj/effect/turf_decal/corner/purple,
-/obj/effect/turf_decal/corner/purple{
-	dir = 4
-	},
-/obj/effect/turf_decal/corner/purple{
-	dir = 8
-	},
 /obj/effect/turf_decal/techfloor/corner{
 	dir = 1
 	},
+/obj/effect/turf_decal/corner/purple/three_quarters,
 /turf/open/floor/plasteel/tech,
 /area/ship/hallway/central)
 "vR" = (
@@ -2110,9 +2073,8 @@
 /turf/open/floor/plasteel/mono/dark,
 /area/ship/bridge)
 "zu" = (
-/obj/effect/turf_decal/corner_steel_grid,
 /obj/effect/turf_decal/corner_steel_grid{
-	dir = 8
+	dir = 10
 	},
 /turf/open/floor/plasteel,
 /area/ship/crew/office)
@@ -2402,13 +2364,6 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/port)
 "CW" = (
-/obj/effect/turf_decal/corner/red,
-/obj/effect/turf_decal/corner/red{
-	dir = 4
-	},
-/obj/effect/turf_decal/corner/red{
-	dir = 8
-	},
 /obj/structure/closet/secure_closet/wall{
 	dir = 1;
 	icon_state = "sec_wall";
@@ -2419,6 +2374,7 @@
 /obj/item/flashlight/seclite,
 /obj/item/reagent_containers/spray/pepper,
 /obj/item/melee/classic_baton/telescopic,
+/obj/effect/turf_decal/corner/red/three_quarters,
 /turf/open/floor/plasteel/dark,
 /area/ship/security)
 "Dg" = (
@@ -2600,9 +2556,8 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/port)
 "ES" = (
-/obj/effect/turf_decal/corner_steel_grid,
 /obj/effect/turf_decal/corner_steel_grid{
-	dir = 8
+	dir = 10
 	},
 /turf/open/floor/plasteel,
 /area/ship/hallway/central)
@@ -2678,10 +2633,6 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 1
 	},
-/obj/effect/turf_decal/corner/red,
-/obj/effect/turf_decal/corner/red{
-	dir = 8
-	},
 /obj/structure/closet/secure_closet/wall{
 	dir = 1;
 	icon_state = "sec_wall";
@@ -2691,6 +2642,9 @@
 	},
 /obj/item/storage/belt/security,
 /obj/item/clothing/accessory/holster,
+/obj/effect/turf_decal/corner/red{
+	dir = 10
+	},
 /turf/open/floor/plasteel/dark,
 /area/ship/security)
 "FJ" = (
@@ -2920,10 +2874,7 @@
 /area/ship/cargo)
 "Hz" = (
 /obj/effect/turf_decal/corner_steel_grid{
-	dir = 1
-	},
-/obj/effect/turf_decal/corner_steel_grid{
-	dir = 4
+	dir = 5
 	},
 /turf/open/floor/plasteel,
 /area/ship/crew/office)
@@ -2937,10 +2888,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
 	dir = 1
 	},
-/obj/effect/turf_decal/corner/red,
-/obj/effect/turf_decal/corner/red{
-	dir = 8
-	},
 /obj/structure/closet/secure_closet/wall{
 	dir = 1;
 	icon_state = "sec_wall";
@@ -2949,6 +2896,9 @@
 	req_access_txt = "1"
 	},
 /obj/item/clothing/suit/armor/vest/alt,
+/obj/effect/turf_decal/corner/red{
+	dir = 10
+	},
 /turf/open/floor/plasteel/dark,
 /area/ship/security)
 "HS" = (
@@ -3070,10 +3020,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/turf_decal/corner_steel_grid{
-	dir = 4
-	},
-/obj/effect/turf_decal/corner_steel_grid{
-	dir = 1
+	dir = 5
 	},
 /turf/open/floor/plasteel,
 /area/ship/crew/office)
@@ -4219,15 +4166,6 @@
 "XM" = (
 /turf/closed/wall/mineral/plastitanium,
 /area/ship/crew/office)
-"XU" = (
-/obj/effect/turf_decal/corner_steel_grid{
-	dir = 4
-	},
-/obj/effect/turf_decal/corner_steel_grid{
-	dir = 1
-	},
-/turf/open/floor/plasteel,
-/area/ship/crew/office)
 "XV" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
@@ -4700,10 +4638,10 @@ mK
 GQ
 vw
 FC
-XU
+Hz
 UA
 BZ
-fn
+zu
 Fo
 tT
 jm
@@ -4737,7 +4675,7 @@ mQ
 Kg
 Xm
 vR
-fn
+zu
 Xw
 tT
 TZ
@@ -5111,7 +5049,7 @@ yr
 fO
 dP
 MW
-qo
+ES
 CQ
 Tq
 uk
