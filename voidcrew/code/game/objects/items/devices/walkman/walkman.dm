@@ -194,7 +194,6 @@
 	if(!(src in current_listener.GetAllContents()) || current_listener.stat & DEAD)
 		if(current_song)
 			current_song = null
-		to_chat(current_listener, "Stopping Music :)")
 		break_sound()
 		paused = TRUE
 		current_listener = null
