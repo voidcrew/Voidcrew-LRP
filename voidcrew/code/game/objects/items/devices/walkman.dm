@@ -321,7 +321,7 @@
 /obj/item/device/cassette_tape/ftl
 	name = "Faster Than Light cassette"
 	id = 4
-	desc = "A plastic cassette tape with a animated purple sticker."
+	desc = "A plastic cassette tape with a ftl themed sticker."
 	icon_state = "cassette_ftl"
 	side1_icon = "cassette_ftl"
 	songs = list("side1" = list("voidcrew/sound/music/walkman/ftl/3-1-1.ogg",\
