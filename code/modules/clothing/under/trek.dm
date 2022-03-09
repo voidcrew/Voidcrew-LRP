@@ -5,6 +5,8 @@
 	can_adjust = FALSE
 	icon = 'icons/obj/clothing/under/trek.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/trek.dmi'
+	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 15, "rad" = 15, "fire" = 40, "acid" = 40) // It's star trek, it deserves to be a bit better then your average jumpsuit
+	strip_delay = 50
 
 
 //TOS
@@ -13,14 +15,14 @@
 	desc = "The uniform worn by command officers."
 	icon_state = "trek_command"
 	item_state = "y_suit"
+	armor = list("melee" = 10, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 10, "bio" = 15, "rad" = 15, "fire" = 75, "acid" = 50)
+
 
 /obj/item/clothing/under/trek/engsec
 	name = "engsec uniform"
 	desc = "The uniform worn by engineering/security officers."
 	icon_state = "trek_engsec"
 	item_state = "r_suit"
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0) //more sec than eng, but w/e.
-	strip_delay = 50
 
 /obj/item/clothing/under/trek/medsci
 	name = "medsci uniform"

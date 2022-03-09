@@ -5,6 +5,7 @@
 	mob_overlay_icon = 'icons/mob/clothing/under/command.dmi'
 	icon_state = "cmd"
 	item_state = "w_suit"
+	armor = list("melee" = 10, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 10, "bio" = 15, "rad" = 15, "fire" = 75, "acid" = 50)
 
 /obj/item/clothing/under/rank/command/skirt
 	desc = "A standard command jumpskirt."
