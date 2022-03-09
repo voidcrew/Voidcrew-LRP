@@ -1,7 +1,7 @@
 #define sound_to(target, sound)                             target << (sound)
 /obj/item/device/walkman
 	name = "walkman"
-	desc = "A cassette player that first hit the market over 200 years ago. Crazy how these never went out of style."
+	desc = "A cassette player that first hit the market over 200 years ago. Crazy how these never went out of style. Alt-click removes the Cassette. Ctrl-click changes to the next song"
 	icon = 'voidcrew/icons/obj/walkman.dmi'
 	icon_state = "walkman"
 	w_class = WEIGHT_CLASS_SMALL
@@ -62,6 +62,10 @@
 		return
 	else
 		..()
+/obj/item/device/walkman/CtrlClick(mob/user)
+	if(tape)
+		next_song(user)
+		return
 
 /obj/item/device/walkman/proc/break_sound()
 	var/sound/break_sound = sound(null, 0, 0, SOUND_CHANNEL_WALKMAN)
@@ -101,9 +105,6 @@
 	if(tape || !istype(CT)) return
 
 	tape = CT
-	if(ishuman(CT.loc))
-		var/mob/living/carbon/human/H = CT.loc
-		//H.drop_held_item(CT) Gonna need to reformat this i think
 	CT.forceMove(src)
 
 	update_icon()
@@ -183,8 +184,6 @@
 	set category = "Object"
 	set src in usr
 
-	//if(usr.is_mob_incapacitated()) return
-
 	attack_self(usr)
 
 /obj/item/device/walkman/verb/eject_cassetetape()
@@ -234,13 +233,13 @@
 */
 
 /datum/action/item_action/walkman
-
+	icon_icon = 'voidcrew/icons/obj/walkman.dmi'
+	background_icon_state = "bg_tech_blue"
 /datum/action/item_action/walkman/New()
 	..()
-	button.overlays += image('voidcrew/icons/obj/walkman.dmi', button, icon_icon)
 
 /datum/action/item_action/walkman/play_pause
-	icon_icon = "walkman_playpause"
+	button_icon_state = "walkman_playpause"
 
 /datum/action/item_action/walkman/play_pause/New()
 	..()
@@ -253,7 +252,7 @@
 		WM.attack_self(owner)
 
 /datum/action/item_action/walkman/next_song
-	icon_icon = "walkman_next"
+	button_icon_state = "walkman_next"
 
 /datum/action/item_action/walkman/next_song/New()
 	..()
@@ -266,7 +265,7 @@
 		WM.next_song(owner)
 
 /datum/action/item_action/walkman/restart_song
-	icon_icon = "walkman_restart"
+	button_icon_state = "walkman_restart"
 
 /datum/action/item_action/walkman/restart_song/New()
 	..()
@@ -326,6 +325,37 @@
 	icon_state = "cassette_ftl"
 	side1_icon = "cassette_ftl"
 	songs = list("side1" = list("voidcrew/sound/music/walkman/ftl/3-1-1.ogg",\
-								"voidcrew/sound/music/walkman/ftl/3-1-1.ogg"),
-				 "side2" = list("voidcrew/sound/music/walkman/ftl/3-2-1.ogg"))
+								"voidcrew/sound/music/walkman/ftl/3-1-2.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-1-3.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-1-4.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-1-5.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-1-6.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-1-7.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-1-8.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-1-9.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-1-10.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-1-11.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-1-12.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-1-13.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-1-14.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-1-15.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-1-16.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-1-17.ogg"),
+
+				 "side2" = list("voidcrew/sound/music/walkman/ftl/3-2-1.ogg",\
+				 				"voidcrew/sound/music/walkman/ftl/3-2-2.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-2-3.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-2-4.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-2-5.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-2-6.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-2-7.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-2-8.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-2-9.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-2-10.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-2-11.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-2-12.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-2-13.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-2-14.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-2-15.ogg",\
+								"voidcrew/sound/music/walkman/ftl/3-2-16.ogg"))
 
