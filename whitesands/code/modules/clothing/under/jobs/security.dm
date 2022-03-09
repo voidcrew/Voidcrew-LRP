@@ -127,7 +127,7 @@
 	name = "head of security's jumpsuit"
 	desc = "A security jumpsuit decorated for those few with the dedication to achieve the position of Head of Security."
 	icon_state = "hos"
-	armor = list("melee" = 10, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 10, "bio" = 15, "rad" = 15, "fire" = 50, "acid" = 50)
+	armor = list("melee" = 10, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 10, "bio" = 10, "rad" = 10, "fire" = 50, "acid" = 50)
 	strip_delay = 60
 	alt_covers_chest = TRUE
 	sensor_mode = 3
