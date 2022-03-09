@@ -40,6 +40,15 @@
 	songs = list("side1" = list("voidcrew/sound/music/walkman/pop2/2-1-1.ogg"),
 				 "side2" = list("voidcrew/sound/music/walkman/pop2/2-2-1.ogg"))
 
+/obj/item/device/cassette_tape/empty
+	name = "blank cassette"
+	id = 3
+	desc = "A plastic cassette tape ."
+	icon_state = "cassette_flip"
+	side1_icon = "cassette_flip"
+	songs = list("side1" = list(),
+				 "side2" = list())
+
 /obj/item/device/cassette_tape/ftl
 	name = "Faster Than Light cassette"
 	id = 4
