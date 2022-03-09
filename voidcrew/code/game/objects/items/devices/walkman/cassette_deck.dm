@@ -12,6 +12,8 @@
 	var/obj/item/device/cassette_tape/recieve
 	//List of songs the Reciever has
 	var/list/reciever_list
+	//Changes between removal and addition mode
+	var/removal = FALSE
 
 /obj/item/device/cassette_deck/AltClick(mob/user)
 	if(recieve || send)
@@ -19,6 +21,14 @@
 		return
 	else
 		..()
+
+/obj/item/device/cassette_deck/CtrlClick(mob/user)
+	if(removal == TRUE)
+		removal = FALSE
+		to_chat(user,"You click a button and change the Cassette Deck to splicing mode")
+	else
+		removal = TRUE
+		to_chat(user,"You click a button and change the Cassette Deck to removal mode")
 
 /obj/item/device/cassette_deck/attackby(obj/item/cassette, mob/user)
 	if(istype(cassette, /obj/item/device/cassette_tape))
@@ -34,8 +44,12 @@
 	if(!recieve)
 		to_chat(user,("No Cassette to edit please insert a cassette to edit!"))
 		return
-	var/choice = tgui_input_list(usr, "Select a track to add.", "Dual Cassette Deck", sender_list)
-	reciever_list.Add(choice)
+	if(removal == FALSE)
+		var/choice = tgui_input_list(usr, "Select a track to add.", "Dual Cassette Deck", sender_list)
+		reciever_list.Add(choice)
+	else
+		var/choice = tgui_input_list(usr, "Select a track to remove.", "Dual Cassette Deck", reciever_list)
+		reciever_list.Remove(choice)
 
 /obj/item/device/cassette_deck/proc/insert_tape(obj/item/device/cassette_tape/CTape)
 	if(send && recieve || !istype(CTape)) return
