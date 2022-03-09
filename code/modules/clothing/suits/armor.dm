@@ -40,10 +40,13 @@
 
 /obj/item/clothing/suit/armor/vest/blueshirt
 	name = "large armor vest"
-	desc = "A large, yet comfortable piece of armor, protecting you from some threats."
+	desc = "A large, bulky kevlar vest that has integrated polymer plates to protect the wearer's entire body from attacks. Unfortunately, the older plates make it difficult to move around in."
 	icon_state = "blueshift"
 	item_state = "blueshift"
-	custom_premium_price = 750
+	custom_premium_price = 400
+	armor = list("melee" = 45, "bullet" = 35, "laser" = 35, "energy" = 40, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 75, "acid" = 75)
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	slowdown = 0.4
 
 /obj/item/clothing/suit/armor/hos
 	name = "armored greatcoat"
