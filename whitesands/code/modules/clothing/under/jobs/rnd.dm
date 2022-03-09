@@ -18,7 +18,6 @@
 	desc = "It's made of a special fiber that provides minor protection against biohzards. Worn by xenobiologist who have no qualms in creating abominations against nature."
 	icon_state = "xenobiologist"
 
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 0)
 	fitted = NO_FEMALE_UNIFORM
 
 /obj/item/clothing/under/rank/rnd/scientist/xenobiologist/skirt
@@ -32,7 +31,6 @@
 	name = "nanite researcher jumpsuit"
 	desc = "Worn researchers that study and applies the usage of nanites, now more microscopic things to worry about."
 	icon_state = "nanite"
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	resistance_flags = NONE
 	fitted = NO_FEMALE_UNIFORM
 
@@ -72,7 +70,6 @@
 	desc = "A suit with science colors, meant to be worn by senior staff."
 	icon_state = "senior_science"
 	permeability_coefficient = 0.5
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	fitted = NO_FEMALE_UNIFORM
 	icon = 'icons/obj/clothing/under/rnd.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/rnd.dmi'

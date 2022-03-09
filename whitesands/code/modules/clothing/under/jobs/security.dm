@@ -16,7 +16,7 @@
 /obj/item/clothing/under/rank/security
 	icon = 'icons/obj/clothing/under/security.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/security.dmi'
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 10, "rad" = 10, "fire" = 30, "acid" = 30)
+	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 10, "rad" = 5, "fire" = 30, "acid" = 30)
 
 // Security Officer //
 /obj/item/clothing/under/rank/security/officer
