@@ -18,12 +18,8 @@
 /obj/item/device/cassette_tape/attack_self(mob/user)
 	..()
 
-	if(flipped == TRUE)
-		flipped = FALSE
-		icon_state = side1_icon
-	else
-		flipped = TRUE
-		icon_state = "cassette_flip"
+	icon_state = flipped ? side1_icon : "cassette_flip"
+	flipped = !flipped
 	to_chat(user,"You flip [src]")
 
 /obj/item/device/cassette_tape/attackby(obj/item/item, mob/living/user)
