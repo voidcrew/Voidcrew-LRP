@@ -17,7 +17,6 @@
 		/obj/item/shard = 30,
 		/obj/item/stack/cable_coil/cut = 30,
 		/obj/item/stack/rods = 30,
-		/obj/structure/elite_tumor = 1
 	)
 	feature_spawn_chance = 3
 	mob_spawn_chance = 15
@@ -44,7 +43,6 @@
 		/obj/structure/flora/tree/dead/tall = 35,
 		/obj/structure/flora/branches = 10,
 		/obj/structure/flora/deadgrass = 80,
-		/obj/structure/elite_tumor = 1,
 		/obj/structure/flora/tree/dead_pine = 15,
 		/obj/structure/flora/tree/dead_african = 4
 	)
