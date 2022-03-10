@@ -31,6 +31,8 @@
 	health = 10
 
 /mob/living/simple_animal/hostile/carp/megacarp/beach
+	name = "shark"
+	desc = "a viscious shark"
 	faction = list("beach")
 	icon = 'voidcrew/icons/mob/beach/aquatic.dmi'
 	icon_state = "shark"
