@@ -124,7 +124,8 @@
  *Arguments: obj/item/device/cassette_tape/CT -> the cassette in question that you are inserting into the walkman
  */
 /obj/item/device/walkman/proc/insert_tape(obj/item/device/cassette_tape/CTape)
-	if(tape || !istype(CTape)) return
+	if(tape || !istype(CTape))
+		return
 
 	tape = CTape
 	CTape.forceMove(src)
@@ -187,8 +188,8 @@
 
 	if(ishuman(loc))
 		///current human used to get location
-		var/mob/living/carbon/human/H = loc
-		H.regenerate_icons()
+		var/mob/living/carbon/human/player = loc
+		player.regenerate_icons()
 
 /obj/item/device/walkman/process()
 	if(!(src in current_listener.GetAllContents()) || current_listener.stat & DEAD)
