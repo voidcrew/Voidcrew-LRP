@@ -364,8 +364,8 @@
 		priority_announce("The [name] has been renamed to the [new_name].", "Docking Announcement", sender_override = new_name, zlevel = shuttle.virtual_z())
 	message_admins("[key_name_admin(usr)] renamned vessel '[name]' to '[new_name]'")
 	name = new_name
-	shuttle.name = new_name
 	display_name = "[faction_prefix] [name]"
+	shuttle.name = display_name
 	if(!ignore_cooldown)
 		COOLDOWN_START(src, rename_cooldown, 5 MINUTES)
 	for(var/area/shuttle_area as anything in shuttle.shuttle_areas)
@@ -449,10 +449,10 @@
 
 	switch (state)
 		if (OVERMAP_SHIP_FLYING, OVERMAP_SHIP_UNDOCKING, OVERMAP_SHIP_ACTING)
-			message_admins("\[SHUTTLE]: [name] has been queued for deletion in [SHIP_DELETE / 600] minutes! [ADMIN_COORDJMP(shuttle.loc)]")
+			message_admins("\[SHUTTLE]: [display_name] has been queued for deletion in [SHIP_DELETE / 600] minutes! [ADMIN_COORDJMP(shuttle.loc)]")
 			deletion_timer = addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE, (TIMER_STOPPABLE|TIMER_UNIQUE))
 		if (OVERMAP_SHIP_IDLE, OVERMAP_SHIP_DOCKING)
-			message_admins("\[SHUTTLE]: [name] has been queued for ruin conversion in [SHIP_RUIN / 600] minutes! [ADMIN_COORDJMP(shuttle.loc)]")
+			message_admins("\[SHUTTLE]: [display_name] has been queued for ruin conversion in [SHIP_RUIN / 600] minutes! [ADMIN_COORDJMP(shuttle.loc)]")
 			//deletion_timer = addtimer(CALLBACK(shuttle, /obj/docking_port/mobile/.proc/mothball), SHIP_RUIN, (TIMER_STOPPABLE|TIMER_UNIQUE))
 			deletion_timer = addtimer(CALLBACK(src, .proc/destroy_ship), SHIP_DELETE, (TIMER_STOPPABLE|TIMER_UNIQUE))
 #undef SHIP_SIZE_THRESHOLD
