@@ -13,6 +13,8 @@
 	friendly_verb_simple = "bump"
 	speed = 3
 	weather_immunities = list("acid", "ash", "lava", "snow")
+	pixel_x = -18
+	pixel_y = -5
 
 /mob/living/simple_animal/sea_crystal/Initialize()
 	. = ..()

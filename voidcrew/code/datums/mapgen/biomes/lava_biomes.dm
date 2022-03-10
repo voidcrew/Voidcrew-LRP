@@ -32,8 +32,8 @@
 
 /datum/biome/lavaland/forest/rocky
 	flora_spawn_list = list(
-		/obj/structure/flora/rock/pile/lava = 5,
-		/obj/structure/flora/rock/lava = 5,
+		/obj/structure/flora/rock/pile/lava = 3,
+		/obj/structure/flora/rock/lava = 2,
 		/obj/structure/flora/tree/dead/tall/grey = 10,
 		/obj/structure/flora/ausbushes/fullgrass/hell = 40,
 		/obj/structure/flora/ausbushes/sparsegrass/hell = 20,
