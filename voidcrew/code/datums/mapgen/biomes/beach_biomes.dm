@@ -43,7 +43,7 @@
 		/mob/living/simple_animal/hostile/poison/bees/toxin/beach = 3
 	)
 	mob_spawn_chance = 2
-	feature_spawn_chance = 1
+	feature_spawn_chance = 0.1
 	feature_spawn_list = list(/obj/structure/spawner/cave/beach = 1)
 
 /datum/biome/beach
@@ -107,7 +107,7 @@
 		/mob/living/simple_animal/hostile/pirate/melee/beach/boat = 3,
 		/mob/living/simple_animal/hostile/pirate/ranged/beach/boat = 1
 	)
-	feature_spawn_chance = 0.2
+	feature_spawn_chance = 0.1
 	feature_spawn_list = list(
 		/obj/structure/spawner/sea_crystal = 1
 	)

@@ -28,9 +28,9 @@
 	resistance_flags = LAVA_PROOF
 
 /obj/structure/flora/ausbushes/fullgrass/hell/Initialize()
+	. = ..()
 	icon_state = "fullgrass_[rand(1, 3)]"
 	light_color = pick("#e87800", "#780606")
-	return ..()
 
 /obj/structure/flora/ausbushes/sparsegrass/hell
 	name = "sparse hellish grass"
@@ -41,9 +41,9 @@
 	resistance_flags = LAVA_PROOF
 
 /obj/structure/flora/ausbushes/sparsegrass/hell/Initialize()
+	. = ..()
 	icon_state = "sparsegrass_[rand(1, 3)]"
 	light_color = pick("#e87800", "#780606")
-	return ..()
 
 /obj/structure/flora/ausbushes/grassybush/hell
 	name = "hellish bush"
@@ -63,10 +63,10 @@
 	resistance_flags = LAVA_PROOF
 
 /obj/structure/flora/ausbushes/hell/Initialize()
+	. = ..()
 	if(icon_state == "firstbush_1")
 		icon_state = "firstbush_[rand(1, 4)]"
 	light_color = pick("#e87800", "#780606")
-	return ..()
 
 /obj/structure/flora/ausbushes/fernybush/hell
 	icon = 'voidcrew/icons/obj/flora/hellflora.dmi'
@@ -75,9 +75,9 @@
 	resistance_flags = LAVA_PROOF
 
 /obj/structure/flora/ausbushes/fernybush/hell/Initialize()
+	. = ..()
 	icon_state = "fernybush_[rand(1, 3)]"
 	light_color = pick("#e87800", "#780606")
-	return ..()
 
 /obj/structure/flora/ausbushes/genericbush/hell
 	icon = 'voidcrew/icons/obj/flora/hellflora.dmi'
@@ -86,9 +86,9 @@
 	resistance_flags = LAVA_PROOF
 
 /obj/structure/flora/ausbushes/genericbush/hell/Initialize()
+	. = ..()
 	icon_state = "genericbush_[rand(1, 4)]"
 	light_color = pick("#e87800", "#780606")
-	return ..()
 
 /obj/structure/flora/ausbushes/ywflowers/hell
 	icon = 'voidcrew/icons/obj/flora/hellflora.dmi'
@@ -114,8 +114,8 @@
 	density = FALSE
 
 /obj/structure/flora/rock/asteroid/Initialize()
+	. = ..()
 	icon_state = "[base_icon_state][rand(0,9)]"
-	return ..()
 
 /obj/structure/flora/tree/dead/hell
 	name = "lava tree"
@@ -134,15 +134,17 @@
 	pixel_x = -16
 
 /obj/structure/flora/tree/dead/barren/Initialize()
+	. = ..()
 	icon_state = "barren_large"
-	return ..()
 
 //Barren tree (purple)
 /obj/structure/flora/tree/dead/barren/purple
+	color = "#846996"
 
 /obj/structure/flora/tree/dead/barren/purple/Initialize()
+	. = ..()
 	color = pick( "#846996", "#7b4e99", "#924fab")
-	return ..()
+	icon_state = "barren_large"
 
 /obj/structure/flora/tree/stonepine
 	icon = 'voidcrew/icons/obj/flora/tall_trees.dmi'
@@ -164,12 +166,17 @@
 /obj/structure/flora/tree/dead/tall
 	icon = 'voidcrew/icons/obj/flora/tall_trees.dmi'
 	icon_state = "tree_1"
+	base_icon_state = "tree"
 	pixel_x = -16
 	resistance_flags = LAVA_PROOF
 
 /obj/structure/flora/tree/dead/tall/Initialize()
+	. = ..()
+	icon_state = "[base_icon_state]_[rand(1,3)]"
+
+/obj/structure/flora/tree/dead/tall/Initialize()
+	. = ..()
 	icon_state = "tree_[rand(1, 3)]"
-	return ..()
 
 /obj/structure/flora/tree/dead/tall/grey
 	icon = 'voidcrew/icons/obj/flora/tall_trees_dead.dmi'
@@ -179,24 +186,24 @@
 	icon_state = "1"
 
 /obj/structure/flora/deadgrass/Initialize()
+	. = ..()
 	icon_state = "[rand(1,30)]"
-	return ..()
 
 /obj/structure/flora/deadgrass/tall
 	icon = 'voidcrew/icons/obj/flora/wild.dmi'
 	icon_state = "tall_grass_6"
 
 /obj/structure/flora/deadgrass/tall/Initialize()
+	. = ..()
 	icon_state = "[pick("tall_grass_6", "tall_grass_7")]"
-	return ..()
 
 /obj/structure/flora/deadgrass/tall/dense
 	icon = 'voidcrew/icons/obj/flora/wild.dmi'
 	icon_state = "tall_grass_8"
 
 /obj/structure/flora/deadgrass/tall/dense/Initialize()
+	. = ..()
 	icon_state = "[pick("tall_grass_8", "tall_grass_9")]"
-	return ..()
 
 /obj/structure/flora/branches
 	icon = 'voidcrew/icons/obj/flora/wild.dmi'
@@ -204,8 +211,8 @@
 	base_icon_state = "stick"
 
 /obj/structure/flora/branches/Initialize()
+	. = ..()
 	icon_state = "[base_icon_state][rand(1,5)]"
-	return ..()
 
 /obj/structure/flora/cactus
 	icon = 'voidcrew/icons/obj/flora/bigtrees.dmi'
@@ -222,5 +229,5 @@
 	light_power = 0.85
 
 /obj/structure/flora/glowshroom/Initialize()
+	. = ..()
 	icon_state = "[base_icon_state][rand(0,3)]"
-	return ..()

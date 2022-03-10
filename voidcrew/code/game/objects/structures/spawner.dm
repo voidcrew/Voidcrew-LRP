@@ -28,6 +28,8 @@
 		/obj/item/gun/ballistic/automatic/zip_pistol = 20,
 		/obj/item/gun/ballistic/bow = 20,
 		/obj/item/gun/ballistic/automatic/aks74u = 5,
+		/obj/item/gun/energy/kinetic_accelerator = 35,
+		/obj/item/kinetic_crusher = 30,
 		/obj/item/pickaxe/diamond = 20,
 		/obj/item/binoculars = 30,
 		/obj/item/grenade/frag/mega = 15,

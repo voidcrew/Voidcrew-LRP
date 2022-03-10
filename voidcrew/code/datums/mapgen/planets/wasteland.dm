@@ -62,7 +62,7 @@
 		"biome_low_humidity" = /datum/biome/cave/wasteland,
 		"biome_medium_humidity" = /datum/biome/cave/wasteland,
 		"biome_high_humidity" = /datum/biome/cave/rubble,
-		"biome_highest_humidity" = /datum/biome/cave/rubble
+		"biome_highest_humidity" = /datum/biome/cave/mossy_stone
 	)
 	hot_cave_biomes = list(
 		"biome_lowest_humidity" = /datum/biome/cave/wasteland,
