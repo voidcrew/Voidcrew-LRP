@@ -14,6 +14,20 @@
 	var/list/song_names = list()
 	///the id of the cassette
 	var/id = 1
+	//the cassette_tape type datum
+	var/datum/cassette/cassette_tape/tape
+
+/obj/item/device/cassette_tape/Initialize()
+	. = ..()
+	tape = new tape
+	name = tape.name
+	desc = tape.desc
+	icon_state = tape.icon_state
+	side1_icon = tape.side1_icon
+	id = tape.id
+	songs = tape.songs
+	song_names = tape.song_names
+	qdel(tape)
 
 /obj/item/device/cassette_tape/attack_self(mob/user)
 	..()
@@ -57,28 +71,34 @@
 	else
 		. = ..()
 
-/obj/item/device/cassette_tape/pop2
-	name = "rainbow cassette"
-	id = 3
-	desc = "A plastic cassette tape with a rainbow colored sticker."
-	icon_state = "cassette_rainbow"
-	side1_icon = "cassette_rainbow"
-	songs = list("side1" = list("voidcrew/sound/music/walkman/pop2/2-1-1.ogg"),
-				 "side2" = list("voidcrew/sound/music/walkman/pop2/2-2-1.ogg"))
+/datum/cassette/cassette_tape
+	var/name = "Default Cassette"
+	var/desc = "You shouldn't be seeing this! Make an issue about it"
+	var/icon_state = "cassette_flip"
+	var/side1_icon = "cassette_flip"
+	var/id = 1
+	var/list/song_names = list("side1" = list(),
+							   "side2" = list())
 
-/obj/item/device/cassette_tape/empty
-	name = "blank cassette"
-	id = 3
-	desc = "A plastic cassette tape ."
+	var/list/songs = list("side1" = list(),
+						  "side2" = list())
+
+/datum/cassette/cassette_tape/blank
+	name = "Blank Cassette"
+	desc = "A plastic cassette tape"
 	icon_state = "cassette_flip"
 	side1_icon = "cassette_flip"
+	id = 2
 	song_names = list("side1" = list(),
-				      "side2" = list())
+					  "side2" = list())
 
 	songs = list("side1" = list(),
 				 "side2" = list())
 
-/obj/item/device/cassette_tape/ftl
+/obj/item/device/cassette_tape/blank
+	tape = /datum/cassette/cassette_tape/blank
+
+/datum/cassette/cassette_tape/ftl
 	name = "Faster Than Light cassette"
 	id = 4
 	desc = "A plastic cassette tape with a ftl themed sticker."
@@ -154,3 +174,5 @@
 								"voidcrew/sound/music/walkman/ftl/3-2-15.ogg",\
 								"voidcrew/sound/music/walkman/ftl/3-2-16.ogg"))
 
+/obj/item/device/cassette_tape/ftl
+	tape = /datum/cassette/cassette_tape/ftl
