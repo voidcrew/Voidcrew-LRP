@@ -55,14 +55,6 @@
 			else
 				return
 
-
-/obj/item/device/cassette_tape/verb/flip()
-	set name = "Flip tape"
-	set category = "Object"
-	set src in usr
-
-	attack_self()
-
 /obj/item/device/cassette_tape/pop2
 	name = "rainbow cassette"
 	id = 3

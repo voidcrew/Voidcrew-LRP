@@ -206,27 +206,6 @@
 	if(!HAS_TRAIT(current_listener, TRAIT_DEAF) && current_song && current_song.status & SOUND_MUTE)
 		update_song(current_song, current_listener)
 
-/obj/item/device/walkman/verb/play_pause()
-	set name = "Play/Pause"
-	set category = "Object"
-	set src in usr
-
-	attack_self(usr)
-
-/obj/item/device/walkman/verb/eject_cassetetape()
-	set name = "Eject tape"
-	set category = "Object"
-	set src in usr
-
-	eject_tape(usr)
-
-/obj/item/device/walkman/verb/next_pl_song()
-	set name = "Next song"
-	set category = "Object"
-	set src in usr
-
-	next_song(usr)
-
 /obj/item/device/walkman/verb/change_volume()
 	set name = "Change Walkman volume"
 	set category = "Object"
@@ -240,6 +219,7 @@
 	if(tmp < 0) tmp = 0
 	volume = tmp
 	update_song(current_song, current_listener)
+
 /* Called when you need to restart a song
  * Arguements: mob/user -> the user that has triggered the reset
  */
@@ -247,13 +227,6 @@
 	if(!current_song) return
 
 	update_song(current_song, current_listener, 0)
-
-/obj/item/device/walkman/verb/restart_current_song()
-	set name = "Restart Song"
-	set category = "Object"
-	set src in usr
-
-	restart_song(usr)
 
 /*
 
