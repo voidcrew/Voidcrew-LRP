@@ -38,8 +38,8 @@
 	hottest_biomes = list(
 		"biome_lowest_humidity" = /datum/biome/grass/dense,
 		"biome_low_humidity" = /datum/biome/beach,
-		"biome_medium_humidity" = /datum/biome/ocean,
-		"biome_high_humidity" = /datum/biome/ocean,
+		"biome_medium_humidity" = /datum/biome/beach,
+		"biome_high_humidity" = /datum/biome/beach/dense,
 		"biome_highest_humidity" = /datum/biome/ocean/deep
 	)
 	//CAVE BIOMES

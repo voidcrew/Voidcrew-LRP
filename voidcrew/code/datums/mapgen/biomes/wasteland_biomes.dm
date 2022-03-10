@@ -61,7 +61,7 @@
 		/obj/structure/flora/cactus = 5
 	)
 	flora_spawn_chance = 1
-	flora_spawn_list = list(/obj/structure/flora/rock = 30, /obj/effect/decal/cleanable/greenglow = 30, /obj/structure/elite_tumor = 1)
+	flora_spawn_list = list(/obj/structure/flora/rock = 30, /obj/effect/decal/cleanable/greenglow/glowy = 30, /obj/structure/elite_tumor = 1)
 	mob_spawn_chance = 20
 	mob_spawn_list = list(
 		/mob/living/simple_animal/hostile/asteroid/whitesands/ranged/hunter = 10,

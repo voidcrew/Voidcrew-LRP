@@ -83,9 +83,6 @@
 	name = "glowing goo"
 	desc = "Jeez. I hope that's not for lunch."
 	icon_state = "greenglow"
-	light_power = 1
-	light_range = 2
-	light_color = "#22ff47"
 	beauty = -300
 
 /obj/effect/decal/cleanable/greenglow/ex_act()

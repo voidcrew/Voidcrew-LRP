@@ -1,7 +1,7 @@
 /obj/structure/barrel
 	name = "oil filled barrel"
 	desc = "A barrel full of oil."
-	icon = 'voidcrew/icons/obj/flora/barrel.dmi'
+	icon = 'voidcrew/icons/obj/barrel.dmi'
 	icon_state = "barrel_rust"
 	density = TRUE
 	anchored = TRUE

@@ -109,7 +109,7 @@
 	)
 	feature_spawn_chance = 0.4
 	feature_spawn_list = list(
-		/obj/structure/spawner/seacrystal = 1
+		/obj/structure/spawner/sea_crystal = 1
 	)
 
 /datum/biome/cave/beach

@@ -9,7 +9,6 @@
 	spawn_time = 150
 	faction = list("wasteland")
 	var/uses = 6
-	var/used_count = 0
 	var/bite_chance = 15
 	var/success_chance = 80
 	var/caveloot = list(
@@ -64,7 +63,7 @@
 		return
 	if(obj_flags & IN_USE)
 		return
-	if(used_count == uses)
+	if(uses == 0)
 		to_chat(user, "<span class='warning'>There's nothing left to loot!</span>")
 		return
 	obj_flags |= IN_USE
@@ -75,26 +74,18 @@
 			playsound(user.loc, 'sound/weapons/bite.ogg', 50, TRUE, -1)
 			to_chat(user, "<span class='alert'>OW! Something bit you!</span>")
 		if(prob(85))
-			var/loot_amount = prob(5) ? 2 : 1
-			if (loot_amount == 2)
-				to_chat(user, "<span class='alert'>You pull out two things at once! What luck!</span>")
-			else
-				to_chat(user, "<span class='alert'>You found something!</span>")
-			var/i = 0
-			while(i <= loot_amount)
-				var/picked_loot = pickweight(caveloot)
-				new picked_loot(loc)
-				i += 1
-			used_count += 1
-			if (used_count == uses)
+			to_chat(user, "<span class='alert'>You found something!</span>")
+			var/picked_loot = pickweight(caveloot)
+			new picked_loot(loc)
+			uses -= 1
+			if (uses == 0)
 				to_chat(user, "<span class='warning'>You've emptied out the [name]!</span>")
 				qdel(spawner_type)
 		else
 			to_chat(user, "<span class='warning'>You didn't find anything, maybe try looking again?")
-		obj_flags &= ~IN_USE
 	else
 		to_chat(user, "<span class='warning'><b>Your search was interrupted!</b></span>")
-		obj_flags &= ~IN_USE
+	obj_flags &= ~IN_USE
 
 /obj/structure/spawner/cave/beach
 	name = "oak barrel"
