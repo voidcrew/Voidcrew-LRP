@@ -9,7 +9,7 @@
 	name = "research director's vest suit"
 	icon_state = "director"
 	item_state = "lb_suit"
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 15, "bio" = 15, "rad" = 5, "fire" = 50, "acid" = 50)
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 15, "bio" = 10, "rad" = 5, "fire" = 50, "acid" = 50)
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/rnd/research_director/skirt

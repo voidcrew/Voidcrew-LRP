@@ -1,7 +1,7 @@
 //Alt job clothing
 
 /obj/item/clothing/under/rank/engineering/suit
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 5, "rad" = 10, "fire" = 50, "acid" = 50)
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 5, "bomb" = 5, "bio" = 5, "rad" = 10, "fire" = 50, "acid" = 50)
 
 /obj/item/clothing/under/rank/engineering/engineer/junior
 	name = "junior engineer jumpsuit"
@@ -61,7 +61,7 @@
 	icon_state = "senior_medical"
 	icon = 'icons/obj/clothing/under/engineering.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/engineering.dmi'
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 5, "rad" = 15, "fire" = 75, "acid" = 50)
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 5, "bomb" = 10, "bio" = 5, "rad" = 15, "fire" = 75, "acid" = 75)
 	resistance_flags = NONE
 	fitted = NO_FEMALE_UNIFORM
 
@@ -123,7 +123,7 @@
 	name = "firefighter's jumpsuit"
 	desc = "It's a jumpsuit worn by firefigthers to help aid in dealing science caused fires. It is made of fire resistant materials."
 	icon_state = "firefighter"
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 5, "rad" = 5, "fire" = 75, "acid" = 25) //Same fire number as standard engineer uniform
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 5, "bomb" = 5, "bio" = 5, "rad" = 5, "fire" = 75, "acid" = 50) //Same fire number as standard engineer uniform
 	fitted = NO_FEMALE_UNIFORM
 
 /obj/item/clothing/under/rank/engineering/atmospheric_technician/firefighter/skirt

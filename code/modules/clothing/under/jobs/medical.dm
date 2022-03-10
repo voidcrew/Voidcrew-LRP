@@ -1,7 +1,7 @@
 /obj/item/clothing/under/rank/medical
 	icon = 'icons/obj/clothing/under/medical.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/medical.dmi'
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 25, "rad" = 5, "fire" = 30, "acid" = 30)
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 20, "rad" = 5, "fire" = 40, "acid" = 40)
 
 
 /obj/item/clothing/under/rank/medical/chief_medical_officer
@@ -9,7 +9,7 @@
 	name = "chief medical officer's jumpsuit"
 	icon_state = "cmo"
 	item_state = "w_suit"
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 30, "rad" = 5, "fire" = 40, "acid" = 40)
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 25, "rad" = 5, "fire" = 40, "acid" = 40)
 	permeability_coefficient = 0.5
 
 /obj/item/clothing/under/rank/medical/chief_medical_officer/skirt
@@ -110,7 +110,7 @@
 	icon_state = "chemistry"
 	item_state = "w_suit"
 	permeability_coefficient = 0.5
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 0, "fire" = 60, "acid" = 60)
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 20, "rad" = 0, "fire" = 50, "acid" = 75)
 
 /obj/item/clothing/under/rank/medical/chemist/skirt
 	name = "chemist's jumpskirt"

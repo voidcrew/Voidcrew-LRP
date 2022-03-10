@@ -1,4 +1,6 @@
 //Alt job uniforms
+/obj/item/clothing/under/suit/rank/rnd/
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 10, "rad" = 5, "fire" = 40, "acid" = 40)
 
 /obj/item/clothing/under/rank/rnd/scientist/junior
 	name = "junior scientist jumpsuit"
@@ -65,7 +67,7 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	can_adjust = FALSE
 
-/obj/item/clothing/under/suit/senior_scientist
+/obj/item/clothing/under/suit/rank/rnd/senior_scientist
 	name = "senior scientist suit"
 	desc = "A suit with science colors, meant to be worn by senior staff."
 	icon_state = "senior_science"
@@ -74,7 +76,7 @@
 	icon = 'icons/obj/clothing/under/rnd.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/rnd.dmi'
 
-/obj/item/clothing/under/suit/senior_scientist/skirt
+/obj/item/clothing/under/suit/rank/rnd/senior_scientist/skirt
 	name = "senior scientist skirtsuit"
 	desc = "A skirtsuit with science colors, meant to be worn by senior staff."
 	icon_state = "senior_science_skirt"
@@ -82,7 +84,7 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	can_adjust = FALSE
 
-/obj/item/clothing/under/suit/senior_roboticist
+/obj/item/clothing/under/suit/rank/rnd/senior_roboticist
 	name = "senior roboticist suit"
 	desc = "A suit with robotics colors, meant to be worn by senior staff."
 	icon_state = "senior_roboticist"
@@ -91,7 +93,7 @@
 	icon = 'icons/obj/clothing/under/rnd.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/rnd.dmi'
 
-/obj/item/clothing/under/suit/senior_roboticist/skirt
+/obj/item/clothing/under/suit/rank/rnd/senior_roboticist/skirt
 	name = "senior roboticist skirtsuit"
 	desc = "A skirtsuit with robotics colors, meant to be worn by senior staff."
 	icon_state = "senior_roboticist_skirt"

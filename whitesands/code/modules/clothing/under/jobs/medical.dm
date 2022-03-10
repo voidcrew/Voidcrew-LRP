@@ -1,7 +1,7 @@
 //Alt job uniforms
 
 /obj/item/clothing/under/suit/medical
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 5, "fire" = 30, "acid" = 30)
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 20, "rad" = 5, "fire" = 40, "acid" = 40)
 
 /obj/item/clothing/under/rank/medical/chemist/pharmacist
 	name = "pharmacist's jumpsuit"
@@ -77,7 +77,7 @@
 	desc = "A suit with medical colors, meant to be worn by those who lead the medical department."
 	icon_state = "medical_director"
 	permeability_coefficient = 0.5
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 15, "rad" = 5, "fire" = 40, "acid" = 40)
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 25, "rad" = 5, "fire" = 40, "acid" = 40)
 	fitted = NO_FEMALE_UNIFORM
 	icon = 'icons/obj/clothing/under/medical.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/medical.dmi'
@@ -118,7 +118,7 @@
 	desc = "A suit with chemistry colors, meant to be worn by senior staff."
 	icon_state = "senior_chemistry"
 	permeability_coefficient = 0.5
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 5, "fire" = 50, "acid" = 75)
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 20, "rad" = 5, "fire" = 50, "acid" = 75)
 	fitted = NO_FEMALE_UNIFORM
 	icon = 'icons/obj/clothing/under/medical.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/medical.dmi'
