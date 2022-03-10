@@ -175,7 +175,6 @@
 "bK" = (
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/food/snacks/dough,
-/obj/effect/turf_decal/corner/white/mono,
 /turf/open/floor/plasteel/mono/white,
 /area/ship/crew/canteen)
 "bN" = (
@@ -225,14 +224,11 @@
 	dir = 4;
 	name = "Helm"
 	},
-/obj/effect/turf_decal/corner/blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/corner/blue{
-	dir = 8
-	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 1
+	},
+/obj/effect/turf_decal/corner/blue{
+	dir = 9
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
@@ -240,7 +236,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/turf_decal/corner/white/mono,
 /turf/open/floor/plasteel/mono/white,
 /area/ship/crew/canteen)
 "ci" = (
@@ -297,7 +292,6 @@
 	density = 0;
 	pixel_y = 32
 	},
-/obj/effect/turf_decal/corner/white/mono,
 /turf/open/floor/plasteel/mono/white,
 /area/ship/medical)
 "cH" = (
@@ -422,7 +416,6 @@
 /obj/structure/bed/roller,
 /obj/item/bedsheet/medical,
 /obj/machinery/iv_drip,
-/obj/effect/turf_decal/corner/white/mono,
 /turf/open/floor/plasteel/mono/white,
 /area/ship/medical)
 "ea" = (
@@ -512,7 +505,6 @@
 /obj/item/bedsheet/medical,
 /obj/machinery/iv_drip,
 /obj/machinery/airalarm/directional/east,
-/obj/effect/turf_decal/corner/white/mono,
 /turf/open/floor/plasteel/mono/white,
 /area/ship/medical)
 "fM" = (
@@ -1685,12 +1677,6 @@
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
 "uL" = (
-/obj/effect/turf_decal/corner/blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/corner/blue{
-	dir = 4
-	},
 /obj/item/radio/intercom{
 	pixel_y = -28
 	},
@@ -1698,6 +1684,9 @@
 	pixel_x = -28
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 5
+	},
+/obj/effect/turf_decal/corner/blue{
 	dir = 5
 	},
 /turf/open/floor/plasteel/dark,
@@ -2086,10 +2075,6 @@
 /turf/open/floor/carpet/nanoweave,
 /area/ship/hallway/central)
 "AD" = (
-/obj/effect/turf_decal/corner/blue{
-	dir = 8
-	},
-/obj/effect/turf_decal/corner/blue,
 /obj/item/radio/intercom/wideband{
 	pixel_y = 28
 	},
@@ -2102,6 +2087,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 6
+	},
+/obj/effect/turf_decal/corner/blue{
+	dir = 10
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
@@ -2145,7 +2133,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
-/obj/effect/turf_decal/corner/white/mono,
 /turf/open/floor/plasteel/mono/white,
 /area/ship/crew/canteen)
 "AY" = (
@@ -2320,7 +2307,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
-/obj/effect/turf_decal/corner/white/mono,
 /turf/open/floor/plasteel/mono/white,
 /area/ship/medical)
 "CM" = (
@@ -2830,7 +2816,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
 	dir = 1
 	},
-/obj/effect/turf_decal/corner/white/mono,
 /turf/open/floor/plasteel/mono/white,
 /area/ship/medical)
 "HZ" = (
@@ -3188,10 +3173,7 @@
 /area/ship/crew)
 "Mk" = (
 /obj/effect/turf_decal/corner/blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/corner/blue{
-	dir = 8
+	dir = 9
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
@@ -3208,7 +3190,6 @@
 /turf/open/floor/plasteel,
 /area/ship/medical)
 "Mp" = (
-/obj/effect/turf_decal/corner/white/mono,
 /turf/open/floor/plasteel/mono/white,
 /area/ship/crew/canteen)
 "Mw" = (
@@ -3488,13 +3469,10 @@
 	dir = 4;
 	name = "Operations"
 	},
-/obj/effect/turf_decal/corner/blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/corner/blue{
-	dir = 8
-	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
+/obj/effect/turf_decal/corner/blue{
+	dir = 9
+	},
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
 "QY" = (
@@ -3781,7 +3759,6 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 28
 	},
-/obj/effect/turf_decal/corner/white/mono,
 /turf/open/floor/plasteel/mono/white,
 /area/ship/crew/canteen)
 "Uo" = (
@@ -3990,7 +3967,6 @@
 /area/ship/cargo)
 "XK" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
-/obj/effect/turf_decal/corner/white/mono,
 /turf/open/floor/plasteel/mono/white,
 /area/ship/crew/canteen)
 "XQ" = (
