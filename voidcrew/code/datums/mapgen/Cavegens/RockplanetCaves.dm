@@ -15,7 +15,6 @@
 		/mob/living/simple_animal/hostile/asteroid/fugu/asteroid = 50,
 		/mob/living/simple_animal/hostile/netherworld/migo/asteroid = 40, //mariuce
 		//crystal mobs, very difficult
-		/mob/living/simple_animal/hostile/asteroid/goliath/beast/ancient/crystal = 1,
 		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/forgotten = 1,
 		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/crystal = 1,
 		/mob/living/simple_animal/hostile/bear/russian/asteroid = 15,

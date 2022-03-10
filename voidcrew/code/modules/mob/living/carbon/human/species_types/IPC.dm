@@ -245,22 +245,6 @@
 	human.dna.features["ipc_screen"] = saved_screen
 	human.update_body()
 
-/datum/species/ipc/replace_body(mob/living/carbon/C, datum/species/new_species)
-	..()
-
-	var/datum/sprite_accessory/ipc_chassis/chassis_of_choice = GLOB.ipc_chassis_list[C.dna.features["ipc_chassis"]]
-
-	for(var/obj/item/bodypart/BP as anything in C.bodyparts) //Override bodypart data as necessary
-		BP.uses_mutcolor = chassis_of_choice.color_src ? TRUE : FALSE
-		if(BP.uses_mutcolor)
-			BP.should_draw_greyscale = TRUE
-			BP.species_color = C.dna?.features["mcolor"]
-
-		BP.limb_id = chassis_of_choice.limbs_id
-		BP.name = "\improper[chassis_of_choice.name] [parse_zone(BP.body_zone)]"
-		BP.update_limb()
-
-
 ///Used to modularly load IPC accesories
 /world/proc/make_ipc_datum_references_list()
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/ipc_screens, GLOB.ipc_screens_list)

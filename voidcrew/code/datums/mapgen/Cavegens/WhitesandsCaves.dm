@@ -10,7 +10,6 @@
 		/mob/living/simple_animal/hostile/asteroid/whitesands/survivor/random = 25, /obj/structure/spawner/lavaland/legion = 3, \
 		SPAWN_MEGAFAUNA = 4, /mob/living/simple_animal/hostile/asteroid/goldgrub = 10,
 		//experiment, specificly for sand only because of good visiblity
-		/mob/living/simple_animal/hostile/asteroid/goliath/beast/ancient/crystal = 1,
 		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/forgotten = 1,
 		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/crystal = 1
 		)

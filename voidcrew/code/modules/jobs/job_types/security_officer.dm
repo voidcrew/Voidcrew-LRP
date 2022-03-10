@@ -43,7 +43,6 @@
 	name = "Security Specialist (Western)"
 
 	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt
-	alt_uniform = null
 	shoes = /obj/item/clothing/shoes/jackboots
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	head = /obj/item/clothing/head/hunter

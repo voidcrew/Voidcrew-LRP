@@ -40,7 +40,7 @@
 	)
 	loot = list(
 		/obj/effect/mob_spawn/human/corpse/whitesands/survivor,
-		/obj/effect/spawner/lootdrop/whitesands/survivor
+		/obj/effect/spawner/random/whitesands/survivor
 	)
 	del_on_death = 1
 	faction = list("hermit")
@@ -82,7 +82,7 @@
 	desc ="A wild-eyed figure. Watch out- he has a gun, and he remembers just enough of his old life to use it!"
 	loot = list(
 		/obj/effect/mob_spawn/human/corpse/whitesands/survivor/hunter,
-		/obj/effect/spawner/lootdrop/whitesands/survivor/hunter
+		/obj/effect/spawner/random/whitesands/survivor/hunter
 	)
 
 /mob/living/simple_animal/hostile/asteroid/whitesands/ranged/gunslinger
@@ -97,5 +97,5 @@
 	casingtype = /obj/item/ammo_casing/ballistic/a545_39/recycled
 	loot = list(
 		/obj/effect/mob_spawn/human/corpse/whitesands/survivor/gunslinger,
-		/obj/effect/spawner/lootdrop/whitesands/survivor/gunslinger
+		/obj/effect/spawner/random/whitesands/survivor/gunslinger
 	)

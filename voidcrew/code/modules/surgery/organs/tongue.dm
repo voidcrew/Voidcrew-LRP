@@ -26,7 +26,6 @@
 	icon = 'voidcrew/icons/obj/surgery.dmi'
 	icon_state = "tonguesquid"
 	var/static/list/languages_possible_squid = typecacheof(list(
-		/datum/language/rylethian,
 		/datum/language/common,
 		/datum/language/xenocommon,
 		/datum/language/aphasia,

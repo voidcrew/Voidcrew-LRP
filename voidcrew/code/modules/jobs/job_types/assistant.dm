@@ -31,8 +31,6 @@
 	switch(H.jumpsuit_style)
 		if(PREF_SUIT)
 			uniform = initial(uniform)
-		if(PREF_ALTSUIT)
-			uniform = /obj/item/clothing/under/suit/blacktwopiece
 		if(PREF_SKIRT)
 			uniform = /obj/item/clothing/under/dress/skirt/plaid
 		else
@@ -57,7 +55,6 @@
 	id = /obj/item/card/id/advanced/black/syndicate_command/crew_id
 	ears = /obj/item/radio/headset/syndicate
 	uniform = /obj/item/clothing/under/syndicate
-	alt_uniform = null
 	shoes = /obj/item/clothing/shoes/jackboots
 
 /datum/outfit/job/assistant/ex_prisoner

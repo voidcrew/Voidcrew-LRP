@@ -40,7 +40,7 @@
 
 /obj/structure/closet/secure_closet/pilot_officer/PopulateContents()
 	..()
-	new /obj/item/stack/sheet/metal(src, 25)
+	new /obj/item/stack/sheet/iron(src, 25)
 	new /obj/item/storage/box/metalfoam(src)
 	new /obj/item/clothing/ears/earmuffs(src)
 	new /obj/item/flashlight/flare(src)

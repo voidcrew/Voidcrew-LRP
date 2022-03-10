@@ -10,12 +10,6 @@
 	race = /datum/species/kepori
 	taste_description = "a familiar white meat"
 
-/datum/reagent/mutationtoxin/squid
-	name = "Squid Mutation Toxin"
-	description = "A salty toxin."
-	color = "#5EFF3B"
-	race = /datum/species/squid
-
 /datum/reagent/crystal_reagent
 	name = "Crystal Reagent"
 	description = "A strange crystal substance. Heals faster than omnizine."

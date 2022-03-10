@@ -65,7 +65,7 @@
 	ADD_TRAIT(cloned_human, TRAIT_NOCRITDAMAGE, CLONING_POD_TRAIT)
 	cloned_human.Unconscious(80)
 
-	var/list/candidates = pollCandidatesForMob("Do you want to play as [clonename]'s defective clone?", null, null, null, 100, cloned_human, POLL_IGNORE_DEFECTIVECLONE)
+	var/list/candidates = poll_candidates_for_mob("Do you want to play as [clonename]'s defective clone?", null, null, null, 100, cloned_human, POLL_IGNORE_DEFECTIVECLONE)
 	if(LAZYLEN(candidates))
 		var/mob/dead/observer/selected_observer = pick(candidates)
 		cloned_human.key = selected_observer.key

@@ -24,7 +24,6 @@
 /datum/outfit/job/engineer/hazard
 	name = "Ship's Engineer (Hazard)"
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/hazard
-	alt_uniform = null
 	head = /obj/item/clothing/head/hardhat
 	suit = /obj/item/clothing/suit/hazardvest
 
@@ -36,7 +35,7 @@
 	accessory = /obj/item/clothing/accessory/armband/engine
 	glasses = /obj/item/clothing/glasses/sunglasses
 	shoes = /obj/item/clothing/shoes/jackboots
-	
+
 /datum/outfit/job/engineer/gec
 	name = "Station Engineer (GEC)"
 	uniform = /obj/item/clothing/under/syndicate

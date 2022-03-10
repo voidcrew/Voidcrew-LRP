@@ -1,7 +1,6 @@
 /datum/outfit/job/captain/nt
 	name = "Captain (Nanotrasen)"
 	uniform = /obj/item/clothing/under/rank/captain/nt
-	alt_uniform = /obj/item/clothing/under/rank/captain/nt/alt
 	shoes = /obj/item/clothing/shoes/laceup
 	head = /obj/item/clothing/head/caphat/nt
 
@@ -31,11 +30,9 @@
 /datum/outfit/job/captain/western
 	name = "Captain (Western)"
 	uniform = /obj/item/clothing/under/suit/white
-	alt_uniform = null
 	shoes = /obj/item/clothing/shoes/cowboy/white
 	head = /obj/item/clothing/head/cowboy_hat_white/captain
 	glasses = /obj/item/clothing/glasses/sunglasses
-	alt_suit = null
 
 /datum/outfit/job/captain/syndicate
 	name = "Captain (ACLF)"

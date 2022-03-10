@@ -20,12 +20,3 @@
 	icon_aggro = "disfigured_legion_head"
 	icon_dead = "disfigured_legion_head"
 	speed = 2
-
-/mob/living/simple_animal/hostile/asteroid/hivelordbrood/legion/crystal/death(gibbed)
-	for(var/i in 0 to 5)
-		var/obj/projectile/P = new /obj/projectile/goliath(get_turf(src))
-		P.preparePixelProjectile(get_step(src, pick(GLOB.alldirs)), get_turf(src))
-		/// VC MOB TODO: Undefined var
-		//P.firer = source
-		P.fire(i*(360/5))
-	return ..()

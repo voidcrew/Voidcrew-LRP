@@ -8,28 +8,25 @@ GLOBAL_LIST_INIT(ws_survivor_default_loot, list(
 	/obj/item/food/rationpack = 0.2
 ))
 
-/obj/effect/spawner/lootdrop/whitesands
+/obj/effect/spawner/random/whitesands
 	name = "Whitesands Default loot spawner"
-	lootdoubles = FALSE
 
-/obj/effect/spawner/lootdrop/whitesands/survivor
+/obj/effect/spawner/random/whitesands/survivor
 	name = "Whitesands Survivior loot spawner"
-	lootdoubles = TRUE
-	fan_out_items = TRUE
 	loot = list()
 
-/obj/effect/spawner/lootdrop/whitesands/survivor/Initialize()
+/obj/effect/spawner/random/whitesands/survivor/Initialize()
 	loot += GLOB.ws_survivor_default_loot
 	lootcount = pick(list(1, 2, 3))
 	return ..()
 
-/obj/effect/spawner/lootdrop/whitesands/survivor/hunter
+/obj/effect/spawner/random/whitesands/survivor/hunter
 	name = "Whitesands Hunter loot spawner"
 	loot = list(
 		/obj/item/gun/ballistic/rifle/boltaction/polymer = 0.3,
 		/obj/item/ammo_box/aac_300blk_stripper = 0.4
 	)
-/obj/effect/spawner/lootdrop/whitesands/survivor/gunslinger
+/obj/effect/spawner/random/whitesands/survivor/gunslinger
 	name = "Whitesands Gunslinger loot spawner"
 	loot = list(
 		/obj/item/gun/ballistic/automatic/aks74u = 0.1,

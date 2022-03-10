@@ -21,8 +21,6 @@ SolGov Representative
 	uniform = /obj/item/clothing/under/solgov/formal
 	accessory = /obj/item/clothing/accessory/waistcoat/solgov
 	suit = /obj/item/clothing/suit/toggle/solgov
-	alt_suit = /obj/item/clothing/suit/solgov_trenchcoat
-	dcoat = /obj/item/clothing/suit/hooded/wintercoat
 	gloves = /obj/item/clothing/gloves/color/white
 	shoes = /obj/item/clothing/shoes/laceup
 	ears = /obj/item/radio/headset/solgov
