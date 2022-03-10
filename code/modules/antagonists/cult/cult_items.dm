@@ -107,7 +107,7 @@
 	var/spinning = FALSE
 	var/spin_cooldown = 250
 	var/dash_toggled = TRUE
-	var/list/nemesis_factions = list("mining", "boss")
+	var/list/nemesis_factions = list("mining", "boss", "beach", "wasteland")
 	var/faction_bonus_force = 25
 
 /obj/item/cult_bastard/Initialize()

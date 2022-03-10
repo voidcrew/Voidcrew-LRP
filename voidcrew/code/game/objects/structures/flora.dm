@@ -129,6 +129,7 @@
 
 //Barren tree default (brown)
 /obj/structure/flora/tree/dead/barren
+	name = "barren tree"
 	icon = 'voidcrew/icons/obj/flora/barren_tree.dmi'
 	icon_state = "barren_large"
 	pixel_x = -16
@@ -147,23 +148,27 @@
 	icon_state = "barren_large"
 
 /obj/structure/flora/tree/stonepine
+	name = "stone pine"
 	icon = 'voidcrew/icons/obj/flora/tall_trees.dmi'
 	icon_state = "stonepine_0"
 	pixel_x = -16
 	anchored = TRUE
 
 /obj/structure/flora/tree/dead_pine
+	name = "dead pine"
 	icon = 'voidcrew/icons/obj/flora/bigtrees.dmi'
 	icon_state = "med_pine_dead"
 	pixel_x = -16
 
 /obj/structure/flora/tree/dead_african
+	name = "dead tree"
 	icon = 'voidcrew/icons/obj/flora/bigtrees.dmi'
 	icon_state = "african_acacia_dead"
 	pixel_x = -16
 
 //Tall tree (grey)
 /obj/structure/flora/tree/dead/tall
+	name = "dead tall tree"
 	icon = 'voidcrew/icons/obj/flora/tall_trees.dmi'
 	icon_state = "tree_1"
 	base_icon_state = "tree"
@@ -174,14 +179,12 @@
 	. = ..()
 	icon_state = "[base_icon_state]_[rand(1,3)]"
 
-/obj/structure/flora/tree/dead/tall/Initialize()
-	. = ..()
-	icon_state = "tree_[rand(1, 3)]"
-
 /obj/structure/flora/tree/dead/tall/grey
+	name = "tall dead tree"
 	icon = 'voidcrew/icons/obj/flora/tall_trees_dead.dmi'
 
 /obj/structure/flora/deadgrass
+	name = "dead grass"
 	icon = 'voidcrew/icons/obj/flora/dead_jungleflora.dmi'
 	icon_state = "1"
 
@@ -190,6 +193,7 @@
 	icon_state = "[rand(1,30)]"
 
 /obj/structure/flora/deadgrass/tall
+	name = "tall grass"
 	icon = 'voidcrew/icons/obj/flora/wild.dmi'
 	icon_state = "tall_grass_6"
 
@@ -198,6 +202,7 @@
 	icon_state = "[pick("tall_grass_6", "tall_grass_7")]"
 
 /obj/structure/flora/deadgrass/tall/dense
+	name = "dense grass"
 	icon = 'voidcrew/icons/obj/flora/wild.dmi'
 	icon_state = "tall_grass_8"
 
@@ -206,6 +211,7 @@
 	icon_state = "[pick("tall_grass_8", "tall_grass_9")]"
 
 /obj/structure/flora/branches
+	name = "branch"
 	icon = 'voidcrew/icons/obj/flora/wild.dmi'
 	icon_state = "stick1"
 	base_icon_state = "stick"
@@ -215,12 +221,14 @@
 	icon_state = "[base_icon_state][rand(1,5)]"
 
 /obj/structure/flora/cactus
+	name = "cactus"
 	icon = 'voidcrew/icons/obj/flora/bigtrees.dmi'
 	icon_state = "cactus"
 	pixel_x = -16
 	density = TRUE
 
 /obj/structure/flora/glowshroom
+	name = "glowshroom"
 	icon = 'voidcrew/icons/obj/flora/wild.dmi'
 	icon_state = "glowshroom0"
 	base_icon_state = "glowshroom"

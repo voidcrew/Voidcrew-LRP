@@ -190,7 +190,7 @@
 	armour_penetration = 30
 	embedding = list("impact_pain_mult" = 5)
 	icon_prefix = "dragon_spear"
-	var/list/nemesis_factions = list("mining", "boss")
+	var/list/nemesis_factions = list("mining", "boss", "beach", "wasteland")
 	var/faction_bonus_force = 25
 	attack_verb = list("seared", "braided", "impaled", "smote", "gored")
 	hitsound = 'sound/weapons/sear.ogg'
