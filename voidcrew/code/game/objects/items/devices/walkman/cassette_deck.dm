@@ -52,7 +52,7 @@
 		to_chat(user,"No songs to splice please change cassette")
 		return
 
-	if(removal == FALSE)
+	if(!removal)
 		///tgui choice to add to the reciever cassette from the sender cassette
 		var/choice = tgui_input_list(usr, "Select a track to add.", "Dual Cassette Deck", sender_names)
 		if(isnull(choice))
