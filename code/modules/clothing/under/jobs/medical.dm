@@ -3,7 +3,6 @@
 	mob_overlay_icon = 'icons/mob/clothing/under/medical.dmi'
 	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 20, "rad" = 5, "fire" = 40, "acid" = 40)
 
-
 /obj/item/clothing/under/rank/medical/chief_medical_officer
 	desc = "It's a jumpsuit worn by those with the experience to be \"Chief Medical Officer\". It provides minor biological protection."
 	name = "chief medical officer's jumpsuit"
