@@ -10,6 +10,8 @@
 	var/flipped = FALSE //Tape side
 	//list of songs each side has to play
 	var/list/songs = list()
+	//list of each songs name in the order they appear
+	var/list/song_names = list()
 	//the id of the cassette
 	var/id = 1
 
@@ -80,6 +82,9 @@
 	desc = "A plastic cassette tape ."
 	icon_state = "cassette_flip"
 	side1_icon = "cassette_flip"
+	song_names = list("side1" = list(),
+				      "side2" = list())
+
 	songs = list("side1" = list(),
 				 "side2" = list())
 
@@ -89,6 +94,41 @@
 	desc = "A plastic cassette tape with a ftl themed sticker."
 	icon_state = "cassette_ftl"
 	side1_icon = "cassette_ftl"
+	song_names = list("side1" = list("Milky Way(Explore)",\
+									 "Civil(Explore)",\
+									 "Cosmos(Explore)",\
+									 "Deepspace(Explore)",\
+									 "Debris(Explore)",\
+									 "Mantis(Explore)",\
+									 "Engi(Explore)",\
+									 "Colonial(Explore)",\
+									 "Wasteland(Explore)",\
+									 "Rockmen(Explore)",\
+									 "Void(Explore)",\
+									 "Zoltan(Explore)",\
+									 "Hacking Malfunction(Explore)",\
+									 "Lanius(Explore)",\
+									 "Lost Ship(Explore)",\
+									 "Slug(Explore)",\
+									 "Bonus"),
+
+					  "side2" = list("Milky Way(Battle)",\
+									 "Civil(Battle)",\
+									 "Cosmos(Battle)",\
+									 "Deepspace(Battle)",\
+									 "Debris(Battle)",\
+									 "Mantis(Battle)",\
+									 "Engi(Battle)",\
+									 "Colonial(Battle)",\
+									 "Wasteland(Battle)",\
+									 "Rockmen(Battle)",\
+									 "Void(Battle)",\
+									 "Zoltan(Battle)",\
+									 "Hacking Malfunction(Battle)",\
+									 "Lanius(Battle)",\
+									 "Lost Ship(Battle)",\
+									 "Slug(Battle)"))
+
 	songs = list("side1" = list("voidcrew/sound/music/walkman/ftl/3-1-1.ogg",\
 								"voidcrew/sound/music/walkman/ftl/3-1-2.ogg",\
 								"voidcrew/sound/music/walkman/ftl/3-1-3.ogg",\

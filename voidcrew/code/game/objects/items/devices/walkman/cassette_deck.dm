@@ -8,10 +8,14 @@
 	var/obj/item/device/cassette_tape/send
 	//List of songs the sender has
 	var/list/sender_list
+	//List of names the Sender has
+	var/list/sender_names
 	//The cassette you are copying to
 	var/obj/item/device/cassette_tape/recieve
 	//List of songs the Reciever has
 	var/list/reciever_list
+	//List of song names the Reciever has
+	var/list/reciever_names
 	//Changes between removal and addition mode
 	var/removal = FALSE
 
@@ -46,12 +50,16 @@
 		return
 	if(removal == FALSE)
 		//tgui choice to add to the reciever cassette from the sender cassette
-		var/choice = tgui_input_list(usr, "Select a track to add.", "Dual Cassette Deck", sender_list)
-		reciever_list.Add(choice)
+		var/choice = tgui_input_list(usr, "Select a track to add.", "Dual Cassette Deck", sender_names)
+		var/num = sender_names.Find(choice)
+		reciever_list.Add(sender_list[num])
+		reciever_names.Add(sender_names[num])
 	else
 		//tgui choice to remove from the list of songs on the cassettes
-		var/choice = tgui_input_list(usr, "Select a track to remove.", "Dual Cassette Deck", reciever_list)
-		reciever_list.Remove(choice)
+		var/choice = tgui_input_list(usr, "Select a track to remove.", "Dual Cassette Deck", reciever_names)
+		var/num = reciever_names.Find(choice)
+		reciever_list.Remove(reciever_list[num])
+		reciever_names.Remove(reciever_names[num])
 
 /obj/item/device/cassette_deck/proc/insert_tape(obj/item/device/cassette_tape/CTape)
 	if(send && recieve || !istype(CTape)) return
@@ -60,19 +68,23 @@
 		CTape.forceMove(src)
 		if(send.songs["side1"] && send.songs["side2"])
 			sender_list = send.songs["[send.flipped ? "side2" : "side1"]"]
+			sender_names = send.song_names["[send.flipped ? "side2" : "side1"]"]
 	else
 		recieve = CTape
 		CTape.forceMove(src)
 		if(recieve.songs["side1"] && recieve.songs["side2"])
 			reciever_list = recieve.songs["[send.flipped ? "side2" : "side1"]"]
+			reciever_names = recieve.song_names["[recieve.flipped ? "side2" : "side1"]"]
 
 /obj/item/device/cassette_deck/proc/eject_tape(mob/user)
 	if(!recieve && !send) return
 	if(recieve)
 		if(recieve.flipped == FALSE)
 			recieve.songs["side1"] = reciever_list
+			recieve.song_names["side1"] = reciever_names
 		else
 			recieve.songs["side2"] = reciever_list
+			recieve.song_names["side1"] = reciever_names
 		user.put_in_hands(recieve)
 		recieve = null
 		playsound(src,'sound/weapons/handcuffs.ogg',20,1)
