@@ -114,7 +114,7 @@
 	name = "Syndicate Bioweapon Scientist"
 	roundstart = FALSE
 	death = FALSE
-	random = TRUE
+//	random = TRUE
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper_s"
 	short_desc = "You are a syndicate science technician, employed in a top secret research facility developing biological weapons."
@@ -149,16 +149,15 @@
 	important_info = "DO NOT abandon the base."
 	outfit = /datum/outfit/lavaland_syndicate/comms
 
+
+/obj/effect/mob_spawn/human/lavaland_syndicate/comms/Initialize(mapload)
+	. = ..()
+	notify_ghosts("A lavaland syndicate comms agent is now available", flashwindow = FALSE, notify_suiciders = FALSE)
+
 /obj/effect/mob_spawn/human/lavaland_syndicate/comms/space
 	short_desc = "You are a syndicate agent, assigned to a small listening post station situated near your hated enemy's top secret research facility: Space Station 13."
 	flavour_text = "Monitor enemy activity as best you can, and try to keep a low profile. Monitor enemy activity as best you can, and try to keep a low profile. Use the communication equipment to provide support to any field agents, and sow disinformation to throw Nanotrasen off your trail. Do not let the base fall into enemy hands!"
 	important_info = "DO NOT abandon the base."
-
-/obj/effect/mob_spawn/human/lavaland_syndicate/comms/space/Initialize()
-	. = ..()
-	if(prob(90)) //only has a 10% chance of existing, otherwise it'll just be a NPC syndie.
-		new /mob/living/simple_animal/hostile/syndicate/ranged(get_turf(src))
-		return INITIALIZE_HINT_QDEL
 
 /datum/outfit/lavaland_syndicate/comms
 	name = "Lavaland Syndicate Comms Agent"

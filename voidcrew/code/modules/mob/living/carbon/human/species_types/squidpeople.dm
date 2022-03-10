@@ -38,9 +38,9 @@
 /datum/species/squid/on_species_gain(mob/living/carbon/human/human, datum/species/old_species)
 	. = ..()
 	var/datum/action/innate/change_color/change_color = new
-	var/datum/action/cooldown/spit_ink/spit_ink = new
+	//var/datum/action/cooldown/spit_ink/spit_ink = new
 	change_color.Grant(human)
-	spit_ink.Grant(human)
+	//spit_ink.Grant(human)
 
 /datum/species/squid/on_species_loss(mob/living/carbon/human/human)
 	. = ..()
@@ -72,7 +72,7 @@
 	if(active)
 		return FALSE
 	return ..()
-
+/* 	// Giving a roundstart species slip immunity, and the ability to create slips whenever is dumb
 /datum/action/cooldown/spit_ink
 	name = "Spit Ink"
 	check_flags = AB_CHECK_CONSCIOUS | AB_CHECK_IMMOBILE
@@ -100,7 +100,7 @@
 	else
 		to_chat(carbon_owner, "<span class='warning'>You don't have enough neutrients to create ink, you need to eat!</span>")
 		return
-
+*/
 #define SQUID_SPEEDMOD_GRAV 0.55
 #define SQUID_SPEEDMOD_NO_GRAV 0
 // Zero gravity movement
