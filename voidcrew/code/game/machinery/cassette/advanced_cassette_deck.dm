@@ -22,13 +22,6 @@
 			return
 	return ..()
 
-/obj/machinery/cassette/adv_cassette_deck/AltClick(mob/user)
-	if(tape)
-		eject_tape(user)
-		return
-	else
-		..()
-
 /obj/machinery/cassette/adv_cassette_deck/attackby(obj/item/cassette, mob/user)
 	if(istype(cassette, /obj/item/device/cassette_tape))
 		if(!tape)
@@ -39,14 +32,16 @@
 			to_chat(user,("Remove a tape first!"))
 
 /obj/machinery/cassette/adv_cassette_deck/proc/insert_tape(obj/item/device/cassette_tape/CTape)
-	if(tape || !istype(CTape)) return
+	if(tape || !istype(CTape))
+		return
 	if(!tape)
 		tape = CTape
 		CTape.forceMove(src)
 	else
 		return
 /obj/machinery/cassette/adv_cassette_deck/proc/eject_tape(mob/user)
-	if(!tape) return
+	if(!tape)
+		return
 	if(tape)
 		user.put_in_hands(tape)
 		tape = null
