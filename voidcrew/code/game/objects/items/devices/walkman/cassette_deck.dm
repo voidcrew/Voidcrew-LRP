@@ -30,6 +30,8 @@
 	removal = !removal
 
 /obj/item/device/cassette_deck/attackby(obj/item/cassette, mob/user)
+	if(!..())
+		return
 	if(istype(cassette, /obj/item/device/cassette_tape))
 		if(!send || !recieve)
 			insert_tape(cassette)

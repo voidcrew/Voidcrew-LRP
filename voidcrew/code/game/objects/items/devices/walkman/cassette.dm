@@ -24,6 +24,8 @@
 
 /obj/item/device/cassette_tape/attackby(obj/item/item, mob/living/user)
 	if(istype(item, /obj/item/pen))
+		if(!user.canUseTopic(src, BE_CLOSE))
+			return
 		var/choice = input("What would you like to change?") in list("Cassette Name", "Cassette Description", "Cancel")
 		switch(choice)
 			if("Cassette Name")
