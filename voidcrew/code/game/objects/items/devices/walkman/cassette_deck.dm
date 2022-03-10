@@ -26,12 +26,8 @@
 	return ..()
 
 /obj/item/device/cassette_deck/CtrlClick(mob/user)
-	if(removal == TRUE)
-		removal = FALSE
-		to_chat(user,"You click a button and change the Cassette Deck to splicing mode")
-	else
-		removal = TRUE
-		to_chat(user,"You click a button and change the Cassette Deck to removal mode")
+	to_chat(user,"You click a button and change the Cassette Deck to [removal ? "splicing" : "removal"] mode")
+	removal = !removal
 
 /obj/item/device/cassette_deck/attackby(obj/item/cassette, mob/user)
 	if(istype(cassette, /obj/item/device/cassette_tape))
