@@ -161,14 +161,13 @@
  */
 /obj/item/device/walkman/proc/next_song(mob/user)
 
-	if(current_playlist.len == 0) return
+	if(current_playlist.len == 0)
+		return
 
 	break_sound()
 
-	if(pl_index + 1 <= current_playlist.len)
-		pl_index++
-	else
-		pl_index = 1
+	pl_index = (pl_index + 1 <= current_playlist.len) ? pl_index++ : 1
+
 	current_song = sound(current_playlist[pl_index], 0, 0, SOUND_CHANNEL_WALKMAN, volume)
 	current_song.status = SOUND_STREAM
 	play()
