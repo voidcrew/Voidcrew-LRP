@@ -124,7 +124,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
-	armor = list("melee" = 70, "bullet" = 10, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 15, "rad" = 15, "fire" = 80, "acid" = 80)
+	armor = list("melee" = 70, "bullet" = 10, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 15, "rad" = 10, "fire" = 75, "acid" = 75)
 	clothing_flags = BLOCKS_SHOVE_KNOCKDOWN
 	strip_delay = 80
 	equip_delay_other = 60
@@ -144,7 +144,7 @@
 	icon_state = "bulletproof"
 	item_state = "armor"
 	blood_overlay_type = "armor"
-	armor = list("melee" = 15, "bullet" = 70, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 15, "rad" = 15, "fire" = 50, "acid" = 50)
+	armor = list("melee" = 15, "bullet" = 70, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 15, "rad" = 10, "fire" = 50, "acid" = 50)
 	strip_delay = 70
 	equip_delay_other = 50
 
