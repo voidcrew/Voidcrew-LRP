@@ -3,7 +3,6 @@
 	mob_overlay_icon = 'icons/mob/clothing/under/rnd.dmi'
 	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 10, "rad" = 5, "fire" = 40, "acid" = 40)
 
-
 /obj/item/clothing/under/rank/rnd/research_director
 	desc = "It's a suit worn by those with the know-how to achieve the position of \"Research Director\". Its fabric provides minor protection from biological contaminants."
 	name = "research director's vest suit"
