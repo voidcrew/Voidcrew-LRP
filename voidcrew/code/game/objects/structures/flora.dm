@@ -218,8 +218,8 @@
 	icon_state = "glowshroom0"
 	base_icon_state = "glowshroom"
 	light_color = LIGHT_COLOR_ELECTRIC_GREEN
-	light_range = 3
-	light_power = 1
+	light_range = 2
+	light_power = 0.85
 
 /obj/structure/flora/glowshroom/Initialize()
 	icon_state = "[base_icon_state][rand(0,3)]"
