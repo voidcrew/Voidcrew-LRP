@@ -4,15 +4,15 @@
 	icon = 'voidcrew/icons/obj/walkman.dmi'
 	icon_state = "cassette_flip"
 	w_class = WEIGHT_CLASS_SMALL
-	//icon of the cassettes front side
+	///icon of the cassettes front side
 	var/side1_icon = "cassette"
-	//if the cassette is flipped, for playing second list of songs
-	var/flipped = FALSE //Tape side
-	//list of songs each side has to play
+	///if the cassette is flipped, for playing second list of songs
+	var/flipped = FALSE
+	///list of songs each side has to play
 	var/list/songs = list()
-	//list of each songs name in the order they appear
+	///list of each songs name in the order they appear
 	var/list/song_names = list()
-	//the id of the cassette
+	///the id of the cassette
 	var/id = 1
 
 /obj/item/device/cassette_tape/attack_self(mob/user)
@@ -31,7 +31,7 @@
 		var/choice = input("What would you like to change?") in list("Cassette Name", "Cassette Description", "Cancel")
 		switch(choice)
 			if("Cassette Name")
-				//the name we are giving the cassette
+				///the name we are giving the cassette
 				var/newcassettename = reject_bad_text(stripped_input(user, "Write a new Cassette name:", name, name))
 				if(!user.canUseTopic(src, BE_CLOSE))
 					return
@@ -44,7 +44,7 @@
 				else
 					name = "[lowertext(newcassettename)]"
 			if("Cassette Description")
-				//the description we are giving the cassette
+				///the description we are giving the cassette
 				var/newdesc = stripped_input(user, "Write a new description:", name, desc)
 				if(!user.canUseTopic(src, BE_CLOSE))
 					return

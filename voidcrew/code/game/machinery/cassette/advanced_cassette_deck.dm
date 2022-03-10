@@ -4,8 +4,9 @@
 	icon = 'voidcrew/icons/obj/machines/adv_cassette_deck.dmi'
 	icon_state = "cassette_deck"
 	density = TRUE
-	//cassette tape used in adding songs or customizing
+	///cassette tape used in adding songs or customizing
 	var/obj/item/device/cassette_tape/tape
+	///Selection used to add the jukebox as a song to a cassette
 	var/datum/track/selection = null
 
 /obj/machinery/cassette/adv_cassette_deck/attackby(obj/item/object, mob/user, params)
@@ -67,9 +68,11 @@
 		ui.open()
 
 /obj/machinery/cassette/adv_cassette_deck/ui_data(mob/user)
+	///all data for the tgui
 	var/list/data = list()
 	data["songs"] = list()
-	for(var/datum/track/song in SSjukeboxes.songs) //WS Edit Cit #7367
+	for(var/datum/track/song in SSjukeboxes.songs)
+		///all track data also for the tgui
 		var/list/track_data = list(
 			name = song.song_name
 		)
@@ -98,6 +101,7 @@
 				tape.songs["side2"] += selection.song_path
 				tape.song_names["side2"] += selection.song_name
 		if("select_track")
+			///list of available songs
 			var/list/available = list()
 			for(var/datum/track/song in SSjukeboxes.songs)
 				available[song.song_name] = song
@@ -108,6 +112,7 @@
 			if(!tape)
 				to_chat(usr,"Error: No Cassette Inserted Please Insert a Cassette!")
 				return
+			///design paths for the designer used to add a sticker to cassettes
 			var/list/design_path = list("cassette_flip",\
 								"cassette_blue",\
 								"cassette_gray",\
@@ -122,7 +127,7 @@
 								"cassette_rising_sun",\
 								"cassette_ocean",\
 								"cassette_aesthetic",)
-
+			///design names for the tgui so its not ugly
 			var/list/design_names = list("Blank Cassette",
 							"Blue Sticker",\
 							"Gray Sticker",\
@@ -137,7 +142,7 @@
 							"Rising Sun Sticker",\
 							"Ocean Sticker",\
 							"Aesthetic Sticker")
-
+			///the input list to choose which sticker to add to the cassette
 			var/selection = tgui_input_list(usr, "Choose Your Sticker", "Advanced Cassette Deck", design_names)
 			tape.icon_state = design_path[design_names.Find(selection)]
 			tape.side1_icon = design_path[design_names.Find(selection)]

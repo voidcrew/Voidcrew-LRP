@@ -6,23 +6,23 @@
 	icon_state = "walkman"
 	w_class = WEIGHT_CLASS_SMALL
 	actions_types = list(/datum/action/item_action/walkman/play_pause,/datum/action/item_action/walkman/next_song,/datum/action/item_action/walkman/restart_song)
-	//the cassette tape object
+	///the cassette tape object
 	var/obj/item/device/cassette_tape/tape
-	//if the walkman is paused or not
+	///if the walkman is paused or not
 	var/paused = TRUE
-	//songs inside the current playlist
+	///songs inside the current playlist
 	var/list/current_playlist = list()
-	//names of the songs inside the current playlist
+	///names of the songs inside the current playlist
 	var/list/current_songnames = list()
-	//Current song being played
+	///Current song being played
 	var/sound/current_song
-	//Who's using the walkman
+	///Who's using the walkman
 	var/mob/current_listener
-	//where in the playlist you are
+	///where in the playlist you are
 	var/pl_index = 1
-	//volume the walkman starts at
+	///volume the walkman starts at
 	var/volume = 25
-	// What kind of walkman design style to use
+	/// What kind of walkman design style to use
 	var/design = 1
 
 /obj/item/device/walkman/Initialize()
@@ -186,7 +186,7 @@
 		overlays += "+empty"
 
 	if(ishuman(loc))
-		//current human used to get location
+		///current human used to get location
 		var/mob/living/carbon/human/H = loc
 		H.regenerate_icons()
 

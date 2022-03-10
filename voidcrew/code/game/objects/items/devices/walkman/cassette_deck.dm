@@ -4,19 +4,19 @@
 	icon = 'voidcrew/icons/obj/walkman.dmi'
 	icon_state = "walkman"
 	w_class = WEIGHT_CLASS_SMALL
-	//The cassette that is being copied from
+	///The cassette that is being copied from
 	var/obj/item/device/cassette_tape/send
-	//List of songs the sender has
+	///List of songs the sender has
 	var/list/sender_list
-	//List of names the Sender has
+	///List of names the Sender has
 	var/list/sender_names
-	//The cassette you are copying to
+	///The cassette you are copying to
 	var/obj/item/device/cassette_tape/recieve
-	//List of songs the Reciever has
+	///List of songs the Reciever has
 	var/list/reciever_list
-	//List of song names the Reciever has
+	///List of song names the Reciever has
 	var/list/reciever_names
-	//Changes between removal and addition mode
+	///Changes between removal and addition mode
 	var/removal = FALSE
 
 /obj/item/device/cassette_deck/AltClick(mob/user)
@@ -58,7 +58,7 @@
 		return
 
 	if(removal == FALSE)
-		//tgui choice to add to the reciever cassette from the sender cassette
+		///tgui choice to add to the reciever cassette from the sender cassette
 		var/choice = tgui_input_list(usr, "Select a track to add.", "Dual Cassette Deck", sender_names)
 		if(isnull(choice))
 			return
@@ -66,7 +66,7 @@
 		reciever_list.Add(sender_list[num])
 		reciever_names.Add(sender_names[num])
 	else
-		//tgui choice to remove from the list of songs on the cassettes
+		///tgui choice to remove from the list of songs on the cassettes
 		var/choice = tgui_input_list(usr, "Select a track to remove.", "Dual Cassette Deck", reciever_names)
 		if(isnull(choice))
 			return
