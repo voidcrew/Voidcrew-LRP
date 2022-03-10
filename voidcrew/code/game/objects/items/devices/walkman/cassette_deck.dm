@@ -39,7 +39,7 @@
 			to_chat(user,("Remove a tape first!"))
 
 /obj/item/device/cassette_deck/attack_self(mob/user)
-	..()
+	. = ..()
 	if(!recieve)
 		to_chat(user,("No Cassette to edit please insert a cassette to edit!"))
 		return
