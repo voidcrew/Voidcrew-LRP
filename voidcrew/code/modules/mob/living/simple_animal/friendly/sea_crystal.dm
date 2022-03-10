@@ -1,6 +1,6 @@
 /mob/living/simple_animal/sea_crystal
 	name = "sea crystal"
-	desc = "A large cystal. Terrible monsters are pouring out from all around it."
+	desc = "A large, clearly dangerous crystal."
 	icon = 'voidcrew/icons/obj/seacrystal.dmi'
 	icon_state = "seacrystal"
 	icon_dead = "seacrystal"

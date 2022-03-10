@@ -1,12 +1,12 @@
 /obj/structure/spawner/sea_crystal
 	name = "sea crystal"
-	desc = "A large cystal. Terrible monsters are pouring out from all around it."
+	desc = "A large crystal. Terrible monsters are pouring out from all around it."
 	icon = 'voidcrew/icons/obj/seacrystal.dmi'
 	icon_state = "seacrystal"
 	faction = list("beach")
 	max_mobs = 2
-	spawn_time = 150
-	max_integrity = 1000
+	spawn_time = 10
+	max_integrity = 1350
 	pixel_x = -18
 	pixel_y = -5
 	mob_types = list(/mob/living/simple_animal/hostile/carp/megacarp/beach)
