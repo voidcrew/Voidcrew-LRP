@@ -361,7 +361,7 @@
 	if(!COOLDOWN_FINISHED(src, rename_cooldown))
 		return
 	if(name != initial(name))
-		priority_announce("The [name] has been renamed to the [new_name].", "Docking Announcement", sender_override = new_name, zlevel = shuttle.virtual_z())
+		priority_announce("The [name] has been renamed to the [new_name].", "Docking Announcement", sender_override = display_name, zlevel = shuttle.virtual_z())
 	message_admins("[key_name_admin(usr)] renamned vessel '[name]' to '[new_name]'")
 	name = new_name
 	display_name = "[faction_prefix] [name]"
