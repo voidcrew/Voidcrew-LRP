@@ -94,6 +94,9 @@
 			if(!tape)
 				to_chat(usr,"Error: No Cassette Inserted Please Insert a Cassette!")
 				return
+			if(!selection)
+				to_chat(usr,"Error: No Song Selected, Please select a song")
+				return
 			if(tape.flipped == FALSE)
 				tape.songs["side1"] += selection.song_path
 				tape.song_names["side1"] += selection.song_name
@@ -108,6 +111,12 @@
 			var/selected = params["track"]
 			selection = available[selected]
 			return TRUE
+		if("eject")
+			if(!tape)
+				to_chat(usr,"Error: No Cassette Inserted Please Insert a Cassette!")
+				return
+			eject_tape(usr)
+			return
 		if("design")
 			if(!tape)
 				to_chat(usr,"Error: No Cassette Inserted Please Insert a Cassette!")
