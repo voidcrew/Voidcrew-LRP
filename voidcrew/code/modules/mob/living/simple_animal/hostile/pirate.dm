@@ -1,8 +1,10 @@
 /mob/living/simple_animal/hostile/pirate/melee/beach
 	faction = list("beach")
+	loot = list(/obj/effect/mob_spawn/human/corpse/pirate)
 
 /mob/living/simple_animal/hostile/pirate/ranged/beach
 	faction = list("beach")
+	loot = list(/obj/effect/mob_spawn/human/corpse/pirate/ranged)
 
 /mob/living/simple_animal/hostile/pirate/melee/beach/boat
 	icon = 'voidcrew/icons/mob/boat_pirates.dmi'
