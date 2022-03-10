@@ -84,7 +84,7 @@
 	update_song(break_sound, current_listener, 0)
 
 /*Called when songs are updated ie volume change
- *Arguements: mob/user -> the current user of the walkman
+ *Arguments: mob/user -> the current user of the walkman
  * sound/noise -> the sound that is being directed to the user
  */
 /obj/item/device/walkman/proc/update_song(sound/noise, mob/user, flags = SOUND_UPDATE)
@@ -97,7 +97,7 @@
 	sound_to(user,noise)
 
 /*Called when music is paused by the user
- *Arguements: mob/user -> the current user of the walkman
+ *Arguments: mob/user -> the current user of the walkman
  */
 /obj/item/device/walkman/proc/pause(mob/user)
 	if(!current_song) return
@@ -121,7 +121,7 @@
 	update_song(current_song,current_listener)
 
 /*Called when
- *Arguements: obj/item/device/cassette_tape/CT -> the cassette in question that you are inserting into the walkman
+ *Arguments: obj/item/device/cassette_tape/CT -> the cassette in question that you are inserting into the walkman
  */
 /obj/item/device/walkman/proc/insert_tape(obj/item/device/cassette_tape/CTape)
 	if(tape || !istype(CTape)) return
@@ -139,7 +139,7 @@
 			current_songnames += list[song]
 
 /*Called when you eject a tape
- *Arguements: mob/user -> the current user of the walkman
+ *Arguments: mob/user -> the current user of the walkman
  */
 /obj/item/device/walkman/proc/eject_tape(mob/user)
 	if(!tape) return
@@ -156,7 +156,7 @@
 	playsound(src,'sound/weapons/handcuffs.ogg',20,1)
 
 /*Called when you need to go to next song either when it naturally ends or when user changes song manually
- *Arguements: mob/user -> the current user of the walkman
+ *Arguments: mob/user -> the current user of the walkman
  */
 /obj/item/device/walkman/proc/next_song(mob/user)
 
@@ -221,7 +221,7 @@
 	update_song(current_song, current_listener)
 
 /* Called when you need to restart a song
- * Arguements: mob/user -> the user that has triggered the reset
+ * Arguments: mob/user -> the user that has triggered the reset
  */
 /obj/item/device/walkman/proc/restart_song(mob/user)
 	if(!current_song) return
