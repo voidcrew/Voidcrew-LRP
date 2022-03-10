@@ -23,8 +23,7 @@
 	if(recieve || send)
 		eject_tape(user)
 		return
-	else
-		..()
+	return ..()
 
 /obj/item/device/cassette_deck/CtrlClick(mob/user)
 	if(removal == TRUE)
