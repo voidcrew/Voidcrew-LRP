@@ -95,7 +95,7 @@
 				to_chat(usr,"Error: No Cassette Inserted Please Insert a Cassette!")
 				return
 			if(tape.flipped == FALSE)
-				tape.songs["side1"] += selection.song_name
+				tape.songs["side1"] += selection.song_path
 				tape.song_names["side1"] += selection.song_name
 			else
 				tape.songs["side2"] += selection.song_path
