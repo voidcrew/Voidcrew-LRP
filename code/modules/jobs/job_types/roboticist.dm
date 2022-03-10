@@ -76,7 +76,7 @@
 /datum/outfit/job/roboticist/seniorroboticist
 	name = "Roboticist (Senior Roboticist)"
 
-	uniform = /obj/item/clothing/under/suit/senior_roboticist
+	uniform = /obj/item/clothing/under/suit/rank/rnd/senior_roboticist
 	alt_uniform = null
 	shoes = /obj/item/clothing/shoes/laceup
 	suit = null
