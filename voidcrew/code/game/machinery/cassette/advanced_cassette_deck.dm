@@ -88,12 +88,15 @@
 		if("toggle")
 			if(QDELETED(src))
 				return
+			if(!tape)
+				to_chat(usr,"Error: No Cassette Inserted Please Insert a Cassette!")
+				return
 			if(tape.flipped == FALSE)
-				tape.songs["side1"] += selection.song_path
-				tape.song_names["side1"] += "Unknown Track"
+				tape.songs["side1"] += selection.song_name
+				tape.song_names["side1"] += selection.song_name
 			else
 				tape.songs["side2"] += selection.song_path
-				tape.song_names["side2"] += "Unknown Track"
+				tape.song_names["side2"] += selection.song_name
 		if("select_track")
 			var/list/available = list()
 			for(var/datum/track/song in SSjukeboxes.songs)
@@ -101,3 +104,40 @@
 			var/selected = params["track"]
 			selection = available[selected]
 			return TRUE
+		if("design")
+			if(!tape)
+				to_chat(usr,"Error: No Cassette Inserted Please Insert a Cassette!")
+				return
+			var/list/design_path = list("cassette_flip",\
+								"cassette_blue",\
+								"cassette_gray",\
+								"cassette_green",\
+								"cassette_orange",\
+								"cassette_pink_stripe",\
+								"cassette_purple",\
+								"cassette_rainbow",\
+								"cassette_red_black",\
+								"cassette_red_stripe",\
+								"cassette_camo",\
+								"cassette_rising_sun",\
+								"cassette_ocean",\
+								"cassette_aesthetic",)
+
+			var/list/design_names = list("Blank Cassette",
+							"Blue Sticker",\
+							"Gray Sticker",\
+							"Green Sticker",\
+							"Orange Sticker",\
+							"Pink Stripped Sticker",\
+							"Purple Sticker",\
+							"Rainbow Sticker",\
+							"Red and Black Sticker",\
+							"Red Stripped Sticker",\
+							"Camo Sticker",\
+							"Rising Sun Sticker",\
+							"Ocean Sticker",\
+							"Aesthetic Sticker")
+
+			var/selection = tgui_input_list(usr, "Choose Your Sticker", "Advanced Cassette Deck", design_names)
+			tape.icon_state = design_path[design_names.Find(selection)]
+			tape.side1_icon = design_path[design_names.Find(selection)]

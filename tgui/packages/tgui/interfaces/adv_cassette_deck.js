@@ -23,11 +23,11 @@ export const adv_cassette_deck = (props, context) => {
       height={313}>
       <Window.Content>
         <Section
-          title="Song Player"
+          title="Song Selector"
           buttons={(
             <Button
               icon={'play'}
-              content={'Add Song To Cassette'}
+              content={'Add Song to Cassette'}
               onClick={() => act('toggle')} />
           )}>
           <LabeledList>
@@ -43,6 +43,15 @@ export const adv_cassette_deck = (props, context) => {
                 })} />
             </LabeledList.Item>
           </LabeledList>
+        </Section>
+        <Section
+          title="Design Selector"
+          buttons={(
+            <Button
+              icon={'play'}
+              content={'Add Design to Cassette'}
+              onClick={() => act('design')} />
+          )}>
         </Section>
       </Window.Content>
     </Window>
