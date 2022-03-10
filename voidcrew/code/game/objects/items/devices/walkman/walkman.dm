@@ -39,6 +39,8 @@
 	. = ..()
 
 /obj/item/device/walkman/attackby(obj/item/cassette, mob/user)
+	if(!istype(cassette, /obj/item/device/cassette_tape))
+		return
 	if(istype(cassette, /obj/item/device/cassette_tape))
 		if(!tape)
 			insert_tape(cassette)
@@ -68,14 +70,12 @@
 /obj/item/device/walkman/AltClick(mob/user)
 	if(tape)
 		eject_tape(user)
-		return
 	else
 		..()
 
 /obj/item/device/walkman/CtrlClick(mob/user)
 	if(tape)
 		next_song(user)
-		return
 
 ///This is called when sound needs to be broken ie you die or lose access to it
 /obj/item/device/walkman/proc/break_sound()
@@ -100,7 +100,8 @@
  *Arguments: mob/user -> the current user of the walkman
  */
 /obj/item/device/walkman/proc/pause(mob/user)
-	if(!current_song) return
+	if(!current_song)
+		return
 	paused = TRUE
 	update_song(current_song,current_listener, SOUND_PAUSED | SOUND_UPDATE)
 
@@ -143,7 +144,8 @@
  *Arguments: mob/user -> the current user of the walkman
  */
 /obj/item/device/walkman/proc/eject_tape(mob/user)
-	if(!tape) return
+	if(!tape)
+		return
 
 	break_sound()
 
@@ -214,9 +216,12 @@
 	if(!current_song) return
 
 	var/tmp = input(usr,"Change the volume (0 - 100)","Volume") as num|null
-	if(tmp == null) return
-	if(tmp > 100) tmp = 100
-	if(tmp < 0) tmp = 0
+	if(tmp == null)
+		return
+	if(tmp > 100)
+		tmp = 100
+	if(tmp < 0)
+		tmp = 0
 	volume = tmp
 	update_song(current_song, current_listener)
 
@@ -224,7 +229,8 @@
  * Arguments: mob/user -> the user that has triggered the reset
  */
 /obj/item/device/walkman/proc/restart_song(mob/user)
-	if(!current_song) return
+	if(!current_song)
+		return
 
 	update_song(current_song, current_listener, 0)
 
@@ -238,7 +244,7 @@
 	icon_icon = 'voidcrew/icons/obj/walkman.dmi'
 	background_icon_state = "bg_tech_blue"
 /datum/action/item_action/walkman/New()
-	..()
+	.=..()
 
 /datum/action/item_action/walkman/play_pause
 	button_icon_state = "walkman_playpause"

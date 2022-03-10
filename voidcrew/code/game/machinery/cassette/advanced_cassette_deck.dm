@@ -9,9 +9,9 @@
 	///Selection used to add the jukebox as a song to a cassette
 	var/datum/track/selection = null
 
-/obj/machinery/cassette/adv_cassette_deck/attackby(obj/item/object, mob/user, params)
+/obj/machinery/cassette/adv_cassette_deck/wrench_act(mob/living/user, obj/item/wrench)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		if(object.tool_behaviour == TOOL_WRENCH)
+		if(wrench.tool_behaviour == TOOL_WRENCH)
 			if(!anchored && !isinspace())
 				to_chat(user,"<span class='notice'>You secure [src] to the floor.</span>")
 				set_anchored(TRUE)
