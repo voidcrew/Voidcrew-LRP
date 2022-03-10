@@ -182,6 +182,7 @@
 	name = "rusted plating"
 	desc = "Corrupted steel."
 	icon_state = "plating_rust"
+	baseturfs = /turf/open/floor/plating/rust // VOID EDIT
 
 /turf/open/floor/plating/rust/plasma
 	initial_gas_mix = "plasma=104;TEMP=293.15"

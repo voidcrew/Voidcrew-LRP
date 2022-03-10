@@ -102,8 +102,6 @@
 
 #define REEBE list('sound/ambience/ambireebe1.ogg', 'sound/ambience/ambireebe2.ogg', 'sound/ambience/ambireebe3.ogg')
 
-
-
 #define CREEPY_SOUNDS list( \
 	'sound/effects/ghost.ogg', 'sound/effects/ghost2.ogg', \
 	'sound/effects/heart_beat.ogg', 'sound/effects/screech.ogg', \
