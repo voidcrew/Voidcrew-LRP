@@ -48,15 +48,28 @@
 	if(!recieve)
 		to_chat(user,("No Cassette to edit please insert a cassette to edit!"))
 		return
+
+	if(!reciever_names.len && removal == TRUE)
+		to_chat(user,"No songs to remove please change cassette")
+		return
+
+	if(!sender_names.len && removal == FALSE)
+		to_chat(user,"No songs to splice please change cassette")
+		return
+
 	if(removal == FALSE)
 		//tgui choice to add to the reciever cassette from the sender cassette
 		var/choice = tgui_input_list(usr, "Select a track to add.", "Dual Cassette Deck", sender_names)
+		if(isnull(choice))
+			return
 		var/num = sender_names.Find(choice)
 		reciever_list.Add(sender_list[num])
 		reciever_names.Add(sender_names[num])
 	else
 		//tgui choice to remove from the list of songs on the cassettes
 		var/choice = tgui_input_list(usr, "Select a track to remove.", "Dual Cassette Deck", reciever_names)
+		if(isnull(choice))
+			return
 		var/num = reciever_names.Find(choice)
 		reciever_list.Remove(reciever_list[num])
 		reciever_names.Remove(reciever_names[num])
