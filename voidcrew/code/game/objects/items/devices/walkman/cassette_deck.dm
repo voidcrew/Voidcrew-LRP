@@ -30,8 +30,6 @@
 	removal = !removal
 
 /obj/item/device/cassette_deck/attackby(obj/item/cassette, mob/user)
-	if(!..())
-		return
 	if(istype(cassette, /obj/item/device/cassette_tape))
 		if(!send || !recieve)
 			insert_tape(cassette)
@@ -39,6 +37,8 @@
 			to_chat(user,("You insert \the [cassette] into \the [src]"))
 		else
 			to_chat(user,("Remove a tape first!"))
+	else
+		. = ..()
 
 /obj/item/device/cassette_deck/attack_self(mob/user)
 	. = ..()
