@@ -17,7 +17,6 @@ GLOBAL_LIST_INIT(ws_survivor_default_loot, list(
 
 /obj/effect/spawner/random/whitesands/survivor/Initialize()
 	loot += GLOB.ws_survivor_default_loot
-	lootcount = pick(list(1, 2, 3))
 	return ..()
 
 /obj/effect/spawner/random/whitesands/survivor/hunter

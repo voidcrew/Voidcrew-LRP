@@ -1,8 +1,6 @@
 /obj/effect/mob_spawn/human/corpse/solgov/infantry
 	name = "SolGov Infantryman"
-	id_job = "SolGov Infantryman"
 	outfit = /datum/outfit/solgov/infantrymancorpse
-	id_access_list = list(ACCESS_CENT_CAPTAIN)
 	hairstyle = "Buzzcut"
 	facial_hairstyle = "Shaved"
 
@@ -22,9 +20,7 @@
 
 /obj/effect/mob_spawn/human/corpse/solgov/officer
 	name = "SolGov Officer"
-	id_job = "SolGov Officer"
 	outfit = /datum/outfit/solgov/officercorpse
-	id_access_list = list(ACCESS_CENT_CAPTAIN)
 	hairstyle = "Buzzcut"
 	facial_hairstyle = "Shaved"
 

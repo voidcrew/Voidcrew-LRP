@@ -25,7 +25,6 @@
 	harvest_message_high = "You clip quite a lot of suitable leaves."
 	regrowth_time_low = 3000
 	regrowth_time_high = 5400
-	num_sprites = 1
 
 /obj/structure/flora/ash/lavaland/fireblossom
 	name = "fire blossom"
@@ -41,7 +40,6 @@
 	harvest_message_high = "You pluck quite a lot of suitable flowers."
 	regrowth_time_low = 2500
 	regrowth_time_high = 4000
-	num_sprites = 2
 
 /obj/structure/flora/ash/lavaland/puce
 	name = "Pucestal Growth"
@@ -56,8 +54,6 @@
 	harvest_message_high = "You cut free quite a lot of crystals."
 	regrowth_time_low = 10 MINUTES 				// Fast, for a crystal
 	regrowth_time_high = 20 MINUTES
-	num_sprites = 1
-
 
 //SNACKS
 
