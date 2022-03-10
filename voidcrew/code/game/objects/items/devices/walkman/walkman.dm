@@ -1,4 +1,4 @@
-#define sound_to(target, sound)                             target << (sound)
+#define sound_to(target, sound) target << (sound)
 /obj/item/device/walkman
 	name = "walkman"
 	desc = "A cassette player that first hit the market over 200 years ago. Crazy how these never went out of style. Alt-click removes the Cassette. Ctrl-click changes to the next song"

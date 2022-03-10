@@ -68,7 +68,9 @@
 		reciever_names.Remove(reciever_names[num])
 
 /obj/item/device/cassette_deck/proc/insert_tape(obj/item/device/cassette_tape/CTape)
-	if(send && recieve || !istype(CTape)) return
+	if(send && recieve || !istype(CTape))
+		return
+
 	if(!send)
 		send = CTape
 		CTape.forceMove(src)
