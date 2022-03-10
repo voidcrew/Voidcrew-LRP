@@ -51,7 +51,7 @@ export const adv_cassette_deck = (props, context) => {
               icon={'play'}
               content={'Add Design to Cassette'}
               onClick={() => act('design')} />
-          )}/>
+          )} />
         <Section
           title="Eject Cassette"
           buttons={(
@@ -59,7 +59,7 @@ export const adv_cassette_deck = (props, context) => {
               icon={'play'}
               content={'Eject Cassette'}
               onClick={() => act('eject')} />
-          )}/>
+          )} />
       </Window.Content>
     </Window>
   );
