@@ -4,22 +4,23 @@
 	dir = 8
 	},
 /turf/template_noop,
-/area/whitesands/surface/outdoors)
+/area/overmap_encounter/planetoid/wasteland)
 "b" = (
 /obj/structure/fence/door/opened,
 /turf/template_noop,
-/area/whitesands/surface/outdoors)
+/area/overmap_encounter/planetoid/wasteland)
 "c" = (
 /obj/structure/fence,
 /turf/template_noop,
-/area/whitesands/surface/outdoors)
+/area/overmap_encounter/planetoid/wasteland)
 "d" = (
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/asteroid/goliath/beast/wasteland,
 /turf/open/floor/wood{
 	icon_state = "wood-broken5"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "e" = (
 /obj/item/shard{
 	icon_state = "tiny"
@@ -29,7 +30,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "f" = (
 /obj/item/shard{
 	icon_state = "tiny"
@@ -39,17 +40,22 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
+"g" = (
+/obj/machinery/hydroponics/soil,
+/turf/open/floor/plating/dust/lit,
+/area/overmap_encounter/planetoid/wasteland)
 "h" = (
 /obj/structure/closet/secure_closet/hydroponics,
 /obj/item/circuitboard/machine/plantgenes,
-/obj/item/gun/ballistic/rifle/boltaction/polymer,
+/obj/item/gun/ballistic/automatic/ebr,
+/obj/item/ammo_box/magazine/ebr,
 /turf/open/floor/wood,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "i" = (
 /obj/machinery/hydroponics/soil,
-/turf/open/floor/plating/asteroid/whitesands/dried,
-/area/whitesands/surface/outdoors)
+/turf/open/floor/plating/dirt/dry/lit,
+/area/overmap_encounter/planetoid/wasteland)
 "j" = (
 /obj/structure/table/wood,
 /obj/item/watertank,
@@ -57,26 +63,26 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken7"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "k" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/cultivator/rake,
-/turf/open/floor/plating/asteroid/whitesands/dried,
-/area/whitesands/surface/outdoors)
+/turf/open/floor/plating/dirt/dry/lit,
+/area/overmap_encounter/planetoid/wasteland)
 "l" = (
-/turf/open/floor/plating/asteroid/whitesands/dried,
-/area/whitesands/surface/outdoors)
+/turf/open/floor/plating/wasteland/lit,
+/area/overmap_encounter/planetoid/wasteland)
 "m" = (
 /obj/machinery/chem_master/condimaster,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "n" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood{
 	icon_state = "wood-broken7"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "o" = (
 /obj/structure/closet/crate/hydroponics,
 /obj/item/seeds/apple,
@@ -106,31 +112,20 @@
 /obj/item/seeds/watermelon,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
-/area/whitesands/surface/outdoors)
-"p" = (
-/obj/item/ammo_box/aac_300blk_stripper,
-/turf/open/floor/wood,
-/area/whitesands/surface/outdoors)
-"q" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood{
-	icon_state = "wood-broken6"
-	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "r" = (
 /turf/open/floor/wood,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "s" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "t" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/asteroid/goliath/beast,
 /turf/open/floor/wood{
 	icon_state = "wood-broken6"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "u" = (
 /obj/structure/chair/plastic{
 	dir = 4
@@ -139,19 +134,26 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken5"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "v" = (
 /obj/structure/fence/cut/large,
 /turf/template_noop,
-/area/whitesands/surface/outdoors)
+/area/overmap_encounter/planetoid/wasteland)
 "w" = (
 /obj/machinery/light,
 /turf/open/floor/wood,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
+"x" = (
+/turf/open/floor/plating/dust/lit,
+/area/overmap_encounter/planetoid/wasteland)
+"y" = (
+/mob/living/simple_animal/hostile/asteroid/goliath/beast/wasteland,
+/turf/open/floor/plating/dust/lit,
+/area/overmap_encounter/planetoid/wasteland)
 "z" = (
 /obj/structure/fence/cut/medium,
 /turf/template_noop,
-/area/whitesands/surface/outdoors)
+/area/overmap_encounter/planetoid/wasteland)
 "A" = (
 /obj/structure/chair/plastic{
 	dir = 8
@@ -160,43 +162,43 @@
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/wood,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "B" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/shovel,
-/turf/open/floor/plating/asteroid/whitesands/dried,
-/area/whitesands/surface/outdoors)
+/turf/open/floor/plating/dirt/dry/lit,
+/area/overmap_encounter/planetoid/wasteland)
 "C" = (
 /obj/structure/mineral_door/wood,
 /turf/open/floor/wood,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "D" = (
 /obj/machinery/door/window/northleft,
 /obj/item/circuitboard/machine/seed_extractor,
 /obj/structure/frame/machine,
 /obj/item/stack/cable_coil/cut/red,
 /turf/open/floor/wood,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "E" = (
 /obj/structure/fence/cut/large{
 	dir = 8
 	},
 /turf/template_noop,
-/area/whitesands/surface/outdoors)
+/area/overmap_encounter/planetoid/wasteland)
 "F" = (
 /obj/machinery/biogenerator,
 /obj/machinery/door/window/northleft,
 /turf/open/floor/wood,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "G" = (
 /obj/structure/sign/departments/botany,
 /turf/closed/wall/mineral/wood,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "H" = (
 /obj/structure/bed,
 /obj/item/bedsheet/dorms,
 /turf/open/floor/wood,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "I" = (
 /obj/item/shard{
 	icon_state = "tiny"
@@ -207,7 +209,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "J" = (
 /obj/item/shard{
 	icon_state = "tiny"
@@ -216,37 +218,34 @@
 	icon_state = "small"
 	},
 /turf/open/floor/plating,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "K" = (
 /obj/structure/table/wood,
 /obj/item/gun/energy/floragun,
 /obj/item/storage/bag/plants/portaseeder,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "L" = (
 /turf/closed/wall/mineral/wood,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "M" = (
 /obj/structure/fence/post,
 /turf/template_noop,
-/area/whitesands/surface/outdoors)
+/area/overmap_encounter/planetoid/wasteland)
 "N" = (
 /obj/structure/fence/post{
 	dir = 1
 	},
 /turf/template_noop,
-/area/whitesands/surface/outdoors)
+/area/overmap_encounter/planetoid/wasteland)
 "O" = (
 /obj/structure/fence/corner,
 /turf/template_noop,
-/area/whitesands/surface/outdoors)
+/area/overmap_encounter/planetoid/wasteland)
 "P" = (
-/mob/living/simple_animal/hostile/asteroid/goliath/beast{
-	dir = 1
-	},
-/turf/open/floor/plating/asteroid/whitesands/dried,
-/area/whitesands/surface/outdoors)
+/turf/open/floor/plating/dirt/dry/lit,
+/area/overmap_encounter/planetoid/wasteland)
 "Q" = (
 /obj/structure/table/wood,
 /obj/machinery/reagentgrinder,
@@ -254,13 +253,13 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken5"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "R" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood{
 	icon_state = "wood-broken5"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "S" = (
 /obj/item/shard{
 	icon_state = "tiny"
@@ -271,7 +270,7 @@
 /obj/item/shard,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "T" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
@@ -280,21 +279,21 @@
 /turf/open/floor/wood{
 	icon_state = "wood-broken5"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "U" = (
 /obj/structure/fence{
 	dir = 8
 	},
 /turf/template_noop,
-/area/whitesands/surface/outdoors)
+/area/overmap_encounter/planetoid/wasteland)
 "V" = (
 /obj/structure/closet/wardrobe/botanist,
 /turf/open/floor/wood,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "W" = (
 /obj/structure/reagent_dispensers/watertank/high,
-/turf/open/floor/plating/asteroid/whitesands/dried,
-/area/whitesands/surface/outdoors)
+/turf/open/floor/plating/wasteland/lit,
+/area/overmap_encounter/planetoid/wasteland)
 "X" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/glass/bucket,
@@ -303,7 +302,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "Y" = (
 /obj/item/shard{
 	icon_state = "tiny"
@@ -317,7 +316,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "Z" = (
 /obj/structure/fence{
 	dir = 8
@@ -326,7 +325,7 @@
 	dir = 8
 	},
 /turf/template_noop,
-/area/whitesands/surface/outdoors)
+/area/overmap_encounter/planetoid/wasteland)
 
 (1,1,1) = {"
 L
@@ -353,11 +352,11 @@ n
 I
 W
 l
-l
-l
-l
-l
-l
+P
+x
+P
+P
+x
 E
 "}
 (3,1,1) = {"
@@ -373,7 +372,7 @@ i
 i
 i
 i
-l
+P
 U
 "}
 (4,1,1) = {"
@@ -383,13 +382,13 @@ m
 K
 d
 L
-l
-l
-l
-l
-l
-l
-l
+P
+x
+x
+x
+P
+x
+x
 U
 "}
 (5,1,1) = {"
@@ -403,8 +402,8 @@ l
 B
 i
 i
-i
-i
+g
+g
 l
 U
 "}
@@ -416,11 +415,11 @@ A
 n
 F
 l
-l
-l
-l
-l
-l
+P
+P
+x
+x
+P
 l
 U
 "}
@@ -431,28 +430,28 @@ L
 L
 s
 L
-l
+x
 i
 i
 i
 i
 i
-l
+x
 U
 "}
 (8,1,1) = {"
 L
 V
-p
+r
 L
-q
+t
 G
 l
-l
-l
+x
+x
 P
-l
-l
+x
+x
 l
 U
 "}
@@ -464,12 +463,12 @@ C
 s
 C
 l
-l
-l
-l
-l
-l
-l
+P
+P
+y
+P
+P
+x
 b
 "}
 (10,1,1) = {"
@@ -479,13 +478,13 @@ w
 L
 R
 L
-l
+x
 i
 i
 i
 i
 i
-l
+P
 Z
 "}
 (11,1,1) = {"

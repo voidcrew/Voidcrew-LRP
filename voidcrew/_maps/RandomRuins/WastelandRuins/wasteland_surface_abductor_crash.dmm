@@ -1,13 +1,13 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/turf/closed/mineral/random/whitesands,
-/area/whitesands/surface/outdoors)
+/turf/template_noop,
+/area/overmap_encounter/planetoid/wasteland)
 "b" = (
-/turf/open/floor/plating/asteroid/whitesands,
-/area/whitesands/surface/outdoors)
+/turf/open/floor/plating/wasteland/lit,
+/area/overmap_encounter/planetoid/wasteland)
 "d" = (
 /turf/closed/wall/mineral/abductor,
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "j" = (
 /obj/machinery/abductor/experiment{
 	team_number = 100
@@ -15,12 +15,12 @@
 /turf/open/floor/plating/abductor{
 	initial_gas_mix = "ws_atmos"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "k" = (
 /turf/open/floor/plating/abductor{
 	initial_gas_mix = "ws_atmos"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "l" = (
 /obj/machinery/abductor/pad{
 	team_number = 100
@@ -28,58 +28,62 @@
 /turf/open/floor/plating/abductor{
 	initial_gas_mix = "ws_atmos"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
+"n" = (
+/obj/structure/lattice,
+/turf/template_noop,
+/area/ruin/unpowered)
 "o" = (
 /obj/item/hemostat/alien,
 /turf/open/floor/plating/abductor{
 	initial_gas_mix = "ws_atmos"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "p" = (
 /obj/effect/mob_spawn/human/abductor,
 /turf/open/floor/plating/abductor{
 	initial_gas_mix = "ws_atmos"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "q" = (
 /obj/structure/closet/abductor,
 /turf/open/floor/plating/abductor{
 	initial_gas_mix = "ws_atmos"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "s" = (
 /obj/structure/table/optable/abductor,
 /obj/item/cautery/alien,
 /turf/open/floor/plating/abductor{
 	initial_gas_mix = "ws_atmos"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "t" = (
 /obj/structure/table/abductor,
 /obj/item/storage/box/alienhandcuffs,
 /turf/open/floor/plating/abductor{
 	initial_gas_mix = "ws_atmos"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "v" = (
 /obj/item/scalpel/alien,
 /turf/open/floor/plating/abductor{
 	initial_gas_mix = "ws_atmos"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "w" = (
 /obj/item/retractor/alien,
 /obj/item/paper/guides/antag/abductor,
 /turf/open/floor/plating/abductor{
 	initial_gas_mix = "ws_atmos"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "y" = (
 /obj/machinery/abductor/gland_dispenser,
 /turf/open/floor/plating/abductor{
 	initial_gas_mix = "ws_atmos"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "z" = (
 /obj/structure/table/abductor,
 /obj/item/surgicaldrill/alien,
@@ -87,16 +91,16 @@
 /turf/open/floor/plating/abductor{
 	initial_gas_mix = "ws_atmos"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "A" = (
 /obj/structure/bed/abductor,
 /turf/open/floor/plating/abductor{
 	initial_gas_mix = "ws_atmos"
 	},
-/area/whitesands/surface/outdoors)
+/area/ruin/unpowered)
 "X" = (
-/turf/open/floor/plating/asteroid/whitesands/dried,
-/area/whitesands/surface/outdoors)
+/turf/open/floor/plating/dust/lit,
+/area/overmap_encounter/planetoid/wasteland)
 
 (1,1,1) = {"
 a
@@ -128,9 +132,9 @@ a
 a
 d
 a
+n
 a
-a
-a
+n
 a
 a
 "}
@@ -139,9 +143,9 @@ a
 a
 d
 d
-a
-a
-a
+n
+n
+n
 a
 a
 a
@@ -153,7 +157,7 @@ d
 j
 k
 k
-a
+n
 y
 d
 a
@@ -392,7 +396,7 @@ a
 b
 b
 b
-b
+X
 b
 b
 a
