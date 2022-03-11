@@ -71,6 +71,10 @@
 	icon_state = "rubblefull"
 	base_icon_state = "rubble"
 	baseturfs = /turf/open/floor/plating/rubble
+	footstep = FOOTSTEP_FLOOR
+	barefootstep = FOOTSTEP_HARD_BAREFOOT
+	clawfootstep = FOOTSTEP_HARD_CLAW
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/rubble/Initialize(mapload, inherited_virtual_z)
 	. = ..()
@@ -81,6 +85,10 @@
 	icon_state = "tunnelintact"
 	base_icon_state = "tunnel"
 	baseturfs = /turf/open/floor/plating/tunnel
+	footstep = FOOTSTEP_FLOOR
+	barefootstep = FOOTSTEP_HARD_BAREFOOT
+	clawfootstep = FOOTSTEP_HARD_CLAW
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/tunnel/Initialize(mapload, inherited_virtual_z)
 	. = ..()
@@ -91,6 +99,10 @@
 	icon_state = "stone_old"
 	base_icon_state = "stone"
 	baseturfs = /turf/open/floor/plating/mossy_stone
+	footstep = FOOTSTEP_FLOOR
+	barefootstep = FOOTSTEP_HARD_BAREFOOT
+	clawfootstep = FOOTSTEP_HARD_CLAW
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/stone/Initialize(mapload, inherited_virtual_z)
 	. = ..()
@@ -101,6 +113,10 @@
 	icon_state = "dust1"
 	base_icon_state = "dust"
 	baseturfs = /turf/open/floor/plating/dust
+	footstep = FOOTSTEP_SAND
+	barefootstep = FOOTSTEP_SAND
+	clawfootstep = FOOTSTEP_SAND
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/dust/Initialize(mapload, inherited_virtual_z)
 	. = ..()
