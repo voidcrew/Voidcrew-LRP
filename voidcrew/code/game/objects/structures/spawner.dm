@@ -54,7 +54,9 @@
 		/obj/item/stack/medical/ointment = 10,
 		/obj/item/storage/firstaid/regular = 3,
 		/obj/item/reagent_containers/food/drinks/beer = 10,
-		/obj/item/reagent_containers/glass/bottle/romerol = 1
+		/obj/item/reagent_containers/glass/bottle/romerol = 1,
+		/obj/item/implanter/adrenalin = 3,
+		/obj/item/implanter/stealth = 1
 	)
 
 /obj/structure/spawner/cave/Initialize()
