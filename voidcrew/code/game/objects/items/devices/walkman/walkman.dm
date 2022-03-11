@@ -1,4 +1,5 @@
 #define sound_to(target, sound) target << (sound)
+#define NEXT_SONG_USE_TIMER (5 SECONDS)
 /obj/item/device/walkman
 	name = "walkman"
 	desc = "A cassette player that first hit the market over 200 years ago. Crazy how these never went out of style. Alt-click removes the Cassette. Ctrl-click changes to the next song"
@@ -28,6 +29,8 @@
 	var/design = 1
 	///Is the current song a link? We handle those different
 	var/link_play = FALSE
+	///cooldown used by the next song to stop overlapping sounds between url based songs and normal ones
+	COOLDOWN_DECLARE(next_song_use)
 
 /obj/item/device/walkman/Initialize()
 	. = ..()
@@ -109,7 +112,7 @@
  *Arguments: mob/user -> the current user of the walkman
  */
 /obj/item/device/walkman/proc/pause(mob/user)
-	if(!current_song)
+	if(!current_song && !link_play)
 		return
 	paused = TRUE
 	if(!link_play)
@@ -132,22 +135,17 @@
 				var/list/output = world.shelleo("[ytdl] --geo-bypass --format \"bestaudio\[ext=mp3]/best\[ext=mp4]\[height<=360]/bestaudio\[ext=m4a]/bestaudio\[ext=aac]\" --dump-single-json --no-playlist -- \"[shell_scrubbed_input]\"")
 				var/errorlevel = output[SHELLEO_ERRORLEVEL]
 				var/stdout = output[SHELLEO_STDOUT]
-				var/stderr = output[SHELLEO_STDERR]
 				if(!errorlevel)
 					var/list/data
 					try
 						data = json_decode(stdout)
-					catch(var/exception/e)
+					catch(var/exception/error)
 						to_chat(src, "<span class='boldwarning'>Youtube-dl JSON parsing FAILED:</span>", confidential = TRUE)
-						to_chat(src, "<span class='warning'>[e]: [stdout]</span>", confidential = TRUE)
+						to_chat(src, "<span class='warning'>[error]: [stdout]</span>", confidential = TRUE)
 						return
 
 					if (data["url"])
 						web_sound_url = data["url"]
-						var/title = "[data["title"]]"
-						var/webpage_url = title
-						if (data["webpage_url"])
-							webpage_url = "<a href=\"[data["webpage_url"]]\">[title]</a>"
 						music_extra_data["start"] = data["start_time"]
 						music_extra_data["end"] = data["end_time"]
 						music_extra_data["link"] = data["webpage_url"]
@@ -211,14 +209,13 @@
  *Arguments: mob/user -> the current user of the walkman
  */
 /obj/item/device/walkman/proc/next_song(mob/user)
-
-	if(current_playlist.len == 0)
+	if(current_playlist.len == 0 || !COOLDOWN_FINISHED(src, next_song_use))
 		return
+	COOLDOWN_START(src, next_song_use, NEXT_SONG_USE_TIMER)
 
 	break_sound()
 
 	pl_index = pl_index + 1 <= current_playlist.len ? (pl_index += 1) : 1
-
 	link_play = findtext(current_playlist[pl_index], GLOB.is_http_protocol) ? TRUE : FALSE
 
 
@@ -299,6 +296,7 @@
 /datum/action/item_action/walkman
 	icon_icon = 'voidcrew/icons/obj/walkman.dmi'
 	background_icon_state = "bg_tech_blue"
+
 /datum/action/item_action/walkman/New()
 	.=..()
 

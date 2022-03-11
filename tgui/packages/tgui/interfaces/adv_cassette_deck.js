@@ -60,6 +60,14 @@ export const adv_cassette_deck = (props, context) => {
               content={'Eject Cassette'}
               onClick={() => act('eject')} />
           )} />
+        <Section
+          title="Add Youtube Song"
+          buttons={(
+            <Button
+              icon={'play'}
+              content={'Add Song'}
+              onClick={() => act('url')} />
+          )} />
       </Window.Content>
     </Window>
   );

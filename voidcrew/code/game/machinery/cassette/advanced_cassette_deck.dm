@@ -110,6 +110,36 @@
 				return
 			eject_tape(usr)
 			return
+		if("url")
+			var/url = stripped_input(usr, "Write a new Cassette name:", no_trim = TRUE)
+			if(!findtext(url, GLOB.is_http_protocol))
+				to_chat(usr, "Bad Link! Please try again.")
+				return
+			var/ytdl = CONFIG_GET(string/invoke_youtubedl)
+			var/list/music_extra_data = list()
+			var/url2 = trim(url)
+			var/shell_scrubbed_input = shell_url_scrub(url2)
+			var/list/output = world.shelleo("[ytdl] --geo-bypass --format \"bestaudio\[ext=mp3]/best\[ext=mp4]\[height<=360]/bestaudio\[ext=m4a]/bestaudio\[ext=aac]\" --dump-single-json --no-playlist -- \"[shell_scrubbed_input]\"")
+			var/errorlevel = output[SHELLEO_ERRORLEVEL]
+			var/stdout = output[SHELLEO_STDOUT]
+			var/list/data
+			if(!errorlevel)
+				try
+					data = json_decode(stdout)
+				catch(var/exception/error)
+					to_chat(src, "<span class='boldwarning'>Youtube-dl JSON parsing FAILED:</span>", confidential = TRUE)
+					to_chat(src, "<span class='warning'>[error]: [stdout]</span>", confidential = TRUE)
+					return
+				if (data["url"])
+					web_sound_url = data["url"]
+					music_extra_data["title"] = data["title"]
+			if(tape.flipped == FALSE)
+				tape.songs["side1"] += url
+				tape.song_names["side1"] += data["title"]
+			else
+				tape.songs["side2"] += url
+				tape.song_names["side2"] += data["title"]
+
 		if("design")
 			if(!tape)
 				to_chat(usr,"Error: No Cassette Inserted Please Insert a Cassette!")
