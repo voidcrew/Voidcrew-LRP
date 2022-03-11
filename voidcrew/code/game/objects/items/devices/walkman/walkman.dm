@@ -167,7 +167,7 @@
 
 	break_sound()
 
-	pl_index = pl_index <= current_playlist.len ? (pl_index += 1) : 1
+	pl_index = pl_index + 1 <= current_playlist.len ? (pl_index += 1) : 1
 
 	current_song = sound(current_playlist[pl_index], 0, 0, SOUND_CHANNEL_WALKMAN, volume)
 	current_song.status = SOUND_STREAM
