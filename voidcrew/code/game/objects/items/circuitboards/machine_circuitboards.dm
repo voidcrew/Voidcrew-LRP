@@ -157,7 +157,7 @@
 		/obj/item/stock_parts/capacitor = 1
 	)
 
-/obj/item/circuitboard/machine/shuttle/smes
+/obj/item/circuitboard/machine/cassette/adv_cassette_deck
 	name = "Advanced Cassette Deck (Machine Board)"
 	build_path = /obj/machinery/cassette/adv_cassette_deck
 	req_components = list(

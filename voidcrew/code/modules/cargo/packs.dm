@@ -30,3 +30,27 @@
 		/obj/item/circuitboard/machine/shuttle/engine/electric
 	)
 	crate_name = "Shuttle in a Box"
+
+//////////////////////////////////////////////////////////////////////////////
+/////////////////////////// Cassette Stuff ///////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+/datum/supply_pack/service/walkman_crate
+	name = "Crate Of Walkmans"
+	desc = "A Crate of 6 walkman from the old times, includes some blank cassettes aswell."
+	cost = 4000
+	contains = list(
+		/obj/item/device/walkman,
+		/obj/item/device/walkman,
+		/obj/item/device/walkman,
+		/obj/item/device/walkman,
+		/obj/item/device/walkman,
+		/obj/item/device/walkman,
+		/obj/item/device/cassette_tape/blank,
+		/obj/item/device/cassette_tape/blank,
+		/obj/item/device/cassette_tape/blank,
+		/obj/item/device/cassette_tape/blank,
+		/obj/item/device/cassette_tape/blank,
+		/obj/item/device/cassette_tape/blank
+	)
+	crate_name = "Crate Of Walkmans"

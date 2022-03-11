@@ -96,3 +96,25 @@
 	build_path = /obj/item/circuitboard/machine/shuttle/smes
 	category = list ("Shuttle Machinery")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/board/cassette/adv_cassette_deck
+	name = "Machine Design (Advanced Cassette Deck)"
+	desc = "The circuit board for the advanced cassette deck."
+	id = "adv_cassette_deck"
+	build_path = /obj/machinery/cassette/adv_cassette_deck
+	category = list ("Cassette Technology")
+	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
+
+/datum/design/item/cassette
+	name = "Cassette Tape"
+	desc = "A blank Cassette Tape useful for mixing tapes."
+	id = "cassette"
+	build_path = /obj/item/device/cassette_tape/blank
+	category = list("Cassette Technology")
+
+/datum/design/item/cassette_deck
+	name = "Dual Cassette Deck"
+	desc = "A dual cassette deck useful for adding and removing songs from existing cassettes"
+	id = "cassette_deck"
+	build_path = /obj/item/device/cassette_deck
+	category = list("Cassette Technology")
