@@ -4,8 +4,8 @@
 
 	var/list/base_gases // A list of gases to always have
 	var/list/normal_gases // A list of allowed gases:base_amount
-	var/list/restricted_gases // A list of allowed gases like normal_gases but each can only be selected a maximum of one time
-	var/restricted_chance = 10 // Chance per iteration to take from restricted gases
+	// var/list/restricted_gases // A list of allowed gases like normal_gases but each can only be selected a maximum of one time -- VOID EDIT - TEMPORARILY DISABLING WHILE WE INVESTIGATE SMOOTH TURF GAS ISSUES
+	// var/restricted_chance = 0 // Chance per iteration to take from restricted gases -- VOID EDIT - TEMPORARILY DISABLING WHILE WE INVESTIGATE SMOOTH TURF GAS ISSUES
 
 	var/minimum_pressure
 	var/maximum_pressure
@@ -31,14 +31,16 @@
 	var/datum/gas/gastype
 	var/amount
 	while(gasmix.return_pressure() < target_pressure)
-		if(!prob(restricted_chance))
-			gastype = pick(normal_gases)
-			amount = normal_gases[gastype]
-		else
-			gastype = pick(restricted_gases)
-			amount = restricted_gases[gastype]
-			if(gasmix.get_moles(gastype))
-				continue
+		// BEGIN VOID EDITS, DISABLING DUE TO SMOOTH TURF GAS ISSUES
+		// if(!prob(restricted_chance))
+		gastype = pick(normal_gases)
+		amount = normal_gases[gastype]
+		// else
+		// 	gastype = pick(restricted_gases)
+		// 	amount = restricted_gases[gastype]
+		// 	if(gasmix.get_moles(gastype))
+		// 		continue
+		// END VOID EDITS
 
 		amount *= rand(50, 200) / 100	// Randomly modifes the amount from half to double the base for some variety
 		amount *= pressure_scalar		// If we pick a really small target pressure we want roughly the same mix but less of it all

@@ -96,6 +96,7 @@ SUBSYSTEM_DEF(overmap)
 
 /datum/controller/subsystem/overmap/proc/initialize_generator()
 	generator_type = CONFIG_GET(string/overmap_generator_type)
+
 	if (!generator_type)
 		generator_type = OVERMAP_GENERATOR_RANDOM
 		return
@@ -238,17 +239,16 @@ SUBSYSTEM_DEF(overmap)
 			return SSmapping.lava_ruins_templates
 		if (RUIN_TYPE_ICE)
 			return SSmapping.ice_ruins_templates
-		if (RUIN_TYPE_SAND)
-			return SSmapping.sand_ruins_templates
-		if (RUIN_TYPE_ROCK)
-			return SSmapping.rock_ruins_templates
 		if (RUIN_TYPE_JUNGLE)
 			return SSmapping.jungle_ruins_templates
 		if (RUIN_TYPE_REEBE)
 			return SSmapping.yellow_ruins_templates
 		if (RUIN_TYPE_SPACE)
 			return SSmapping.space_ruins_templates
-
+		if (RUIN_TYPE_BEACH)
+			return SSmapping.beach_ruins_templates
+		if (RUIN_TYPE_WASTELAND)
+			return SSmapping.wasteland_ruins_templates
 /**
   * Reserves a square dynamic encounter area, and spawns a ruin in it if one is supplied.
   * * on_planet - If the encounter should be on a generated planet. Required, as it will be otherwise inaccessible.
@@ -261,6 +261,7 @@ SUBSYSTEM_DEF(overmap)
 	var/area/target_area
 	var/turf/surface = /turf/open/space
 	var/datum/weather_controller/weather_controller_type
+	var/datum/planet/planet_template
 	if(!isnull(planet_type))
 		planet_type = new planet_type
 		ruin_list = get_ruin_list(planet_type.ruin_type)
@@ -269,6 +270,8 @@ SUBSYSTEM_DEF(overmap)
 		target_area = planet_type.target_area
 		surface = planet_type.surface
 		weather_controller_type = planet_type.weather_controller_type
+		if(!(isnull(planet_type.planet_template)))
+			planet_template = new planet_type.planet_template
 		qdel(planet_type)
 
 	if(ruin && ruin_list && !ruin_type)
@@ -298,8 +301,11 @@ SUBSYSTEM_DEF(overmap)
 			)
 		ruin_type.load(ruin_turf)
 
-	if(mapgen)
-		mapgen.generate_terrain(vlevel.get_unreserved_block())
+	if (!isnull(mapgen) && istype(mapgen, /datum/map_generator/planet_generator) && !isnull(planet_template))
+		mapgen.generate_terrain(vlevel.get_unreserved_block(), planet_template)
+	else
+		if (!isnull(mapgen))
+			mapgen.generate_terrain(vlevel.get_unreserved_block())
 
 	if(weather_controller_type)
 		new weather_controller_type(mapzone)
