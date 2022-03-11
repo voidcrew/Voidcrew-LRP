@@ -5,8 +5,8 @@
 	icon_state = "cassette_flip"
 	w_class = WEIGHT_CLASS_SMALL
 	///icon of the cassettes front side
-	var/side1_icon = "cassette"
-	var/side2_icon = "cassette_flip"
+	var/side1_icon = "cassette_worstmap"
+	var/side2_icon = "cassette_worstmap"
 	///if the cassette is flipped, for playing second list of songs
 	var/flipped = FALSE
 	///list of songs each side has to play
@@ -108,6 +108,7 @@
 	desc = "A plastic cassette tape with a ftl themed sticker."
 	icon_state = "cassette_ftl"
 	side1_icon = "cassette_ftl"
+	side1_icon = "cassette_flip"
 	song_names = list("side1" = list("Milky Way(Explore)",\
 									 "Civil(Explore)",\
 									 "Cosmos(Explore)",\
