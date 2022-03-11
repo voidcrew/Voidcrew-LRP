@@ -128,7 +128,7 @@
 			if(findtext(current_playlist[pl_index], GLOB.is_http_protocol))
 				var/ytdl = CONFIG_GET(string/invoke_youtubedl)
 				var/web_sound_input
-				/var/web_sound_url
+				var/web_sound_url = ""
 				var/list/music_extra_data = list()
 				web_sound_input = trim(current_playlist[pl_index])
 				var/shell_scrubbed_input = shell_url_scrub(web_sound_input)

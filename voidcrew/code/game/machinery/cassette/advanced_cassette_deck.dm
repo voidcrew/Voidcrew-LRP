@@ -131,12 +131,15 @@
 					to_chat(src, "<span class='warning'>[error]: [stdout]</span>", confidential = TRUE)
 					return
 				if (data["url"])
-					web_sound_url = data["url"]
 					music_extra_data["title"] = data["title"]
 			if(tape.flipped == FALSE)
+				if(length(tape.songs["side1"]) >= 7)
+					return
 				tape.songs["side1"] += url
 				tape.song_names["side1"] += data["title"]
 			else
+				if(length(tape.songs["side1"]) >= 7)
+					return
 				tape.songs["side2"] += url
 				tape.song_names["side2"] += data["title"]
 
