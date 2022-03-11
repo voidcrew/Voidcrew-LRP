@@ -52,8 +52,8 @@
 			if(!newcassettename)
 				to_chat(user, "<span class='warning'>That name is invalid.</span>")
 				return
-				else
-			name = "[lowertext(newcassettename)]"
+			else
+				name = "[lowertext(newcassettename)]"
 		if("Cassette Description")
 			///the description we are giving the cassette
 			var/newdesc = stripped_input(user, "Write a new description:", name, desc)
@@ -71,7 +71,7 @@
 			return
 
 /datum/cassette/cassette_tape
-	var/name = "Default Cassette"
+	var/name = "Broken Cassette"
 	var/desc = "You shouldn't be seeing this! Make an issue about it"
 	var/icon_state = "cassette_flip"
 	var/side1_icon = "cassette_flip"

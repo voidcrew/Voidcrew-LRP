@@ -10,17 +10,9 @@
 	var/datum/track/selection = null
 
 /obj/machinery/cassette/adv_cassette_deck/wrench_act(mob/living/user, obj/item/wrench)
-	if(!(flags_1 & NODECONSTRUCT_1))
-		if(wrench.tool_behaviour == TOOL_WRENCH)
-			if(!anchored && !isinspace())
-				to_chat(user,"<span class='notice'>You secure [src] to the floor.</span>")
-				set_anchored(TRUE)
-			else if(anchored)
-				to_chat(user,"<span class='notice'>You unsecure and disconnect [src].</span>")
-				set_anchored(FALSE)
-			playsound(src, 'sound/items/deconstruct.ogg', 50, TRUE)
-			return
-	return ..()
+	..()
+	default_unfasten_wrench(user, wrench, 5)
+	return TRUE
 
 /obj/machinery/cassette/adv_cassette_deck/attackby(obj/item/cassette, mob/user)
 	if(istype(cassette, /obj/item/device/cassette_tape))
