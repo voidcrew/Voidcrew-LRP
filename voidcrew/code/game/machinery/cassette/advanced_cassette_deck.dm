@@ -146,5 +146,9 @@
 							"Aesthetic Sticker")
 			///the input list to choose which sticker to add to the cassette
 			var/selection = tgui_input_list(usr, "Choose Your Sticker", "Advanced Cassette Deck", design_names)
-			tape.icon_state = design_path[design_names.Find(selection)]
-			tape.side1_icon = design_path[design_names.Find(selection)]
+			if(tape.flipped == FALSE)
+				tape.icon_state = design_path[design_names.Find(selection)]
+				tape.side1_icon = design_path[design_names.Find(selection)]
+			else
+				tape.icon_state = design_path[design_names.Find(selection)]
+				tape.side2_icon = design_path[design_names.Find(selection)]

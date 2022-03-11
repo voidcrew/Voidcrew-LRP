@@ -6,6 +6,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	///icon of the cassettes front side
 	var/side1_icon = "cassette"
+	var/side2_icon = "cassette_flip"
 	///if the cassette is flipped, for playing second list of songs
 	var/flipped = FALSE
 	///list of songs each side has to play
@@ -24,6 +25,7 @@
 	desc = tape.desc
 	icon_state = tape.icon_state
 	side1_icon = tape.side1_icon
+	side2_icon = tape.side2_icon
 	id = tape.id
 	songs = tape.songs
 	song_names = tape.song_names
@@ -32,7 +34,7 @@
 /obj/item/device/cassette_tape/attack_self(mob/user)
 	..()
 
-	icon_state = flipped ? side1_icon : "cassette_flip"
+	icon_state = flipped ? side1_icon : side2_icon
 	flipped = !flipped
 	to_chat(user,"You flip [src]")
 
@@ -75,6 +77,7 @@
 	var/desc = "You shouldn't be seeing this! Make an issue about it"
 	var/icon_state = "cassette_flip"
 	var/side1_icon = "cassette_flip"
+	var/side2_icon = "cassette_flip"
 	var/id = 1
 	var/list/song_names = list("side1" = list(),
 							   "side2" = list())
@@ -181,6 +184,7 @@
 	desc = "A stylized plastic cassette tape with a synthwave asethetic."
 	icon_state = "cassette_friday"
 	side1_icon = "cassette_friday"
+	side2_icon = "cassette_friday"
 	id = 4
 	song_names = list("side1" = list("Now and Forever",\
 									 "Horsey",\
