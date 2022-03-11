@@ -178,7 +178,9 @@
 
 
 /obj/item/device/cassette_tape/random
-	var/choice = rand(1, 2) //update this when you want to add a cassette to the random pool
+	var/choice
+/obj/item/device/cassette_tape/random/New()
+	choice = rand(1, 2)
 	if(choice == 1)
 		tape = /datum/cassette/cassette_tape/blank
 	if(choice == 2)
