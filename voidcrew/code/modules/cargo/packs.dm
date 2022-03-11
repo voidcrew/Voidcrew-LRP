@@ -54,3 +54,14 @@
 		/obj/item/device/cassette_tape/blank
 	)
 	crate_name = "Crate Of Walkmans"
+
+/datum/supply_pack/service/random_cassettes
+	name = "Crate of Random Cassettes"
+	desc = "A pack of 3 random cassettes"
+	cost = 7500
+	contains = list(
+		/obj/item/device/cassette_tape/random,
+		/obj/item/device/cassette_tape/random,
+		/obj/item/device/cassette_tape/random
+	)
+	crate_name = "Crate of Random Cassettes"
