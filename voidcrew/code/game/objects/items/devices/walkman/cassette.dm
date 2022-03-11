@@ -37,39 +37,38 @@
 	to_chat(user,"You flip [src]")
 
 /obj/item/device/cassette_tape/attackby(obj/item/item, mob/living/user)
-	if(istype(item, /obj/item/pen))
-		var/choice = input("What would you like to change?") in list("Cassette Name", "Cassette Description", "Cancel")
-		switch(choice)
-			if("Cassette Name")
-				///the name we are giving the cassette
-				var/newcassettename = reject_bad_text(stripped_input(user, "Write a new Cassette name:", name, name))
-				if(!user.canUseTopic(src, BE_CLOSE))
-					return
-				if (length(newcassettename) > 20)
-					to_chat(user, "<span class='warning'>That name is too long!</span>")
-					return
-				if(!newcassettename)
-					to_chat(user, "<span class='warning'>That name is invalid.</span>")
-					return
-				else
-					name = "[lowertext(newcassettename)]"
-			if("Cassette Description")
-				///the description we are giving the cassette
-				var/newdesc = stripped_input(user, "Write a new description:", name, desc)
-				if(!user.canUseTopic(src, BE_CLOSE))
-					return
-				if (length(newdesc) > 180)
-					to_chat(user, "<span class='warning'>That description is too long!</span>")
-					return
-				if(!newdesc)
-					to_chat(user, "<span class='warning'>That description is invalid.</span>")
-					return
-				else
-					desc = newdesc
-			else
+	if(!istype(item, /obj/item/pen))
+		return
+	var/choice = input("What would you like to change?") in list("Cassette Name", "Cassette Description", "Cancel")
+	switch(choice)
+		if("Cassette Name")
+			///the name we are giving the cassette
+			var/newcassettename = reject_bad_text(stripped_input(user, "Write a new Cassette name:", name, name))
+			if(!user.canUseTopic(src, BE_CLOSE))
 				return
-	else
-		. = ..()
+			if (length(newcassettename) > 20)
+				to_chat(user, "<span class='warning'>That name is too long!</span>")
+				return
+			if(!newcassettename)
+				to_chat(user, "<span class='warning'>That name is invalid.</span>")
+				return
+				else
+			name = "[lowertext(newcassettename)]"
+		if("Cassette Description")
+			///the description we are giving the cassette
+			var/newdesc = stripped_input(user, "Write a new description:", name, desc)
+			if(!user.canUseTopic(src, BE_CLOSE))
+				return
+			if (length(newdesc) > 180)
+				to_chat(user, "<span class='warning'>That description is too long!</span>")
+				return
+			if(!newdesc)
+				to_chat(user, "<span class='warning'>That description is invalid.</span>")
+				return
+			else
+				desc = newdesc
+		else
+			return
 
 /datum/cassette/cassette_tape
 	var/name = "Default Cassette"
