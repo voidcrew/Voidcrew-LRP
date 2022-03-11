@@ -176,12 +176,3 @@
 /obj/item/device/cassette_tape/ftl
 	tape = /datum/cassette/cassette_tape/ftl
 
-
-/obj/item/device/cassette_tape/random
-	var/choice
-/obj/item/device/cassette_tape/random/New()
-	choice = rand(1, 2)
-	if(choice == 1)
-		tape = /datum/cassette/cassette_tape/blank
-	if(choice == 2)
-		tape = /datum/cassette/cassette_tape/ftl
