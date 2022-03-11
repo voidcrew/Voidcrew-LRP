@@ -15,8 +15,8 @@
 /turf/open/floor/plastic,
 /area/ruin/powered)
 "bd" = (
-/turf/open/floor/plating/asteroid/whitesands,
-/area/whitesands/surface/outdoors/explored)
+/turf/open/floor/plating/wasteland/lit,
+/area/overmap_encounter/planetoid/wasteland)
 "bf" = (
 /obj/structure/chair/office{
 	dir = 1
@@ -208,6 +208,7 @@
 /obj/item/kitchen/spoon/plastic,
 /obj/item/kitchen/spoon/plastic,
 /obj/item/kitchen/spoon/plastic,
+/obj/item/shovel/spoon,
 /turf/open/floor/plastic,
 /area/ruin/powered)
 "km" = (
@@ -238,6 +239,7 @@
 /obj/item/kitchen/spoon/plastic,
 /obj/item/kitchen/spoon/plastic,
 /obj/item/kitchen/spoon/plastic,
+/obj/item/shovel/spoon,
 /turf/open/floor/plastic,
 /area/ruin/powered)
 "pl" = (
@@ -248,6 +250,7 @@
 /obj/item/kitchen/spoon/plastic,
 /obj/item/kitchen/spoon/plastic,
 /obj/item/kitchen/spoon/plastic,
+/obj/item/shovel/spoon,
 /turf/open/floor/plastic,
 /area/ruin/powered)
 "pZ" = (
@@ -258,8 +261,8 @@
 "qa" = (
 /obj/machinery/icecream_vat,
 /obj/item/shovel/spoon,
-/turf/open/floor/plating/asteroid/whitesands/dried,
-/area/whitesands/surface/outdoors/explored)
+/turf/open/floor/plating/dust/lit,
+/area/overmap_encounter/planetoid/wasteland)
 "sl" = (
 /obj/item/kitchen/spoon/plastic{
 	pixel_x = 11
@@ -274,6 +277,19 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plastic,
 /area/ruin/powered)
+"sw" = (
+/obj/structure/closet/crate/secure,
+/obj/item/kitchen/spoon/plastic,
+/obj/item/kitchen/spoon/plastic,
+/obj/item/kitchen/spoon/plastic,
+/obj/item/kitchen/spoon/plastic,
+/obj/item/kitchen/spoon/plastic,
+/obj/item/kitchen/spoon/plastic,
+/obj/item/kitchen/spoon/plastic,
+/obj/item/kitchen/spoon/plastic,
+/obj/item/shovel/spoon,
+/turf/open/floor/plastic,
+/area/ruin/powered)
 "tl" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor2"
@@ -286,9 +302,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plastic,
 /area/ruin/powered)
-"uE" = (
-/turf/open/floor/plating/asteroid/whitesands/dried,
-/area/whitesands/surface/outdoors/explored)
 "vO" = (
 /obj/item/ammo_casing/spent{
 	dir = 9;
@@ -446,8 +459,8 @@
 /area/ruin/powered)
 "EC" = (
 /mob/living/simple_animal/hostile/asteroid/whitesands/ranged/hunter,
-/turf/open/floor/plating/asteroid/whitesands,
-/area/whitesands/surface/outdoors/explored)
+/turf/open/floor/plating/wasteland/lit,
+/area/overmap_encounter/planetoid/wasteland)
 "Fi" = (
 /obj/machinery/autolathe,
 /obj/machinery/camera{
@@ -540,8 +553,8 @@
 /turf/open/floor/plastic,
 /area/ruin/powered)
 "Lz" = (
-/turf/closed/mineral/random/whitesands,
-/area/whitesands/surface/outdoors/explored)
+/turf/open/floor/plating/dust/lit,
+/area/overmap_encounter/planetoid/wasteland)
 "Me" = (
 /obj/item/ammo_casing/spent{
 	dir = 8;
@@ -751,8 +764,8 @@ ct
 ct
 ct
 Lz
-Lz
-Lz
+bd
+bd
 ct
 ct
 ct
@@ -790,7 +803,7 @@ ct
 ct
 ct
 ct
-Lz
+bd
 Lz
 Lz
 ct
@@ -870,7 +883,7 @@ Ze
 HA
 ud
 Pi
-hs
+sw
 Tt
 Me
 Ze
@@ -898,9 +911,9 @@ VR
 Ze
 Jt
 MG
+bd
 Lz
-uE
-uE
+Lz
 "}
 (9,1,1) = {"
 ct
@@ -918,8 +931,8 @@ Ze
 ka
 Ze
 dl
-uE
-uE
+Lz
+Lz
 ct
 "}
 (10,1,1) = {"

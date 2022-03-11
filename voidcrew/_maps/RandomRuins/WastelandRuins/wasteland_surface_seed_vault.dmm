@@ -1,10 +1,10 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/turf/closed/mineral/random/whitesands,
-/area/whitesands/surface/outdoors)
+/turf/template_noop,
+/area/template_noop)
 "ab" = (
-/turf/open/floor/plating/asteroid/whitesands/dried,
-/area/whitesands/surface/outdoors)
+/turf/open/floor/plating/dust/lit,
+/area/overmap_encounter/planetoid/wasteland)
 "ac" = (
 /turf/closed/wall/r_wall,
 /area/ruin/powered/seedvault)
@@ -231,7 +231,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/powered/seedvault)
 "aG" = (
-/turf/closed/mineral/random/whitesands,
+/turf/template_noop,
 /area/ruin/powered/seedvault)
 "aH" = (
 /obj/machinery/door/airlock/vault,
@@ -508,13 +508,13 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/open/floor/plating/grass/whitesands,
+/turf/open/floor/grass,
 /area/ruin/powered/seedvault)
 "bn" = (
 /obj/structure/window/spawner/east,
 /obj/structure/flora/ausbushes/palebush,
 /obj/structure/flora/ausbushes/ppflowers,
-/turf/open/floor/plating/grass/whitesands,
+/turf/open/floor/grass,
 /area/ruin/powered/seedvault)
 "bo" = (
 /obj/machinery/chem_master/condimaster,
@@ -553,19 +553,19 @@
 "br" = (
 /obj/structure/flora/ausbushes/sunnybush,
 /obj/structure/flora/grass/jungle/b,
-/turf/open/floor/plating/grass/whitesands,
+/turf/open/floor/grass,
 /area/ruin/powered/seedvault)
 "bs" = (
 /obj/structure/window/spawner/east,
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/open/floor/plating/grass/whitesands,
+/turf/open/floor/grass,
 /area/ruin/powered/seedvault)
 "bt" = (
 /obj/structure/window/spawner,
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/genericbush,
 /obj/structure/flora/ausbushes/brflowers,
-/turf/open/floor/plating/grass/whitesands,
+/turf/open/floor/grass,
 /area/ruin/powered/seedvault)
 "bu" = (
 /obj/structure/window/spawner/east,
@@ -573,7 +573,7 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/effect/decal/cleanable/glass,
-/turf/open/floor/plating/grass/whitesands,
+/turf/open/floor/grass,
 /area/ruin/powered/seedvault)
 "bv" = (
 /obj/machinery/light,
@@ -598,8 +598,8 @@
 /area/ruin/powered/seedvault)
 "bx" = (
 /obj/effect/decal/cleanable/glass,
-/turf/open/floor/plating/asteroid/whitesands/dried,
-/area/whitesands/surface/outdoors)
+/turf/open/floor/grass,
+/area/overmap_encounter/planetoid/wasteland)
 "by" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -638,9 +638,17 @@
 	},
 /turf/open/floor/plasteel/freezer,
 /area/ruin/powered/seedvault)
+"eL" = (
+/obj/structure/flora/ausbushes/sunnybush,
+/turf/open/floor/grass,
+/area/overmap_encounter/planetoid/wasteland)
+"nH" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/grass,
+/area/overmap_encounter/planetoid/wasteland)
 "nX" = (
-/turf/open/floor/plating/asteroid/whitesands,
-/area/whitesands/surface/outdoors)
+/turf/open/floor/plating/wasteland/lit,
+/area/overmap_encounter/planetoid/wasteland)
 "oR" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 10
@@ -663,6 +671,14 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plasteel/dark,
 /area/ruin/powered/seedvault)
+"xa" = (
+/obj/structure/flora/ausbushes/palebush,
+/turf/open/floor/grass,
+/area/overmap_encounter/planetoid/wasteland)
+"At" = (
+/obj/structure/flora/ausbushes/brflowers,
+/turf/open/floor/grass,
+/area/overmap_encounter/planetoid/wasteland)
 "Bb" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/open/floor/plasteel/freezer,
@@ -704,6 +720,9 @@
 /obj/structure/table/wood,
 /turf/open/floor/vault,
 /area/ruin/powered/seedvault)
+"Rq" = (
+/turf/template_noop,
+/area/overmap_encounter/planetoid/wasteland)
 "Uz" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 1
@@ -714,6 +733,10 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
 /turf/open/floor/plasteel/freezer,
 /area/ruin/powered/seedvault)
+"XE" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/open/floor/grass,
+/area/overmap_encounter/planetoid/wasteland)
 
 (1,1,1) = {"
 aa
@@ -734,8 +757,8 @@ aa
 aa
 aa
 aa
-nX
-nX
+ab
+ab
 "}
 (2,1,1) = {"
 aa
@@ -744,6 +767,13 @@ aa
 aa
 ab
 ab
+Rq
+aa
+aa
+aa
+aa
+aa
+nX
 aa
 aa
 aa
@@ -751,13 +781,6 @@ aa
 aa
 aa
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-nX
 "}
 (3,1,1) = {"
 aa
@@ -771,15 +794,15 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-aa
-aa
-aa
 nX
 nX
 nX
+aa
+aa
+aa
+ab
+ab
+ab
 "}
 (4,1,1) = {"
 aa
@@ -792,14 +815,14 @@ ac
 ac
 ac
 ac
-ab
-ab
-ab
-ab
+nH
 nX
 nX
 nX
 nX
+ab
+ab
+ab
 aa
 aa
 "}
@@ -814,11 +837,11 @@ aQ
 av
 uK
 aR
-ab
-ab
-ab
-ab
-ab
+XE
+At
+eL
+nX
+nX
 aa
 aa
 aa
@@ -836,8 +859,8 @@ ah
 av
 Ou
 aR
-ab
-ab
+xa
+nH
 ac
 ac
 ac
@@ -1063,8 +1086,8 @@ by
 bA
 ac
 ac
-ab
-ab
+nX
+nX
 aa
 "}
 (17,1,1) = {"
@@ -1084,8 +1107,8 @@ ac
 bm
 br
 bt
-ab
-ab
+nX
+nX
 aa
 aa
 "}
@@ -1107,9 +1130,9 @@ bn
 bs
 bu
 bx
-ab
-ab
 nX
+nX
+ab
 "}
 (19,1,1) = {"
 aa
@@ -1128,10 +1151,10 @@ aa
 aa
 aa
 aa
-ab
-ab
 nX
 nX
+ab
+ab
 "}
 (20,1,1) = {"
 aa
@@ -1151,7 +1174,7 @@ aa
 aa
 aa
 aa
-ab
 nX
+ab
 aa
 "}
