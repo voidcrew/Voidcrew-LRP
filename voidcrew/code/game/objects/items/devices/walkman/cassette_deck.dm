@@ -30,15 +30,14 @@
 	removal = !removal
 
 /obj/item/device/cassette_deck/attackby(obj/item/cassette, mob/user)
-	if(istype(cassette, /obj/item/device/cassette_tape))
-		if(!send || !recieve)
-			insert_tape(cassette)
-			playsound(src,'sound/weapons/handcuffs.ogg',20,1)
-			to_chat(user,("You insert \the [cassette] into \the [src]"))
-		else
-			to_chat(user,("Remove a tape first!"))
+	if(!istype(cassette, /obj/item/device/cassette_tape))
+		return
+	if(!send || !recieve)
+		insert_tape(cassette)
+		playsound(src,'sound/weapons/handcuffs.ogg',20,1)
+		to_chat(user,("You insert \the [cassette] into \the [src]"))
 	else
-		. = ..()
+		to_chat(user,("Remove a tape first!"))
 
 /obj/item/device/cassette_deck/attack_self(mob/user)
 	. = ..()
