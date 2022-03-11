@@ -46,6 +46,9 @@
 		return
 
 	if(!removal)
+		if(reciever_list.len >= 7)
+			to_chat(user,"The Cassette is full please flip cassette or insert a new one")
+			return
 		if(!sender_names.len)
 			to_chat(user,"No songs to splice please change cassette")
 			return
