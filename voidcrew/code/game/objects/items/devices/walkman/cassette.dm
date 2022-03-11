@@ -99,7 +99,7 @@
 
 /datum/cassette/cassette_tape/ftl
 	name = "Faster Than Light cassette"
-	id = 4
+	id = 3
 	desc = "A plastic cassette tape with a ftl themed sticker."
 	icon_state = "cassette_ftl"
 	side1_icon = "cassette_ftl"
@@ -176,3 +176,33 @@
 /obj/item/device/cassette_tape/ftl
 	tape = /datum/cassette/cassette_tape/ftl
 
+/datum/cassette/cassette_tape/friday
+	name = " A Millions Miles Away"
+	desc = "A stylized plastic cassette tape with a synthwave asethetic."
+	icon_state = "cassette_friday"
+	side1_icon = "cassette_friday"
+	id = 4
+	song_names = list("side1" = list("Now and Forever",\
+									 "Horsey",\
+									 "This Feeling",\
+									 "Lovers",\
+									 "Night In Tokyo Pt. II"),
+					  "side2" = list("Grandlife, Highlife",\
+					  				 "82.99 F.M.",\
+									 "Fugaz",\
+									 "アスカBad Girl",\
+									 "Thank You"))
+
+	songs = list("side1" = list("voidcrew/sound/music/walkman/friday/4-1-1.ogg",\
+								"voidcrew/sound/music/walkman/friday/4-1-2.ogg",\
+								"voidcrew/sound/music/walkman/friday/4-1-3.ogg",\
+								"voidcrew/sound/music/walkman/friday/4-1-4.ogg",\
+								"voidcrew/sound/music/walkman/friday/4-1-5.ogg"),
+				 "side2" = list("voidcrew/sound/music/walkman/friday/4-2-1.ogg",\
+				 				"voidcrew/sound/music/walkman/friday/4-2-2.ogg",\
+								"voidcrew/sound/music/walkman/friday/4-2-3.ogg",\
+								"voidcrew/sound/music/walkman/friday/4-2-4.ogg",\
+								"voidcrew/sound/music/walkman/friday/4-2-5.ogg"))
+
+/obj/item/device/cassette_tape/friday
+	tape = /datum/cassette/cassette_tape/friday

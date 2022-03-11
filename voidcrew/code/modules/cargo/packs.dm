@@ -56,12 +56,14 @@
 	crate_name = "Crate Of Walkmans"
 
 /datum/supply_pack/service/random_cassettes
-	name = "Crate of Random Cassettes"
+	name = "Crate of Random Cassettes" // i want the odds to be roughly 25% chance of rolling a blank cassette
 	desc = "A pack of 3 random cassettes"
 	cost = 7500
+	var/num_contained = 3 //number of items picked to be contained in a randomised crate
 	contains = list(
-		/obj/item/device/cassette_tape/random,
-		/obj/item/device/cassette_tape/random,
-		/obj/item/device/cassette_tape/random
+		/obj/item/device/cassette_tape/blank,
+		/obj/item/device/cassette_tape/blank,
+		/obj/item/device/cassette_tape/ftl,
+		/obj/item/device/cassette_tape/friday,
 	)
 	crate_name = "Crate of Random Cassettes"
