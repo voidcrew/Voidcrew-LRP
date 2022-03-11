@@ -50,6 +50,7 @@
 		/obj/item/clothing/suit/radiation = 10,
 		/obj/item/clothing/head/radiation = 10,
 		/obj/item/reagent_containers/hypospray/medipen/survival = 5,
+		/obj/item/reagent_containers/hypospray/medipen/stimpack = 1,
 		/obj/item/stack/medical/bruise_pack = 10,
 		/obj/item/stack/medical/ointment = 10,
 		/obj/item/storage/firstaid/regular = 3,
