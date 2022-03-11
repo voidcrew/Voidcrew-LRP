@@ -16,13 +16,14 @@
 	return TRUE
 
 /obj/machinery/cassette/adv_cassette_deck/attackby(obj/item/cassette, mob/user)
-	if(istype(cassette, /obj/item/device/cassette_tape))
-		if(!tape)
-			insert_tape(cassette)
-			playsound(src,'sound/weapons/handcuffs.ogg',20,1)
-			to_chat(user,("You insert \the [cassette] into \the [src]"))
-		else
-			to_chat(user,("Remove a tape first!"))
+	if(!istype(cassette, /obj/item/device/cassette_tape))
+		return
+	if(!tape)
+		insert_tape(cassette)
+		playsound(src,'sound/weapons/handcuffs.ogg',20,1)
+		to_chat(user,("You insert \the [cassette] into \the [src]"))
+	else
+		to_chat(user,("Remove a tape first!"))
 
 /obj/machinery/cassette/adv_cassette_deck/proc/insert_tape(obj/item/device/cassette_tape/CTape)
 	if(tape || !istype(CTape))
