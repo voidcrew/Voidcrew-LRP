@@ -93,10 +93,12 @@
 	icon_state = "cassette_flip"
 	side1_icon = "cassette_flip"
 	id = 2
-	song_names = list("side1" = list(),
+	song_names = list("side1" = list("test",\
+									 "test2"),
 					  "side2" = list())
 
-	songs = list("side1" = list(),
+	songs = list("side1" = list("https://www.youtube.com/watch?v=uChyiLL621Y&list=RDuChyiLL621Y&start_radio=1",\
+								"voidcrew/sound/music/walkman/ftl/3-1-1.ogg"),
 				 "side2" = list())
 
 /obj/item/device/cassette_tape/blank

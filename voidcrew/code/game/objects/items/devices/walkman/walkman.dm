@@ -18,12 +18,16 @@
 	var/sound/current_song
 	///Who's using the walkman
 	var/mob/current_listener
+	///Client of the listener
+	var/client/listener
 	///where in the playlist you are
 	var/pl_index = 1
 	///volume the walkman starts at
 	var/volume = 25
 	/// What kind of walkman design style to use
 	var/design = 1
+	///Is the current song a link? We handle those different
+	var/link_play = FALSE
 
 /obj/item/device/walkman/Initialize()
 	. = ..()
@@ -35,6 +39,7 @@
 	break_sound()
 	current_song = null
 	current_listener = null
+	listener = null
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
@@ -53,6 +58,7 @@
 
 	if(!current_listener)
 		current_listener = user
+		listener = current_listener.client
 		START_PROCESSING(SSobj, src)
 	if(istype(tape))
 		if(paused)
@@ -78,9 +84,13 @@
 
 ///This is called when sound needs to be broken ie you die or lose access to it
 /obj/item/device/walkman/proc/break_sound()
+	if(link_play)
+		listener.tgui_panel?.stop_music()
+		return
 	var/sound/break_sound = sound(null, 0, 0, SOUND_CHANNEL_WALKMAN)
 	break_sound.priority = 255
 	update_song(break_sound, current_listener, 0)
+
 
 /*Called when songs are updated ie volume change
  *Arguments: mob/user -> the current user of the walkman
@@ -102,14 +112,54 @@
 	if(!current_song)
 		return
 	paused = TRUE
-	update_song(current_song,current_listener, SOUND_PAUSED | SOUND_UPDATE)
+	if(!link_play)
+		update_song(current_song,current_listener, SOUND_PAUSED | SOUND_UPDATE)
+	else
+		listener.tgui_panel?.stop_music()
+		to_chat(user, "You Notice the Cassette rewind back to the beginning of the song as you pause it.")
 
 ///Handles the actual playing of the sound to the current_listener
 /obj/item/device/walkman/proc/play()
 	if(!current_song)
 		if(current_playlist.len > 0)
-			current_song = sound(current_playlist[pl_index], 0, 0, SOUND_CHANNEL_WALKMAN, volume)
-			current_song.status = SOUND_STREAM
+			if(findtext(current_playlist[pl_index], GLOB.is_http_protocol))
+				var/ytdl = CONFIG_GET(string/invoke_youtubedl)
+				var/web_sound_input
+				/var/web_sound_url = ""
+				var/list/music_extra_data = list()
+				web_sound_input = trim(current_playlist[pl_index])
+				var/shell_scrubbed_input = shell_url_scrub(web_sound_input)
+				var/list/output = world.shelleo("[ytdl] --geo-bypass --format \"bestaudio\[ext=mp3]/best\[ext=mp4]\[height<=360]/bestaudio\[ext=m4a]/bestaudio\[ext=aac]\" --dump-single-json --no-playlist -- \"[shell_scrubbed_input]\"")
+				var/errorlevel = output[SHELLEO_ERRORLEVEL]
+				var/stdout = output[SHELLEO_STDOUT]
+				var/stderr = output[SHELLEO_STDERR]
+				if(!errorlevel)
+					var/list/data
+					try
+						data = json_decode(stdout)
+					catch(var/exception/e)
+						to_chat(src, "<span class='boldwarning'>Youtube-dl JSON parsing FAILED:</span>", confidential = TRUE)
+						to_chat(src, "<span class='warning'>[e]: [stdout]</span>", confidential = TRUE)
+						return
+
+					if (data["url"])
+						web_sound_url = data["url"]
+						var/title = "[data["title"]]"
+						var/webpage_url = title
+						if (data["webpage_url"])
+							webpage_url = "<a href=\"[data["webpage_url"]]\">[title]</a>"
+						music_extra_data["start"] = data["start_time"]
+						music_extra_data["end"] = data["end_time"]
+						music_extra_data["link"] = data["webpage_url"]
+						music_extra_data["title"] = data["title"]
+				listener.tgui_panel?.play_music(web_sound_url, music_extra_data)
+				link_play = TRUE
+				paused = FALSE
+				return
+
+			else
+				current_song = sound(current_playlist[pl_index], 0, 0, SOUND_CHANNEL_WALKMAN, volume)
+				current_song.status = SOUND_STREAM
 		else
 			return
 	paused = FALSE
@@ -169,8 +219,14 @@
 
 	pl_index = pl_index + 1 <= current_playlist.len ? (pl_index += 1) : 1
 
-	current_song = sound(current_playlist[pl_index], 0, 0, SOUND_CHANNEL_WALKMAN, volume)
-	current_song.status = SOUND_STREAM
+	link_play = findtext(current_playlist[pl_index], GLOB.is_http_protocol) ? TRUE : FALSE
+
+
+	if(!link_play)
+		current_song = sound(current_playlist[pl_index], 0, 0, SOUND_CHANNEL_WALKMAN, volume)
+		current_song.status = SOUND_STREAM
+	else
+		current_song = null
 	play()
 
 
@@ -198,6 +254,7 @@
 		break_sound()
 		paused = TRUE
 		current_listener = null
+		listener = null
 		update_icon()
 		STOP_PROCESSING(SSobj, src)
 		return
