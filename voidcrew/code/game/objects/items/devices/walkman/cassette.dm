@@ -1,6 +1,6 @@
 /obj/item/device/cassette_tape
-	name = "cassette Tape"
-	desc = "A cassette tape"
+	name = "Debug Cassette Tape"
+	desc = "You shouldn't be seeing this!"
 	icon = 'voidcrew/icons/obj/walkman.dmi'
 	icon_state = "cassette_flip"
 	w_class = WEIGHT_CLASS_SMALL
@@ -10,9 +10,11 @@
 	///if the cassette is flipped, for playing second list of songs
 	var/flipped = FALSE
 	///list of songs each side has to play
-	var/list/songs = list()
+	var/list/songs = list("side1" = list(),
+						  "side2" = list())
 	///list of each songs name in the order they appear
-	var/list/song_names = list()
+	var/list/song_names = list("side1" = list(),
+						 	   "side2" = list())
 	///the id of the cassette
 	var/id = 1
 	//the cassette_tape type datum
