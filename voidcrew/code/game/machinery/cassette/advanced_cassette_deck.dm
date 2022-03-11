@@ -4,6 +4,7 @@
 	icon = 'voidcrew/icons/obj/machines/adv_cassette_deck.dmi'
 	icon_state = "cassette_deck"
 	density = TRUE
+	pass_flags = PASSTABLE
 	///cassette tape used in adding songs or customizing
 	var/obj/item/device/cassette_tape/tape
 	///Selection used to add the jukebox as a song to a cassette
@@ -11,7 +12,7 @@
 
 /obj/machinery/cassette/adv_cassette_deck/wrench_act(mob/living/user, obj/item/wrench)
 	..()
-	default_unfasten_wrench(user, wrench, 5)
+	default_unfasten_wrench(user, wrench, 15)
 	return TRUE
 
 /obj/machinery/cassette/adv_cassette_deck/attackby(obj/item/cassette, mob/user)
