@@ -63,6 +63,6 @@
 	build_type = AUTOLATHE | PROTOLATHE
 	materials = list(/datum/material/iron = 2500,
 					 /datum/material/glass = 1500)
-	build_path = /obj/machinery/cassette/adv_cassette_deck
+	build_path = /obj/item/device/cassette_deck
 	category = list("initial","Tools","Tool Designs")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
