@@ -87,12 +87,12 @@
 				to_chat(usr,"Error: No Song Selected, Please select a song")
 				return
 			if(tape.flipped == FALSE)
-				if(tape.songs["side1"].len >= 7)
+				if(length(tape.songs["side1"]) >= 7)
 					to_chat(usr, "Error: Cassette full please flip or insert a new cassette")
 				tape.songs["side1"] += selection.song_path
 				tape.song_names["side1"] += selection.song_name
 			else
-				if(tape.songs["side2"].len >= 7)
+				if(length(tape.songs["side2"]) >= 7)
 					to_chat(usr, "Error: Cassette full please flip or insert a new cassette")
 				tape.songs["side2"] += selection.song_path
 				tape.song_names["side2"] += selection.song_name
