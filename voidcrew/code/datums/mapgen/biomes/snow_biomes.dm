@@ -20,6 +20,12 @@
 		/mob/living/simple_animal/hostile/asteroid/ice_demon/random = 20,
 		/mob/living/simple_animal/hostile/asteroid/ice_whelp = 20,
 	)
+	feature_spawn_chance = 0.4
+	feature_spawn_list = list(
+		/obj/structure/spawner/ice_moon/demonic_portal = 1,
+		/obj/structure/spawner/ice_moon/demonic_portal/ice_whelp = 1,
+		/obj/structure/spawner/ice_moon/demonic_portal/snowlegion = 1
+	)
 
 /datum/biome/snow/lush
 	open_turf_types = list(/turf/open/floor/plating/asteroid/snow/breathable/lit = 25)
@@ -130,14 +136,17 @@
 		/mob/living/simple_animal/hostile/asteroid/wolf/random = 30,
 		/obj/structure/spawner/ice_moon = 3,
 		/obj/structure/spawner/ice_moon/polarbear = 3,
-		/obj/structure/spawner/ice_moon/demonic_portal = 7,
-		/obj/structure/spawner/ice_moon/demonic_portal/ice_whelp = 7,
-		/obj/structure/spawner/ice_moon/demonic_portal/snowlegion = 7,
 		/mob/living/simple_animal/hostile/asteroid/polarbear/random = 30,
 		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/snow = 50,
 		/mob/living/simple_animal/hostile/asteroid/goldgrub = 10,
 		/mob/living/simple_animal/hostile/asteroid/ice_demon/random = 20,
 		/mob/living/simple_animal/hostile/asteroid/ice_whelp = 20
+	)
+	feature_spawn_chance = 0.4
+	feature_spawn_list = list(
+		/obj/structure/spawner/ice_moon/demonic_portal = 1,
+		/obj/structure/spawner/ice_moon/demonic_portal/ice_whelp = 1,
+		/obj/structure/spawner/ice_moon/demonic_portal/snowlegion = 1
 	)
 
 /datum/biome/cave/snow/thawed
@@ -154,9 +163,6 @@
 		/mob/living/simple_animal/hostile/asteroid/wolf/random = 30,
 		/obj/structure/spawner/ice_moon = 3,
 		/obj/structure/spawner/ice_moon/polarbear = 3,
-		/obj/structure/spawner/ice_moon/demonic_portal = 7,
-		/obj/structure/spawner/ice_moon/demonic_portal/ice_whelp = 7,
-		/obj/structure/spawner/ice_moon/demonic_portal/snowlegion = 7,
 		/mob/living/simple_animal/hostile/asteroid/polarbear/random = 30,
 		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/snow = 50,
 		/mob/living/simple_animal/hostile/asteroid/goldgrub = 10,
@@ -168,6 +174,12 @@
 		/obj/structure/flora/ash/leaf_shroom = 1,
 		/obj/structure/flora/ash/cap_shroom = 1,
 		/obj/structure/flora/ash/stem_shroom = 1,
+	)
+	feature_spawn_chance = 0.4
+	feature_spawn_list = list(
+		/obj/structure/spawner/ice_moon/demonic_portal = 1,
+		/obj/structure/spawner/ice_moon/demonic_portal/ice_whelp = 1,
+		/obj/structure/spawner/ice_moon/demonic_portal/snowlegion = 1,
 	)
 
 /datum/biome/cave/volcanic/lava
