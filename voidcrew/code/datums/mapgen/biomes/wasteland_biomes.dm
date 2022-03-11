@@ -17,25 +17,24 @@
 		/obj/item/shard = 30,
 		/obj/item/stack/cable_coil/cut = 30,
 		/obj/item/stack/rods = 30,
+		/obj/structure/spawner/ice_moon/demonic_portal/blobspore = 5,
+		/obj/structure/spawner/ice_moon/demonic_portal/hivebot = 5
 	)
 	feature_spawn_chance = 3
-	mob_spawn_chance = 15
+	mob_spawn_chance = 7
 	mob_spawn_list = list(
-		/mob/living/simple_animal/hostile/asteroid/whitesands/ranged/hunter = 10,
-		/mob/living/simple_animal/hostile/asteroid/whitesands/ranged/gunslinger = 7,
-		/mob/living/simple_animal/hostile/asteroid/whitesands = 15,
-		/mob/living/simple_animal/hostile/hivebot/rapid/wasteland = 5,
+		/mob/living/simple_animal/hostile/asteroid/whitesands/ranged/hunter = 5,
+		/mob/living/simple_animal/hostile/asteroid/whitesands/ranged/gunslinger = 5,
 		/mob/living/simple_animal/hostile/poison/giant_spider/wasteland = 5,
 		/mob/living/simple_animal/hostile/poison/giant_spider/tarantula/wasteland = 1,
-		/obj/structure/spawner/ice_moon/demonic_portal/blobspore = 1,
-		/obj/structure/spawner/ice_moon/demonic_portal/hivebot = 1
+		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/wasteland = 3
 	)
 
 /datum/biome/wasteland/plains
 	open_turf_types = list(/turf/open/floor/plating/dust/lit = 1)
 	flora_spawn_list = list(/obj/structure/flora/deadgrass/tall = 50, /obj/structure/flora/deadgrass/tall/dense = 5, /obj/structure/flora/rock = 1)
 	flora_spawn_chance = 45
-	mob_spawn_chance = 25
+	mob_spawn_chance = 15
 
 /datum/biome/wasteland/forest
 	open_turf_types = list(/turf/open/floor/plating/dirt/dry/lit = 1)
@@ -50,13 +49,15 @@
 
 /datum/biome/nuclear
 	open_turf_types = list(/turf/open/floor/plating/asteroid/sand/lit = 5, /turf/open/floor/plating/asteroid/sand/dark/lit = 1)
-	feature_spawn_chance = 1
+	feature_spawn_chance = 2.5
 	feature_spawn_list = list(
-		/obj/structure/radioactive = 1,
-		/obj/structure/radioactive/stack = 1,
-		/obj/structure/radioactive/waste = 1,
-		/obj/item/stack/ore/slag = 1,
-		/obj/structure/flora/cactus = 5
+		/obj/structure/radioactive = 10,
+		/obj/structure/radioactive/stack = 10,
+		/obj/structure/radioactive/waste = 10,
+		/obj/item/stack/ore/slag = 10,
+		/obj/structure/flora/cactus = 20,
+		/obj/structure/spawner/ice_moon/demonic_portal/blobspore = 2,
+		/obj/structure/spawner/ice_moon/demonic_portal/hivebot = 2
 	)
 	flora_spawn_chance = 1
 	flora_spawn_list = list(/obj/structure/flora/rock = 30, /obj/effect/decal/cleanable/greenglow/glowy = 30, /obj/structure/elite_tumor = 1)
@@ -64,7 +65,6 @@
 	mob_spawn_list = list(
 		/mob/living/simple_animal/hostile/asteroid/whitesands/ranged/hunter = 10,
 		/mob/living/simple_animal/hostile/asteroid/whitesands/ranged/gunslinger = 7,
-		/mob/living/simple_animal/hostile/asteroid/whitesands = 15,
 		/mob/living/simple_animal/hostile/hivebot/rapid/wasteland = 5,
 		/mob/living/simple_animal/hostile/poison/giant_spider/wasteland = 5,
 		/mob/living/simple_animal/hostile/poison/giant_spider/tarantula/wasteland = 1
@@ -74,22 +74,24 @@
 	open_turf_types = list(/turf/open/floor/plating/dust/lit = 45, /turf/open/floor/plating/rust = 1)
 	feature_spawn_chance = 5
 	feature_spawn_list = list(
-		/obj/structure/barrel/flaming = 3,
-		/obj/structure/barrel = 5,
-		/obj/structure/reagent_dispensers/fueltank = 3,
-		/obj/item/shard = 6,
-		/obj/item/stack/cable_coil/cut = 6,
-		/obj/effect/mine/explosive = 1,
-		/obj/item/reagent_containers/food/snacks/canned/beans = 1,
-		/obj/structure/mecha_wreckage/ripley = 3,
-		/obj/structure/mecha_wreckage/ripley/firefighter = 1,
-		/obj/structure/mecha_wreckage/ripley/mkii = 1
+		/obj/structure/barrel/flaming = 6,
+		/obj/structure/barrel = 10,
+		/obj/structure/reagent_dispensers/fueltank = 6,
+		/obj/item/shard = 12,
+		/obj/item/stack/cable_coil/cut = 12,
+		/obj/effect/mine/explosive = 2,
+		/obj/item/reagent_containers/food/snacks/canned/beans = 2,
+		/obj/structure/mecha_wreckage/ripley = 6,
+		/obj/structure/mecha_wreckage/ripley/firefighter = 2,
+		/obj/structure/mecha_wreckage/ripley/mkii = 2,
+		/obj/structure/spawner/ice_moon/demonic_portal/blobspore = 1,
+		/obj/structure/spawner/ice_moon/demonic_portal/hivebot = 1
 	)
 	flora_spawn_chance = 1
 	flora_spawn_list = list(
 		/obj/structure/girder = 1
 	)
-	mob_spawn_chance = 1
+	mob_spawn_chance = 10
 	mob_spawn_list = list(
 		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/wasteland = 15,
 		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/crystal/wasteland = 1,
@@ -101,9 +103,10 @@
 	closed_turf_types = list(/turf/closed/mineral/random/high_chance/wasteland = 1)
 	mob_spawn_chance = 1
 	mob_spawn_list = list(
-		/mob/living/simple_animal/hostile/asteroid/fugu/wasteland = 1,
-		/mob/living/simple_animal/hostile/bear/cave = 1,
-		/mob/living/simple_animal/hostile/asteroid/wolf/wasteland/random = 1
+		/mob/living/simple_animal/hostile/asteroid/fugu/wasteland = 15,
+		/mob/living/simple_animal/hostile/asteroid/wolf/wasteland/random = 15,
+		/obj/structure/spawner/ice_moon/demonic_portal/blobspore = 1,
+		/obj/structure/spawner/ice_moon/demonic_portal/hivebot = 1
 	)
 	flora_spawn_chance = 10
 	flora_spawn_list = list(
@@ -115,7 +118,7 @@
 		/obj/structure/flora/ash/tall_shroom = 4,
 		/obj/structure/flora/ash/whitesands/puce = 1
 	)
-	feature_spawn_chance = 1
+	feature_spawn_chance = 3
 	feature_spawn_list = list(
 		/obj/structure/spawner/cave = 20,
 		/obj/structure/closet/crate/grave = 40,
@@ -152,9 +155,11 @@
 	flora_spawn_chance = 1
 	mob_spawn_chance = 5
 	mob_spawn_list = list(
-		/mob/living/simple_animal/hostile/poison/giant_spider/tarantula/wasteland = 1,
-		/mob/living/simple_animal/hostile/asteroid/goliath/beast/wasteland = 5,
-		/mob/living/simple_animal/hostile/asteroid/goliath/beast/ancient/wasteland = 2
+		/mob/living/simple_animal/hostile/poison/giant_spider/tarantula/wasteland = 10,
+		/mob/living/simple_animal/hostile/asteroid/goliath/beast/wasteland = 20,
+		/mob/living/simple_animal/hostile/asteroid/goliath/beast/ancient/wasteland = 15,
+		/obj/structure/spawner/ice_moon/demonic_portal/blobspore = 2,
+		/obj/structure/spawner/ice_moon/demonic_portal/hivebot = 2
 	)
 
 /datum/biome/cave/mossy_stone
@@ -178,5 +183,7 @@
 		/mob/living/simple_animal/hostile/blob/blobbernaut/independent/wasteland = 1,
 		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/magmawing/wasteland = 4,
 		/mob/living/simple_animal/hostile/asteroid/goldgrub = 3,
-		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/wasteland = 3
+		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/wasteland = 3,
+		/obj/structure/spawner/ice_moon/demonic_portal/blobspore = 1,
+		/obj/structure/spawner/ice_moon/demonic_portal/hivebot = 1
 	)
