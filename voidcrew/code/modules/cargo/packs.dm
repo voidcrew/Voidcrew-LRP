@@ -63,7 +63,6 @@
 	contains = list(
 		/obj/item/device/cassette_tape/blank,
 		/obj/item/device/cassette_tape/blank,
-		/obj/item/device/cassette_tape/ftl,
 		/obj/item/device/cassette_tape/friday,
 	)
 	crate_name = "Crate of Random Cassettes"
