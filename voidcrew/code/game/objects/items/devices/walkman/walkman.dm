@@ -338,3 +338,6 @@
 	if(target)
 		var/obj/item/device/walkman/walkM = target
 		walkM.restart_song(owner)
+
+#undef sound_to
+#undef NEXT_SONG_USE_TIMER

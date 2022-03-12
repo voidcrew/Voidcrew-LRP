@@ -89,7 +89,8 @@
 			reciever_names = recieve.song_names["[recieve.flipped ? "side2" : "side1"]"]
 
 /obj/item/device/cassette_deck/proc/eject_tape(mob/user)
-	if(!recieve && !send) return
+	if(!recieve && !send)
+		return
 	if(recieve)
 		if(recieve.flipped == FALSE)
 			recieve.songs["side1"] = reciever_list
