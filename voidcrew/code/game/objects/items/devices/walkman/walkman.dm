@@ -84,6 +84,8 @@
 /obj/item/device/walkman/CtrlClick(mob/user)
 	if(tape)
 		next_song(user)
+	else
+		return ..()
 
 ///This is called when sound needs to be broken ie you die or lose access to it
 /obj/item/device/walkman/proc/break_sound()

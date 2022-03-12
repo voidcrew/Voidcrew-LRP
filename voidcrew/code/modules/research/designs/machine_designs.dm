@@ -105,16 +105,3 @@
 	category = list ("Cassette Technology")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
-/datum/design/item/cassette
-	name = "Cassette Tape"
-	desc = "A blank Cassette Tape useful for mixing tapes."
-	id = "cassette"
-	build_path = /obj/item/device/cassette_tape/blank
-	category = list("Cassette Technology")
-
-/datum/design/item/cassette_deck
-	name = "Dual Cassette Deck"
-	desc = "A dual cassette deck useful for adding and removing songs from existing cassettes"
-	id = "cassette_deck"
-	build_path = /obj/item/device/cassette_deck
-	category = list("Cassette Technology")
