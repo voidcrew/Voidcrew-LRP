@@ -1,3 +1,6 @@
+//Define for if you want youtube enabled set to false to disable allowing players to add youtube tracks to cassettes
+#define YOUTUBE_ENABLE TRUE
+
 /obj/machinery/cassette/adv_cassette_deck
 	name = "Advanced Cassette Deck"
 	desc = "A more advanced less portable Cassette Deck. Useful for recording songs from our generation, or customizing the style of your cassettes."
@@ -98,6 +101,7 @@
 			var/list/available = list()
 			for(var/datum/track/song in SSjukeboxes.songs)
 				available[song.song_name] = song
+			///the selected song from the jukebox
 			var/selected = params["track"]
 			selection = available[selected]
 			return TRUE
@@ -108,24 +112,38 @@
 			eject_tape(usr)
 			return
 		if("url")
+			if(!YOUTUBE_ENABLE)
+				to_chat(usr,"The connection to Earth's Internet seems to be closed for now.")
+				return
+			///the input of the videos ID
 			var/url = stripped_input(usr, "Insert the ID of the video in question (characters after the =):", no_trim = TRUE)
+			///the REGEX used for determining if its a valid ID or not
 			var/static/regex/link_check = regex(@"^[a-zA-Z0-9_.-]{11}$")
 			if(!link_check.Find(url))
 				to_chat(usr, "Error: Bad ID!")
 				return
+			///The Finished url to add to the song list
 			var/url_stuck = "https://www.youtube.com/watch?v=[url]"
+			///invoking youtube-dl
 			var/ytdl = CONFIG_GET(string/invoke_youtubedl)
+			/// all the extra data youtube-dl gives us we are only interested in the title however
 			var/list/music_extra_data = list()
+			///trimming the url to prevent any missed errors
 			var/url2 = trim(url_stuck)
+			///scrub the url before passing it through a shell
 			var/shell_scrubbed_input = shell_url_scrub(url2)
+			///the command being sent to the shell after being scrubbed
 			var/list/output = world.shelleo("[ytdl] --geo-bypass --format \"bestaudio\[ext=mp3]/best\[ext=mp4]\[height<=360]/bestaudio\[ext=m4a]/bestaudio\[ext=aac]\" --dump-single-json --no-playlist -- \"[shell_scrubbed_input]\"")
+			///any shell errors
 			var/errorlevel = output[SHELLEO_ERRORLEVEL]
+			///shell output
 			var/stdout = output[SHELLEO_STDOUT]
+			///list for all the youtube-dl data
 			var/list/data
 			if(!errorlevel)
 				try
 					data = json_decode(stdout)
-				catch(var/exception/error)
+				catch(var/exception/error) /// any errors are caught here
 					CRASH("<span class='boldwarning'>Youtube-dl JSON parsing FAILED:</span>")
 					CRASH("<span class='warning'>[error]: [stdout]</span>")
 					to_chat(usr,"Error: Song could not be downloaded")
@@ -185,3 +203,4 @@
 			else
 				tape.icon_state = design_path[design_names.Find(selection)]
 				tape.side2_icon = design_path[design_names.Find(selection)]
+#undef YOUTUBE_ENABLE
