@@ -128,20 +128,29 @@
 	if(!current_song)
 		if(current_playlist.len > 0)
 			if(findtext(current_playlist[pl_index], GLOB.is_http_protocol))
+				///invoking youtube-dl
 				var/ytdl = CONFIG_GET(string/invoke_youtubedl)
+				///the input for ytdl handled by the song list
 				var/web_sound_input
+				///the url for youtube-dl
 				var/web_sound_url = ""
+				///all extra data from the youtube-dl really want the name
 				var/list/music_extra_data = list()
 				web_sound_input = trim(current_playlist[pl_index])
+				///scrubbing the input before putting it in the shell
 				var/shell_scrubbed_input = shell_url_scrub(web_sound_input)
+				///putting it in the shell
 				var/list/output = world.shelleo("[ytdl] --geo-bypass --format \"bestaudio\[ext=mp3]/best\[ext=mp4]\[height<=360]/bestaudio\[ext=m4a]/bestaudio\[ext=aac]\" --dump-single-json --no-playlist -- \"[shell_scrubbed_input]\"")
+				///any errors
 				var/errorlevel = output[SHELLEO_ERRORLEVEL]
+				///the standard output
 				var/stdout = output[SHELLEO_STDOUT]
 				if(!errorlevel)
+					///list for all the output data to go to
 					var/list/data
 					try
 						data = json_decode(stdout)
-					catch(var/exception/error)
+					catch(var/exception/error) ///catch errors here
 						to_chat(src, "<span class='boldwarning'>Youtube-dl JSON parsing FAILED:</span>", confidential = TRUE)
 						to_chat(src, "<span class='warning'>[error]: [stdout]</span>", confidential = TRUE)
 						return
