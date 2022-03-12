@@ -30,12 +30,12 @@
 		return
 	tape = CTape
 	CTape.forceMove(src)
+
 /obj/machinery/cassette/adv_cassette_deck/proc/eject_tape(mob/user)
 	if(!tape)
 		return
-	if(tape)
-		user.put_in_hands(tape)
-		tape = null
+	user.put_in_hands(tape)
+	tape = null
 
 /obj/machinery/cassette/adv_cassette_deck/ui_status(mob/user)
 	if(!anchored)
@@ -108,13 +108,15 @@
 			eject_tape(usr)
 			return
 		if("url")
-			var/url = stripped_input(usr, "Write a new Cassette name:", no_trim = TRUE)
-			if(!findtext(url, GLOB.is_http_protocol))
-				to_chat(usr, "Bad Link! Please try again.")
+			var/url = stripped_input(usr, "Insert the ID of the video in question (characters after the =):", no_trim = TRUE)
+			var/static/regex/link_check = regex(@"^[a-zA-Z0-9_.-]{11}$")
+			if(!link_check.Find(url))
+				to_chat(usr, "Error: Bad ID!")
 				return
+			var/url_stuck = "https://www.youtube.com/watch?v=[url]"
 			var/ytdl = CONFIG_GET(string/invoke_youtubedl)
 			var/list/music_extra_data = list()
-			var/url2 = trim(url)
+			var/url2 = trim(url_stuck)
 			var/shell_scrubbed_input = shell_url_scrub(url2)
 			var/list/output = world.shelleo("[ytdl] --geo-bypass --format \"bestaudio\[ext=mp3]/best\[ext=mp4]\[height<=360]/bestaudio\[ext=m4a]/bestaudio\[ext=aac]\" --dump-single-json --no-playlist -- \"[shell_scrubbed_input]\"")
 			var/errorlevel = output[SHELLEO_ERRORLEVEL]
@@ -132,12 +134,12 @@
 			if(tape.flipped == FALSE)
 				if(length(tape.songs["side1"]) >= 7)
 					return
-				tape.songs["side1"] += url
+				tape.songs["side1"] += url_stuck
 				tape.song_names["side1"] += data["title"]
 			else
 				if(length(tape.songs["side1"]) >= 7)
 					return
-				tape.songs["side2"] += url
+				tape.songs["side2"] += url_stuck
 				tape.song_names["side2"] += data["title"]
 
 		if("design")
