@@ -126,8 +126,8 @@
 				try
 					data = json_decode(stdout)
 				catch(var/exception/error)
-					CRASH("<span class='boldwarning'>Youtube-dl JSON parsing FAILED:</span>", confidential = TRUE)
-					CRASH("<span class='warning'>[error]: [stdout]</span>", confidential = TRUE)
+					CRASH("<span class='boldwarning'>Youtube-dl JSON parsing FAILED:</span>")
+					CRASH("<span class='warning'>[error]: [stdout]</span>")
 					to_chat(usr,"Error: Song could not be downloaded")
 					return
 				if (data["url"])
