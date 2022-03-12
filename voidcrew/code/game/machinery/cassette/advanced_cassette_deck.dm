@@ -145,8 +145,6 @@
 					data = json_decode(stdout)
 				catch(var/exception/error) /// any errors are caught here
 					CRASH("<span class='boldwarning'>Youtube-dl JSON parsing FAILED:</span>")
-					CRASH("<span class='warning'>[error]: [stdout]</span>")
-					to_chat(usr,"Error: Song could not be downloaded")
 					return
 				if (data["url"])
 					music_extra_data["title"] = data["title"]
