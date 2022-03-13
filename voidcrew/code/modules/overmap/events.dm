@@ -40,10 +40,10 @@
 /obj/structure/overmap/event/proc/affect_ship(obj/structure/overmap/ship/simulated/S)
 	return
 
-/obj/structure/overmap/event/Crossed(atom/movable/AM, oldloc)
+/obj/structure/overmap/event/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
-	if(istype(AM, /obj/structure/overmap/ship))
-		affect_ship(AM)
+	if(istype(arrived, /obj/structure/overmap/ship))
+		affect_ship(arrived)
 
 ///METEOR STORMS - Bounces harmlessly off the shield... unless your shield is breached
 /obj/structure/overmap/event/meteor

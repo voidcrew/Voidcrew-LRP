@@ -246,12 +246,13 @@
 		burn_engines(null)
 		return tick_autopilot()
 
-/obj/structure/overmap/ship/Uncrossed(atom/movable/AM, atom/newloc)
+/obj/structure/overmap/ship/Exited(atom/movable/AM, atom/newloc)
 	. = ..()
 	if(AM == current_autopilot_target)
 		tick_autopilot()
 
 /obj/structure/overmap/ship/update_icon_state()
+	. = ..()
 	if(!is_still())
 		icon_state = "[base_icon_state]_moving"
 		dir = get_heading()

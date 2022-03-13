@@ -244,7 +244,7 @@ SUBSYSTEM_DEF(overmap)
   */
 /datum/controller/subsystem/overmap/proc/spawn_dynamic_encounter(datum/overmap/planet/planet_type, ruin = TRUE, ignore_cooldown = FALSE, datum/map_template/ruin/ruin_type)
 	var/list/ruin_list
-	var/datum/map_generator/mapgen
+	//var/datum/map_generator/mapgen
 	//var/area/target_area
 	//var/turf/surface = /turf/open/space
 	//var/datum/weather_controller/weather_controller_type
@@ -253,7 +253,7 @@ SUBSYSTEM_DEF(overmap)
 	if(!isnull(planet_type))
 		planet_type = new planet_type
 		ruin_list = SSmapping.themed_ruins[planet_type.ruin_type]
-		mapgen = new planet_type.mapgen
+		//mapgen = new planet_type.mapgen
 		//target_area = planet_type.target_area
 		//surface = planet_type.surface
 		//weather_controller_type = planet_type.weather_controller_type
@@ -263,8 +263,8 @@ SUBSYSTEM_DEF(overmap)
 		ruin_type = ruin_list[pick(ruin_list)]
 		if(ispath(ruin_type))
 			ruin_type = new ruin_type
-	if(mapgen) /// If we have a map generator, don't ChangeTurf's in fill_in. Just to ChangeTurf them once again.
-		surface = null
+	//if(mapgen) /// If we have a map generator, don't ChangeTurf's in fill_in. Just to ChangeTurf them once again.
+	//	surface = null
 
 	//if(ruin_type)
 		//var/turf/ruin_turf = locate(rand(1,2))

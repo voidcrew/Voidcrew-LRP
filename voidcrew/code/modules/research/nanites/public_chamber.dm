@@ -91,6 +91,7 @@
 	SEND_SIGNAL(occupant, COMSIG_NANITE_SET_CLOUD, cloud_id)
 
 /obj/machinery/public_nanite_chamber/update_icon_state()
+	. = ..()
 	//running and someone in there
 	if(occupant)
 		if(busy)

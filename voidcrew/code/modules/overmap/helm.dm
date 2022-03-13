@@ -6,6 +6,9 @@
 #define JUMP_CHARGE_DELAY (20 SECONDS)
 #define JUMP_CHARGEUP_TIME (3 MINUTES)
 
+
+//VOID TODO make priority announce support z levels
+
 /obj/machinery/computer/helm
 	name = "helm control console"
 	desc = "Used to view or control the ship."
@@ -52,12 +55,12 @@
 		return // This exists to prefent Href exploits to call process_jump more than once by a client
 	message_admins("[ADMIN_LOOKUPFLW(usr)] has initiated a bluespace jump in [ADMIN_VERBOSEJMP(src)]")
 	jump_timer = addtimer(CALLBACK(src, .proc/jump_sequence, TRUE), JUMP_CHARGEUP_TIME, TIMER_STOPPABLE)
-	priority_announce("Bluespace jump calibration initialized. Calibration completion in [JUMP_CHARGEUP_TIME/600] minutes.", sender_override="[current_ship.display_name] Bluespace Pylon", zlevel=z)
+	priority_announce("Bluespace jump calibration initialized. Calibration completion in [JUMP_CHARGEUP_TIME/600] minutes.", sender_override="[current_ship.display_name] Bluespace Pylon")
 	calibrating = TRUE
 	return TRUE
 
 /obj/machinery/computer/helm/proc/cancel_jump()
-	priority_announce("Bluespace Pylon spooling down. Jump calibration aborted.", sender_override="[current_ship.display_name] Bluespace Pylon", zlevel=z)
+	priority_announce("Bluespace Pylon spooling down. Jump calibration aborted.", sender_override="[current_ship.display_name] Bluespace Pylon")
 	calibrating = FALSE
 	deltimer(jump_timer)
 
@@ -68,19 +71,19 @@
 			SStgui.close_uis(src)
 		if(JUMP_STATE_CHARGING)
 			jump_state = JUMP_STATE_IONIZING
-			priority_announce("Bluespace Jump Calibration completed. Ionizing Bluespace Pylon.", sender_override="[current_ship.display_name] Bluespace Pylon", zlevel=z)
+			priority_announce("Bluespace Jump Calibration completed. Ionizing Bluespace Pylon.", sender_override="[current_ship.display_name] Bluespace Pylon")
 		if(JUMP_STATE_IONIZING)
 			jump_state = JUMP_STATE_FIRING
-			priority_announce("Bluespace Ionization finalized; preparing to fire Bluespace Pylon.", sender_override="[current_ship.display_name] Bluespace Pylon", zlevel=z)
+			priority_announce("Bluespace Ionization finalized; preparing to fire Bluespace Pylon.", sender_override="[current_ship.display_name] Bluespace Pylon")
 		if(JUMP_STATE_FIRING)
 			jump_state = JUMP_STATE_FINALIZED
-			priority_announce("Bluespace Pylon launched.", sender_override="[current_ship.display_name] Bluespace Pylon", sound='sound/magic/lightning_chargeup.ogg', zlevel=z)
+			priority_announce("Bluespace Pylon launched.", sender_override="[current_ship.display_name] Bluespace Pylon", sound='sound/magic/lightning_chargeup.ogg')
 			addtimer(CALLBACK(src, .proc/do_jump), 10 SECONDS)
 			return
 	addtimer(CALLBACK(src, .proc/jump_sequence, TRUE), JUMP_CHARGE_DELAY)
 
 /obj/machinery/computer/helm/proc/do_jump()
-	priority_announce("Bluespace Jump Initiated.", sender_override="[current_ship.display_name] Bluespace Pylon", sound='sound/magic/lightningbolt.ogg', zlevel=z)
+	priority_announce("Bluespace Jump Initiated.", sender_override="[current_ship.display_name] Bluespace Pylon", sound='sound/magic/lightningbolt.ogg')
 	// You can't bluespace jump while docked, but maybe admeme does it? In which case without this that docking spot would just stay taken. Just a precaution
 	current_ship.update_docked_bools()
 	current_ship.docked = null

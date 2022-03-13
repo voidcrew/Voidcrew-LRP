@@ -84,6 +84,7 @@
 	return FALSE
 
 /obj/machinery/power/bluespace_miner/update_icon_state()
+	. = ..()
 	if(!powered())
 		if(!panel_open)
 			icon_state = "bsminer-unpowered"

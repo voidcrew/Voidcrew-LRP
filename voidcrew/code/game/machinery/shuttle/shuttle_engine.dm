@@ -50,6 +50,7 @@
   * Updates the engine's icon and engine state.
   */
 /obj/machinery/power/shuttle/engine/update_icon_state()
+	. = ..()
 	update_engine() //Calls this so it sets the accurate icon
 	if(panel_open)
 		icon_state = icon_state_open

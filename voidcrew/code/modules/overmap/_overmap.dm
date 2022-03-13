@@ -140,10 +140,10 @@
 /**
   * When something crosses another overmap object, add it to the nearby objects list, which are used by events and docking
   */
-/obj/structure/overmap/Crossed(atom/movable/AM, oldloc)
+/obj/structure/overmap/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
-	if(istype(loc, /turf/) && istype(AM, /obj/structure/overmap))
-		var/obj/structure/overmap/other = AM
+	if(istype(loc, /turf/) && istype(arrived, /obj/structure/overmap))
+		var/obj/structure/overmap/other = arrived
 		if(other == src)
 			return
 		LAZYOR(other.close_overmap_objects, src)
@@ -152,7 +152,7 @@
 /**
   * See [/obj/structure/overmap/Crossed]
   */
-/obj/structure/overmap/Uncrossed(atom/movable/AM, atom/newloc)
+/obj/structure/overmap/Exited(atom/movable/AM, atom/newloc)
 	. = ..()
 	if(istype(loc, /turf/) && istype(AM, /obj/structure/overmap))
 		var/obj/structure/overmap/other = AM

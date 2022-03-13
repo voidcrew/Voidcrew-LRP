@@ -94,7 +94,7 @@
 	if(!air_contents)
 		return
 	if(gas_type)
-		return air_contents.[gas_type][MOLES]
+		return air_contents.gases[gas_type][MOLES]
 	else
 		return air_contents.total_moles()
 

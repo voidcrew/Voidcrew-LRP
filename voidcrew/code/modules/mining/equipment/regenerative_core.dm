@@ -1,11 +1,11 @@
-/// VC REAGENT TODO: All this grinding stuff was originally part of base tg regen cores but was removed. 
+/// VC REAGENT TODO: All this grinding stuff was originally part of base tg regen cores but was removed.
 /// I ported it to this specific core since the whitesands version had it but due to the reagents not being ported i'm leaving it as TODO.
 
 /obj/item/organ/regenerative_core/legion/crystal
 	name = "crystal heart"
 	desc = "A strange rock in the shape of a heart symbol. Applying will repair your body with crystals, but may have additional side effects. It seems it can't survive for very long outside a host."
 	//grind_results = list(/datum/reagent/ash = 30)
-	
+
 ///obj/item/organ/regenerative_core/legion/crystal/Initialize()
 	//. = ..()
 	//preserved_grind_results = list(/datum/reagent/medicine/soulus = rand(1, 30), /datum/reagent/ash = 30, /datum/reagent/determination = 1)
@@ -42,6 +42,7 @@
 			qdel(src)
 
 /obj/item/organ/regenerative_core/legion/crystal/update_icon_state()
+	. = ..()
 	icon_state = inert ? "crystal_heart_inert" : "crystal_heart"
 	if(preserved)
 		icon_state = "crystal_heart_preserved"

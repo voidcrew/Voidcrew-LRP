@@ -105,7 +105,7 @@
   * * loading_template - The shuttle map template to load. Can NOT be null.
   * * destination_port - The port the newly loaded shuttle will be sent to after being fully spawned in. If you want to have a transit dock be created, use [proc/load_template] instead. Should NOT be null.
   **/
-/datum/controller/subsystem/shuttle/action_load(datum/map_template/shuttle/loading_template, obj/docking_port/stationary/destination_port)
+/datum/controller/subsystem/shuttle/action_load(datum/map_template/shuttle/loading_template, obj/docking_port/stationary/destination_port, replace = FALSE)
 	if(!destination_port)
 		CRASH("No destination port specified for shuttle load, aborting.")
 	var/obj/docking_port/mobile/new_shuttle = load_template(loading_template, FALSE)
