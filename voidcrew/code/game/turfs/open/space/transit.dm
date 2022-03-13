@@ -10,7 +10,7 @@
 		var/mob/living/poor_soul = moveable_atom
 		poor_soul.apply_damage_type(50, BRUTE)
 		return
-	qdel(moveable_atommoveable_atom)
+	qdel(moveable_atom)
 
 /turf/open/space/transit/Initialize(mapload)
 	. = ..()

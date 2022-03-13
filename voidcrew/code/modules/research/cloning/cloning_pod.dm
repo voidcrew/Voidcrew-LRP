@@ -233,9 +233,9 @@
 			var/list/unclean_mutations = (GLOB.not_good_mutations|GLOB.bad_mutations)
 			cloned_human.dna.remove_mutation_group(unclean_mutations)
 		if(efficiency > 5 && prob(20))
-			cloned_human.easy_randmut(POSITIVE)
+			cloned_human.easy_random_mutate(POSITIVE)
 		if(efficiency < 3 && prob(50))
-			var/mob/M = cloned_human.easy_randmut(NEGATIVE+MINOR_NEGATIVE)
+			var/mob/M = cloned_human.easy_random_mutate(NEGATIVE+MINOR_NEGATIVE)
 			if(ismob(M))
 				cloned_human = M
 

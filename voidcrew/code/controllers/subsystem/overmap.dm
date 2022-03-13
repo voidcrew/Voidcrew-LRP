@@ -65,6 +65,7 @@ SUBSYSTEM_DEF(overmap)
 			event.apply_effect()
 
 /**
+/**
   * Creates an overmap ship object for the provided mobile docking port if one does not already exist.
   * * Shuttle: The docking port to create an overmap object for
   */
@@ -83,6 +84,7 @@ SUBSYSTEM_DEF(overmap)
 		CRASH("Shuttle created in unknown location, unable to create overmap ship!")
 
 	shuttle.current_ship = new_ship
+*/
 
 /**
   * The proc that creates all the objects on the overmap, split into seperate procs for redundancy.
@@ -255,13 +257,6 @@ SUBSYSTEM_DEF(overmap)
 		ruin_type = ruin_list[pick(ruin_list)]
 		if(ispath(ruin_type))
 			ruin_type = new ruin_type
-
-	var/height = QUADRANT_MAP_SIZE
-	var/width = QUADRANT_MAP_SIZE
-
-	var/encounter_name = "Dynamic Overmap Encounter"
-
-
 	if(mapgen) /// If we have a map generator, don't ChangeTurf's in fill_in. Just to ChangeTurf them once again.
 		surface = null
 
@@ -350,17 +345,6 @@ SUBSYSTEM_DEF(overmap)
 		if (dist < max_range && dist < ret_dist)
 			. = T
 			ret_dist = dist
-
-/**
-  * Gets the parent overmap object (e.g. the planet the atom is on) for a given atom.
-  * * source - The object you want to get the corresponding parent overmap object for.
-  */
-/datum/controller/subsystem/overmap/proc/get_overmap_object_by_location(atom/source)
-	for(var/O in overmap_objects)
-		if(istype(O, /obj/structure/overmap/dynamic))
-			var/obj/structure/overmap/dynamic/D = O
-			//if(D.mapzone?.is_in_bounds(source))
-			//	return D
 
 /datum/controller/subsystem/overmap/Recover()
 	if(istype(SSovermap.events))

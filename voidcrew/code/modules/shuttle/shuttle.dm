@@ -1,3 +1,6 @@
+/obj/docking_port/mobile
+	var/obj/structure/overmap/ship/simulated/current_ship
+
 /**
  * ##get_all_humans
  *
