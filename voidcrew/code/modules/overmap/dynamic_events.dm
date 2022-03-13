@@ -17,10 +17,14 @@
 		acting.state = prev_state
 	else
 		var/dock_to_use = null
-		if(!reserve_dock.get_docked())
+		if(!reserve_dock.get_docked() && !first_dock_taken)
 			dock_to_use = reserve_dock
-		else if(!reserve_dock_secondary.get_docked())
+			first_dock_taken = TRUE
+			acting.dock_index = 1
+		else if(!reserve_dock_secondary.get_docked() && !second_dock_taken)
 			dock_to_use = reserve_dock_secondary
+			second_dock_taken = TRUE
+			acting.dock_index = 2
 
 		if(!dock_to_use)
 			acting.state = prev_state

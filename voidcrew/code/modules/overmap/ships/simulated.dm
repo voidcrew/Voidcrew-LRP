@@ -52,6 +52,9 @@
 	///The ships password
 	var/password
 
+	///Which docking port the ship is occupying
+	var/dock_index
+
 /obj/structure/overmap/ship/simulated/Initialize(mapload, obj/docking_port/mobile/_shuttle, datum/map_template/shuttle/_source_template)
 	. = ..()
 	SSovermap.simulated_ships += src
@@ -101,12 +104,24 @@
 			throw_atom_into_space(M)
 	destroy_ship()
 
+/obj/structure/overmap/ship/simulated/proc/update_docked_bools()
+	var/obj/structure/overmap/dynamic/dockable_place = docked
+	if (!dockable_place)
+		return
+	if (dock_index == 1)
+		dockable_place.first_dock_taken = FALSE
+		dock_index = 0
+	else if (dock_index == 2)
+		dockable_place.second_dock_taken = FALSE
+		dock_index = 0
+
 /obj/structure/overmap/ship/simulated/proc/destroy_ship(force = FALSE)
 	if ((length(shuttle.get_all_humans()) > 0) && !force)
 		return
 	if ((is_active_crew() != SHUTTLE_ACTIVE_CREW) && !force)
 		return
 	shuttle.jumpToNullSpace()
+	update_docked_bools()
 	message_admins("\[SHUTTLE]: [shuttle.name] has been deleted!")
 	log_admin("\[SHUTTLE]: [shuttle.name] has been deleted!")
 	qdel(src)
@@ -150,6 +165,7 @@
 		return "Ship not docked!"
 	if(!shuttle)
 		return "Shuttle not found!"
+	update_docked_bools()
 	shuttle.destination = null
 	shuttle.mode = SHUTTLE_IGNITING
 	shuttle.setTimer(shuttle.ignitionTime)
@@ -302,8 +318,8 @@
 					S.shuttle.shuttle_areas -= shuttle.shuttle_areas
 					adjust_speed(S.speed[1], S.speed[2])
 				forceMove(get_turf(loc))
-				if(istype(old_loc, /obj/structure/overmap/dynamic))
-					var/obj/structure/overmap/dynamic/D = old_loc
+				//if(istype(old_loc, /obj/structure/overmap/dynamic))
+					//var/obj/structure/overmap/dynamic/D = old_loc
 					//INVOKE_ASYNC(D, /obj/structure/overmap/dynamic/.proc/unload_level)
 				state = OVERMAP_SHIP_FLYING
 				if(repair_timer)

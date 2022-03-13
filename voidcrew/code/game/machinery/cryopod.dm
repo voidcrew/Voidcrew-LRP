@@ -277,7 +277,8 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 /obj/machinery/cryopod/proc/handle_objectives()
 	var/mob/living/mob_occupant = occupant
 	//Update any existing objectives involving this mob.
-	for(var/datum/objective/O in GLOB.objectives)
+	var/list/objectives = mob_occupant.mind.get_all_objectives()
+	for(var/datum/objective/O in objectives)
 		// We don't want revs to get objectives that aren't for heads of staff. Letting
 		// them win or lose based on cryo is silly so we remove the objective.
 		if(istype(O,/datum/objective/mutiny) && O.target == mob_occupant.mind)

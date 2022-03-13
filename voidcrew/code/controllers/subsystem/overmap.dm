@@ -97,10 +97,14 @@ SUBSYSTEM_DEF(overmap)
 		spawn_events()
 		spawn_ruin_levels()
 
+	//VOID TODO setup ship spawning
+
+	/*
 	spawn_initial_ships(CONFIG_GET(number/initial_shuttle_count))
 	var/initial_combat_pairs = CONFIG_GET(number/initial_combat_shuttle_pairs)
 	if (initial_combat_pairs)
 		spawn_initial_combat_ships(initial_combat_pairs)
+	*/
 
 /datum/controller/subsystem/overmap/proc/initialize_generator()
 	generator_type = CONFIG_GET(string/overmap_generator_type)
@@ -187,6 +191,7 @@ SUBSYSTEM_DEF(overmap)
 				continue
 			spawn_event_cluster(type, T, chance / 2)
 
+/*
 /datum/controller/subsystem/overmap/proc/spawn_initial_ships(num)
 #ifndef UNIT_TESTS
 	var/templates = list()
@@ -204,6 +209,7 @@ SUBSYSTEM_DEF(overmap)
 		query_round_map_name.Execute()
 		qdel(query_round_map_name)
 #endif
+*/
 
 /**
   * Creates a pair of combat shuttles
@@ -239,8 +245,8 @@ SUBSYSTEM_DEF(overmap)
 /datum/controller/subsystem/overmap/proc/spawn_dynamic_encounter(datum/overmap/planet/planet_type, ruin = TRUE, ignore_cooldown = FALSE, datum/map_template/ruin/ruin_type)
 	var/list/ruin_list
 	var/datum/map_generator/mapgen
-	var/area/target_area
-	var/turf/surface = /turf/open/space
+	//var/area/target_area
+	//var/turf/surface = /turf/open/space
 	//var/datum/weather_controller/weather_controller_type
 
 	// VOID TODO: replace weather controllers with actual zlevel weather
@@ -248,8 +254,8 @@ SUBSYSTEM_DEF(overmap)
 		planet_type = new planet_type
 		ruin_list = SSmapping.themed_ruins[planet_type.ruin_type]
 		mapgen = new planet_type.mapgen
-		target_area = planet_type.target_area
-		surface = planet_type.surface
+		//target_area = planet_type.target_area
+		//surface = planet_type.surface
 		//weather_controller_type = planet_type.weather_controller_type
 		qdel(planet_type)
 

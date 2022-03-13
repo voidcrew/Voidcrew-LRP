@@ -126,7 +126,7 @@
   * * to_replace - The shuttle to replace. Should NOT be null.
   * * replacement - The shuttle map template to load in place of the old shuttle. Can NOT be null.
   **/
-/datum/controller/subsystem/shuttle/replace_shuttle(obj/docking_port/mobile/to_replace, datum/map_template/shuttle/replacement)
+/datum/controller/subsystem/shuttle/proc/replace_shuttle(obj/docking_port/mobile/to_replace, datum/map_template/shuttle/replacement)
 	if(!to_replace || !replacement)
 		return
 	var/obj/docking_port/mobile/new_shuttle = load_template(replacement, FALSE)

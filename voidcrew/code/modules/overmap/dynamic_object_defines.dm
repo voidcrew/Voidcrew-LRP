@@ -13,6 +13,10 @@
 	///What kind of planet the level is, if it's a planet at all.
 	var/datum/overmap/planet/planet
 
+	///Keeps track of docks taken
+	var/first_dock_taken = FALSE
+	var/second_dock_taken = FALSE
+
 /obj/structure/overmap/dynamic/lava
 	planet = /datum/overmap/planet/lava
 
