@@ -17,7 +17,7 @@
 	planetary_atmos = TRUE
 	desc = "It seems alive."
 	icon_state = "moss"
-	icon = 'voidcrew/icons/turf/floors/lava_moss.dmi'
+	icon = 'voidcrew/icons/turf/lava_moss.dmi'
 	base_icon_state = "moss"
 	bullet_bounce_sound = null
 	footstep = FOOTSTEP_GRASS

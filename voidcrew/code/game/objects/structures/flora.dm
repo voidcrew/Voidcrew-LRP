@@ -117,7 +117,7 @@
 
 
 /obj/structure/flora/rock/asteroid
-	icon = 'voidcrew/icons/turf/civ13-floors.dmi'
+	icon = 'voidcrew/icons/turf/wasteland.dmi'
 	icon_state = "asteroid0"
 	base_icon_state = "asteroid"
 	density = FALSE

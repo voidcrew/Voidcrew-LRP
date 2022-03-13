@@ -19,7 +19,7 @@
 	light_range = 2
 
 /turf/open/floor/plating/asteroid/basalt/purple
-	icon = 'voidcrew/icons/turf/floors.dmi'
+	icon = 'voidcrew/icons/turf/lavaland_purple.dmi'
 	baseturfs = /turf/open/floor/plating/asteroid/basalt/purple
 	turf_type = /turf/open/floor/plating/asteroid/basalt/purple
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
@@ -30,7 +30,7 @@
 	light_range = 2
 
 /turf/open/floor/plating/asteroid/purple
-	icon = 'voidcrew/icons/turf/floors.dmi'
+	icon = 'voidcrew/icons/turf/lavaland_purple.dmi'
 	baseturfs = /turf/open/floor/plating/asteroid/purple
 	turf_type = /turf/open/floor/plating/asteroid/basalt/purple
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
@@ -41,7 +41,8 @@
 	light_range = 2
 
 /turf/open/floor/plating/asteroid/sand
-	icon = 'voidcrew/icons/turf/civ13-beach.dmi'
+	name = "sand"
+	icon = 'voidcrew/icons/turf/wasteland.dmi'
 	icon_state = "desert"
 	environment_type = "desert"
 	base_icon_state = "desert"
@@ -71,9 +72,10 @@
 
 /turf/open/floor/plating/asteroid/sand/beach
 	planetary_atmos = TRUE
-	icon = 'icons/misc/beach.dmi'
+	icon = 'voidcrew/icons/misc/beach.dmi'
 	icon_state = "sand"
 	base_icon_state = "sand"
+	environment_type = "sand"
 
 /turf/open/floor/plating/asteroid/sand/beach/Initialize(mapload, inherited_virtual_z)
 	. = ..()
