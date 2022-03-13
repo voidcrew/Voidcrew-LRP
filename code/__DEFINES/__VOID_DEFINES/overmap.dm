@@ -44,11 +44,3 @@
 #define OVERMAP_SHIP_ACTING "acting"
 #define OVERMAP_SHIP_DOCKING "docking"
 #define OVERMAP_SHIP_UNDOCKING "undocking"
-
-#define RUIN_TYPE_LAVA "lava"
-#define RUIN_TYPE_ICE "ice"
-#define RUIN_TYPE_SAND "sand"
-#define RUIN_TYPE_JUNGLE "jungle"
-#define RUIN_TYPE_ROCK "rock"
-#define RUIN_TYPE_REEBE "reebe"
-#define RUIN_TYPE_SPACE "space"

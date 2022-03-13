@@ -225,31 +225,6 @@ SUBSYSTEM_DEF(overmap)
 		new /obj/structure/overmap/dynamic(get_unused_overmap_square_in_radius())
 
 /**
- * ##get_ruin_list
- *
- * Returns the SSmapping list of ruins, according to the given desired ruin type
- *
- * Arguments:
- * * ruin_type - a string, depicting the desired ruin type
- */
-/datum/controller/subsystem/overmap/proc/get_ruin_list(ruin_type)
-	switch(ruin_type) // temporary because SSmapping needs a refactor to make this any better
-		if (RUIN_TYPE_LAVA)
-			return SSmapping.lava_ruins_templates
-		if (RUIN_TYPE_ICE)
-			return SSmapping.ice_ruins_templates
-		if (RUIN_TYPE_SAND)
-			return SSmapping.sand_ruins_templates
-		if (RUIN_TYPE_ROCK)
-			return SSmapping.rock_ruins_templates
-		if (RUIN_TYPE_JUNGLE)
-			return SSmapping.jungle_ruins_templates
-		if (RUIN_TYPE_REEBE)
-			return SSmapping.yellow_ruins_templates
-		if (RUIN_TYPE_SPACE)
-			return SSmapping.space_ruins_templates
-
-/**
   * Reserves a square dynamic encounter area, and spawns a ruin in it if one is supplied.
   * * on_planet - If the encounter should be on a generated planet. Required, as it will be otherwise inaccessible.
   * * target - The ruin to spawn, if any
@@ -265,7 +240,7 @@ SUBSYSTEM_DEF(overmap)
 	// VOID TODO: replace weather controllers with actual zlevel weather
 	if(!isnull(planet_type))
 		planet_type = new planet_type
-		ruin_list = get_ruin_list(planet_type.ruin_type)
+		ruin_list = SSmapping.themed_ruins[planet_type.ruin_type]
 		mapgen = new planet_type.mapgen
 		target_area = planet_type.target_area
 		surface = planet_type.surface
@@ -404,7 +379,7 @@ SUBSYSTEM_DEF(overmap)
 /datum/controller/subsystem/overmap/proc/generate_probabilites()
 	for (var/path in subtypesof(/datum/overmap/planet))
 		var/datum/overmap/planet/temp_planet = new path
-		spawn_probability |= list(temp_planet.type = min(length(get_ruin_list(temp_planet.ruin_type)), temp_planet.spawn_rate))
+		spawn_probability |= list(temp_planet.type = min(length(SSmapping.themed_ruins[temp_planet.ruin_type]), temp_planet.spawn_rate))
 		qdel(temp_planet)
 
 #undef INIT_ANNOUNCE

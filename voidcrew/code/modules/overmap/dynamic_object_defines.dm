@@ -30,9 +30,6 @@
 /obj/structure/overmap/dynamic/rock
 	planet = /datum/overmap/planet/rock
 
-/obj/structure/overmap/dynamic/reebe
-	planet = /datum/overmap/planet/reebe
-
 /obj/structure/overmap/dynamic/asteroid
 	planet = /datum/overmap/planet/asteroid
 
@@ -82,16 +79,3 @@
 /area/overmap_encounter/planetoid/rockplanet/explored//for use in ruins
 	area_flags = UNIQUE_AREA
 	area_flags = VALID_TERRITORY | UNIQUE_AREA
-
-/area/overmap_encounter/planetoid/reebe
-	name = "\improper Yellow Space"
-	sound_environment = SOUND_ENVIRONMENT_MOUNTAINS
-	ambientsounds = AMBIENCE_REEBE
-
-/area/overmap_encounter/planetoid/reebe/Entered(atom/movable/atom)
-	. = ..()
-	if(!ismob(atom))
-		return
-	var/mob/mob = atom
-	if(mob.client)
-		addtimer(CALLBACK(mob.client, /client/proc/play_reebe_ambience), 900)

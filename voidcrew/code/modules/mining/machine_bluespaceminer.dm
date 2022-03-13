@@ -70,7 +70,7 @@
   */
 /datum/component/material_container/proc/bsm_insert(amt, datum/material/mat)
 	if(!istype(mat))
-		mat = SSmaterials.GetMaterialRef(mat)
+		mat = GET_MATERIAL_REF(mat)
 	if(amt > 0 && has_space(amt))
 		if(mat)
 			materials[mat] += amt

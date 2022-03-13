@@ -95,9 +95,6 @@
 ///datum/species/ipc/get_spans()
 //	return SPAN_ROBOT
 
-/datum/species/ipc/after_equip_job(datum/job/job, mob/living/carbon/human/human)
-	human.grant_language(/datum/language/machine)
-
 /datum/species/ipc/spec_death(gibbed, mob/living/carbon/carbon)
 	saved_screen = carbon.dna.features["ipc_screen"]
 	carbon.dna.features["ipc_screen"] = "BSOD"
@@ -231,12 +228,13 @@
 			to_chat(human, "<span class='warning'>Alert: Internal temperature regulation systems offline; thermal damage sustained. Shutdown imminent.</span>")
 			human.visible_message("[human]'s cooling system fans stutter and stall. There is a faint, yet rapid beeping coming from inside their chassis.")
 
-
+/* VOID TODO IPC REVIVE
 /datum/species/ipc/spec_revival(mob/living/carbon/human/human)
 	human.dna.features["ipc_screen"] = "BSOD"
 	human.update_body()
 	human.say("Reactivating [pick("core systems", "central subroutines", "key functions")]...")
 	addtimer(CALLBACK(src, .proc/post_revival, human), 6 SECONDS)
+*/
 
 /datum/species/ipc/proc/post_revival(mob/living/carbon/human/human)
 	if(human.stat < DEAD)

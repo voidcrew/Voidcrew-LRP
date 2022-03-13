@@ -2,6 +2,7 @@
 
 /datum/map_template/ruin/whitesands
 	prefix = "voidcrew/_maps/RandomRuins/SandRuins/"
+	ruin_type = ZTRAIT_SAND_RUINS
 
 /datum/map_template/ruin/whitesands/solgov_crash
 	name = "Crashed SolGov Transport"

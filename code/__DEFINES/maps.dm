@@ -65,9 +65,6 @@ require only minor tweaks.
 #define ZTRAIT_LAVA_RUINS "Lava Ruins"
 #define ZTRAIT_ICE_RUINS "Ice Ruins"
 #define ZTRAIT_ICE_RUINS_UNDERGROUND "Ice Ruins Underground"
-#define ZTRAIT_JUNGLE_RUINS "Jungle Ruins"
-#define ZTRAIT_ROCK_RUINS "Rock Ruins"
-#define ZTRAIT_SAND_RUINS "Sand Ruins"
 #define ZTRAIT_ISOLATED_RUINS "Isolated Ruins" //Placing ruins on z levels with this trait will use turf reservation instead of usual placement.
 
 // boolean - weather types that occur on the level

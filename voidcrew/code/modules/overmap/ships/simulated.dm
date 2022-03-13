@@ -344,7 +344,7 @@
 	if(!ignore_cooldown)
 		COOLDOWN_START(src, rename_cooldown, 5 MINUTES)
 	for(var/area/shuttle_area as anything in shuttle.shuttle_areas)
-		shuttle_area.rename_area("[display_name] [initial(shuttle_area.name)]")
+		rename_area(shuttle_area, "[display_name] [initial(shuttle_area.name)]")
 	return TRUE
 
 /**
