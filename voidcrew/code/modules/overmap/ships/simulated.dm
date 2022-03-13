@@ -304,7 +304,7 @@
 				forceMove(get_turf(loc))
 				if(istype(old_loc, /obj/structure/overmap/dynamic))
 					var/obj/structure/overmap/dynamic/D = old_loc
-					INVOKE_ASYNC(D, /obj/structure/overmap/dynamic/.proc/unload_level)
+					//INVOKE_ASYNC(D, /obj/structure/overmap/dynamic/.proc/unload_level)
 				state = OVERMAP_SHIP_FLYING
 				if(repair_timer)
 					deltimer(repair_timer)

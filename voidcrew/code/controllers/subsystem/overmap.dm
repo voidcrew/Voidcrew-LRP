@@ -1,5 +1,9 @@
 #define INIT_ANNOUNCE(X) to_chat(world, span_boldannounce("[X]")); log_world(X)
 
+
+// VOID TODO SET THIS UP TO SPAWN ACTUAL PLANETS
+
+
 SUBSYSTEM_DEF(overmap)
 	name = "Overmap"
 	wait = 10
@@ -256,26 +260,17 @@ SUBSYSTEM_DEF(overmap)
 	var/width = QUADRANT_MAP_SIZE
 
 	var/encounter_name = "Dynamic Overmap Encounter"
-	var/datum/map_zone/mapzone = SSmapping.create_map_zone(encounter_name)
-	var/datum/virtual_level/vlevel = SSmapping.create_virtual_level(encounter_name, list(ZTRAIT_MINING = TRUE), mapzone, width, height, ALLOCATION_QUADRANT, QUADRANT_MAP_SIZE)
 
-	vlevel.reserve_margin(QUADRANT_SIZE_BORDER)
 
 	if(mapgen) /// If we have a map generator, don't ChangeTurf's in fill_in. Just to ChangeTurf them once again.
 		surface = null
-	vlevel.fill_in(surface, target_area)
 
-	if(ruin_type)
-		var/turf/ruin_turf = locate(rand(
-			vlevel.low_x+6 + vlevel.reserved_margin,
-			vlevel.high_x-ruin_type.width-6 - vlevel.reserved_margin),
-			vlevel.high_y-ruin_type.height-6 - vlevel.reserved_margin,
-			vlevel.z_value
-			)
-		ruin_type.load(ruin_turf)
+	//if(ruin_type)
+		//var/turf/ruin_turf = locate(rand(1,2))
+		//ruin_type.load(ruin_turf)
 
-	if(mapgen)
-		mapgen.generate_terrain(vlevel.get_unreserved_block())
+	//if(mapgen)
+		//mapgen.generate_terrain(vlevel.get_unreserved_block())
 
 	/*
 	if(weather_controller_type)
@@ -284,9 +279,6 @@ SUBSYSTEM_DEF(overmap)
 
 	// locates the first dock in the bottom left, accounting for padding and the border
 	var/turf/primary_docking_turf = locate(
-		vlevel.low_x+RESERVE_DOCK_DEFAULT_PADDING+1 + vlevel.reserved_margin,
-		vlevel.low_y+RESERVE_DOCK_DEFAULT_PADDING+1 + vlevel.reserved_margin,
-		vlevel.z_value
 		)
 	// now we need to offset to account for the first dock
 	var/turf/secondary_docking_turf = locate(
@@ -312,7 +304,7 @@ SUBSYSTEM_DEF(overmap)
 	secondary_dock.dheight = 0
 	secondary_dock.dwidth = 0
 
-	return list(mapzone, primary_dock, secondary_dock)
+	return list(primary_dock, secondary_dock)
 
 /**
   * Returns a random, usually empty turf in the overmap
@@ -367,8 +359,8 @@ SUBSYSTEM_DEF(overmap)
 	for(var/O in overmap_objects)
 		if(istype(O, /obj/structure/overmap/dynamic))
 			var/obj/structure/overmap/dynamic/D = O
-			if(D.mapzone?.is_in_bounds(source))
-				return D
+			//if(D.mapzone?.is_in_bounds(source))
+			//	return D
 
 /datum/controller/subsystem/overmap/Recover()
 	if(istype(SSovermap.events))

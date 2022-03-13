@@ -2,8 +2,6 @@
 	name = "weak energy signature"
 	desc = "A very weak energy signal. It may not still be here if you leave it."
 	icon_state = "strange_event"
-	///The active turf reservation, if there is one
-	var/datum/map_zone/mapzone
 	///The preset ruin template to load, if/when it is loaded.
 	var/datum/map_template/template
 	///The docking port in the reserve

@@ -151,17 +151,10 @@
 	new_shuttle.initiate_docking(old_shuttle_location) //This will spawn the new shuttle
 	return new_shuttle
 
-/**
-  * This proc is THE proc that loads a shuttle from a specified template. Anything else should go through this
-  * in order to spawn a new shuttle.
-  *
-  * * template - The shuttle map template to load. Can NOT be null.
-  * * spawn_transit - Whether or not to send the new shuttle to a newly-generated transit dock after loading.
-  **/
+// VOID TODO : see if this is actually needed
+/*
 /datum/controller/subsystem/shuttle/load_template(datum/map_template/shuttle/template, spawn_transit = TRUE)
 	. = FALSE
-	var/loading_mapzone = SSmapping.create_map_zone("Shuttle Loading Zone")
-	var/datum/virtual_level/loading_zone = SSmapping.create_virtual_level("[template.name] Loading Level", list(ZTRAIT_RESERVED = TRUE), loading_mapzone, template.width, template.height, ALLOCATION_FREE)
 
 	if(!loading_zone)
 		CRASH("failed to reserve an area for shuttle template loading")
@@ -221,3 +214,4 @@
 	new_shuttle.reset_air()
 
 	return new_shuttle
+*/new_shuttle

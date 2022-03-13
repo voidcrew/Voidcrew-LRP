@@ -9,15 +9,6 @@
 	else
 		return
 
-/obj/structure/overmap/dynamic/Destroy()
-	. = ..()
-	remove_mapzone()
-
-/obj/structure/overmap/dynamic/proc/remove_mapzone()
-	if(mapzone)
-		mapzone.clear_reservation()
-		QDEL_NULL(mapzone)
-
 /obj/structure/overmap/dynamic/ship_act(mob/user, obj/structure/overmap/ship/simulated/acting)
 	var/prev_state = acting.state
 	acting.state = OVERMAP_SHIP_ACTING //This is so the controls are locked while loading the level to give both a sense of confirmation and to prevent people from moving the ship
@@ -57,12 +48,9 @@
   * * visiting shuttle - The docking port of the shuttle visiting the level.
   */
 /obj/structure/overmap/dynamic/proc/load_level(obj/docking_port/mobile/visiting_shuttle)
-	if(mapzone)
-		return
 	if(!COOLDOWN_FINISHED(SSovermap, encounter_cooldown))
 		return "WARNING! Stellar interference is restricting flight in this area. Interference should pass in [COOLDOWN_TIMELEFT(SSovermap, encounter_cooldown) / 10] seconds."
 	var/list/dynamic_encounter_values = SSovermap.spawn_dynamic_encounter(planet, TRUE, ruin_type = template)
-	mapzone = dynamic_encounter_values[1]
 	reserve_dock = dynamic_encounter_values[2]
 	reserve_dock_secondary = dynamic_encounter_values[3]
 
@@ -128,27 +116,6 @@
 /**
   * Unloads the reserve, deletes the linked docking port, and moves to a random location if there's no client-having, alive mobs.
   */
-/obj/structure/overmap/dynamic/proc/unload_level()
-	if(preserve_level)
-		return
-
-	if(mapzone)
-		if(length(mapzone.get_mind_mobs()))
-			return //Dont fuck over stranded people? tbh this shouldn't be called on this condition, instead of bandaiding it inside
-		if(SSovermap.generator_type == OVERMAP_GENERATOR_SOLAR)
-			forceMove(SSovermap.get_unused_overmap_square_in_radius())
-		else
-			forceMove(SSovermap.get_unused_overmap_square())
-		choose_level_type()
-		remove_mapzone()
-
-	if(reserve_dock)
-		qdel(reserve_dock, TRUE)
-		reserve_dock = null
-	if(reserve_dock_secondary)
-		qdel(reserve_dock_secondary, TRUE)
-		reserve_dock_secondary = null
-
 /obj/structure/overmap/dynamic/empty
 	name = "Empty Space"
 	desc = "A ship appears to be docked here."
@@ -156,14 +123,3 @@
 
 /obj/structure/overmap/dynamic/empty/choose_level_type()
 	return
-
-/obj/structure/overmap/dynamic/empty/unload_level()
-	if(preserve_level)
-		return
-
-	// Duplicate code grrr
-	if(length(mapzone.get_mind_mobs()))
-		return //Dont fuck over stranded people? tbh this shouldn't be called on this condition, instead of bandaiding it inside
-
-	remove_mapzone()
-	qdel(src)
