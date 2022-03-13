@@ -53,4 +53,4 @@
 	description = "Cassette technology recovered from old walkmans and cassettes."
 	prereq_ids = list("comptech")
 	design_ids = list("adv_cassette_deck","cassette","cassette_deck")
-	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 7500)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
