@@ -40,6 +40,9 @@
 /obj/structure/overmap/dynamic/energy_signal
 	planet = /datum/overmap/planet/space
 
+/obj/structure/overmap/dynamic/wasteland
+	planet = /datum/overmap/planet/wasteland
+
 /area/overmap_encounter
 	name = "\improper Overmap Encounter"
 	icon_state = "away"

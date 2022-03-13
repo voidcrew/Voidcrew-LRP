@@ -23,7 +23,7 @@
 	light_range = 2
 
 /turf/open/floor/plating/dirt/dry
-	icon = 'voidcrew/icons/turf/civ13-floors.dmi'
+	icon = 'voidcrew/icons/turf/wasteland.dmi'
 	icon_state = "dirt"
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	baseturfs = /turf/open/floor/plating/dirt/dry
@@ -53,7 +53,7 @@
 	smooth_icon = 'voidcrew/icons/turf/floors/lava_grass_purple.dmi'
 
 /turf/open/floor/plating/wasteland
-	icon = 'voidcrew/icons/turf/floors/wasteland.dmi'
+	icon = 'voidcrew/icons/turf/wasteland.dmi'
 	icon_state = "wasteland1"
 	base_icon_state = "wasteland"
 	baseturfs = /turf/open/floor/plating/wasteland
@@ -67,7 +67,7 @@
 	light_range = 2
 
 /turf/open/floor/plating/rubble
-	icon = 'voidcrew/icons/turf/wasteland-floors.dmi'
+	icon = 'voidcrew/icons/turf/wasteland.dmi'
 	icon_state = "rubblefull"
 	base_icon_state = "rubble"
 	baseturfs = /turf/open/floor/plating/rubble
@@ -81,7 +81,7 @@
 	icon_state = "[base_icon_state][pick("full", "slab", "plate", "pillar")]"
 
 /turf/open/floor/plating/tunnel
-	icon = 'voidcrew/icons/turf/wasteland-floors.dmi'
+	icon = 'voidcrew/icons/turf/wasteland.dmi'
 	icon_state = "tunnelintact"
 	base_icon_state = "tunnel"
 	baseturfs = /turf/open/floor/plating/tunnel
@@ -95,7 +95,7 @@
 	icon_state = "[base_icon_state][pick("intact", "dirty", "rusty", "chess", "chess2", "hole", "wastelandfull", "wastelandfullvar", "wasteland")]"
 
 /turf/open/floor/plating/mossy_stone
-	icon = 'voidcrew/icons/turf/civ13-floors.dmi'
+	icon = 'voidcrew/icons/turf/wasteland.dmi'
 	icon_state = "stone_old"
 	base_icon_state = "stone"
 	baseturfs = /turf/open/floor/plating/mossy_stone
@@ -109,7 +109,7 @@
 	icon_state = "[base_icon_state]_[pick("old", "old1", "old2")]"
 
 /turf/open/floor/plating/dust
-	icon = 'voidcrew/icons/turf/civ13-floors.dmi'
+	icon = 'voidcrew/icons/turf/wasteland.dmi'
 	icon_state = "dust1"
 	base_icon_state = "dust"
 	baseturfs = /turf/open/floor/plating/dust
