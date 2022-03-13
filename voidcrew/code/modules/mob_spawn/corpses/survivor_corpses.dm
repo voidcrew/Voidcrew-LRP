@@ -19,8 +19,6 @@
 	l_pocket = /obj/item/ammo_box/magazine/aks74u
 
 /obj/effect/mob_spawn/human/corpse/whitesands
-	death = TRUE
-	roundstart = FALSE
 
 /obj/effect/mob_spawn/human/corpse/whitesands/survivor
 	name = "Whitesands Survivor Corpse"
