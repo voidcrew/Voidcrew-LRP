@@ -30,6 +30,8 @@
 	light_range = 2
 
 /turf/open/floor/plating/asteroid/purple
+	name = "ashen sand"
+	desc = "Sand, tinted by the chemicals in the atmosphere to an uncanny shade of purple."
 	icon = 'voidcrew/icons/turf/lavaland_purple.dmi'
 	baseturfs = /turf/open/floor/plating/asteroid/purple
 	turf_type = /turf/open/floor/plating/asteroid/basalt/purple

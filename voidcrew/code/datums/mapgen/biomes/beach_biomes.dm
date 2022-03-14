@@ -70,7 +70,7 @@
 	open_turf_types = list(/turf/open/floor/plating/asteroid/sand/beach/dense/lit = 1)
 	flora_spawn_list = list(
 		/obj/structure/flora/rock/asteroid = 6,
-		/obj/structure/flora/rock = 1
+		/obj/structure/flora/rock/beach = 1
 	)
 	flora_spawn_chance = 0.6
 
@@ -87,7 +87,7 @@
 	)
 	mob_spawn_chance = 1.4
 	flora_spawn_list = list(
-		/obj/structure/flora/rock = 1,
+		/obj/structure/flora/rock/beach = 1,
 		/obj/structure/flora/rock/pile = 1
 	)
 	flora_spawn_chance = 1
@@ -116,7 +116,7 @@
 	open_turf_types = list(/turf/open/floor/plating/asteroid/sand/beach/dense = 1)
 	closed_turf_types = list(/turf/closed/mineral/random/beach = 1)
 	flora_spawn_chance = 4
-	flora_spawn_list = list(/obj/structure/flora/rock = 1, /obj/structure/flora/rock/asteroid = 6)
+	flora_spawn_list = list(/obj/structure/flora/rock/beach = 1, /obj/structure/flora/rock/asteroid = 6)
 	mob_spawn_chance = 1
 	mob_spawn_list = list(
 		/mob/living/simple_animal/hostile/bear/cave = 5,
@@ -126,7 +126,7 @@
 
 /datum/biome/cave/beach/cove
 	open_turf_types = list(/turf/open/floor/plating/asteroid/sand/beach/dense = 1, /turf/open/floor/wood/yew = 3)
-	flora_spawn_list = list(/obj/structure/flora/tree/dead_pine = 1, /obj/structure/flora/rock = 1)
+	flora_spawn_list = list(/obj/structure/flora/tree/dead_pine = 1, /obj/structure/flora/rock/beach = 1)
 	flora_spawn_chance = 5
 	feature_spawn_list = list(
 		/obj/structure/destructible/tribal_torch/lit = 7,

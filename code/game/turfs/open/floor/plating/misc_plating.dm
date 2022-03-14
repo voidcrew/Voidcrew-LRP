@@ -90,6 +90,7 @@
 /turf/open/floor/plating/ashplanet/rocky
 	gender = PLURAL
 	name = "rocky ground"
+	desc = "Rocky ground that is covered in a thin layer of snow."
 	icon_state = "rockyash"
 	base_icon_state = "rocky_ash"
 	smooth_icon = 'icons/turf/floors/rocky_ash.dmi'
