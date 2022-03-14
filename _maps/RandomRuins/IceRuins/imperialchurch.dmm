@@ -13,13 +13,17 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /mob/living/simple_animal/hostile/illusion{
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
 	deathmessage = "disperses into the aether, finally unbound to the material plane.";
 	desc = "A spirit bound to protect something.";
 	icon = 'icons/mob/mob.dmi';
 	icon_living = "stand";
 	icon_state = "stand";
+	maxbodytemp = 5000;
 	melee_damage_upper = 7;
-	name = "guardian spirit"
+	minbodytemp = 0;
+	name = "guardian spirit";
+	pressure_resistance = 100
 	},
 /turf/open/floor/wood,
 /area/ruin/unpowered)
@@ -142,13 +146,17 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /mob/living/simple_animal/hostile/illusion{
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
 	deathmessage = "disperses into the aether, finally unbound to the material plane.";
 	desc = "A spirit bound to protect something.";
 	icon = 'icons/mob/mob.dmi';
 	icon_living = "stand";
 	icon_state = "stand";
+	maxbodytemp = 5000;
 	melee_damage_upper = 7;
-	name = "guardian spirit"
+	minbodytemp = 0;
+	name = "guardian spirit";
+	pressure_resistance = 100
 	},
 /turf/open/floor/carpet/red,
 /area/ruin/unpowered)
@@ -398,13 +406,17 @@
 /area/ruin/unpowered)
 "xd" = (
 /mob/living/simple_animal/hostile/illusion{
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
 	deathmessage = "disperses into the aether, finally unbound to the material plane.";
 	desc = "A spirit bound to protect something.";
 	icon = 'icons/mob/mob.dmi';
 	icon_living = "stand";
 	icon_state = "stand";
+	maxbodytemp = 5000;
 	melee_damage_upper = 7;
-	name = "guardian spirit"
+	minbodytemp = 0;
+	name = "guardian spirit";
+	pressure_resistance = 100
 	},
 /turf/open/floor/wood,
 /area/ruin/unpowered)
@@ -514,13 +526,17 @@
 "CQ" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /mob/living/simple_animal/hostile/illusion{
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
 	deathmessage = "disperses into the aether, finally unbound to the material plane.";
 	desc = "A spirit bound to protect something.";
 	icon = 'icons/mob/mob.dmi';
 	icon_living = "stand";
 	icon_state = "stand";
+	maxbodytemp = 5000;
 	melee_damage_upper = 7;
-	name = "guardian spirit"
+	minbodytemp = 0;
+	name = "guardian spirit";
+	pressure_resistance = 100
 	},
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
@@ -792,13 +808,17 @@
 /area/ruin/unpowered)
 "Wl" = (
 /mob/living/simple_animal/hostile/illusion{
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
 	deathmessage = "disperses into the aether, finally unbound to the material plane.";
 	desc = "A spirit bound to protect something.";
 	icon = 'icons/mob/mob.dmi';
 	icon_living = "stand";
 	icon_state = "stand";
+	maxbodytemp = 5000;
 	melee_damage_upper = 7;
-	name = "guardian spirit"
+	minbodytemp = 0;
+	name = "guardian spirit";
+	pressure_resistance = 100
 	},
 /turf/open/floor/carpet/red,
 /area/ruin/unpowered)
@@ -828,26 +848,34 @@
 "XA" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /mob/living/simple_animal/hostile/illusion{
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
 	deathmessage = "disperses into the aether, finally unbound to the material plane.";
 	desc = "A spirit bound to protect something.";
 	icon = 'icons/mob/mob.dmi';
 	icon_living = "stand";
 	icon_state = "stand";
+	maxbodytemp = 5000;
 	melee_damage_upper = 7;
-	name = "guardian spirit"
+	minbodytemp = 0;
+	name = "guardian spirit";
+	pressure_resistance = 100
 	},
 /turf/open/floor/plating/snowed,
 /area/ruin/unpowered)
 "XR" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /mob/living/simple_animal/hostile/illusion{
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
 	deathmessage = "disperses into the aether, finally unbound to the material plane.";
 	desc = "A spirit bound to protect something.";
 	icon = 'icons/mob/mob.dmi';
 	icon_living = "stand";
 	icon_state = "stand";
+	maxbodytemp = 5000;
 	melee_damage_upper = 7;
-	name = "guardian spirit"
+	minbodytemp = 0;
+	name = "guardian spirit";
+	pressure_resistance = 100
 	},
 /turf/open/floor/carpet/red,
 /area/ruin/unpowered)
