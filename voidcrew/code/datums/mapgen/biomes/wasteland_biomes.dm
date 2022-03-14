@@ -5,7 +5,7 @@
 		/obj/structure/flora/tree/dead/tall = 10,
 		/obj/structure/flora/tree/dead_pine = 4,
 		/obj/structure/flora/tree/dead_african = 1,
-		/obj/structure/flora/rock = 10,
+		/obj/structure/flora/rock/wasteland = 10,
 		/obj/structure/flora/cactus = 10
 	)
 	flora_spawn_chance = 5
@@ -32,7 +32,7 @@
 
 /datum/biome/wasteland/plains
 	open_turf_types = list(/turf/open/floor/plating/dust/lit = 1)
-	flora_spawn_list = list(/obj/structure/flora/deadgrass/tall = 50, /obj/structure/flora/deadgrass/tall/dense = 5, /obj/structure/flora/rock = 1)
+	flora_spawn_list = list(/obj/structure/flora/deadgrass/tall = 50, /obj/structure/flora/deadgrass/tall/dense = 5, /obj/structure/flora/rock/wasteland = 1)
 	flora_spawn_chance = 45
 	mob_spawn_chance = 15
 
@@ -60,7 +60,7 @@
 		/obj/structure/spawner/ice_moon/demonic_portal/hivebot = 2
 	)
 	flora_spawn_chance = 1
-	flora_spawn_list = list(/obj/structure/flora/rock = 30, /obj/effect/decal/cleanable/greenglow/glowy = 30, /obj/structure/elite_tumor = 1)
+	flora_spawn_list = list(/obj/structure/flora/rock/wasteland = 30, /obj/effect/decal/cleanable/greenglow/glowy = 30, /obj/structure/elite_tumor = 1)
 	mob_spawn_chance = 20
 	mob_spawn_list = list(
 		/mob/living/simple_animal/hostile/asteroid/whitesands/ranged/hunter = 10,
@@ -110,7 +110,7 @@
 	)
 	flora_spawn_chance = 10
 	flora_spawn_list = list(
-		/obj/structure/flora/rock = 5,
+		/obj/structure/flora/rock/wasteland = 5,
 		/obj/structure/flora/ash/leaf_shroom = 4,
 		/obj/structure/flora/ash/cap_shroom = 4,
 		/obj/structure/flora/ash/stem_shroom = 4,
@@ -151,7 +151,7 @@
 		/obj/item/storage/firstaid = 2
 	)
 	feature_spawn_chance = 5
-	flora_spawn_list = list(/obj/structure/flora/rock = 1)
+	flora_spawn_list = list(/obj/structure/flora/rock/wasteland = 1)
 	flora_spawn_chance = 1
 	mob_spawn_chance = 5
 	mob_spawn_list = list(

@@ -8,7 +8,7 @@
 		/obj/structure/flora/ash/whitesands/fireblossom = 1
 	)
 	feature_spawn_chance = 0.3
-	feature_spawn_list = list(/obj/structure/flora/rock = 5, /obj/structure/elite_tumor = 1, /obj/structure/geyser/random = 1)
+	feature_spawn_list = list(/obj/structure/flora/rock/hell = 5, /obj/structure/elite_tumor = 1, /obj/structure/geyser/random = 1)
 	mob_spawn_chance = 4
 	mob_spawn_list = list(
 		/mob/living/simple_animal/hostile/asteroid/goliath/beast/random = 50,

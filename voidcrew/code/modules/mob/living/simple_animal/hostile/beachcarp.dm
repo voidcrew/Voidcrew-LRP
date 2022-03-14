@@ -1,6 +1,7 @@
 /mob/living/simple_animal/hostile/carp/beach
 	faction = list("beach")
 	name = "judge"
+	desc = "A large, ferocious fish with massive fangs. It appears ready to attack."
 	icon = 'voidcrew/icons/mob/beach/aquatic.dmi'
 	icon_state = "judge"
 	icon_dead = "judge_dead" // lol
@@ -24,6 +25,7 @@
 
 /mob/living/simple_animal/hostile/carp/beach/small
 	name = "grump"
+	desc = "A small, menacing fish with large fangs. It appears ready to attack."
 	icon = 'voidcrew/icons/mob/beach/aquatic.dmi'
 	icon_state = "grump"
 	icon_dead = "grump_dead"
@@ -32,7 +34,7 @@
 
 /mob/living/simple_animal/hostile/carp/megacarp/beach
 	name = "shark"
-	desc = "a viscious shark"
+	desc = "A vicious shark. It seems to have a lust for blood. Your blood."
 	faction = list("beach")
 	icon = 'voidcrew/icons/mob/beach/aquatic.dmi'
 	icon_state = "shark"
