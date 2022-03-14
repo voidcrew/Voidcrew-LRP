@@ -17,8 +17,9 @@
 		/obj/item/shard = 30,
 		/obj/item/stack/cable_coil/cut = 30,
 		/obj/item/stack/rods = 30,
-		/obj/structure/spawner/ice_moon/demonic_portal/blobspore = 5,
-		/obj/structure/spawner/ice_moon/demonic_portal/hivebot = 5
+		/obj/structure/spawner/ice_moon/demonic_portal/blobspore = 3,
+		/obj/structure/spawner/ice_moon/demonic_portal/hivebot = 3,
+		/obj/structure/ammo_printer = 5
 	)
 	feature_spawn_chance = 3
 	mob_spawn_chance = 7
@@ -56,8 +57,8 @@
 		/obj/structure/radioactive/waste = 10,
 		/obj/item/stack/ore/slag = 10,
 		/obj/structure/flora/cactus = 20,
-		/obj/structure/spawner/ice_moon/demonic_portal/blobspore = 2,
-		/obj/structure/spawner/ice_moon/demonic_portal/hivebot = 2
+		/obj/structure/spawner/ice_moon/demonic_portal/blobspore = 1,
+		/obj/structure/spawner/ice_moon/demonic_portal/hivebot = 1
 	)
 	flora_spawn_chance = 1
 	flora_spawn_list = list(/obj/structure/flora/rock = 30, /obj/effect/decal/cleanable/greenglow/glowy = 30, /obj/structure/elite_tumor = 1)
@@ -85,7 +86,8 @@
 		/obj/structure/mecha_wreckage/ripley/firefighter = 2,
 		/obj/structure/mecha_wreckage/ripley/mkii = 2,
 		/obj/structure/spawner/ice_moon/demonic_portal/blobspore = 1,
-		/obj/structure/spawner/ice_moon/demonic_portal/hivebot = 1
+		/obj/structure/spawner/ice_moon/demonic_portal/hivebot = 1,
+		/obj/structure/ammo_printer = 3
 	)
 	flora_spawn_chance = 1
 	flora_spawn_list = list(
@@ -129,7 +131,8 @@
 		/obj/structure/radioactive = 30,
 		/obj/structure/radioactive/stack = 50,
 		/obj/structure/radioactive/waste = 50,
-		/obj/item/stack/ore/slag = 60
+		/obj/item/stack/ore/slag = 60,
+		/obj/structure/ammo_printer = 15
 	)
 
 /datum/biome/cave/rubble
@@ -148,7 +151,8 @@
 		/obj/effect/mine/explosive = 2,
 		/obj/item/ammo_casing/caseless/arrow/bone = 2,
 		/obj/item/healthanalyzer = 2,
-		/obj/item/storage/firstaid = 2
+		/obj/item/storage/firstaid = 2,
+		/obj/structure/ammo_printer = 2
 	)
 	feature_spawn_chance = 5
 	flora_spawn_list = list(/obj/structure/flora/rock = 1)
@@ -158,8 +162,8 @@
 		/mob/living/simple_animal/hostile/poison/giant_spider/tarantula/wasteland = 10,
 		/mob/living/simple_animal/hostile/asteroid/goliath/beast/wasteland = 20,
 		/mob/living/simple_animal/hostile/asteroid/goliath/beast/ancient/wasteland = 15,
-		/obj/structure/spawner/ice_moon/demonic_portal/blobspore = 2,
-		/obj/structure/spawner/ice_moon/demonic_portal/hivebot = 2
+		/obj/structure/spawner/ice_moon/demonic_portal/blobspore = 1,
+		/obj/structure/spawner/ice_moon/demonic_portal/hivebot = 1
 	)
 
 /datum/biome/cave/mossy_stone

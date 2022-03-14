@@ -5,7 +5,8 @@
 		/obj/structure/flora/ausbushes/ywflowers/hell = 10,
 		/obj/structure/flora/ausbushes/sparsegrass/hell = 40,
 		/obj/structure/flora/ash/whitesands/fern = 5,
-		/obj/structure/flora/ash/whitesands/fireblossom = 1
+		/obj/structure/flora/ash/whitesands/fireblossom = 1,
+		/obj/structure/flora/ash/whitesands/puce = 2
 	)
 	feature_spawn_chance = 0.3
 	feature_spawn_list = list(/obj/structure/flora/rock = 5, /obj/structure/elite_tumor = 1, /obj/structure/geyser/random = 1)
@@ -119,6 +120,16 @@
 		/obj/structure/spawner/lavaland/legion = 3,
 		/mob/living/simple_animal/hostile/asteroid/goldgrub = 10
 	)
+	flora_spawn_chance = 1
+	flora_spawn_list = list(
+		/obj/structure/flora/ash/leaf_shroom = 1,
+		/obj/structure/flora/ash/cap_shroom = 2,
+		/obj/structure/flora/ash/stem_shroom = 2,
+		/obj/structure/flora/ash/cacti = 1,
+		/obj/structure/flora/ash/tall_shroom = 2,
+		/obj/structure/flora/ash/whitesands/fern = 2,
+		/obj/structure/flora/ash/whitesands/puce = 2
+	)
 
 /datum/biome/cave/lavaland/rocky
 	open_turf_types = list(/turf/open/floor/plating/asteroid/purple = 1)
@@ -132,8 +143,15 @@
 	open_turf_types = list(/turf/open/floor/plating/moss = 1)
 	flora_spawn_chance = 80
 	flora_spawn_list = list(
-		/obj/structure/flora/ausbushes/fullgrass/hell = 50,
-		/obj/structure/flora/ausbushes/sparsegrass/hell = 35
+		/obj/structure/flora/ausbushes/fullgrass/hell = 10,
+		/obj/structure/flora/ausbushes/sparsegrass/hell = 5,
+		/obj/structure/flora/ash/leaf_shroom = 1,
+		/obj/structure/flora/ash/cap_shroom = 2,
+		/obj/structure/flora/ash/stem_shroom = 2,
+		/obj/structure/flora/ash/cacti = 1,
+		/obj/structure/flora/ash/tall_shroom = 2,
+		/obj/structure/flora/ash/whitesands/fern = 2,
+		/obj/structure/flora/ash/whitesands/puce = 2
 	)
 
 /datum/biome/cave/lavaland/lava

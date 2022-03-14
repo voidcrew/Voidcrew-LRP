@@ -4,9 +4,9 @@
 	icon = 'voidcrew/icons/obj/animal_spawner.dmi'
 	icon_state = "cave_den"
 	mob_types = list(/mob/living/simple_animal/hostile/bear/cave)
-	max_mobs = 3
+	max_mobs = 2
 	max_integrity = 650
-	spawn_time = 150
+	spawn_time = 300
 	faction = list("wasteland")
 	var/uses = 6
 	var/bite_chance = 15
@@ -23,6 +23,7 @@
 		/obj/item/gun/ballistic/automatic/zip_pistol = 10,
 		/obj/item/gun/ballistic/rifle/boltaction/polymer = 9,
 		/obj/item/gun/ballistic/shotgun/winchester = 5,
+		/obj/item/gun/ballistic/revolver/nagant = 3,
 		/obj/item/gun/ballistic/rifle/boltaction = 2,
 		/obj/item/gun/ballistic/automatic/aks74u = 1,
 		/obj/item/gun/ballistic/shotgun/doublebarrel/hook = 1,
@@ -54,10 +55,11 @@
 		/obj/item/stack/medical/bruise_pack = 10,
 		/obj/item/stack/medical/ointment = 10,
 		/obj/item/storage/firstaid/regular = 3,
-		/obj/item/reagent_containers/food/drinks/beer = 10,
+		/obj/item/storage/bottles/sandblast = 5,
 		/obj/item/reagent_containers/glass/bottle/romerol = 1,
 		/obj/item/implanter/adrenalin = 3,
-		/obj/item/implanter/stealth = 1
+		/obj/item/implanter/stealth = 1,
+		/obj/item/melee/greykingsword = 2
 	)
 
 /obj/structure/spawner/cave/Initialize()
@@ -79,16 +81,17 @@
 			user.adjustBruteLoss(15)
 			playsound(user.loc, 'sound/weapons/bite.ogg', 50, TRUE, -1)
 			to_chat(user, "<span class='alert'>OW! Something bit you!</span>")
-		if(prob(85))
-			to_chat(user, "<span class='alert'>You found something!</span>")
-			var/picked_loot = pickweight(caveloot)
-			new picked_loot(loc)
-			uses -= 1
-			if (uses == 0)
-				to_chat(user, "<span class='warning'>You've emptied out the [name]!</span>")
-				qdel(spawner_type)
 		else
-			to_chat(user, "<span class='warning'>You didn't find anything, maybe try looking again?")
+			if(prob(85))
+				to_chat(user, "<span class='alert'>You found something!</span>")
+				var/picked_loot = pickweight(caveloot)
+				new picked_loot(loc)
+				uses -= 1
+				if (uses == 0)
+					to_chat(user, "<span class='warning'>You've emptied out the [name]!</span>")
+					qdel(spawner_type)
+			else
+				to_chat(user, "<span class='warning'>You didn't find anything, maybe try looking again?")
 	else
 		to_chat(user, "<span class='warning'><b>Your search was interrupted!</b></span>")
 	obj_flags &= ~IN_USE
@@ -104,48 +107,31 @@
 	bite_chance = 0
 	faction = list("beach")
 	caveloot = list(
-		/obj/item/storage/bag/money/vault = 40,
-		/obj/item/research_notes/loot/tiny = 50,
-		/obj/item/research_notes/loot/small = 35,
-		/obj/item/research_notes/loot/medium = 25,
-		/obj/item/research_notes/loot/big = 10,
-		/obj/item/research_notes/loot/genius = 5,
+		/obj/item/storage/bag/money/vault = 10,
+		/obj/item/research_notes/loot/big = 8,
+		/obj/item/research_notes/loot/genius = 4,
 		/obj/item/grenade/clusterbuster/slime = 1,
-		/obj/item/grenade/chem_grenade/teargas/moustache = 5,
-		/obj/item/slimecross/burning/blue = 10,
-		/obj/item/slimecross/burning/lightpink = 10,
-		/obj/item/slimecross/burning/bluespace = 5,
-		/obj/item/slimecross/burning/sepia = 5,
-		/obj/item/slimecross/burning/gold = 5,
-		/obj/item/slimecross/burning/oil = 5,
-		/obj/item/slimecross/burning/rainbow = 5,
-		/obj/item/slimecross/regenerative/orange = 3,
-		/obj/item/slimecross/regenerative/silver = 3,
-		/obj/item/slimecross/regenerative/adamantine = 3,
-		/obj/item/slimecross/regenerative/lightpink = 2,
-		/obj/item/slimecross/regenerative/rainbow = 2,
-		/obj/item/slimecross/stabilized/grey = 10,
+		/obj/item/grenade/chem_grenade/teargas/moustache = 4,
+		/obj/item/slimecross/burning/metal = 10,
+		/obj/item/slimecross/burning/gold = 10,
+		/obj/item/slimecross/burning/oil = 10,
+		/obj/item/slimecross/burning/rainbow = 10,
+		/obj/item/slimecross/regenerative/adamantine = 10,
+		/obj/item/slimecross/regenerative/rainbow = 10,
 		/obj/item/slimecross/stabilized/yellow = 10,
 		/obj/item/slimecross/stabilized/purple = 10,
-		/obj/item/slimecross/stabilized/rainbow = 10,
-		/obj/item/slimecross/stabilized/cerulean = 5,
-		/obj/item/slimecross/stabilized/pink = 2,
-		/obj/item/slimecross/industrial/blue = 10,
-		/obj/item/slimecross/industrial/oil = 10,
-		/obj/item/slimecross/industrial/darkblue = 5,
 		/obj/item/slimecross/charged/darkblue = 10,
 		/obj/item/slimecross/charged/pyrite = 10,
 		/obj/item/slimecross/charged/red = 10,
-		/obj/item/slimecross/charged/pink = 10,
-		/obj/item/slimecross/charged/black = 10,
 		/obj/item/slimecross/chilling/yellow = 10,
-		/obj/item/slimecross/chilling/pyrite = 10,
 		/obj/item/slimecross/chilling/gold = 10,
-		/obj/item/slimecross/chilling/adamantine = 5,
-		/obj/item/slimecross/chilling/rainbow = 5,
-		/obj/item/clothing/suit/pirate/captain = 30,
-		/obj/item/clothing/head/pirate/captain = 30,
-		/obj/item/instrument/banjo = 20,
-		/obj/item/clothing/mask/cigarette/rollie/cannabis = 30
+		/obj/item/slimecross/chilling/adamantine = 10,
+		/obj/item/instrument/banjo = 10,
+		/obj/item/gun/ballistic/automatic/mini_uzi = 10,
+		/obj/item/gun/ballistic/automatic/pistol/deagle/gold = 10,
+		/obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted = 10,
+		/obj/item/melee/transforming/energy/sword/saber/pirate = 5,
+		/obj/item/melee/transforming/energy/ctf/solgov = 2,
+
 	)
 

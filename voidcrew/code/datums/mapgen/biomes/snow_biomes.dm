@@ -9,7 +9,7 @@
 		/obj/structure/flora/ash/chilly = 2
 	)
 	flora_spawn_chance = 10
-	mob_spawn_chance = 3
+	mob_spawn_chance = 1
 	mob_spawn_list = list(
 		/mob/living/simple_animal/hostile/asteroid/wolf/random = 30,
 		/obj/structure/spawner/ice_moon = 3,
@@ -20,7 +20,7 @@
 		/mob/living/simple_animal/hostile/asteroid/ice_demon/random = 20,
 		/mob/living/simple_animal/hostile/asteroid/ice_whelp = 20,
 	)
-	feature_spawn_chance = 0.4
+	feature_spawn_chance = 0.1
 	feature_spawn_list = list(
 		/obj/structure/spawner/ice_moon/demonic_portal = 1,
 		/obj/structure/spawner/ice_moon/demonic_portal/ice_whelp = 1,
@@ -90,7 +90,7 @@
 		/mob/living/simple_animal/hostile/asteroid/ice_demon/random = 20,
 		/mob/living/simple_animal/hostile/asteroid/ice_whelp = 20,
 	)
-	mob_spawn_chance = 5
+	mob_spawn_chance = 1
 
 /datum/biome/arctic/rocky
 	flora_spawn_chance = 5
@@ -109,6 +109,12 @@
 		/mob/living/simple_animal/hostile/asteroid/goldgrub = 10,
 		/mob/living/simple_animal/hostile/asteroid/ice_demon/random = 20,
 		/mob/living/simple_animal/hostile/asteroid/ice_whelp = 20,
+	)
+	feature_spawn_chance = 0.2
+	feature_spawn_list = list(
+		/obj/structure/spawner/ice_moon/demonic_portal = 1,
+		/obj/structure/spawner/ice_moon/demonic_portal/ice_whelp = 1,
+		/obj/structure/spawner/ice_moon/demonic_portal/snowlegion = 1
 	)
 
 /datum/biome/icey/lake
@@ -142,7 +148,7 @@
 		/mob/living/simple_animal/hostile/asteroid/ice_demon/random = 20,
 		/mob/living/simple_animal/hostile/asteroid/ice_whelp = 20
 	)
-	feature_spawn_chance = 0.4
+	feature_spawn_chance = 0.1
 	feature_spawn_list = list(
 		/obj/structure/spawner/ice_moon/demonic_portal = 1,
 		/obj/structure/spawner/ice_moon/demonic_portal/ice_whelp = 1,
@@ -175,7 +181,7 @@
 		/obj/structure/flora/ash/cap_shroom = 1,
 		/obj/structure/flora/ash/stem_shroom = 1,
 	)
-	feature_spawn_chance = 0.4
+	feature_spawn_chance = 0.1
 	feature_spawn_list = list(
 		/obj/structure/spawner/ice_moon/demonic_portal = 1,
 		/obj/structure/spawner/ice_moon/demonic_portal/ice_whelp = 1,
