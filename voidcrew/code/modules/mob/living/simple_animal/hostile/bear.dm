@@ -1,5 +1,5 @@
 /mob/living/simple_animal/hostile/bear/cave
-	icon = 'voidcrew/icons/mob/animal.dmi'
+	icon = 'icons/mob/animal.dmi'
 	icon_state = "brownbear"
 	icon_dead = "brownbear_dead"
 	icon_gib = "brownbear_gib"
