@@ -19,7 +19,7 @@
 		/obj/item/stack/rods = 30,
 		/obj/structure/spawner/ice_moon/demonic_portal/blobspore = 3,
 		/obj/structure/spawner/ice_moon/demonic_portal/hivebot = 3,
-		/obj/structure/ammo_printer = 5
+		/obj/structure/ammo_printer = 1
 	)
 	feature_spawn_chance = 3
 	mob_spawn_chance = 7
@@ -87,7 +87,7 @@
 		/obj/structure/mecha_wreckage/ripley/mkii = 2,
 		/obj/structure/spawner/ice_moon/demonic_portal/blobspore = 1,
 		/obj/structure/spawner/ice_moon/demonic_portal/hivebot = 1,
-		/obj/structure/ammo_printer = 3
+		/obj/structure/ammo_printer = 1
 	)
 	flora_spawn_chance = 1
 	flora_spawn_list = list(
@@ -132,7 +132,7 @@
 		/obj/structure/radioactive/stack = 50,
 		/obj/structure/radioactive/waste = 50,
 		/obj/item/stack/ore/slag = 60,
-		/obj/structure/ammo_printer = 15
+		/obj/structure/ammo_printer = 10
 	)
 
 /datum/biome/cave/rubble
@@ -152,7 +152,7 @@
 		/obj/item/ammo_casing/caseless/arrow/bone = 2,
 		/obj/item/healthanalyzer = 2,
 		/obj/item/storage/firstaid = 2,
-		/obj/structure/ammo_printer = 2
+		/obj/structure/ammo_printer = 1
 	)
 	feature_spawn_chance = 5
 	flora_spawn_list = list(/obj/structure/flora/rock/wasteland = 1)

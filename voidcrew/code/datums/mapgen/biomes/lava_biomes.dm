@@ -6,7 +6,7 @@
 		/obj/structure/flora/ausbushes/sparsegrass/hell = 40,
 		/obj/structure/flora/ash/whitesands/fern = 5,
 		/obj/structure/flora/ash/whitesands/fireblossom = 1,
-		/obj/structure/flora/ash/whitesands/puce = 2
+		/obj/structure/flora/ash/whitesands/puce = 5
 	)
 	feature_spawn_chance = 0.3
 	feature_spawn_list = list(/obj/structure/flora/rock/hell = 5, /obj/structure/elite_tumor = 1, /obj/structure/geyser/random = 1)
@@ -103,6 +103,7 @@
 		/obj/structure/flora/rock/pile/lava = 1
 	)
 	flora_spawn_chance = 2
+	feature_spawn_chance = 0
 
 /datum/biome/lavaland/lava/rocky
 	flora_spawn_chance = 4
@@ -149,9 +150,7 @@
 		/obj/structure/flora/ash/cap_shroom = 2,
 		/obj/structure/flora/ash/stem_shroom = 2,
 		/obj/structure/flora/ash/cacti = 1,
-		/obj/structure/flora/ash/tall_shroom = 2,
-		/obj/structure/flora/ash/whitesands/fern = 2,
-		/obj/structure/flora/ash/whitesands/puce = 2
+		/obj/structure/flora/ash/tall_shroom = 2
 	)
 
 /datum/biome/cave/lavaland/lava

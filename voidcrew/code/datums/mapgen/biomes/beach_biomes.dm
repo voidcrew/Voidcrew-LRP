@@ -130,8 +130,8 @@
 	flora_spawn_chance = 5
 	feature_spawn_list = list(
 		/obj/structure/destructible/tribal_torch/lit = 7,
-		/obj/structure/spawner/cave/beach = 5,
-		/obj/structure/fermenting_barrel = 6,
+		/obj/structure/spawner/cave/beach = 20,
+		/obj/structure/fermenting_barrel = 10,
 		/obj/vehicle/ridden/lavaboat/dragon = 1,
 		/obj/vehicle/ridden/atv/beach = 1,
 		/obj/machinery/jukebox/disco/beach = 1,

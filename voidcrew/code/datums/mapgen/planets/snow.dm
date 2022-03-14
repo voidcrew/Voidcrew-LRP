@@ -2,7 +2,7 @@
 	//NORMAL BIOMES
 	coldest_biomes = list(
 		"biome_lowest_humidity" = /datum/biome/arctic/rocky,
-		"biome_low_humidity" = /datum/biome/icey/lake,
+		"biome_low_humidity" = /datum/biome/snow,
 		"biome_medium_humidity" = /datum/biome/icey/lake,
 		"biome_high_humidity" = /datum/biome/icey,
 		"biome_highest_humidity" = /datum/biome/snow

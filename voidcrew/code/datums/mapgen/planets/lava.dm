@@ -25,21 +25,21 @@
 		"biome_lowest_humidity" = /datum/biome/lavaland/plains/dense/mixed,
 		"biome_low_humidity" = /datum/biome/lavaland/forest,
 		"biome_medium_humidity" = /datum/biome/lavaland/plains/dense,
-		"biome_high_humidity" = /datum/biome/lavaland/lava,
+		"biome_high_humidity" = /datum/biome/lavaland,
 		"biome_highest_humidity" = /datum/biome/lavaland/lava
 	)
 	hot_biomes = list(
 		"biome_lowest_humidity" = /datum/biome/lavaland/outback,
 		"biome_low_humidity" = /datum/biome/lavaland,
 		"biome_medium_humidity" = /datum/biome/lavaland/plains/dense/mixed,
-		"biome_high_humidity" = /datum/biome/lavaland/lava,
+		"biome_high_humidity" = /datum/biome/lavaland,
 		"biome_highest_humidity" = /datum/biome/lavaland/lava
 	)
 	hottest_biomes = list(
 		"biome_lowest_humidity" = /datum/biome/lavaland/forest/rocky,
 		"biome_low_humidity" = /datum/biome/lavaland/outback,
-		"biome_medium_humidity" = /datum/biome/lavaland,
-		"biome_high_humidity" = /datum/biome/lavaland/lava,
+		"biome_medium_humidity" = /datum/biome/lavaland/plains,
+		"biome_high_humidity" = /datum/biome/lavaland,
 		"biome_highest_humidity" = /datum/biome/lavaland/lava
 	)
 	//CAVE BIOMES
