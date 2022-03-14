@@ -11,8 +11,16 @@
 /area/ruin/unpowered)
 "aV" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/simple_animal/hostile/guardian/punch,
-/obj/item/candle/tribal_torch,
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/hostile/illusion{
+	deathmessage = "disperses into the aether, finally unbound to the material plane.";
+	desc = "A spirit bound to protect something.";
+	icon = 'icons/mob/mob.dmi';
+	icon_living = "stand";
+	icon_state = "stand";
+	melee_damage_upper = 7;
+	name = "guardian spirit"
+	},
 /turf/open/floor/wood,
 /area/ruin/unpowered)
 "bh" = (
@@ -83,8 +91,15 @@
 /turf/open/floor/wood,
 /area/ruin/unpowered)
 "gG" = (
-/turf/template_noop,
-/area/template_noop)
+/obj/structure/closet/cabinet,
+/obj/item/storage/book/bible,
+/obj/item/clothing/suit/hooded/chaplain_hoodie,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/reagent_containers/food/drinks/bottle/holywater,
+/obj/item/book/granter/spell/random,
+/turf/open/floor/carpet/black,
+/area/ruin/unpowered)
 "gT" = (
 /obj/effect/turf_decal/snow,
 /turf/open/floor/plating/snowed/smoothed,
@@ -125,7 +140,16 @@
 /area/ruin/unpowered)
 "jd" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/simple_animal/hostile/guardian/protector,
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/hostile/illusion{
+	deathmessage = "disperses into the aether, finally unbound to the material plane.";
+	desc = "A spirit bound to protect something.";
+	icon = 'icons/mob/mob.dmi';
+	icon_living = "stand";
+	icon_state = "stand";
+	melee_damage_upper = 7;
+	name = "guardian spirit"
+	},
 /turf/open/floor/carpet/red,
 /area/ruin/unpowered)
 "je" = (
@@ -200,11 +224,6 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/snowed/smoothed,
-/area/ruin/unpowered)
-"ow" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/mob/living/simple_animal/hostile/guardian/gravitokinetic,
-/turf/open/floor/carpet/red,
 /area/ruin/unpowered)
 "oE" = (
 /obj/item/candle/tribal_torch,
@@ -336,12 +355,6 @@
 /obj/item/reagent_containers/food/drinks/bottle/holywater,
 /turf/open/floor/carpet/black,
 /area/ruin/unpowered)
-"vU" = (
-/mob/living/simple_animal/hostile/guardian/gravitokinetic,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/carpet/red,
-/area/ruin/unpowered)
 "vZ" = (
 /obj/structure/chair/pew/right{
 	dir = 1
@@ -384,7 +397,15 @@
 /turf/open/floor/carpet/black,
 /area/ruin/unpowered)
 "xd" = (
-/mob/living/simple_animal/hostile/guardian/punch,
+/mob/living/simple_animal/hostile/illusion{
+	deathmessage = "disperses into the aether, finally unbound to the material plane.";
+	desc = "A spirit bound to protect something.";
+	icon = 'icons/mob/mob.dmi';
+	icon_living = "stand";
+	icon_state = "stand";
+	melee_damage_upper = 7;
+	name = "guardian spirit"
+	},
 /turf/open/floor/wood,
 /area/ruin/unpowered)
 "xp" = (
@@ -456,11 +477,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/black,
 /area/ruin/unpowered)
-"Bn" = (
-/mob/living/simple_animal/hostile/guardian/gravitokinetic,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/carpet/red,
-/area/ruin/unpowered)
 "By" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
@@ -497,7 +513,15 @@
 /area/ruin/unpowered)
 "CQ" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/simple_animal/hostile/guardian/ranged,
+/mob/living/simple_animal/hostile/illusion{
+	deathmessage = "disperses into the aether, finally unbound to the material plane.";
+	desc = "A spirit bound to protect something.";
+	icon = 'icons/mob/mob.dmi';
+	icon_living = "stand";
+	icon_state = "stand";
+	melee_damage_upper = 7;
+	name = "guardian spirit"
+	},
 /turf/open/floor/plasteel,
 /area/ruin/unpowered)
 "FL" = (
@@ -641,10 +665,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
 /area/ruin/unpowered)
-"Nz" = (
-/mob/living/simple_animal/hostile/guardian/protector,
-/turf/open/floor/carpet/red,
-/area/ruin/unpowered)
 "NK" = (
 /turf/open/floor/plasteel/stairs{
 	dir = 1
@@ -771,7 +791,15 @@
 	},
 /area/ruin/unpowered)
 "Wl" = (
-/mob/living/simple_animal/hostile/guardian/gravitokinetic,
+/mob/living/simple_animal/hostile/illusion{
+	deathmessage = "disperses into the aether, finally unbound to the material plane.";
+	desc = "A spirit bound to protect something.";
+	icon = 'icons/mob/mob.dmi';
+	icon_living = "stand";
+	icon_state = "stand";
+	melee_damage_upper = 7;
+	name = "guardian spirit"
+	},
 /turf/open/floor/carpet/red,
 /area/ruin/unpowered)
 "Xa" = (
@@ -798,13 +826,29 @@
 /turf/open/floor/wood,
 /area/ruin/unpowered)
 "XA" = (
-/mob/living/simple_animal/hostile/guardian/ranged,
 /obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/hostile/illusion{
+	deathmessage = "disperses into the aether, finally unbound to the material plane.";
+	desc = "A spirit bound to protect something.";
+	icon = 'icons/mob/mob.dmi';
+	icon_living = "stand";
+	icon_state = "stand";
+	melee_damage_upper = 7;
+	name = "guardian spirit"
+	},
 /turf/open/floor/plating/snowed,
 /area/ruin/unpowered)
 "XR" = (
-/mob/living/simple_animal/hostile/guardian/protector,
 /obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/hostile/illusion{
+	deathmessage = "disperses into the aether, finally unbound to the material plane.";
+	desc = "A spirit bound to protect something.";
+	icon = 'icons/mob/mob.dmi';
+	icon_living = "stand";
+	icon_state = "stand";
+	melee_damage_upper = 7;
+	name = "guardian spirit"
+	},
 /turf/open/floor/carpet/red,
 /area/ruin/unpowered)
 "Yj" = (
@@ -897,7 +941,7 @@ LW
 LW
 LW
 LW
-gG
+LW
 "}
 (2,1,1) = {"
 LW
@@ -992,7 +1036,7 @@ sw
 nM
 IS
 sV
-uB
+gG
 rj
 sw
 cE
@@ -1081,7 +1125,7 @@ Tc
 sV
 tI
 cE
-cE
+XR
 HA
 cE
 Wi
@@ -1123,7 +1167,7 @@ zd
 sV
 Vv
 KD
-Wl
+Vv
 HA
 cE
 je
@@ -1171,8 +1215,8 @@ Yn
 TX
 Mu
 KD
-ow
-jd
+XR
+cE
 pA
 cE
 Yn
@@ -1207,7 +1251,7 @@ sw
 Tc
 cE
 KD
-vU
+KD
 AI
 cE
 Se
@@ -1249,13 +1293,13 @@ Il
 Tc
 tI
 cE
-KD
+jd
 AI
 Vv
 NK
 NK
 cE
-Nz
+Wl
 sj
 SU
 sj
@@ -1333,7 +1377,7 @@ sw
 sw
 KD
 cE
-Bn
+XR
 qj
 YX
 YX
@@ -1494,7 +1538,7 @@ LW
 LW
 sw
 JT
-Qe
+aV
 IS
 IS
 IS
@@ -1535,7 +1579,7 @@ LW
 LW
 LW
 sw
-aV
+zH
 By
 Qe
 IS
