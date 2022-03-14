@@ -33,16 +33,17 @@
 	light_range = 2
 
 /turf/open/floor/plating/grass/lava
-	name = "lava grass"
+	name = "ungodly grass"
+	desc = "Common grass, tinged to unnatural colours by chemicals in the atmosphere."
 	baseturfs = /turf/open/floor/plating/grass/lava
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
-	desc = "Smells like burnt hair."
 	icon_state = "grass"
 	base_icon_state = "grass"
 	planetary_atmos = TRUE
 	smooth_icon = 'voidcrew/icons/turf/floors/lava_grass_red.dmi'
 	light_power = 1
 	light_range = 2
+	gender = PLURAL
 
 /turf/open/floor/plating/grass/lava/orange
 	smooth_icon = 'voidcrew/icons/turf/floors/lava_grass_orange.dmi'
@@ -53,10 +54,17 @@
 	smooth_icon = 'voidcrew/icons/turf/floors/lava_grass_purple.dmi'
 
 /turf/open/floor/plating/wasteland
+	name = "desolate ground"
+	desc = "Devoid of all but the most hardy lifeforms."
 	icon = 'voidcrew/icons/turf/wasteland.dmi'
 	icon_state = "wasteland1"
 	base_icon_state = "wasteland"
 	baseturfs = /turf/open/floor/plating/wasteland
+	footstep = FOOTSTEP_SAND
+	barefootstep = FOOTSTEP_SAND
+	clawfootstep = FOOTSTEP_SAND
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	gender = PLURAL
 
 /turf/open/floor/plating/wasteland/Initialize(mapload, inherited_virtual_z)
 	. = ..()
@@ -67,6 +75,8 @@
 	light_range = 2
 
 /turf/open/floor/plating/rubble
+	name = "rubble"
+	desc = "Rubble from a destroyed civilization."
 	icon = 'voidcrew/icons/turf/wasteland.dmi'
 	icon_state = "rubblefull"
 	base_icon_state = "rubble"
@@ -75,12 +85,15 @@
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	gender = PLURAL
 
 /turf/open/floor/plating/rubble/Initialize(mapload, inherited_virtual_z)
 	. = ..()
 	icon_state = "[base_icon_state][pick("full", "slab", "plate", "pillar")]"
 
 /turf/open/floor/plating/tunnel
+	name = "plating"
+	desc = "The foundations of some structure that never came to fruition."
 	icon = 'voidcrew/icons/turf/wasteland.dmi'
 	icon_state = "tunnelintact"
 	base_icon_state = "tunnel"
@@ -89,12 +102,15 @@
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	gender = PLURAL
 
 /turf/open/floor/plating/tunnel/Initialize(mapload, inherited_virtual_z)
 	. = ..()
 	icon_state = "[base_icon_state][pick("intact", "dirty", "rusty", "chess", "chess2", "hole", "wastelandfull", "wastelandfullvar", "wasteland")]"
 
 /turf/open/floor/plating/mossy_stone
+	name = "mossy stone"
+	desc = "Ancient stone with moss growing on it."
 	icon = 'voidcrew/icons/turf/wasteland.dmi'
 	icon_state = "stone_old"
 	base_icon_state = "stone"
@@ -103,12 +119,15 @@
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	gender = PLURAL
 
 /turf/open/floor/plating/stone/Initialize(mapload, inherited_virtual_z)
 	. = ..()
 	icon_state = "[base_icon_state]_[pick("old", "old1", "old2")]"
 
 /turf/open/floor/plating/dust
+	name = "dry ground"
+	desc = "Dust perpetually blows through this land."
 	icon = 'voidcrew/icons/turf/wasteland.dmi'
 	icon_state = "dust1"
 	base_icon_state = "dust"
@@ -117,6 +136,7 @@
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	gender = PLURAL
 
 /turf/open/floor/plating/dust/Initialize(mapload, inherited_virtual_z)
 	. = ..()

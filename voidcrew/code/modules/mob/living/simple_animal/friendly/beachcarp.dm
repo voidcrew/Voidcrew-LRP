@@ -42,28 +42,28 @@
 
 /mob/living/simple_animal/beachcarp/bass
 	name = "bass"
-	desc = "A delicious green fish"
+	desc = "A largemouthed green bass."
 	icon = 'voidcrew/icons/mob/beach/fish.dmi'
 	icon_state = "bass-swim"
 	icon_dead = "bass-dead"
 
 /mob/living/simple_animal/beachcarp/trout
 	name = "trout"
-	desc = "A delicious grey fish"
+	desc = "A wild steelhead trout."
 	icon = 'voidcrew/icons/mob/beach/fish.dmi'
 	icon_state = "trout-swim"
 	icon_dead = "trout-dead"
 
 /mob/living/simple_animal/beachcarp/salmon
 	name = "salmon"
-	desc = "A delicious blue fish"
+	desc = "A large blue salmon."
 	icon = 'voidcrew/icons/mob/beach/fish.dmi'
 	icon_state = "salmon-swim"
 	icon_dead = "salmon-dead"
 
 /mob/living/simple_animal/beachcarp/perch
-	name = "salmon"
-	desc = "An adorable yellow fish"
+	name = "perch"
+	desc = "A small yellow perch."
 	icon = 'voidcrew/icons/mob/beach/fish.dmi'
 	icon_state = "perch-swim"
 	icon_dead = "perch-dead"
