@@ -40,8 +40,8 @@
 /obj/structure/stone_tile/surrounding_tile/cracked{
 	dir = 4
 	},
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors)
+/turf/template_noop,
+/area/template_noop)
 "dK" = (
 /obj/item/stack/spacecash/c1000,
 /turf/open/floor/mineral/gold,
@@ -112,12 +112,16 @@
 	},
 /area/ruin)
 "ie" = (
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors)
+/turf/closed/indestructible/riveted{
+	base_icon_state = "iron_wall";
+	icon = 'icons/turf/walls/iron_wall.dmi';
+	icon_state = "iron_wall-0"
+	},
+/area/ruin)
 "if" = (
 /obj/structure/flora/rock/icy,
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors)
+/turf/template_noop,
+/area/template_noop)
 "ih" = (
 /obj/item/coin/gold,
 /obj/item/stack/spacecash/c1000,
@@ -127,8 +131,8 @@
 /obj/structure/stone_tile/surrounding_tile/cracked{
 	dir = 8
 	},
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors)
+/turf/template_noop,
+/area/template_noop)
 "iT" = (
 /obj/structure/stone_tile/slab,
 /mob/living/simple_animal/hostile/megafauna/dragon/icemoon,
@@ -162,8 +166,8 @@
 /area/icemoon/surface/outdoors)
 "ka" = (
 /obj/structure/flora/grass/brown,
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors)
+/turf/template_noop,
+/area/template_noop)
 "kd" = (
 /obj/item/coin/gold,
 /obj/item/ammo_casing/caseless/arrow/ash,
@@ -191,10 +195,10 @@
 	dir = 8
 	},
 /obj/structure/stone_tile/cracked,
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors)
+/turf/template_noop,
+/area/template_noop)
 "nD" = (
-/turf/closed/indestructible/riveted/uranium{
+/turf/closed/indestructible/riveted{
 	base_icon_state = "iron_wall";
 	icon = 'icons/turf/walls/iron_wall.dmi';
 	icon_state = "iron_wall-0"
@@ -204,8 +208,8 @@
 /obj/structure/stone_tile/surrounding_tile/cracked{
 	dir = 1
 	},
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors)
+/turf/template_noop,
+/area/template_noop)
 "rX" = (
 /turf/closed/indestructible/riveted/uranium{
 	base_icon_state = "iron_wall";
@@ -250,8 +254,8 @@
 /area/template_noop)
 "tI" = (
 /obj/structure/flora/tree/dead,
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors)
+/turf/template_noop,
+/area/template_noop)
 "uu" = (
 /turf/open/floor/plasteel/rockvault/sandstone,
 /area/ruin/powered)
@@ -297,9 +301,6 @@
 	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
 	},
 /area/ruin/powered)
-"wX" = (
-/turf/closed/indestructible/rock/snow/ice/ore,
-/area/icemoon/surface/outdoors)
 "xo" = (
 /obj/structure/stone_tile/slab,
 /obj/machinery/door/poddoor/gates/indestructible{
@@ -342,13 +343,6 @@
 	initial_gas_mix = "o2=22;n2=82;TEMP=293.15"
 	},
 /area/ruin/powered)
-"yD" = (
-/turf/closed/indestructible/riveted/uranium{
-	base_icon_state = "icerock_wall";
-	icon = 'icons/turf/mining.dmi';
-	icon_state = "icerock"
-	},
-/area/icemoon/surface/outdoors)
 "yL" = (
 /obj/structure/stone_tile/block/cracked{
 	dir = 9
@@ -360,14 +354,14 @@
 /area/icemoon/surface/outdoors)
 "Ai" = (
 /obj/structure/stone_tile/cracked,
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors)
+/turf/template_noop,
+/area/template_noop)
 "Ax" = (
 /obj/item/stack/sheet/mineral/gold/five,
 /turf/open/floor/mineral/gold,
 /area/ruin/powered)
 "Cc" = (
-/obj/structure/closet/crate/necropolis,
+/obj/structure/closet/crate/necropolis/tendril,
 /turf/open/floor/mineral/gold,
 /area/ruin/powered)
 "CK" = (
@@ -396,12 +390,12 @@
 /obj/structure/stone_tile/block/cracked{
 	dir = 8
 	},
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors)
+/turf/template_noop,
+/area/template_noop)
 "DL" = (
 /obj/structure/flora/rock/pile/icy,
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors)
+/turf/template_noop,
+/area/template_noop)
 "DM" = (
 /obj/item/coin/gold,
 /obj/item/stack/sheet/mineral/gold/five,
@@ -416,17 +410,14 @@
 /area/ruin/powered)
 "FA" = (
 /obj/structure/flora/grass/both,
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors)
+/turf/template_noop,
+/area/template_noop)
 "FF" = (
 /obj/structure/bed/pod,
 /obj/item/flashlight/flare/torch,
 /obj/effect/landmark/ashdrake_ghost_spawn,
 /turf/open/floor/plasteel/rockvault/sandstone,
 /area/ruin/powered)
-"Gb" = (
-/turf/closed/mineral/snowmountain/cavern/icemoon,
-/area/icemoon/surface/outdoors)
 "Gh" = (
 /obj/effect/decal/remains/human{
 	desc = "Some human remains, the only thing that could burn remains to a crisp like this is a plasmafire, or a dragon..."
@@ -469,8 +460,8 @@
 /area/ruin)
 "JL" = (
 /obj/structure/flora/grass/green,
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors)
+/turf/template_noop,
+/area/template_noop)
 "JS" = (
 /obj/item/stack/sheet/mineral/diamond,
 /turf/open/floor/mineral/gold,
@@ -490,8 +481,8 @@
 /area/icemoon/surface/outdoors)
 "Li" = (
 /obj/structure/fluff/drake_statue,
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors)
+/turf/template_noop,
+/area/template_noop)
 "MA" = (
 /obj/structure/stone_tile/cracked,
 /obj/structure/stone_tile/cracked{
@@ -515,8 +506,8 @@
 	dir = 8
 	},
 /obj/structure/stone_tile/center,
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors)
+/turf/template_noop,
+/area/template_noop)
 "OF" = (
 /obj/structure/flora/ash/whitesands/fireblossom,
 /obj/structure/stone_tile/cracked{
@@ -624,8 +615,8 @@
 /obj/structure/stone_tile/block/cracked{
 	dir = 4
 	},
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors)
+/turf/template_noop,
+/area/template_noop)
 "YQ" = (
 /obj/machinery/button/door{
 	id = "ashdrake_cell2";
@@ -666,8 +657,8 @@
 /obj/structure/stone_tile/slab/cracked{
 	dir = 4
 	},
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/surface/outdoors)
+/turf/template_noop,
+/area/template_noop)
 
 (1,1,1) = {"
 tD
@@ -676,18 +667,18 @@ tD
 tD
 tD
 tD
-Gb
-Gb
-Gb
-Gb
-Gb
-Gb
-Gb
-Gb
-Gb
-Gb
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
 nD
-ie
+tD
 tD
 tD
 tD
@@ -705,24 +696,24 @@ tD
 tD
 tD
 tD
-Gb
-Gb
-Gb
-Gb
-Gb
-wX
-wX
-wX
-wX
-wX
-wX
-wX
-wX
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
 nD
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
 tD
 tD
 tD
@@ -736,41 +727,41 @@ tD
 (3,1,1) = {"
 tD
 tD
-Gb
-Gb
-wX
-wX
-wX
-wX
-wX
-nD
-nD
-nD
-nD
-nD
-nD
-nD
-nD
-ie
-ie
-ie
-ie
-ie
 tD
 tD
 tD
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+nD
+nD
+nD
+nD
+nD
+nD
+nD
+nD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
 tD
 tD
 "}
 (4,1,1) = {"
 tD
-Gb
-Gb
-Gb
-wX
+tD
+tD
+tD
+tD
 nD
 nD
 nD
@@ -783,26 +774,26 @@ uu
 uu
 uu
 nD
-ie
+tD
 FA
-ie
+tD
 DL
-ie
+tD
 tI
-ie
-ie
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+tD
+tD
 tD
 "}
 (5,1,1) = {"
 tD
-Gb
-Gb
-Gb
-wX
+tD
+tD
+tD
+tD
 nD
 EF
 dK
@@ -815,26 +806,26 @@ Wb
 uu
 Kg
 nD
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
 FA
-ie
-ie
-ie
+tD
+tD
+tD
 tD
 "}
 (6,1,1) = {"
 tD
-Gb
-Gb
-wX
-wX
+tD
+tD
+tD
+tD
 nD
 JS
 DM
@@ -847,25 +838,25 @@ eS
 ZT
 eS
 nD
-ie
-ie
+tD
+tD
 ka
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
 tD
 "}
 (7,1,1) = {"
 tD
-Gb
-Gb
-wX
+tD
+tD
+tD
 nD
 nD
 QM
@@ -879,25 +870,25 @@ uu
 uu
 xX
 nD
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
 FA
-ie
+tD
 if
-ie
-ie
-ie
+tD
+tD
+tD
 tI
-ie
+tD
 tD
 "}
 (8,1,1) = {"
-Gb
-Gb
-Gb
-wX
+tD
+tD
+tD
+tD
 nD
 Fw
 QM
@@ -911,25 +902,25 @@ uu
 uu
 uu
 nD
-ie
+tD
 DL
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
 tD
 "}
 (9,1,1) = {"
-Gb
-Gb
-Gb
-wX
+tD
+tD
+tD
+tD
 nD
 QM
 Fw
@@ -943,25 +934,25 @@ uu
 uu
 uu
 nD
-ie
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+tD
 JL
-ie
-ie
-ie
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+tD
+tD
+tD
 "}
 (10,1,1) = {"
-Gb
-Gb
-Gb
-wX
+tD
+tD
+tD
+tD
 nD
 QM
 xW
@@ -975,25 +966,25 @@ uu
 uu
 uu
 nD
-ie
-ie
-ie
+tD
+tD
+tD
 DL
-ie
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+tD
 DL
-ie
+tD
 if
-ie
+tD
 "}
 (11,1,1) = {"
-Gb
-Gb
-Gb
-wX
+tD
+tD
+tD
+tD
 nD
 dK
 QM
@@ -1007,25 +998,25 @@ uu
 uu
 uu
 nD
-ie
+tD
 tI
 if
-ie
-ie
+tD
+tD
 tI
-ie
+tD
 ka
-ie
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+tD
 "}
 (12,1,1) = {"
-Gb
-wX
-wX
-wX
+tD
+tD
+tD
+tD
 nD
 Fw
 Fw
@@ -1039,23 +1030,23 @@ uu
 uu
 xX
 nD
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
 ka
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
 "}
 (13,1,1) = {"
-Gb
-wX
+tD
+tD
 nD
 nD
 nD
@@ -1064,30 +1055,30 @@ Fw
 QM
 EF
 nD
+ie
+ie
+ie
+ie
+ie
 rX
-rX
-rX
-rX
-rX
-rX
-rX
+ie
 Li
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
 "}
 (14,1,1) = {"
-Gb
-wX
+tD
+tD
 nD
 Cc
 Gv
@@ -1118,8 +1109,8 @@ VO
 iu
 "}
 (15,1,1) = {"
-Gb
-wX
+tD
+tD
 nD
 kA
 Gv
@@ -1151,7 +1142,7 @@ ci
 "}
 (16,1,1) = {"
 tD
-wX
+tD
 nD
 Cc
 Gv
@@ -1183,7 +1174,7 @@ li
 "}
 (17,1,1) = {"
 tD
-wX
+tD
 nD
 nD
 nD
@@ -1194,14 +1185,14 @@ EF
 nD
 nD
 nD
-rX
-rX
-rX
-rX
-rX
+ie
+ie
+ie
+ie
+ie
 Li
-ie
-ie
+tD
+tD
 qa
 YK
 cA
@@ -1210,14 +1201,14 @@ tm
 li
 Ai
 Ai
-ie
-ie
+tD
+tD
 "}
 (18,1,1) = {"
 tD
-wX
-wX
-wX
+tD
+tD
+tD
 nD
 Fw
 Fw
@@ -1231,25 +1222,25 @@ uu
 uu
 xX
 nD
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
 "}
 (19,1,1) = {"
 tD
 tD
-Gb
-wX
+tD
+tD
 nD
 dK
 QM
@@ -1263,25 +1254,25 @@ uu
 uu
 uu
 nD
-ie
-ie
+tD
+tD
 FA
-ie
-ie
-ie
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+tD
+tD
+tD
 DL
-ie
-ie
+tD
+tD
 "}
 (20,1,1) = {"
 tD
 tD
-Gb
-wX
+tD
+tD
 nD
 Fw
 QM
@@ -1295,25 +1286,25 @@ uu
 uu
 uu
 nD
-ie
-ie
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+tD
+tD
 tI
-ie
-ie
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+tD
+tD
 "}
 (21,1,1) = {"
 tD
 tD
-Gb
-wX
+tD
+tD
 nD
 QM
 Fw
@@ -1328,24 +1319,24 @@ uu
 uu
 nD
 if
-ie
-ie
+tD
+tD
 tI
 DL
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
 FA
-ie
-ie
-ie
+tD
+tD
+tD
 "}
 (22,1,1) = {"
 tD
 tD
 tD
-wX
+tD
 nD
 nD
 QM
@@ -1359,26 +1350,26 @@ uu
 uu
 xX
 nD
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
 "}
 (23,1,1) = {"
 tD
 tD
 tD
-Gb
-wX
+tD
+tD
 nD
 JS
 QM
@@ -1391,26 +1382,26 @@ eS
 XG
 eS
 nD
-ie
-ie
-ie
+tD
+tD
+tD
 if
-ie
-ie
-ie
+tD
+tD
+tD
 if
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
 tD
 "}
 (24,1,1) = {"
 tD
 tD
 tD
-yD
-wX
+tD
+tD
 nD
 EF
 Fw
@@ -1423,18 +1414,18 @@ uu
 uu
 Kg
 nD
-ie
+tD
 ka
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
 FA
-ie
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+tD
 tD
 "}
 (25,1,1) = {"
@@ -1442,7 +1433,7 @@ tD
 tD
 tD
 tD
-wX
+tD
 nD
 nD
 nD
@@ -1455,18 +1446,18 @@ uu
 uu
 uu
 nD
-ie
-ie
-ie
+tD
+tD
+tD
 ka
-ie
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+tD
 FA
-ie
-ie
+tD
+tD
 tD
 "}
 (26,1,1) = {"
@@ -1474,11 +1465,11 @@ tD
 tD
 tD
 tD
-wX
-wX
-wX
-wX
-wX
+tD
+tD
+tD
+tD
+tD
 nD
 nD
 nD
@@ -1487,17 +1478,17 @@ nD
 nD
 nD
 nD
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
 tD
 tD
 "}
@@ -1506,28 +1497,28 @@ tD
 tD
 tD
 tD
-Gb
-Gb
-Gb
-Gb
-wX
-wX
-wX
-wX
-wX
-wX
-wX
-wX
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
 nD
-ie
-ie
+tD
+tD
 tI
-ie
-ie
-ie
-ie
-ie
-ie
+tD
+tD
+tD
+tD
+tD
+tD
 tD
 tD
 tD
@@ -1538,51 +1529,19 @@ tD
 tD
 tD
 tD
-Gb
-Gb
-Gb
-Gb
-Gb
-Gb
-Gb
-Gb
-Gb
-Gb
-Gb
-Gb
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
+tD
 nD
-ie
-ie
-ie
-ie
-ie
-ie
-ie
-tD
-tD
-tD
-tD
-tD
-tD
-"}
-(29,1,1) = {"
-tD
-tD
-tD
-tD
-tD
-tD
-Gb
-Gb
-Gb
-Gb
-tD
-tD
-tD
-tD
-tD
-tD
-tD
 tD
 tD
 tD

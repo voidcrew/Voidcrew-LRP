@@ -7,26 +7,29 @@
 	name = "Russian soldier"
 	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/awaymission)
+/area/ruin/unpowered)
 "aI" = (
 /obj/machinery/power/smes,
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
 "aO" = (
 /turf/closed/wall/mineral/abductor,
-/area/awaymission)
+/area/ruin/unpowered)
 "bK" = (
-/turf/closed/indestructible/rock/snow/ice/ore,
-/area/awaymission)
+/obj/structure/fence/corner{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
 "cr" = (
 /mob/living/simple_animal/hostile/bear/russian,
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/awaymission)
+/turf/template_noop,
+/area/template_noop)
 "eg" = (
 /obj/structure/closet/gimmick/russian,
 /turf/open/floor/plating/rust,
-/area/awaymission)
+/area/ruin/unpowered)
 "fa" = (
 /mob/living/simple_animal/hostile/russian{
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
@@ -35,7 +38,13 @@
 	name = "Russian soldier"
 	},
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
+"fm" = (
+/obj/structure/fence/corner{
+	dir = 5
+	},
+/turf/template_noop,
+/area/template_noop)
 "fF" = (
 /obj/machinery/power/port_gen/pacman{
 	active = 1;
@@ -45,19 +54,28 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
 "fR" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
+"gL" = (
+/turf/open/floor/plating/asteroid/snow/icemoon,
+/area/ruin/unpowered)
 "hK" = (
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
 /turf/open/floor/plating/rust,
-/area/awaymission)
+/area/ruin/unpowered)
+"ic" = (
+/obj/structure/fence{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
 "ig" = (
 /mob/living/simple_animal/hostile/russian/ranged/officer{
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
@@ -65,7 +83,7 @@
 	minbodytemp = 0
 	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/awaymission)
+/area/ruin/unpowered)
 "ii" = (
 /obj/structure/closet,
 /obj/item/clothing/head/helmet/rus_ushanka,
@@ -84,11 +102,11 @@
 /obj/item/clothing/suit/armor/vest/russian_coat,
 /obj/item/clothing/suit/armor/vest/russian_coat,
 /turf/open/floor/wood,
-/area/awaymission)
+/area/ruin/unpowered)
 "jd" = (
 /obj/item/scalpel/alien,
 /turf/open/floor/mineral/abductor,
-/area/awaymission)
+/area/ruin/unpowered)
 "ks" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -97,7 +115,7 @@
 	icon_state = "1-4"
 	},
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
 "kD" = (
 /obj/machinery/power/apc/auto_name/west{
 	auto_name = 0;
@@ -113,12 +131,16 @@
 	name = "Russian soldier"
 	},
 /turf/open/floor/plasteel/tech,
-/area/awaymission)
+/area/ruin/unpowered)
 "kQ" = (
 /obj/structure/table_frame/abductor,
 /obj/item/paper/guides/antag/abductor,
 /turf/open/floor/mineral/abductor,
-/area/awaymission)
+/area/ruin/unpowered)
+"lf" = (
+/obj/structure/fence/corner,
+/turf/template_noop,
+/area/template_noop)
 "lS" = (
 /obj/structure/table/reinforced,
 /obj/item/gun/ballistic/rifle/boltaction,
@@ -126,10 +148,10 @@
 	dir = 8
 	},
 /turf/open/floor/plating/rust,
-/area/awaymission)
+/area/ruin/unpowered)
 "nB" = (
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
 "oq" = (
 /obj/machinery/power/apc/auto_name/north{
 	auto_name = 0;
@@ -142,7 +164,7 @@
 	icon_state = "0-2"
 	},
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
 "oG" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -151,7 +173,7 @@
 	icon_state = "1-8"
 	},
 /turf/open/floor/plasteel/tech,
-/area/awaymission)
+/area/ruin/unpowered)
 "pe" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/bearsteak,
@@ -159,7 +181,7 @@
 	dir = 8
 	},
 /turf/open/floor/wood,
-/area/awaymission)
+/area/ruin/unpowered)
 "pp" = (
 /mob/living/simple_animal/hostile/russian/ranged/mosin{
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
@@ -168,31 +190,31 @@
 	name = "Russian soldier"
 	},
 /turf/open/floor/plasteel/tech,
-/area/awaymission)
+/area/ruin/unpowered)
 "qx" = (
 /obj/structure/bed,
 /obj/item/bedsheet/black,
 /turf/open/floor/wood,
-/area/awaymission)
+/area/ruin/unpowered)
 "qU" = (
 /turf/closed/wall/r_wall,
-/area/awaymission)
+/area/ruin/unpowered)
 "qV" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/open/floor/wood,
-/area/awaymission)
+/area/ruin/unpowered)
 "rl" = (
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
 "rm" = (
 /obj/machinery/light/small,
 /turf/open/floor/plating/rust,
-/area/awaymission)
+/area/ruin/unpowered)
 "rN" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -202,7 +224,7 @@
 	amount = 10
 	},
 /turf/open/floor/plating/rust,
-/area/awaymission)
+/area/ruin/unpowered)
 "rZ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -214,14 +236,14 @@
 	name = "Russian soldier"
 	},
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
 "se" = (
 /obj/machinery/door/airlock/medical/glass,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
 "sx" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -230,28 +252,33 @@
 	icon_state = "1-2"
 	},
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
+"sZ" = (
+/obj/structure/fluff/fokoff_sign,
+/turf/template_noop,
+/area/template_noop)
 "uv" = (
 /obj/machinery/light/small,
 /turf/open/floor/plasteel/tech,
-/area/awaymission)
+/area/ruin/unpowered)
 "vG" = (
 /obj/machinery/door/airlock,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
 "vM" = (
 /turf/template_noop,
 /area/template_noop)
 "we" = (
 /obj/structure/table/optable/abductor,
 /turf/open/floor/mineral/abductor,
-/area/awaymission)
+/area/ruin/unpowered)
 "wt" = (
+/obj/structure/fluff/fokoff_sign,
 /turf/open/floor/plating/ice/icemoon,
-/area/awaymission)
+/area/ruin/unpowered)
 "wK" = (
 /mob/living/simple_animal/hostile/russian/ranged/mosin{
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
@@ -260,7 +287,7 @@
 	name = "Russian soldier"
 	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/awaymission)
+/area/ruin/unpowered)
 "wW" = (
 /obj/machinery/power/apc/auto_name/north{
 	auto_name = 0;
@@ -276,12 +303,12 @@
 	name = "Russian soldier"
 	},
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/awaymission)
+/area/ruin/unpowered)
 "yX" = (
 /obj/structure/grille,
 /obj/effect/spawner/structure/window/hollow/reinforced,
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
 "zV" = (
 /mob/living/simple_animal/hostile/russian{
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
@@ -290,44 +317,50 @@
 	name = "Russian soldier"
 	},
 /turf/open/floor/wood,
-/area/awaymission)
+/area/ruin/unpowered)
 "Ae" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/open/floor/plasteel/tech,
-/area/awaymission)
+/area/ruin/unpowered)
 "Ap" = (
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
 "Au" = (
 /obj/structure/table/glass,
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/awaymission)
+/area/ruin/unpowered)
 "AR" = (
 /obj/structure/table/glass,
 /obj/item/storage/backpack/duffelbag/med/surgery,
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/awaymission)
+/area/ruin/unpowered)
 "Dl" = (
 /turf/open/floor/wood,
-/area/awaymission)
+/area/ruin/unpowered)
 "EO" = (
 /obj/machinery/door/airlock,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/open/floor/wood,
-/area/awaymission)
+/area/ruin/unpowered)
 "FP" = (
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
+"Gt" = (
+/obj/structure/fence{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
 "Gy" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light/small,
@@ -335,23 +368,24 @@
 /obj/item/ammo_box/a762,
 /obj/item/ammo_box/a762,
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
 "GJ" = (
 /obj/structure/closet/abductor,
 /turf/open/floor/mineral/abductor,
-/area/awaymission)
+/area/ruin/unpowered)
 "He" = (
 /obj/machinery/door/airlock/external,
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
 "HR" = (
-/turf/closed/mineral/snowmountain/icemoon,
-/area/awaymission)
+/obj/structure/fence,
+/turf/template_noop,
+/area/template_noop)
 "II" = (
 /obj/structure/table/abductor,
 /obj/item/circular_saw/alien,
 /turf/open/floor/mineral/abductor,
-/area/awaymission)
+/area/ruin/unpowered)
 "IJ" = (
 /obj/structure/table/optable,
 /obj/structure/fluff/iced_abductor,
@@ -359,40 +393,41 @@
 	icon_state = "1-2"
 	},
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/awaymission)
+/area/ruin/unpowered)
 "Jm" = (
 /turf/open/floor/mineral/abductor,
-/area/awaymission)
+/area/ruin/unpowered)
 "Jo" = (
+/obj/structure/fluff/fokoff_sign,
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/awaymission)
+/area/ruin/unpowered)
 "JY" = (
 /turf/open/floor/plasteel/tech,
-/area/awaymission)
+/area/ruin/unpowered)
 "KY" = (
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/awaymission)
+/area/ruin/unpowered)
 "Lv" = (
 /obj/item/storage/toolbox/syndicate,
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
 "LX" = (
 /obj/structure/table/glass,
 /obj/item/storage/firstaid/ancient,
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/awaymission)
+/area/ruin/unpowered)
 "ML" = (
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/awaymission)
+/area/ruin/unpowered)
 "MQ" = (
 /obj/item/stack/sheet/mineral/abductor{
 	amount = 4
 	},
 /turf/open/floor/plating/snowed/smoothed,
-/area/awaymission)
+/area/ruin/unpowered)
 "Na" = (
 /mob/living/simple_animal/hostile/russian/ranged/mosin{
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
@@ -401,13 +436,13 @@
 	name = "Russian soldier"
 	},
 /turf/open/floor/plating/rust,
-/area/awaymission)
+/area/ruin/unpowered)
 "Nf" = (
 /obj/item/stack/sheet/mineral/abductor{
 	amount = 2
 	},
 /turf/open/floor/plating/snowed/smoothed,
-/area/awaymission)
+/area/ruin/unpowered)
 "OB" = (
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -416,15 +451,15 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
 "OS" = (
 /obj/effect/decal/remains/xeno,
 /turf/open/floor/mineral/abductor,
-/area/awaymission)
+/area/ruin/unpowered)
 "Pk" = (
 /obj/machinery/door/airlock/vault,
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
 "QP" = (
 /obj/machinery/power/apc/auto_name/north{
 	auto_name = 0;
@@ -434,47 +469,50 @@
 	icon_state = "0-2"
 	},
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
 "RC" = (
 /obj/structure/table_frame/abductor,
 /turf/open/floor/mineral/abductor,
-/area/awaymission)
+/area/ruin/unpowered)
 "RG" = (
 /obj/structure/closet/gimmick/russian,
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
 "Tn" = (
 /turf/open/floor/plating/snowed/smoothed,
-/area/awaymission)
+/area/ruin/unpowered)
 "TJ" = (
 /obj/structure/table/wood,
 /obj/machinery/microwave,
 /turf/open/floor/wood,
-/area/awaymission)
+/area/ruin/unpowered)
 "TL" = (
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/awaymission)
+/area/ruin/unpowered)
+"TP" = (
+/turf/open/floor/plating/ice/icemoon,
+/area/ruin/unpowered)
 "UF" = (
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
 /turf/open/floor/plating,
-/area/awaymission)
+/area/ruin/unpowered)
 "UI" = (
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
 /turf/open/floor/plating/rust,
-/area/awaymission)
+/area/ruin/unpowered)
 "UN" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
 /turf/open/floor/mineral/titanium/tiled/white,
-/area/awaymission)
+/area/ruin/unpowered)
 "VK" = (
 /obj/machinery/power/apc/auto_name/north{
 	auto_name = 0;
@@ -484,17 +522,20 @@
 	icon_state = "0-2"
 	},
 /turf/open/floor/wood,
-/area/awaymission)
+/area/ruin/unpowered)
 "YC" = (
 /obj/item/stack/sheet/mineral/abductor,
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/awaymission)
+/area/ruin/unpowered)
+"ZA" = (
+/turf/template_noop,
+/area/ruin/unpowered)
 "ZK" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
 /turf/open/floor/plasteel/tech,
-/area/awaymission)
+/area/ruin/unpowered)
 
 (1,1,1) = {"
 vM
@@ -508,18 +549,18 @@ vM
 vM
 vM
 vM
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
 vM
 vM
 vM
@@ -530,26 +571,26 @@ vM
 vM
 vM
 vM
-HR
-HR
-HR
-HR
-HR
-HR
-HR
-HR
-Jo
-Jo
-Jo
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
 cr
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
 vM
 vM
 vM
@@ -558,102 +599,102 @@ vM
 vM
 vM
 vM
-HR
-HR
-bK
-bK
-bK
-bK
-bK
-bK
-HR
-HR
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
 vM
 vM
 "}
 (4,1,1) = {"
 vM
 vM
-HR
-HR
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+ZA
 qU
 qU
 qU
 qU
-qU
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
 vM
 "}
 (5,1,1) = {"
 vM
-HR
-HR
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-qU
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+ZA
 TJ
 pe
 ii
 qU
 qU
 qU
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
+vM
+vM
+vM
+vM
+vM
+vM
+vM
 vM
 "}
 (6,1,1) = {"
 vM
-HR
-HR
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
 qU
 Dl
 Dl
@@ -662,27 +703,27 @@ qU
 lS
 qU
 qU
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
+vM
+vM
+vM
+vM
+vM
+vM
 vM
 "}
 (7,1,1) = {"
 vM
-HR
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
 qU
 VK
 qV
@@ -692,26 +733,26 @@ fR
 UI
 qU
 qU
-Jo
-Jo
-Jo
+vM
+vM
+vM
 cr
-Jo
+vM
 vM
 "}
 (8,1,1) = {"
 vM
-HR
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
 qU
 qx
 qx
@@ -722,23 +763,23 @@ sx
 FP
 qU
 qU
-Jo
-Jo
-Jo
-Jo
+vM
+vM
+vM
+vM
 vM
 "}
 (9,1,1) = {"
 vM
+vM
+vM
+vM
+vM
+vM
+vM
+bK
+Gt
 HR
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
 qU
 qU
 qU
@@ -752,28 +793,28 @@ Ap
 UI
 qU
 qU
-Jo
-Jo
-Jo
-Jo
+vM
+vM
+vM
+vM
 "}
 (10,1,1) = {"
 vM
+vM
+vM
+vM
+vM
+bK
 HR
-bK
-bK
-bK
-bK
-bK
-bK
-wt
+lf
+TP
 Jo
-Jo
-wt
-wt
-Jo
-Jo
-Jo
+gL
+TP
+TP
+gL
+gL
+gL
 qU
 qU
 RG
@@ -781,29 +822,29 @@ nB
 rZ
 Gy
 qU
-Jo
-Jo
-Jo
-Jo
+vM
+vM
+vM
+vM
 "}
 (11,1,1) = {"
 vM
-HR
-bK
-bK
-bK
+vM
+vM
+vM
+vM
 aO
 Nf
 wt
-wt
-Jo
-wt
-wt
-Jo
-Jo
+TP
+gL
+TP
+TP
+gL
+gL
 av
-wt
-wt
+TP
+TP
 qU
 qU
 qU
@@ -811,144 +852,144 @@ vG
 qU
 qU
 qU
-Jo
-Jo
-Jo
+vM
+vM
+vM
 "}
 (12,1,1) = {"
 vM
-HR
-bK
-bK
+vM
+vM
+vM
 aO
 aO
 Jm
 Tn
 Tn
-Jo
+gL
 YC
 wK
-Jo
-Jo
-Jo
-Jo
-wt
-Jo
+gL
+gL
+gL
+gL
+TP
+gL
 yX
 kD
 oG
 JY
 uv
 qU
-Jo
-Jo
-Jo
+sZ
+vM
+vM
 "}
 (13,1,1) = {"
 vM
-HR
-bK
-bK
+vM
+vM
+vM
 aO
 II
 Jm
 OS
 Tn
 Tn
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
+gL
+gL
+gL
+gL
+gL
+gL
+gL
+gL
 qU
 ZK
 Ae
 JY
 JY
 He
-Tn
-Jo
-Tn
+vM
+vM
+vM
 "}
 (14,1,1) = {"
 vM
-HR
-bK
-bK
+vM
+vM
+vM
 aO
 Jm
 Jm
 we
-wt
+TP
 Tn
-Jo
-Jo
-Jo
-Jo
+gL
+gL
+gL
+gL
 ig
-Jo
-Jo
-Jo
+gL
+gL
+gL
 Pk
 JY
 Ae
 JY
 JY
 qU
-Tn
-Tn
-Jo
+vM
+vM
+vM
 "}
 (15,1,1) = {"
 vM
-HR
-bK
-bK
+vM
+vM
+vM
 aO
 GJ
 Jm
 Jm
 jd
 Tn
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
+gL
+gL
+gL
+gL
+gL
+gL
+gL
+gL
 qU
 ZK
 Ae
 JY
 JY
 He
-Tn
-Jo
-Jo
+vM
+vM
+vM
 "}
 (16,1,1) = {"
 vM
-HR
-bK
-bK
+vM
+vM
+vM
 aO
 aO
 kQ
 RC
-wt
+TP
 MQ
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
+gL
+gL
+gL
+gL
+gL
+gL
+gL
 wK
 yX
 pp
@@ -956,28 +997,28 @@ Ae
 JY
 uv
 qU
-Jo
-Jo
-Jo
+vM
+vM
+vM
 "}
 (17,1,1) = {"
 vM
-HR
-bK
-bK
-bK
+vM
+vM
+vM
+vM
 aO
 aO
 aO
-wt
-wt
-Jo
-Jo
-Jo
+TP
+TP
+gL
+gL
+gL
 av
-Jo
-wt
-wt
+gL
+TP
+TP
 qU
 qU
 qU
@@ -985,27 +1026,27 @@ vG
 qU
 qU
 qU
-Jo
-Jo
-Jo
+vM
+vM
+vM
 "}
 (18,1,1) = {"
 vM
-HR
-bK
-bK
-bK
-bK
-bK
+vM
+vM
+vM
+vM
+vM
+ic
+TP
 wt
-wt
-Jo
-Jo
-Jo
-Jo
-wt
-wt
-wt
+gL
+gL
+gL
+gL
+TP
+TP
+TP
 qU
 qU
 rl
@@ -1013,23 +1054,23 @@ fR
 UF
 rm
 qU
-Jo
-Jo
+vM
+vM
 cr
-Jo
+vM
 "}
 (19,1,1) = {"
 vM
+vM
+vM
+vM
+vM
+vM
+fm
 HR
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
+HR
+HR
+HR
 qU
 qU
 yX
@@ -1042,24 +1083,24 @@ Na
 Lv
 qU
 qU
-Jo
-Jo
-Jo
+vM
+vM
+vM
 vM
 "}
 (20,1,1) = {"
 vM
-HR
-HR
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
 qU
 UN
 ML
@@ -1070,25 +1111,25 @@ OB
 fF
 qU
 qU
-Jo
-Jo
-Jo
-Jo
+vM
+vM
+vM
+vM
 vM
 "}
 (21,1,1) = {"
 vM
 vM
-HR
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
 qU
 wW
 IJ
@@ -1098,26 +1139,26 @@ hK
 aI
 qU
 qU
-Jo
-Jo
-Jo
-Jo
-Jo
+vM
+vM
+vM
+vM
+vM
 vM
 "}
 (22,1,1) = {"
 vM
 vM
-HR
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
 qU
 UN
 ML
@@ -1126,27 +1167,27 @@ qU
 rN
 qU
 qU
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
+vM
+vM
+vM
+vM
+vM
+vM
 vM
 "}
 (23,1,1) = {"
 vM
 vM
-HR
-HR
-bK
-bK
-bK
-bK
-bK
-bK
-bK
-bK
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
 qU
 AR
 Au
@@ -1154,42 +1195,42 @@ LX
 qU
 qU
 qU
-Jo
-Jo
-Jo
+vM
+vM
+vM
 cr
-Jo
-Jo
-Jo
+vM
+vM
+vM
 vM
 "}
 (24,1,1) = {"
 vM
 vM
 vM
-HR
-HR
-bK
-bK
-bK
-bK
-bK
-bK
-bK
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
 qU
 qU
 qU
 qU
 qU
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
 vM
 "}
 (25,1,1) = {"
@@ -1197,27 +1238,27 @@ vM
 vM
 vM
 vM
-HR
-HR
-HR
-HR
-bK
-bK
-bK
-HR
-HR
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
 vM
 vM
 "}
@@ -1229,23 +1270,23 @@ vM
 vM
 vM
 vM
-HR
-HR
-HR
-HR
-HR
-Jo
-Jo
-Jo
-Jo
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
 cr
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
+vM
+vM
+vM
+vM
+vM
+vM
+vM
 vM
 vM
 vM
@@ -1262,18 +1303,18 @@ vM
 vM
 vM
 vM
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
-Jo
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
+vM
 vM
 vM
 vM

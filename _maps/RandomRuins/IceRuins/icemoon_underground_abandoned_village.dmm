@@ -12,18 +12,18 @@
 "aZ" = (
 /obj/structure/sign/poster/ripped,
 /turf/closed/wall/rust,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "bR" = (
 /obj/machinery/light/small/broken{
 	dir = 4
 	},
 /obj/structure/fluff/fokoff_sign,
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/turf/template_noop,
+/area/template_noop)
 "bY" = (
 /obj/structure/flora/stump,
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/turf/template_noop,
+/area/template_noop)
 "cj" = (
 /obj/structure/table,
 /obj/item/reagent_containers/food/snacks/fishandchips,
@@ -72,16 +72,19 @@
 "hI" = (
 /obj/item/reagent_containers/food/drinks/beer,
 /turf/open/floor/plating/ice/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "iz" = (
 /obj/structure/fence/door/opened{
 	dir = 8
 	},
 /turf/open/floor/plating/snowed/smoothed/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "iB" = (
 /turf/closed/mineral/snowmountain/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
+"iW" = (
+/turf/open/floor/plating/ice/icemoon,
+/area/overmap_encounter/planetoid/ice)
 "jk" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
@@ -90,17 +93,17 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/turf/template_noop,
+/area/template_noop)
 "kl" = (
 /obj/structure/sign/poster/official/nanotrasen_logo,
 /turf/closed/wall,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "ks" = (
 /obj/structure/flora/rock/icy,
 /obj/effect/mob_spawn/human/corpse/assistant,
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "la" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
 /obj/effect/mob_spawn/human/corpse/assistant,
@@ -108,12 +111,12 @@
 	name = "Village Hunter"
 	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "lg" = (
 /obj/structure/flora/grass/both,
 /obj/effect/decal/remains/human,
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "li" = (
 /obj/structure/dresser,
 /obj/effect/decal/cleanable/glass,
@@ -127,7 +130,11 @@
 	dir = 8
 	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
+"lK" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/plating/asteroid/snow/icemoon,
+/area/overmap_encounter/planetoid/ice)
 "mi" = (
 /obj/effect/decal/remains/human,
 /mob/living/simple_animal/hostile/construct/juggernaut/hostile{
@@ -144,11 +151,11 @@
 	dir = 8
 	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "nR" = (
 /obj/structure/chair/sofa/left,
 /turf/closed/mineral/snowmountain/cavern/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "oB" = (
 /obj/structure/table/wood,
 /obj/structure/bedsheetbin/empty,
@@ -158,23 +165,20 @@
 /area/ruin/powered)
 "oF" = (
 /obj/structure/flora/rock/icy,
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
-"pc" = (
-/turf/open/floor/plating/asteroid/snow/ice/icemoon,
-/area/icemoon/underground/explored)
+/turf/template_noop,
+/area/template_noop)
 "pj" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/turf/template_noop,
+/area/template_noop)
 "pH" = (
 /obj/structure/sign/poster/official/work_for_a_future,
 /turf/closed/wall/mineral/wood,
 /area/ruin/powered)
 "pI" = (
 /obj/structure/flora/rock/pile/icy,
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/turf/template_noop,
+/area/template_noop)
 "pP" = (
 /obj/structure/chair/sofa/left{
 	dir = 1
@@ -228,7 +232,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "tt" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/freezer,
@@ -236,16 +240,13 @@
 "tF" = (
 /obj/structure/fence,
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "tM" = (
 /obj/structure/statue/snow/snowlegion{
 	desc = "An off-putting snowman, something about it gives you a sense of dread instead of holiday cheer."
 	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
-"tN" = (
-/turf/closed/mineral/random/snow,
-/area/icemoon/underground/unexplored)
+/area/overmap_encounter/planetoid/ice)
 "tX" = (
 /obj/structure/table/wood,
 /obj/structure/bedsheetbin,
@@ -257,7 +258,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "ut" = (
 /obj/item/flashlight/lantern{
 	on = 1
@@ -269,13 +270,13 @@
 /obj/effect/decal/cleanable/blood/drip,
 /obj/structure/fence/door,
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "wQ" = (
 /turf/closed/wall,
 /area/ruin/powered)
-"xc" = (
-/turf/open/floor/plating/ice/icemoon,
-/area/icemoon/underground/explored)
+"xq" = (
+/turf/open/floor/plating/asteroid/snow/icemoon,
+/area/overmap_encounter/planetoid/ice)
 "xN" = (
 /obj/structure/bed/dogbed{
 	pixel_y = 14
@@ -292,7 +293,7 @@
 "yS" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "zR" = (
 /obj/machinery/door/airlock/wood,
 /obj/effect/decal/cleanable/dirt,
@@ -300,7 +301,11 @@
 /area/ruin/powered)
 "zT" = (
 /turf/open/floor/plating/snowed/smoothed/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
+"Ai" = (
+/obj/structure/flora/rock/pile/icy,
+/turf/open/floor/plating/asteroid/snow/icemoon,
+/area/overmap_encounter/planetoid/ice)
 "AG" = (
 /obj/structure/showcase/machinery/tv,
 /obj/effect/decal/cleanable/dirt,
@@ -330,7 +335,7 @@
 "Bq" = (
 /obj/structure/flora/tree/pine,
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "Cd" = (
 /obj/structure/chair/comfy/brown{
 	dir = 8
@@ -343,10 +348,14 @@
 /obj/item/kitchen/knife/bloodletter,
 /turf/open/floor/engine/cult,
 /area/ruin/powered)
+"CN" = (
+/obj/structure/flora/grass/brown,
+/turf/template_noop,
+/area/template_noop)
 "Dm" = (
 /obj/structure/flora/grass/brown,
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "DI" = (
 /obj/structure/closet/emcloset,
 /obj/item/tank/internals/emergency_oxygen,
@@ -359,7 +368,7 @@
 "DM" = (
 /obj/structure/flora/bush,
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "Ed" = (
 /obj/machinery/door/airlock/wood,
 /obj/effect/mapping_helpers/airlock/locked,
@@ -368,7 +377,7 @@
 /area/ruin/powered)
 "Ei" = (
 /turf/closed/mineral/snowmountain/cavern/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "EF" = (
 /obj/effect/decal/cleanable/blood/gibs/torso,
 /obj/effect/decal/remains/human,
@@ -382,7 +391,7 @@
 "FR" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/plating/snowed/smoothed/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "Gr" = (
 /obj/structure/closet/crate/trashcart,
 /obj/effect/decal/cleanable/dirt,
@@ -441,8 +450,8 @@
 /area/ruin/powered)
 "Kd" = (
 /obj/structure/flora/grass/green,
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/turf/template_noop,
+/area/template_noop)
 "LZ" = (
 /obj/structure/bed,
 /obj/item/bedsheet/random,
@@ -456,8 +465,8 @@
 /turf/open/floor/plasteel/freezer,
 /area/ruin/powered)
 "Og" = (
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/turf/template_noop,
+/area/template_noop)
 "Os" = (
 /obj/structure/chair/comfy/brown{
 	dir = 4
@@ -511,14 +520,17 @@
 	},
 /obj/structure/flora/grass/both,
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "QR" = (
 /turf/closed/wall/rust,
 /area/ruin/powered)
 "Rv" = (
 /obj/structure/flora/grass/both,
-/turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/turf/template_noop,
+/area/template_noop)
+"RW" = (
+/turf/open/floor/plating/asteroid/snow/ice/icemoon,
+/area/overmap_encounter/planetoid/ice)
 "Si" = (
 /obj/structure/mirror,
 /turf/closed/wall/mineral/wood,
@@ -529,7 +541,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "SN" = (
 /turf/open/floor/plasteel/freezer,
 /area/ruin/powered)
@@ -540,12 +552,12 @@
 "Tc" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "TW" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/grass/both,
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "UI" = (
 /obj/machinery/washing_machine,
 /obj/effect/decal/cleanable/blood,
@@ -560,22 +572,26 @@
 	dir = 4
 	},
 /turf/open/floor/plating/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "WH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed,
 /obj/item/bedsheet/cult,
 /turf/open/floor/wood,
 /area/ruin/powered)
+"Xm" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/template_noop,
+/area/template_noop)
 "Ze" = (
 /turf/closed/wall,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "Zx" = (
 /obj/structure/chair/wood{
 	dir = 4
 	},
 /turf/open/floor/plating/ice/icemoon,
-/area/icemoon/underground/explored)
+/area/overmap_encounter/planetoid/ice)
 "ZG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/cabinet,
@@ -586,41 +602,41 @@
 /area/ruin/powered)
 
 (1,1,1) = {"
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
 "}
 (2,1,1) = {"
-tN
-tN
-tN
-tN
-pc
+Og
+Og
+Og
+Og
+Og
 Og
 Og
 bR
@@ -639,23 +655,23 @@ Og
 Og
 Og
 Og
-tN
-tN
-tN
-tN
-tN
+Og
+Og
+Og
+Og
+Og
 "}
 (3,1,1) = {"
-tN
-tN
-tN
-xc
-pc
+Og
+Og
+Og
+Og
+Og
 Og
 Og
 aZ
 pI
-iB
+Og
 Og
 kl
 Og
@@ -671,15 +687,15 @@ Og
 Og
 Og
 bY
-tN
-tN
-tN
+Og
+Og
+Og
 "}
 (4,1,1) = {"
-tN
-tN
-tN
-pc
+Og
+Og
+Og
+Og
 Og
 Og
 Ei
@@ -696,18 +712,18 @@ Ei
 Ei
 Ei
 Ei
-Tc
-pc
-pc
+Xm
 Og
 Og
-pc
-tN
-tN
+Og
+Og
+Og
+Og
+Og
 "}
 (5,1,1) = {"
-tN
-tN
+Og
+Og
 Og
 Og
 Og
@@ -716,7 +732,7 @@ Ei
 Ei
 Ei
 FR
-pI
+Ai
 Ei
 Ei
 Vn
@@ -729,14 +745,14 @@ Ei
 Ei
 Ei
 Ei
-pc
 Og
 Og
 Og
-tN
+Og
+Og
 "}
 (6,1,1) = {"
-tN
+Og
 pI
 Og
 Og
@@ -744,7 +760,7 @@ bY
 Ei
 Ei
 Ei
-pI
+Ai
 zT
 zT
 zT
@@ -763,10 +779,10 @@ Ei
 Og
 Rv
 Og
-tN
+Og
 "}
 (7,1,1) = {"
-tN
+Og
 Og
 oF
 Og
@@ -776,7 +792,7 @@ Vn
 Vn
 Vn
 Vn
-Og
+xq
 zT
 Bq
 pH
@@ -793,10 +809,10 @@ Ei
 oF
 Og
 Og
-tN
+Og
 "}
 (8,1,1) = {"
-tN
+Og
 Og
 Og
 Og
@@ -806,7 +822,7 @@ Vn
 cj
 sY
 Vn
-Og
+xq
 zT
 Vn
 Vn
@@ -823,10 +839,10 @@ Ei
 Ei
 Og
 Og
-tN
+Og
 "}
 (9,1,1) = {"
-tN
+Og
 Og
 Og
 Ei
@@ -848,15 +864,15 @@ Nq
 SN
 QR
 QR
-Og
+xq
 Ei
 Ei
 Og
 Og
-tN
+Og
 "}
 (10,1,1) = {"
-tN
+Og
 Og
 Kd
 Ei
@@ -877,18 +893,18 @@ wQ
 QR
 pV
 wQ
-Og
+xq
 Tc
 Ei
 Ei
 Og
 Og
-tN
+Og
 "}
 (11,1,1) = {"
-tN
 Og
-pc
+Og
+Og
 Ei
 Ei
 lo
@@ -903,22 +919,22 @@ Vn
 SZ
 Vn
 Vn
-Og
-Og
+xq
+xq
 zT
 tg
 Bq
-Og
+xq
 Ei
 Ei
 Og
 Og
-tN
+Og
 "}
 (12,1,1) = {"
-tN
 Og
-pc
+Og
+Og
 Ei
 Ei
 lo
@@ -926,9 +942,9 @@ Vn
 Vn
 Vn
 Vn
-Og
+xq
 zT
-Og
+xq
 Bq
 zT
 Tc
@@ -937,34 +953,34 @@ zT
 zT
 zT
 Ws
-Og
-Og
+xq
+xq
 Ei
 Ei
 Ei
 Og
-tN
+Og
 "}
 (13,1,1) = {"
-tN
 Og
-pc
+Og
+Og
 Ei
 Ei
 us
 Sk
 Qt
 vi
-Og
+xq
 yS
 zT
 zT
 zT
 zT
-Og
-Og
+xq
+xq
 zT
-Og
+xq
 Vn
 Vn
 Vn
@@ -973,28 +989,28 @@ Ei
 Ei
 Ei
 pI
-tN
+Og
 "}
 (14,1,1) = {"
-tN
+Og
 Og
 Ei
 Ei
 Ei
 Ei
 Bq
-pj
+lK
 mI
-Og
-Og
-Og
-Og
-Og
+xq
+xq
+xq
+xq
+xq
 zT
-Og
-Og
+xq
+xq
 zT
-Og
+xq
 Vn
 LZ
 AN
@@ -1003,10 +1019,10 @@ Ei
 Ei
 Ei
 Og
-tN
+Og
 "}
 (15,1,1) = {"
-tN
+Og
 Og
 Ei
 Vn
@@ -1017,7 +1033,7 @@ Vn
 Vn
 Vn
 Vn
-Og
+xq
 zT
 zT
 zT
@@ -1033,10 +1049,10 @@ Ei
 Ei
 bY
 Og
-tN
+Og
 "}
 (16,1,1) = {"
-tN
+Og
 Og
 Ei
 Vn
@@ -1047,14 +1063,14 @@ aP
 WH
 ZG
 Vn
-Og
+xq
 zT
 Tc
-Og
-Og
-Og
-Og
-Og
+xq
+xq
+xq
+xq
+xq
 Vn
 Vn
 Vn
@@ -1063,10 +1079,10 @@ Ei
 Ei
 Og
 Og
-tN
+Og
 "}
 (17,1,1) = {"
-tN
+Og
 Og
 Ei
 Vn
@@ -1077,15 +1093,15 @@ jk
 aM
 aM
 Vn
-Og
+xq
 zT
-Og
-Og
-Og
+xq
+xq
+xq
 Bq
-Og
-Og
-Og
+xq
+xq
+xq
 Gy
 sG
 Vn
@@ -1093,10 +1109,10 @@ Ei
 Ei
 Og
 Og
-tN
+Og
 "}
 (18,1,1) = {"
-tN
+Og
 Og
 Ei
 Vn
@@ -1109,13 +1125,13 @@ jk
 dh
 zT
 zT
-Og
-Og
-Og
-Og
+xq
+xq
+xq
+xq
 TW
-Og
-Og
+xq
+xq
 Vn
 Vn
 Vn
@@ -1123,10 +1139,10 @@ Ei
 Ei
 Og
 Og
-tN
+Og
 "}
 (19,1,1) = {"
-tN
+Og
 Og
 Ei
 Vn
@@ -1137,26 +1153,26 @@ IA
 gG
 aM
 Vn
-Og
-Og
-Og
-pc
+xq
+xq
+xq
+RW
 Dm
-Og
-Og
+xq
+xq
 tM
-Og
-Og
-Og
+xq
+xq
+xq
 Bq
 Ei
 Ei
 Og
-Dm
-tN
+CN
+Og
 "}
 (20,1,1) = {"
-tN
+Og
 Og
 Ei
 Ei
@@ -1168,25 +1184,25 @@ Cd
 jk
 Vn
 TW
-Og
-pc
-xc
-pc
-pc
-Og
-Og
-Og
-Og
-Og
-Og
+xq
+RW
+iW
+RW
+RW
+xq
+xq
+xq
+xq
+xq
+xq
 Ei
 Ei
 Og
 Og
-tN
+Og
 "}
 (21,1,1) = {"
-tN
+Og
 Og
 Og
 pj
@@ -1197,26 +1213,26 @@ Vn
 Vn
 Vn
 Vn
-Og
+xq
 Dm
-pc
-xc
-xc
-xc
-pc
-pj
-Og
-Og
+RW
+iW
+iW
+iW
+RW
+lK
+xq
+xq
 DM
 Ei
 Ei
 Ei
 Og
 Og
-tN
+Og
 "}
 (22,1,1) = {"
-tN
+Og
 bY
 Og
 Og
@@ -1225,29 +1241,29 @@ Ei
 Ei
 Ei
 Bq
-Og
-Og
-Og
-pc
-xc
+xq
+xq
+xq
+RW
+iW
 hI
 Zx
-xc
-xc
-pc
-pc
-Og
+iW
+iW
+RW
+RW
+xq
 Ei
 Ei
 Ei
 bY
 Og
 Og
-tN
+Og
 "}
 (23,1,1) = {"
-tN
-tN
+Og
+Og
 pI
 Og
 Og
@@ -1257,14 +1273,14 @@ Ei
 Ei
 DM
 Tc
-pc
-pc
-xc
-xc
-xc
-xc
-xc
-xc
+RW
+RW
+iW
+iW
+iW
+iW
+iW
+iW
 Ei
 Ei
 Ei
@@ -1273,27 +1289,27 @@ Og
 Og
 Og
 Og
-tN
+Og
 "}
 (24,1,1) = {"
-tN
-tN
-tN
-pc
 Og
 Og
 Og
+Og
+Og
+Og
+Og
 Ei
 Ei
 Ei
 Ei
 Ei
 Ei
-xc
-xc
-xc
-xc
-xc
+iW
+iW
+iW
+iW
+iW
 Ei
 Ei
 Ei
@@ -1303,15 +1319,15 @@ oF
 Og
 Og
 Og
-tN
+Og
 "}
 (25,1,1) = {"
-tN
-tN
-tN
-xc
-pc
-pc
+Og
+Og
+Og
+Og
+Og
+Og
 Og
 Ei
 Ei
@@ -1333,14 +1349,14 @@ Og
 Og
 Og
 Og
-tN
+Og
 "}
 (26,1,1) = {"
-tN
-tN
-tN
-xc
-pc
+Og
+Og
+Og
+Og
+Og
 oF
 Og
 pI
@@ -1355,23 +1371,23 @@ Ei
 Ei
 Ei
 Ei
-pc
 Og
 Og
 Og
-pc
-tN
 Og
 Og
-tN
+Og
+Og
+Og
+Og
 "}
 (27,1,1) = {"
-tN
-tN
-tN
-tN
-tN
-tN
+Og
+Og
+Og
+Og
+Og
+Og
 Og
 Og
 Og
@@ -1387,41 +1403,41 @@ Og
 Og
 Og
 bY
-Tc
-pc
-tN
-tN
+Xm
+Og
+Og
+Og
 pI
 Og
-tN
+Og
 "}
 (28,1,1) = {"
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
-tN
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
+Og
 "}
