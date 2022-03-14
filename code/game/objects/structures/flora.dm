@@ -445,15 +445,16 @@
 /obj/structure/flora/rock/pile
 	name = "rock pile"
 	icon_state = "lavarocks"
-	desc = "A pile of rocks eroded by the ocean."
+	desc = "A pile of rocks."
 
 //Jungle grass
 
 /obj/structure/flora/grass/jungle
 	name = "jungle grass"
-	desc = "Thick alien flora."
+	desc = "A lush patch of grass."
 	icon = 'icons/obj/flora/jungleflora.dmi'
 	icon_state = "grassa"
+	gender = PLURAL
 
 
 /obj/structure/flora/grass/jungle/Initialize()
@@ -461,15 +462,18 @@
 	. = ..()
 
 /obj/structure/flora/grass/jungle/b
+	desc = "A few bits of grass here and there."
 	icon_state = "grassb"
 
 //Jungle rocks
 
 /obj/structure/flora/rock/jungle
+	name = "jungle rocks"
 	icon_state = "rock"
-	desc = "A pile of rocks."
+	desc = "A pile of rocks, partially covered with grass."
 	icon = 'icons/obj/flora/jungleflora.dmi'
 	density = FALSE
+	gender = PLURAL
 
 /obj/structure/flora/rock/jungle/Initialize()
 	. = ..()
@@ -495,6 +499,7 @@
 	icon_state = "bushc"
 
 /obj/structure/flora/junglebush/large
+	desc = "A large plant that is found in jungles."
 	icon_state = "bush"
 	icon = 'icons/obj/flora/largejungleflora.dmi'
 	pixel_x = -16
@@ -503,11 +508,13 @@
 
 /obj/structure/flora/rock/pile/largejungle
 	name = "rocks"
+	desc = "A large pile of rocks. Grass is interspersed among the rocks."
 	icon_state = "rocks"
 	icon = 'icons/obj/flora/largejungleflora.dmi'
 	density = FALSE
 	pixel_x = -16
 	pixel_y = -16
+	gender = PLURAL
 
 /obj/structure/flora/rock/pile/largejungle/Initialize()
 	. = ..()

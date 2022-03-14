@@ -283,4 +283,8 @@
 	icon_state = "basalt"
 	icon = 'icons/obj/flora/rocks.dmi'
 
-
+/obj/structure/flora/rock/snow
+	name = "rock"
+	desc = "A rock that's been missed by the freezing cold."
+	icon_state = "basalt"
+	icon = 'icons/obj/flora/rocks.dmi'
