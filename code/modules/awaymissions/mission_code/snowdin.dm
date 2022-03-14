@@ -604,11 +604,14 @@
 
 /obj/structure/flora/rock/icy
 	name = "icy rock"
+	desc = "A rock that appears to have been frozen solid."
 	color = rgb(204,233,235)
 
 /obj/structure/flora/rock/pile/icy
-	name = "icey rocks"
+	name = "icy rocks"
+	desc = "A pile of rocks that appear to have been frozen solid."
 	color = rgb(204,233,235)
+	gender = PLURAL
 
 //decals//--
 /obj/effect/turf_decal/snowdin_station_sign

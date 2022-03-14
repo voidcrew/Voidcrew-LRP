@@ -90,6 +90,7 @@
 /turf/open/floor/plating/ashplanet/rocky
 	gender = PLURAL
 	name = "rocky ground"
+	desc = "Rocky ground that is covered in a thin layer of snow."
 	icon_state = "rockyash"
 	base_icon_state = "rocky_ash"
 	smooth_icon = 'icons/turf/floors/rocky_ash.dmi'
@@ -179,6 +180,7 @@
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_SAND
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	icon_state = "ironsand1" // Voidcrew fix
 
 /turf/open/floor/plating/ironsand/Initialize(mapload, inherited_virtual_z)
 	. = ..()

@@ -63,7 +63,7 @@
 
 /obj/structure/radioactive/stack
 	name = "stack of nuclear waste"
-	desc = "Discarded nuclar waste. If enough of this builds up around a planet, radioactive toxins can poison the whole atmosphere."
+	desc = "A large amount of discarded nuclear waste. This can't be good for the environment..."
 	icon_state = "barrel_3"
 	rad_power = 300
 	rad_prob = 50
