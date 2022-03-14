@@ -1,13 +1,10 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"a" = (
-/turf/closed/mineral/volcanic/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "b" = (
-/turf/open/floor/plating/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
+/turf/template_noop,
+/area/template_noop)
 "c" = (
 /turf/open/lava/smooth/lava_land_surface,
-/area/lavaland/surface/outdoors)
+/area/overmap_encounter/planetoid/lava)
 "e" = (
 /turf/open/lava/smooth,
 /area/ruin/powered/gluttony)
@@ -30,6 +27,9 @@
 /obj/item/trash/plate,
 /turf/open/floor/plasteel/freezer,
 /area/ruin/powered/gluttony)
+"k" = (
+/turf/open/floor/plating/asteroid/basalt/lava_land_surface,
+/area/overmap_encounter/planetoid/lava)
 "l" = (
 /obj/item/trash/candy,
 /turf/open/floor/plasteel/freezer,
@@ -94,15 +94,6 @@
 /area/ruin/powered/gluttony)
 
 (1,1,1) = {"
-a
-a
-a
-b
-b
-a
-a
-b
-a
 b
 b
 b
@@ -110,15 +101,21 @@ b
 b
 b
 b
-a
-a
-a
-a
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
 "}
 (2,1,1) = {"
-a
-a
-a
 b
 b
 b
@@ -132,38 +129,41 @@ b
 b
 b
 b
-a
-a
-a
-a
+b
+b
+b
+b
+b
+b
+b
 "}
 (3,1,1) = {"
 b
-a
-a
-a
+b
+b
+b
 b
 b
 b
 c
 c
 c
-b
+k
 c
 c
 c
 b
 b
-a
-a
-a
-a
+b
+b
+b
+b
 "}
 (4,1,1) = {"
 b
-a
-a
-a
+b
+b
+b
 b
 b
 b
@@ -175,18 +175,18 @@ R
 R
 c
 b
-a
-a
-a
-a
-a
+b
+b
+b
+b
+b
 "}
 (5,1,1) = {"
 b
 b
-a
-a
-a
+b
+b
+b
 b
 b
 c
@@ -197,18 +197,18 @@ o
 R
 c
 b
-a
-a
-a
-a
-a
+b
+b
+b
+b
+b
 "}
 (6,1,1) = {"
-a
-a
-a
-a
-a
+b
+b
+b
+b
+b
 b
 b
 c
@@ -223,10 +223,10 @@ b
 b
 b
 b
-a
+b
 "}
 (7,1,1) = {"
-a
+b
 b
 b
 b
@@ -245,10 +245,10 @@ b
 b
 b
 b
-a
+b
 "}
 (8,1,1) = {"
-a
+b
 b
 c
 c
@@ -292,7 +292,7 @@ c
 b
 "}
 (10,1,1) = {"
-a
+b
 b
 c
 R
@@ -314,7 +314,7 @@ c
 b
 "}
 (11,1,1) = {"
-a
+b
 b
 c
 R
@@ -332,11 +332,11 @@ i
 i
 i
 S
-b
+k
 b
 "}
 (12,1,1) = {"
-a
+b
 b
 c
 R
@@ -358,7 +358,7 @@ c
 b
 "}
 (13,1,1) = {"
-a
+b
 b
 c
 R
@@ -380,7 +380,7 @@ c
 b
 "}
 (14,1,1) = {"
-a
+b
 b
 c
 c
@@ -402,7 +402,7 @@ c
 b
 "}
 (15,1,1) = {"
-a
+b
 b
 b
 b
@@ -427,7 +427,7 @@ b
 b
 b
 b
-a
+b
 b
 b
 b
@@ -441,15 +441,15 @@ c
 b
 b
 b
-a
-a
-a
+b
+b
+b
 "}
 (17,1,1) = {"
 b
 b
 b
-a
+b
 b
 b
 b
@@ -463,15 +463,15 @@ c
 b
 b
 b
-a
-a
-a
+b
+b
+b
 "}
 (18,1,1) = {"
-a
-a
-a
-a
+b
+b
+b
+b
 b
 b
 b
@@ -485,40 +485,33 @@ c
 b
 b
 b
-a
-a
-a
+b
+b
+b
 "}
 (19,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-c
-c
-c
+b
+b
+b
+b
+b
+b
 b
 c
 c
 c
+k
+c
+c
+c
 b
 b
-a
-a
-a
-a
+b
+b
+b
+b
 "}
 (20,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
 b
 b
 b
@@ -526,10 +519,17 @@ b
 b
 b
 b
-a
-a
 b
-a
-a
-a
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
 "}

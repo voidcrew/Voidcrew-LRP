@@ -152,6 +152,12 @@
 /obj/structure/sign/poster/contraband/smoke,
 /turf/closed/wall/mineral/cult,
 /area/ruin/unpowered)
+"js" = (
+/obj/structure/fence/corner{
+	dir = 10
+	},
+/turf/open/floor/plating/asteroid/basalt/lava_land_surface,
+/area/overmap_encounter/planetoid/lava)
 "jB" = (
 /obj/structure/table/reinforced,
 /obj/item/toy/plush/narplush,
@@ -163,8 +169,8 @@
 /turf/open/floor/plasteel/cult,
 /area/ruin/unpowered)
 "kn" = (
-/turf/closed/mineral/random/volcanic,
-/area/lavaland/surface/outdoors)
+/turf/open/floor/plating/asteroid/basalt/lava_land_surface,
+/area/overmap_encounter/planetoid/lava)
 "kI" = (
 /mob/living/simple_animal/hostile/netherworld/migo{
 	faction = list("cult");
@@ -212,8 +218,9 @@
 	pixel_x = -10;
 	pixel_y = -4
 	},
+/obj/structure/fence,
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
+/area/overmap_encounter/planetoid/lava)
 "nX" = (
 /mob/living/simple_animal/hostile/construct/juggernaut/hostile{
 	dir = 8
@@ -351,7 +358,7 @@
 	},
 /obj/structure/chair/stool,
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
+/area/overmap_encounter/planetoid/lava)
 "wK" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/plasteel/cult,
@@ -396,8 +403,9 @@
 /turf/open/floor/plasteel/cult,
 /area/ruin/unpowered)
 "zB" = (
+/obj/structure/fence,
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
+/area/overmap_encounter/planetoid/lava)
 "AO" = (
 /obj/structure/sign/poster/contraband/c20r,
 /turf/closed/wall/mineral/cult,
@@ -517,6 +525,10 @@
 /obj/effect/decal/cleanable/ash,
 /turf/open/floor/plasteel/cult,
 /area/ruin/unpowered)
+"HA" = (
+/obj/structure/fence/door,
+/turf/open/floor/plating/asteroid/basalt/lava_land_surface,
+/area/overmap_encounter/planetoid/lava)
 "HL" = (
 /obj/structure/railing{
 	dir = 4
@@ -565,6 +577,12 @@
 /obj/item/gun/ballistic/shotgun/lethal,
 /turf/open/floor/plasteel/cult,
 /area/ruin/unpowered)
+"Ox" = (
+/obj/structure/fence/corner{
+	dir = 6
+	},
+/turf/open/floor/plating/asteroid/basalt/lava_land_surface,
+/area/overmap_encounter/planetoid/lava)
 "OF" = (
 /mob/living/simple_animal/hostile/netherworld/blankbody{
 	faction = list("cult")
@@ -640,6 +658,12 @@
 /obj/item/instrument/piano_synth,
 /turf/open/floor/plasteel/cult,
 /area/ruin/unpowered)
+"SZ" = (
+/obj/structure/fence{
+	dir = 4
+	},
+/turf/open/floor/plating/asteroid/basalt/lava_land_surface,
+/area/overmap_encounter/planetoid/lava)
 "Tm" = (
 /mob/living/simple_animal/hostile/netherworld{
 	faction = list("cult")
@@ -647,6 +671,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/light/colour_cycle/dancefloor_a,
 /area/ruin/unpowered)
+"TZ" = (
+/obj/structure/fence{
+	dir = 8
+	},
+/turf/open/floor/plating/asteroid/basalt/lava_land_surface,
+/area/overmap_encounter/planetoid/lava)
 "Ue" = (
 /obj/structure/closet/crate/critter,
 /mob/living/simple_animal/pet/dog/corgi/narsie,
@@ -675,7 +705,7 @@
 	pixel_y = 12
 	},
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
+/area/overmap_encounter/planetoid/lava)
 "UO" = (
 /obj/structure/chair/wood/wings{
 	dir = 8
@@ -733,7 +763,7 @@
 "Yp" = (
 /obj/structure/destructible/tribal_torch,
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
+/area/overmap_encounter/planetoid/lava)
 "Yw" = (
 /obj/effect/decal/cleanable/blood/gibs/limb{
 	dir = 8
@@ -801,10 +831,10 @@ RR
 RR
 RR
 RR
-kn
-kn
-kn
-kn
+RR
+RR
+RR
+RR
 "}
 (3,1,1) = {"
 RR
@@ -825,8 +855,8 @@ hM
 Jt
 zB
 zB
-zB
-kn
+js
+RR
 "}
 (4,1,1) = {"
 RR
@@ -846,9 +876,9 @@ SA
 DK
 hM
 Yp
-zB
-zB
 kn
+TZ
+RR
 "}
 (5,1,1) = {"
 hM
@@ -867,10 +897,10 @@ iN
 me
 me
 Ch
-zB
-zB
-zB
 kn
+kn
+HA
+RR
 "}
 (6,1,1) = {"
 hM
@@ -891,8 +921,8 @@ oY
 hM
 wo
 UA
-zB
-kn
+SZ
+RR
 "}
 (7,1,1) = {"
 hM
@@ -913,8 +943,8 @@ hM
 hM
 ni
 zB
-zB
-kn
+Ox
+RR
 "}
 (8,1,1) = {"
 Jt
@@ -933,10 +963,10 @@ SA
 yE
 hM
 RR
-kn
-kn
-kn
-kn
+RR
+RR
+RR
+RR
 "}
 (9,1,1) = {"
 hM
