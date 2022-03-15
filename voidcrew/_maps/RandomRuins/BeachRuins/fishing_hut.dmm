@@ -86,8 +86,15 @@
 	})
 "pI" = (
 /mob/living/simple_animal/hostile/cat_butcherer{
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
 	desc = "A profession carp butcher, gone mad due to carptoxin presence in their bloodstream.";
-	name = "The Butcher"
+	health = 200;
+	maxHealth = 200;
+	maxbodytemp = 10000;
+	minbodytemp = 0;
+	name = "The Butcher";
+	real_name = "The Butcher";
+	unique_name = 1
 	},
 /turf/open/floor/plasteel/kitchen_coldroom/freezerfloor,
 /area/ruin/powered{
@@ -236,7 +243,7 @@
 	name = "\improper Cold Storage"
 	})
 "Os" = (
-/mob/living/simple_animal/hostile/pirate/ranged,
+/mob/living/simple_animal/hostile/pirate/ranged/beach,
 /turf/open/floor/carpet/red_gold,
 /area/ruin/powered{
 	name = "\improper Dining Hall"
