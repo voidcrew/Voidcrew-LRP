@@ -328,7 +328,7 @@
 		SSquirks.AssignQuirks(humanc, humanc.client, TRUE)
 
 	log_manifest(character.mind.key, character.mind, character, TRUE)
-	log_shuttle("[character.mind.key] / [character.mind.name] has joined [ship.faction_prefix]-[ship.name] as [job.title]")
+	log_shuttle("[character.mind.key] / [character.mind.name] has joined [ship.display_name] as [job.title]")
 
 	if(length(ship.job_slots) > 1 && ship.job_slots[1] == job) // if it's the "captain" equivalent job of the ship. checks to make sure it's not a one-job ship
 		minor_announce("[job.title] [character.real_name] on deck!", zlevel = ship.shuttle.virtual_z())
@@ -411,7 +411,7 @@
 		//Password assignment
 		if (password != "")
 			target.current_ship.password = password
-			log_shuttle("[key_name(usr)] has password locked their ship ([target.current_ship.name]) with the password: [target.current_ship.password]")
+			log_shuttle("[key_name(usr)] has password locked their ship ([target.current_ship.display_name]) with the password: [target.current_ship.password]")
 		return
 
 	//password checking

@@ -55,11 +55,13 @@
 	jump_timer = addtimer(CALLBACK(src, .proc/jump_sequence, TRUE), JUMP_CHARGEUP_TIME, TIMER_STOPPABLE)
 	priority_announce("Bluespace jump calibration initialized. Calibration completion in [JUMP_CHARGEUP_TIME/600] minutes.", sender_override="[current_ship.display_name] Bluespace Pylon", zlevel=virtual_z())
 	calibrating = TRUE
+	log_shuttle("[usr] has initiated a bluespace jump for [current_ship.name]")
 	return TRUE
 
 /obj/machinery/computer/helm/proc/cancel_jump()
 	priority_announce("Bluespace Pylon spooling down. Jump calibration aborted.", sender_override="[current_ship.display_name] Bluespace Pylon", zlevel=virtual_z())
 	calibrating = FALSE
+	log_shuttle("[usr] has cancelled a bluespace jump aboard [current_ship.display_name]")
 	deltimer(jump_timer)
 
 /obj/machinery/computer/helm/proc/jump_sequence()
@@ -230,14 +232,14 @@
 			if(!current_ship.set_ship_faction("KOS"))
 				say("Error: [COOLDOWN_TIMELEFT(current_ship, faction_cooldown)/10] seconds until faction can be changed..")
 			else
-				log_shuttle("[usr] set [current_ship.name]'s faction to KOS")
+				log_shuttle("[usr] set [current_ship.display_name]'s faction to KOS")
 			update_static_data(usr, ui)
 			return
 		if("return")
 			if(!current_ship.set_ship_faction("return"))
 				say("Error: [COOLDOWN_TIMELEFT(current_ship, faction_cooldown)/10] seconds until faction can be changed..")
 			else
-				log_shuttle("[usr] set [current_ship.name]'s faction back to default")
+				log_shuttle("[usr] set [current_ship.display_name]'s faction back to default")
 			update_static_data(usr, ui)
 			return
 		if("reload_ship")

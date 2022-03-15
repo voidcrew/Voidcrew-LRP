@@ -131,7 +131,7 @@
 	shuttle.jumpToNullSpace()
 	update_docked_bools()
 	message_admins("\[SHUTTLE]: [shuttle.name] has been deleted!")
-	log_admin("\[SHUTTLE]: [shuttle.name] has been deleted!")
+	log_shuttle("[shuttle.name] has been deleted!")
 	qdel(src)
 
 /**
