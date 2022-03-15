@@ -56,6 +56,7 @@ SUBSYSTEM_DEF(overmap)
 	initialize_generator()
 	generate_probabilites()
 	create_map()
+	spawn_overmap_planets()
 
 	return ..()
 
@@ -67,15 +68,18 @@ SUBSYSTEM_DEF(overmap)
 			event.apply_effect()
 
 
-// /datum/controller/subsystem/overmap/proc/spawn_overmap_planets()
-// 	for (var/i in 1 to planets_to_spawn)
-// 		var/datum/overmap/planet/planet = pick_n_take(spawn_probability)
-// 		// get ztrait type
-// 		var/datum/space_level/new_planet = SSmapping.add_new_zlevel("Overmap planet [i]", planet.planet_ztraits)
-// 		spawn_planet(planet, new_planet)
+/datum/controller/subsystem/overmap/proc/spawn_overmap_planets()
+	for (var/i in 1 to planets_to_spawn)
+		var/datum/overmap/planet/planet = pick_n_take(spawn_probability)
+
+		planet = new planet
+		// get ztrait type
+		var/datum/space_level/new_planet = SSmapping.add_new_zlevel("Overmap planet [i]", planet.planet_ztraits)
+		spawn_planet(planet, new_planet)
 
 
 /datum/controller/subsystem/overmap/proc/spawn_planet(datum/overmap/planet/planet_type, datum/space_level/z_level)
+	/*
 	var/ruin_type
 	var/datum/map_generator/mapgen
 	var/area/target_area
@@ -83,17 +87,22 @@ SUBSYSTEM_DEF(overmap)
 	if(!isnull(planet_type))
 		ruin_type = planet_type.ruin_type
 		if(!isnull(planet_type.mapgen))
-			mapgen = new planet_type.mapgen
+			//mapgen = new planet_type.mapgen
 		surface = planet_type.surface
+	*/
+
+	var/ruin_type = planet_type.ruin_type
+	var/turf/surface = planet_type.surface
 
 	//fill in turfs
 	var/list/turfs = Z_TURFS(z_level.z_value)
 	for (var/turf/turf as anything in turfs)
 		turf.ChangeTurf(surface, surface)
 
-	//if(mapgen)
-	//	mapgen.generate_terrain()
-	//seedRuins(z_level.z_value, 90, list(/area/space), SSmapping.themed_ruins[ruin_type])
+	if(mapgen)
+		mapgen.generate_terrain()
+	if (SSmapping.themed_ruins[ruin_type])
+		seedRuins(list(z_level.z_value), 90, list(/area/space), SSmapping.themed_ruins[ruin_type])
 	//fix the mapgen here
 
 	//this is runtiming ssmapping for some reason
@@ -273,76 +282,6 @@ SUBSYSTEM_DEF(overmap)
 	for(var/i in 1 to CONFIG_GET(number/max_overmap_dynamic_events))
 		new /obj/structure/overmap/dynamic(get_unused_overmap_square_in_radius())
 
-/**
-  * Reserves a square dynamic encounter area, and spawns a ruin in it if one is supplied.
-  * * on_planet - If the encounter should be on a generated planet. Required, as it will be otherwise inaccessible.
-  * * target - The ruin to spawn, if any
-  * * ruin_type - The ruin to spawn. Don't pass this argument if you want it to randomly select based on planet type.
-  */
-/datum/controller/subsystem/overmap/proc/spawn_dynamic_encounter(datum/overmap/planet/planet_type, ruin = TRUE, ignore_cooldown = FALSE, datum/map_template/ruin/ruin_type)
-	var/list/ruin_list
-	//var/datum/map_generator/mapgen
-	//var/area/target_area
-	//var/turf/surface = /turf/open/space
-	//var/datum/weather_controller/weather_controller_type
-
-	// VOID TODO: replace weather controllers with actual zlevel weather
-	if(!isnull(planet_type))
-		planet_type = new planet_type
-		ruin_list = SSmapping.themed_ruins[planet_type.ruin_type]
-		//mapgen = new planet_type.mapgen
-		//target_area = planet_type.target_area
-		//surface = planet_type.surface
-		//weather_controller_type = planet_type.weather_controller_type
-		qdel(planet_type)
-
-	if(ruin && ruin_list && !ruin_type)
-		ruin_type = ruin_list[pick(ruin_list)]
-		if(ispath(ruin_type))
-			ruin_type = new ruin_type
-	//if(mapgen) /// If we have a map generator, don't ChangeTurf's in fill_in. Just to ChangeTurf them once again.
-	//	surface = null
-
-	//if(ruin_type)
-		//var/turf/ruin_turf = locate(rand(1,2))
-		//ruin_type.load(ruin_turf)
-
-	//if(mapgen)
-		//mapgen.generate_terrain(vlevel.get_unreserved_block())
-
-	/*
-	if(weather_controller_type)
-		new weather_controller_type(mapzone)
-	*/
-
-	// locates the first dock in the bottom left, accounting for padding and the border
-	var/turf/primary_docking_turf = locate(
-		)
-	// now we need to offset to account for the first dock
-	var/turf/secondary_docking_turf = locate(
-		primary_docking_turf.x+RESERVE_DOCK_MAX_SIZE_LONG+RESERVE_DOCK_DEFAULT_PADDING,
-		primary_docking_turf.y,
-		primary_docking_turf.z
-		)
-
-	//This check exists because docking ports don't like to be deleted.
-	var/obj/docking_port/stationary/primary_dock = new(primary_docking_turf)
-	primary_dock.dir = NORTH
-	primary_dock.name = "\improper Uncharted Space"
-	primary_dock.height = RESERVE_DOCK_MAX_SIZE_SHORT
-	primary_dock.width = RESERVE_DOCK_MAX_SIZE_LONG
-	primary_dock.dheight = 0
-	primary_dock.dwidth = 0
-
-	var/obj/docking_port/stationary/secondary_dock = new(secondary_docking_turf)
-	secondary_dock.dir = NORTH
-	secondary_dock.name = "\improper Uncharted Space"
-	secondary_dock.height = RESERVE_DOCK_MAX_SIZE_SHORT
-	secondary_dock.width = RESERVE_DOCK_MAX_SIZE_LONG
-	secondary_dock.dheight = 0
-	secondary_dock.dwidth = 0
-
-	return list(primary_dock, secondary_dock)
 
 /**
   * Returns a random, usually empty turf in the overmap

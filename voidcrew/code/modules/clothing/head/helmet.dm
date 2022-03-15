@@ -10,7 +10,7 @@
 /obj/item/clothing/head/solgov
 	name = "\improper SolGov officer's cap"
 	desc = "A blue cap worn by high-ranking officers of SolGov."
-	armor = list("melee" = 40, "bullet" = 30, "laser" = 30, "energy" = 40, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 60)
+	armor = list("melee" = 40, "bullet" = 30, "laser" = 30, "energy" = 40, "bomb" = 25, "bio" = 0,  "fire" = 30, "acid" = 60)
 	icon = 'voidcrew/icons/obj/clothing/hats.dmi'
 	worn_icon = 'voidcrew/icons/mob/clothing/hats.dmi'
 	icon_state = "cap_solgov"
@@ -19,7 +19,7 @@
 /obj/item/clothing/head/solgov/terragov
 	name = "\improper TerraGov officer's cap"
 	desc = "A cap worn by high-ranking officers of SolGov. This one is still in original TerraGov green."
-	armor = list("melee" = 40, "bullet" = 30, "laser" = 30, "energy" = 40, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 60)
+	armor = list("melee" = 40, "bullet" = 30, "laser" = 30, "energy" = 40, "bomb" = 25, "bio" = 0,  "fire" = 30, "acid" = 60)
 	icon_state = "cap_terragov"
 
 /obj/item/clothing/head/helmet/space/plasmaman/solgov

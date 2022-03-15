@@ -5,7 +5,7 @@
 	icon = 'voidcrew/icons/obj/clothing/suits.dmi'
 	icon_state = "coat_solgov"
 	blood_overlay_type = "coat"
-	armor = list("melee" = 35, "bullet" = 30, "laser" = 30, "energy" = 40, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
+	armor = list("melee" = 35, "bullet" = 30, "laser" = 30, "energy" = 40, "bomb" = 25, "bio" = 0,  "fire" = 50, "acid" = 50)
 
 /obj/item/clothing/suit/toggle/solgov/terragov
 	name = "\improper Terragov coat"

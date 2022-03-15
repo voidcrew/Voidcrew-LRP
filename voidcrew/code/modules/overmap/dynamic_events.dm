@@ -54,9 +54,6 @@
 /obj/structure/overmap/dynamic/proc/load_level(obj/docking_port/mobile/visiting_shuttle)
 	if(!COOLDOWN_FINISHED(SSovermap, encounter_cooldown))
 		return "WARNING! Stellar interference is restricting flight in this area. Interference should pass in [COOLDOWN_TIMELEFT(SSovermap, encounter_cooldown) / 10] seconds."
-	var/list/dynamic_encounter_values = SSovermap.spawn_dynamic_encounter(planet, TRUE, ruin_type = template)
-	reserve_dock = dynamic_encounter_values[2]
-	reserve_dock_secondary = dynamic_encounter_values[3]
 
 /**
  * Alters the position and orientation of a stationary docking port to ensure that any mobile port small enough can dock within its bounds

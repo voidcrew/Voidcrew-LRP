@@ -4,7 +4,7 @@
 	icon_state = "fatigues"
 	name = "\improper SolGov fatigues"
 	desc = "Standard combat uniform for SolGov's officers."
-	armor = list("melee" = 10, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 5, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
+	armor = list("melee" = 10, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 5, "bio" = 0,  "fire" = 30, "acid" = 30)
 	strip_delay = 50
 	can_adjust = FALSE
 
@@ -12,7 +12,7 @@
 	name = "\improper SolGov elite jumpsuit"
 	desc = "It's a jumpsuit for SolGov's elite officers. Designed to be comfortable in heavy armor."
 	icon_state = "elite"
-	armor = list("melee" = 15, "bullet" = 10, "laser" = 5,"energy" = 5, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
+	armor = list("melee" = 15, "bullet" = 10, "laser" = 5,"energy" = 5, "bomb" = 10, "bio" = 0,  "fire" = 30, "acid" = 30)
 
 /obj/item/clothing/under/solgov/formal
 	name = "\improper SolGov formal uniform"

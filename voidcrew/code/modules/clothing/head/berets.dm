@@ -4,7 +4,7 @@
 	icon = 'voidcrew/icons/obj/clothing/hats.dmi'
 	worn_icon = 'voidcrew/icons/mob/clothing/hats.dmi'
 	icon_state = "beret_solgov"
-	armor = list("melee" = 40, "bullet" = 30, "laser" = 30, "energy" = 40, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 60)
+	armor = list("melee" = 40, "bullet" = 30, "laser" = 30, "energy" = 40, "bomb" = 25, "bio" = 0, "fire" = 30, "acid" = 60)
 
 /obj/item/clothing/head/beret/solgov/plain
 	name = "\improper SolGov beret"

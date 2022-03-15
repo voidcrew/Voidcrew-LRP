@@ -13,47 +13,44 @@
 	var/spawn_rate = 20
 	///The list of ruins that can spawn here
 	var/ruin_type
+	///The area the ruin needs
+	var/area/ruin_area
+
 	///The map generator to use
 	var/datum/map_generator/mapgen
-	///The area type to use on the planet
-	var/area/target_area
 	///The surface turf
 	var/turf/surface = /turf/open/space
-	///Weather controller for planet specific weather
-	//var/datum/weather_controller/weather_controller_type VOID TODO: replace with actual weather for zlevels
 
-	// var/list/planet_ztraits
+	var/list/planet_ztraits
 
 /datum/overmap/planet/lava
 	name = "strange lava planet"
 	desc = "A very weak energy signal originating from a planet with lots of seismic and volcanic activity."
 	color = COLOR_ORANGE
 
-	// planet_ztraits = list(
-	// 	ZTRAIT_ASHSTORM = TRUE,
-	// 	ZTRAIT_LAVA_RUINS = TRUE,
-	// 	ZTRAIT_BASETURF = /turf/open/lava/smooth/lava_land_surface,
-	// )
+	planet_ztraits = list(
+		ZTRAIT_ASHSTORM = TRUE,
+		ZTRAIT_LAVA_RUINS = TRUE,
+		ZTRAIT_BASETURF = /turf/open/lava/smooth/lava_land_surface,
+	)
 
 	ruin_type = ZTRAIT_LAVA_RUINS
 	surface = /turf/open/floor/plating/asteroid/basalt/lava_land_surface
 	mapgen = /datum/map_generator/cave_generator/lavaland
-	target_area = /area/overmap_encounter/planetoid/lava
 
 /datum/overmap/planet/ice
 	name = "strange ice planet"
 	desc = "A very weak energy signal originating from a planet with traces of water and extremely low temperatures."
 	color = COLOR_BLUE_LIGHT
 
-	// planet_ztraits = list(
-	// 	//VOID TODO weather type
-	// 	ZTRAIT_ICE_RUINS = TRUE,
-	// 	ZTRAIT_BASETURF = /turf/open/floor/plating/asteroid/snow/icemoon,
-	// )
+	planet_ztraits = list(
+		//VOID TODO weather type
+		ZTRAIT_ICE_RUINS = TRUE,
+		ZTRAIT_BASETURF = /turf/open/floor/plating/asteroid/snow/icemoon,
+	)
 
 	ruin_type = ZTRAIT_ICE_RUINS
 	mapgen = /datum/map_generator/cave_generator/icemoon
-	target_area = /area/overmap_encounter/planetoid/ice
 	surface = /turf/open/floor/plating/asteroid/snow/icemoon
 
 /datum/overmap/planet/sand
@@ -61,15 +58,14 @@
 	desc = "A very weak energy signal originating from a planet with many traces of silica."
 	color = COLOR_GRAY
 
-	// planet_ztraits = list(
-	// 	//VOID TODO Weather type
-	// 	ZTRAIT_SAND_RUINS = TRUE,
-	// 	ZTRAIT_BASETURF = /turf/open/floor/plating/asteroid/whitesands,
-	// )
+	planet_ztraits = list(
+		//VOID TODO Weather type
+		ZTRAIT_SAND_RUINS = TRUE,
+		ZTRAIT_BASETURF = /turf/open/floor/plating/asteroid/whitesands,
+	)
 
 	ruin_type = ZTRAIT_SAND_RUINS
-	mapgen = /datum/map_generator/cave_generator/whitesands
-	target_area = /area/overmap_encounter/planetoid/sand
+	// mapgen = /datum/map_generator/cave_generator/whitesands
 	surface = /turf/open/floor/plating/asteroid/whitesands
 
 /datum/overmap/planet/jungle
@@ -77,15 +73,14 @@
 	desc = "A very weak energy signal originating from a planet teeming with life."
 	color = COLOR_LIME
 
-	// planet_ztraits = list(
-	// 	//VOID TODO WEATHER
-	// 	ZTRAIT_JUNGLE_RUINS = TRUE,
-	// 	ZTRAIT_BASETURF = /turf/open/floor/plating/dirt,
-	// )
+	planet_ztraits = list(
+		//VOID TODO WEATHER
+		ZTRAIT_JUNGLE_RUINS = TRUE,
+		ZTRAIT_BASETURF = /turf/open/floor/plating/dirt,
+	)
 
 	ruin_type = ZTRAIT_JUNGLE_RUINS
-	mapgen = /datum/map_generator/jungle_generator
-	target_area = /area/overmap_encounter/planetoid/jungle
+	// mapgen = /datum/map_generator/jungle_generator
 	surface = /turf/open/floor/plating/dirt/jungle
 
 /datum/overmap/planet/rock
@@ -93,15 +88,14 @@
 	desc = "A very weak energy signal originating from a abandoned industrial planet."
 	color = COLOR_BROWN
 
-	// planet_ztraits = list(
-	// 	//VOID TODO WEATHER
-	// 	ZTRAIT_ROCK_RUINS = TRUE,
-	// 	ZTRAIT_BASETURF = /turf/open/floor/plating/asteroid
-	// )
+	planet_ztraits = list(
+		//VOID TODO WEATHER
+		ZTRAIT_ROCK_RUINS = TRUE,
+		ZTRAIT_BASETURF = /turf/open/floor/plating/asteroid
+	)
 
 	ruin_type = ZTRAIT_ROCK_RUINS
-	mapgen = /datum/map_generator/cave_generator/rockplanet
-	target_area = /area/overmap_encounter/planetoid/rockplanet
+	// mapgen = /datum/map_generator/cave_generator/rockplanet
 	surface = /turf/open/floor/plating/asteroid
 
 /*
@@ -121,8 +115,9 @@
 	color = null
 	icon_state = "strange_event"
 
-	// planet_ztraits = list (
-	// 	ZTRAIT_SPACE_RUINS = TRUE
-	// )
+	planet_ztraits = list (
+		ZTRAIT_SPACE_RUINS = TRUE
+	)
 
 	ruin_type = ZTRAIT_SPACE_RUINS
+
