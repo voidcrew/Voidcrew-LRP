@@ -68,9 +68,7 @@
 	},
 /mob/living/simple_animal/hostile/pirate/melee/beach,
 /turf/open/floor/carpet/red/airless,
-/area/ruin/powered{
-	name = "\improper Dining Hall"
-	})
+/area/ruin/unpowered)
 "nv" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 4
@@ -84,6 +82,10 @@
 /area/ruin/powered{
 	name = "\improper Dining Hall"
 	})
+"pc" = (
+/obj/structure/barricade/wooden,
+/turf/template_noop,
+/area/ruin/unpowered)
 "pI" = (
 /mob/living/simple_animal/hostile/cat_butcherer{
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
@@ -227,8 +229,7 @@
 	name = "\improper Dining Hall"
 	})
 "Ly" = (
-/obj/structure/stairs/north,
-/turf/open/floor/wood,
+/turf/open/floor/plasteel/stairs,
 /area/ruin/unpowered)
 "Mn" = (
 /obj/structure/sink,
@@ -263,7 +264,6 @@
 	})
 "Qi" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
-/obj/item/guardiancreator/carp,
 /turf/open/floor/plasteel/kitchen_coldroom/freezerfloor,
 /area/ruin/powered{
 	name = "\improper Cold Storage"
@@ -295,6 +295,7 @@
 	})
 "YJ" = (
 /obj/structure/closet/crate/freezer,
+/obj/item/guardiancreator/carp,
 /turf/open/floor/plasteel/kitchen_coldroom/freezerfloor,
 /area/ruin/powered{
 	name = "\improper Cold Storage"
@@ -567,7 +568,7 @@ FG
 FG
 FG
 FG
-Iv
+pc
 Ly
 Ly
 Ly
