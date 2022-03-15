@@ -43,6 +43,8 @@ SUBSYSTEM_DEF(overmap)
 	///Number of initial ships to spawn in
 	var/initial_ship_count = 1
 
+	var/planets_to_spawn = 5
+
 /**
   * Creates an overmap object for shuttles, triggers initialization procs for ships
   */
@@ -63,6 +65,41 @@ SUBSYSTEM_DEF(overmap)
 	for(var/obj/structure/overmap/event/event as anything in events)
 		if(event?.affect_multiple_times && event?.close_overmap_objects)
 			event.apply_effect()
+
+
+// /datum/controller/subsystem/overmap/proc/spawn_overmap_planets()
+// 	for (var/i in 1 to planets_to_spawn)
+// 		var/datum/overmap/planet/planet = pick_n_take(spawn_probability)
+// 		// get ztrait type
+// 		var/datum/space_level/new_planet = SSmapping.add_new_zlevel("Overmap planet [i]", planet.planet_ztraits)
+// 		spawn_planet(planet, new_planet)
+
+
+/datum/controller/subsystem/overmap/proc/spawn_planet(datum/overmap/planet/planet_type, datum/space_level/z_level)
+	var/ruin_type
+	var/datum/map_generator/mapgen
+	var/area/target_area
+	var/turf/surface = /turf/open/space
+	if(!isnull(planet_type))
+		ruin_type = planet_type.ruin_type
+		if(!isnull(planet_type.mapgen))
+			mapgen = new planet_type.mapgen
+		surface = planet_type.surface
+
+	//fill in turfs
+	var/list/turfs = Z_TURFS(z_level.z_value)
+	for (var/turf/turf as anything in turfs)
+		turf.ChangeTurf(surface, surface)
+
+	//if(mapgen)
+	//	mapgen.generate_terrain()
+	//seedRuins(z_level.z_value, 90, list(/area/space), SSmapping.themed_ruins[ruin_type])
+	//fix the mapgen here
+
+	//this is runtiming ssmapping for some reason
+
+
+
 
 /**
 /**
