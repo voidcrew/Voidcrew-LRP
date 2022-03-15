@@ -103,7 +103,7 @@
 		return TRUE
 
 /obj/machinery/computer/helm/ui_interact(mob/user, datum/tgui/ui)
-	if(current_ship.is_player_in_crew(user) || !isliving(user) || isAdminGhostAI(user))
+	if(current_ship.is_player_in_crew(user) || isAdminGhostAI(user))
 		if(jump_state != JUMP_STATE_OFF)
 			say("Bluespace Jump in progress. Controls suspended.")
 			return
@@ -128,12 +128,12 @@
 				user.client.register_map_obj(current_ship.cam_plane_master)
 				user.client.register_map_obj(current_ship.cam_background)
 				current_ship.update_screen()
-				if(!isliving(user))
-					log_shuttle("[user]'s ghost has accessed the helm console for [current_ship.name]")
 			// Open UI
 			ui = new(user, src, "HelmConsole", name)
 			ui.open()
 	else
+		if(!isliving(user))
+			return
 		say("ERROR: Unrecognized bio-signature detected")
 		return
 
