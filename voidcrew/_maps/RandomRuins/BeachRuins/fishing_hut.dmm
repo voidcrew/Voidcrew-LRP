@@ -51,6 +51,10 @@
 /area/ruin/powered{
 	name = "\improper Dining Hall"
 	})
+"hH" = (
+/obj/structure/fence/end,
+/turf/open/floor/wood,
+/area/ruin/unpowered)
 "hK" = (
 /turf/open/floor/carpet/red_gold,
 /area/ruin/powered{
@@ -82,10 +86,6 @@
 /area/ruin/powered{
 	name = "\improper Dining Hall"
 	})
-"pc" = (
-/obj/structure/barricade/wooden,
-/turf/template_noop,
-/area/ruin/unpowered)
 "pI" = (
 /mob/living/simple_animal/hostile/cat_butcherer{
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
@@ -192,6 +192,10 @@
 /area/ruin/powered{
 	name = "\improper Dining Hall"
 	})
+"Em" = (
+/obj/structure/fence,
+/turf/open/floor/wood,
+/area/ruin/unpowered)
 "Eq" = (
 /obj/machinery/door/airlock/wood/glass,
 /turf/open/floor/wood,
@@ -208,7 +212,9 @@
 	name = "\improper Dining Hall"
 	})
 "Iv" = (
-/obj/structure/barricade/wooden,
+/obj/structure/fence{
+	dir = 4
+	},
 /turf/open/floor/wood,
 /area/ruin/unpowered)
 "Ko" = (
@@ -280,6 +286,12 @@
 /area/ruin/powered{
 	name = "\improper Cold Storage"
 	})
+"WT" = (
+/obj/structure/fence/corner{
+	dir = 5
+	},
+/turf/open/floor/wood,
+/area/ruin/unpowered)
 "Xp" = (
 /obj/structure/table/rolling,
 /obj/item/clothing/suit/space/hardsuit/carp,
@@ -557,7 +569,7 @@ Eq
 Ko
 Ko
 Ko
-Iv
+hH
 FG
 FG
 FG
@@ -568,7 +580,7 @@ FG
 FG
 FG
 FG
-pc
+Iv
 Ly
 Ly
 Ly
@@ -584,12 +596,12 @@ FG
 FG
 FG
 FG
-Iv
-Iv
-Iv
-Iv
-Iv
-Iv
+WT
+Em
+Em
+Em
+Em
+hH
 FG
 FG
 FG
