@@ -39,9 +39,6 @@
 "gT" = (
 /obj/structure/table/wood/fancy/purple,
 /obj/item/storage/backpack/magspear_quiver,
-/obj/item/throwing_star/magspear,
-/obj/item/throwing_star/magspear,
-/obj/item/throwing_star/magspear,
 /obj/item/storage/backpack/magspear_quiver,
 /turf/open/floor/carpet/royalblack,
 /area/ruin/powered{
@@ -69,6 +66,7 @@
 /obj/structure/chair/wood/wings{
 	dir = 4
 	},
+/mob/living/simple_animal/hostile/pirate/melee/beach,
 /turf/open/floor/carpet/red/airless,
 /area/ruin/powered{
 	name = "\improper Dining Hall"
@@ -86,11 +84,26 @@
 /area/ruin/powered{
 	name = "\improper Dining Hall"
 	})
+"pI" = (
+/mob/living/simple_animal/hostile/cat_butcherer{
+	desc = "A profession carp butcher, gone mad due to carptoxin presence in their bloodstream.";
+	name = "The Butcher"
+	},
+/turf/open/floor/plasteel/kitchen_coldroom/freezerfloor,
+/area/ruin/powered{
+	name = "\improper Cold Storage"
+	})
 "sA" = (
 /obj/structure/table/wood/fancy/purple,
 /obj/item/pneumatic_cannon/speargun,
 /obj/item/pneumatic_cannon/speargun,
 /turf/open/floor/carpet/royalblack,
+/area/ruin/powered{
+	name = "\improper Dining Hall"
+	})
+"tV" = (
+/mob/living/simple_animal/hostile/pirate/melee/beach,
+/turf/open/floor/carpet/red,
 /area/ruin/powered{
 	name = "\improper Dining Hall"
 	})
@@ -177,7 +190,7 @@
 	name = "\improper Dining Hall"
 	})
 "FG" = (
-/turf/open/space/basic,
+/turf/template_noop,
 /area/template_noop)
 "FK" = (
 /obj/machinery/light/dim,
@@ -223,9 +236,8 @@
 	name = "\improper Cold Storage"
 	})
 "Os" = (
-/obj/structure/table/wood/fancy,
-/obj/item/guardiancreator/carp,
-/turf/open/floor/carpet/red/airless,
+/mob/living/simple_animal/hostile/pirate/ranged,
+/turf/open/floor/carpet/red_gold,
 /area/ruin/powered{
 	name = "\improper Dining Hall"
 	})
@@ -244,6 +256,7 @@
 	})
 "Qi" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/guardiancreator/carp,
 /turf/open/floor/plasteel/kitchen_coldroom/freezerfloor,
 /area/ruin/powered{
 	name = "\improper Cold Storage"
@@ -401,7 +414,7 @@ ep
 (8,1,1) = {"
 ae
 ut
-hK
+Os
 wH
 KY
 Ds
@@ -409,7 +422,7 @@ hK
 ut
 ep
 OE
-QO
+pI
 QO
 QO
 ep
@@ -435,7 +448,7 @@ ae
 ut
 hK
 bE
-Os
+KY
 DO
 hK
 ut
@@ -451,7 +464,7 @@ ae
 ut
 hK
 oE
-oE
+tV
 oE
 hK
 ut
