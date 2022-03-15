@@ -126,7 +126,8 @@
 				user.client.register_map_obj(current_ship.cam_plane_master)
 				user.client.register_map_obj(current_ship.cam_background)
 				current_ship.update_screen()
-
+				if(!isliving(user))
+					log_shuttle("[user]'s ghost has accessed the helm console for [current_ship.name]")
 			// Open UI
 			ui = new(user, src, "HelmConsole", name)
 			ui.open()
@@ -210,6 +211,7 @@
 	switch(action) // Universal topics
 		if("rename_ship")
 			var/new_name = params["newName"]
+			var/old_name = current_ship.name
 			if(!new_name)
 				return
 			new_name = trim(new_name)
@@ -220,14 +222,22 @@
 				return
 			if(!current_ship.set_ship_name(new_name))
 				say("Error: [COOLDOWN_TIMELEFT(current_ship, rename_cooldown)/10] seconds until ship designation can be changed..")
+			else
+				log_shuttle("[usr] changed shuttle [old_name] to [new_name]")
 			update_static_data(usr, ui)
 			return
 		if("toggle_kos")
-			current_ship.set_ship_faction("KOS")
+			if(!current_ship.set_ship_faction("KOS"))
+				say("Error: [COOLDOWN_TIMELEFT(current_ship, faction_cooldown)/10] seconds until faction can be changed..")
+			else
+				log_shuttle("[usr] set [current_ship.name]'s faction to KOS")
 			update_static_data(usr, ui)
 			return
 		if("return")
-			current_ship.set_ship_faction("return")
+			if(!current_ship.set_ship_faction("return"))
+				say("Error: [COOLDOWN_TIMELEFT(current_ship, faction_cooldown)/10] seconds until faction can be changed..")
+			else
+				log_shuttle("[usr] set [current_ship.name]'s faction back to default")
 			update_static_data(usr, ui)
 			return
 		if("reload_ship")

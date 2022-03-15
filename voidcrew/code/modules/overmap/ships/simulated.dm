@@ -388,6 +388,7 @@
 	set_ship_name(name, ignore_cooldown = TRUE, bypass_same_name = TRUE)
 	update_crew_hud()
 	update_ship_color()
+	return TRUE
 
 /**
   * Updates the ships icon to make it easier to distinguish between factions
