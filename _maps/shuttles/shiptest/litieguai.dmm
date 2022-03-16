@@ -251,7 +251,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 9
 	},
-/obj/effect/landmark/start/assistant,
 /turf/open/floor/plasteel/grimy,
 /area/ship/crew)
 "eo" = (
@@ -263,13 +262,7 @@
 	pixel_x = 26
 	},
 /obj/effect/turf_decal/industrial/outline/red,
-/obj/machinery/reagentgrinder{
-	pixel_y = 10
-	},
-/obj/structure/table,
-/obj/item/lighter{
-	pixel_x = -8
-	},
+/obj/machinery/chem_heater,
 /turf/open/floor/plasteel/white,
 /area/ship/medical)
 "eG" = (
@@ -374,18 +367,10 @@
 /turf/open/floor/carpet/nanoweave,
 /area/ship/bridge)
 "go" = (
-/obj/effect/turf_decal/corner/red/full,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
+/obj/effect/turf_decal/industrial/hatch/red,
+/obj/machinery/computer/arcade/orion_trail,
 /turf/open/floor/plasteel,
-/area/ship/hallway/aft)
+/area/ship/storage)
 "gL" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ship/hallway/aft)
@@ -913,7 +898,6 @@
 /turf/open/floor/plasteel/white,
 /area/ship/hallway/fore)
 "qc" = (
-/obj/effect/landmark/start/paramedic,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/structure/cable{
@@ -1000,7 +984,6 @@
 /turf/open/floor/plasteel/white,
 /area/ship/medical)
 "su" = (
-/obj/effect/landmark/start/paramedic,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 10
@@ -1053,7 +1036,6 @@
 /area/ship/science)
 "tq" = (
 /obj/structure/chair,
-/obj/effect/landmark/start/assistant,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
@@ -1209,6 +1191,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/corner/white/mono,
+/obj/machinery/smartfridge/chemistry,
 /turf/open/floor/plasteel/white,
 /area/ship/medical)
 "vT" = (
@@ -1271,11 +1254,10 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/industrial/outline/red,
-/obj/machinery/smartfridge/chemistry,
+/obj/machinery/chem_dispenser,
 /turf/open/floor/plasteel/white,
 /area/ship/medical)
 "xa" = (
-/obj/effect/turf_decal/corner/red/full,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
 	dir = 1
 	},
@@ -1458,10 +1440,6 @@
 /area/ship/hallway/fore)
 "AJ" = (
 /turf/closed/wall/mineral/titanium,
-/area/ship/hallway/aft)
-"Bl" = (
-/obj/effect/turf_decal/corner/red/full,
-/turf/open/floor/plasteel,
 /area/ship/hallway/aft)
 "BK" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
@@ -1729,7 +1707,6 @@
 	dir = 1;
 	name = "Helm"
 	},
-/obj/effect/landmark/start/captain,
 /turf/open/floor/carpet/nanoweave,
 /area/ship/bridge)
 "Hr" = (
@@ -1782,7 +1759,6 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/port)
 "IG" = (
-/obj/effect/turf_decal/corner/red/full,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 1
 	},
@@ -1887,7 +1863,6 @@
 /obj/structure/chair/office/light{
 	dir = 1
 	},
-/obj/effect/landmark/start/chemist,
 /turf/open/floor/plasteel/white,
 /area/ship/medical)
 "KW" = (
@@ -2400,7 +2375,6 @@
 /area/ship/medical)
 "Sc" = (
 /obj/structure/chair,
-/obj/effect/landmark/start/assistant,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
@@ -2524,7 +2498,6 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/starboard)
 "TI" = (
-/obj/effect/landmark/start/paramedic,
 /turf/open/floor/plasteel,
 /area/ship/crew)
 "TR" = (
@@ -2576,6 +2549,7 @@
 	},
 /obj/item/stack/sheet/mineral/plasma/fifty,
 /obj/item/storage/box/monkeycubes,
+/obj/item/stack/sheet/mineral/uranium/fifty,
 /turf/open/floor/plasteel/white,
 /area/ship/science)
 "UC" = (
@@ -2831,7 +2805,6 @@
 	dir = 1;
 	name = "Medical"
 	},
-/obj/effect/landmark/start/chief_medical_officer,
 /turf/open/floor/carpet/nanoweave,
 /area/ship/bridge)
 "Xs" = (
@@ -3179,7 +3152,7 @@ jS
 vD
 jN
 OK
-mG
+go
 Ln
 zE
 hq
@@ -3416,9 +3389,9 @@ RW
 dH
 uq
 ur
-go
-Bl
-Bl
+uN
+eS
+eS
 cn
 BN
 "}
