@@ -73,39 +73,30 @@ SUBSYSTEM_DEF(overmap)
 		var/datum/overmap/planet/planet = pick_n_take(spawn_probability)
 
 		planet = new planet
-		// get ztrait type
-		var/datum/space_level/new_planet = SSmapping.add_new_zlevel("Overmap planet [i]", planet.planet_ztraits)
-		spawn_planet(planet, new_planet)
+		var/datum/space_level/planet_z = SSmapping.add_new_zlevel("Overmap planet [i]", planet.planet_ztraits)
+		spawn_planet(planet, planet_z)
 
 
 /datum/controller/subsystem/overmap/proc/spawn_planet(datum/overmap/planet/planet_type, datum/space_level/z_level)
-	/*
-	var/ruin_type
-	var/datum/map_generator/mapgen
-	var/area/target_area
-	var/turf/surface = /turf/open/space
-	if(!isnull(planet_type))
-		ruin_type = planet_type.ruin_type
-		if(!isnull(planet_type.mapgen))
-			//mapgen = new planet_type.mapgen
-		surface = planet_type.surface
-	*/
-
 	var/ruin_type = planet_type.ruin_type
 	var/turf/surface = planet_type.surface
+	var/datum/map_generator/mapgen = planet_type?.mapgen
 
 	//fill in turfs
+	var/area/area = new planet_type.planet_area
+	area.setup(initial(area.name))
 	var/list/turfs = Z_TURFS(z_level.z_value)
 	for (var/turf/turf as anything in turfs)
 		turf.ChangeTurf(surface, surface)
+		area.contents += turf
+	area.reg_in_areas_in_z()
 
-	if(mapgen)
-		mapgen.generate_terrain()
+	if (!isnull(mapgen))
+		area.map_generator = mapgen
+		area.RunGeneration()
+
 	if (SSmapping.themed_ruins[ruin_type])
-		seedRuins(list(z_level.z_value), 90, list(/area/space), SSmapping.themed_ruins[ruin_type])
-	//fix the mapgen here
-
-	//this is runtiming ssmapping for some reason
+		seedRuins(list(z_level.z_value), planet_type.spawn_rate, list(/area/space), SSmapping.themed_ruins[ruin_type])
 
 
 

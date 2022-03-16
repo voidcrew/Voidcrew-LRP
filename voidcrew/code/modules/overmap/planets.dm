@@ -14,7 +14,7 @@
 	///The list of ruins that can spawn here
 	var/ruin_type
 	///The area the ruin needs
-	var/area/ruin_area
+	var/area/planet_area
 
 	///The map generator to use
 	var/datum/map_generator/mapgen
@@ -35,6 +35,7 @@
 	)
 
 	ruin_type = ZTRAIT_LAVA_RUINS
+	planet_area = /area/lavaland/surface
 	surface = /turf/open/floor/plating/asteroid/basalt/lava_land_surface
 	mapgen = /datum/map_generator/cave_generator/lavaland
 
@@ -49,6 +50,7 @@
 		ZTRAIT_BASETURF = /turf/open/floor/plating/asteroid/snow/icemoon,
 	)
 
+	planet_area = /area/icemoon/surface
 	ruin_type = ZTRAIT_ICE_RUINS
 	mapgen = /datum/map_generator/cave_generator/icemoon
 	surface = /turf/open/floor/plating/asteroid/snow/icemoon
@@ -64,8 +66,9 @@
 		ZTRAIT_BASETURF = /turf/open/floor/plating/asteroid/whitesands,
 	)
 
+	planet_area = /area/planet/whitesands
 	ruin_type = ZTRAIT_SAND_RUINS
-	// mapgen = /datum/map_generator/cave_generator/whitesands
+	mapgen = /datum/map_generator/cave_generator/whitesands
 	surface = /turf/open/floor/plating/asteroid/whitesands
 
 /datum/overmap/planet/jungle
@@ -79,8 +82,9 @@
 		ZTRAIT_BASETURF = /turf/open/floor/plating/dirt,
 	)
 
+	planet_area = /area/planet/jungle
 	ruin_type = ZTRAIT_JUNGLE_RUINS
-	// mapgen = /datum/map_generator/jungle_generator
+	mapgen = /datum/map_generator/jungle_generator
 	surface = /turf/open/floor/plating/dirt/jungle
 
 /datum/overmap/planet/rock
@@ -94,8 +98,9 @@
 		ZTRAIT_BASETURF = /turf/open/floor/plating/asteroid
 	)
 
+	planet_area = /area/planet/rock
 	ruin_type = ZTRAIT_ROCK_RUINS
-	// mapgen = /datum/map_generator/cave_generator/rockplanet
+	mapgen = /datum/map_generator/cave_generator/rockplanet
 	surface = /turf/open/floor/plating/asteroid
 
 /*
@@ -119,5 +124,6 @@
 		ZTRAIT_SPACE_RUINS = TRUE
 	)
 
+	planet_area = /area/space
 	ruin_type = ZTRAIT_SPACE_RUINS
 
