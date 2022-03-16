@@ -49,7 +49,6 @@
 
 /obj/structure/spawner/sea_crystal/proc/summon_minions()
 	if(!COOLDOWN_FINISHED(src, summon_cooldown))
-		log_runtime("cooldown not over")
 		return
 	COOLDOWN_START(src, summon_cooldown, cooldown_time)
 	crystal_power()
@@ -75,7 +74,7 @@
 /obj/structure/spawner/sea_crystal/proc/crystal_power()
 	playsound(src.loc, 'sound/magic/clockwork/narsie_attack.ogg', 200, TRUE)
 	src.add_atom_colour(newcolor, TEMPORARY_COLOUR_PRIORITY)
-	for (var/i=1,i<=8,i++)
+	for (var/i in 1 to 8)
 		new /obj/effect/temp_visual/seacrystal/sparks(get_step(src.loc, i))
 
 /obj/structure/spawner/sea_crystal/proc/crystal_depower()

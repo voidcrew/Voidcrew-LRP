@@ -1,6 +1,6 @@
 /obj/structure/spawner/cave
 	name = "cave"
-	desc = "A musty cave."
+	desc = "You spot something glimmering from within. Maybe you can reach in and try to grab it?"
 	icon = 'voidcrew/icons/obj/animal_spawner.dmi'
 	icon_state = "cave_den"
 	mob_types = list(/mob/living/simple_animal/hostile/bear/cave)
@@ -98,7 +98,7 @@
 
 /obj/structure/spawner/cave/beach
 	name = "oak barrel"
-	desc = "A barrel. Reach in and unlock its mold-covered mysteries!"
+	desc = "A musty barrel. Reach in and unlock its mold-covered mysteries!"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "barrel"
 	mob_types = list(/mob/living/simple_animal/hostile/pirate/melee/beach, /mob/living/simple_animal/hostile/pirate/ranged/beach)
