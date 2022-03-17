@@ -40,6 +40,9 @@
 /obj/machinery/atmospherics/pipe/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/carpet/nanoweave,
 /area/ruin/unpowered)
+"bX" = (
+/turf/open/floor/plating,
+/area/ruin/outdoors)
 "cP" = (
 /obj/structure/barricade/sandbags,
 /turf/open/floor/plating,
@@ -165,6 +168,10 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/unpowered)
+"hv" = (
+/obj/structure/lattice,
+/turf/open/floor/plating/wasteland/lit,
+/area/ruin/outdoors)
 "iu" = (
 /obj/machinery/chem_dispenser/drinks/beer{
 	dir = 8
@@ -214,7 +221,11 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin/outdoors)
+"kW" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/ruin/outdoors)
 "lx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -428,7 +439,7 @@
 	faction = list("saloon")
 	},
 /turf/open/floor/plating,
-/area/ruin/unpowered)
+/area/ruin/outdoors)
 "wP" = (
 /obj/structure/chair/stool/bar,
 /turf/open/floor/wood{
@@ -509,7 +520,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/wasteland/lit,
-/area/ruin/unpowered)
+/area/ruin/outdoors)
 "Bn" = (
 /turf/closed/wall/mineral/sandstone,
 /area/ruin/unpowered)
@@ -587,6 +598,12 @@
 	icon_state = "platingdmg1"
 	},
 /area/ruin/unpowered)
+"EU" = (
+/mob/living/simple_animal/hostile/asteroid/whitesands/survivor{
+	faction = list("saloon")
+	},
+/turf/open/floor/plating,
+/area/ruin/outdoors)
 "Fc" = (
 /obj/structure/barricade/sandbags,
 /obj/effect/decal/cleanable/dirt,
@@ -808,7 +825,12 @@
 /obj/structure/lattice,
 /obj/structure/lattice,
 /turf/open/floor/plating/wasteland/lit,
-/area/ruin/unpowered)
+/area/ruin/outdoors)
+"Nq" = (
+/turf/open/floor/plating{
+	icon_state = "platingdmg2"
+	},
+/area/ruin/outdoors)
 "Nr" = (
 /obj/machinery/power/port_gen/pacman,
 /turf/open/floor/plating,
@@ -854,7 +876,7 @@
 /area/ruin/unpowered)
 "Ox" = (
 /turf/open/floor/plating/rust,
-/area/ruin/unpowered)
+/area/ruin/outdoors)
 "OK" = (
 /obj/machinery/chem_dispenser/drinks{
 	dir = 8
@@ -942,7 +964,7 @@
 /obj/structure/lattice,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/wasteland/lit,
-/area/ruin/unpowered)
+/area/ruin/outdoors)
 "Tj" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1121,7 +1143,7 @@ Wv
 Wv
 Wv
 Wv
-Ar
+bX
 Wv
 Wv
 Wv
@@ -1131,15 +1153,15 @@ Wv
 (2,1,1) = {"
 Wv
 Wv
-Ar
-RC
-RC
-RC
-Ar
-RC
-RC
+bX
+hv
+hv
+hv
+bX
+hv
+hv
 Np
-Ar
+bX
 Wv
 Wv
 Wv
@@ -1156,15 +1178,15 @@ RC
 RC
 cP
 cP
-RC
-RC
-RC
+hv
+hv
+hv
 Wv
 Wv
 "}
 (4,1,1) = {"
 Wv
-RC
+hv
 IX
 Wu
 hm
@@ -1180,8 +1202,8 @@ Wv
 Wv
 "}
 (5,1,1) = {"
-RC
-RC
+hv
+hv
 qe
 xX
 Nt
@@ -1193,12 +1215,12 @@ Ai
 ZU
 cP
 Ax
-RC
+hv
 Wv
 "}
 (6,1,1) = {"
-RC
-Ar
+hv
+bX
 hf
 ZO
 KZ
@@ -1210,12 +1232,12 @@ Lg
 wy
 Gz
 kk
-el
-RC
+kW
+hv
 "}
 (7,1,1) = {"
-RC
-RC
+hv
+hv
 Br
 FA
 QG
@@ -1226,13 +1248,13 @@ he
 FI
 vc
 eP
-el
+kW
 Sd
-RC
+hv
 "}
 (8,1,1) = {"
 Wv
-RC
+hv
 JH
 BE
 yv
@@ -1245,10 +1267,10 @@ HU
 tV
 Ox
 kk
-RC
+hv
 "}
 (9,1,1) = {"
-RC
+hv
 Ox
 Jw
 bU
@@ -1260,13 +1282,13 @@ tI
 rR
 TU
 XT
-Ar
+bX
 Sd
-RC
+hv
 "}
 (10,1,1) = {"
-Ar
-RC
+bX
+hv
 Vw
 HM
 Ut
@@ -1277,12 +1299,12 @@ lH
 Ys
 lx
 ME
-RC
-el
+hv
+kW
 Wv
 "}
 (11,1,1) = {"
-Ar
+bX
 Np
 Vw
 sN
@@ -1299,8 +1321,8 @@ Sd
 Wv
 "}
 (12,1,1) = {"
-RC
-RC
+hv
+hv
 Yp
 XT
 Yy
@@ -1311,13 +1333,13 @@ uD
 MO
 xh
 XT
-RC
+hv
 Wv
 Wv
 "}
 (13,1,1) = {"
-RC
-RC
+hv
+hv
 dR
 Ha
 Eq
@@ -1328,13 +1350,13 @@ zn
 Ig
 HA
 HA
-RC
+hv
 Wv
 Wv
 "}
 (14,1,1) = {"
-Ar
-RC
+bX
+hv
 iV
 Uc
 OZ
@@ -1350,7 +1372,7 @@ Wv
 Wv
 "}
 (15,1,1) = {"
-Ar
+bX
 Np
 iD
 vR
@@ -1362,14 +1384,14 @@ KB
 ud
 fG
 WV
-RC
+hv
 Wv
 Wv
 "}
 (16,1,1) = {"
-RC
-RC
-ud
+hv
+hv
+Nq
 Hc
 Bn
 Ko
@@ -1379,14 +1401,14 @@ qW
 yU
 fG
 Cn
-RC
+hv
 Wv
 Wv
 "}
 (17,1,1) = {"
 Wv
 Np
-Ar
+bX
 OZ
 lI
 mp
@@ -1396,14 +1418,14 @@ BQ
 Ar
 el
 XT
-RC
+hv
 Wv
 Wv
 "}
 (18,1,1) = {"
 Wv
-RC
-Ar
+hv
+bX
 OZ
 Qk
 ZL
@@ -1413,14 +1435,14 @@ RK
 Ar
 XT
 XT
-RC
-RC
+hv
+hv
 Wv
 "}
 (19,1,1) = {"
 Wv
-RC
-Ar
+hv
+bX
 OZ
 OZ
 PG
@@ -1430,24 +1452,24 @@ Nr
 OZ
 OZ
 Ox
-RC
-RC
+hv
+hv
 Wv
 "}
 (20,1,1) = {"
 Wv
 Wv
 Wv
-RC
+hv
 OZ
 OZ
 XT
 XT
 XT
 OZ
-Ar
-Ar
-RC
+bX
+bX
+hv
 Wv
 Wv
 "}
@@ -1455,15 +1477,15 @@ Wv
 Wv
 Wv
 Wv
-RC
-RC
-Ar
-hm
-RC
-Ar
-Ar
-RC
-Ar
+hv
+hv
+bX
+EU
+hv
+bX
+bX
+hv
+bX
 Wv
 Wv
 Wv
@@ -1474,12 +1496,12 @@ Wv
 Wv
 Wv
 Np
-RC
-RC
-Ar
-RC
-RC
-Ar
+hv
+hv
+bX
+hv
+hv
+bX
 Wv
 Wv
 Wv
