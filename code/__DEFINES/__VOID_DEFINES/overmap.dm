@@ -2,6 +2,15 @@
 #define SHUTTLE_SSD_CREW 1
 #define SHUTTLE_ACTIVE_CREW 2
 
+///zlevel location of the overmap (1 is for centcom)
+#define OVERMAP_Z_LEVEL 1
+
+#define OVERMAP_MIN_X 1
+#define OVERMAP_MAX_X 18
+#define OVERMAP_MIN_Y (world.maxy - 18)
+#define OVERMAP_MAX_Y world.maxy
+
+
 #define OVERMAP_GENERATOR_SOLAR "solar_system"
 #define OVERMAP_GENERATOR_RANDOM "random"
 

@@ -117,11 +117,14 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	update_appearance()
 
 	if(!T || is_secret_level(T.z))
+		T = locate(1,1,1) // VOID TODO
+		/*
 		var/list/turfs = get_area_turfs(/area/shuttle/arrival)
 		if(length(turfs))
 			T = pick(turfs)
 		else
 			T = SSmapping.get_station_center()
+		*/
 
 	abstract_move(T)
 

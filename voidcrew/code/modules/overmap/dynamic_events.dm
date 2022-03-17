@@ -52,8 +52,8 @@
   * * visiting shuttle - The docking port of the shuttle visiting the level.
   */
 /obj/structure/overmap/dynamic/proc/load_level(obj/docking_port/mobile/visiting_shuttle)
-	if(!COOLDOWN_FINISHED(SSovermap, encounter_cooldown))
-		return "WARNING! Stellar interference is restricting flight in this area. Interference should pass in [COOLDOWN_TIMELEFT(SSovermap, encounter_cooldown) / 10] seconds."
+	//if(!COOLDOWN_FINISHED(SSovermap, encounter_cooldown))
+	//	return "WARNING! Stellar interference is restricting flight in this area. Interference should pass in [COOLDOWN_TIMELEFT(SSovermap, encounter_cooldown) / 10] seconds."
 
 /**
  * Alters the position and orientation of a stationary docking port to ensure that any mobile port small enough can dock within its bounds

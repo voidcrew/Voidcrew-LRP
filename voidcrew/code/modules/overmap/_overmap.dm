@@ -4,36 +4,41 @@
 	icon_state = "overmap"
 	initial_gas_mix = AIRLESS_ATMOS
 
-/turf/open/overmap/edge
-	opacity = 1
-	density = 1
+	///The space z level linked to this
+	var/linked_z
+
+/turf/closed/overmap_edge
+	icon = 'voidcrew/icons/turf/overmap.dmi'
+	icon_state = "overmap"
+
+
 
 //this is completely unnecessary but it looks nice
-/turf/open/overmap/Initialize(mapload, inherited_virtual_z)
+/turf/closed/overmap_edge/Initialize(mapload)
 	. = ..()
 	name = "[x]-[y]"
 	var/list/numbers = list()
 
-	if(x == 1 || x == SSovermap.size)
-		numbers += list("[round(y/10)]","[round(y%10)]")
-		if(y == 1 || y == SSovermap.size)
+	if(x == OVERMAP_MIN_X || x == OVERMAP_MAX_X)
+		numbers += list("[round((y - (OVERMAP_MAX_Y + 1)) / 10)]","[round((y - (OVERMAP_MAX_Y + 1)) % 10)]")
+		if(y == OVERMAP_MIN_Y || y == OVERMAP_MAX_Y)
 			numbers += "-"
-	if(y == 1 || y == SSovermap.size)
+	if(y == OVERMAP_MIN_Y || y == OVERMAP_MAX_Y)
 		numbers += list("[round(x/10)]","[round(x%10)]")
 
 	for(var/i = 1 to numbers.len)
 		var/image/I = image('voidcrew/icons/effects/numbers.dmi',numbers[i])
 		I.pixel_x = 5*i - 2
 		I.pixel_y = world.icon_size/2 - 3
-		if(y == 1)
+		if(y == OVERMAP_MIN_Y)
 			I.pixel_y = 3
 			I.pixel_x = 5*i + 4
-		if(y == SSovermap.size)
+		if(y == OVERMAP_MAX_Y)
 			I.pixel_y = world.icon_size - 9
 			I.pixel_x = 5*i + 4
-		if(x == 1)
+		if(x == OVERMAP_MIN_X)
 			I.pixel_x = 5*i - 2
-		if(x == SSovermap.size)
+		if(x == OVERMAP_MAX_X)
 			I.pixel_x = 5*i + 2
 		overlays += I
 

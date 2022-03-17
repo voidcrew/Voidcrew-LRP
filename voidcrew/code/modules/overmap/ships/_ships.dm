@@ -164,7 +164,7 @@
 		adjust_speed(0, -SIGN(speed[2]) * min(acceleration, abs(speed[2])))
 
 /obj/structure/overmap/ship/Bump(atom/A)
-	if(istype(A, /turf/open/overmap/edge))
+	if(istype(A, /turf/closed/overmap_edge))
 		handle_wraparound()
 	..()
 

@@ -1,9 +1,6 @@
 #define INIT_ANNOUNCE(X) to_chat(world, span_boldannounce("[X]")); log_world(X)
 
 
-// VOID TODO SET THIS UP TO SPAWN ACTUAL PLANETS
-
-
 SUBSYSTEM_DEF(overmap)
 	name = "Overmap"
 	wait = 10
@@ -30,12 +27,11 @@ SUBSYSTEM_DEF(overmap)
 	var/obj/structure/overmap/main
 
 	///Width/height of the overmap "zlevel"
-	var/size = 25
+	var/size = 18
 	///Should events be processed
 	var/events_enabled = TRUE
 
 	///Cooldown on dynamically loading encounters
-	var/encounter_cooldown = 0
 
 	///Planet spawning probability
 	var/static/list/spawn_probability = list()
@@ -56,6 +52,7 @@ SUBSYSTEM_DEF(overmap)
 	initialize_generator()
 	generate_probabilites()
 	create_map()
+	create_map_objects()
 	spawn_overmap_planets()
 
 	return ..()
@@ -82,21 +79,24 @@ SUBSYSTEM_DEF(overmap)
 	var/turf/surface = planet_type.surface
 	var/datum/map_generator/mapgen = planet_type?.mapgen
 
-	//fill in turfs
 	var/area/area = new planet_type.planet_area
 	area.setup(initial(area.name))
+
+	area.area_flags |= (CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED)
+
+	// Fill the whole are with turfs and setup the area
 	var/list/turfs = Z_TURFS(z_level.z_value)
 	for (var/turf/turf as anything in turfs)
 		turf.ChangeTurf(surface, surface)
 		area.contents += turf
 	area.reg_in_areas_in_z()
 
+	//run ruin and mapgen
+	if (SSmapping.themed_ruins[ruin_type])
+		seedRuins(list(z_level.z_value), planet_type.spawn_rate, list(planet_type.planet_area), SSmapping.themed_ruins[ruin_type])
 	if (!isnull(mapgen))
 		area.map_generator = mapgen
 		area.RunGeneration()
-
-	if (SSmapping.themed_ruins[ruin_type])
-		seedRuins(list(z_level.z_value), planet_type.spawn_rate, list(/area/space), SSmapping.themed_ruins[ruin_type])
 
 
 
@@ -123,10 +123,25 @@ SUBSYSTEM_DEF(overmap)
 	shuttle.current_ship = new_ship
 */
 
+
+/datum/controller/subsystem/overmap/proc/create_map()
+	// get a block in the lower left corner of CENTCOMM,
+	// dynamically add all of the overmap tiles
+	// remmebr that the outer edges will need numebrs
+	// make it a multiple of three (to be able to implement the 3x3 space z's)
+	var/list/overmap_turfs = block(locate(OVERMAP_MIN_X, OVERMAP_MIN_Y, OVERMAP_Z_LEVEL), locate(OVERMAP_MAX_X, OVERMAP_MAX_Y, OVERMAP_Z_LEVEL))
+	for (var/turf/turf as anything in overmap_turfs)
+		if (turf.x == OVERMAP_MIN_X || turf.x == OVERMAP_MAX_X || turf.y == OVERMAP_MIN_Y || turf.y == OVERMAP_MAX_Y)
+			turf.ChangeTurf(/turf/closed/overmap_edge)
+		else
+			turf.ChangeTurf(/turf/open/overmap)
+
+
+
 /**
   * The proc that creates all the objects on the overmap, split into seperate procs for redundancy.
   */
-/datum/controller/subsystem/overmap/proc/create_map()
+/datum/controller/subsystem/overmap/proc/create_map_objects()
 	if (generator_type == OVERMAP_GENERATOR_SOLAR)
 		spawn_events_in_orbits()
 		spawn_ruin_levels_in_orbits()

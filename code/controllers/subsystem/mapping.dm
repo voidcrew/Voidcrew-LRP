@@ -55,6 +55,7 @@ SUBSYSTEM_DEF(mapping)
 	config = load_map_config(error_if_missing = FALSE)
 #endif
 
+/*
 /datum/controller/subsystem/mapping/Initialize(timeofday)
 	if(initialized)
 		return
@@ -106,6 +107,7 @@ SUBSYSTEM_DEF(mapping)
 	initialize_reserved_level(transit.z_value)
 	SSticker.OnRoundstart(CALLBACK(src, .proc/spawn_maintenance_loot))
 	return ..()
+*/
 
 /**
  * ##setup_ruins

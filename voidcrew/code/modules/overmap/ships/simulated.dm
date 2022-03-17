@@ -294,7 +294,7 @@
   * Called after the shuttle docks, and finishes the transfer to the new location.
   */
 /obj/structure/overmap/ship/simulated/proc/complete_dock(datum/weakref/to_dock)
-	var/old_loc = loc
+	//var/old_loc = loc
 	switch(state)
 		if(OVERMAP_SHIP_DOCKING) //so that the shuttle is truly docked first
 			if(shuttle.mode == SHUTTLE_CALL || shuttle.mode == SHUTTLE_IDLE)
