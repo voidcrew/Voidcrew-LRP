@@ -24,7 +24,7 @@
 "aS" = (
 /obj/structure/marker_beacon,
 /obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "bl" = (
 /mob/living/simple_animal/hostile/construct/proteon/hostile,
@@ -135,7 +135,10 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
+/area/ruin/outdoors)
+"eQ" = (
+/turf/closed/wall,
 /area/ruin/outdoors)
 "eX" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
@@ -245,10 +248,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/unpowered)
-"jU" = (
-/obj/structure/flora/rock/pile,
-/turf/open/floor/plating/wasteland/lit,
-/area/ruin/outdoors)
 "kj" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -292,7 +291,7 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 10
 	},
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "lu" = (
 /obj/effect/decal/cleanable/blood{
@@ -394,12 +393,6 @@
 	},
 /turf/open/floor/plasteel/cult,
 /area/ruin/unpowered)
-"ou" = (
-/obj/item/flashlight/glowstick/red{
-	on = 1
-	},
-/turf/open/floor/plating/dust/lit,
-/area/ruin/outdoors)
 "oA" = (
 /obj/structure/table,
 /obj/machinery/microwave{
@@ -729,7 +722,7 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 5
 	},
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "yb" = (
 /obj/machinery/hydroponics/constructable,
@@ -813,11 +806,11 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plasteel/cult,
 /area/ruin/unpowered)
-"Bf" = (
-/turf/open/floor/plating/dust/lit,
-/area/ruin/outdoors)
+"Bm" = (
+/turf/closed/wall/rust,
+/area/overmap_encounter/planetoid/wasteland)
 "Bn" = (
-/turf/closed/mineral/random/asteroid/rockplanet,
+/turf/closed/wall/rust,
 /area/ruin/outdoors)
 "Bz" = (
 /obj/machinery/atmospherics/components/unary/vent_pump,
@@ -964,13 +957,13 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 5
 	},
-/turf/open/floor/plating/dust/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "FI" = (
 /obj/item/flashlight/glowstick/red{
 	on = 1
 	},
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "Gz" = (
 /obj/effect/rune/narsie,
@@ -1109,7 +1102,7 @@
 /turf/open/floor/plasteel/cult,
 /area/ruin/unpowered)
 "Ju" = (
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "JE" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1229,14 +1222,10 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/unpowered)
-"PT" = (
-/obj/structure/marker_beacon,
-/turf/open/floor/plating/dust/lit,
-/area/ruin/outdoors)
 "PU" = (
 /obj/item/pickaxe/rusted,
 /obj/effect/gibspawner/human/bodypartless,
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "QK" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -1276,7 +1265,7 @@
 /area/ruin/unpowered)
 "RA" = (
 /obj/structure/marker_beacon,
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "Sm" = (
 /obj/machinery/hydroponics/constructable,
@@ -1297,6 +1286,9 @@
 	},
 /turf/open/floor/plasteel/cult,
 /area/ruin/unpowered)
+"SF" = (
+/turf/template_noop,
+/area/overmap_encounter/planetoid/wasteland)
 "Tn" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1310,7 +1302,7 @@
 /area/ruin/unpowered)
 "Us" = (
 /obj/structure/flora/rock,
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "UA" = (
 /obj/structure/sign/warning/longtermwaste{
@@ -1388,7 +1380,7 @@
 /turf/open/floor/plasteel/cult,
 /area/ruin/unpowered)
 "XI" = (
-/turf/closed/mineral/random/asteroid/rockplanet,
+/turf/closed/wall,
 /area/overmap_encounter/planetoid/wasteland)
 "XN" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1406,7 +1398,7 @@
 /area/ruin/unpowered)
 "Yn" = (
 /obj/structure/flora/rock/pile,
-/turf/open/floor/plating/dust/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "Yp" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -1434,11 +1426,11 @@
 /area/ruin/unpowered)
 
 (1,1,1) = {"
-Bf
+Ju
 Ju
 Ju
 RA
-jU
+Yn
 Ju
 Ju
 Nt
@@ -1449,9 +1441,9 @@ Ju
 Us
 Ju
 RA
-Bf
-Bf
-Bf
+Ju
+Ju
+Ju
 "}
 (2,1,1) = {"
 Nt
@@ -1480,7 +1472,7 @@ dh
 wH
 lF
 Nt
-Bf
+Ju
 EQ
 xo
 xb
@@ -1500,7 +1492,7 @@ dh
 ig
 dh
 xD
-Bf
+Ju
 EQ
 SC
 xb
@@ -1520,7 +1512,7 @@ Jh
 Jq
 TR
 vJ
-Bf
+Ju
 Nt
 Mn
 Ba
@@ -1600,7 +1592,7 @@ Jh
 dh
 Ru
 Nt
-Bf
+Ju
 xD
 IO
 Jh
@@ -1620,7 +1612,7 @@ KV
 bl
 Sq
 xD
-Bf
+Ju
 EQ
 Wm
 Rq
@@ -1640,7 +1632,7 @@ xD
 Nt
 Nt
 xD
-Bf
+Ju
 EQ
 xI
 hD
@@ -1660,14 +1652,14 @@ Ju
 RA
 Ju
 FI
-Bf
+Ju
 xD
 IO
 KV
 EQ
-Bf
-Bf
-Bf
+Ju
+Ju
+Ju
 RA
 Ju
 Ju
@@ -1680,12 +1672,12 @@ Nt
 Nt
 xD
 xD
-Bf
+Ju
 xD
 zP
 Ba
 EQ
-Bf
+Ju
 Nt
 Nt
 Nt
@@ -1700,12 +1692,12 @@ II
 mx
 qS
 Nt
-Bf
+Ju
 Nt
 Wm
 dh
 Nt
-Bf
+Ju
 xD
 lG
 fE
@@ -1780,7 +1772,7 @@ my
 Fe
 cD
 Nt
-Bf
+Ju
 Nt
 ex
 Nr
@@ -1800,7 +1792,7 @@ EQ
 EQ
 Nt
 Nt
-Bf
+Ju
 xD
 IO
 Rq
@@ -1819,8 +1811,8 @@ Ju
 Ju
 Ju
 RA
-Bf
-Bf
+Ju
+Ju
 xD
 Mn
 Jh
@@ -1850,14 +1842,14 @@ Us
 eK
 FI
 Bn
-Bn
+eQ
 Bn
 "}
 (22,1,1) = {"
-XI
-Bf
-Bf
-jU
+Bm
+Ju
+Ju
+Yn
 Ju
 Nt
 xD
@@ -1869,15 +1861,15 @@ xD
 xD
 eK
 Bn
+eQ
 Bn
-Bn
-Bn
+Ju
 "}
 (23,1,1) = {"
-XI
-XI
-Bf
-PT
+Bm
+Bm
+Ju
+RA
 Ju
 as
 sX
@@ -1894,11 +1886,11 @@ RA
 Ju
 "}
 (24,1,1) = {"
-XI
-XI
-Bf
-ou
-Bf
+SF
+Bm
+Ju
+FI
+Ju
 as
 dj
 wG
@@ -1907,18 +1899,18 @@ Rq
 Ht
 ct
 xD
-Bf
-jU
-Bn
+Ju
+Yn
+Ju
 Bn
 Ju
 "}
 (25,1,1) = {"
+SF
 XI
-XI
-XI
-Bf
-Bf
+Bm
+Ju
+Ju
 as
 as
 JX
@@ -1927,29 +1919,29 @@ xT
 GW
 xD
 xD
-Bf
-Bn
-Bn
-Bn
-Bn
-"}
-(26,1,1) = {"
-XI
-XI
-XI
-XI
-Bf
-Bf
-as
-as
-as
-as
-xD
-xD
-Bf
-Bf
-Bf
 Ju
 Bn
+Bn
+Bn
+eQ
+"}
+(26,1,1) = {"
+SF
+XI
+XI
+XI
+Ju
+Ju
+as
+as
+as
+as
+xD
+xD
+Ju
+Ju
+Ju
+Ju
+Ju
 Bn
 "}

@@ -15,10 +15,6 @@
 /obj/structure/sign/poster/official/here_for_your_safety,
 /turf/closed/wall/rust,
 /area/ruin/unpowered)
-"f" = (
-/obj/item/banner/security/mundane,
-/turf/open/floor/plating/dust/lit,
-/area/ruin/outdoors)
 "g" = (
 /obj/structure/bed,
 /obj/item/bedsheet/hos,
@@ -39,7 +35,7 @@
 	dir = 4;
 	name = "\improper NanoTrasen Stranded Security Officer"
 	},
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "j" = (
 /obj/item/banner/security,
@@ -48,7 +44,7 @@
 "k" = (
 /obj/effect/mob_spawn/human/corpse/whitesands/survivor,
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/plating/dust/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "m" = (
 /turf/open/floor/plating,
@@ -69,9 +65,6 @@
 /obj/item/shield/riot/buckler,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
-"u" = (
-/turf/open/floor/plating/dust/lit,
-/area/ruin/outdoors)
 "v" = (
 /mob/living/simple_animal/hostile/nanotrasen/ranged{
 	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 999, "min_n2" = 0, "max_n2" = 0);
@@ -79,7 +72,7 @@
 	dir = 8;
 	name = "\improper NanoTrasen Stranded Security Officer"
 	},
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "w" = (
 /obj/effect/decal/cleanable/dirt,
@@ -102,7 +95,7 @@
 /area/ruin/unpowered)
 "E" = (
 /obj/item/banner/security/mundane,
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "F" = (
 /obj/effect/decal/cleanable/dirt,
@@ -123,11 +116,11 @@
 	pixel_y = -5
 	},
 /obj/structure/barricade/sandbags,
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "K" = (
 /obj/structure/barricade/sandbags,
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "L" = (
 /obj/structure/sign/poster/official/love_ian,
@@ -148,7 +141,7 @@
 "Q" = (
 /obj/structure/table/wood,
 /obj/item/holosign_creator/security,
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "R" = (
 /obj/effect/decal/cleanable/dirt,
@@ -161,7 +154,7 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor3"
 	},
-/turf/open/floor/plating/dust/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "T" = (
 /obj/structure/table/wood,
@@ -176,7 +169,7 @@
 /turf/open/floor/plating/rust,
 /area/ruin/unpowered)
 "U" = (
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "W" = (
 /obj/structure/sign/poster/official/obey,
@@ -210,8 +203,8 @@ a
 a
 a
 a
-u
-u
+U
+U
 S
 a
 a
@@ -223,9 +216,9 @@ a
 (3,1,1) = {"
 a
 a
-u
-u
-u
+U
+U
+U
 U
 U
 U
@@ -237,7 +230,7 @@ a
 "}
 (4,1,1) = {"
 a
-f
+E
 U
 k
 U
@@ -359,11 +352,11 @@ a
 a
 a
 E
-u
 U
 U
-u
-f
+U
+U
+E
 a
 a
 a
@@ -373,12 +366,12 @@ a
 (13,1,1) = {"
 a
 a
-u
-u
-u
 U
 U
-u
+U
+U
+U
+U
 a
 a
 a

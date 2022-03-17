@@ -3,7 +3,7 @@
 /mob/living/simple_animal/hostile/asteroid/goliath{
 	dir = 4
 	},
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "an" = (
 /obj/machinery/door/airlock,
@@ -11,38 +11,40 @@
 /area/ruin/unpowered)
 "bs" = (
 /obj/structure/barricade/sandbags,
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "bB" = (
 /obj/structure/sign/poster/contraband/steppyflag,
 /turf/closed/wall/r_wall/rust,
 /area/ruin/unpowered)
-"dk" = (
-/obj/structure/ore_box,
-/turf/open/floor/plating/wasteland/lit,
-/area/ruin/outdoors)
 "dw" = (
 /obj/structure/ore_box,
-/turf/open/floor/plating/dust/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "dz" = (
 /obj/structure/chair/plastic{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
+/area/ruin/outdoors)
+"dZ" = (
+/turf/closed/wall/rust,
 /area/ruin/outdoors)
 "fL" = (
 /obj/item/kinetic_crusher,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/gibspawner/human,
 /obj/item/clothing/suit/space/hardsuit/mining,
-/turf/open/floor/plating/dust/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "gN" = (
 /obj/structure/sign/poster/contraband/tools,
 /turf/closed/wall/r_wall/rust,
 /area/ruin/unpowered)
+"ih" = (
+/turf/closed/wall,
+/area/ruin/outdoors)
 "lg" = (
 /obj/structure/table,
 /obj/machinery/microwave,
@@ -73,23 +75,19 @@
 /obj/structure/sign/warning/gasmask,
 /turf/closed/wall/r_wall/rust,
 /area/ruin/unpowered)
-"pg" = (
-/obj/structure/flora/rock/pile,
-/turf/open/floor/plating/wasteland/lit,
-/area/ruin/outdoors)
 "pl" = (
 /turf/open/floor/plasteel/rockvault,
 /area/ruin/unpowered)
 "pZ" = (
 /obj/structure/barricade/sandbags,
-/turf/open/floor/plating/dust/lit,
+/turf/open/floor/plating/rust,
 /area/ruin/outdoors)
 "qj" = (
 /mob/living/simple_animal/hostile/netherworld/blankbody{
 	desc = "What seems to be the remnants of what was once a human.";
 	name = "Turned"
 	},
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "ro" = (
 /obj/effect/decal/cleanable/oil,
@@ -99,10 +97,6 @@
 /obj/structure/sign/warning/xeno_mining,
 /turf/closed/wall/r_wall/rust,
 /area/ruin/unpowered)
-"rV" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/plating/wasteland/lit,
-/area/ruin/outdoors)
 "rY" = (
 /mob/living/simple_animal/hostile/netherworld/blankbody{
 	desc = "What seems to be the remnants of what was once a human.";
@@ -122,14 +116,14 @@
 /area/ruin/unpowered)
 "sM" = (
 /obj/structure/flora/rock/pile,
-/turf/open/floor/plating/dust/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "sP" = (
 /mob/living/simple_animal/hostile/skeleton/plasmaminer,
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "tN" = (
-/turf/open/floor/plating/dust/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "ub" = (
 /obj/machinery/computer{
@@ -147,7 +141,7 @@
 /area/ruin/unpowered)
 "ur" = (
 /obj/structure/flora/rock,
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "vK" = (
 /obj/machinery/door/airlock/mining,
@@ -203,7 +197,7 @@
 /area/ruin/unpowered)
 "Gc" = (
 /mob/living/simple_animal/hostile/asteroid/goliath,
-/turf/open/floor/plating/dust/lit,
+/turf/open/floor/plating/rust,
 /area/ruin/outdoors)
 "Gh" = (
 /obj/structure/tank_dispenser/oxygen,
@@ -221,7 +215,7 @@
 	desc = "What seems to be the remnants of what was once a human.";
 	name = "Turned"
 	},
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "JC" = (
 /obj/item/weldingtool,
@@ -258,7 +252,7 @@
 	pixel_x = -10;
 	pixel_y = -7
 	},
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "Pn" = (
 /obj/item/reagent_containers/food/snacks/donkpocket/warm/berry,
@@ -289,7 +283,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/mob_spawn/human/miner/explorer,
 /obj/item/pickaxe,
-/turf/open/floor/plating/dust/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "Qr" = (
 /obj/effect/turf_decal/rechargefloor,
@@ -298,11 +292,11 @@
 /area/ruin/unpowered)
 "QR" = (
 /mob/living/simple_animal/bot/mulebot,
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "Rk" = (
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/plating/dust/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "SC" = (
 /obj/structure/table,
@@ -349,11 +343,7 @@
 "Wf" = (
 /obj/effect/decal/cleanable/blood,
 /obj/item/clothing/glasses/material/mining/gar,
-/turf/open/floor/plating/dust/lit,
-/area/ruin/outdoors)
-"Wv" = (
-/obj/structure/marker_beacon,
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "Wz" = (
 /obj/item/broken_bottle,
@@ -371,18 +361,18 @@
 /area/ruin/unpowered)
 "YW" = (
 /obj/structure/barricade/wooden,
-/turf/open/floor/plating/dust/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "Zp" = (
 /obj/structure/marker_beacon,
-/turf/open/floor/plating/dust/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 
 (1,1,1) = {"
-yZ
-yZ
-yZ
-yZ
+ih
+ih
+dZ
+dZ
 Vw
 Vw
 yz
@@ -400,11 +390,11 @@ ll
 ll
 ll
 yZ
-yZ
+dZ
 "}
 (2,1,1) = {"
-yZ
-tN
+dZ
+ll
 yZ
 yZ
 Vw
@@ -419,15 +409,15 @@ Vw
 Vw
 Vw
 yZ
-oj
+tN
 bs
 bs
 ll
 yZ
-yZ
+dZ
 "}
 (3,1,1) = {"
-yZ
+dZ
 Gc
 sM
 yZ
@@ -443,15 +433,15 @@ ug
 uq
 ug
 rr
-Wv
-oj
-oj
-oj
-oj
-Wv
+Zp
+tN
+tN
+tN
+tN
+Zp
 "}
 (4,1,1) = {"
-yZ
+ih
 oj
 Rk
 yZ
@@ -467,15 +457,15 @@ yv
 ro
 OQ
 nn
-oj
-oj
+tN
+tN
 bs
-oj
-oj
-oj
+tN
+tN
+tN
 "}
 (5,1,1) = {"
-yZ
+dZ
 yZ
 Qo
 yZ
@@ -491,15 +481,15 @@ Gh
 CX
 Ch
 ov
-oj
+tN
 tN
 pZ
-oj
 ll
-yZ
+ll
+ih
 "}
 (6,1,1) = {"
-yZ
+dZ
 ll
 Rk
 yZ
@@ -518,12 +508,12 @@ Pk
 dz
 tN
 tN
-tN
+ll
 yZ
-yZ
+dZ
 "}
 (7,1,1) = {"
-yZ
+dZ
 ll
 ai
 yZ
@@ -538,18 +528,18 @@ Vw
 ll
 ll
 ll
-oj
-oj
-oj
-pg
 tN
 tN
-pZ
+tN
+sM
+tN
+tN
+bs
 "}
 (8,1,1) = {"
+dZ
 yZ
-yZ
-oj
+tN
 yZ
 Vw
 TI
@@ -561,19 +551,19 @@ yZ
 yZ
 ll
 tN
-oj
-oj
-oj
-dk
+tN
+tN
+tN
+dw
 ll
-pZ
+bs
 Zp
 tN
 "}
 (9,1,1) = {"
+dZ
 yZ
-yZ
-oj
+tN
 yZ
 CL
 PJ
@@ -592,12 +582,12 @@ bs
 ll
 yZ
 yZ
-yZ
+dZ
 "}
 (10,1,1) = {"
+ih
 yZ
-yZ
-oj
+tN
 yZ
 Vw
 OB
@@ -609,19 +599,19 @@ yZ
 ll
 tN
 tN
-oj
-oj
-Wv
+tN
+tN
+Zp
 ll
 ll
 yZ
 yZ
-yZ
+ih
 "}
 (11,1,1) = {"
+ih
 yZ
-yZ
-oj
+tN
 ll
 Vw
 mk
@@ -631,21 +621,21 @@ wY
 Vw
 ll
 ll
-oj
-oj
-oj
-oj
-oj
-oj
-oj
-pg
-oj
-oj
+tN
+tN
+tN
+tN
+tN
+tN
+tN
+sM
+tN
+tN
 "}
 (12,1,1) = {"
-yZ
+dZ
 ll
-oj
+tN
 ur
 Vw
 Vw
@@ -656,31 +646,31 @@ Vw
 ll
 ll
 ll
-oj
-oj
-oj
-oj
-oj
-oj
-oj
-oj
-Wv
+tN
+tN
+tN
+tN
+tN
+tN
+tN
+tN
+Zp
 "}
 (13,1,1) = {"
-yZ
+ih
 ll
-Wv
-oj
+Zp
+tN
 tN
 YW
 YW
-Wv
+Zp
 sP
-oj
-oj
+tN
+tN
 ll
-oj
-oj
+tN
+tN
 ur
 tN
 tN
@@ -688,23 +678,23 @@ ll
 ll
 yZ
 yZ
-yZ
+dZ
 "}
 (14,1,1) = {"
-yZ
+ih
 ll
-oj
+tN
 ll
 tN
 YW
 tN
 tN
 tN
-oj
-oj
-oj
-oj
-oj
+tN
+tN
+tN
+tN
+tN
 tN
 tN
 tN
@@ -712,12 +702,12 @@ ll
 ll
 yZ
 yZ
-yZ
+dZ
 "}
 (15,1,1) = {"
-yZ
+dZ
 ll
-oj
+tN
 ll
 yZ
 yZ
@@ -725,9 +715,9 @@ yZ
 ll
 ll
 tN
-pg
-oj
-oj
+sM
+tN
+tN
 tN
 tN
 yZ
@@ -736,23 +726,23 @@ yZ
 yZ
 yZ
 yZ
-yZ
+dZ
 "}
 (16,1,1) = {"
+dZ
 yZ
-yZ
-oj
-yZ
-yZ
-yZ
-yZ
-ll
-ll
-oj
-oj
-oj
 tN
-oj
+yZ
+yZ
+yZ
+yZ
+ll
+ll
+tN
+tN
+tN
+tN
+tN
 Zp
 Rk
 tN
@@ -760,21 +750,21 @@ tN
 tN
 Rk
 tN
-yZ
+ih
 "}
 (17,1,1) = {"
+dZ
 yZ
-yZ
-oj
+tN
 yZ
 yZ
 yZ
 yZ
 ll
-oj
-oj
-oj
-oj
+tN
+tN
+tN
+tN
 ll
 ll
 yZ
@@ -782,22 +772,22 @@ yZ
 yZ
 yZ
 yZ
-oj
+tN
 Jz
-yZ
+ih
 "}
 (18,1,1) = {"
+dZ
 yZ
-yZ
-oj
+tN
 yZ
 yZ
 yZ
 yZ
 ll
-oj
+tN
 QR
-oj
+tN
 ll
 ll
 ll
@@ -808,44 +798,44 @@ yZ
 yZ
 yZ
 yZ
-yZ
+dZ
 "}
 (19,1,1) = {"
+ih
 yZ
-yZ
-oj
+tN
 yZ
 yZ
 yZ
 yZ
 ll
-oj
-oj
-oj
-oj
-oj
-Wv
-oj
-oj
-oj
-oj
-oj
-oj
-Wv
-oj
+tN
+tN
+tN
+tN
+tN
+Zp
+tN
+tN
+tN
+tN
+tN
+tN
+Zp
+tN
 "}
 (20,1,1) = {"
+dZ
+ll
+tN
+yZ
+yZ
 yZ
 ll
-oj
-yZ
-yZ
-yZ
 ll
-ll
-oj
-oj
-rV
+tN
+tN
+Rk
 ll
 yZ
 yZ
@@ -856,21 +846,21 @@ yZ
 yZ
 yZ
 yZ
-yZ
+dZ
 "}
 (21,1,1) = {"
-yZ
-oj
-oj
+dZ
+tN
+tN
 yZ
 yZ
 yZ
 ll
 ll
-oj
-oj
-oj
-oj
+tN
+tN
+tN
+tN
 ll
 yZ
 yZ
@@ -880,10 +870,10 @@ yZ
 yZ
 yZ
 yZ
-yZ
+dZ
 "}
 (22,1,1) = {"
-yZ
+dZ
 tN
 yZ
 yZ
@@ -891,23 +881,23 @@ yZ
 yZ
 ll
 ll
-oj
-oj
-oj
-oj
-oj
-oj
-oj
-oj
-Wv
-oj
 tN
-oj
-oj
-oj
+tN
+tN
+tN
+tN
+tN
+tN
+tN
+Zp
+tN
+tN
+tN
+tN
+tN
 "}
 (23,1,1) = {"
-yZ
+dZ
 tN
 yZ
 yZ
@@ -915,12 +905,12 @@ yZ
 yZ
 ll
 ll
-oj
-pg
-oj
+tN
+sM
+tN
 qj
-oj
-oj
+tN
+tN
 ll
 yZ
 yZ
@@ -931,19 +921,19 @@ tN
 ll
 "}
 (24,1,1) = {"
-yZ
+ih
 tN
 yZ
 yZ
 yZ
 yZ
 ll
-Wv
-rV
-oj
-oj
-rV
-oj
+Zp
+Rk
+tN
+tN
+Rk
+tN
 yZ
 yZ
 yZ
@@ -951,35 +941,35 @@ yZ
 yZ
 yZ
 yZ
-oj
+tN
 ll
 "}
 (25,1,1) = {"
-yZ
-tN
-oj
-yZ
-yZ
-yZ
-tN
-oj
-oj
-tN
-tN
-tN
-oj
-yZ
-yZ
+ih
 tN
 tN
 yZ
 yZ
 yZ
-oj
+tN
+tN
+tN
+tN
+tN
+tN
+tN
 yZ
+yZ
+tN
+tN
+yZ
+yZ
+yZ
+tN
+dZ
 "}
 (26,1,1) = {"
-yZ
+dZ
 yZ
 tN
 yZ
@@ -997,13 +987,13 @@ tN
 sM
 Wf
 tN
-oj
+tN
 ll
-rV
-yZ
+Rk
+ih
 "}
 (27,1,1) = {"
-yZ
+dZ
 yZ
 Zp
 yZ
@@ -1018,16 +1008,16 @@ PK
 Vw
 ll
 ll
-oj
-oj
-oj
-oj
-Wv
-oj
-yZ
+tN
+tN
+tN
+tN
+Zp
+tN
+dZ
 "}
 (28,1,1) = {"
-yZ
+dZ
 yZ
 tN
 yZ
@@ -1041,14 +1031,14 @@ BR
 NV
 CL
 ll
-oj
+tN
 qj
-oj
-oj
+tN
+tN
 fL
 tN
 tN
-yZ
+dZ
 "}
 (29,1,1) = {"
 ll
@@ -1065,22 +1055,22 @@ sj
 ub
 Vw
 ll
-oj
-oj
-rV
+tN
+tN
+Rk
 dw
 tN
-pg
+sM
 ll
-yZ
+dZ
 "}
 (30,1,1) = {"
 ll
 ll
-oj
+tN
 ll
-yZ
-yZ
+dZ
+dZ
 Zp
 Vw
 Vw
@@ -1089,12 +1079,12 @@ Vw
 Vw
 Vw
 ll
-Wv
+Zp
 ll
-yZ
-yZ
-yZ
-yZ
-yZ
-yZ
+dZ
+dZ
+dZ
+ih
+dZ
+dZ
 "}

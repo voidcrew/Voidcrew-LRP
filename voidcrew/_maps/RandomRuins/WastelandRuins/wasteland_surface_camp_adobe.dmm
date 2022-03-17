@@ -11,10 +11,6 @@
 /obj/machinery/hydroponics/soil,
 /turf/open/floor/plating/rust,
 /area/ruin/unpowered)
-"d" = (
-/obj/structure/barricade/sandbags,
-/turf/open/floor/plating/wasteland/lit,
-/area/ruin/outdoors)
 "e" = (
 /obj/structure/table,
 /obj/item/ammo_box/aac_300blk_stripper,
@@ -43,7 +39,7 @@
 "j" = (
 /obj/structure/bonfire/prelit,
 /obj/effect/decal/cleanable/ash,
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "k" = (
 /obj/machinery/hydroponics/soil,
@@ -73,7 +69,7 @@
 /obj/item/trash/can{
 	pixel_y = -6
 	},
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "r" = (
 /turf/open/floor/plating/rust,
@@ -109,7 +105,7 @@
 	dir = 4;
 	faction = list("adobe")
 	},
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "y" = (
 /obj/structure/table,
@@ -129,7 +125,7 @@
 	pixel_x = -9;
 	pixel_y = -8
 	},
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "B" = (
 /turf/closed/wall,
@@ -140,7 +136,7 @@
 	faction = list("adobe")
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "D" = (
 /mob/living/simple_animal/hostile/asteroid/whitesands/ranged/gunslinger{
@@ -185,14 +181,11 @@
 /area/ruin/unpowered)
 "K" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "L" = (
 /turf/closed/wall/rust,
 /area/whitesands/surface/outdoors)
-"M" = (
-/turf/open/floor/plating/wasteland/lit,
-/area/ruin/outdoors)
 "N" = (
 /obj/item/stack/sheet/mineral/uranium/five,
 /obj/structure/table,
@@ -207,11 +200,11 @@
 	faction = list("adobe")
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "P" = (
 /obj/structure/barricade/sandbags,
-/turf/open/floor/plating/dust/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "Q" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -222,7 +215,7 @@
 /obj/effect/decal/cleanable/blood/old{
 	icon_state = "floor2-old"
 	},
-/turf/open/floor/plating/wasteland/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "S" = (
 /obj/machinery/door/airlock/wood/glass,
@@ -248,7 +241,7 @@
 /turf/open/floor/plating/rust,
 /area/ruin/unpowered)
 "X" = (
-/turf/open/floor/plating/dust/lit,
+/turf/template_noop,
 /area/ruin/outdoors)
 "Y" = (
 /obj/machinery/door/airlock/wood/glass,
@@ -271,7 +264,7 @@ a
 a
 a
 a
-M
+X
 X
 X
 a
@@ -287,7 +280,7 @@ a
 a
 a
 a
-M
+X
 R
 X
 X
@@ -322,7 +315,7 @@ U
 r
 r
 U
-M
+X
 a
 "}
 (5,1,1) = {"
@@ -338,7 +331,7 @@ Y
 r
 D
 B
-M
+X
 a
 "}
 (6,1,1) = {"
@@ -354,7 +347,7 @@ J
 s
 T
 B
-M
+X
 a
 "}
 (7,1,1) = {"
@@ -370,7 +363,7 @@ B
 w
 o
 U
-M
+X
 a
 "}
 (8,1,1) = {"
@@ -386,7 +379,7 @@ U
 G
 s
 U
-M
+X
 a
 "}
 (9,1,1) = {"
@@ -402,7 +395,7 @@ U
 o
 b
 U
-M
+X
 a
 "}
 (10,1,1) = {"
@@ -418,15 +411,15 @@ B
 F
 H
 U
-M
+X
 a
 "}
 (11,1,1) = {"
 a
 a
 a
-M
-M
+X
+X
 K
 O
 q
@@ -434,23 +427,23 @@ U
 U
 Y
 U
-M
+X
 a
 "}
 (12,1,1) = {"
 a
 a
 a
-M
-M
+X
+X
 C
 j
 K
-M
-M
-M
+X
+X
+X
 x
-M
+X
 a
 "}
 (13,1,1) = {"
@@ -461,12 +454,12 @@ P
 X
 A
 K
-M
-d
-M
-M
-M
-M
+X
+P
+X
+X
+X
+X
 a
 "}
 (14,1,1) = {"
@@ -476,12 +469,12 @@ a
 P
 X
 X
-M
-d
-d
-M
-M
-M
-M
+X
+P
+P
+X
+X
+X
+X
 a
 "}
