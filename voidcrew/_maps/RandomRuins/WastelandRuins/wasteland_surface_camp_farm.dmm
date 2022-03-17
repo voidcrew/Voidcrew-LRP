@@ -41,6 +41,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
+"g" = (
+/obj/machinery/hydroponics/soil,
+/turf/open/floor/plating/dust/lit,
+/area/ruin/outdoors)
 "h" = (
 /obj/structure/closet/secure_closet/hydroponics,
 /obj/item/circuitboard/machine/plantgenes,
@@ -50,7 +54,7 @@
 /area/ruin/unpowered)
 "i" = (
 /obj/machinery/hydroponics/soil,
-/turf/template_noop,
+/turf/open/floor/plating/dirt/dry/lit,
 /area/ruin/outdoors)
 "j" = (
 /obj/structure/table/wood,
@@ -63,7 +67,10 @@
 "k" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/cultivator/rake,
-/turf/template_noop,
+/turf/open/floor/plating/dirt/dry/lit,
+/area/ruin/outdoors)
+"l" = (
+/turf/open/floor/plating/wasteland/lit,
 /area/ruin/outdoors)
 "m" = (
 /obj/machinery/chem_master/condimaster,
@@ -136,9 +143,12 @@
 /obj/machinery/light,
 /turf/open/floor/wood,
 /area/ruin/unpowered)
+"x" = (
+/turf/open/floor/plating/dust/lit,
+/area/ruin/outdoors)
 "y" = (
 /mob/living/simple_animal/hostile/asteroid/goliath/beast/wasteland,
-/turf/template_noop,
+/turf/open/floor/plating/dust/lit,
 /area/ruin/outdoors)
 "z" = (
 /obj/structure/fence/cut/medium,
@@ -156,7 +166,7 @@
 "B" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/shovel,
-/turf/template_noop,
+/turf/open/floor/plating/dirt/dry/lit,
 /area/ruin/outdoors)
 "C" = (
 /obj/structure/mineral_door/wood,
@@ -234,7 +244,7 @@
 /turf/template_noop,
 /area/overmap_encounter/planetoid/wasteland)
 "P" = (
-/turf/template_noop,
+/turf/open/floor/plating/dirt/dry/lit,
 /area/ruin/outdoors)
 "Q" = (
 /obj/structure/table/wood,
@@ -282,7 +292,7 @@
 /area/ruin/unpowered)
 "W" = (
 /obj/structure/reagent_dispensers/watertank/high,
-/turf/template_noop,
+/turf/open/floor/plating/wasteland/lit,
 /area/ruin/outdoors)
 "X" = (
 /obj/structure/table/wood,
@@ -341,12 +351,12 @@ s
 n
 I
 W
+l
+P
+x
 P
 P
-P
-P
-P
-P
+x
 E
 "}
 (3,1,1) = {"
@@ -356,7 +366,7 @@ Q
 j
 s
 e
-P
+l
 k
 i
 i
@@ -373,12 +383,12 @@ K
 d
 L
 P
+x
+x
+x
 P
-P
-P
-P
-P
-P
+x
+x
 U
 "}
 (5,1,1) = {"
@@ -388,13 +398,13 @@ o
 X
 s
 D
-P
+l
 B
 i
 i
-i
-i
-P
+g
+g
+l
 U
 "}
 (6,1,1) = {"
@@ -404,13 +414,13 @@ T
 A
 n
 F
+l
 P
 P
+x
+x
 P
-P
-P
-P
-P
+l
 U
 "}
 (7,1,1) = {"
@@ -420,13 +430,13 @@ L
 L
 s
 L
-P
+x
 i
 i
 i
 i
 i
-P
+x
 U
 "}
 (8,1,1) = {"
@@ -436,13 +446,13 @@ r
 L
 t
 G
+l
+x
+x
 P
-P
-P
-P
-P
-P
-P
+x
+x
+l
 U
 "}
 (9,1,1) = {"
@@ -452,13 +462,13 @@ r
 C
 s
 C
-P
+l
 P
 P
 y
 P
 P
-P
+x
 b
 "}
 (10,1,1) = {"
@@ -468,7 +478,7 @@ w
 L
 R
 L
-P
+x
 i
 i
 i

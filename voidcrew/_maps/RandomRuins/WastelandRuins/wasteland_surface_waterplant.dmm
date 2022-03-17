@@ -138,6 +138,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/ruin/powered)
+"dA" = (
+/turf/open/floor/plating/asteroid/sand/beach/lit,
+/area/ruin/powered)
 "dD" = (
 /obj/structure/chair/office,
 /obj/effect/decal/cleanable/dirt,
@@ -147,10 +150,7 @@
 /turf/open/floor/plating,
 /area/ruin/powered)
 "eh" = (
-/obj/effect/overlay/palmtree_r,
-/turf/open/floor/plating/beach/coastline_t{
-	dir = 5
-	},
+/turf/open/floor/plating/asteroid/sand/lit,
 /area/ruin/powered)
 "et" = (
 /obj/item/chair/stool,
@@ -321,7 +321,7 @@
 "jo" = (
 /obj/effect/overlay/palmtree_l,
 /mob/living/simple_animal/parrot,
-/turf/open/floor/plating/asteroid/sand/beach,
+/turf/open/floor/plating/asteroid/sand/lit,
 /area/ruin/powered)
 "jt" = (
 /obj/structure/sign/poster/official/safety_report{
@@ -487,9 +487,6 @@
 	},
 /turf/open/floor/plating,
 /area/ruin/powered)
-"nc" = (
-/turf/open/water/beach,
-/area/ruin/powered)
 "ne" = (
 /obj/item/reagent_containers/glass/bucket{
 	pixel_x = -2;
@@ -509,7 +506,7 @@
 /area/ruin/powered)
 "ni" = (
 /obj/item/reagent_containers/food/drinks/bottle/sarsaparilla,
-/turf/open/floor/plating/asteroid/sand/beach,
+/turf/open/floor/plating/asteroid/sand/lit,
 /area/ruin/powered)
 "np" = (
 /obj/structure/table,
@@ -597,9 +594,6 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/ruin/powered)
-"oJ" = (
-/turf/open/floor/plating/beach/coastline_t,
 /area/ruin/powered)
 "oK" = (
 /obj/structure/table,
@@ -726,7 +720,8 @@
 /turf/open/floor/plasteel,
 /area/ruin/powered)
 "ri" = (
-/turf/open/floor/plating/asteroid/sand/beach,
+/obj/structure/sink/puddle,
+/turf/open/floor/plating/asteroid/sand/lit,
 /area/ruin/powered)
 "rr" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1031,7 +1026,7 @@
 	reagent_id = /datum/reagent/water
 	},
 /obj/machinery/plumbing/liquid_pump,
-/turf/open/floor/plating/asteroid/sand/beach,
+/turf/open/floor/plating/asteroid/sand/lit,
 /area/ruin/powered)
 "yQ" = (
 /obj/item/chair/stool,
@@ -1079,7 +1074,7 @@
 	pixel_x = -2;
 	pixel_y = 3
 	},
-/turf/open/floor/plating/asteroid/sand/beach,
+/turf/open/floor/plating/asteroid/sand/lit,
 /area/ruin/powered)
 "AM" = (
 /obj/machinery/atmospherics/pipe/simple/general/visible{
@@ -1101,7 +1096,11 @@
 /area/ruin/powered)
 "Bs" = (
 /obj/item/toy/beach_ball,
-/turf/open/water/beach,
+/obj/structure/geyser{
+	reagent_id = /datum/reagent/water
+	},
+/obj/machinery/plumbing/liquid_pump,
+/turf/open/floor/plating/asteroid/sand/lit,
 /area/ruin/powered)
 "Bx" = (
 /obj/machinery/door/airlock/public/glass,
@@ -1528,7 +1527,7 @@
 /obj/item/reagent_containers/glass/bucket,
 /obj/effect/decal/remains/human,
 /obj/structure/fluff/beach_umbrella,
-/turf/open/floor/plating/asteroid/sand/beach,
+/turf/open/floor/plating/asteroid/sand/lit,
 /area/ruin/powered)
 "MZ" = (
 /obj/structure/sign/poster/official/nanotrasen_logo{
@@ -1765,7 +1764,7 @@
 /area/ruin/powered)
 "Ru" = (
 /mob/living/simple_animal/crab,
-/turf/open/floor/plating/asteroid/sand/beach,
+/turf/open/floor/plating/asteroid/sand/lit,
 /area/ruin/powered)
 "RH" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -1988,7 +1987,7 @@
 	pixel_x = -4;
 	pixel_y = -6
 	},
-/turf/open/floor/plating/asteroid/sand/beach,
+/turf/open/floor/plating/asteroid/sand/lit,
 /area/ruin/powered)
 "WD" = (
 /obj/structure/sign/poster/official/random{
@@ -2144,15 +2143,8 @@
 /turf/open/floor/plasteel,
 /area/ruin/powered)
 "ZH" = (
-/turf/open/floor/plating/beach/coastline_t{
-	dir = 5
-	},
-/area/ruin/powered)
-"ZI" = (
-/mob/living/simple_animal/crab,
-/turf/open/floor/plating/beach/coastline_t{
-	dir = 5
-	},
+/obj/effect/overlay/palmtree_r,
+/turf/open/floor/plating/asteroid/sand/lit,
 /area/ruin/powered)
 "ZJ" = (
 /obj/effect/turf_decal/number/three,
@@ -2881,9 +2873,9 @@ It
 Py
 cl
 yH
-ri
+eh
 ni
-ri
+eh
 yH
 cl
 Py
@@ -2913,10 +2905,10 @@ It
 Py
 It
 Ru
-oJ
+eh
 jo
 MW
-ri
+eh
 cl
 It
 Cw
@@ -2945,10 +2937,10 @@ cl
 Py
 cl
 eh
+eh
 ri
-ri
-ri
-ri
+dA
+eh
 bn
 SE
 bQ
@@ -2976,11 +2968,11 @@ Va
 cl
 Py
 cl
-nc
+eh
 ZH
 Ww
 AE
-ri
+eh
 cl
 It
 Ij
@@ -3009,9 +3001,9 @@ It
 Py
 cl
 Bs
-nc
-ZI
-ri
+eh
+Ru
+eh
 yH
 It
 Py

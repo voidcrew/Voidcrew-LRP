@@ -12,17 +12,24 @@
 "g" = (
 /obj/structure/table/survival_pod,
 /obj/machinery/light/small,
-/turf/template_noop,
+/turf/open/floor/plating/wasteland/lit,
 /area/ruin/powered)
 "i" = (
 /obj/structure/chair/stool,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/template_noop,
+/turf/open/floor/plating/wasteland/lit,
+/area/ruin/powered)
+"j" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating/dust/lit,
 /area/ruin/powered)
 "m" = (
 /obj/machinery/hydroponics/soil,
 /turf/open/floor/plating/dirt/old/lit,
 /area/ruin/powered)
+"n" = (
+/turf/open/floor/plating/dust/lit,
+/area/ruin/outdoors)
 "o" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood{
@@ -37,7 +44,7 @@
 /area/ruin/powered)
 "q" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/template_noop,
+/turf/open/floor/plating/wasteland/lit,
 /area/ruin/powered)
 "r" = (
 /obj/machinery/light/small{
@@ -45,10 +52,10 @@
 	},
 /obj/structure/bed,
 /obj/item/bedsheet/grey,
-/turf/template_noop,
+/turf/open/floor/plating/wasteland/lit,
 /area/ruin/powered)
 "s" = (
-/turf/template_noop,
+/turf/open/floor/plating/wasteland/lit,
 /area/ruin/outdoors)
 "t" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -75,7 +82,7 @@
 /obj/item/pickaxe/improvised,
 /obj/item/kitchen/knife/combat/survival,
 /obj/item/storage/firstaid/medical,
-/turf/template_noop,
+/turf/open/floor/plating/wasteland/lit,
 /area/ruin/powered)
 "z" = (
 /obj/structure/glowshroom/single,
@@ -96,7 +103,7 @@
 /obj/item/storage/bag/plants/portaseeder,
 /obj/item/storage/bag/ore,
 /obj/structure/table/glass,
-/turf/template_noop,
+/turf/open/floor/plating/wasteland/lit,
 /area/ruin/powered)
 "E" = (
 /obj/structure/table/glass,
@@ -105,7 +112,7 @@
 /obj/item/seeds/tower,
 /obj/item/seeds/reishi,
 /obj/item/reagent_containers/food/snacks/grown/mushroom/glowshroom,
-/turf/template_noop,
+/turf/open/floor/plating/wasteland/lit,
 /area/ruin/powered)
 "G" = (
 /obj/machinery/hydroponics/soil,
@@ -132,19 +139,22 @@
 /obj/item/gun/ballistic/rifle/boltaction/polymer,
 /turf/open/floor/plating,
 /area/ruin/powered)
+"L" = (
+/turf/open/floor/plating/wasteland/lit,
+/area/ruin/powered)
 "M" = (
 /turf/closed/wall,
 /area/ruin/powered)
 "O" = (
 /obj/structure/table/glass,
 /obj/item/flashlight/lantern,
-/turf/template_noop,
+/turf/open/floor/plating/wasteland/lit,
 /area/ruin/powered)
 "P" = (
 /turf/template_noop,
 /area/template_noop)
 "Q" = (
-/turf/template_noop,
+/turf/open/floor/plating/dust/lit,
 /area/ruin/powered)
 "S" = (
 /turf/closed/wall/rust,
@@ -155,7 +165,7 @@
 /area/ruin/powered)
 "W" = (
 /obj/effect/mob_spawn/human/hermit,
-/turf/template_noop,
+/turf/open/floor/plating/wasteland/lit,
 /area/ruin/powered)
 "X" = (
 /turf/open/floor/plating/dirt/old/lit,
@@ -281,8 +291,8 @@ J
 a
 X
 Q
-q
-q
+j
+j
 W
 g
 S
@@ -298,10 +308,10 @@ I
 C
 T
 Q
-Q
+L
 q
 q
-Q
+L
 e
 s
 s
@@ -311,19 +321,19 @@ s
 (9,1,1) = {"
 S
 E
-Q
+L
 z
 p
 M
 r
-Q
+L
 i
 O
 S
 s
-s
-s
-s
+n
+n
+n
 "}
 (10,1,1) = {"
 S
@@ -339,8 +349,8 @@ M
 M
 s
 s
-s
-s
+n
+n
 "}
 (11,1,1) = {"
 P
@@ -357,7 +367,7 @@ s
 s
 s
 s
-s
+n
 "}
 (12,1,1) = {"
 P
@@ -374,5 +384,5 @@ s
 s
 s
 P
-s
+n
 "}

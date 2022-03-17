@@ -75,6 +75,10 @@
 	},
 /turf/open/floor/plating/airless,
 /area/ruin/unpowered)
+"gg" = (
+/obj/structure/lattice,
+/turf/open/floor/plating/dust/lit,
+/area/ruin/outdoors)
 "hD" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/cable{
@@ -110,11 +114,7 @@
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "kO" = (
-/mob/living/simple_animal/hostile/pirate/melee{
-	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
-	maxbodytemp = 1000;
-	minbodytemp = 0
-	},
+/mob/living/simple_animal/hostile/pirate/melee,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
 	},
@@ -246,7 +246,7 @@
 "qb" = (
 /obj/effect/turf_decal/box/white/corners,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/template_noop,
+/turf/open/floor/plating/dust/lit,
 /area/ruin/unpowered)
 "qi" = (
 /obj/effect/spawner/structure/window/shuttle,
@@ -425,11 +425,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "Gs" = (
-/mob/living/simple_animal/hostile/pirate/melee{
-	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
-	maxbodytemp = 1000;
-	minbodytemp = 0
-	},
+/mob/living/simple_animal/hostile/pirate/melee,
 /turf/open/floor/plating{
 	icon_state = "platingdmg1"
 	},
@@ -477,11 +473,7 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/mob/living/simple_animal/hostile/pirate/ranged{
-	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
-	maxbodytemp = 1000;
-	minbodytemp = 0
-	},
+/mob/living/simple_animal/hostile/pirate/ranged,
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "Iv" = (
@@ -505,11 +497,7 @@
 /turf/open/floor/plating,
 /area/ruin/unpowered)
 "Ku" = (
-/mob/living/simple_animal/hostile/pirate/melee{
-	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
-	maxbodytemp = 1000;
-	minbodytemp = 0
-	},
+/mob/living/simple_animal/hostile/pirate/melee,
 /turf/open/floor/plating{
 	icon_state = "titanium_dam5"
 	},
@@ -692,11 +680,7 @@
 /area/ruin/unpowered)
 "RQ" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/simple_animal/hostile/pirate/ranged{
-	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
-	maxbodytemp = 1000;
-	minbodytemp = 0
-	},
+/mob/living/simple_animal/hostile/pirate/ranged,
 /turf/open/floor/plasteel/dark,
 /area/ruin/unpowered)
 "RV" = (
@@ -775,7 +759,7 @@
 /area/ruin/unpowered)
 "Um" = (
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/open/floor/plating/wasteland/lit,
 /area/ruin/outdoors)
 "UV" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -836,7 +820,7 @@ Xl
 Xl
 Xl
 Xl
-Um
+gg
 Um
 Xl
 "}
@@ -992,7 +976,7 @@ sw
 "}
 (12,1,1) = {"
 Xl
-Um
+gg
 No
 du
 du
@@ -1007,7 +991,7 @@ bT
 "}
 (13,1,1) = {"
 Xl
-Um
+gg
 No
 SV
 Oe
@@ -1062,22 +1046,22 @@ yi
 yi
 yi
 yi
-Um
-Um
+gg
+gg
 "}
 (17,1,1) = {"
 Um
 Um
 yi
 yi
+gg
+yi
+gg
+gg
 Um
 yi
-Um
-Um
-Um
-yi
-Um
-Um
+gg
+gg
 Um
 "}
 (18,1,1) = {"
@@ -1089,9 +1073,9 @@ yi
 Um
 yi
 yi
-Um
-Um
-Um
+gg
+gg
+gg
 yi
 yi
 "}
