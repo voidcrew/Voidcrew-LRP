@@ -10,8 +10,6 @@ SUBSYSTEM_DEF(overmap)
 
 	//The type of star this system will have
 	var/startype
-	///Defines which generator to use for the overmap
-	var/generator_type = OVERMAP_GENERATOR_RANDOM
 
 	///List of all overmap objects.
 	var/list/overmap_objects
@@ -142,12 +140,9 @@ SUBSYSTEM_DEF(overmap)
   * The proc that creates all the objects on the overmap, split into seperate procs for redundancy.
   */
 /datum/controller/subsystem/overmap/proc/create_map_objects()
-	if (generator_type == OVERMAP_GENERATOR_SOLAR)
-		spawn_events_in_orbits()
-		spawn_ruin_levels_in_orbits()
-	else
-		spawn_events()
-		spawn_ruin_levels()
+	spawn_events_in_orbits()
+	spawn_ruin_levels_in_orbits()
+
 
 	//VOID TODO setup ship spawning
 
@@ -159,14 +154,6 @@ SUBSYSTEM_DEF(overmap)
 	*/
 
 /datum/controller/subsystem/overmap/proc/initialize_generator()
-	generator_type = CONFIG_GET(string/overmap_generator_type)
-	if (!generator_type)
-		generator_type = OVERMAP_GENERATOR_RANDOM
-		return
-
-	if (generator_type != OVERMAP_GENERATOR_SOLAR)
-		return
-
 	var/path
 	startype = pick(SMALLSTAR, MEDSTAR, TWOSTAR, BIGSTAR)
 	switch (startype)

@@ -10,10 +10,6 @@
 #define OVERMAP_MIN_Y (world.maxy - 18)
 #define OVERMAP_MAX_Y world.maxy
 
-
-#define OVERMAP_GENERATOR_SOLAR "solar_system"
-#define OVERMAP_GENERATOR_RANDOM "random"
-
 //Add new star types here
 #define SMALLSTAR 1
 #define TWOSTAR 2
