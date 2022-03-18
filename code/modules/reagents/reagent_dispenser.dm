@@ -103,10 +103,13 @@
 			user.visible_message("<span class='notice'>[user] refills [user.p_their()] [W.name].</span>", "<span class='notice'>You refill [W].</span>")
 			playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
 			W.update_icon()
-		else
+			return
+		if(istype(W) && W.welding)
 			user.visible_message("<span class='danger'>[user] catastrophically fails at refilling [user.p_their()] [I.name]!</span>", "<span class='userdanger'>That was stupid of you.</span>")
 			log_bomber(user, "detonated a", src, "via welding tool")
 			boom()
+		else
+			user.show_message("<span class='notice'>You cannot refill this [W.name].</span>")
 		return
 	return ..()
 
