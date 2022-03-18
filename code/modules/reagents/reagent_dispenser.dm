@@ -109,7 +109,7 @@
 			log_bomber(user, "detonated a", src, "via welding tool")
 			boom()
 		else
-			user.show_message("<span class='notice'>You cannot refill this [W.name].</span>")
+			user.show_message("<span class='notice'>You cannot refill this [W.name].</span>")//Plasmacutters would set fueltanks off before I changed this. Now they cannot, and neither can varedited tools
 		return
 	return ..()
 
