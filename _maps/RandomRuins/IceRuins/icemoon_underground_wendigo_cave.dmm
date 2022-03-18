@@ -1,20 +1,22 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/closed/indestructible/rock/snow/ice/ore,
-/area/overmap_encounter/planetoid/ice)
+/area/ruin/unpowered)
 "d" = (
 /turf/template_noop,
 /area/template_noop)
 "j" = (
 /obj/effect/mob_spawn/human/miner/explorer,
-/turf/template_noop,
-/area/template_noop)
+/turf/open/indestructible/necropolis{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/ruin/unpowered)
 "q" = (
 /mob/living/simple_animal/hostile/megafauna/wendigo,
 /turf/open/indestructible/necropolis{
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
-/area/overmap_encounter/planetoid/ice)
+/area/ruin/unpowered)
 "z" = (
 /obj/effect/landmark/portal_exit{
 	id = "wendigo arena"
@@ -22,30 +24,42 @@
 /turf/open/indestructible/necropolis{
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
+/area/ruin/unpowered)
+"D" = (
+/turf/template_noop,
+/area/ruin/unpowered)
+"I" = (
+/turf/template_noop,
 /area/overmap_encounter/planetoid/ice)
 "K" = (
 /obj/effect/landmark/portal_exit{
 	id = "wendigo arena exit"
 	},
-/turf/template_noop,
-/area/template_noop)
+/turf/open/indestructible/necropolis{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/ruin/unpowered)
 "N" = (
 /turf/open/indestructible/necropolis{
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
-/area/overmap_encounter/planetoid/ice)
+/area/ruin/unpowered)
 "U" = (
 /obj/item/paper/crumpled/bloody{
 	info = "for your own sake, do not enter"
 	},
-/turf/template_noop,
-/area/template_noop)
+/turf/open/indestructible/necropolis{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/ruin/unpowered)
 "V" = (
 /obj/effect/portal/permanent/one_way{
 	id = "wendigo arena"
 	},
-/turf/template_noop,
-/area/template_noop)
+/turf/open/indestructible/necropolis{
+	initial_gas_mix = "ICEMOON_ATMOS"
+	},
+/area/ruin/unpowered)
 
 (1,1,1) = {"
 d
@@ -578,8 +592,8 @@ d
 (17,1,1) = {"
 d
 d
-d
-d
+N
+N
 a
 a
 a
@@ -604,14 +618,14 @@ a
 a
 a
 j
-d
+N
 d
 d
 "}
 (18,1,1) = {"
 d
 d
-d
+N
 K
 a
 a
@@ -644,33 +658,33 @@ d
 (19,1,1) = {"
 d
 d
-d
-d
-a
-a
-a
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
 N
 N
 a
 a
 a
-d
-d
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+a
+a
+a
+N
+N
 d
 d
 "}
@@ -1122,7 +1136,7 @@ d
 d
 d
 d
-d
+I
 d
 d
 d
@@ -1155,7 +1169,7 @@ d
 d
 d
 d
-d
+D
 d
 d
 d
