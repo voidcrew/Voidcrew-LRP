@@ -89,10 +89,14 @@
 "pI" = (
 /mob/living/simple_animal/hostile/cat_butcherer{
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
-	desc = "A profession carp butcher, gone mad due to carptoxin presence in their bloodstream.";
-	health = 200;
-	maxHealth = 200;
+	desc = "A profession carp butcher, gone mad due to carptoxin exposure. There seems to be something in their pocket...";
+	faction = list("hostile", "beach");
+	health = 300;
+	held_items = list(obj/item/guardiancreator/carp);
+	maxHealth = 300;
 	maxbodytemp = 10000;
+	melee_damage_lower = 20;
+	melee_damage_upper = 25;
 	minbodytemp = 0;
 	name = "The Butcher";
 	real_name = "The Butcher";
@@ -270,6 +274,11 @@
 	})
 "Qi" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/reagent_containers/food/snacks/carpmeat,
+/obj/item/reagent_containers/food/snacks/carpmeat,
+/obj/item/reagent_containers/food/snacks/carpmeat,
+/obj/item/reagent_containers/food/snacks/carpmeat,
+/obj/item/reagent_containers/food/snacks/carpmeat,
 /turf/open/floor/plasteel/kitchen_coldroom/freezerfloor,
 /area/ruin/powered{
 	name = "\improper Cold Storage"
@@ -307,7 +316,11 @@
 	})
 "YJ" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/guardiancreator/carp,
+/obj/item/reagent_containers/food/snacks/carpmeat,
+/obj/item/reagent_containers/food/snacks/carpmeat,
+/obj/item/reagent_containers/food/snacks/carpmeat,
+/obj/item/reagent_containers/food/snacks/carpmeat,
+/obj/item/reagent_containers/food/snacks/carpmeat,
 /turf/open/floor/plasteel/kitchen_coldroom/freezerfloor,
 /area/ruin/powered{
 	name = "\improper Cold Storage"
