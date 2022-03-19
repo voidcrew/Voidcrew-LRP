@@ -38,11 +38,10 @@
   */
 /obj/structure/overmap/dynamic/proc/choose_level_type()
 	if(isnull(planet))
-		planet = pick_weight(SSovermap.spawn_probability)
+		planet = pick_weight(SSovermap.possible_planets)
 
 	var/datum/overmap/planet/temp_planet = new planet
 	name = temp_planet.name
-	desc = temp_planet.desc + "[preserve_level ? "" : " It may not still be here if you leave it."]"
 	icon_state = temp_planet.icon_state
 	color = temp_planet.color
 	qdel(temp_planet)

@@ -194,15 +194,14 @@
 	stability = rand(1, 5)
 	if(_other_wormhole)
 		other_wormhole = _other_wormhole
-	if(!other_wormhole)
-		other_wormhole = new(SSovermap.get_unused_overmap_square_in_radius(), src)
+	//VOID TODO
 
 /obj/structure/overmap/event/wormhole/affect_ship(obj/structure/overmap/ship/simulated/S)
 	if(!other_wormhole)
 		qdel(src)
 	if(--stability <= 0)
 		S.recieve_damage(rand(20, 30))
-		S.forceMove(SSovermap.get_unused_overmap_square())
+		//S.forceMove(SSovermap.get_unused_overmap_square())
 		QDEL_NULL(other_wormhole)
 		for(var/MN in GLOB.player_list)
 			var/mob/M = MN

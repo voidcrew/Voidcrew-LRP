@@ -259,7 +259,7 @@
 	if(!istype(loc, /obj/structure/overmap) && is_reserved_level(shuttle)) //The object isn't currently docked, and doesn't think it is. This is correct.
 		return TRUE
 	if(!istype(loc, /obj/structure/overmap) && !docked_object) //The overmap object thinks it's docked to something, but it really isn't. Move to a random tile on the overmap
-		forceMove(SSovermap.get_unused_overmap_square())
+		//forceMove(SSovermap.get_unused_overmap_square())
 		state = OVERMAP_SHIP_FLYING
 		update_screen()
 		return FALSE

@@ -20,8 +20,20 @@
 	var/datum/map_generator/mapgen
 	///The surface turf
 	var/turf/surface = /turf/open/space
-
+	///Z traits of the planet
 	var/list/planet_ztraits
+
+
+	// Area vars
+	///Name of the area
+	var/area_name = "\improper Planetoid"
+	///Flags this area should have
+	var/area_flags = (CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED)
+	///Ambience that should play on this planet
+	var/ambientsounds = AMBIENCE_MINING
+	///Sound environment of the planet
+	var/sound_environment = SOUND_ENVIRONMENT_CAVE
+
 
 /datum/overmap/planet/lava
 	name = "strange lava planet"
@@ -39,6 +51,9 @@
 	surface = /turf/open/floor/plating/asteroid/basalt/lava_land_surface
 	mapgen = /datum/map_generator/cave_generator/lavaland
 
+	area_name = "\improper Volcanic Planetoid"
+	sound_environment = SOUND_AREA_LAVALAND
+
 /datum/overmap/planet/ice
 	name = "strange ice planet"
 	desc = "A very weak energy signal originating from a planet with traces of water and extremely low temperatures."
@@ -54,6 +69,10 @@
 	ruin_type = ZTRAIT_ICE_RUINS
 	mapgen = /datum/map_generator/cave_generator/icemoon
 	surface = /turf/open/floor/plating/asteroid/snow/icemoon
+
+	area_name = "\improper Frozen Planetoid"
+	sound_environment = SOUND_AREA_ICEMOON
+	ambientsounds = AMBIENCE_SPOOKY
 
 /datum/overmap/planet/sand
 	name = "strange sand planet"
@@ -71,6 +90,9 @@
 	mapgen = /datum/map_generator/cave_generator/whitesands
 	surface = /turf/open/floor/plating/asteroid/whitesands
 
+	area_name = "\improper Sandy Planetoid"
+	sound_environment = SOUND_ENVIRONMENT_QUARRY
+
 /datum/overmap/planet/jungle
 	name = "strange jungle planet"
 	desc = "A very weak energy signal originating from a planet teeming with life."
@@ -86,6 +108,10 @@
 	ruin_type = ZTRAIT_JUNGLE_RUINS
 	mapgen = /datum/map_generator/jungle_generator
 	surface = /turf/open/floor/plating/dirt/jungle
+
+	area_name = "\improper Jungle Planetoid"
+	sound_environment = SOUND_ENVIRONMENT_FOREST
+	ambientsounds = AMBIENCE_AWAY
 
 /datum/overmap/planet/rock
 	name = "strange rock planet"
@@ -103,16 +129,8 @@
 	mapgen = /datum/map_generator/cave_generator/rockplanet
 	surface = /turf/open/floor/plating/asteroid
 
-/*
-/datum/overmap/planet/asteroid
-	name = "large asteroid"
-	desc = "A large asteroid with significant traces of minerals."
-	color = COLOR_GRAY
-	icon_state = "asteroid"
-
-	spawn_rate = 30
-	mapgen = /datum/map_generator/cave_generator/asteroid
-*/
+	sound_environment = SOUND_ENVIRONMENT_HANGAR
+	ambientsounds = AMBIENCE_MAINT
 
 /datum/overmap/planet/space // not a planet but freak off!!
 	name = "weak energy signal"
@@ -127,3 +145,4 @@
 	planet_area = /area/space
 	ruin_type = ZTRAIT_SPACE_RUINS
 
+	sound_environment = SOUND_AREA_SPACE
