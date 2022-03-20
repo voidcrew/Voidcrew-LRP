@@ -11,9 +11,9 @@
 	config_entry_value = "solar_system"
 
 /datum/config_entry/number/initial_shuttle_count
-	config_entry_value = 1
+	config_entry_value = 2
 	min_val = 1
 
 /datum/config_entry/number/initial_combat_shuttle_pairs
-	config_entry_value = 0
+	config_entry_value = 1
 	min_val = 0
