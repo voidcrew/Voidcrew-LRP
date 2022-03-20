@@ -92,7 +92,7 @@
 	name = "Station Engineer (Senior Engineer)"
 
 	belt = null
-	uniform = /obj/item/clothing/under/suit/senior_engineer
+	uniform = /obj/item/clothing/under/rank/engineering/suit/senior_engineer
 	alt_uniform = null
 	suit = /obj/item/clothing/suit/toggle/lawyer/orange
 	alt_suit = /obj/item/clothing/suit/hazardvest

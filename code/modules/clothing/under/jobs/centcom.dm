@@ -1,6 +1,7 @@
 /obj/item/clothing/under/rank/centcom
 	icon = 'icons/obj/clothing/under/centcom.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/centcom.dmi'
+	armor = list("melee" = 10, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 10, "bio" = 10, "rad" = 10, "fire" = 50, "acid" = 50)
 
 /*WS Edit - Better Command Uniforms
 

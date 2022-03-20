@@ -1,3 +1,7 @@
+/obj/item/clothing/under/rank/command/captain/suit
+	armor = list("melee" = 10, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 10, "bio" = 10, "rad" = 5, "fire" = 75, "acid" = 50)
+
+
 /obj/item/clothing/under/rank/command
 	desc = "A standard command jumpsuit."
 	name = "command jumpsuit"
@@ -5,6 +9,7 @@
 	mob_overlay_icon = 'icons/mob/clothing/under/command.dmi'
 	icon_state = "cmd"
 	item_state = "w_suit"
+	armor = list("melee" = 10, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 10, "bio" = 10, "rad" = 5, "fire" = 75, "acid" = 50)
 
 /obj/item/clothing/under/rank/command/skirt
 	desc = "A standard command jumpskirt."
@@ -66,6 +71,8 @@
 	name = "head of personnel's jumpsuit"
 	icon_state = "hop"
 	can_adjust = FALSE
+	armor = list("melee" = 10, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 5, "bio" = 10, "rad" = 5, "fire" = 40, "acid" = 40)
+
 
 /obj/item/clothing/under/rank/command/head_of_personnel/skirt
 	name = "head of personnel's jumpskirt"

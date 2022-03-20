@@ -562,7 +562,7 @@
 	glasses = /obj/item/clothing/glasses/night
 	belt = /obj/item/storage/belt/military
 	back = /obj/item/storage/backpack/duffelbag/syndie
-	suit = /obj/item/clothing/suit/armor/vest
+	suit = /obj/item/clothing/suit/armor/vest/syndie
 	suit_store = /obj/item/gun/ballistic/automatic/pistol
 	backpack_contents = list(/obj/item/storage/box/survival/syndie=1, /obj/item/gun_voucher/syndicate=1)
 

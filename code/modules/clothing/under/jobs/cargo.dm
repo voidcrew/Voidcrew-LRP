@@ -42,7 +42,7 @@
 	name = "shaft miner's jumpsuit"
 	icon_state = "miner"
 	item_state = "miner"
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 80, "acid" = 0)
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 5, "rad" = 0, "fire" = 75, "acid" = 25)
 	resistance_flags = NONE
 
 /obj/item/clothing/under/rank/cargo/miner/lavaland
@@ -65,5 +65,5 @@
 	desc = "A standardized NT jumpsuit line, designed to protect the fragile and profitable bodies of the shaft-charting explorers Nanotransen Resource Operations favoured in the closing years of their golden age. Slightly encumbering, due to heavy protective padding."
 	name = "prototype shaft miner's jumpsuit"
 	slowdown = 0.1
-	armor = list("melee" = 15, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 20, "bio" = 20, "rad" = 20, "fire" = 80, "acid" = 0)
+	armor = list("melee" = 15, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 20, "bio" = 20, "rad" = 20, "fire" = 80, "acid" = 25)
 	can_adjust = FALSE

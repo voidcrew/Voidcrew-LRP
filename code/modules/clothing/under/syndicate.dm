@@ -4,7 +4,7 @@
 	icon_state = "syndicate"
 	item_state = "bl_suit"
 	has_sensor = NO_SENSORS
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 40)
+	armor = list("melee" = 10, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 10, "bio" = 15, "rad" = 15, "fire" = 50, "acid" = 50)
 	alt_covers_chest = TRUE
 	icon = 'icons/obj/clothing/under/syndicate.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/syndicate.dmi'
@@ -15,7 +15,6 @@
 	icon_state = "syndicate_skirt"
 	item_state = "bl_suit"
 	has_sensor = NO_SENSORS
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 40)
 	alt_covers_chest = TRUE
 	fitted = FEMALE_UNIFORM_TOP
 	can_adjust = FALSE
@@ -73,7 +72,6 @@
 	desc = "Badly translated labels tell you to clean this in Vodka. Great for squatting in."
 	icon_state = "trackpants"
 	can_adjust = FALSE
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	resistance_flags = NONE
 
 /obj/item/clothing/under/syndicate/combat
@@ -87,5 +85,4 @@
 	desc = "Military grade tracksuits for frontline squatting."
 	icon_state = "rus_under"
 	can_adjust = FALSE
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	resistance_flags = NONE

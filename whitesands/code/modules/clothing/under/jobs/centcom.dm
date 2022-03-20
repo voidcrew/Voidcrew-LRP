@@ -6,6 +6,7 @@
 	icon_state = "officer"
 	item_state = "g_suit"
 	alt_covers_chest = TRUE
+	armor = list("melee" = 10, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 10, "bio" = 10, "rad" = 5, "fire" = 75, "acid" = 50)
 
 /obj/item/clothing/under/rank/centcom/commander
 	name = "\improper CentCom officer's jumpsuit"

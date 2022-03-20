@@ -74,7 +74,7 @@
 /datum/outfit/job/doctor/seniordoctor
 	name = "Medical Doctor (Senior Doctor)"
 
-	uniform = /obj/item/clothing/under/suit/senior_doctor
+	uniform = /obj/item/clothing/under/rank/medical/suit/senior_doctor
 	alt_uniform = null
 	shoes = /obj/item/clothing/shoes/laceup
 	suit = /obj/item/clothing/suit/toggle/lawyer/medical

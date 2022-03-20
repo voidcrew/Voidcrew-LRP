@@ -1,5 +1,8 @@
 //Alt job clothing
 
+/obj/item/clothing/under/rank/engineering/suit
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 5, "bomb" = 5, "bio" = 5, "rad" = 10, "fire" = 50, "acid" = 50)
+
 /obj/item/clothing/under/rank/engineering/engineer/junior
 	name = "junior engineer jumpsuit"
 	desc = "A jumpsuit worn by junior engineers. It has minor radiation shielding."
@@ -52,41 +55,40 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	can_adjust = FALSE
 
-/obj/item/clothing/under/suit/ce
+/obj/item/clothing/under/rank/engineering/suit/ce
 	name = "engineering coordinator suit"
 	desc = "A suit with engineering colors, worn by those who lead and have survived the engineering department."
 	icon_state = "senior_medical"
 	icon = 'icons/obj/clothing/under/engineering.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/engineering.dmi'
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 10, "fire" = 80, "acid" = 40)
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 5, "bomb" = 10, "bio" = 5, "rad" = 15, "fire" = 75, "acid" = 75)
 	resistance_flags = NONE
 	fitted = NO_FEMALE_UNIFORM
 
-/obj/item/clothing/under/suit/ce/skirt
+/obj/item/clothing/under/rank/engineering/suit/ce/skirt
 	name = "engineering coordinator skirtsuit"
 	desc = "A skirtsuit with engineering colors, worn by those who lead and have survived the engineering department."
 	icon_state = "engineering_coordinator_skirt"
 	body_parts_covered = CHEST|GROIN|ARMS
 	can_adjust = FALSE
 
-/obj/item/clothing/under/suit/senior_engineer
+/obj/item/clothing/under/rank/engineering/suit/senior_engineer
 	name = "senior engineer suit"
 	desc = "A suit with engineering colors, meant to be worn by senior staff."
 	icon_state = "senior_engineer"
 	icon = 'icons/obj/clothing/under/engineering.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/engineering.dmi'
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 10, "fire" = 60, "acid" = 20)
 	resistance_flags = NONE
 	fitted = NO_FEMALE_UNIFORM
 
-/obj/item/clothing/under/suit/senior_engineer/skirt
+/obj/item/clothing/under/rank/engineering/suit/senior_engineer/skirt
 	name = "senior engineer skirtsuit"
 	desc = "A skirtsuit with engineering colors, meant to be worn by senior staff."
 	icon_state = "senior_engineer_skirt"
 	body_parts_covered = CHEST|GROIN|ARMS
 	can_adjust = FALSE
 
-/obj/item/clothing/under/suit/senior_atmos
+/obj/item/clothing/under/rank/engineering/suit/senior_atmos
 	name = "senior atmospheric technician suit"
 	desc = "A suit with atmospheric colors, meant to be worn by senior staff."
 	icon = 'icons/obj/clothing/under/engineering.dmi'
@@ -94,7 +96,7 @@
 	icon_state = "senior_atmos"
 	fitted = NO_FEMALE_UNIFORM
 
-/obj/item/clothing/under/suit/senior_atmos/skirt
+/obj/item/clothing/under/rank/engineering/suit/senior_atmos/skirt
 	name = "senior atmospheric technician skirtsuit"
 	desc = "A skirtsuit with atmospheric colors, meant to be worn by senior staff."
 	icon_state = "senior_atmos_skirt"
@@ -121,7 +123,7 @@
 	name = "firefighter's jumpsuit"
 	desc = "It's a jumpsuit worn by firefigthers to help aid in dealing science caused fires. It is made of fire resistant materials."
 	icon_state = "firefighter"
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 60, "acid" = 0) //Same fire number as standard engineer uniform
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 5, "bomb" = 5, "bio" = 5, "rad" = 5, "fire" = 75, "acid" = 50) //Same fire number as standard engineer uniform
 	fitted = NO_FEMALE_UNIFORM
 
 /obj/item/clothing/under/rank/engineering/atmospheric_technician/firefighter/skirt

@@ -1,13 +1,14 @@
 /obj/item/clothing/under/rank/rnd
 	icon = 'icons/obj/clothing/under/rnd.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/rnd.dmi'
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 10, "rad" = 5, "fire" = 40, "acid" = 40)
 
 /obj/item/clothing/under/rank/rnd/research_director
 	desc = "It's a suit worn by those with the know-how to achieve the position of \"Research Director\". Its fabric provides minor protection from biological contaminants."
 	name = "research director's vest suit"
 	icon_state = "director"
 	item_state = "lb_suit"
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 35)
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 15, "bio" = 10, "rad" = 5, "fire" = 50, "acid" = 50)
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/rnd/research_director/skirt
@@ -25,7 +26,6 @@
 	name = "research director's tan suit"
 	icon_state = "rdwhimsy"
 	item_state = "rdwhimsy"
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 0)
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
 
@@ -44,7 +44,6 @@
 	name = "research director's turtleneck"
 	icon_state = "rdturtle"
 	item_state = "p_suit"
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 0)
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
 
@@ -64,7 +63,6 @@
 	icon_state = "toxins"
 	item_state = "w_suit"
 	permeability_coefficient = 0.5
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/under/rank/rnd/scientist/skirt
 	name = "scientist's jumpskirt"

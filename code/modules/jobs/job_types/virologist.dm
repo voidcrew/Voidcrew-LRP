@@ -43,7 +43,7 @@
 /datum/outfit/job/virologist/pathologist
 	name = "Virologist (Pathologist)"
 
-	uniform = /obj/item/clothing/under/suit/pathologist
+	uniform = /obj/item/clothing/under/rank/medical/suit/pathologist
 	alt_uniform = null
 	shoes = /obj/item/clothing/shoes/laceup
 	neck = /obj/item/clothing/neck/tie/green
