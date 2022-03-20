@@ -11,8 +11,6 @@
 	icon = 'voidcrew/icons/turf/overmap.dmi'
 	icon_state = "overmap"
 
-
-
 //this is completely unnecessary but it looks nice
 /turf/closed/overmap_edge/Initialize(mapload)
 	. = ..()
@@ -20,7 +18,7 @@
 	var/list/numbers = list()
 
 	if(x == OVERMAP_MIN_X || x == OVERMAP_MAX_X)
-		numbers += list("[round((y - (OVERMAP_MIN_Y + 1)) / 10)]","[round((y - (OVERMAP_MIN_Y + 1)) % 10)]")
+		numbers += list("[round((y - (OVERMAP_MIN_Y)) / 10)]","[round((y - (OVERMAP_MIN_Y)) % 10)]")
 		if(y == OVERMAP_MIN_Y || y == OVERMAP_MAX_Y)
 			numbers += "-"
 	if(y == OVERMAP_MIN_Y || y == OVERMAP_MAX_Y)
