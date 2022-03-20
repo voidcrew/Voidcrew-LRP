@@ -65,7 +65,7 @@ if grep -i '/obj/effect/mapping_helpers/custom_icon' _maps/**/*.dmm; then
     st=1
 fi;
 
-for json in voidcrew/configs/*.json
+for json in _maps/configs/*.json
 do
 	filename="$(jq -r '.map_path' $json)"
 	if [ ! -f "$filename" ]
