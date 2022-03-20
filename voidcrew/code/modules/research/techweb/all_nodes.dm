@@ -46,7 +46,7 @@
 	design_ids = list("engine_expulsion")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
 	export_price = 2500
-//////////////////////cassette tech//////////////////
+
 /datum/techweb_node/cassette_tech
 	id = "cassette_tech"
 	display_name = "Cassette Technology Reseach"
