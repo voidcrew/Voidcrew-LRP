@@ -15,5 +15,5 @@
 	min_val = 1
 
 /datum/config_entry/number/initial_combat_shuttle_pairs
-	config_entry_value = 1
+	config_entry_value = 0
 	min_val = 0
