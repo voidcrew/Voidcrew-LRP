@@ -1,0 +1,137 @@
+/*\ Mechanical Surgery for IPC's and the augmented \*/
+
+/datum/surgery/brain_surgery/mechanic
+	name = "Mechanical brain surgery"
+	requires_bodypart_type = BODYPART_ROBOTIC
+	steps = list(
+		/datum/surgery_step/mechanic_open,
+		/datum/surgery_step/open_hatch,
+		/datum/surgery_step/prepare_electronics,
+		/datum/surgery_step/fix_brain,
+		/datum/surgery_step/mechanic_close
+	)
+	lying_required = FALSE
+	self_operable = TRUE
+
+/datum/surgery/healing/mechanic
+	name = "Repair machinery"
+	requires_bodypart_type = BODYPART_ROBOTIC
+	replaced_by = null
+	steps = list(
+		/datum/surgery_step/mechanic_open,
+		/datum/surgery_step/heal/mechanic,
+		/datum/surgery_step/mechanic_close
+	)
+	lying_required = FALSE
+	self_operable = TRUE
+
+/datum/surgery_step/heal/mechanic
+	name = "repair components"
+	implements = list(TOOL_WELDER = 100, TOOL_CAUTERY = 60, /obj/item/melee/energy = 40, /obj/item/gun/energy/laser = 20, TOOL_WIRECUTTER = 100, TOOL_HEMOSTAT = 60, TOOL_RETRACTOR = 60)
+	time = 20
+	/// MEDICAL-TODO: Maybe port this missinghpbonus stuff
+	//missinghpbonus = 10
+
+/datum/surgery_step/heal/mechanic/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+	var/repairtype
+	if(tool.tool_behaviour == TOOL_WELDER || tool.tool_behaviour == TOOL_CAUTERY || istype(tool, /obj/item/melee/energy) || istype(tool, /obj/item/gun/energy/laser))
+		brutehealing = 5
+		burnhealing = 0
+		repairtype = "dents"
+	if(tool.tool_behaviour == TOOL_WIRECUTTER || tool.tool_behaviour == TOOL_HEMOSTAT || tool.tool_behaviour == TOOL_RETRACTOR)
+		burnhealing = 5
+		brutehealing = 0
+		repairtype = "wiring"
+	if(istype(surgery,/datum/surgery/healing))
+		var/datum/surgery/healing/the_surgery = surgery
+		if(!the_surgery.antispam)
+			display_results(user, target, "<span class='notice'>You attempt to fix some of [target]'s [repairtype].</span>",
+		"<span class='notice'>[user] attempts to fix some of [target]'s [repairtype].</span>",
+		"<span class='notice'>[user] attempts to fix some of [target]'s [repairtype].</span>")
+
+/datum/surgery_step/heal/mechanic/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
+	var/umsg = "You succeed in fixing some of [target]'s damages" //no period, add initial space to "addons"
+	var/tmsg = "[user] fixes some of [target]'s damages" //see above
+	var/urhealedamt_brute = brutehealing
+	var/urhealedamt_burn = burnhealing
+	/// MEDICAL-TODO: Maybe port this missinghpbonus stuff
+	//if(missinghpbonus)
+	//	urhealedamt_brute += round((target.getBruteLoss()/ missinghpbonus),0.1)
+	//	urhealedamt_burn += round((target.getFireLoss()/ missinghpbonus),0.1)
+
+	if(!get_location_accessible(target, target_zone))
+		urhealedamt_brute *= 0.55
+		urhealedamt_burn *= 0.55
+		umsg += " as best as you can while they have clothing on"
+		tmsg += " as best as they can while [target] has clothing on"
+	/// MEDICAL-TODO: Replace whatever this is with an equivalent. 
+	//experience_given = CEILING((target.heal_bodypart_damage(urhealedamt_brute,urhealedamt_burn)/5),1)
+	display_results(user, target, "<span class='notice'>[umsg].</span>",
+		"[tmsg].",
+		"[tmsg].")
+	if(istype(surgery, /datum/surgery/healing))
+		var/datum/surgery/healing/the_surgery = surgery
+		the_surgery.antispam = TRUE
+	return TRUE
+
+/datum/surgery_step/heal/mechanic/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, fail_prob)
+	display_results(user, target, "<span class='warning'>You screwed up!</span>",
+		"<span class='warning'>[user] screws up!</span>",
+		"<span class='notice'>[user] fixes some of [target]'s damages.</span>", TRUE)
+	var/urdamageamt_burn = brutehealing * 0.8
+	var/urdamageamt_brute = burnhealing * 0.8
+	//Reset heal checks
+	burnhealing = 0
+	brutehealing = 0
+	/// MEDICAL-TODO: Maybe port this missinghpbonus stuff
+	//if(missinghpbonus)
+	//	urdamageamt_brute += round((target.getBruteLoss()/ (missinghpbonus*2)),0.1)
+	//	urdamageamt_burn += round((target.getFireLoss()/ (missinghpbonus*2)),0.1)
+	if((fail_prob > 50) && (tool.tool_behaviour == TOOL_WIRECUTTER || tool.tool_behaviour == TOOL_HEMOSTAT || tool.tool_behaviour == TOOL_RETRACTOR))
+		do_sparks(3, TRUE, target)
+		if(isliving(user))
+			var/mob/living/L = user
+			L.electrocute_act(urdamageamt_burn, target)
+	target.take_bodypart_damage(urdamageamt_brute, urdamageamt_burn)
+	return FALSE
+
+/datum/surgery/healing/oil_cleanse
+	name = "Oil Cleanse"
+	desc = "Clean the oil within an IPC."
+	replaced_by = null
+	target_mobtypes = list(/mob/living/carbon/human/species/ipc)
+	steps = list(
+		/datum/surgery_step/mechanic_open,
+		/datum/surgery_step/open_hatch,
+		/datum/surgery_step/prepare_electronics,
+		/datum/surgery_step/heal/cleanse_oil,
+		/datum/surgery_step/mechanic_close
+	)
+	requires_bodypart_type = BODYPART_ROBOTIC
+	possible_locs = list(BODY_ZONE_CHEST)
+	lying_required = TRUE
+
+/datum/surgery_step/heal/cleanse_oil
+	name = "cleanse oil"
+	implements = list(/obj/item/oil_cleanser = 100, /obj/item/reagent_containers/syringe = 30)
+	repeatable = TRUE
+	time = 2.5 SECONDS
+	var/tox_healing = 5
+
+/datum/surgery_step/heal/cleanse_oil/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+	display_results(user, target, "<span class='notice'>You prepare to clean out the oil running through [target].</span>",
+		"<span class='notice'>[user] prepares to cleanse [target] with [tool].</span>",
+		"<span class='notice'>[user] prepares to cleanse [target] with [tool].</span>")
+
+
+/datum/surgery_step/heal/cleanse_oil/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results)
+	display_results(user, target, "<span class='notice'>You successfully cleanse [target]'s oil with [tool]...</span>",
+		"<span class='notice'>[user] pumps some oil in and out of [target] with [tool]...</span>",
+		"<span class='notice'>[user] pumps some oil in and out of [target] with [tool]...</span>")
+	target.adjustToxLoss(-tox_healing)
+
+/datum/surgery_step/heal/cleanse_oil/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+	display_results(user, target, "<span class='notice'>The oil seems to be even dirtier than before...</span>",
+		"<span class='notice'>[user] pumps dirty oil back into [target] with [tool]...</span>",
+		"<span class='notice'>[user] pumps dirty oil back into [target] with [tool]...</span>")
+	target.adjustToxLoss(tox_healing)

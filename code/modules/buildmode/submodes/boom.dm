@@ -1,3 +1,4 @@
+
 /datum/buildmode_mode/boom
 	key = "boom"
 
