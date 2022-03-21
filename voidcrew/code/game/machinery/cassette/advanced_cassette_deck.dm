@@ -127,7 +127,7 @@
 			///scrub the url before passing it through a shell
 			var/shell_scrubbed_input = shell_url_scrub(url2)
 			///the command being sent to the shell after being scrubbed
-			var/list/output = world.shelleo("[ytdl] --geo-bypass --format \"bestaudio\[ext=mp3]/best\[ext=mp4]\[height<=360]/bestaudio\[ext=m4a]/bestaudio\[ext=aac]\" --dump-single-json --no-playlist -- \"[shell_scrubbed_input]\"")
+			var/list/output = world.shelleo("[ytdl] --max-filesize 10m --extract-audio --geo-bypass --format \"bestaudio\[ext=mp3]/best\[ext=mp4]\[height<=360]/bestaudio\[ext=m4a]/bestaudio\[ext=aac]\" --dump-single-json --no-playlist -- \"[shell_scrubbed_input]\"")
 			///any shell errors
 			var/errorlevel = output[SHELLEO_ERRORLEVEL]
 			///shell output
