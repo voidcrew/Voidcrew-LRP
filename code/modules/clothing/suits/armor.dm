@@ -40,10 +40,13 @@
 
 /obj/item/clothing/suit/armor/vest/blueshirt
 	name = "large armor vest"
-	desc = "A large, yet comfortable piece of armor, protecting you from some threats."
+	desc = "A large kevlar vest with polymer plating attacked at key points to protect the wearer's entire body. While the additional polymer plating is lightweight, the added bulk makes it difficult to move around in."
 	icon_state = "blueshift"
 	item_state = "blueshift"
-	custom_premium_price = 750
+	custom_premium_price = 400
+	armor = list("melee" = 45, "bullet" = 40, "laser" = 40, "energy" = 50, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 75, "acid" = 75)
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+	slowdown = 0.4
 
 /obj/item/clothing/suit/armor/hos
 	name = "armored greatcoat"
@@ -51,7 +54,7 @@
 	icon_state = "hos"
 	item_state = "greatcoat"
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
-	armor = list("melee" = 30, "bullet" = 30, "laser" = 30, "energy" = 40, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 70, "acid" = 90)
+	armor = list("melee" = 45, "bullet" = 35, "laser" = 35, "energy" = 50, "bomb" = 25, "bio" = 10, "rad" = 10, "fire" = 75, "acid" = 75)
 	cold_protection = CHEST|GROIN|LEGS|ARMS
 	heat_protection = CHEST|GROIN|LEGS|ARMS
 	strip_delay = 80
@@ -98,7 +101,7 @@
 	icon_state = "capcarapace"
 	item_state = "armor"
 	body_parts_covered = CHEST|GROIN
-	armor = list("melee" = 50, "bullet" = 40, "laser" = 50, "energy" = 50, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 90)
+	armor = list("melee" = 55, "bullet" = 50, "laser" = 55, "energy" = 50, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 100, "acid" = 100)
 	dog_fashion = null
 	resistance_flags = FIRE_PROOF
 
@@ -121,7 +124,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
-	armor = list("melee" = 50, "bullet" = 10, "laser" = 10, "energy" = 10, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 80, "acid" = 80)
+	armor = list("melee" = 70, "bullet" = 10, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 15, "rad" = 10, "fire" = 75, "acid" = 75)
 	clothing_flags = BLOCKS_SHOVE_KNOCKDOWN
 	strip_delay = 80
 	equip_delay_other = 60
@@ -141,7 +144,7 @@
 	icon_state = "bulletproof"
 	item_state = "armor"
 	blood_overlay_type = "armor"
-	armor = list("melee" = 15, "bullet" = 60, "laser" = 10, "energy" = 10, "bomb" = 40, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
+	armor = list("melee" = 15, "bullet" = 70, "laser" = 10, "energy" = 10, "bomb" = 15, "bio" = 15, "rad" = 10, "fire" = 50, "acid" = 50)
 	strip_delay = 70
 	equip_delay_other = 50
 
@@ -154,8 +157,7 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	heat_protection = CHEST|GROIN|ARMS
-	armor = list("melee" = 10, "bullet" = 10, "laser" = 60, "energy" = 60, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 100)
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	armor = list("melee" = 10, "bullet" = 10, "laser" = 70, "energy" = 70, "bomb" = 5, "bio" = 10, "rad" = 5, "fire" = 50, "acid" = 50)
 	var/hit_reflect_chance = 50
 
 /obj/item/clothing/suit/armor/laserproof/IsReflect(def_zone)
@@ -273,7 +275,7 @@
 	equip_delay_other = 40
 	max_integrity = 200
 	resistance_flags = FLAMMABLE
-	armor = list("melee" = 20, "bullet" = 10, "laser" = 30, "energy" = 40, "bomb" = 15, "bio" = 0, "rad" = 0, "fire" = 40, "acid" = 50)
+	armor = list("melee" = 40, "bullet" = 30, "laser" = 30, "energy" = 40, "bomb" = 15, "bio" = 10, "rad" = 10, "fire" = 50, "acid" = 50)
 
 /obj/item/clothing/suit/armor/vest/russian
 	name = "russian vest"

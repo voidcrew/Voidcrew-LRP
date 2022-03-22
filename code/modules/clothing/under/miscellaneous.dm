@@ -145,7 +145,7 @@
 	icon_state = "durathread"
 	item_state = "durathread"
 	can_adjust = FALSE
-	armor = list("melee" = 10, "laser" = 10, "fire" = 40, "acid" = 10, "bomb" = 5)
+	armor = list("melee" = 15, "bullet" = 5, "laser" = 10,"energy" = 5, "bomb" = 10, "bio" = 10, "rad" = 5, "fire" = 50, "acid" = 50)
 	cuttable = FALSE
 
 /obj/item/clothing/under/misc/bouncer

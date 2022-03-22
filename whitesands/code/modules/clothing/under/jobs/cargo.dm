@@ -21,7 +21,7 @@
 
 /obj/item/clothing/under/suit/cargo_tech
 	name = "deliveries officer suit"
-	desc = "A suit with cargo colors, with a pair of shorts..."
+	desc = "A suit with cargo colors, with a pair of shorts."
 	icon_state = "deliveries_officer"
 	fitted = NO_FEMALE_UNIFORM
 	icon = 'icons/obj/clothing/under/cargo.dmi'
@@ -29,7 +29,7 @@
 
 /obj/item/clothing/under/suit/cargo_tech/skirt
 	name = "deliveries officer skirtsuit"
-	desc = "A suit with cargo colors, with a skirt..."
+	desc = "A suit with cargo colors, with a skirt."
 	icon_state = "deliveries_officer_skirt"
 
 	body_parts_covered = CHEST|GROIN|ARMS

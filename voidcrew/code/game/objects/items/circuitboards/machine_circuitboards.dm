@@ -156,3 +156,13 @@
 		/obj/item/stock_parts/cell = 3,
 		/obj/item/stock_parts/capacitor = 1
 	)
+
+/obj/item/circuitboard/machine/cassette/adv_cassette_deck
+	name = "Advanced Cassette Deck (Machine Board)"
+	build_path = /obj/machinery/cassette/adv_cassette_deck
+	req_components = list(
+		/obj/item/stack/cable_coil = 5,
+		/obj/item/stock_parts/cell = 1,
+		/obj/item/stock_parts/capacitor = 1,
+		/obj/item/stack/sheet/glass = 1
+	)

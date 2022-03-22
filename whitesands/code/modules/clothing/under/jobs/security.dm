@@ -16,6 +16,7 @@
 /obj/item/clothing/under/rank/security
 	icon = 'icons/obj/clothing/under/security.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/security.dmi'
+	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 10, "bio" = 10, "rad" = 5, "fire" = 30, "acid" = 30)
 
 // Security Officer //
 /obj/item/clothing/under/rank/security/officer
@@ -23,7 +24,6 @@
 	desc = "A tactical security jumpsuit for officers complete with Nanotrasen belt buckle."
 	icon_state = "security"
 	item_state = "gy_suit"
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
 	strip_delay = 50
 	alt_covers_chest = TRUE
 	sensor_mode = SENSOR_COORDS
@@ -34,7 +34,7 @@
 	desc = "A \"tactical\" security jumpsuit with the legs replaced by a skirt."
 	icon_state = "security_skirt"
 	body_parts_covered = CHEST|GROIN|ARMS
-	can_adjust = FALSE //you know now that i think of it if you adjust the skirt and the sprite disappears isn't that just like flashing everyone
+	can_adjust = FALSE
 	fitted = FEMALE_UNIFORM_TOP
 	supports_variations = DIGITIGRADE_VARIATION_NO_NEW_ICON
 
@@ -44,7 +44,6 @@
 	desc = "Someone who wears this means business."
 	icon_state = "detective"
 	item_state = "det"
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
 	strip_delay = 50
 	alt_covers_chest = TRUE
 	sensor_mode = 3
@@ -109,7 +108,6 @@
 	name = "security suit"
 	desc = "A formal security suit for officers complete with Nanotrasen belt buckle."
 	icon_state = "warden"
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 30, "acid" = 30)
 	strip_delay = 50
 	alt_covers_chest = TRUE
 	sensor_mode = 3
@@ -129,7 +127,7 @@
 	name = "head of security's jumpsuit"
 	desc = "A security jumpsuit decorated for those few with the dedication to achieve the position of Head of Security."
 	icon_state = "hos"
-	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
+	armor = list("melee" = 10, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 10, "bio" = 10, "rad" = 10, "fire" = 50, "acid" = 50)
 	strip_delay = 60
 	alt_covers_chest = TRUE
 	sensor_mode = 3

@@ -4,6 +4,7 @@
 	icon_state = "holster"
 	item_state = "holster"
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/holster
+	armor = list("melee" = 5, "bullet" = 5, "laser" = 5,"energy" = 5, "bomb" = 20, "bio" = 20, "rad" = 5, "fire" = 25, "acid" = 25)
 
 /obj/item/clothing/accessory/holster/detective
 	name = "detective's shoulder holster"
