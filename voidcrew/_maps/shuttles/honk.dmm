@@ -59,9 +59,7 @@
 /turf/open/floor/mineral/bananium,
 /area/ship/crew)
 "hn" = (
-/obj/structure/window/plasma/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/plasma,
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/machinery/light,
 /turf/open/floor/mineral/bananium,
@@ -72,16 +70,12 @@
 /turf/open/floor/wood/yew,
 /area/ship/bridge)
 "hx" = (
-/obj/structure/window/plasma/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/plasma,
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/open/floor/mineral/bananium,
 /area/ship/crew)
 "iN" = (
-/obj/structure/window/plasma/reinforced{
-	dir = 8
-	},
+/obj/structure/window/reinforced/plasma,
 /obj/machinery/light,
 /obj/item/stack/sheet/mineral/plasma/twenty,
 /obj/structure/cable{
@@ -105,7 +99,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /turf/open/floor/wood/yew,
 /area/ship/bridge)
 "mU" = (
@@ -175,7 +169,7 @@
 /obj/machinery/power/smes/shuttle/precharged{
 	dir = 1
 	},
-/obj/structure/window/plasma/reinforced,
+/obj/structure/window/reinforced/plasma,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -376,7 +370,9 @@
 /turf/open/floor/mineral/bananium,
 /area/ship/crew)
 "zT" = (
-/obj/machinery/airalarm/all_access,
+/obj/machinery/airalarm/all_access{
+	dir = 1
+	},
 /turf/closed/wall/mineral/bananium,
 /area/ship/crew)
 "AH" = (
@@ -411,14 +407,14 @@
 /turf/open/floor/mineral/bananium,
 /area/ship/crew)
 "CJ" = (
-/obj/structure/window/plasma/reinforced,
+/obj/structure/window/reinforced/plasma,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/open/floor/mineral/bananium,
 /area/ship/crew)
 "Do" = (
-/obj/structure/window/plasma/reinforced,
+/obj/structure/window/reinforced/plasma,
 /turf/open/floor/mineral/bananium,
 /area/ship/crew)
 "Dt" = (
@@ -428,7 +424,7 @@
 /turf/open/floor/glass/reinforced,
 /area/ship/engineering/engine)
 "El" = (
-/mob/living/carbon/monkey,
+/mob/living/carbon/human/species/monkey,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -513,7 +509,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/mineral/bananium,
 /area/ship/crew)
 "IX" = (
@@ -591,7 +587,7 @@
 /turf/open/floor/glass/reinforced,
 /area/ship/engineering/engine)
 "LW" = (
-/obj/structure/window/plasma/reinforced,
+/obj/structure/window/reinforced/plasma,
 /obj/structure/disposaloutlet{
 	dir = 1
 	},
@@ -869,7 +865,7 @@
 /turf/open/floor/mineral/bananium,
 /area/ship/crew)
 "Ur" = (
-/obj/structure/window/plasma/reinforced,
+/obj/structure/window/reinforced/plasma,
 /obj/machinery/disposal/deliveryChute{
 	dir = 1
 	},
@@ -884,7 +880,9 @@
 /turf/open/floor/mineral/bananium,
 /area/ship/crew)
 "UD" = (
-/obj/machinery/airalarm/all_access,
+/obj/machinery/airalarm/all_access{
+	dir = 1
+	},
 /turf/closed/wall/mineral/bananium,
 /area/ship/engineering/engine)
 "UT" = (
@@ -930,7 +928,7 @@
 /area/ship/crew)
 "Ww" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/item/reagent_containers/food/snacks/sausage,
 /obj/item/reagent_containers/food/snacks/sausage,
 /obj/item/reagent_containers/food/snacks/sausage,
@@ -1304,8 +1302,8 @@ ZT
 KZ
 zv
 Xn
-Kf
-Kf
+Do
+Do
 hx
 hn
 ZT
@@ -1512,9 +1510,9 @@ Xn
 Xn
 zv
 Xn
-WJ
-WJ
-WJ
+Do
+Do
+Do
 iN
 ZT
 ZT

@@ -39,12 +39,12 @@
 /area/ship/crew/dorm)
 "dh" = (
 /obj/structure/grille,
-/obj/structure/window/shuttle,
+/obj/structure/window/reinforced/shuttle,
 /turf/open/floor/plating,
 /area/ship/bridge)
 "dm" = (
 /obj/effect/turf_decal/corner/blue/mono,
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -76,7 +76,7 @@
 /area/ship/maintenance/aft)
 "dK" = (
 /obj/effect/turf_decal/corner/bottlegreen/mono,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /turf/open/floor/mineral/titanium,
 /area/ship/hallway/central)
@@ -101,7 +101,7 @@
 /area/ship/hallway/central)
 "dS" = (
 /obj/structure/grille,
-/obj/structure/window/shuttle,
+/obj/structure/window/reinforced/shuttle,
 /turf/open/floor/plating,
 /area/ship/crew/dorm)
 "eO" = (
@@ -329,9 +329,9 @@
 	},
 /obj/effect/turf_decal/corner/lime/mono,
 /obj/structure/window/reinforced/spawner,
-/obj/effect/spawner/lootdrop/donkpockets,
-/obj/effect/spawner/lootdrop/donkpockets,
-/obj/effect/spawner/lootdrop/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -351,7 +351,7 @@
 	port_direction = 8;
 	preferred_direction = 4
 	},
-/turf/open/floor/plasteel,
+/turf/open/floor/iron,
 /area/ship/crew/dorm)
 "oU" = (
 /obj/effect/turf_decal/corner/red/mono,
@@ -776,7 +776,7 @@
 /turf/open/floor/mineral/titanium,
 /area/ship/cargo)
 "Gm" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -1031,7 +1031,7 @@
 /area/ship/maintenance/aft)
 "Ss" = (
 /obj/effect/turf_decal/corner/yellow/mono,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -1077,7 +1077,7 @@
 /area/ship/maintenance/aft)
 "Vc" = (
 /obj/effect/turf_decal/corner/red/mono,
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -1160,7 +1160,7 @@
 /obj/machinery/atmospherics/pipe/simple/orange/visible{
 	dir = 9
 	},
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/machinery/light{
 	dir = 4
@@ -1176,7 +1176,7 @@
 /area/ship/maintenance/aft)
 "XM" = (
 /obj/effect/turf_decal/corner/red/mono,
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -1249,7 +1249,7 @@
 /area/ship/security/armory)
 "Zy" = (
 /obj/structure/grille,
-/obj/structure/window/shuttle,
+/obj/structure/window/reinforced/shuttle,
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "ZN" = (
