@@ -1,8 +1,5 @@
 //Alt job uniforms
 
-/obj/item/clothing/under/suit/medical
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 20, "rad" = 5, "fire" = 40, "acid" = 40)
-
 /obj/item/clothing/under/rank/medical/chemist/pharmacist
 	name = "pharmacist's jumpsuit"
 	desc = "It's made of a special fiber that gives special protection against biohazards. For those pharmacists that want to improve or worsen the station's health."
@@ -17,7 +14,7 @@
 
 /obj/item/clothing/under/rank/medical/chemist/pharmacologist
 	name = "pharmacologist's jumpsuit"
-	desc = "It's made of a special fiber that gives special protection against biohazards."
+	desc = "It's made of a special fiber that gives special protection against biohazards. For those pharmacologist one step behind to being evil."
 	icon_state = "pharmacologist"
 	fitted = NO_FEMALE_UNIFORM
 
@@ -48,6 +45,7 @@
 	can_adjust = FALSE
 
 	permeability_coefficient = 0.5
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 0)
 	fitted = NO_FEMALE_UNIFORM
 
 /obj/item/clothing/under/rank/medical/psychiatrist/green
@@ -72,12 +70,12 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	can_adjust = FALSE
 
-/obj/item/clothing/under/rank/medical/suit/cmo
+/obj/item/clothing/under/suit/cmo
 	name = "medical director suit"
 	desc = "A suit with medical colors, meant to be worn by those who lead the medical department."
 	icon_state = "medical_director"
 	permeability_coefficient = 0.5
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 5, "bio" = 25, "rad" = 5, "fire" = 40, "acid" = 40)
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 0)
 	fitted = NO_FEMALE_UNIFORM
 	icon = 'icons/obj/clothing/under/medical.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/medical.dmi'
@@ -96,16 +94,17 @@
 	icon_state = "surgeon_general"
 	can_adjust = FALSE
 
-/obj/item/clothing/under/rank/medical/suit/senior_doctor
+/obj/item/clothing/under/suit/senior_doctor
 	name = "senior doctor suit"
 	desc = "A suit with medical colors, meant to be worn by senior staff."
 	icon_state = "senior_medical"
 	permeability_coefficient = 0.5
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 0)
 	fitted = NO_FEMALE_UNIFORM
 	icon = 'icons/obj/clothing/under/medical.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/medical.dmi'
 
-/obj/item/clothing/under/rank/medical/suit/senior_doctor/skirt
+/obj/item/clothing/under/suit/senior_doctor/skirt
 	name = "senior doctor skirtsuit"
 	desc = "A skirtsuit with medical colors, meant to be worn by senior staff."
 	icon_state = "senior_medical_skirt"
@@ -118,7 +117,7 @@
 	desc = "A suit with chemistry colors, meant to be worn by senior staff."
 	icon_state = "senior_chemistry"
 	permeability_coefficient = 0.5
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 20, "rad" = 5, "fire" = 50, "acid" = 75)
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 0, "fire" = 50, "acid" = 65)
 	fitted = NO_FEMALE_UNIFORM
 	icon = 'icons/obj/clothing/under/medical.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/medical.dmi'
@@ -130,16 +129,17 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	can_adjust = FALSE
 
-/obj/item/clothing/under/rank/medical/suit/pathologist
+/obj/item/clothing/under/suit/pathologist
 	name = "pathologist suit"
 	desc = "A suit with special fibers that provide minor protection against biohazards. A suit with green pants, provided to pathologists."
 	icon_state = "pathologist"
 	permeability_coefficient = 0.5
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 10, "rad" = 0, "fire" = 0, "acid" = 0)
 	fitted = NO_FEMALE_UNIFORM
 	icon = 'icons/obj/clothing/under/medical.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/medical.dmi'
 
-/obj/item/clothing/under/rank/medical/suit/medical/pathologist/skirt
+/obj/item/clothing/under/suit/pathologist/skirt
 	name = "pathologist suit"
 	desc = "A suit with special fibers that provide minor protection against biohazards. A skirtsuit with green pants, provided to pathologists."
 	icon_state = "pathologist_skirt"
