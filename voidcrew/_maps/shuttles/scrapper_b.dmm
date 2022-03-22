@@ -424,6 +424,13 @@
 	},
 /turf/open/floor/pod/light,
 /area/ship/hallway/starboard)
+"fV" = (
+/obj/machinery/atmospherics/components/binary/pump{
+	name = "engine fuel pump"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/ship/engineering/engine)
 "fX" = (
 /obj/effect/turf_decal/techfloor{
 	dir = 8
@@ -556,9 +563,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 5
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/ship/engineering/engine)
 "if" = (
@@ -1380,15 +1385,6 @@
 /obj/machinery/door/airlock/external/glass,
 /turf/open/floor/pod/light,
 /area/ship/hallway/central)
-"sX" = (
-/obj/machinery/atmospherics/components/binary/pump{
-	name = "engine fuel pump"
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 9
-	},
-/turf/open/floor/plating,
-/area/ship/engineering/engine)
 "tf" = (
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/ship/maintenance/starboard)
@@ -1434,9 +1430,7 @@
 /area/ship/crew/canteen)
 "tV" = (
 /obj/machinery/atmospherics/pipe/simple/orange/visible,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 6
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/ship/engineering/engine)
 "ug" = (
@@ -2243,9 +2237,7 @@
 "EA" = (
 /obj/machinery/power/terminal,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/ship/engineering/engine)
 "EI" = (
@@ -3923,15 +3915,6 @@
 /obj/effect/turf_decal/box,
 /turf/open/floor/plating,
 /area/ship/engineering/electrical)
-"Xb" = (
-/obj/machinery/atmospherics/components/binary/pump{
-	name = "engine fuel pump"
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 5
-	},
-/turf/open/floor/plating,
-/area/ship/engineering/engine)
 "XE" = (
 /obj/structure/closet/emcloset,
 /obj/effect/spawner/random/maintenance,
@@ -4853,7 +4836,7 @@ yA
 hp
 tV
 PU
-Xb
+fV
 ER
 ph
 "}
@@ -4929,7 +4912,7 @@ zZ
 XE
 bw
 Ky
-sX
+fV
 ER
 ph
 "}
