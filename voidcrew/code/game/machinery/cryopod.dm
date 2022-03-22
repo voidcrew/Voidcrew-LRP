@@ -102,7 +102,6 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 			return
 
 		if("toggleAwakening")
-			log_shuttle("[user] has disabled cryo on [linked_ship.display_name]")
 			linked_ship.join_allowed = !linked_ship.join_allowed
 			return
 
