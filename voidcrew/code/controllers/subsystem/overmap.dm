@@ -3,6 +3,7 @@
 #define MAX_OVERMAP_EVENT_CLUSTERS 10
 #define MAX_OVERMAP_EVENTS 150
 
+
 #define BOTTOM_LEFT_TURF locate(OVERMAP_MIN_X, OVERMAP_MIN_Y, OVERMAP_Z_LEVEL)
 
 SUBSYSTEM_DEF(overmap)
@@ -23,9 +24,11 @@ SUBSYSTEM_DEF(overmap)
 	var/list/simulated_ships
 	///Map of tiles at each radius (represented by index) around the sun
 	var/list/list/radius_tiles
+	///Planetary z levels
+	var/list/planets = list()
 
 	///Width/height of the overmap "zlevel"
-	var/size = 18
+	var/size = 17
 
 	///Planet spawning probability
 	var/static/list/possible_planets = list()
@@ -46,9 +49,9 @@ SUBSYSTEM_DEF(overmap)
 
 	create_map()
 
-	spawn_overmap_planets()
-
 	setup_events()
+
+	spawn_overmap_planets()
 
 	return ..()
 
@@ -77,12 +80,19 @@ SUBSYSTEM_DEF(overmap)
 
 ///Creates new z levels for each planet
 /datum/controller/subsystem/overmap/proc/spawn_overmap_planets()
+	var/idx = 1
 	for (var/i in 1 to planets_to_spawn)
 		var/datum/overmap/planet/planet = pick_n_take(possible_planets)
 
 		planet = new planet
 		var/datum/space_level/planet_z = SSmapping.add_new_zlevel("Overmap planet [i]", planet.planet_ztraits)
 		spawn_planet(planet, planet_z)
+		planets[planet.ruin_type] = planet_z.z_value
+
+		//issue here is that planets are now spawning on top of stuff. STOP TAHT!
+
+		new /obj/structure/overmap/dynamic/lava(radius_tiles[rand(4,6)][idx])
+		idx += rand(10, 25)
 
 
 
@@ -115,7 +125,9 @@ SUBSYSTEM_DEF(overmap)
 
 /datum/controller/subsystem/overmap/proc/setup_sun()
 	var/obj/structure/overmap/star/big/centre = new // TODO set this up to choose a random medium, big or binary
-	centre.forceMove(locate(size / 2, OVERMAP_MIN_Y + (size / 2), 1))
+	var/sun_loc = locate(size / 2, OVERMAP_MIN_Y + (size / 2), 1)
+	centre.forceMove(sun_loc)
+	new /obj/effect/landmark/observer_start(sun_loc)
 
 	//setup radius tiles
 	var/list/unsorted_turfs = get_areatype_turfs(/area/overmap)
@@ -123,25 +135,24 @@ SUBSYSTEM_DEF(overmap)
 	for (var/i in 1 to (size - 2) / 2)
 		radius_tiles += list(list())
 		for (var/turf/turf in unsorted_turfs)
-			var/dist = round(sqrt((turf.x - centre.x) ** 2 + (turf.y - centre.y) ** 2))
+			var/dist = round(sqrt((turf.x - (centre.x + 1)) ** 2 + (turf.y - (centre.y + 1)) ** 2))
 			if (dist != i)
 				continue
 			radius_tiles[i] += turf
 			unsorted_turfs -= turf
 
-/datum/controller/subsystem/overmap/proc/get_unused_overmap_square_in_radius(radius, obj_to_avoid, tries = MAX_OVERMAP_PLACEMENT_ATTEMPTS, force = FALSE)
+/datum/controller/subsystem/overmap/proc/get_unused_overmap_square_in_radius(radius, obj_to_avoid = /obj/structure/overmap, tries = MAX_OVERMAP_PLACEMENT_ATTEMPTS, force = FALSE)
 	if (!radius)
 		radius = rand(2, LAZYLEN(radius_tiles))
 
-	var/turf/turf_to_return
 	for (var/i in 1 to tries)
-		turf_to_return = pick(radius_tiles[radius])
-		if (locate(obj_to_avoid) in turf_to_return)
+		. = pick(radius_tiles[radius])
+		if (locate(obj_to_avoid) in .)
 			continue
-		return turf_to_return
+		return
 
 	if (!force)
-		turf_to_return = null
+		. = null
 
 /datum/controller/subsystem/overmap/proc/setup_dangers()
 	var/list/orbits = list()

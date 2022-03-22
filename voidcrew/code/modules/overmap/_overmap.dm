@@ -14,7 +14,7 @@
 //this is completely unnecessary but it looks nice
 /turf/closed/overmap_edge/Initialize(mapload)
 	. = ..()
-	name = "[x]-[y]"
+	name = "[x]-[y - OVERMAP_MIN_Y]"
 	var/list/numbers = list()
 
 	if(x == OVERMAP_MIN_X || x == OVERMAP_MAX_X)
