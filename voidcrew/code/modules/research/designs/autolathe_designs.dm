@@ -47,3 +47,22 @@
 	category = list("initial", "Security")
 
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL | DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/cassette
+	name = "Blank Cassette"
+	id = "cassette"
+	build_type = AUTOLATHE | PROTOLATHE
+	materials = list(/datum/material/iron = 1000)
+	build_path = /obj/item/device/cassette_tape/blank
+	category = list("initial","Tools","Tool Designs")
+	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
+
+/datum/design/cassette_deck
+	name = "Dual Cassette Deck"
+	id = "cassette_deck"
+	build_type = AUTOLATHE | PROTOLATHE
+	materials = list(/datum/material/iron = 2500,
+					 /datum/material/glass = 1500)
+	build_path = /obj/item/device/cassette_deck
+	category = list("initial","Tools","Tool Designs")
+	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
