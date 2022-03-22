@@ -1,6 +1,6 @@
 #define RIVER_PADDING 50
 
-/proc/spawn_rivers(datum/virtual_level/vlevel, nodes = 4, turf_type = /turf/open/lava/smooth/lava_land_surface, whitelist_area = /area/lavaland/surface/outdoors/unexplored, padding = RIVER_PADDING, new_baseturfs)
+/proc/spawn_rivers(datum/virtual_level/vlevel, nodes = 4, turf_type = /turf/open/lava/smooth/lava_land_surface, whitelist_area = /area/lavaplanet/surface/outdoors, padding = RIVER_PADDING, new_baseturfs)
 	var/target_z = vlevel.z_value
 	var/list/river_nodes = list()
 	var/num_spawned = 0
