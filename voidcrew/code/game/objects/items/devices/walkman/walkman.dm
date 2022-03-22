@@ -1,5 +1,11 @@
 #define sound_to(target, sound) target << (sound)
 #define NEXT_SONG_USE_TIMER (5 SECONDS)
+
+//world/proc/shelleo
+#define SHELLEO_ERRORLEVEL 1
+#define SHELLEO_STDOUT 2
+#define SHELLEO_STDERR 3
+
 /obj/item/device/walkman
 	name = "walkman"
 	desc = "A cassette player that first hit the market over 200 years ago. Crazy how these never went out of style. Alt-click removes the Cassette. Ctrl-click changes to the next song"
@@ -256,7 +262,7 @@
 		player.regenerate_icons()
 
 /obj/item/device/walkman/process()
-	if(!(src in current_listener.GetAllContents()) || current_listener.stat & DEAD)
+	if(!(src in current_listener.get_all_contents()) || current_listener.stat & DEAD)
 		if(current_song)
 			current_song = null
 		break_sound()
@@ -352,3 +358,7 @@
 
 #undef sound_to
 #undef NEXT_SONG_USE_TIMER
+
+#undef SHELLEO_ERRORLEVEL
+#undef SHELLEO_STDOUT
+#undef SHELLEO_STDERR

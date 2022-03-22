@@ -1,3 +1,8 @@
+//world/proc/shelleo
+#define SHELLEO_ERRORLEVEL 1
+#define SHELLEO_STDOUT 2
+#define SHELLEO_STDERR 3
+
 /obj/machinery/cassette/adv_cassette_deck
 	name = "Advanced Cassette Deck"
 	desc = "A more advanced less portable Cassette Deck. Useful for recording songs from our generation, or customizing the style of your cassettes."
@@ -37,6 +42,22 @@
 	user.put_in_hands(tape)
 	tape = null
 
+/obj/machinery/cassette/adv_cassette_deck/proc/fetch_songs()
+	var/list/tracks = flist("[global.config.directory]/jukebox_music/sounds/")
+
+	var/list/songs = list()
+	for(var/song in tracks)
+		var/datum/track/track = new()
+		track.song_path = file("[global.config.directory]/jukebox_music/sounds/[song]")
+		var/list/line = splittext(song,"+")
+		if(line.len != 3)
+			continue
+		track.song_name = line[1]
+		track.song_length = text2num(line[2])
+		track.song_beat = text2num(line[3])
+		songs |= track
+	return songs
+
 /obj/machinery/cassette/adv_cassette_deck/ui_status(mob/user)
 	if(!anchored)
 		to_chat(user,"<span class='warning'>This device must be anchored by a wrench!</span>")
@@ -57,7 +78,7 @@
 	///all data for the tgui
 	var/list/data = list()
 	data["songs"] = list()
-	for(var/datum/track/song in SSjukeboxes.songs)
+	for(var/datum/track/song in fetch_songs())
 		///all track data also for the tgui
 		var/list/track_data = list(
 			name = song.song_name
@@ -96,7 +117,7 @@
 		if("select_track")
 			///list of available songs
 			var/list/available = list()
-			for(var/datum/track/song in SSjukeboxes.songs)
+			for(var/datum/track/song in fetch_songs())
 				available[song.song_name] = song
 			///the selected song from the jukebox
 			var/selected = params["track"]
@@ -194,3 +215,7 @@
 			else
 				tape.icon_state = design_path[design_names.Find(selection)]
 				tape.side2_icon = design_path[design_names.Find(selection)]
+
+#undef SHELLEO_ERRORLEVEL
+#undef SHELLEO_STDOUT
+#undef SHELLEO_STDERR
