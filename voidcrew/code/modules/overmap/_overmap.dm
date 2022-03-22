@@ -4,8 +4,6 @@
 	icon_state = "overmap"
 	initial_gas_mix = AIRLESS_ATMOS
 
-	///The space z level linked to this
-	var/linked_z
 
 /turf/closed/overmap_edge
 	icon = 'voidcrew/icons/turf/overmap.dmi'

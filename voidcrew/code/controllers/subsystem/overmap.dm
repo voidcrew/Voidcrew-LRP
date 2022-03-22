@@ -1,7 +1,7 @@
 #define INIT_ANNOUNCE(X) to_chat(world, span_boldannounce("[X]")); log_world(X)
 
-#define MAX_OVERMAP_EVENT_CLUSTERS 10
-#define MAX_OVERMAP_EVENTS 150
+#define MAX_OVERMAP_EVENT_CLUSTERS 8
+#define MAX_OVERMAP_EVENTS 120
 
 
 #define BOTTOM_LEFT_TURF locate(OVERMAP_MIN_X, OVERMAP_MIN_Y, OVERMAP_Z_LEVEL)
@@ -80,7 +80,6 @@ SUBSYSTEM_DEF(overmap)
 
 ///Creates new z levels for each planet
 /datum/controller/subsystem/overmap/proc/spawn_overmap_planets()
-	var/idx = 1
 	for (var/i in 1 to planets_to_spawn)
 		var/datum/overmap/planet/planet = pick_n_take(possible_planets)
 
@@ -89,10 +88,10 @@ SUBSYSTEM_DEF(overmap)
 		spawn_planet(planet, planet_z)
 		planets[planet.ruin_type] = planet_z.z_value
 
-		//issue here is that planets are now spawning on top of stuff. STOP TAHT!
-
-		new /obj/structure/overmap/dynamic/lava(radius_tiles[rand(4,6)][idx])
-		idx += rand(10, 25)
+		//VOID TODO: planets should really be spawning far apart, need some sort of proc that will find a turf that is far from other planets
+		var/max_radius = length(radius_tiles) // get the outer rings of the solar system, thats where we will spawn the planets
+		var/obj/structure/overmap/dynamic/lava/planet_object = new(get_unused_overmap_square_in_radius(rand(max_radius - 2, max_radius)))
+		planet_object.linked_zlevel = planet_z.z_value
 
 
 
