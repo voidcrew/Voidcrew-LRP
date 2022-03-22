@@ -40,6 +40,3 @@
 
 /obj/structure/overmap/dynamic/rock
 	planet = /datum/overmap/planet/rock
-
-/obj/structure/overmap/dynamic/energy_signal
-	planet = /datum/overmap/planet/space

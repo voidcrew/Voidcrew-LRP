@@ -81,16 +81,18 @@ SUBSYSTEM_DEF(overmap)
 ///Creates new z levels for each planet
 /datum/controller/subsystem/overmap/proc/spawn_overmap_planets()
 	for (var/i in 1 to planets_to_spawn)
-		var/datum/overmap/planet/planet = pick_n_take(possible_planets)
+		var/datum/overmap/planet/planet = pick(possible_planets)
 
 		planet = new planet
 		var/datum/space_level/planet_z = SSmapping.add_new_zlevel("Overmap planet [i]", planet.planet_ztraits)
 		spawn_planet(planet, planet_z)
 		planets[planet.ruin_type] = planet_z.z_value
 
+		// OK so if it fails to spawn, the planet still gets generated but the object doesn't place.
+		// WE need to DELETE the thing and then place it
+
 		//VOID TODO: planets should really be spawning far apart, need some sort of proc that will find a turf that is far from other planets
-		var/max_radius = length(radius_tiles) // get the outer rings of the solar system, thats where we will spawn the planets
-		var/obj/structure/overmap/dynamic/lava/planet_object = new(get_unused_overmap_square_in_radius(rand(max_radius - 2, max_radius)))
+		var/obj/structure/overmap/dynamic/lava/planet_object = new(get_unused_overmap_square_in_radius(rand(4, 6)))
 		planet_object.linked_zlevel = planet_z.z_value
 
 
