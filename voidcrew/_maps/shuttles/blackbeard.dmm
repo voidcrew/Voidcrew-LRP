@@ -27,15 +27,6 @@
 	icon_state = "catwalk_above"
 	},
 /area/ship/hallway/central)
-"aP" = (
-/obj/machinery/atmospherics/pipe/manifold/orange/visible,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/open/floor/plating/catwalk_floor{
-	icon_state = "catwalk_above"
-	},
-/area/ship/engineering)
 "aT" = (
 /obj/structure/table/reinforced,
 /obj/item/gun/ballistic/rocketlauncher/unrestricted,
@@ -127,8 +118,8 @@
 /obj/structure/cable,
 /obj/structure/cable,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/catwalk/over/plated_catwalk/dark,
 /turf/open/floor/plating/catwalk_floor{
 	icon_state = "catwalk_above"
@@ -150,9 +141,7 @@
 	},
 /area/ship/engineering)
 "em" = (
-/obj/machinery/atmospherics/pipe/manifold/orange/visible{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /obj/structure/cable,
 /obj/structure/cable,
 /obj/structure/window/reinforced{
@@ -755,22 +744,13 @@
 /obj/structure/cable,
 /obj/structure/cable,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/catwalk/over/plated_catwalk/dark,
 /turf/open/floor/plating/catwalk_floor{
 	icon_state = "catwalk_above"
 	},
 /area/ship/hallway/fore)
-"EB" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/catwalk/over/plated_catwalk/dark,
-/turf/open/floor/plating/catwalk_floor{
-	icon_state = "catwalk_above"
-	},
-/area/ship/hallway/central)
 "EK" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/hatch{
@@ -1334,7 +1314,7 @@ RJ
 Uw
 em
 Uw
-aP
+RJ
 gN
 gN
 gN
@@ -1422,7 +1402,7 @@ rE
 DN
 Bw
 en
-EB
+Tj
 HS
 ch
 DN
