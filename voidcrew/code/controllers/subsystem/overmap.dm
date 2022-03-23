@@ -92,7 +92,7 @@ SUBSYSTEM_DEF(overmap)
 		// WE need to DELETE the thing and then place it
 
 		//VOID TODO: planets should really be spawning far apart, need some sort of proc that will find a turf that is far from other planets
-		var/obj/structure/overmap/dynamic/lava/planet_object = new(get_unused_overmap_square_in_radius(rand(4, 6)))
+		var/obj/structure/overmap/dynamic/lava/planet_object = new(get_unused_overmap_square_in_radius(rand(4, 6), force = TRUE))
 		planet_object.linked_zlevel = planet_z.z_value
 
 
@@ -148,7 +148,10 @@ SUBSYSTEM_DEF(overmap)
 
 	for (var/i in 1 to tries)
 		. = pick(radius_tiles[radius])
-		if (locate(obj_to_avoid) in .)
+		var/obj/structure/overmap/obj = locate(obj_to_avoid) in .
+		if (force && obj)
+			qdel(obj)
+		if (obj)
 			continue
 		return
 
