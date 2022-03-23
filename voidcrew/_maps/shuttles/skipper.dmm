@@ -1053,11 +1053,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /turf/open/floor/wood,
 /area/ship/bridge)
-"pd" = (
-/obj/effect/turf_decal/tile/yellow/half,
-/obj/effect/turf_decal/corner/yellow/bordercorner,
-/turf/open/floor/iron,
-/area/ship/cargo)
 "pe" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
@@ -1434,13 +1429,6 @@
 	dir = 8
 	},
 /area/ship/cargo)
-"wb" = (
-/obj/effect/turf_decal/tile/yellow/half,
-/obj/effect/turf_decal/corner/yellow/bordercorner{
-	dir = 4
-	},
-/turf/open/floor/iron,
-/area/ship/cargo)
 "wz" = (
 /turf/open/floor/carpet/nanoweave,
 /area/ship/hallway/central)
@@ -1737,9 +1725,7 @@
 	},
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/tile/yellow/half,
-/obj/effect/turf_decal/corner/yellow/bordercorner{
-	dir = 1
-	},
+/obj/effect/turf_decal/tile/yellow,
 /turf/open/floor/iron,
 /area/ship/cargo)
 "AO" = (
@@ -1989,9 +1975,7 @@
 	},
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/tile/yellow/half,
-/obj/effect/turf_decal/corner/yellow/bordercorner{
-	dir = 8
-	},
+/obj/effect/turf_decal/tile/yellow,
 /obj/machinery/computer/selling_pad_control,
 /turf/open/floor/iron,
 /area/ship/cargo)
@@ -3287,6 +3271,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
+"Zi" = (
+/obj/effect/turf_decal/tile/yellow/half,
+/obj/effect/turf_decal/tile/yellow,
+/turf/open/floor/iron,
+/area/ship/cargo)
 "Zk" = (
 /obj/structure/table/reinforced,
 /obj/machinery/chem_dispenser/drinks,
@@ -3594,12 +3583,12 @@ NR
 sC
 zX
 Yh
-pd
+Zi
 RX
 qs
 dQ
 My
-wb
+Zi
 kb
 gx
 "}
