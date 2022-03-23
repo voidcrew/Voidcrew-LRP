@@ -105,9 +105,7 @@
 /obj/machinery/power/terminal{
 	dir = 1
 	},
-/obj/structure/cable/pink{
-	icon_state = "0-2"
-	},
+/obj/structure/cable,
 /turf/open/floor/engine/cult,
 /area/ship/engineering/electrical)
 "cr" = (
@@ -159,12 +157,8 @@
 /turf/open/floor/engine/cult,
 /area/ship/engineering/electrical)
 "dq" = (
-/obj/structure/cable/pink{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/pink{
-	icon_state = "2-4"
-	},
+/obj/structure/cable,
+/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
 /turf/open/floor/engine/cult,
 /area/ship/engineering/electrical)
@@ -369,6 +363,11 @@
 	},
 /turf/open/floor/iron,
 /area/ship/cargo)
+"lq" = (
+/obj/structure/cable,
+/obj/structure/cable,
+/turf/open/floor/engine/cult,
+/area/ship/engineering/electrical)
 "lr" = (
 /obj/machinery/power/smes/engineering,
 /obj/structure/cable{
@@ -549,7 +548,7 @@
 /turf/open/floor/engine/cult,
 /area/ship/engineering/electrical)
 "qL" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible,
 /turf/open/floor/engine/cult,
 /area/ship/engineering/electrical)
 "qS" = (
@@ -583,9 +582,7 @@
 /turf/open/floor/engine/cult,
 /area/ship/engineering/electrical)
 "rx" = (
-/obj/structure/cable/pink{
-	icon_state = "1-8"
-	},
+/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
 /turf/open/floor/engine/cult,
 /area/ship/engineering/electrical)
@@ -725,15 +722,6 @@
 	},
 /turf/open/floor/iron,
 /area/ship/cargo)
-"wf" = (
-/obj/structure/cable/pink{
-	icon_state = "2-8"
-	},
-/obj/structure/cable/pink{
-	icon_state = "1-2"
-	},
-/turf/open/floor/engine/cult,
-/area/ship/engineering/electrical)
 "wi" = (
 /turf/closed/wall/mineral/titanium,
 /area/ship/cargo)
@@ -840,15 +828,6 @@
 "zT" = (
 /turf/open/floor/iron,
 /area/ship/cargo)
-"zZ" = (
-/obj/structure/cable/pink{
-	icon_state = "1-4"
-	},
-/obj/structure/cable/pink{
-	icon_state = "4-8"
-	},
-/turf/open/floor/engine/cult,
-/area/ship/engineering/electrical)
 "Aa" = (
 /turf/open/floor/iron,
 /area/ship/bridge)
@@ -1522,9 +1501,7 @@
 /turf/open/floor/engine/cult,
 /area/ship/storage)
 "PR" = (
-/obj/structure/cable/pink{
-	icon_state = "2-8"
-	},
+/obj/structure/cable,
 /turf/open/floor/engine/cult,
 /area/ship/engineering/electrical)
 "Qn" = (
@@ -2039,9 +2016,9 @@ SH
 jO
 fY
 PR
-wf
-wf
-zZ
+lq
+lq
+lq
 dg
 eb
 Ce
