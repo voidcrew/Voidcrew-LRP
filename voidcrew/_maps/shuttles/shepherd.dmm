@@ -82,6 +82,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ship/hallway/starboard)
+"cd" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 4
+	},
+turf/open/floor/iron/chapel,
+/turf/open/floor/iron/dark,
+/area/ship/crew/chapel)
 "cf" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/structure/table/wood/fancy,
@@ -176,13 +183,6 @@
 /obj/item/pen/fountain,
 /turf/open/floor/carpet/nanoweave/blue,
 /area/ship/crew/chapel/office)
-"dk" = (
-/obj/structure/chair/pew/left,
-/obj/effect/turf_decal/chapel{
-	dir = 4
-	},
-/turf/open/floor/iron/dark,
-/area/ship/crew/chapel)
 "do" = (
 /turf/closed/wall/mineral/iron,
 /area/ship/bridge)
@@ -230,16 +230,6 @@
 /obj/structure/closet/emcloset/anchored,
 /turf/open/floor/plating,
 /area/ship/engineering/electrical)
-"dW" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/effect/turf_decal/chapel{
-	dir = 8
-	},
-/turf/open/floor/iron/dark,
-/area/ship/crew/chapel)
 "eg" = (
 /obj/machinery/light,
 /obj/structure/railing{
@@ -264,15 +254,7 @@
 /obj/structure/sign/warning/bodysposal{
 	pixel_x = 32
 	},
-/obj/effect/turf_decal/chapel{
-	dir = 4
-	},
-/turf/open/floor/iron/dark,
-/area/ship/crew/chapel)
-"eB" = (
-/obj/effect/turf_decal/chapel{
-	dir = 8
-	},
+turf/open/floor/iron/chapel,
 /turf/open/floor/iron/dark,
 /area/ship/crew/chapel)
 "eE" = (
@@ -695,13 +677,6 @@
 "lx" = (
 /turf/closed/wall/mineral/iron,
 /area/ship/crew/library)
-"ly" = (
-/obj/structure/chair/pew,
-/obj/effect/turf_decal/chapel{
-	dir = 1
-	},
-/turf/open/floor/iron/dark,
-/area/ship/crew/chapel)
 "lz" = (
 /obj/structure/closet,
 /obj/item/clothing/suit/hooded/chaplain_hoodie,
@@ -1081,10 +1056,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/iron/dark,
 /area/ship/hallway/starboard)
-"rV" = (
-/obj/effect/turf_decal/chapel,
-/turf/open/floor/iron/dark,
-/area/ship/crew/chapel)
 "rY" = (
 /obj/structure/window/reinforced/spawner,
 /turf/open/floor/engine/air,
@@ -1118,7 +1089,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 26
 	},
-/obj/effect/turf_decal/chapel,
+turf/open/floor/iron/chapel,
 /turf/open/floor/iron/dark,
 /area/ship/crew/chapel)
 "sB" = (
@@ -1133,9 +1104,7 @@
 /area/ship/hallway/port)
 "sG" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/obj/effect/turf_decal/chapel{
-	dir = 8
-	},
+turf/open/floor/iron/chapel,
 /turf/open/floor/iron/dark,
 /area/ship/crew/chapel)
 "sL" = (
@@ -1346,7 +1315,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/obj/effect/turf_decal/chapel,
+turf/open/floor/iron/chapel,
 /turf/open/floor/iron/dark,
 /area/ship/crew/chapel)
 "vn" = (
@@ -1480,7 +1449,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/effect/turf_decal/chapel,
+turf/open/floor/iron/chapel,
 /turf/open/floor/iron/dark,
 /area/ship/crew/chapel)
 "wN" = (
@@ -1527,15 +1496,6 @@
 /obj/item/reagent_containers/syringe,
 /turf/open/floor/wood,
 /area/ship/medical)
-"xz" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
-	dir = 4
-	},
-/obj/effect/turf_decal/chapel{
-	dir = 4
-	},
-/turf/open/floor/iron/dark,
-/area/ship/crew/chapel)
 "xC" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
 	dir = 1
@@ -1551,13 +1511,6 @@
 /turf/open/floor/iron/stairs{
 	dir = 1
 	},
-/area/ship/crew/chapel)
-"ya" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/obj/effect/turf_decal/chapel{
-	dir = 1
-	},
-/turf/open/floor/iron/dark,
 /area/ship/crew/chapel)
 "yi" = (
 /obj/structure/cable{
@@ -1646,6 +1599,11 @@
 	},
 /turf/open/floor/wood,
 /area/ship/medical)
+"zz" = (
+/obj/structure/chair/pew/left,
+turf/open/floor/iron/chapel,
+/turf/open/floor/iron/dark,
+/area/ship/crew/chapel)
 "zB" = (
 /obj/machinery/cryopod,
 /obj/structure/window/reinforced/tinted/frosted{
@@ -1864,9 +1822,7 @@
 	pixel_y = 28
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/obj/effect/turf_decal/chapel{
-	dir = 8
-	},
+turf/open/floor/iron/chapel,
 /turf/open/floor/iron/dark,
 /area/ship/crew/chapel)
 "Cr" = (
@@ -1987,13 +1943,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
 /area/ship/crew/library)
-"Ea" = (
-/obj/structure/chair/pew,
-/obj/effect/turf_decal/chapel{
-	dir = 4
-	},
-/turf/open/floor/iron/dark,
-/area/ship/crew/chapel)
 "Ef" = (
 /obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
@@ -2051,12 +2000,6 @@
 /obj/effect/turf_decal/tile/bar/half,
 /turf/open/floor/iron/dark,
 /area/ship/hallway/starboard)
-"EX" = (
-/obj/effect/turf_decal/chapel{
-	dir = 1
-	},
-/turf/open/floor/iron/dark,
-/area/ship/crew/chapel)
 "EY" = (
 /obj/machinery/light_switch{
 	pixel_x = -20
@@ -2089,27 +2032,21 @@
 /obj/machinery/airalarm/directional/west,
 /obj/structure/table/wood/fancy/black,
 /obj/item/flashlight/lantern,
-/obj/effect/turf_decal/chapel{
-	dir = 8
-	},
+turf/open/floor/iron/chapel,
 /turf/open/floor/iron/dark,
 /area/ship/crew/chapel)
 "FB" = (
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/turf_decal/chapel{
-	dir = 8
-	},
+turf/open/floor/iron/chapel,
 /turf/open/floor/iron/dark,
 /area/ship/crew/chapel)
 "FG" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 4
 	},
-/obj/effect/turf_decal/chapel{
-	dir = 8
-	},
+turf/open/floor/iron/chapel,
 /turf/open/floor/iron/dark,
 /area/ship/crew/chapel)
 "FT" = (
@@ -2126,6 +2063,14 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
 /turf/open/floor/iron/dark,
 /area/ship/hallway/port)
+"Gq" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
+turf/open/floor/iron/chapel,
+/turf/open/floor/iron/dark,
+/area/ship/crew/chapel)
 "GZ" = (
 /obj/structure/chair/office,
 /obj/machinery/light_switch{
@@ -2134,6 +2079,11 @@
 /obj/effect/landmark/start/librarian,
 /turf/open/floor/wood,
 /area/ship/crew/library)
+"Hb" = (
+/obj/structure/chair/pew,
+turf/open/floor/iron/chapel,
+/turf/open/floor/iron/dark,
+/area/ship/crew/chapel)
 "Hc" = (
 /obj/structure/table/wood,
 /obj/item/screwdriver,
@@ -2284,6 +2234,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/mineral/silver,
 /area/ship/crew/chapel/office)
+"Kb" = (
+turf/open/floor/iron/chapel,
+/turf/open/floor/iron/dark,
+/area/ship/crew/chapel)
 "Ke" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/siding/wood/corner{
@@ -2312,9 +2266,7 @@
 	},
 /obj/item/storage/fancy/candle_box,
 /obj/structure/table/wood/fancy/black,
-/obj/effect/turf_decal/chapel{
-	dir = 8
-	},
+turf/open/floor/iron/chapel,
 /turf/open/floor/iron/dark,
 /area/ship/crew/chapel)
 "Kr" = (
@@ -2323,19 +2275,10 @@
 	},
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
-"Ks" = (
-/obj/structure/chair/pew/left,
-/obj/effect/turf_decal/chapel{
-	dir = 1
-	},
-/turf/open/floor/iron/dark,
-/area/ship/crew/chapel)
 "Kt" = (
 /obj/structure/chair/pew/right,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/obj/effect/turf_decal/chapel{
-	dir = 1
-	},
+turf/open/floor/iron/chapel,
 /turf/open/floor/iron/dark,
 /area/ship/crew/chapel)
 "Kx" = (
@@ -2646,9 +2589,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/effect/turf_decal/chapel{
-	dir = 4
-	},
+turf/open/floor/iron/chapel,
 /turf/open/floor/iron/dark,
 /area/ship/crew/chapel)
 "Pf" = (
@@ -2705,7 +2646,7 @@
 	pixel_x = 22;
 	pixel_y = -4
 	},
-/obj/effect/turf_decal/chapel,
+turf/open/floor/iron/chapel,
 /turf/open/floor/iron/dark,
 /area/ship/crew/chapel)
 "Qo" = (
@@ -2912,7 +2853,7 @@
 "SE" = (
 /obj/item/lighter/greyscale,
 /obj/structure/table/wood/fancy/black,
-/obj/effect/turf_decal/chapel,
+turf/open/floor/iron/chapel,
 /turf/open/floor/iron/dark,
 /area/ship/crew/chapel)
 "SF" = (
@@ -2959,7 +2900,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/effect/turf_decal/chapel,
+turf/open/floor/iron/chapel,
 /turf/open/floor/iron/dark,
 /area/ship/crew/chapel)
 "Tx" = (
@@ -3171,7 +3112,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/effect/turf_decal/chapel,
+turf/open/floor/iron/chapel,
 /turf/open/floor/iron/dark,
 /area/ship/crew/chapel)
 "Vq" = (
@@ -3199,9 +3140,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/obj/effect/turf_decal/chapel{
-	dir = 8
-	},
+turf/open/floor/iron/chapel,
 /turf/open/floor/iron/dark,
 /area/ship/crew/chapel)
 "VG" = (
@@ -3213,13 +3152,6 @@
 "VJ" = (
 /turf/closed/wall/r_wall,
 /area/ship/engineering/atmospherics)
-"VQ" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
-	dir = 4
-	},
-/obj/effect/turf_decal/chapel,
-/turf/open/floor/iron/dark,
-/area/ship/crew/chapel)
 "VV" = (
 /obj/structure/catwalk,
 /obj/structure/sign/warning/docking{
@@ -3284,14 +3216,6 @@
 	name = "earth imported sand"
 	},
 /area/ship/crew/hydroponics)
-"WE" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/effect/turf_decal/chapel,
-/turf/open/floor/iron/dark,
-/area/ship/crew/chapel)
 "WV" = (
 /obj/machinery/light{
 	dir = 8
@@ -3968,12 +3892,12 @@ Md
 YF
 RB
 Vs
-eB
-EX
+Kb
+Kb
 Fw
-Ks
+zz
 FB
-Ks
+zz
 VE
 yW
 yW
@@ -4006,12 +3930,12 @@ Md
 YF
 RB
 Vs
-rV
-xz
+Kb
+cd
 SE
-Ea
-VQ
-Ea
+Hb
+cd
+Hb
 wK
 xY
 OO
@@ -4045,7 +3969,7 @@ Lq
 eg
 Lm
 Cj
-ya
+sG
 Km
 Kt
 sG
@@ -4197,12 +4121,12 @@ rE
 On
 Lm
 sx
-dk
-rV
-dk
-rV
-dk
-WE
+zz
+Kb
+zz
+Kb
+zz
+Gq
 MI
 YE
 yX
@@ -4235,12 +4159,12 @@ YF
 RB
 Vs
 sG
-ly
+Hb
 FG
-ly
+Hb
 FG
-ly
-dW
+Hb
+Gq
 JR
 gX
 yW
