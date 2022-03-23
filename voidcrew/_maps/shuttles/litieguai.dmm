@@ -118,7 +118,7 @@
 /area/ship/maintenance/port)
 "dH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/effect/turf_decal/corner/white/mono,
 /turf/open/floor/iron/white,
 /area/ship/medical)
@@ -441,7 +441,7 @@
 /area/ship/medical)
 "lH" = (
 /obj/machinery/atmospherics/pipe/manifold4w/scrubbers/hidden/layer4,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -504,9 +504,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
@@ -557,16 +555,6 @@
 "nu" = (
 /turf/closed/wall/mineral/titanium,
 /area/ship/bridge)
-"nw" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
-	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/open/floor/iron,
-/area/ship/hallway/aft)
 "oH" = (
 /obj/effect/turf_decal/trimline/red/filled/warning{
 	dir = 1
@@ -670,21 +658,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/ship/medical)
-"ru" = (
-/obj/effect/turf_decal/trimline/red/filled/warning{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
-	dir = 8
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/open/floor/iron/white,
-/area/ship/medical)
 "rM" = (
 /obj/machinery/light/small,
 /obj/machinery/power/apc/auto_name/directional/south,
@@ -718,9 +691,7 @@
 /turf/open/floor/iron/dark,
 /area/ship/crew)
 "sq" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -742,14 +713,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/ship/hallway/fore)
-"sH" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/open/floor/plating,
-/area/ship/maintenance/port)
 "sM" = (
 /obj/effect/turf_decal/trimline/red/filled/warning{
 	dir = 8
@@ -1100,9 +1063,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/airalarm/all_access{
 	dir = 4;
 	pixel_x = -24
@@ -1126,7 +1087,7 @@
 /area/ship/hallway/aft)
 "CX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -1160,9 +1121,7 @@
 /turf/open/floor/carpet/nanoweave/red,
 /area/ship/bridge)
 "DH" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/effect/turf_decal/industrial/outline/red,
 /obj/structure/window/reinforced{
 	dir = 1
@@ -1447,7 +1406,7 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ship/hallway/aft)
 "Lh" = (
-/obj/item/stack/sheet/mineral/plasma/twenty,
+/obj/item/stack/sheet/mineral/plasma/thirty,
 /obj/machinery/atmospherics/components/binary/pump/on/layer2,
 /turf/open/floor/plating,
 /area/ship/maintenance/port)
@@ -1589,9 +1548,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/scrubbers/hidden/layer4,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
@@ -1601,7 +1558,7 @@
 /turf/open/floor/iron/white,
 /area/ship/hallway/fore)
 "Ps" = (
-/obj/item/stack/sheet/mineral/plasma/twenty,
+/obj/item/stack/sheet/mineral/plasma/thirty,
 /obj/machinery/atmospherics/components/binary/pump/on/layer2,
 /turf/open/floor/plating,
 /area/ship/maintenance/starboard)
@@ -1697,19 +1654,6 @@
 	},
 /turf/open/floor/iron,
 /area/ship/hallway/aft)
-"Rs" = (
-/obj/effect/turf_decal/trimline/red/filled/warning{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/open/floor/iron/white,
-/area/ship/medical)
 "RW" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
@@ -1880,8 +1824,8 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ship/maintenance/starboard)
 "UR" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -1947,10 +1891,7 @@
 /turf/open/floor/iron/white,
 /area/ship/medical)
 "Vs" = (
-/obj/item/radio/intercom/wideband{
-	dir = 1;
-	pixel_y = -24
-	},
+/obj/item/radio,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /turf/open/floor/carpet/nanoweave/red,
 /area/ship/bridge)
@@ -2020,23 +1961,8 @@
 	},
 /turf/open/floor/iron/white,
 /area/ship/medical)
-"Wm" = (
-/obj/effect/turf_decal/trimline/red/filled/warning{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/open/floor/iron/white,
-/area/ship/medical)
 "Xb" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
@@ -2341,7 +2267,7 @@ UG
 UG
 PL
 cX
-sH
+vr
 ZC
 fp
 UG
@@ -2428,7 +2354,7 @@ EA
 Tq
 oQ
 ur
-nw
+uN
 xa
 eS
 cn
@@ -2448,9 +2374,9 @@ sM
 Ll
 vn
 qQ
-Rs
-ru
-Wm
+qQ
+qQ
+qQ
 qQ
 YK
 RW
