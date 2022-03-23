@@ -109,19 +109,11 @@
 /obj/effect/turf_decal/tile/blue/anticorner,
 /turf/open/floor/iron/dark,
 /area/ship/bridge)
-"as" = (
-/obj/effect/turf_decal/corner/blue{
-	dir = 5
-	},
-/turf/open/floor/iron/dark,
-/area/ship/bridge)
 "at" = (
 /obj/structure/chair/office{
 	dir = 1
 	},
-/obj/effect/turf_decal/corner/blue{
-	dir = 5
-	},
+/obj/effect/turf_decal/tile/blue/corner,
 /turf/open/floor/iron/dark,
 /area/ship/bridge)
 "au" = (
@@ -133,9 +125,7 @@
 	pixel_y = 32;
 	req_access = null
 	},
-/obj/effect/turf_decal/corner/blue{
-	dir = 5
-	},
+/obj/effect/turf_decal/tile/blue/corner,
 /turf/open/floor/iron/dark,
 /area/ship/bridge)
 "aw" = (
@@ -158,9 +148,7 @@
 /obj/structure/chair/office{
 	dir = 8
 	},
-/obj/effect/turf_decal/corner/blue{
-	dir = 9
-	},
+/obj/effect/turf_decal/tile/blue/corner,
 /turf/open/floor/iron/dark,
 /area/ship/bridge)
 "aA" = (
@@ -193,9 +181,7 @@
 /obj/structure/chair/office{
 	dir = 4
 	},
-/obj/effect/turf_decal/corner/blue{
-	dir = 6
-	},
+/obj/effect/turf_decal/tile/blue/corner,
 /turf/open/floor/iron/dark,
 /area/ship/bridge)
 "aG" = (
@@ -207,12 +193,6 @@
 "aH" = (
 /obj/effect/turf_decal/raven/three,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/open/floor/iron/dark,
-/area/ship/bridge)
-"aI" = (
-/obj/effect/turf_decal/corner/blue{
-	dir = 8
-	},
 /turf/open/floor/iron/dark,
 /area/ship/bridge)
 "aJ" = (
@@ -227,10 +207,6 @@
 "aL" = (
 /obj/effect/turf_decal/raven/six,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/open/floor/iron/dark,
-/area/ship/bridge)
-"aM" = (
-/obj/effect/turf_decal/corner/blue,
 /turf/open/floor/iron/dark,
 /area/ship/bridge)
 "aN" = (
@@ -575,13 +551,9 @@
 /turf/open/floor/mineral/plastitanium/red/brig,
 /area/ship/security/prison)
 "bG" = (
-/obj/effect/turf_decal/corner/neutral,
-/obj/effect/turf_decal/corner/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/corner/neutral{
-	dir = 4
-	},
+/obj/effect/turf_decal/tile/neutral/corner,
+/obj/effect/turf_decal/tile/neutral/corner,
+/obj/effect/turf_decal/tile/neutral/corner,
 /obj/machinery/door/airlock/command/glass{
 	name = "Cockpit"
 	},
@@ -603,16 +575,10 @@
 /turf/open/floor/iron,
 /area/ship/medical)
 "bI" = (
-/obj/effect/turf_decal/corner/neutral,
-/obj/effect/turf_decal/corner/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/corner/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/corner/neutral{
-	dir = 1
-	},
+/obj/effect/turf_decal/tile/neutral/corner,
+/obj/effect/turf_decal/tile/neutral/corner,
+/obj/effect/turf_decal/tile/neutral/corner,
+/obj/effect/turf_decal/tile/neutral/corner,
 /obj/machinery/door/airlock/command/glass{
 	name = "Cockpit"
 	},
@@ -674,16 +640,10 @@
 /turf/open/floor/iron/dark,
 /area/ship/medical)
 "bR" = (
-/obj/effect/turf_decal/corner/neutral,
-/obj/effect/turf_decal/corner/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/corner/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/corner/neutral{
-	dir = 1
-	},
+/obj/effect/turf_decal/tile/neutral/corner,
+/obj/effect/turf_decal/tile/neutral/corner,
+/obj/effect/turf_decal/tile/neutral/corner,
+/obj/effect/turf_decal/tile/neutral/corner,
 /obj/machinery/recharger{
 	active_power_usage = 0;
 	idle_power_usage = 0;
@@ -716,9 +676,7 @@
 	dir = 4;
 	pixel_x = -24
 	},
-/obj/effect/turf_decal/corner/blue{
-	dir = 5
-	},
+/obj/effect/turf_decal/tile/blue/corner,
 /turf/open/floor/iron/white,
 /area/ship/crew)
 "bW" = (
@@ -770,16 +728,12 @@
 	pixel_y = 32
 	},
 /obj/machinery/mineral/ore_redemption,
-/obj/effect/turf_decal/corner/blue{
-	dir = 5
-	},
+/obj/effect/turf_decal/tile/blue/corner,
 /turf/open/floor/iron/white,
 /area/ship/crew)
 "cc" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/corner/blue{
-	dir = 5
-	},
+/obj/effect/turf_decal/tile/blue/corner,
 /turf/open/floor/iron/white,
 /area/ship/crew)
 "cd" = (
@@ -2611,6 +2565,10 @@
 	},
 /turf/open/floor/iron/white,
 /area/ship/crew)
+"Pn" = (
+/obj/effect/turf_decal/tile/blue/corner,
+/turf/open/floor/iron/dark,
+/area/ship/bridge)
 "PE" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/emcloset,
@@ -3172,7 +3130,7 @@ ab
 al
 at
 aA
-aI
+Pn
 aj
 en
 en
@@ -3203,7 +3161,7 @@ zG
 (10,1,1) = {"
 ab
 am
-as
+Pn
 aB
 aJ
 aS
@@ -3304,7 +3262,7 @@ ab
 ad
 at
 aE
-aM
+Pn
 aN
 hz
 hz

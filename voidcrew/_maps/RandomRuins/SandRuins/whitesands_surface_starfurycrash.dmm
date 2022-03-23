@@ -45,12 +45,6 @@
 /obj/item/clothing/gloves/combat,
 /turf/open/floor/plating/asteroid/whitesands,
 /area/whitesands/surface/outdoors)
-"eS" = (
-/obj/effect/turf_decal/corner/blue{
-	dir = 8
-	},
-/turf/open/floor/iron/dark,
-/area/whitesands/surface/outdoors)
 "fw" = (
 /obj/structure/frame/machine,
 /obj/item/stack/cable_coil/cut/blue,
@@ -173,10 +167,8 @@
 	},
 /area/whitesands/surface/outdoors)
 "lx" = (
-/obj/effect/turf_decal/corner/blue,
-/obj/effect/turf_decal/corner/blue{
-	dir = 8
-	},
+/obj/effect/turf_decal/tile/blue/corner,
+/obj/effect/turf_decal/tile/blue/corner,
 /turf/open/floor/iron/dark,
 /area/whitesands/surface/outdoors)
 "lN" = (
@@ -423,6 +415,10 @@
 	initial_gas_mix = "ws_atmos"
 	},
 /area/whitesands/surface/outdoors)
+"BQ" = (
+/obj/effect/turf_decal/tile/blue/corner,
+/turf/open/floor/iron/dark,
+/area/whitesands/surface/outdoors)
 "BW" = (
 /turf/open/floor/iron/dark,
 /area/whitesands/surface/outdoors)
@@ -592,10 +588,6 @@
 	icon_state = "platingdmg1";
 	initial_gas_mix = "ws_atmos"
 	},
-/area/whitesands/surface/outdoors)
-"OY" = (
-/obj/effect/turf_decal/corner/blue,
-/turf/open/floor/iron/dark,
 /area/whitesands/surface/outdoors)
 "Pr" = (
 /obj/machinery/door/airlock/engineering,
@@ -1005,7 +997,7 @@ qk
 oT
 fM
 aE
-OY
+BQ
 fM
 hQ
 Sp
@@ -1059,7 +1051,7 @@ Wh
 kZ
 fM
 qk
-eS
+BQ
 fM
 Iz
 Iz
