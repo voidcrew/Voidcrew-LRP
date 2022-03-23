@@ -9,9 +9,7 @@
 /area/ship/engineering/engine)
 "ac" = (
 /obj/machinery/power/rad_collector/anchored,
-/obj/machinery/atmospherics/pipe/manifold/green/visible{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/structure/cable,
 /obj/structure/window/reinforced/plasma/spawner/west,
 /obj/effect/turf_decal/industrial/warning/cee{
@@ -995,11 +993,7 @@
 /turf/open/floor/iron/white,
 /area/ship/medical)
 "qU" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
-	dir = 4;
-	min_temperature = 3;
-	target_temperature = 3
-	},
+/obj/machinery/atmospherics/components/binary/thermomachine/freezer/on,
 /obj/effect/turf_decal/industrial/warning{
 	dir = 9
 	},
@@ -2281,11 +2275,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/science/robotics)
 "Pz" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
-	dir = 4;
-	min_temperature = 3;
-	target_temperature = 3
-	},
+/obj/machinery/atmospherics/components/binary/thermomachine/freezer/on,
 /obj/effect/turf_decal/industrial/warning{
 	dir = 8
 	},

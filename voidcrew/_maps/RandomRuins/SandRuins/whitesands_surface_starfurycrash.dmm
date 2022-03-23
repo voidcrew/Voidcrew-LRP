@@ -87,9 +87,7 @@
 	},
 /area/whitesands/surface/outdoors)
 "fW" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/visible{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/plating/asteroid/whitesands,
 /area/whitesands/surface/outdoors)
 "gt" = (
@@ -213,9 +211,7 @@
 	},
 /area/whitesands/surface/outdoors)
 "nn" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/visible{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/engine{
 	initial_gas_mix = "ws_atmos"
 	},
@@ -561,13 +557,6 @@
 	initial_gas_mix = "ws_atmos"
 	},
 /area/whitesands/surface/outdoors)
-"Hy" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/visible,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1";
-	initial_gas_mix = "ws_atmos"
-	},
-/area/whitesands/surface/outdoors)
 "Iz" = (
 /turf/open/floor/plating{
 	icon_state = "panelscorched";
@@ -655,6 +644,13 @@
 "Pr" = (
 /obj/machinery/door/airlock/engineering,
 /turf/open/floor/plating{
+	initial_gas_mix = "ws_atmos"
+	},
+/area/whitesands/surface/outdoors)
+"Pv" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1";
 	initial_gas_mix = "ws_atmos"
 	},
 /area/whitesands/surface/outdoors)
@@ -776,15 +772,6 @@
 /area/whitesands/surface/outdoors)
 "UD" = (
 /obj/machinery/portable_atmospherics/scrubber,
-/turf/open/floor/plating{
-	icon_state = "platingdmg1";
-	initial_gas_mix = "ws_atmos"
-	},
-/area/whitesands/surface/outdoors)
-"UV" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/visible{
-	dir = 4
-	},
 /turf/open/floor/plating{
 	icon_state = "platingdmg1";
 	initial_gas_mix = "ws_atmos"
@@ -1129,7 +1116,7 @@ kZ
 kZ
 oT
 Wz
-Hy
+Pv
 WX
 hG
 tp
@@ -1158,7 +1145,7 @@ qe
 Or
 nn
 il
-UV
+Pv
 iq
 Be
 jI

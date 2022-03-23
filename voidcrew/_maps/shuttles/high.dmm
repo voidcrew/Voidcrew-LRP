@@ -319,7 +319,7 @@
 /turf/open/floor/carpet,
 /area/ship/bridge)
 "fi" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "chwindow";
@@ -1582,9 +1582,7 @@
 /turf/template_noop,
 /area/template_noop)
 "As" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /obj/machinery/suit_storage_unit/atmos,
 /obj/machinery/light,
 /turf/open/floor/plating,
@@ -2810,17 +2808,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/iron/dark,
 /area/ship/hallway/central)
-"TH" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
-	dir = 10
-	},
-/obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/poddoor/shutters/preopen{
-	id = "chwindow";
-	name = "external shutters"
-	},
-/turf/open/floor/plating,
-/area/ship/engineering)
 "Ua" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3895,7 +3882,7 @@ ws
 xT
 sk
 qh
-TH
+fi
 fi
 yY
 Aq

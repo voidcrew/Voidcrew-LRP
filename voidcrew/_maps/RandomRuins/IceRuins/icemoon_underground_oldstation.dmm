@@ -4546,10 +4546,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/ancientstation/proto)
-"kA" = (
-/obj/machinery/atmospherics/pipe/manifold/yellow/visible,
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/ancientstation/atmo)
 "kB" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 8;
@@ -4728,9 +4724,7 @@
 /area/ruin/space/has_grav/ancientstation/proto)
 "kW" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/yellow/visible{
-	dir = 5
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/ancientstation/atmo)
 "kX" = (
@@ -4797,12 +4791,6 @@
 /obj/item/gun/energy/e_gun/old,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/ancientstation/proto)
-"le" = (
-/obj/machinery/atmospherics/pipe/manifold/yellow/visible{
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/ruin/space/has_grav/ancientstation/atmo)
 "lf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
@@ -7225,6 +7213,10 @@
 	},
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/ancientstation/deltacorridor)
+"Au" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/ancientstation/atmo)
 "AF" = (
 /obj/effect/spawner/random/maintenance,
 /turf/open/floor/plating,
@@ -8178,7 +8170,7 @@
 /area/ruin/space/has_grav/ancientstation)
 "UW" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/yellow/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/visible/layer2{
 	dir = 4
 	},
@@ -8653,9 +8645,9 @@ nv
 mH
 mH
 kX
-kA
+Au
 kL
-le
+Au
 pp
 kQ
 kQ

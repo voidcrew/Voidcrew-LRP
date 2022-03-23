@@ -12,7 +12,7 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "ao" = (
-/obj/machinery/atmospherics/pipe/simple/yellow/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /obj/machinery/power/port_gen/pacman,
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -56,9 +56,7 @@
 /turf/open/floor/iron,
 /area/ship/hallway/central)
 "bC" = (
-/obj/machinery/atmospherics/pipe/manifold/yellow/visible{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -78,11 +76,7 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
-	dir = 4;
-	min_temperature = 3;
-	target_temperature = 3
-	},
+/obj/machinery/atmospherics/components/binary/thermomachine/freezer/on,
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "ch" = (
@@ -125,9 +119,7 @@
 /turf/open/floor/iron,
 /area/ship/bridge)
 "dG" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
-	dir = 5
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /obj/effect/turf_decal/industrial/warning{
 	dir = 10
 	},
@@ -162,9 +154,7 @@
 /turf/open/floor/iron,
 /area/ship/bridge)
 "ff" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/visible{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /obj/effect/turf_decal/industrial/warning{
 	dir = 8
 	},
@@ -189,9 +179,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/yellow/visible{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "hP" = (
@@ -248,9 +236,7 @@
 /turf/open/floor/plating,
 /area/ship/cargo)
 "lc" = (
-/obj/machinery/atmospherics/pipe/manifold/yellow/visible{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -341,21 +327,12 @@
 	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/manifold/yellow/visible{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "on" = (
 /turf/open/floor/iron,
 /area/ship/medical)
-"ou" = (
-/obj/machinery/atmospherics/pipe/manifold/green/visible{
-	dir = 4
-	},
-/obj/structure/cable,
-/turf/open/floor/engine,
-/area/ship/engineering/engine)
 "oQ" = (
 /obj/effect/turf_decal/spline/fancy/beige{
 	dir = 1
@@ -403,11 +380,6 @@
 	},
 /turf/open/floor/plating,
 /area/ship/external)
-"rl" = (
-/obj/machinery/atmospherics/pipe/manifold4w/green/visible,
-/obj/structure/cable,
-/turf/open/floor/engine,
-/area/ship/engineering/engine)
 "rn" = (
 /obj/effect/turf_decal/industrial/warning{
 	dir = 4
@@ -494,9 +466,7 @@
 /turf/open/floor/engine,
 /area/ship/engineering/engine)
 "sX" = (
-/obj/machinery/atmospherics/pipe/simple/yellow/visible{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /obj/effect/spawner/structure/window/reinforced/plasma/reinforced,
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -537,9 +507,7 @@
 /turf/open/floor/iron,
 /area/ship/bridge)
 "uf" = (
-/obj/machinery/atmospherics/pipe/simple/yellow/visible{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
@@ -569,15 +537,6 @@
 	},
 /turf/open/floor/wood,
 /area/ship/crew/dorm)
-"wg" = (
-/obj/machinery/atmospherics/pipe/manifold/yellow/visible{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/open/floor/plating,
-/area/ship/maintenance/aft)
 "wl" = (
 /turf/closed/wall/mineral/titanium,
 /area/ship/medical)
@@ -636,15 +595,12 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "yf" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
-	min_temperature = 3;
-	target_temperature = 3
-	},
+/obj/machinery/atmospherics/components/binary/thermomachine/freezer/on,
 /obj/effect/turf_decal/industrial/warning/full,
 /turf/open/floor/engine,
 /area/ship/engineering/engine)
 "yK" = (
-/obj/machinery/atmospherics/pipe/simple/yellow/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /obj/structure/cable,
 /obj/machinery/power/terminal,
 /obj/machinery/power/port_gen/pacman,
@@ -692,15 +648,11 @@
 	dir = 6
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/engine,
 /area/ship/engineering/engine)
 "AP" = (
-/obj/machinery/atmospherics/pipe/manifold/green/visible{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/machinery/power/rad_collector/anchored,
 /obj/effect/turf_decal/industrial/warning{
 	dir = 8
@@ -783,6 +735,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/engine,
 /area/ship/engineering/engine)
+"Dr" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/plating,
+/area/ship/maintenance/aft)
 "DB" = (
 /obj/effect/turf_decal/spline/fancy/blue{
 	dir = 8
@@ -873,13 +832,6 @@
 /obj/effect/turf_decal/corner/brown/mono,
 /turf/open/floor/iron,
 /area/ship/cargo)
-"In" = (
-/obj/machinery/atmospherics/pipe/simple/yellow/visible,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/open/floor/plating,
-/area/ship/maintenance/aft)
 "Iq" = (
 /obj/machinery/door/window/brigdoor{
 	dir = 1
@@ -892,9 +844,7 @@
 /turf/open/floor/engine,
 /area/ship/engineering/engine)
 "Ir" = (
-/obj/machinery/atmospherics/pipe/simple/yellow/visible{
-	dir = 10
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
@@ -911,9 +861,7 @@
 	},
 /obj/structure/cable,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/engine,
 /area/ship/engineering/engine)
 "JM" = (
@@ -1017,11 +965,7 @@
 "Nr" = (
 /obj/effect/turf_decal/industrial/warning,
 /obj/effect/turf_decal/industrial/warning/full,
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
-	dir = 1;
-	min_temperature = 3;
-	target_temperature = 3
-	},
+/obj/machinery/atmospherics/components/binary/thermomachine/freezer/on,
 /turf/open/floor/engine,
 /area/ship/engineering/engine)
 "NN" = (
@@ -1070,9 +1014,7 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "Pa" = (
-/obj/machinery/atmospherics/pipe/simple/yellow/visible{
-	dir = 9
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /obj/machinery/light,
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
@@ -1086,11 +1028,7 @@
 /turf/open/floor/wood,
 /area/ship/crew/dorm)
 "Pt" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
-	dir = 1;
-	min_temperature = 3;
-	target_temperature = 3
-	},
+/obj/machinery/atmospherics/components/binary/thermomachine/freezer/on,
 /obj/effect/turf_decal/industrial/warning,
 /obj/effect/turf_decal/industrial/warning/full,
 /turf/open/floor/engine,
@@ -1110,9 +1048,7 @@
 /turf/open/floor/wood,
 /area/ship/crew/dorm)
 "Ql" = (
-/obj/machinery/atmospherics/pipe/manifold/yellow/visible{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /obj/structure/cable,
 /obj/machinery/power/smes/engineering,
 /obj/structure/cable{
@@ -1178,9 +1114,7 @@
 /turf/open/floor/wood,
 /area/ship/crew/dorm)
 "RB" = (
-/obj/machinery/atmospherics/pipe/manifold/green/visible{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/effect/turf_decal/industrial/warning/corner{
 	dir = 1
 	},
@@ -1192,7 +1126,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/manifold/yellow/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "RT" = (
@@ -1248,11 +1182,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
-	dir = 4;
-	min_temperature = 3;
-	target_temperature = 3
-	},
+/obj/machinery/atmospherics/components/binary/thermomachine/freezer/on,
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "TH" = (
@@ -1355,9 +1285,7 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ship/bridge)
 "XT" = (
-/obj/machinery/atmospherics/pipe/simple/yellow/visible{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
@@ -1539,10 +1467,10 @@ pY
 qa
 Ir
 ha
-In
-wg
+Dr
+Dr
 bC
-In
+Dr
 od
 Pa
 cD
@@ -1656,7 +1584,7 @@ rR
 KT
 ny
 yf
-rl
+tI
 Nr
 rC
 fI
@@ -1678,7 +1606,7 @@ rR
 Hq
 sm
 EJ
-ou
+tI
 in
 AP
 Qs

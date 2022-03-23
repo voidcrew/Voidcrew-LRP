@@ -175,9 +175,7 @@
 /turf/open/floor/iron/white,
 /area/ship)
 "aH" = (
-/obj/machinery/atmospherics/pipe/manifold/yellow/visible{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /turf/open/floor/engine,
 /area/ship/engineering/engine)
 "aI" = (
@@ -639,15 +637,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/ship/engineering/atmospherics)
-"cB" = (
-/obj/structure/window/reinforced/plasma/spawner/north,
-/obj/machinery/power/rad_collector/anchored,
-/obj/machinery/atmospherics/pipe/simple/yellow/visible{
-	dir = 5
-	},
-/obj/structure/cable,
-/turf/open/floor/engine,
-/area/ship/engineering/engine)
 "cC" = (
 /obj/structure/closet/secure_closet/medical2,
 /obj/effect/turf_decal/corner/blue/three_quarters{
@@ -1778,14 +1767,6 @@
 	},
 /turf/open/floor/iron,
 /area/ship/science/robotics)
-"id" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
-	dir = 8;
-	min_temperature = 1;
-	target_temperature = 1
-	},
-/turf/open/floor/engine,
-/area/ship/engineering/engine)
 "if" = (
 /turf/closed/wall/r_wall,
 /area/ship)
@@ -2460,9 +2441,7 @@
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/fore)
 "lk" = (
-/obj/machinery/atmospherics/pipe/simple/yellow/visible{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /turf/closed/wall/r_wall{
 	rad_insulation = 0
 	},
@@ -4414,7 +4393,7 @@
 /area/ship/crew/chapel)
 "uz" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/yellow/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
 /turf/open/floor/engine,
 /area/ship/engineering/engine)
 "uA" = (
@@ -7176,6 +7155,10 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ship/bridge)
+"Gn" = (
+/obj/machinery/atmospherics/components/binary/thermomachine/freezer/on,
+/turf/open/floor/engine,
+/area/ship/engineering/engine)
 "Go" = (
 /obj/structure/closet/secure_closet/engineering_chief,
 /obj/effect/turf_decal/corner/yellow/three_quarters{
@@ -7913,14 +7896,6 @@
 /obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/iron,
 /area/ship/science/robotics)
-"Jv" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
-	dir = 1;
-	min_temperature = 1;
-	target_temperature = 1
-	},
-/turf/open/floor/engine,
-/area/ship/engineering/engine)
 "Jz" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -8044,9 +8019,7 @@
 /turf/open/floor/iron,
 /area/ship/cargo)
 "Ki" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
-	dir = 6
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -8458,7 +8431,7 @@
 /turf/open/floor/iron,
 /area/ship/security/prison)
 "Mf" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -8813,6 +8786,13 @@
 /obj/machinery/computer/nanite_cloud_controller,
 /turf/open/floor/iron/dark,
 /area/ship/science)
+"NM" = (
+/obj/structure/window/reinforced/plasma/spawner/north,
+/obj/machinery/power/rad_collector/anchored,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
+/obj/structure/cable,
+/turf/open/floor/engine,
+/area/ship/engineering/engine)
 "NN" = (
 /obj/machinery/autolathe,
 /obj/machinery/door/window/northleft,
@@ -9542,13 +9522,6 @@
 /obj/item/storage/box/bodybags,
 /turf/open/floor/iron/dark,
 /area/ship/medical/morgue)
-"Ra" = (
-/obj/structure/window/reinforced/plasma/spawner/north,
-/obj/machinery/power/rad_collector/anchored,
-/obj/machinery/atmospherics/pipe/manifold/yellow/visible,
-/obj/structure/cable,
-/turf/open/floor/engine,
-/area/ship/engineering/engine)
 "Rb" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor/border_only{
@@ -11113,9 +11086,7 @@
 /turf/open/floor/iron/white,
 /area/ship/medical/surgery)
 "XY" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
-	dir = 10
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/engine,
 /area/ship/engineering/engine)
 "XZ" = (
@@ -11907,7 +11878,7 @@ Sw
 Hi
 uT
 of
-cB
+NM
 ZV
 US
 "}
@@ -11965,7 +11936,7 @@ cr
 Hi
 Xg
 of
-Ra
+NM
 AT
 US
 "}
@@ -12023,7 +11994,7 @@ cr
 Hi
 ZQ
 of
-Ra
+NM
 AT
 US
 "}
@@ -12198,7 +12169,7 @@ Tf
 LX
 ZQ
 aH
-Jv
+Gn
 US
 "}
 (13,1,1) = {"
@@ -12256,7 +12227,7 @@ Mf
 GZ
 mW
 cF
-Jv
+Gn
 US
 "}
 (14,1,1) = {"
@@ -12313,7 +12284,7 @@ XY
 mQ
 ua
 Qc
-id
+Gn
 US
 US
 "}
