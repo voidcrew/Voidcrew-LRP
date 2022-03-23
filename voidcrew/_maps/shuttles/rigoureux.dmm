@@ -72,7 +72,7 @@
 /turf/open/floor/plating,
 /area/ship/security/prison)
 "bo" = (
-/obj/effect/turf_decal/industrial/loading,
+/obj/effect/turf_decal/loading_area,
 /obj/structure/ore_box,
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/cargo)
@@ -173,7 +173,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/turf_decal/industrial/hatch/yellow,
+/obj/effect/turf_decal/delivery,
 /obj/machinery/power/smes/engineering,
 /obj/structure/cable,
 /obj/structure/window/reinforced{
@@ -203,7 +203,7 @@
 /area/ship/security/prison)
 "eb" = (
 /obj/machinery/atmospherics/components/tank/plasma,
-/obj/effect/turf_decal/industrial/hatch/yellow,
+/obj/effect/turf_decal/delivery,
 /turf/open/floor/plating,
 /area/ship/maintenance/port)
 "eg" = (
@@ -237,7 +237,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/effect/turf_decal/corner/red/diagonal,
+/obj/effect/turf_decal/tile/red,
 /obj/structure/table,
 /obj/item/paper,
 /obj/item/pen,
@@ -344,7 +344,7 @@
 	id = "Cell 1";
 	req_one_access_txt = "2"
 	},
-/obj/effect/turf_decal/corner/red/diagonal,
+/obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/number/one{
 	dir = 4
 	},
@@ -385,7 +385,7 @@
 	id = "Cell 2";
 	req_one_access_txt = "2"
 	},
-/obj/effect/turf_decal/corner/red/diagonal,
+/obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/number/two{
 	dir = 4
 	},
@@ -795,7 +795,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/effect/turf_decal/industrial/hatch/yellow,
+/obj/effect/turf_decal/delivery,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -818,9 +818,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/borderfloor,
-/obj/effect/turf_decal/corner/green{
-	dir = 5
-	},
+/obj/effect/turf_decal/tile/green,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -945,7 +943,7 @@
 /area/ship/crew/canteen)
 "oj" = (
 /obj/machinery/power/smes/engineering,
-/obj/effect/turf_decal/industrial/hatch/yellow,
+/obj/effect/turf_decal/delivery,
 /obj/structure/cable,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -1049,9 +1047,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/borderfloor,
-/obj/effect/turf_decal/corner/green{
-	dir = 5
-	},
+/obj/effect/turf_decal/tile/green,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -1621,7 +1617,7 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/starboard)
 "wF" = (
-/obj/effect/turf_decal/industrial/hatch/yellow,
+/obj/effect/turf_decal/delivery,
 /obj/machinery/navbeacon/wayfinding/engineering{
 	name = "navigation beacon"
 	},
@@ -2188,15 +2184,13 @@
 /turf/open/floor/plating,
 /area/ship/engineering)
 "Dw" = (
-/obj/effect/turf_decal/industrial/hatch/yellow,
+/obj/effect/turf_decal/delivery,
 /obj/machinery/door/firedoor,
 /obj/machinery/mineral/ore_redemption,
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
 "DD" = (
-/obj/effect/turf_decal/corner/green{
-	dir = 5
-	},
+/obj/effect/turf_decal/tile/green,
 /obj/effect/turf_decal/corner/green/full,
 /obj/item/storage/firstaid/brute,
 /obj/item/storage/firstaid/fire,
@@ -2288,7 +2282,7 @@
 /obj/structure/sign/warning/nosmoking{
 	pixel_x = -25
 	},
-/obj/effect/turf_decal/industrial/hatch/yellow,
+/obj/effect/turf_decal/delivery,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -2696,7 +2690,7 @@
 /area/ship/maintenance/starboard)
 "Jw" = (
 /obj/machinery/atmospherics/components/tank/air,
-/obj/effect/turf_decal/industrial/hatch/yellow,
+/obj/effect/turf_decal/delivery,
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
 "JG" = (
@@ -2895,7 +2889,7 @@
 /area/ship/engineering/atmospherics)
 "MS" = (
 /obj/machinery/atmospherics/components/tank/plasma,
-/obj/effect/turf_decal/industrial/hatch/yellow,
+/obj/effect/turf_decal/delivery,
 /turf/open/floor/plating,
 /area/ship/maintenance/starboard)
 "MX" = (
@@ -3317,7 +3311,7 @@
 /area/ship/bridge)
 "RE" = (
 /obj/structure/cable,
-/obj/effect/turf_decal/industrial/hatch/yellow,
+/obj/effect/turf_decal/delivery,
 /obj/machinery/power/port_gen/pacman,
 /turf/open/floor/iron/dark,
 /area/ship/engineering)
@@ -3405,14 +3399,14 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/effect/turf_decal/corner/red/diagonal,
+/obj/effect/turf_decal/tile/red,
 /obj/structure/chair,
 /turf/open/floor/iron/dark,
 /area/ship/security/prison)
 "SM" = (
 /obj/machinery/light/small,
 /obj/structure/cable,
-/obj/effect/turf_decal/industrial/hatch/yellow,
+/obj/effect/turf_decal/delivery,
 /obj/machinery/power/port_gen/pacman,
 /turf/open/floor/iron/dark,
 /area/ship/engineering)
@@ -3646,7 +3640,7 @@
 "Wj" = (
 /obj/machinery/power/port_gen/pacman/uranium,
 /obj/structure/cable,
-/obj/effect/turf_decal/industrial/hatch/yellow,
+/obj/effect/turf_decal/delivery,
 /obj/machinery/light,
 /turf/open/floor/iron/dark,
 /area/ship/engineering)
@@ -3656,9 +3650,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/effect/turf_decal/borderfloor,
-/obj/effect/turf_decal/corner/green{
-	dir = 5
-	},
+/obj/effect/turf_decal/tile/green,
 /obj/machinery/door/window/westleft{
 	dir = 1
 	},
@@ -3712,7 +3704,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/effect/turf_decal/corner/red/diagonal,
+/obj/effect/turf_decal/tile/red,
 /obj/structure/table,
 /obj/item/paper,
 /obj/item/pen,

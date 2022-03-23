@@ -33,14 +33,6 @@
 	},
 /turf/open/floor/plating/asteroid/whitesands,
 /area/whitesands/surface/outdoors)
-"eg" = (
-/obj/effect/turf_decal/industrial/traffic{
-	dir = 4
-	},
-/turf/open/floor/engine{
-	initial_gas_mix = "ws_atmos"
-	},
-/area/whitesands/surface/outdoors)
 "eO" = (
 /obj/item/clothing/gloves/combat,
 /turf/open/floor/plating/asteroid/whitesands,
@@ -53,9 +45,7 @@
 	},
 /area/whitesands/surface/outdoors)
 "fA" = (
-/obj/effect/turf_decal/industrial/traffic{
-	dir = 1
-	},
+/obj/effect/turf_decal/stripes/asteroid/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/engine{
 	initial_gas_mix = "ws_atmos"
@@ -84,14 +74,6 @@
 	initial_gas_mix = "ws_atmos"
 	},
 /area/whitesands/surface/outdoors)
-"ho" = (
-/obj/effect/turf_decal/industrial/traffic{
-	dir = 1
-	},
-/turf/open/floor/engine{
-	initial_gas_mix = "ws_atmos"
-	},
-/area/whitesands/surface/outdoors)
 "hz" = (
 /obj/item/storage/toolbox/syndicate,
 /turf/open/floor/engine{
@@ -115,9 +97,7 @@
 	},
 /area/whitesands/surface/outdoors)
 "ih" = (
-/obj/effect/turf_decal/industrial/traffic{
-	dir = 4
-	},
+/obj/effect/turf_decal/stripes/asteroid/line,
 /mob/living/simple_animal/hostile/syndicate/ranged/smg/space,
 /turf/open/floor/engine{
 	initial_gas_mix = "ws_atmos"
@@ -131,9 +111,7 @@
 	},
 /area/whitesands/surface/outdoors)
 "iq" = (
-/obj/effect/turf_decal/industrial/traffic{
-	dir = 1
-	},
+/obj/effect/turf_decal/stripes/asteroid/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers,
 /turf/open/floor/engine{
 	initial_gas_mix = "ws_atmos"
@@ -285,10 +263,14 @@
 	initial_gas_mix = "ws_atmos"
 	},
 /area/whitesands/surface/outdoors)
-"tc" = (
-/obj/effect/turf_decal/industrial/traffic{
-	dir = 8
+"sV" = (
+/obj/effect/turf_decal/stripes/asteroid/line,
+/turf/open/floor/engine{
+	initial_gas_mix = "ws_atmos"
 	},
+/area/whitesands/surface/outdoors)
+"tc" = (
+/obj/effect/turf_decal/stripes/asteroid/line,
 /turf/open/floor/plating{
 	initial_gas_mix = "ws_atmos"
 	},
@@ -431,7 +413,7 @@
 /turf/closed/wall/r_wall/syndicate,
 /area/whitesands/surface/outdoors)
 "CX" = (
-/obj/effect/turf_decal/industrial/hatch/yellow,
+/obj/effect/turf_decal/delivery,
 /obj/machinery/portable_atmospherics/canister/plasma,
 /turf/open/floor/iron/dark,
 /area/whitesands/surface/outdoors)
@@ -444,9 +426,7 @@
 	},
 /area/whitesands/surface/outdoors)
 "DF" = (
-/obj/effect/turf_decal/industrial/traffic{
-	dir = 1
-	},
+/obj/effect/turf_decal/stripes/asteroid/line,
 /obj/machinery/atmospherics/components/binary/pump,
 /obj/machinery/atmospherics/pipe/simple/dark/visible{
 	dir = 8
@@ -472,9 +452,7 @@
 	},
 /area/whitesands/surface/outdoors)
 "Ek" = (
-/obj/effect/turf_decal/industrial/traffic{
-	dir = 1
-	},
+/obj/effect/turf_decal/stripes/asteroid/line,
 /obj/machinery/atmospherics/pipe/simple/dark/visible{
 	dir = 5
 	},
@@ -603,9 +581,7 @@
 	},
 /area/whitesands/surface/outdoors)
 "PQ" = (
-/obj/effect/turf_decal/industrial/traffic{
-	dir = 1
-	},
+/obj/effect/turf_decal/stripes/asteroid/line,
 /obj/machinery/atmospherics/pipe/simple/dark/visible{
 	dir = 8
 	},
@@ -654,14 +630,6 @@
 	icon_state = "platingdmg1"
 	},
 /area/whitesands/surface/outdoors)
-"SS" = (
-/obj/effect/turf_decal/industrial/traffic{
-	dir = 8
-	},
-/turf/open/floor/engine{
-	initial_gas_mix = "ws_atmos"
-	},
-/area/whitesands/surface/outdoors)
 "Ts" = (
 /obj/effect/decal/cleanable/ash,
 /obj/effect/decal/cleanable/ash{
@@ -674,14 +642,6 @@
 	},
 /turf/open/floor/plating{
 	icon_state = "panelscorched";
-	initial_gas_mix = "ws_atmos"
-	},
-/area/whitesands/surface/outdoors)
-"TF" = (
-/obj/effect/turf_decal/industrial/traffic{
-	dir = 5
-	},
-/turf/open/floor/engine{
 	initial_gas_mix = "ws_atmos"
 	},
 /area/whitesands/surface/outdoors)
@@ -900,7 +860,7 @@ Iz
 oT
 Iz
 tc
-SS
+sV
 sB
 NH
 qk
@@ -921,7 +881,7 @@ Iz
 BY
 QG
 Pr
-ho
+sV
 IK
 KR
 Ws
@@ -948,7 +908,7 @@ fM
 fM
 fM
 fM
-TF
+sV
 uN
 Jj
 kN
@@ -1254,7 +1214,7 @@ Ej
 NA
 NA
 NA
-ho
+sV
 oT
 jI
 jI
@@ -1277,10 +1237,10 @@ jI
 jI
 jI
 jI
-eg
+sV
 ih
-eg
-eg
+sV
+sV
 Sx
 jI
 jI
