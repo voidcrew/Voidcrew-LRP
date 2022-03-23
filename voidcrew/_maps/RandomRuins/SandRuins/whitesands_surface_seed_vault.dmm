@@ -235,7 +235,7 @@
 /area/ruin/powered/seedvault)
 "aH" = (
 /obj/machinery/door/airlock/vault,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/iron/freezer,
 /area/ruin/powered/seedvault)
 "aI" = (
@@ -636,50 +636,34 @@
 /obj/machinery/atmospherics/components/tank/air,
 /turf/open/floor/iron/freezer,
 /area/ruin/powered/seedvault)
+"cx" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/turf/open/floor/iron/freezer,
+/area/ruin/powered/seedvault)
 "nX" = (
 /turf/open/floor/plating/asteroid/whitesands,
 /area/whitesands/surface/outdoors)
-"oR" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
-	dir = 10
-	},
-/turf/open/floor/iron/freezer,
-/area/ruin/powered/seedvault)
-"pW" = (
-/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden,
-/turf/open/floor/iron/freezer,
-/area/ruin/powered/seedvault)
-"qQ" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden,
-/turf/open/floor/iron/freezer,
-/area/ruin/powered/seedvault)
 "sv" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/vault,
 /area/ruin/powered/seedvault)
 "uK" = (
 /obj/structure/fans/tiny,
 /turf/open/floor/iron/dark,
 /area/ruin/powered/seedvault)
-"Bb" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
-/turf/open/floor/iron/freezer,
-/area/ruin/powered/seedvault)
 "DA" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/mineral/titanium/blue,
 /area/ruin/powered/seedvault)
 "Eu" = (
 /obj/machinery/light,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/iron/freezer,
 /area/ruin/powered/seedvault)
 "KF" = (
 /obj/machinery/door/airlock/titanium,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/vault,
 /area/ruin/powered/seedvault)
 "Ou" = (
@@ -688,12 +672,6 @@
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/iron/dark,
-/area/ruin/powered/seedvault)
-"PH" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
-	dir = 4
-	},
-/turf/open/floor/iron/freezer,
 /area/ruin/powered/seedvault)
 "QJ" = (
 /obj/machinery/plantgenes/seedvault{
@@ -807,7 +785,7 @@ ac
 ap
 ah
 as
-PH
+cx
 aQ
 av
 uK
@@ -828,8 +806,8 @@ aa
 ac
 ap
 Vn
-Bb
-qQ
+cx
+cx
 ah
 av
 Ou
@@ -851,7 +829,7 @@ ac
 aq
 ah
 ac
-PH
+cx
 aU
 ac
 ac
@@ -873,7 +851,7 @@ ac
 ac
 ac
 ac
-PH
+cx
 ah
 aS
 ac
@@ -895,7 +873,7 @@ ac
 ar
 at
 az
-PH
+cx
 ah
 aT
 ac
@@ -917,7 +895,7 @@ ad
 al
 al
 al
-PH
+cx
 ah
 al
 aC
@@ -938,13 +916,13 @@ ac
 ae
 al
 Vn
-Bb
-pW
-Bb
-Bb
-Bb
+cx
+cx
+cx
+cx
+cx
 aH
-Bb
+cx
 DA
 Uz
 aV
@@ -961,7 +939,7 @@ af
 am
 al
 al
-PH
+cx
 ah
 al
 aD
@@ -983,7 +961,7 @@ ac
 ac
 aw
 al
-PH
+cx
 ah
 aF
 ac
@@ -1005,7 +983,7 @@ ag
 an
 al
 al
-PH
+cx
 ah
 ah
 au
@@ -1026,8 +1004,8 @@ ac
 ai
 al
 Vn
-Bb
-qQ
+cx
+cx
 ah
 aF
 ac
@@ -1071,7 +1049,7 @@ ac
 ao
 al
 al
-PH
+cx
 ac
 aX
 aE
@@ -1093,7 +1071,7 @@ ac
 ac
 ax
 aJ
-oR
+cx
 KF
 sv
 sv

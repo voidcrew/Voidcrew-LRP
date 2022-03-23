@@ -6105,12 +6105,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/ship/crew/library)
-"BS" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
-	dir = 9
-	},
-/turf/open/floor/iron/white,
-/area/ship/crew)
 "BU" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -6490,12 +6484,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/ship/science/robotics)
-"DE" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
-	dir = 5
-	},
-/turf/open/floor/iron/white,
-/area/ship/crew)
 "DF" = (
 /obj/item/kirbyplants/random,
 /obj/machinery/firealarm{
@@ -9380,7 +9368,7 @@
 /turf/open/floor/iron/dark,
 /area/ship/engineering/electrical)
 "PY" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer,
+/obj/machinery/atmospherics/components/binary/thermomachine/freezer,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -9484,6 +9472,10 @@
 	},
 /turf/open/floor/iron,
 /area/ship/engineering/atmospherics)
+"Qs" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
+/turf/open/floor/iron/white,
+/area/ship/crew)
 "Qu" = (
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/plasteel/median/floortogrime,
@@ -13155,7 +13147,7 @@ MI
 Ql
 he
 XQ
-DE
+Qs
 eI
 dh
 Tt
@@ -13271,7 +13263,7 @@ MI
 Ql
 he
 Rm
-BS
+Qs
 FZ
 Wn
 qo
