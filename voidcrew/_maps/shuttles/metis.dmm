@@ -105,9 +105,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on/coldroom{
-	dir = 8
-	},
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/ship/science)
 "cd" = (
@@ -390,13 +388,6 @@
 	baseturfs = /turf/open/floor/mineral/titanium/tiled/white
 	},
 /area/ship/science)
-"gj" = (
-/obj/machinery/atmospherics/pipe/manifold/cyan/hidden/layer2{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
-/turf/open/floor/plating,
-/area/ship/engineering/electrical)
 "gE" = (
 /obj/machinery/monkey_recycler,
 /obj/structure/disposalpipe/segment,
@@ -787,9 +778,7 @@
 "ml" = (
 /obj/machinery/power/port_gen/pacman/uranium,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/general/hidden/layer2{
-	dir = 6
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden/layer2,
 /turf/open/floor/plating,
 /area/ship/engineering/electrical)
 "ms" = (
@@ -1050,9 +1039,7 @@
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/ship/hallway/fore)
 "ra" = (
-/obj/machinery/atmospherics/components/unary/tank/nitrogen{
-	dir = 8
-	},
+/obj/machinery/atmospherics/components/tnak/nitrogen,
 /turf/open/floor/plating,
 /area/ship/engineering/electrical)
 "rb" = (
@@ -1277,7 +1264,7 @@
 /turf/open/floor/mineral/titanium/tiled/purple,
 /area/ship/science/ai_chamber)
 "uP" = (
-/obj/machinery/atmospherics/components/unary/portables_connector/visible/layer3,
+/obj/machinery/atmospherics/components/unary/portables_connector,
 /turf/open/floor/plating,
 /area/ship/engineering/electrical)
 "uS" = (
@@ -2363,9 +2350,7 @@
 "Iq" = (
 /obj/machinery/power/terminal,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/general/hidden/layer2{
-	dir = 5
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden/layer2,
 /turf/open/floor/plating,
 /area/ship/engineering/electrical)
 "Iu" = (
@@ -2739,9 +2724,7 @@
 /obj/item/chair,
 /obj/effect/decal/cleanable/greenglow,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/visible/layer4{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer4,
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
@@ -2892,9 +2875,7 @@
 /turf/open/floor/plating,
 /area/ship/engineering/engine)
 "Pw" = (
-/obj/machinery/atmospherics/components/unary/relief_valve/atmos/atmos_waste{
-	dir = 1
-	},
+/obj/machinery/atmospherics/components/binary/valve,
 /obj/machinery/camera/autoname/directional/west,
 /turf/open/floor/plating,
 /area/ship/external)
@@ -3077,10 +3058,7 @@
 /turf/open/floor/mineral/titanium/tiled,
 /area/ship/crew/dorm)
 "Sg" = (
-/obj/machinery/atmospherics/components/unary/tank/oxygen{
-	dir = 4;
-	piping_layer = 2
-	},
+/obj/machinery/atmospherics/components/tnak/oxygen,
 /turf/open/floor/plating,
 /area/ship/engineering/electrical)
 "Sh" = (
@@ -3487,9 +3465,7 @@
 	icon_state = "1-10"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/visible/layer4{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer4,
 /turf/open/floor/mineral/titanium/tiled/purple,
 /area/ship/science/robotics)
 "Xt" = (
@@ -3654,7 +3630,7 @@
 /turf/open/floor/mineral/titanium/tiled,
 /area/ship/crew/dorm)
 "YP" = (
-/obj/machinery/atmospherics/pipe/smarrt/manifold4w/cyan/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/hidden,
 /turf/open/floor/plating,
 /area/ship/engineering/electrical)
@@ -3956,7 +3932,7 @@ Id
 Qn
 Ox
 HV
-gj
+YP
 YP
 sH
 "}

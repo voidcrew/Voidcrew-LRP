@@ -298,13 +298,6 @@
 /obj/structure/catwalk,
 /turf/template_noop,
 /area/ruin/unpowered)
-"kN" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/orange{
-	dir = 8
-	},
-/turf/template_noop,
-/area/ruin/unpowered)
 "kT" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
@@ -500,9 +493,7 @@
 "st" = (
 /obj/structure/door_assembly/door_assembly_grunge,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/atmospherics/pipe/simple/orange{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange,
 /turf/open/floor/plating/airless,
 /area/ruin/unpowered)
 "sE" = (
@@ -522,9 +513,7 @@
 /area/template_noop)
 "tG" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/atmospherics/pipe/simple/orange{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange,
 /turf/open/floor/plating/airless,
 /area/ruin/unpowered)
 "tJ" = (
@@ -951,9 +940,7 @@
 "Hl" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/atmospherics/pipe/simple/orange{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange,
 /turf/open/floor/plating/airless,
 /area/ruin/unpowered)
 "HE" = (
@@ -1258,9 +1245,7 @@
 "Sm" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/atmospherics/pipe/simple/orange{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange,
 /obj/structure/door_assembly/door_assembly_mhatch,
 /turf/open/floor/plating/airless,
 /area/ruin/unpowered)
@@ -1456,11 +1441,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/pod/light,
 /area/ruin/unpowered)
-"XL" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/orange,
-/turf/template_noop,
-/area/ruin/unpowered)
 "XR" = (
 /obj/structure/cable{
 	icon_state = "8-10"
@@ -1502,6 +1482,11 @@
 /turf/open/floor/plating{
 	icon_state = "platingdmg1"
 	},
+/area/ruin/unpowered)
+"ZB" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange,
+/turf/template_noop,
 /area/ruin/unpowered)
 "ZO" = (
 /turf/template_noop,
@@ -2102,7 +2087,7 @@ ZO
 ZO
 Uy
 ZO
-kN
+ZB
 ZO
 Uy
 ZO
@@ -2169,7 +2154,7 @@ ZO
 ZO
 ZO
 Uy
-XL
+ZB
 Ut
 Uy
 ZO
@@ -2361,7 +2346,7 @@ ZO
 ZO
 Uy
 ZO
-kN
+ZB
 ZO
 Uy
 ZO
@@ -2408,15 +2393,15 @@ Uy
 Uy
 Ut
 Ut
-XL
-XL
-XL
-XL
-XL
+ZB
+ZB
+ZB
+ZB
+ZB
 yg
-XL
-XL
-XL
+ZB
+ZB
+ZB
 Ut
 sE
 Uy
@@ -3190,7 +3175,7 @@ ZO
 ZO
 Uy
 ZO
-kN
+ZB
 ZO
 Uy
 ZO
