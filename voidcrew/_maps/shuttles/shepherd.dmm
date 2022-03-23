@@ -1590,7 +1590,7 @@
 /turf/open/floor/iron/dark,
 /area/ship/hallway/port)
 "yp" = (
-/obj/machinery/atmospherics/pipe/simple/cyan/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
 "ys" = (
@@ -1680,7 +1680,7 @@
 	dir = 8;
 	name = "exterior intake valve"
 	},
-/obj/machinery/atmospherics/pipe/simple/cyan/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
 "zH" = (
@@ -3277,12 +3277,6 @@
 	},
 /turf/open/floor/plating,
 /area/ship/external)
-"Wb" = (
-/obj/machinery/atmospherics/pipe/simple/cyan/visible{
-	dir = 10
-	},
-/turf/open/floor/plating,
-/area/ship/engineering/atmospherics)
 "Wf" = (
 /obj/machinery/firealarm{
 	pixel_y = 28
@@ -3387,9 +3381,7 @@
 /turf/open/floor/plating,
 /area/ship/engineering/electrical)
 "Xl" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/heater/on{
-	dir = 1
-	},
+/obj/machinery/atmospherics/components/binary/thermomachine/heater/on,
 /turf/open/floor/iron,
 /area/ship/engineering/atmospherics)
 "Xn" = (
@@ -3465,7 +3457,7 @@
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
 "Yp" = (
-/obj/machinery/atmospherics/pipe/simple/cyan/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
@@ -4714,7 +4706,7 @@ VJ
 uX
 Se
 Se
-Wb
+yp
 zD
 yp
 Kr

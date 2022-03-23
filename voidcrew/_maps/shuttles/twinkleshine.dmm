@@ -458,9 +458,7 @@
 /turf/open/floor/iron/white,
 /area/ship/medical)
 "eS" = (
-/obj/machinery/atmospherics/pipe/simple/cyan/visible{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
@@ -644,13 +642,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ship/bridge)
-"gv" = (
-/obj/machinery/atmospherics/pipe/simple/cyan/visible{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/turf/open/floor/plating,
-/area/ship/engineering/atmospherics)
 "gw" = (
 /obj/effect/turf_decal/industrial/warning{
 	dir = 9
@@ -1823,7 +1814,7 @@
 /area/ship/bridge)
 "tC" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
-/obj/machinery/atmospherics/pipe/simple/cyan/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
 "tG" = (
@@ -1845,13 +1836,6 @@
 /obj/effect/turf_decal/corner/red,
 /turf/open/floor/iron/white,
 /area/ship/medical/surgery)
-"tO" = (
-/obj/machinery/atmospherics/pipe/simple/cyan/visible{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/turf/open/floor/plating,
-/area/ship/engineering/atmospherics)
 "tR" = (
 /obj/effect/turf_decal/atmos/nitrogen,
 /turf/open/floor/engine/n2,
@@ -2159,9 +2143,7 @@
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/engineering)
 "wT" = (
-/obj/machinery/atmospherics/pipe/simple/green/visible{
-	dir = 10
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -2172,9 +2154,7 @@
 /obj/effect/turf_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/green/visible{
-	dir = 5
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /turf/open/floor/engine,
@@ -2427,14 +2407,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ship/engineering)
-"zJ" = (
-/obj/machinery/atmospherics/pipe/simple/green/visible{
-	dir = 5
-	},
-/turf/closed/wall/r_wall/syndicate/nodiagonal{
-	rad_insulation = 0.1
-	},
-/area/ship/engineering/engine)
 "zY" = (
 /obj/structure/bed/roller,
 /obj/machinery/iv_drip,
@@ -2620,6 +2592,11 @@
 /obj/effect/turf_decal/corner/red/diagonal,
 /turf/open/floor/iron/white,
 /area/ship/medical/surgery)
+"Ct" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
+/turf/open/floor/plating,
+/area/ship/engineering/atmospherics)
 "CE" = (
 /obj/effect/turf_decal/techfloor/orange{
 	dir = 4
@@ -2721,9 +2698,7 @@
 	specialfunctions = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/visible{
-	dir = 9
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/holopad/emergency/engineering,
 /turf/open/floor/engine,
@@ -3180,9 +3155,7 @@
 /turf/open/floor/plasteel/mono/dark,
 /area/ship/crew/dorm)
 "Iz" = (
-/obj/machinery/atmospherics/pipe/simple/green/visible{
-	dir = 6
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/structure/window/reinforced/plasma/spawner/east,
 /obj/machinery/power/rad_collector/anchored,
 /obj/structure/cable,
@@ -3412,10 +3385,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/oxygen_output,
 /turf/open/floor/engine/o2,
 /area/ship/engineering/atmospherics)
-"LB" = (
-/obj/machinery/atmospherics/pipe/simple/cyan/visible,
-/turf/open/floor/plating,
-/area/ship/engineering/atmospherics)
 "LD" = (
 /obj/structure/chair,
 /turf/open/floor/mineral/plastitanium,
@@ -3589,6 +3558,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/carpet/nanoweave/red,
 /area/ship/security)
+"Nn" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
+/turf/closed/wall/r_wall/syndicate/nodiagonal{
+	rad_insulation = 0.1
+	},
+/area/ship/engineering/engine)
 "No" = (
 /obj/machinery/light{
 	dir = 8
@@ -3767,14 +3742,6 @@
 	},
 /turf/open/floor/pod/dark,
 /area/ship/crew/dorm)
-"Pg" = (
-/obj/machinery/atmospherics/pipe/simple/green/visible{
-	dir = 10
-	},
-/turf/closed/wall/r_wall/syndicate/nodiagonal{
-	rad_insulation = 0.1
-	},
-/area/ship/engineering/engine)
 "Pj" = (
 /obj/structure/closet/secure_closet{
 	anchored = 1;
@@ -3930,9 +3897,7 @@
 /turf/open/floor/plating,
 /area/ship/engineering/engine)
 "PS" = (
-/obj/machinery/atmospherics/pipe/simple/green/visible{
-	dir = 6
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -4017,12 +3982,6 @@
 /obj/effect/turf_decal/corner/bar/diagonal,
 /turf/open/floor/iron,
 /area/ship/crew/canteen)
-"QN" = (
-/obj/machinery/atmospherics/pipe/simple/cyan/visible{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/ship/engineering/atmospherics)
 "QO" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
 	dir = 8
@@ -4469,12 +4428,6 @@
 /obj/machinery/light,
 /turf/open/floor/pod/dark,
 /area/ship/crew/dorm)
-"Vz" = (
-/obj/machinery/atmospherics/pipe/simple/cyan/visible{
-	dir = 5
-	},
-/turf/open/floor/plating,
-/area/ship/engineering/atmospherics)
 "VB" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
@@ -4590,12 +4543,10 @@
 /obj/effect/turf_decal/box/white,
 /turf/open/floor/pod/dark,
 /area/ship/cargo)
-"WI" = (
-/obj/machinery/atmospherics/pipe/simple/green/visible,
-/turf/closed/wall/r_wall/syndicate/nodiagonal{
-	rad_insulation = 0.1
-	},
-/area/ship/engineering/engine)
+"WO" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/turf/open/floor/plating,
+/area/ship/engineering/atmospherics)
 "WR" = (
 /obj/machinery/door/airlock/public/glass,
 /obj/effect/turf_decal/corner/bar{
@@ -5635,7 +5586,7 @@ sS
 LA
 tC
 QF
-Vz
+WO
 Ik
 xf
 Ds
@@ -5689,7 +5640,7 @@ ZV
 ZV
 PA
 Zo
-QN
+WO
 Ik
 YG
 Ds
@@ -5743,7 +5694,7 @@ Rt
 lI
 Yw
 Wx
-tO
+Ct
 Ik
 xM
 Ds
@@ -5785,7 +5736,7 @@ AN
 Iz
 ij
 ij
-zJ
+Nn
 uq
 uq
 im
@@ -5797,7 +5748,7 @@ SM
 SM
 ZV
 rl
-tO
+Ct
 Sw
 PA
 PA
@@ -5839,9 +5790,9 @@ AN
 uy
 uy
 uy
-Pg
+Nn
 YW
-WI
+Nn
 DM
 wT
 XZ
@@ -5851,7 +5802,7 @@ hF
 hF
 ZV
 rl
-tO
+Ct
 Ik
 Ik
 xf
@@ -5905,7 +5856,7 @@ aG
 aG
 ZV
 Xk
-tO
+Ct
 Ik
 cl
 YG
@@ -5959,7 +5910,7 @@ bD
 bD
 ZV
 Zo
-tO
+Ct
 Ik
 Ik
 xM
@@ -6013,7 +5964,7 @@ SM
 SM
 ZV
 Zo
-tO
+Ct
 Sw
 PA
 PA
@@ -6067,7 +6018,7 @@ Bk
 Qc
 jr
 Zo
-tO
+Ct
 Ik
 xf
 Ds
@@ -6121,7 +6072,7 @@ ZV
 ZV
 ZV
 Zo
-tO
+Ct
 Ik
 YG
 Ds
@@ -6229,7 +6180,7 @@ Zf
 cz
 tU
 Zo
-tO
+Ct
 Ik
 PA
 PA
@@ -6283,7 +6234,7 @@ ZV
 ZV
 ZV
 Zo
-tO
+Ct
 Ik
 PA
 PA
@@ -6336,8 +6287,8 @@ PA
 tA
 xt
 tC
-LB
-gv
+WO
+Ct
 Ik
 xf
 Ds
