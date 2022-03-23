@@ -291,11 +291,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/radio/intercom/wideband{
-	dir = 4;
-	pixel_x = 27;
-	set_dir_on_move = 0
-	},
+/obj/item/radio,
 /turf/open/floor/mineral/titanium/tiled/blue,
 /area/ship/bridge)
 "eV" = (
@@ -3427,7 +3423,7 @@
 /area/ship/science)
 "Xc" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/cable_coil/red,
 /obj/item/storage/belt/utility/full,
@@ -3650,9 +3646,7 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ship/engineering/engine)
 "ZJ" = (
-/obj/item/radio/intercom/wideband{
-	pixel_y = 27
-	},
+/obj/item/radio,
 /obj/machinery/button/flasher{
 	pixel_y = -24
 	},
