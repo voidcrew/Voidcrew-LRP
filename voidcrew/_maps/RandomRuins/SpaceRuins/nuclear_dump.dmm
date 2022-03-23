@@ -107,9 +107,7 @@
 /area/ruin/space/has_grav/storage/materials2)
 "lU" = (
 /obj/effect/decal/cleanable/blood/old,
-/obj/effect/turf_decal/industrial/fire{
-	dir = 4
-	},
+/obj/effect/turf_decal/stripes/red/line,
 /obj/effect/turf_decal/radiation/white{
 	color = "#B20000";
 	pixel_x = 32
@@ -147,22 +145,12 @@
 "oT" = (
 /turf/closed/mineral/random,
 /area/ruin/unpowered)
-"oU" = (
-/obj/effect/turf_decal/industrial/fire{
-	dir = 4
-	},
-/turf/open/floor/iron/dark/airless,
-/area/space/nearstation)
 "oV" = (
 /obj/effect/turf_decal/radiation{
 	dir = 4;
 	pixel_x = -32
 	},
 /turf/template_noop,
-/area/space/nearstation)
-"pe" = (
-/obj/effect/turf_decal/industrial/fire,
-/turf/open/floor/iron/dark/airless,
 /area/space/nearstation)
 "pJ" = (
 /obj/effect/spawner/random/maintenance/two,
@@ -275,9 +263,7 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 8
 	},
-/obj/effect/turf_decal/industrial/fire{
-	dir = 4
-	},
+/obj/effect/turf_decal/stripes/red/line,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "zC" = (
@@ -429,6 +415,10 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/space/nearstation)
+"Oj" = (
+/obj/effect/turf_decal/stripes/red/line,
+/turf/open/floor/iron/dark/airless,
+/area/space/nearstation)
 "Oq" = (
 /obj/machinery/light{
 	dir = 1
@@ -565,9 +555,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "Zi" = (
-/obj/effect/turf_decal/industrial/fire{
-	dir = 4
-	},
+/obj/effect/turf_decal/stripes/red/line,
 /obj/structure/radioactive/waste,
 /obj/effect/turf_decal/radiation/white{
 	color = "#B20000";
@@ -1285,7 +1273,7 @@ oT
 oT
 qA
 UW
-pe
+Oj
 zC
 Zn
 Zn
@@ -1353,7 +1341,7 @@ oT
 KB
 KF
 UW
-pe
+Oj
 iN
 Zn
 Zn
@@ -1420,7 +1408,7 @@ oT
 oT
 oT
 UW
-oU
+Oj
 UW
 zC
 Zn
