@@ -19,9 +19,7 @@
 	preferred_direction = 4
 	},
 /obj/structure/fans/tiny,
-/obj/effect/turf_decal/industrial/warning{
-	dir = 1
-	},
+/obj/effect/turf_decal/stripes/line,
 /obj/machinery/door/poddoor{
 	id = "emergencybay_blastdoors"
 	},
@@ -39,9 +37,7 @@
 /turf/open/floor/plating,
 /area/ship/medical)
 "aj" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 1
-	},
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
 "ak" = (
@@ -82,7 +78,7 @@
 /obj/machinery/suit_storage_unit/cmo{
 	suit_type = /obj/item/clothing/suit/space/hardsuit/medical
 	},
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron,
 /area/ship/cargo)
 "as" = (
@@ -135,15 +131,11 @@
 /area/ship/cargo)
 "aA" = (
 /obj/structure/bed/pod,
-/obj/effect/turf_decal/industrial/warning{
-	dir = 1
-	},
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron/white,
 /area/ship/cargo)
 "aB" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 1
-	},
+/obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
 /turf/open/floor/iron/white,
 /area/ship/cargo)
@@ -160,13 +152,13 @@
 /obj/machinery/suit_storage_unit/cmo{
 	suit_type = /obj/item/clothing/suit/space/hardsuit/medical
 	},
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
 "aF" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/ship/engineering)
 "aG" = (
@@ -247,13 +239,13 @@
 /turf/closed/wall/mineral/titanium,
 /area/ship/engineering)
 "aT" = (
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /obj/machinery/atmospherics/components/tank/plasma,
 /turf/open/floor/plating,
 /area/ship/engineering)
 "aU" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/mop,
 /obj/item/storage/bag/trash{
@@ -331,7 +323,7 @@
 /obj/effect/turf_decal/corner/neutral/half{
 	dir = 8
 	},
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /obj/machinery/autolathe,
 /obj/item/paicard,
 /turf/open/floor/iron/dark,
@@ -428,7 +420,7 @@
 /area/ship/engineering)
 "bq" = (
 /obj/machinery/atmospherics/components/tank/air,
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/ship/engineering)
 "br" = (
@@ -437,7 +429,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/corner/neutral,
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark,
 /area/ship/medical)
 "bs" = (
@@ -573,7 +565,7 @@
 /obj/machinery/atmospherics/components/unary/cryo_cell{
 	dir = 4
 	},
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark,
 /area/ship/medical)
 "bN" = (
@@ -708,7 +700,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/corner/neutral,
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark,
 /area/ship/medical)
 "ch" = (
@@ -723,8 +715,8 @@
 /area/ship/medical)
 "ck" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/obj/effect/turf_decal/corner/blue/full,
-/obj/effect/turf_decal/corner/blue/full,
+/obj/effect/turf_decal/tile/blue/full,
+/obj/effect/turf_decal/tile/blue/full,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/iron/white,
 /area/ship/medical)
@@ -832,7 +824,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/ship/engineering)
 "cv" = (
@@ -877,7 +869,7 @@
 /obj/machinery/power/port_gen/pacman{
 	anchored = 1
 	},
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /obj/item/wrench,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/structure/cable,
@@ -888,7 +880,7 @@
 /area/ship/engineering)
 "cz" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /obj/item/weldingtool/largetank,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /turf/open/floor/plating,
@@ -901,9 +893,7 @@
 /area/ship/engineering)
 "cC" = (
 /obj/structure/fans/tiny,
-/obj/effect/turf_decal/industrial/warning{
-	dir = 1
-	},
+/obj/effect/turf_decal/stripes/line,
 /obj/machinery/door/poddoor{
 	id = "emergencybay_blastdoors"
 	},
@@ -912,9 +902,7 @@
 "cD" = (
 /obj/structure/closet/crate/freezer/blood,
 /obj/machinery/iv_drip,
-/obj/effect/turf_decal/industrial/warning/corner{
-	dir = 1
-	},
+/obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/iron,
 /area/ship/cargo)
 "cE" = (
@@ -993,7 +981,7 @@
 /area/ship/crew)
 "cM" = (
 /obj/structure/rack,
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /obj/item/storage/box/lights/bulbs,
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 10
@@ -1300,7 +1288,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/effect/turf_decal/corner/blue/full,
+/obj/effect/turf_decal/tile/blue/full,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/iron/white,
 /area/ship/medical)
@@ -1567,9 +1555,7 @@
 /turf/open/floor/iron/white,
 /area/ship/medical)
 "yU" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 1
-	},
+/obj/effect/turf_decal/stripes/line,
 /obj/machinery/button/door{
 	id = "emergencybay_blastdoors";
 	name = "Emergency Bay Blast Door Control";
@@ -1608,7 +1594,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/plasteel/mono/white,
 /area/ship/medical)
@@ -1689,9 +1675,7 @@
 /turf/open/floor/iron/white,
 /area/ship/medical)
 "Jf" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 1
-	},
+/obj/effect/turf_decal/stripes/line,
 /obj/machinery/firealarm{
 	dir = 8;
 	pixel_x = -26

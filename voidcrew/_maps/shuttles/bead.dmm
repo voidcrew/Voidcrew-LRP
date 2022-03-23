@@ -36,7 +36,7 @@
 	},
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/machinery/suit_storage_unit/centcom,
-/obj/effect/turf_decal/industrial/outline,
+/obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron,
 /area/ship/bridge)
 "ec" = (
@@ -81,12 +81,6 @@
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron,
 /area/ship/bridge)
-"gl" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/ship/external)
 "gz" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -171,9 +165,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/corner/blue/half{
-	dir = 4
-	},
+/obj/effect/turf_decal/tile/blue/half,
 /turf/open/floor/iron,
 /area/ship/bridge)
 "kn" = (
@@ -408,7 +400,7 @@
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/suit_storage_unit/security,
-/obj/effect/turf_decal/industrial/outline/red,
+/obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron,
 /area/ship/cargo)
 "wH" = (
@@ -427,9 +419,7 @@
 	id = "bubbledoors";
 	name = "cargo bay blast door"
 	},
-/obj/effect/turf_decal/industrial/warning/corner{
-	dir = 1
-	},
+/obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/plating,
 /area/ship/cargo)
 "wU" = (
@@ -440,7 +430,7 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/suit_storage_unit/security,
-/obj/effect/turf_decal/industrial/outline/red,
+/obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron,
 /area/ship/cargo)
 "xm" = (
@@ -460,15 +450,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/suit_storage_unit/engine,
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
-"xC" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 5
-	},
-/turf/open/floor/plating,
-/area/ship/external)
 "zy" = (
 /turf/closed/wall/mineral/titanium,
 /area/ship/maintenance/starboard)
@@ -516,9 +500,7 @@
 /turf/open/floor/iron,
 /area/ship/cargo)
 "DL" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 10
-	},
+/obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/components/unary/outlet_injector/on/layer2{
 	dir = 1
 	},
@@ -555,12 +537,6 @@
 /turf/open/floor/plating,
 /area/ship/external)
 "Gl" = (
-/turf/open/floor/plating,
-/area/ship/external)
-"Gp" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 4
-	},
 /turf/open/floor/plating,
 /area/ship/external)
 "Gq" = (
@@ -644,9 +620,7 @@
 /turf/open/floor/iron,
 /area/ship/hallway/central)
 "IL" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 1
-	},
+/obj/effect/turf_decal/stripes/line,
 /obj/structure/cable,
 /obj/machinery/power/port_gen/pacman/uranium,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -656,7 +630,7 @@
 /area/ship/engineering)
 "Je" = (
 /obj/machinery/suit_storage_unit/engine,
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/ship/maintenance/starboard)
 "Js" = (
@@ -679,18 +653,6 @@
 	pixel_x = -24
 	},
 /turf/open/floor/iron,
-/area/ship/cargo)
-"JG" = (
-/obj/structure/fans/tiny,
-/obj/effect/turf_decal/siding/thinplating,
-/obj/machinery/door/poddoor{
-	id = "bubbledoors";
-	name = "cargo bay blast door"
-	},
-/obj/effect/turf_decal/industrial/warning/corner{
-	dir = 4
-	},
-/turf/open/floor/plating,
 /area/ship/cargo)
 "Ke" = (
 /obj/structure/cable{
@@ -719,9 +681,7 @@
 /turf/open/floor/iron,
 /area/ship/security/prison)
 "Ls" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 1
-	},
+/obj/effect/turf_decal/stripes/line,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/ship/engineering)
@@ -761,7 +721,7 @@
 /area/ship/security)
 "MW" = (
 /obj/machinery/suit_storage_unit/engine,
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "MY" = (
@@ -769,10 +729,6 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron,
 /area/ship/cargo)
-"NX" = (
-/obj/effect/turf_decal/industrial/warning,
-/turf/open/floor/plating,
-/area/ship/external)
 "Ob" = (
 /turf/closed/wall/mineral/titanium,
 /area/ship/maintenance/aft)
@@ -814,6 +770,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/ship/hallway/central)
+"QC" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plating,
+/area/ship/external)
 "QH" = (
 /obj/structure/sign/poster/official/nanotrasen_logo{
 	pixel_x = 32
@@ -904,9 +864,7 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/starboard)
 "UC" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 1
-	},
+/obj/effect/turf_decal/stripes/line,
 /obj/structure/cable,
 /obj/machinery/power/port_gen/pacman,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -996,18 +954,6 @@
 /obj/item/reagent_containers/food/snacks/tofu/prison,
 /turf/open/floor/iron,
 /area/ship/security/prison)
-"WN" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/ship/external)
-"Xn" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 9
-	},
-/turf/open/floor/plating,
-/area/ship/external)
 "XD" = (
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -1286,7 +1232,7 @@ VB
 "}
 (9,1,1) = {"
 VB
-Xn
+QC
 VQ
 jr
 LK
@@ -1305,7 +1251,7 @@ VB
 "}
 (10,1,1) = {"
 VB
-gl
+QC
 VQ
 VQ
 VQ
@@ -1319,12 +1265,12 @@ ny
 KQ
 kW
 nH
-NX
+QC
 VB
 "}
 (11,1,1) = {"
-Xn
-WN
+QC
+QC
 wO
 kn
 Jt
@@ -1342,7 +1288,7 @@ Rk
 Oo
 "}
 (12,1,1) = {"
-gl
+QC
 Gl
 ec
 nS
@@ -1361,9 +1307,9 @@ cG
 AR
 "}
 (13,1,1) = {"
-xC
-Gp
-JG
+QC
+QC
+wO
 wU
 wy
 gz

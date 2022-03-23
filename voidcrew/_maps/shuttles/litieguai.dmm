@@ -13,7 +13,7 @@
 /obj/item/clothing/suit/space/hardsuit/combatmedic,
 /obj/item/tank/internals/emergency_oxygen/engi,
 /obj/item/clothing/mask/gas/sechailer,
-/obj/effect/turf_decal/industrial/outline/red,
+/obj/effect/turf_decal/bot_red,
 /obj/item/radio/intercom{
 	dir = 1;
 	pixel_y = -24
@@ -47,7 +47,7 @@
 /obj/item/clothing/suit/space/hardsuit/combatmedic,
 /obj/item/tank/internals/emergency_oxygen/engi,
 /obj/item/clothing/mask/gas/sechailer,
-/obj/effect/turf_decal/industrial/outline/red,
+/obj/effect/turf_decal/bot_red,
 /obj/machinery/suit_storage_unit/inherit,
 /turf/open/floor/iron,
 /area/ship/storage)
@@ -158,9 +158,7 @@
 /obj/machinery/cryopod{
 	dir = 4
 	},
-/obj/effect/turf_decal/industrial/warning{
-	dir = 9
-	},
+/obj/effect/turf_decal/stripes/line,
 /obj/machinery/computer/cryopod{
 	pixel_y = -24
 	},
@@ -229,7 +227,7 @@
 /area/ship/maintenance/port)
 "fn" = (
 /obj/machinery/stasis,
-/obj/effect/turf_decal/industrial/outline/red,
+/obj/effect/turf_decal/bot_red,
 /obj/machinery/firealarm{
 	dir = 8;
 	pixel_x = -28
@@ -325,7 +323,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/turf_decal/industrial/warning,
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
 /area/ship/maintenance/starboard)
 "iA" = (
@@ -508,7 +506,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
-/obj/effect/turf_decal/industrial/outline/red,
+/obj/effect/turf_decal/bot_red,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -910,7 +908,7 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
-/obj/effect/turf_decal/industrial/outline/red,
+/obj/effect/turf_decal/bot_red,
 /obj/machinery/smartfridge/chemistry,
 /turf/open/floor/iron/white,
 /area/ship/medical)
@@ -947,7 +945,7 @@
 /obj/structure/sign/poster/official/cleanliness{
 	pixel_y = 32
 	},
-/obj/effect/turf_decal/industrial/outline/red,
+/obj/effect/turf_decal/bot_red,
 /obj/machinery/chem_master,
 /turf/open/floor/iron/white,
 /area/ship/medical)
@@ -982,7 +980,7 @@
 /area/ship/crew/toilet)
 "zt" = (
 /obj/machinery/stasis,
-/obj/effect/turf_decal/industrial/outline/red,
+/obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron/showroomfloor,
 /area/ship/medical)
 "zE" = (
@@ -1122,7 +1120,7 @@
 /area/ship/bridge)
 "DH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/effect/turf_decal/industrial/outline/red,
+/obj/effect/turf_decal/bot_red,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -1151,7 +1149,7 @@
 /obj/machinery/sleeper{
 	dir = 4
 	},
-/obj/effect/turf_decal/industrial/outline/red,
+/obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron/showroomfloor,
 /area/ship/medical)
 "Ev" = (
@@ -1176,7 +1174,7 @@
 	dir = 4;
 	pixel_x = 26
 	},
-/obj/effect/turf_decal/industrial/outline/red,
+/obj/effect/turf_decal/bot_red,
 /obj/machinery/reagentgrinder{
 	pixel_y = 10
 	},
@@ -1197,7 +1195,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/turf_decal/industrial/warning,
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
 /area/ship/maintenance/port)
 "Go" = (
@@ -1236,7 +1234,7 @@
 /obj/structure/sign/warning/nosmoking{
 	pixel_y = 32
 	},
-/obj/effect/turf_decal/industrial/outline/red,
+/obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron,
 /area/ship/storage)
 "Hl" = (
@@ -1337,7 +1335,7 @@
 	},
 /obj/machinery/power/terminal,
 /obj/structure/cable,
-/obj/effect/turf_decal/industrial/warning,
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
 /area/ship/maintenance/port)
 "Ki" = (
@@ -1352,7 +1350,7 @@
 /area/ship/crew)
 "Ko" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/effect/turf_decal/industrial/outline/red,
+/obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron,
 /area/ship/storage)
 "Kv" = (
@@ -1634,7 +1632,7 @@
 	},
 /obj/machinery/power/terminal,
 /obj/structure/cable,
-/obj/effect/turf_decal/industrial/warning,
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
 /area/ship/maintenance/starboard)
 "Rh" = (
@@ -1694,7 +1692,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 32
 	},
-/obj/effect/turf_decal/industrial/outline/red,
+/obj/effect/turf_decal/bot_red,
 /obj/machinery/suit_storage_unit/inherit,
 /turf/open/floor/iron,
 /area/ship/storage)

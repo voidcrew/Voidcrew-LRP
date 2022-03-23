@@ -91,6 +91,10 @@
 	},
 /turf/open/floor/plasteel/patterned/grid,
 /area/ship/cargo)
+"bZ" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/engine,
+/area/ship/cargo)
 "cb" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/siding/blue{
@@ -179,7 +183,7 @@
 /turf/open/floor/wood/mahogany,
 /area/ship/crew/chapel/office)
 "dr" = (
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /obj/structure/closet/cardboard,
 /obj/item/storage/box/drinkingglasses,
 /obj/item/reagent_containers/food/drinks/bottle/wine,
@@ -214,6 +218,11 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
 /turf/open/floor/wood/mahogany,
 /area/ship/crew/chapel/office)
+"dT" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/window/reinforced/plasma/spawner/north,
+/turf/open/floor/engine,
+/area/ship/cargo)
 "dZ" = (
 /obj/machinery/atmospherics/pipe/layer_manifold{
 	dir = 4
@@ -254,9 +263,7 @@
 	id = "corpcargobay1";
 	name = "cargo bay exterior blast door"
 	},
-/obj/effect/turf_decal/industrial/warning{
-	dir = 8
-	},
+/obj/effect/turf_decal/stripes/line,
 /obj/machinery/button/door{
 	id = "corpcargobay1";
 	pixel_x = -9;
@@ -305,13 +312,6 @@
 	},
 /turf/open/floor/carpet/nanoweave,
 /area/ship/bridge)
-"eU" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 5
-	},
-/obj/structure/window/reinforced/plasma/spawner/north,
-/turf/open/floor/engine,
-/area/ship/cargo)
 "fc" = (
 /obj/structure/railing,
 /obj/structure/table/reinforced,
@@ -386,7 +386,7 @@
 /turf/open/floor/plating,
 /area/ship/engineering)
 "gN" = (
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /obj/structure/reagent_dispensers/beerkeg,
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -482,22 +482,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/wood/yew,
 /area/ship/crew/chapel/office)
-"hW" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 4
-	},
-/turf/open/floor/engine,
-/area/ship/cargo)
 "hY" = (
 /obj/effect/turf_decal/corner/white/diagonal,
 /turf/open/floor/iron,
 /area/ship/crew/dorm)
-"ii" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 10
-	},
-/turf/open/floor/engine,
-/area/ship/cargo)
 "il" = (
 /obj/effect/turf_decal/siding/red,
 /obj/structure/cable{
@@ -639,9 +627,7 @@
 /obj/effect/turf_decal/industrial/stand_clear{
 	dir = 1
 	},
-/obj/effect/turf_decal/industrial/warning{
-	dir = 1
-	},
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/engine,
 /area/ship/cargo)
 "kX" = (
@@ -656,10 +642,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/oxygen_output,
 /turf/open/floor/engine/o2,
 /area/ship/engineering)
-"lo" = (
-/obj/effect/turf_decal/industrial/warning,
-/turf/open/floor/engine,
-/area/ship/cargo)
 "lw" = (
 /obj/machinery/door/airlock/wood{
 	name = "Boardroom"
@@ -968,9 +950,7 @@
 /area/ship/hallway/starboard)
 "rV" = (
 /obj/structure/fans/tiny,
-/obj/effect/turf_decal/industrial/warning{
-	dir = 8
-	},
+/obj/effect/turf_decal/stripes/line,
 /obj/machinery/door/poddoor{
 	id = "corpcargobay1";
 	name = "cargo bay exterior blast door"
@@ -1230,12 +1210,6 @@
 	},
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/dorm)
-"uC" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 6
-	},
-/turf/open/floor/engine,
-/area/ship/cargo)
 "uO" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
@@ -1272,7 +1246,7 @@
 /area/ship/crew/office)
 "vW" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel/patterned/grid,
 /area/ship/cargo)
 "wf" = (
@@ -1360,12 +1334,6 @@
 /obj/structure/table/wood,
 /turf/open/floor/carpet/stellar,
 /area/ship/crew/office)
-"wX" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 8
-	},
-/turf/open/floor/engine,
-/area/ship/cargo)
 "xb" = (
 /obj/machinery/light,
 /turf/open/floor/wood/bamboo,
@@ -2077,7 +2045,7 @@
 /turf/open/floor/plating,
 /area/ship/engineering)
 "Ix" = (
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /obj/structure/closet/cardboard,
 /obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
@@ -2218,7 +2186,7 @@
 /turf/open/floor/carpet/stellar,
 /area/ship/crew/office)
 "Ko" = (
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /obj/machinery/mineral/ore_redemption,
 /turf/open/floor/plasteel/patterned/grid,
 /area/ship/cargo)
@@ -2481,7 +2449,7 @@
 /turf/open/floor/carpet/nanoweave/red,
 /area/ship/security)
 "NB" = (
-/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/effect/turf_decal/bot,
 /obj/structure/reagent_dispensers/fueltank,
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3016,13 +2984,6 @@
 	},
 /turf/open/floor/carpet/nanoweave,
 /area/ship/bridge)
-"XO" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 9
-	},
-/obj/structure/window/reinforced/plasma/spawner/north,
-/turf/open/floor/engine,
-/area/ship/cargo)
 "Yd" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3317,9 +3278,9 @@ Ko
 Od
 ob
 Od
-XO
-wX
-ii
+dT
+bZ
+bZ
 JE
 Rw
 GD
@@ -3361,7 +3322,7 @@ UO
 Od
 kQ
 QS
-lo
+bZ
 JE
 Rw
 Rw
@@ -3401,9 +3362,9 @@ ZE
 IC
 ss
 Od
-eU
-hW
-uC
+dT
+bZ
+bZ
 JE
 tS
 Ti
