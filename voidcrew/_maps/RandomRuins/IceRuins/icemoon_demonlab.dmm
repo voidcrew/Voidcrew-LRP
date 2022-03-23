@@ -139,9 +139,7 @@
 /obj/machinery/power/terminal{
 	dir = 4
 	},
-/obj/structure/cable/blue{
-	icon_state = "0-2"
-	},
+/obj/structure/cable,
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/noslip,
 /area/ruin/powered/demonlab)
@@ -207,15 +205,9 @@
 /turf/open/floor/mineral/titanium,
 /area/ruin/powered/demonlab)
 "dB" = (
-/obj/structure/cable/blue{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/blue{
-	icon_state = "1-4"
-	},
-/obj/structure/cable/blue{
-	icon_state = "1-8"
-	},
+/obj/structure/cable,
+/obj/structure/cable,
+/obj/structure/cable,
 /mob/living/simple_animal/hostile/clown/clownhulk/honcmunculus{
 	faction = list("demonlab")
 	},
@@ -268,9 +260,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/ruin/powered/demonlab)
 "fz" = (
-/obj/structure/cable/blue{
-	icon_state = "2-4"
-	},
+/obj/structure/cable,
 /obj/machinery/light/broken{
 	dir = 8
 	},
@@ -332,9 +322,7 @@
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit.";
 	name = "power storage unit"
 	},
-/obj/structure/cable/blue{
-	icon_state = "0-2"
-	},
+/obj/structure/cable,
 /turf/open/floor/noslip,
 /area/ruin/powered/demonlab)
 "kU" = (
@@ -436,12 +424,6 @@
 /obj/item/wirecutters,
 /turf/open/floor/noslip,
 /area/ruin/powered/demonlab)
-"qr" = (
-/obj/structure/cable/blue{
-	icon_state = "1-2"
-	},
-/turf/open/floor/noslip,
-/area/ruin/powered/demonlab)
 "rD" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/electrical,
@@ -464,6 +446,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
+/area/ruin/powered/demonlab)
+"sc" = (
+/obj/structure/cable,
+/turf/open/floor/noslip,
 /area/ruin/powered/demonlab)
 "sU" = (
 /obj/effect/decal/cleanable/blood/gibs/core,
@@ -708,12 +694,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ruin/powered/demonlab)
-"FF" = (
-/obj/structure/cable/blue{
-	icon_state = "2-8"
-	},
-/turf/open/floor/noslip,
-/area/ruin/powered/demonlab)
 "Gg" = (
 /obj/structure/table,
 /turf/open/floor/carpet/royalblack,
@@ -763,7 +743,7 @@
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ruin/powered/demonlab)
 "JR" = (
-/obj/structure/cable/blue,
+/obj/structure/cable,
 /obj/machinery/power/port_gen/pacman/diamond{
 	sheet_left = 5
 	},
@@ -869,7 +849,7 @@
 /turf/open/floor/plating/snowed/temperatre,
 /area/ruin/powered/demonlab)
 "PK" = (
-/obj/structure/cable/blue,
+/obj/structure/cable,
 /obj/machinery/power/port_gen/pacman{
 	sheet_left = 5
 	},
@@ -971,7 +951,7 @@
 /area/ruin/powered/demonlab)
 "Vf" = (
 /obj/machinery/power/apc/auto_name/directional/west,
-/obj/structure/cable/blue,
+/obj/structure/cable,
 /turf/open/floor/noslip,
 /area/ruin/powered/demonlab)
 "VC" = (
@@ -1200,7 +1180,7 @@ aa
 Lt
 LK
 kF
-qr
+sc
 dB
 JR
 LK
@@ -1226,7 +1206,7 @@ Lt
 LK
 XP
 bh
-FF
+sc
 PK
 LK
 "}
