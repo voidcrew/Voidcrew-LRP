@@ -51,9 +51,7 @@
 /turf/open/floor/plating,
 /area/ship/engineering)
 "bC" = (
-/obj/machinery/atmospherics/components/unary/tank/toxins{
-	dir = 1
-	},
+/obj/machinery/atmospherics/components/tank/plasma,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/ship/engineering)
@@ -1280,6 +1278,11 @@
 	},
 /turf/open/floor/iron,
 /area/ship/crew)
+"xG" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/ship/engineering)
 "xI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/rack,
@@ -1748,7 +1751,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Ia" = (
-/obj/machinery/atmospherics/pipe/simple/orange/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ship/engineering)
 "Ii" = (
@@ -2142,7 +2145,7 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/simple/orange/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /turf/open/floor/iron/dark,
 /area/ship/engineering)
 "Pp" = (
@@ -2183,9 +2186,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/orange/visible{
-	dir = 6
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/ship/engineering)
@@ -2219,13 +2220,6 @@
 	},
 /turf/open/floor/iron,
 /area/ship/crew)
-"RA" = (
-/obj/machinery/atmospherics/pipe/simple/orange/visible{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/ship/engineering)
 "RN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/trimline/white/line,
@@ -2324,11 +2318,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/industrial/outline/yellow,
 /obj/machinery/washing_machine,
-/turf/open/floor/plating,
-/area/ship/engineering)
-"TQ" = (
-/obj/machinery/atmospherics/pipe/simple/orange/visible,
-/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/ship/engineering)
 "Uc" = (
@@ -3254,7 +3243,7 @@ NC
 dc
 dc
 ps
-RA
+xG
 TE
 Ia
 Pg
@@ -3262,7 +3251,7 @@ Pg
 Ia
 kd
 TE
-TQ
+xG
 Jf
 FL
 bC
