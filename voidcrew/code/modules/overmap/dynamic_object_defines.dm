@@ -75,7 +75,7 @@
 	ambientsounds = SPOOKY
 
 /area/overmap_encounter/planetoid/beach
-	name = "\improper Oceanic Planetoid"
+	name = "\improper Beach Planetoid"
 	sound_environment = SOUND_ENVIRONMENT_FOREST
 	ambientsounds = BEACH
 
