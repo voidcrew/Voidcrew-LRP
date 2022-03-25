@@ -96,3 +96,12 @@
 	build_path = /obj/item/circuitboard/machine/shuttle/smes
 	category = list ("Shuttle Machinery")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_SCIENCE
+
+/datum/design/board/cassette/adv_cassette_deck
+	name = "Machine Design (Advanced Cassette Deck)"
+	desc = "The circuit board for the advanced cassette deck."
+	id = "adv_cassette_deck"
+	build_path = /obj/item/circuitboard/machine/cassette/adv_cassette_deck
+	category = list ("Cassette Technology")
+	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
+

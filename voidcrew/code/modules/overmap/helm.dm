@@ -55,11 +55,13 @@
 	jump_timer = addtimer(CALLBACK(src, .proc/jump_sequence, TRUE), JUMP_CHARGEUP_TIME, TIMER_STOPPABLE)
 	priority_announce("Bluespace jump calibration initialized. Calibration completion in [JUMP_CHARGEUP_TIME/600] minutes.", sender_override="[current_ship.display_name] Bluespace Pylon", zlevel=virtual_z())
 	calibrating = TRUE
+	log_shuttle("[usr] has initiated a bluespace jump for [current_ship.name]")
 	return TRUE
 
 /obj/machinery/computer/helm/proc/cancel_jump()
 	priority_announce("Bluespace Pylon spooling down. Jump calibration aborted.", sender_override="[current_ship.display_name] Bluespace Pylon", zlevel=virtual_z())
 	calibrating = FALSE
+	log_shuttle("[usr] has cancelled a bluespace jump aboard [current_ship.display_name]")
 	deltimer(jump_timer)
 
 /obj/machinery/computer/helm/proc/jump_sequence()
@@ -101,7 +103,7 @@
 		return TRUE
 
 /obj/machinery/computer/helm/ui_interact(mob/user, datum/tgui/ui)
-	if(current_ship.is_player_in_crew(user) || !isliving(user) || isAdminGhostAI(user))
+	if(current_ship.is_player_in_crew(user) || isAdminGhostAI(user))
 		if(jump_state != JUMP_STATE_OFF)
 			say("Bluespace Jump in progress. Controls suspended.")
 			return
@@ -126,11 +128,12 @@
 				user.client.register_map_obj(current_ship.cam_plane_master)
 				user.client.register_map_obj(current_ship.cam_background)
 				current_ship.update_screen()
-
 			// Open UI
 			ui = new(user, src, "HelmConsole", name)
 			ui.open()
 	else
+		if(!isliving(user))
+			return
 		say("ERROR: Unrecognized bio-signature detected")
 		return
 
@@ -210,6 +213,7 @@
 	switch(action) // Universal topics
 		if("rename_ship")
 			var/new_name = params["newName"]
+			var/old_name = current_ship.name
 			if(!new_name)
 				return
 			new_name = trim(new_name)
@@ -220,14 +224,22 @@
 				return
 			if(!current_ship.set_ship_name(new_name))
 				say("Error: [COOLDOWN_TIMELEFT(current_ship, rename_cooldown)/10] seconds until ship designation can be changed..")
+			else
+				log_shuttle("[usr] changed shuttle [old_name] to [new_name]")
 			update_static_data(usr, ui)
 			return
 		if("toggle_kos")
-			current_ship.set_ship_faction("KOS")
+			if(!current_ship.set_ship_faction("KOS"))
+				say("Error: [COOLDOWN_TIMELEFT(current_ship, faction_cooldown)/10] seconds until faction can be changed..")
+			else
+				log_shuttle("[usr] set [current_ship.display_name]'s faction to KOS")
 			update_static_data(usr, ui)
 			return
 		if("return")
-			current_ship.set_ship_faction("return")
+			if(!current_ship.set_ship_faction("return"))
+				say("Error: [COOLDOWN_TIMELEFT(current_ship, faction_cooldown)/10] seconds until faction can be changed..")
+			else
+				log_shuttle("[usr] set [current_ship.display_name]'s faction back to default")
 			update_static_data(usr, ui)
 			return
 		if("reload_ship")

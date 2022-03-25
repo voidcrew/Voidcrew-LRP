@@ -589,7 +589,7 @@
 	icon_state = "hardsuit0-sec"
 	item_state = "sec_helm"
 	hardsuit_type = "sec"
-	armor = list("melee" = 35, "bullet" = 15, "laser" = 30,"energy" = 40, "bomb" = 10, "bio" = 100, "rad" = 50, "fire" = 75, "acid" = 75)
+	armor = list("melee" = 40, "bullet" = 20, "laser" = 30,"energy" = 40, "bomb" = 25, "bio" = 100, "rad" = 50, "fire" = 75, "acid" = 75)
 
 
 /obj/item/clothing/suit/space/hardsuit/security
@@ -597,7 +597,7 @@
 	name = "security hardsuit"
 	desc = "A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor."
 	item_state = "sec_hardsuit"
-	armor = list("melee" = 35, "bullet" = 15, "laser" = 30, "energy" = 40, "bomb" = 10, "bio" = 100, "rad" = 50, "fire" = 75, "acid" = 75)
+	armor = list("melee" = 40, "bullet" = 20, "laser" = 30, "energy" = 40, "bomb" = 25, "bio" = 100, "rad" = 50, "fire" = 75, "acid" = 75)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/security
 	supports_variations = DIGITIGRADE_VARIATION
 
@@ -611,14 +611,14 @@
 	desc = "A special bulky helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor."
 	icon_state = "hardsuit0-hos"
 	hardsuit_type = "hos"
-	armor = list("melee" = 45, "bullet" = 25, "laser" = 30, "energy" = 40, "bomb" = 25, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 95)
+	armor = list("melee" = 50, "bullet" = 30, "laser" = 35, "energy" = 40, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 95)
 
 
 /obj/item/clothing/suit/space/hardsuit/security/hos
 	icon_state = "hardsuit-hos"
 	name = "head of security's hardsuit"
 	desc = "A special bulky suit that protects against hazardous, low pressure environments. Has an additional layer of armor."
-	armor = list("melee" = 45, "bullet" = 25, "laser" = 30, "energy" = 40, "bomb" = 25, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 95)
+	armor = list("melee" = 50, "bullet" = 30, "laser" = 35, "energy" = 40, "bomb" = 30, "bio" = 100, "rad" = 50, "fire" = 95, "acid" = 95)
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/security/hos
 	jetpack = /obj/item/tank/jetpack/suit
 	supports_variations = DIGITIGRADE_VARIATION
@@ -629,7 +629,7 @@
 	icon_state = "swat2helm"
 	item_state = "swat2helm"
 	desc = "A tactical SWAT helmet MK.II."
-	armor = list("melee" = 40, "bullet" = 50, "laser" = 50, "energy" = 60, "bomb" = 50, "bio" = 100, "rad" = 50, "fire" = 100, "acid" = 100)
+	armor = list("melee" = 55, "bullet" = 50, "laser" = 50, "energy" = 60, "bomb" = 50, "bio" = 100, "rad" = 50, "fire" = 100, "acid" = 100)
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR //we want to see the mask //this makes the hardsuit not fireproof you genius
 	heat_protection = HEAD
@@ -643,7 +643,7 @@
 	desc = "A MK.II SWAT suit with streamlined joints and armor made out of superior materials, insulated against intense heat if worn with the complementary gas mask. The most advanced tactical armor available."
 	icon_state = "swat2"
 	item_state = "swat2"
-	armor = list("melee" = 40, "bullet" = 50, "laser" = 50, "energy" = 60, "bomb" = 50, "bio" = 100, "rad" = 50, "fire" = 100, "acid" = 100)
+	armor = list("melee" = 55, "bullet" = 50, "laser" = 50, "energy" = 60, "bomb" = 50, "bio" = 100, "rad" = 50, "fire" = 100, "acid" = 100)
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT //this needed to be added a long fucking time ago

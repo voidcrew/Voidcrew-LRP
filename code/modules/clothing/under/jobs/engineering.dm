@@ -3,13 +3,14 @@
 /obj/item/clothing/under/rank/engineering
 	icon = 'icons/obj/clothing/under/engineering.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/engineering.dmi'
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 5, "bomb" = 5, "bio" = 5, "rad" = 10, "fire" = 50, "acid" = 50)
 
 /obj/item/clothing/under/rank/engineering/chief_engineer
 	desc = "It's a high visibility jumpsuit given to those engineers insane enough to achieve the rank of \"Chief Engineer\". It has minor radiation shielding."
 	name = "chief engineer's jumpsuit"
 	icon_state = "chiefengineer"
 	item_state = "gy_suit"
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 10, "fire" = 80, "acid" = 40)
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 5, "bomb" = 10, "bio" = 5, "rad" = 15, "fire" = 75, "acid" = 75)
 	resistance_flags = NONE
 
 /obj/item/clothing/under/rank/engineering/chief_engineer/skirt
@@ -42,7 +43,6 @@
 	name = "engineer's jumpsuit"
 	icon_state = "engine"
 	item_state = "engi_suit"
-	armor = list("melee" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 10, "fire" = 60, "acid" = 20)
 	resistance_flags = NONE
 
 /obj/item/clothing/under/rank/engineering/engineer/hazard

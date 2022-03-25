@@ -131,7 +131,7 @@
 	shuttle.jumpToNullSpace()
 	update_docked_bools()
 	message_admins("\[SHUTTLE]: [shuttle.name] has been deleted!")
-	log_admin("\[SHUTTLE]: [shuttle.name] has been deleted!")
+	log_shuttle("[shuttle.name] has been deleted!")
 	qdel(src)
 
 /**
@@ -388,6 +388,7 @@
 	set_ship_name(name, ignore_cooldown = TRUE, bypass_same_name = TRUE)
 	update_crew_hud()
 	update_ship_color()
+	return TRUE
 
 /**
   * Updates the ships icon to make it easier to distinguish between factions

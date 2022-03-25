@@ -64,7 +64,7 @@
 	name = "Atmospheric Technician (Chadmos)"  //WS Edit - Give Chadmos Sr. Uniform
 
 	belt = null
-	uniform = /obj/item/clothing/under/suit/senior_atmos
+	uniform = /obj/item/clothing/under/rank/engineering/suit/senior_atmos
 	alt_uniform = null
 	suit = /obj/item/clothing/suit/toggle/lawyer/atmos
 	alt_suit = /obj/item/clothing/suit/hazardvest

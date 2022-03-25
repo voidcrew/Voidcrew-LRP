@@ -80,7 +80,7 @@
 /datum/outfit/job/scientist/seniorscientist
 	name = "Scientist (Senior Scientist)"
 
-	uniform = /obj/item/clothing/under/suit/senior_scientist
+	uniform = /obj/item/clothing/under/suit/rank/rnd/senior_scientist
 	alt_uniform = null
 	shoes = /obj/item/clothing/shoes/laceup
 	suit = /obj/item/clothing/suit/toggle/lawyer/science
