@@ -9,7 +9,7 @@
 	},
 /area/whitesands/surface/outdoors)
 "c" = (
-/obj/effect/spawner/structure/window/plasma/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma/reinforced,
 /turf/open/floor/plating{
 	initial_gas_mix = "ws_atmos"
 	},
@@ -18,10 +18,8 @@
 /turf/open/floor/plating/asteroid/whitesands,
 /area/whitesands/surface/outdoors)
 "g" = (
-/obj/effect/turf_decal/industrial/outline/yellow{
-	dir = 1
-	},
-/turf/open/floor/plasteel/dark,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron/dark,
 /area/whitesands/surface/outdoors)
 "i" = (
 /obj/effect/decal/cleanable/greenglow,
@@ -32,17 +30,13 @@
 	},
 /area/whitesands/surface/outdoors)
 "j" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
-	dir = 10
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/closed/wall/r_wall,
 /area/whitesands/surface/outdoors)
 "k" = (
-/obj/structure/window/plasma/reinforced,
+/obj/structure/window/reinforced/plasma,
 /obj/machinery/power/rad_collector/anchored,
-/obj/machinery/atmospherics/pipe/simple/general/visible{
-	dir = 10
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/open/floor/plating/asteroid/whitesands,
 /area/whitesands/surface/outdoors)
 "n" = (
@@ -58,21 +52,13 @@
 /turf/open/floor/engine,
 /area/whitesands/surface/outdoors)
 "s" = (
-/obj/effect/turf_decal/industrial/outline/yellow{
-	dir = 1
-	},
+/obj/effect/turf_decal/bot,
 /obj/machinery/portable_atmospherics/canister/nitrogen,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/iron/dark,
 /area/whitesands/surface/outdoors)
 "t" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on,
 /turf/open/floor/engine,
-/area/whitesands/surface/outdoors)
-"u" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
-	dir = 9
-	},
-/turf/closed/wall/r_wall,
 /area/whitesands/surface/outdoors)
 "w" = (
 /turf/closed/wall/r_wall,
@@ -97,9 +83,9 @@
 	},
 /area/whitesands/surface/outdoors)
 "B" = (
-/obj/effect/turf_decal/industrial/hatch/yellow,
+/obj/effect/turf_decal/delivery,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/iron/dark,
 /area/whitesands/surface/outdoors)
 "C" = (
 /obj/effect/decal/cleanable/dirt,
@@ -135,47 +121,35 @@
 /turf/open/floor/engine,
 /area/whitesands/surface/outdoors)
 "J" = (
-/obj/structure/window/plasma/reinforced{
-	dir = 1
-	},
+/obj/structure/window/reinforced/plasma,
 /obj/structure/frame/machine,
-/obj/machinery/atmospherics/pipe/simple/general/visible{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/general/visible{
-	dir = 9
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/open/floor/plating{
 	icon_state = "platingdmg2";
 	initial_gas_mix = "ws_atmos"
 	},
 /area/whitesands/surface/outdoors)
 "L" = (
-/obj/structure/window/plasma/reinforced{
-	dir = 1
-	},
+/obj/structure/window/reinforced/plasma,
 /obj/machinery/power/rad_collector/anchored,
-/obj/machinery/atmospherics/pipe/manifold/general/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/open/floor/plating{
 	icon_state = "platingdmg1";
 	initial_gas_mix = "ws_atmos"
 	},
 /area/whitesands/surface/outdoors)
 "Q" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
-	dir = 6
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /obj/structure/girder,
 /turf/open/floor/plating{
 	initial_gas_mix = "ws_atmos"
 	},
 /area/whitesands/surface/outdoors)
 "R" = (
-/obj/structure/window/plasma/reinforced,
+/obj/structure/window/reinforced/plasma,
 /obj/machinery/power/rad_collector/anchored,
-/obj/machinery/atmospherics/pipe/manifold/general/visible{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/open/floor/plating{
 	icon_state = "platingdmg2";
 	initial_gas_mix = "ws_atmos"
@@ -187,11 +161,9 @@
 	},
 /area/whitesands/surface/outdoors)
 "T" = (
-/obj/structure/window/plasma/reinforced{
-	dir = 1
-	},
+/obj/structure/window/reinforced/plasma,
 /obj/structure/frame/machine,
-/obj/machinery/atmospherics/pipe/manifold/general/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/open/floor/engine,
 /area/whitesands/surface/outdoors)
 "V" = (
@@ -226,11 +198,9 @@
 /turf/open/floor/engine,
 /area/whitesands/surface/outdoors)
 "Z" = (
-/obj/structure/window/plasma/reinforced,
+/obj/structure/window/reinforced/plasma,
 /obj/structure/frame/machine,
-/obj/machinery/atmospherics/pipe/manifold/general/visible{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /turf/open/floor/plating{
 	icon_state = "platingdmg1";
 	initial_gas_mix = "ws_atmos"
@@ -263,7 +233,7 @@ a
 w
 X
 Q
-u
+j
 Y
 j
 w
