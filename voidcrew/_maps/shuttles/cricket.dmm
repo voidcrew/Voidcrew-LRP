@@ -115,7 +115,7 @@
 /area/ship/engineering/engine)
 "by" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
-/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/shutters/window/preopen,
 /obj/structure/curtain/cloth/fancy,
 /obj/structure/grille,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -411,10 +411,10 @@
 /turf/open/floor/plating,
 /area/ship/engineering/engine)
 "fz" = (
-/obj/structure/catwalk,
 /obj/structure/sign/solgov_seal{
 	pixel_y = -27
 	},
+/turf/open/floor/catwalk_floor/iron,
 /turf/template_noop,
 /area/ship/external)
 "fG" = (
@@ -512,7 +512,7 @@
 "gW" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/effect/spawner/structure/window/reinforced/shuttle,
-/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/shutters/window/preopen,
 /obj/structure/grille,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "sgwindowshut";
@@ -848,7 +848,7 @@
 /area/ship/hallway/port)
 "mm" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
-/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/shutters/window/preopen,
 /obj/structure/grille,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "sgwindowshut";
@@ -1002,7 +1002,7 @@
 /area/ship/engineering/atmospherics)
 "nO" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
-/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/shutters/window/preopen,
 /obj/structure/grille,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "sgwindowshut";
@@ -1023,7 +1023,7 @@
 /turf/open/floor/carpet/nanoweave/orange,
 /area/ship/hallway/aft)
 "oe" = (
-/obj/structure/catwalk,
+/turf/open/floor/catwalk_floor/iron,
 /turf/template_noop,
 /area/ship/external)
 "ok" = (
@@ -1302,8 +1302,8 @@
 /area/ship/hallway/aft)
 "sv" = (
 /obj/structure/lattice,
-/obj/structure/catwalk,
-/obj/structure/catwalk,
+/turf/open/floor/catwalk_floor/iron,
+/turf/open/floor/catwalk_floor/iron,
 /turf/template_noop,
 /area/ship/external)
 "sF" = (
@@ -1420,7 +1420,7 @@
 /obj/machinery/camera/directional/north{
 	network = list("cricket")
 	},
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "uo" = (
 /obj/structure/sign/warning/vacuum/external{
@@ -2074,7 +2074,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "Cc" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
@@ -2413,7 +2413,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/structure/chair,
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "FU" = (
 /obj/machinery/door/airlock/engineering{
@@ -2483,7 +2483,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "Hh" = (
 /obj/machinery/power/apc/auto_name/directional/north,
@@ -2495,7 +2495,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "Hs" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2525,7 +2525,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "HA" = (
 /obj/structure/cable{
@@ -2537,7 +2537,7 @@
 	dir = 1;
 	pixel_y = 30
 	},
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "HB" = (
 /obj/machinery/vending/boozeomat/all_access,
@@ -2550,7 +2550,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "HF" = (
 /obj/structure/cable{
@@ -2561,7 +2561,7 @@
 /obj/item/radio/intercom{
 	pixel_y = 32
 	},
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "HI" = (
 /obj/machinery/suit_storage_unit/mining,
@@ -2595,7 +2595,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "Ii" = (
 /obj/structure/cable{
@@ -2606,7 +2606,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "Io" = (
 /obj/structure/cable{
@@ -2618,7 +2618,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "IH" = (
 /obj/item/kirbyplants/random,
@@ -2627,7 +2627,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "IR" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
@@ -2656,10 +2656,10 @@
 /turf/open/floor/carpet/nanoweave/purple,
 /area/ship/hallway/port)
 "JF" = (
-/obj/structure/catwalk,
 /obj/machinery/camera/directional/north{
 	network = list("cricket")
 	},
+/turf/open/floor/catwalk_floor/iron,
 /turf/template_noop,
 /area/ship/external)
 "JO" = (
@@ -2729,7 +2729,7 @@
 	dir = 1;
 	pixel_y = -24
 	},
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "Lk" = (
 /obj/structure/table/reinforced,
@@ -2747,7 +2747,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 1
 	},
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "LA" = (
 /obj/machinery/computer/cargo/express{
@@ -2758,7 +2758,7 @@
 /turf/open/floor/iron,
 /area/ship/cargo)
 "LC" = (
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "LI" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
@@ -2773,10 +2773,10 @@
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
 "LL" = (
-/obj/structure/catwalk,
 /obj/machinery/camera/autoname/directional/east{
 	network = list("cricket")
 	},
+/turf/open/floor/catwalk_floor/iron,
 /turf/template_noop,
 /area/ship/external)
 "LM" = (
@@ -2813,7 +2813,7 @@
 /obj/structure/sign/departments/cargo{
 	pixel_y = -32
 	},
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "LW" = (
 /obj/effect/turf_decal/stripes/line,
@@ -2828,7 +2828,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
 	dir = 1
 	},
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "Ml" = (
 /obj/structure/cable{
@@ -2836,7 +2836,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "Mq" = (
 /obj/structure/table,
@@ -2885,13 +2885,13 @@
 /turf/open/floor/carpet/nanoweave/purple,
 /area/ship/hallway/port)
 "MU" = (
-/obj/structure/catwalk,
 /obj/structure/sign/solgov_seal,
+/turf/open/floor/catwalk_floor/iron,
 /turf/template_noop,
 /area/ship/external)
 "MZ" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
-/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/shutters/window/preopen,
 /obj/structure/grille,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "sgwindowshut";
@@ -3120,7 +3120,7 @@
 /area/ship/engineering/engine)
 "QD" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
-/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/shutters/window/preopen,
 /obj/structure/grille,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "sgwindowshut";
@@ -3180,7 +3180,7 @@
 /area/ship/engineering/communications)
 "Ri" = (
 /obj/structure/lattice,
-/obj/structure/catwalk,
+/turf/open/floor/catwalk_floor/iron,
 /turf/template_noop,
 /area/ship/external)
 "RA" = (
@@ -3191,7 +3191,7 @@
 /obj/machinery/camera/autoname/directional/south{
 	network = list("cricket")
 	},
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/hallway/starboard)
 "RD" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
@@ -3277,7 +3277,7 @@
 /area/ship/engineering/engine)
 "SX" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
-/obj/item/reagent_containers/food/snacks/meat/slab,
+/obj/item/food/meat/slab,
 /obj/item/storage/box/ingredients/vegetarian,
 /obj/item/storage/cans/sixsoda,
 /obj/effect/turf_decal/tile/dark,
