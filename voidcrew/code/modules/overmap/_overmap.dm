@@ -3,7 +3,8 @@
 	icon = 'voidcrew/icons/turf/overmap.dmi'
 	icon_state = "overmap"
 	initial_gas_mix = AIRLESS_ATMOS
-
+	///The Z level zone it's connected to
+	var/z_zone
 
 /turf/closed/overmap_edge
 	icon = 'voidcrew/icons/turf/overmap.dmi'
@@ -12,11 +13,11 @@
 //this is completely unnecessary but it looks nice
 /turf/closed/overmap_edge/Initialize(mapload)
 	. = ..()
-	name = "[x]-[y - OVERMAP_MIN_Y]"
+	name = "[x]-[(y + 1) - OVERMAP_MIN_Y]"
 	var/list/numbers = list()
 
 	if(x == OVERMAP_MIN_X || x == OVERMAP_MAX_X)
-		numbers += list("[round((y - (OVERMAP_MIN_Y)) / 10)]","[round((y - (OVERMAP_MIN_Y)) % 10)]")
+		numbers += list("[round(((y + 1) - (OVERMAP_MIN_Y)) / 10)]","[round(((y + 1) - (OVERMAP_MIN_Y)) % 10)]")
 		if(y == OVERMAP_MIN_Y || y == OVERMAP_MAX_Y)
 			numbers += "-"
 	if(y == OVERMAP_MIN_Y || y == OVERMAP_MAX_Y)

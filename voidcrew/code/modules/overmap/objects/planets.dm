@@ -25,18 +25,3 @@
 
 	if (!isnull(linked_zlevel))
 		user.z = linked_zlevel // send them to da planet
-
-/obj/structure/overmap/dynamic/lava
-	planet = /datum/overmap/planet/lava
-
-/obj/structure/overmap/dynamic/ice
-	planet = /datum/overmap/planet/ice
-
-/obj/structure/overmap/dynamic/sand
-	planet = /datum/overmap/planet/sand
-
-/obj/structure/overmap/dynamic/jungle
-	planet = /datum/overmap/planet/jungle
-
-/obj/structure/overmap/dynamic/rock
-	planet = /datum/overmap/planet/rock

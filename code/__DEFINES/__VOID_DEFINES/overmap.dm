@@ -6,8 +6,8 @@
 #define OVERMAP_Z_LEVEL 1
 
 #define OVERMAP_MIN_X 1
-#define OVERMAP_MAX_X 17
-#define OVERMAP_MIN_Y (world.maxy - 17)
+#define OVERMAP_MAX_X 23
+#define OVERMAP_MIN_Y (world.maxy - 22)
 #define OVERMAP_MAX_Y world.maxy
 
 //Add new star types here
