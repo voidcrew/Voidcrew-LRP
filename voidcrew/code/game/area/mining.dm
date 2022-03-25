@@ -5,7 +5,7 @@
 	has_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED
-	sound_environment = SOUND_ENVIRONMENT_MOUNTAINS
+	sound_environment = SOUND_ENVIRONMENT_FOREST
 
 /area/jungleplanet/surface
 	name = "\improper Jungle Planetoid"
@@ -33,22 +33,22 @@
 	has_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED
-	sound_environment = SOUND_ENVIRONMENT_MOUNTAINS
+	sound_environment = SOUND_ENVIRONMENT_FOREST
 
 /area/beachplanet/surface
-	name = "\improper Oceanic Planetoid"
+	name = "\improper Beach Planetoid"
 	icon_state = "explored"
 	always_unpowered = TRUE
 	power_environ = FALSE
 	power_equip = FALSE
 	power_light = FALSE
 	requires_power = TRUE
-	ambientsounds = AWAY_MISSION
+	ambientsounds = BEACH
 	poweralm = FALSE
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED
 
 /area/beachplanet/surface/outdoors // weather happens here
-	name = "\improper Oceanic Planetoid"
+	name = "\improper Beach Planetoid"
 	icon_state = "away1"
 	outdoors = TRUE
 
@@ -71,7 +71,7 @@
 	power_equip = FALSE
 	power_light = FALSE
 	requires_power = TRUE
-	ambientsounds = AWAY_MISSION
+	ambientsounds = MINING
 	poweralm = FALSE
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED
 
