@@ -6,6 +6,12 @@
 	///The Z level zone it's connected to
 	var/z_zone
 
+/turf/open/overmap/attack_ghost(mob/dead/observer/user)
+	. = ..()
+
+	if (!isnull(z_zone))
+		user.z = z_zone
+
 /turf/closed/overmap_edge
 	icon = 'voidcrew/icons/turf/overmap.dmi'
 	icon_state = "overmap"

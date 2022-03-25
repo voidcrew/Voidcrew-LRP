@@ -64,7 +64,7 @@ SUBSYSTEM_DEF(overmap)
 
 ///Generates the planeat on a given z level
 /datum/controller/subsystem/overmap/proc/spawn_planet(datum/overmap/planet/planet_type, planet_num)
-	var/datum/space_level/z_level = SSmapping.add_new_zlevel("Overmap planet [planet_num]", planet.planet_ztraits)
+	var/datum/space_level/z_level = SSmapping.add_new_zlevel("Overmap planet [planet_num]", planet_type.planet_ztraits)
 
 	var/ruin_type = planet_type.ruin_type
 	var/turf/surface = planet_type.surface
@@ -91,20 +91,21 @@ SUBSYSTEM_DEF(overmap)
 		area.map_generator = mapgen
 		area.RunGeneration()
 
-	planets[planet.ruin_type] = planet_z.z_value
+	planets[planet_type.ruin_type] = z_level.z_value
 	return z_level.z_value
 
-/datum/controller/subsystem/overmap/proc/spawn_space_level(datum/space_level/z_level, planet_num)
-	var/datum/space_level/z_level = SSmapping.add_new_zlevel("Space zone [planet_num]", planet.planet_ztraits)
+/datum/controller/subsystem/overmap/proc/spawn_space_level(planet_num)
+	var/datum/space_level/z_level = SSmapping.add_new_zlevel("Space zone [planet_num]", list(ZTRAIT_SPACE_RUINS = TRUE, ZTRAIT_BASETURF = /turf/open/space))
 
-	seedRuins(list(z_level.z_value), 10, /area/open/space, SSmapping.themed_ruins[ZTRAIT_SPACE_RUINS])
+	if (prob(25))
+		seedRuins(list(z_level.z_value), 10, /area/space, SSmapping.themed_ruins[ZTRAIT_SPACE_RUINS])
+	return z_level.z_value
 
 /datum/controller/subsystem/overmap/proc/setup_planet(obj/structure/overmap/dynamic/planet_object, datum/overmap/planet/planet)
 	planet_object.name = planet.name
 	planet_object.desc = planet.desc
 	planet_object.icon_state = planet.icon_state
 	planet_object.color = planet.color
-
 
 /datum/controller/subsystem/overmap/proc/generate_probabilites()
 	for (var/path in subtypesof(/datum/overmap/planet))
@@ -195,9 +196,6 @@ SUBSYSTEM_DEF(overmap)
 				continue
 			new event_type(turf_to_spawn)
 
-/datum/controller/subsystem/overmap/proc/generate_space_level()
-/////TODO finish spawning zlevels
-
 
 /datum/controller/subsystem/overmap/proc/setup_space()
 	var/z_zone = 1
@@ -209,16 +207,13 @@ SUBSYSTEM_DEF(overmap)
 			overmap.name = "[i]-[j]"
 
 			if (((OVERMAP_MIN_Y) - j) % 3 == 0)
-				space_z_zones |= z_zone
+				overmap.z_zone = spawn_space_level(z_zone) // setup space and assign the z to it
 				z_zone += 1
 
 		if ((i - 1) % 3 == 0)
 			last_zone = z_zone
 		else
 			z_zone = last_zone
-
-	for ()
-
 
 /datum/controller/subsystem/overmap/proc/setup_events()
 	setup_sun()
