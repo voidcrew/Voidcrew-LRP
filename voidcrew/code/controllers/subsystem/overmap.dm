@@ -2,6 +2,7 @@
 
 #define MAX_OVERMAP_EVENT_CLUSTERS 8
 #define MAX_OVERMAP_EVENTS 120
+#define MAX_OVERMAP_PLACE_ATTEMPTS 20
 
 
 #define BOTTOM_LEFT_TURF locate(OVERMAP_MIN_X, OVERMAP_MIN_Y, OVERMAP_Z_LEVEL)
@@ -132,12 +133,26 @@ SUBSYSTEM_DEF(overmap)
 		planet = new planet
 		//VOID TODO: planets should really be spawning far apart, need some sort of proc that will find a turf that is far from other planets
 		var/outer_radii = LAZYLEN(radius_tiles)
-		var/obj/structure/overmap/dynamic/planet_object = new(get_unused_overmap_square_in_radius(rand(outer_radii - 3, outer_radii), force = TRUE))
+		var/radius_level = rand(outer_radii - 3, outer_radii)
+		var/obj/structure/overmap/dynamic/planet_object
+		while (TRUE)
+			var/turf/overmap_turf = radius_tiles[radius_level][rand(1, length(radius_tiles[radius_level]))]
+			var/obj/structure/overmap/dynamic/temp_planet = locate(/obj/structure/overmap/dynamic) in overmap_turf
+			if (temp_planet)
+				continue
+			force_unused_overmap_square(overmap_turf)
+			planet_object = new(overmap_turf)
+			break
 		planet_object.linked_zlevel = spawn_planet(planet, i) // spawn the planet here, and link it to the planet
 		setup_planet(planet_object, planet)
 
 /datum/controller/subsystem/overmap/proc/setup_sun()
-	var/obj/structure/overmap/star/big/centre = new // TODO set this up to choose a random medium, big or binary
+	var/path = pick(list(
+		/obj/structure/overmap/star/big/binary,
+		/obj/structure/overmap/star/medium,
+		/obj/structure/overmap/star/big,
+	))
+	var/obj/structure/overmap/star/centre = new path
 	var/sun_loc = locate(size / 2, (OVERMAP_MIN_Y - 1) + (size / 2), 1)
 	centre.forceMove(sun_loc)
 	new /obj/effect/landmark/observer_start(sun_loc)
@@ -154,11 +169,17 @@ SUBSYSTEM_DEF(overmap)
 			radius_tiles[i] += turf
 			unsorted_turfs -= turf
 
+///Forcefully turns the given square into an available one
+/datum/controller/subsystem/overmap/proc/force_unused_overmap_square(turf/turf)
+	var/obj/structure/overmap/obj = locate(/obj/structure/overmap)
+	if (obj)
+		qdel(obj)
+
 /datum/controller/subsystem/overmap/proc/get_unused_overmap_square_in_radius(radius, obj_to_avoid = /obj/structure/overmap, force = FALSE)
 	if (!radius)
 		radius = rand(2, LAZYLEN(radius_tiles))
 
-	while (TRUE)
+	for (var/i in 1 to MAX_OVERMAP_PLACE_ATTEMPTS)
 		. = pick(radius_tiles[radius])
 		var/obj/structure/overmap/obj = locate(obj_to_avoid) in .
 		if (force && obj)
