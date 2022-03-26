@@ -6,6 +6,8 @@
 /obj/structure/overmap/event
 	name = "generic overmap event"
 	integrity = 0
+	///A quick fix to prevent them from being flung around by Thunderdome explosions.
+	anchored = 1
 	///Should the affect_ship() proc be called more than once?
 	var/affect_multiple_times = FALSE
 	///If prob(this), call affect_ship when processed
@@ -16,8 +18,6 @@
 	var/chain_rate = 0
 	///The event to run when the station gets hit by an event
 	var/datum/round_event_control/station_event
-	///A quick fix to prevent them from being flung around by Thunderdome explosions.
-	anchored = 1
 
 /obj/structure/overmap/event/Initialize(mapload)
 	. = ..()
