@@ -981,9 +981,7 @@
 /turf/open/floor/carpet/royalblue,
 /area/ruin/powered)
 "DU" = (
-/obj/structure/window/plasma/reinforced/spawner{
-	dir = 1
-	},
+/obj/structure/window/plasma/spawner,
 /obj/machinery/power/rad_collector/anchored,
 /obj/machinery/atmospherics/pipe/simple/brown/visible,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1417,13 +1415,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
-/area/ruin/powered)
-"NH" = (
-/obj/structure/window/plasma/reinforced/spawner,
-/obj/machinery/power/rad_collector/anchored,
-/obj/machinery/atmospherics/pipe/simple/brown/visible,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/engine,
 /area/ruin/powered)
 "NM" = (
 /obj/machinery/door/poddoor,
@@ -2881,7 +2872,7 @@ FI
 (26,1,1) = {"
 EH
 HA
-NH
+DU
 rS
 Ju
 Ca
@@ -2922,7 +2913,7 @@ FI
 (27,1,1) = {"
 Vj
 HA
-NH
+DU
 rS
 pO
 Ca
@@ -2963,7 +2954,7 @@ FI
 (28,1,1) = {"
 EH
 XK
-NH
+DU
 rS
 Ju
 Ca
