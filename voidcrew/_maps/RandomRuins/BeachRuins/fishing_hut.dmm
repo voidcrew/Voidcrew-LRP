@@ -39,9 +39,6 @@
 "gT" = (
 /obj/structure/table/wood/fancy/purple,
 /obj/item/storage/backpack/magspear_quiver,
-/obj/item/throwing_star/magspear,
-/obj/item/throwing_star/magspear,
-/obj/item/throwing_star/magspear,
 /obj/item/storage/backpack/magspear_quiver,
 /turf/open/floor/carpet/royalblack,
 /area/ruin/powered{
@@ -54,6 +51,10 @@
 /area/ruin/powered{
 	name = "\improper Dining Hall"
 	})
+"hH" = (
+/obj/structure/fence/end,
+/turf/open/floor/wood,
+/area/ruin/unpowered)
 "hK" = (
 /turf/open/floor/carpet/red_gold,
 /area/ruin/powered{
@@ -69,10 +70,9 @@
 /obj/structure/chair/wood/wings{
 	dir = 4
 	},
+/mob/living/simple_animal/hostile/pirate/melee/beach,
 /turf/open/floor/carpet/red/airless,
-/area/ruin/powered{
-	name = "\improper Dining Hall"
-	})
+/area/ruin/unpowered)
 "nv" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 4
@@ -86,6 +86,29 @@
 /area/ruin/powered{
 	name = "\improper Dining Hall"
 	})
+"pI" = (
+/mob/living/simple_animal/hostile/cat_butcherer{
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
+	desc = "A profession carp butcher, gone mad due to carptoxin exposure. There seems to be something in their pocket...";
+	faction = list("hostile", "beach");
+	health = 300;
+	held_items = held();
+	loot = list(/obj/effect/mob_spawn/human/corpse/cat_butcher, /obj/item/guardiancreator/carp);
+	maxHealth = 300;
+	maxbodytemp = 10000;
+	melee_damage_lower = 20;
+	melee_damage_upper = 25;
+	minbodytemp = 0;
+	name = "The Butcher";
+	ranged_cooldown_time = 15;
+	ranged_message = "fires the speargun at";
+	real_name = "The Butcher";
+	unique_name = 1
+	},
+/turf/open/floor/plasteel/kitchen_coldroom/freezerfloor,
+/area/ruin/powered{
+	name = "\improper Cold Storage"
+	})
 "sA" = (
 /obj/structure/table/wood/fancy/purple,
 /obj/item/pneumatic_cannon/speargun,
@@ -94,9 +117,18 @@
 /area/ruin/powered{
 	name = "\improper Dining Hall"
 	})
+"tV" = (
+/mob/living/simple_animal/hostile/pirate/melee/beach,
+/turf/open/floor/carpet/red,
+/area/ruin/powered{
+	name = "\improper Dining Hall"
+	})
 "tX" = (
-/obj/machinery/porta_turret{
-	faction = list("turret", "beach")
+/obj/machinery/porta_turret/syndicate/energy{
+	active_power_usage = 0;
+	faction = list("turret", "beach");
+	idle_power_usage = 0;
+	reqpower = 0
 	},
 /turf/closed/wall/mineral/wood,
 /area/ruin/powered{
@@ -170,6 +202,10 @@
 /area/ruin/powered{
 	name = "\improper Dining Hall"
 	})
+"Em" = (
+/obj/structure/fence,
+/turf/open/floor/wood,
+/area/ruin/unpowered)
 "Eq" = (
 /obj/machinery/door/airlock/wood/glass,
 /turf/open/floor/wood,
@@ -177,7 +213,7 @@
 	name = "\improper Dining Hall"
 	})
 "FG" = (
-/turf/open/space/basic,
+/turf/template_noop,
 /area/template_noop)
 "FK" = (
 /obj/machinery/light/dim,
@@ -186,7 +222,9 @@
 	name = "\improper Dining Hall"
 	})
 "Iv" = (
-/obj/structure/barricade/wooden,
+/obj/structure/fence{
+	dir = 4
+	},
 /turf/open/floor/wood,
 /area/ruin/unpowered)
 "Ko" = (
@@ -207,8 +245,7 @@
 	name = "\improper Dining Hall"
 	})
 "Ly" = (
-/obj/structure/stairs/north,
-/turf/open/floor/wood,
+/turf/open/floor/plasteel/stairs,
 /area/ruin/unpowered)
 "Mn" = (
 /obj/structure/sink,
@@ -223,9 +260,8 @@
 	name = "\improper Cold Storage"
 	})
 "Os" = (
-/obj/structure/table/wood/fancy,
-/obj/item/guardiancreator/carp,
-/turf/open/floor/carpet/red/airless,
+/mob/living/simple_animal/hostile/pirate/ranged/beach,
+/turf/open/floor/carpet/red_gold,
 /area/ruin/powered{
 	name = "\improper Dining Hall"
 	})
@@ -244,6 +280,11 @@
 	})
 "Qi" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/reagent_containers/food/snacks/carpmeat,
+/obj/item/reagent_containers/food/snacks/carpmeat,
+/obj/item/reagent_containers/food/snacks/carpmeat,
+/obj/item/reagent_containers/food/snacks/carpmeat,
+/obj/item/reagent_containers/food/snacks/carpmeat,
 /turf/open/floor/plasteel/kitchen_coldroom/freezerfloor,
 /area/ruin/powered{
 	name = "\improper Cold Storage"
@@ -260,6 +301,12 @@
 /area/ruin/powered{
 	name = "\improper Cold Storage"
 	})
+"WT" = (
+/obj/structure/fence/corner{
+	dir = 5
+	},
+/turf/open/floor/wood,
+/area/ruin/unpowered)
 "Xp" = (
 /obj/structure/table/rolling,
 /obj/item/clothing/suit/space/hardsuit/carp,
@@ -275,6 +322,11 @@
 	})
 "YJ" = (
 /obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/carpmeat,
+/obj/item/reagent_containers/food/snacks/carpmeat,
+/obj/item/reagent_containers/food/snacks/carpmeat,
+/obj/item/reagent_containers/food/snacks/carpmeat,
+/obj/item/reagent_containers/food/snacks/carpmeat,
 /turf/open/floor/plasteel/kitchen_coldroom/freezerfloor,
 /area/ruin/powered{
 	name = "\improper Cold Storage"
@@ -401,7 +453,7 @@ ep
 (8,1,1) = {"
 ae
 ut
-hK
+Os
 wH
 KY
 Ds
@@ -409,7 +461,7 @@ hK
 ut
 ep
 OE
-QO
+pI
 QO
 QO
 ep
@@ -435,7 +487,7 @@ ae
 ut
 hK
 bE
-Os
+KY
 DO
 hK
 ut
@@ -451,7 +503,7 @@ ae
 ut
 hK
 oE
-oE
+tV
 oE
 hK
 ut
@@ -536,7 +588,7 @@ Eq
 Ko
 Ko
 Ko
-Iv
+hH
 FG
 FG
 FG
@@ -563,12 +615,12 @@ FG
 FG
 FG
 FG
-Iv
-Iv
-Iv
-Iv
-Iv
-Iv
+WT
+Em
+Em
+Em
+Em
+hH
 FG
 FG
 FG

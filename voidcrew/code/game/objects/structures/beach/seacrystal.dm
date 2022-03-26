@@ -87,7 +87,7 @@
 
 /obj/item/sea_crystal
 	name = "sea crystal"
-	desc = "It looks fragile"
+	desc = "A small crystalline object, it pulses in sync with the waves. You feel compelled to use it..."
 	icon = 'whitesands/icons/obj/lavaland/newlavalandplants.dmi'
 	icon_state = "unnamed_crystal"
 	color = COLOR_DARK_CYAN
