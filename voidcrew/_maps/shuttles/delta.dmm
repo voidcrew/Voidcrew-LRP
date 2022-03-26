@@ -164,24 +164,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/structure/closet/crate,
-/obj/item/reagent_containers/food/snacks/candy{
-	pixel_x = -3;
-	pixel_y = 1
-	},
-/obj/item/reagent_containers/food/snacks/candy,
-/obj/item/reagent_containers/food/snacks/candy{
-	pixel_x = 3;
-	pixel_y = -1
-	},
-/obj/item/reagent_containers/food/snacks/cookie{
-	pixel_x = -2;
-	pixel_y = -2
-	},
-/obj/item/reagent_containers/food/snacks/cookie{
-	pixel_x = -5;
-	pixel_y = -5
-	},
-/obj/item/reagent_containers/food/snacks/chocolatebar,
+/obj/item/food/candy,
+/obj/item/food/candy,
+/obj/item/food/candy,
+/obj/item/food/cookie,
+/obj/item/food/cookie,
+/obj/item/food/chocolatebar,
 /turf/open/floor/iron/dark,
 /area/ship/crew/canteen)
 "au" = (
@@ -559,7 +547,7 @@
 /obj/structure/girder/displaced,
 /obj/item/stack/sheet/mineral/titanium,
 /obj/item/stack/rods,
-/obj/item/stack/cable_coil/cut/red,
+/obj/item/stack/cable_coil/cut,
 /turf/open/floor/plating/airless,
 /area/ship/external)
 "bj" = (
@@ -610,7 +598,7 @@
 /area/ship/crew)
 "bp" = (
 /obj/structure/girder,
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -781,9 +769,7 @@
 "bK" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/table,
-/obj/item/trash/plate{
-	pixel_x = 12
-	},
+/obj/item/plate_shard,
 /obj/item/kitchen/fork{
 	pixel_x = 12;
 	pixel_y = 3
@@ -1184,10 +1170,10 @@
 	locked = 0;
 	name = "fridge"
 	},
-/obj/item/reagent_containers/food/snacks/sausage,
+/obj/item/food/sausage,
 /obj/item/reagent_containers/food/drinks/bottle/beer,
 /obj/item/reagent_containers/food/drinks/bottle/beer,
-/obj/item/reagent_containers/food/snacks/sandwich,
+,
 /obj/effect/turf_decal/tile/bar,
 /turf/open/floor/iron,
 /area/ship/crew/canteen)
@@ -1648,10 +1634,10 @@
 	pixel_y = -32
 	},
 /obj/item/slime_scanner,
-/obj/item/reagent_scanner,
+/obj/item/mod/module/reagent_scanner,
 /obj/item/survey_handheld,
-/obj/item/clothing/glasses/science/prescription,
-/obj/item/clothing/glasses/science/prescription,
+/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/science,
 /obj/item/clothing/glasses/science,
 /obj/item/clothing/glasses/science,
 /obj/item/clothing/accessory/armband/science,
@@ -2027,7 +2013,7 @@
 	pixel_x = -3;
 	pixel_y = -3
 	},
-/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/o_minus,
 /obj/item/reagent_containers/blood/random,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/bot,
