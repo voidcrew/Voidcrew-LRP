@@ -5,14 +5,6 @@
 "c" = (
 /turf/closed/wall/mineral/plastitanium,
 /area/ship/security)
-"e" = (
-/obj/machinery/porta_turret/centcom_shuttle/ballistic{
-	dir = 5;
-	name = "ship turret";
-	on = 0
-	},
-/turf/closed/wall/mineral/plastitanium,
-/area/ship/security)
 "l" = (
 /obj/machinery/power/shuttle/engine/electric{
 	dir = 4
@@ -29,6 +21,10 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
+/turf/closed/wall/mineral/plastitanium,
+/area/ship/security)
+"o" = (
+/obj/machinery/porta_turret/centcom_shuttle,
 /turf/closed/wall/mineral/plastitanium,
 /area/ship/security)
 "q" = (
@@ -163,15 +159,9 @@
 /obj/item/resonator,
 /obj/item/resonator,
 /obj/item/resonator,
-/obj/item/melee/transforming/energy/sword/saber/red{
-	name = "energy saber"
-	},
-/obj/item/melee/transforming/energy/sword/saber/red{
-	name = "energy saber"
-	},
-/obj/item/melee/transforming/energy/sword/saber/red{
-	name = "energy saber"
-	},
+/obj/item/melee/energy/sword/saber/red,
+/obj/item/melee/energy/sword/saber/red,
+/obj/item/melee/energy/sword/saber/red,
 /obj/item/mining_scanner,
 /obj/item/mining_scanner,
 /obj/item/mining_scanner,
@@ -195,14 +185,6 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/turf/closed/wall/mineral/plastitanium,
-/area/ship/security)
-"U" = (
-/obj/machinery/porta_turret/centcom_shuttle/ballistic{
-	dir = 6;
-	name = "ship turret";
-	on = 0
-	},
 /turf/closed/wall/mineral/plastitanium,
 /area/ship/security)
 
@@ -262,7 +244,7 @@ c
 c
 "}
 (6,1,1) = {"
-e
+o
 a
 a
 a
@@ -270,5 +252,5 @@ a
 a
 a
 a
-U
+o
 "}
