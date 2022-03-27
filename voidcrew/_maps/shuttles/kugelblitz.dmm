@@ -191,10 +191,7 @@
 /area/ship/engineering/engine)
 "ee" = (
 /obj/effect/turf_decal/tile/yellow/anticorner,
-/obj/structure/closet/secure{
-	icon_state = "med";
-	name = "Chemist's locker"
-	},
+/obj/structure/closet/secure_closet,
 /obj/item/construction/plumbing,
 /obj/item/clothing/suit/hazardvest,
 /obj/item/pipe_dispenser,
@@ -353,16 +350,13 @@
 /obj/effect/turf_decal/techfloor/orange{
 	dir = 8
 	},
-/obj/structure/closet/secure{
-	icon_state = "eng_secure";
-	name = "Engineer's locker"
-	},
+/obj/structure/closet/secure_closet,
 /obj/item/clothing/gloves/color/yellow,
 /obj/item/pipe_dispenser,
 /obj/item/clothing/glasses/meson/engine,
 /obj/item/clothing/suit/hazardvest,
-/obj/item/clothing/head/beret/eng/hazard,
-/obj/item/clothing/head/beret/eng,
+/obj/item/clothing/head/beret/engi,
+/obj/item/clothing/head/beret/engi,
 /obj/item/clothing/under/syndicate/tacticool,
 /obj/item/clothing/under/syndicate/tacticool/skirt,
 /obj/item/holosign_creator/engineering,
@@ -421,7 +415,7 @@
 "ja" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/obj/machinery/holopad/emergency/engineering,
+/obj/machinery/holopad,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
@@ -519,17 +513,14 @@
 /area/ship/engineering/atmospherics)
 "kc" = (
 /obj/effect/turf_decal/tile/blue,
-/obj/structure/closet/secure{
-	icon_state = "atmos";
-	name = "Technician's locker"
-	},
+/obj/structure/closet/secure_closet,
 /obj/item/clothing/gloves/color/yellow,
 /obj/item/pipe_dispenser,
 /obj/item/clothing/glasses/meson/engine,
 /obj/item/extinguisher/advanced,
 /obj/item/clothing/suit/hazardvest,
 /obj/item/clothing/head/beret/atmos,
-/obj/item/clothing/head/beret/eng/hazard,
+/obj/item/clothing/head/beret/engi,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -628,14 +619,14 @@
 /obj/structure/table,
 /obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/effect/spawner/random/food_or_drink/donkpockets,
-/obj/item/reagent_containers/food/snacks/hotdog,
-/obj/item/reagent_containers/food/snacks/hotdog,
-/obj/item/reagent_containers/food/snacks/hotdog,
-/obj/item/reagent_containers/food/snacks/hotdog,
-/obj/item/reagent_containers/food/snacks/hotdog,
-/obj/item/reagent_containers/food/snacks/hotdog,
-/obj/item/reagent_containers/food/snacks/hotdog,
-/obj/item/reagent_containers/food/snacks/hotdog,
+/obj/item/food/hotdog,
+/obj/item/food/hotdog,
+/obj/item/food/hotdog,
+/obj/item/food/hotdog,
+/obj/item/food/hotdog,
+/obj/item/food/hotdog,
+/obj/item/food/hotdog,
+/obj/item/food/hotdog,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/crew)
 "mi" = (
@@ -1138,16 +1129,13 @@
 /obj/effect/turf_decal/techfloor/orange{
 	dir = 8
 	},
-/obj/structure/closet/secure{
-	icon_state = "eng_secure";
-	name = "Engineer's locker"
-	},
+/obj/structure/closet/secure_closet,
 /obj/item/clothing/gloves/color/yellow,
 /obj/item/pipe_dispenser,
 /obj/item/clothing/glasses/meson/engine,
 /obj/item/clothing/suit/hazardvest,
-/obj/item/clothing/head/beret/eng/hazard,
-/obj/item/clothing/head/beret/eng,
+/obj/item/clothing/head/beret/engi,
+/obj/item/clothing/head/beret/engi,
 /obj/machinery/airalarm/directional/west,
 /obj/item/clothing/under/syndicate/tacticool,
 /obj/item/clothing/under/syndicate/tacticool/skirt,
@@ -1313,17 +1301,14 @@
 /area/ship/engineering)
 "yz" = (
 /obj/effect/turf_decal/tile/blue,
-/obj/structure/closet/secure{
-	icon_state = "atmos";
-	name = "Technician's locker"
-	},
+/obj/structure/closet/secure_closet,
 /obj/item/clothing/gloves/color/yellow,
 /obj/item/pipe_dispenser,
 /obj/item/clothing/glasses/meson/engine,
 /obj/item/extinguisher/advanced,
 /obj/item/clothing/suit/hazardvest,
 /obj/item/clothing/head/beret/atmos,
-/obj/item/clothing/head/beret/eng/hazard,
+/obj/item/clothing/head/beret/engi,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/under/syndicate/tacticool,
 /obj/item/clothing/under/syndicate/tacticool/skirt,
@@ -1339,16 +1324,13 @@
 /obj/effect/turf_decal/techfloor/orange{
 	dir = 8
 	},
-/obj/structure/closet/secure{
-	icon_state = "eng_secure";
-	name = "Engineer's locker"
-	},
+/obj/structure/closet/secure_closet,
 /obj/item/clothing/gloves/color/yellow,
 /obj/item/pipe_dispenser,
 /obj/item/clothing/glasses/meson/engine,
 /obj/item/clothing/suit/hazardvest,
-/obj/item/clothing/head/beret/eng/hazard,
-/obj/item/clothing/head/beret/eng,
+/obj/item/clothing/head/beret/engi,
+/obj/item/clothing/head/beret/engi,
 /obj/item/clothing/under/syndicate/tacticool,
 /obj/item/clothing/under/syndicate/tacticool/skirt,
 /obj/item/holosign_creator/engineering,
@@ -1607,7 +1589,7 @@
 "Gj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /obj/effect/turf_decal/tile/purple,
-/obj/item/mecha_parts/mecha_equipment/cable_layer,
+,
 /turf/open/floor/iron/dark,
 /area/ship/science/robotics)
 "Gp" = (
@@ -1724,7 +1706,7 @@
 /obj/effect/turf_decal/rechargefloor,
 /obj/effect/turf_decal/tile/purple,
 /obj/item/clothing/suit/fire/firefighter,
-/obj/item/mecha_parts/chassis/firefighter,
+/obj/item/mecha_parts/chassis/ripley,
 /obj/item/radio/intercom{
 	pixel_y = -32
 	},
@@ -1772,13 +1754,10 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ship/crew)
 "JE" = (
-/obj/structure/closet/secure{
-	icon_state = "ce";
-	name = "Overseer's locker"
-	},
+/obj/structure/closet/secure_closet,
 /obj/item/clothing/gloves/combat,
 /obj/item/pipe_dispenser,
-/obj/item/clothing/head/beret/eng,
+/obj/item/clothing/head/beret/engi,
 /obj/item/clothing/head/beret/engi,
 /obj/item/clothing/suit/hazardvest,
 /obj/item/clothing/head/hardhat/weldhat/white,
