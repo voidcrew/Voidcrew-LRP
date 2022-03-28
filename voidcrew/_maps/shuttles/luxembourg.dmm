@@ -74,14 +74,14 @@
 /obj/structure/closet/secure_closet/quartermaster,
 /obj/item/clothing/suit/armor/vest/capcarapace/syndicate,
 /obj/item/storage/box/syndie_kit/chameleon,
-/obj/item/card/id/syndicate,
-/obj/item/clothing/head/HoS/beret/syndicate,
+/obj/item/card/id/advanced/black/syndicate_command/crew_id,
+/obj/item/clothing/head/hos/beret/syndicate,
 /obj/item/card/emag,
 /obj/item/radio/headset/syndicate/alt,
 /obj/item/storage/belt/sabre,
 /obj/item/gun/energy/kinetic_accelerator,
 /obj/item/tank/internals/emergency_oxygen/double,
-/obj/item/clothing/under/syndicate/intern,
+/obj/item/clothing/under/syndicate,
 /obj/item/storage/backpack/duffelbag/syndie,
 /turf/open/floor/plating,
 /area/ship/engineering)
@@ -222,7 +222,7 @@
 /obj/item/clothing/glasses/meson,
 /obj/item/clothing/glasses/meson,
 /obj/item/clothing/glasses/meson,
-/obj/item/clothing/suit/space/hardsuit/mining,
+/obj/item/mod/control/pre_equipped/mining,
 /obj/item/clothing/suit/hooded/explorer,
 /obj/item/clothing/suit/hooded/explorer,
 /turf/open/floor/iron/dark,
@@ -456,9 +456,7 @@
 "jf" = (
 /obj/structure/table,
 /obj/machinery/microwave,
-/obj/structure/sign/poster/contraband/syndicate{
-	pixel_x = -32
-	},
+/obj/structure/sign/poster/contraband/gorlex_recruitment,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/bridge)
 "jg" = (
@@ -585,8 +583,8 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/obj/item/clothing/head/HoS/beret/syndicate,
-/obj/item/card/id/syndicate,
+/obj/item/clothing/head/hos/beret/syndicate,
+/obj/item/card/id/advanced/black/syndicate_command/crew_id,
 /obj/item/clothing/under/syndicate,
 /obj/item/clothing/under/syndicate/skirt,
 /obj/item/clothing/under/syndicate/bloodred/sleepytime,
@@ -616,8 +614,8 @@
 /turf/open/floor/iron/dark,
 /area/ship/storage)
 "nx" = (
-/obj/item/clothing/head/HoS/beret/syndicate,
-/obj/item/card/id/syndicate,
+/obj/item/clothing/head/hos/beret/syndicate,
+/obj/item/card/id/advanced/black/syndicate_command/crew_id,
 /obj/item/clothing/under/syndicate/skirt,
 /obj/item/clothing/under/syndicate/bloodred/sleepytime,
 /obj/item/radio/headset/syndicate/alt,
@@ -625,7 +623,7 @@
 	dir = 4;
 	pixel_x = 26
 	},
-/obj/item/clothing/under/syndicate/intern,
+/obj/item/clothing/under/syndicate,
 /obj/structure/closet/secure_closet/medical3,
 /turf/open/floor/plating,
 /area/ship/engineering)
@@ -688,9 +686,9 @@
 	dir = 4
 	},
 /obj/structure/rack,
-/obj/item/card/id/syndicate,
-/obj/item/card/id/syndicate,
-/obj/item/card/id/syndicate,
+/obj/item/card/id/advanced/black/syndicate_command/crew_id,
+/obj/item/card/id/advanced/black/syndicate_command/crew_id,
+/obj/item/card/id/advanced/black/syndicate_command/crew_id,
 /obj/item/radio/headset/syndicate/alt,
 /obj/item/radio/headset/syndicate/alt,
 /obj/item/radio/headset/syndicate/alt,
@@ -847,9 +845,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/mecha/working/ripley{
-	name = "\improper Donk! Co. Cargo Loading Device"
-	},
+/obj/vehicle/sealed/mecha/working/ripley,
 /obj/structure/closet/crate/large{
 	name = "Donk! Co. Powerloader In a Box"
 	},
@@ -859,14 +855,14 @@
 /turf/open/floor/iron/dark,
 /area/ship/storage)
 "tN" = (
-/obj/item/card/id/syndicate,
+/obj/item/card/id/advanced/black/syndicate_command/crew_id,
 /obj/item/clothing/under/syndicate/skirt,
 /obj/item/clothing/under/syndicate/bloodred/sleepytime,
-/obj/item/clothing/head/HoS/beret/syndicate,
+/obj/item/clothing/head/hos/beret/syndicate,
 /obj/item/radio/headset/syndicate/alt,
 /obj/item/wrench/combat,
 /obj/item/pipe_dispenser,
-/obj/item/clothing/under/syndicate/intern,
+/obj/item/clothing/under/syndicate,
 /obj/structure/closet/secure_closet/engineering_personal{
 	req_access = list(11,41)
 	},
@@ -1302,17 +1298,17 @@
 /obj/structure/closet/secure_closet/personal{
 	name = "cargo tech's locker"
 	},
-/obj/item/card/id/syndicate,
+/obj/item/card/id/advanced/black/syndicate_command/crew_id,
 /obj/item/clothing/under/syndicate/skirt,
 /obj/item/clothing/under/syndicate/bloodred/sleepytime,
-/obj/item/clothing/head/HoS/beret/syndicate,
+/obj/item/clothing/head/hos/beret/syndicate,
 /obj/item/toy/figure/cargotech,
 /obj/item/radio/headset/syndicate/alt,
 /obj/item/clothing/head/beret/cargo,
 /obj/item/clothing/suit/hooded/wintercoat/cargo,
 /obj/item/encryptionkey/headset_cargo,
 /obj/item/stack/sheet/cardboard/fifty,
-/obj/item/clothing/under/syndicate/intern,
+/obj/item/clothing/under/syndicate,
 /obj/item/hand_labeler,
 /obj/item/hand_labeler_refill,
 /turf/open/floor/plating,
@@ -1336,10 +1332,10 @@
 /obj/structure/closet/secure_closet/personal{
 	name = "cargo tech's locker"
 	},
-/obj/item/card/id/syndicate,
+/obj/item/card/id/advanced/black/syndicate_command/crew_id,
 /obj/item/clothing/under/syndicate/skirt,
 /obj/item/clothing/under/syndicate/bloodred/sleepytime,
-/obj/item/clothing/head/HoS/beret/syndicate,
+/obj/item/clothing/head/hos/beret/syndicate,
 /obj/item/toy/figure/cargotech,
 /obj/item/radio/headset/syndicate/alt,
 /obj/item/clothing/head/beret/cargo,
@@ -1347,7 +1343,7 @@
 /obj/item/encryptionkey/headset_cargo,
 /obj/item/stack/sheet/cardboard/fifty,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/under/syndicate/intern,
+/obj/item/clothing/under/syndicate,
 /obj/item/hand_labeler,
 /obj/item/hand_labeler_refill,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -1722,12 +1718,12 @@
 /obj/item/clothing/under/syndicate/bloodred/sleepytime,
 /obj/item/clothing/under/syndicate/bloodred/sleepytime,
 /obj/item/clothing/under/syndicate/bloodred/sleepytime,
-/obj/item/clothing/under/syndicate/intern,
-/obj/item/clothing/under/syndicate/intern,
-/obj/item/clothing/under/syndicate/intern,
-/obj/item/clothing/head/HoS/beret/syndicate,
-/obj/item/clothing/head/HoS/beret/syndicate,
-/obj/item/clothing/head/HoS/beret/syndicate,
+/obj/item/clothing/under/syndicate,
+/obj/item/clothing/under/syndicate,
+/obj/item/clothing/under/syndicate,
+/obj/item/clothing/head/hos/beret/syndicate,
+/obj/item/clothing/head/hos/beret/syndicate,
+/obj/item/clothing/head/hos/beret/syndicate,
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/carpet/donk,
 /area/ship/crew/dorm)
@@ -1936,9 +1932,7 @@
 	default_price = 0;
 	extra_price = 0
 	},
-/obj/structure/sign/poster/contraband/syndicate{
-	pixel_x = -32
-	},
+/obj/structure/sign/poster/contraband/gorlex_recruitment,
 /turf/open/floor/carpet/donk,
 /area/ship/crew/dorm)
 "ZH" = (
