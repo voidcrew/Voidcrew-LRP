@@ -10,7 +10,7 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/port)
 "aT" = (
-/obj/item/clothing/suit/space/hardsuit/combatmedic,
+/obj/item/mod/control/pre_equipped/responsory/medic,
 /obj/item/tank/internals/emergency_oxygen/engi,
 /obj/item/clothing/mask/gas/sechailer,
 /obj/effect/turf_decal/bot_red,
@@ -44,7 +44,7 @@
 /turf/open/floor/iron,
 /area/ship/storage)
 "bC" = (
-/obj/item/clothing/suit/space/hardsuit/combatmedic,
+/obj/item/mod/control/pre_equipped/responsory/medic,
 /obj/item/tank/internals/emergency_oxygen/engi,
 /obj/item/clothing/mask/gas/sechailer,
 /obj/effect/turf_decal/bot_red,
@@ -64,9 +64,7 @@
 	dir = 4;
 	pixel_x = 24
 	},
-/obj/structure/sign/poster/retro/smile{
-	pixel_y = -32
-	},
+/obj/structure/sign/poster/contraband/clown,
 /obj/structure/frame/computer{
 	dir = 1
 	},
@@ -368,7 +366,7 @@
 /obj/item/healthanalyzer/advanced,
 /obj/item/healthanalyzer/advanced,
 /obj/item/healthanalyzer/advanced,
-/obj/item/storage/belt/medical/surgery,
+/obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical/paramedic,
 /obj/item/clothing/gloves/color/latex/nitrile,
 /obj/item/clothing/gloves/color/latex/nitrile,
@@ -754,12 +752,12 @@
 /obj/item/storage/backpack/satchel/med,
 /obj/item/storage/backpack/satchel/med,
 /obj/item/storage/backpack/satchel/med,
-/obj/item/clothing/under/rank/medical/doctor/junior_doctor/skirt,
-/obj/item/clothing/under/rank/medical/doctor/junior_doctor/skirt,
-/obj/item/clothing/under/rank/medical/doctor/junior_doctor/skirt,
-/obj/item/clothing/under/rank/medical/doctor/junior_doctor,
-/obj/item/clothing/under/rank/medical/doctor/junior_doctor,
-/obj/item/clothing/under/rank/medical/doctor/junior_doctor,
+/obj/item/clothing/under/rank/medical/doctor/skirt,
+/obj/item/clothing/under/rank/medical/doctor/skirt,
+/obj/item/clothing/under/rank/medical/doctor/skirt,
+/obj/item/clothing/under/rank/medical/doctor,
+/obj/item/clothing/under/rank/medical/doctor,
+/obj/item/clothing/under/rank/medical/doctor,
 /obj/item/clothing/shoes/sneakers/blue,
 /obj/item/clothing/shoes/sneakers/blue,
 /obj/item/clothing/shoes/sneakers/blue,
@@ -1383,7 +1381,7 @@
 /obj/item/storage/box/medigels,
 /obj/item/reagent_containers/dropper,
 /obj/item/reagent_containers/dropper,
-/obj/item/clothing/suit/toggle/labcoat/chemist/side,
+/obj/item/clothing/suit/toggle/labcoat/chemist,
 /obj/item/clothing/glasses/science,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/item/reagent_containers/glass/beaker/large,
@@ -1479,14 +1477,14 @@
 /area/ship/bridge)
 "Nq" = (
 /obj/item/clothing/gloves/color/latex/nitrile,
-/obj/item/clothing/under/suit/cmo,
+/obj/item/clothing/under/rank/medical/chief_medical_officer,
 /obj/item/clothing/suit/toggle/labcoat/cmo,
 /obj/item/clothing/shoes/sneakers/white,
 /obj/item/clothing/glasses/hud/health/sunglasses,
 /obj/item/storage/belt/medical,
-/obj/item/clothing/neck/tie/light_blue,
+/obj/item/clothing/neck/tie,
 /obj/item/healthanalyzer/advanced,
-/obj/item/hypospray/mkii/CMO,
+/obj/item/hypospray/cmo,
 /obj/structure/closet/secure_closet/wall{
 	dir = 1;
 	icon_state = "solgov_wall";
@@ -1684,7 +1682,7 @@
 /turf/open/floor/iron/showroomfloor,
 /area/ship/medical)
 "SH" = (
-/obj/item/clothing/suit/space/hardsuit/combatmedic,
+/obj/item/mod/control/pre_equipped/responsory/medic,
 /obj/item/tank/internals/emergency_oxygen/engi,
 /obj/item/clothing/mask/gas/sechailer,
 /obj/structure/extinguisher_cabinet{
