@@ -121,7 +121,7 @@
 	id = "piratecargo";
 	name = "Cargo Bay"
 	},
-/turf/open/floor/engine/hull/interior,
+/turf/open/floor/engine/hull,
 /area/ship/cargo)
 "fi" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
@@ -169,7 +169,7 @@
 	name = "Port Launch Tube"
 	},
 /obj/structure/fans/tiny,
-/turf/open/floor/engine/hull/interior,
+/turf/open/floor/engine/hull,
 /area/ship/security)
 "hb" = (
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
@@ -198,7 +198,7 @@
 	name = "Starboard Launch Tube"
 	},
 /obj/structure/fans/tiny,
-/turf/open/floor/engine/hull/interior,
+/turf/open/floor/engine/hull,
 /area/ship/security)
 "kK" = (
 /obj/structure/grille,
@@ -359,8 +359,8 @@
 	pixel_y = 12
 	},
 /obj/effect/turf_decal/stripes/corner,
-/obj/machinery/suit_storage_unit/inherit,
-/obj/item/clothing/suit/space/hardsuit/swat,
+/obj/machinery/suit_storage_unit,
+/obj/item/mod/control/pre_equipped/security,
 /obj/item/tank/jetpack/carbondioxide,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/security)
@@ -1465,7 +1465,7 @@
 	name = "Cargo Bay"
 	},
 /obj/structure/fans/tiny,
-/turf/open/floor/engine/hull/interior,
+/turf/open/floor/engine/hull,
 /area/ship/cargo)
 "TT" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
