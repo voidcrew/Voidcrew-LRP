@@ -320,13 +320,13 @@
 /area/ship/science)
 "fn" = (
 /obj/item/kirbyplants/dead,
-/obj/item/aiModule/toyAI,
+/obj/item/ai_module/toy_ai,
 /obj/machinery/airalarm/directional/east,
 /turf/open/floor/carpet/purple,
 /area/ship/crew/office)
 "fo" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/robot_debris/gib,
+/obj/effect/decal/cleanable/robot_debris,
 /turf/open/floor/mineral/titanium/tiled/purple,
 /area/ship/science/ai_chamber)
 "fC" = (
@@ -755,7 +755,7 @@
 /turf/open/floor/mineral/titanium/tiled,
 /area/ship/crew/canteen)
 "mc" = (
-/obj/machinery/holopad/emergency/science,
+/obj/machinery/holopad,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/carpet/purple,
@@ -879,10 +879,7 @@
 "nT" = (
 /obj/structure/window/reinforced/spawner,
 /obj/structure/closet/l3closet/scientist,
-/obj/item/clothing/suit/toggle/labcoat/raincoat{
-	desc = "A translucent, uniquely designed labcoat. It's made from a special material that actively repels fluids. You're pretty sure this is just a raincoat";
-	name = "clear labcoat"
-	},
+/obj/item/clothing/suit/toggle/labcoat,
 /turf/open/floor/mineral/titanium/tiled/purple,
 /area/ship/science)
 "oc" = (
@@ -1020,7 +1017,7 @@
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/ship/hallway/fore)
 "qR" = (
-/obj/effect/decal/cleanable/robot_debris/gib,
+/obj/effect/decal/cleanable/robot_debris,
 /obj/effect/decal/cleanable/generic,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 1
@@ -1122,7 +1119,7 @@
 /turf/open/floor/mineral/titanium/tiled,
 /area/ship/crew/toilet)
 "sk" = (
-/obj/effect/decal/cleanable/robot_debris/gib,
+/obj/effect/decal/cleanable/robot_debris,
 /obj/item/bodypart/r_leg/robot,
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable{
@@ -1234,7 +1231,7 @@
 /area/ship/bridge)
 "ur" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/mob_spawn/human/corpse/damaged,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/ship/science)
 "us" = (
@@ -1351,7 +1348,7 @@
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/ship/hallway/aft)
 "wq" = (
-/obj/effect/mob_spawn/human/corpse/damaged,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/firedoor/closed,
 /turf/open/floor/mineral/titanium/tiled/white,
@@ -1390,7 +1387,7 @@
 /area/ship/science)
 "wR" = (
 /obj/structure/table,
-/obj/item/reagent_containers/food/snacks/cubancarp,
+/obj/item/food/cubancarp,
 /turf/open/floor/mineral/titanium/tiled,
 /area/ship/crew/canteen)
 "xg" = (
@@ -1545,7 +1542,7 @@
 /area/ship/crew/toilet)
 "zb" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/holopad/emergency/science,
+/obj/machinery/holopad,
 /obj/structure/cable{
 	icon_state = "2-9"
 	},
@@ -1568,16 +1565,13 @@
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/ship/hallway/fore)
 "zw" = (
-/obj/structure/closet/secure_closet/RD,
+/obj/structure/closet/secure_closet/research_director,
 /obj/item/reagent_containers/food/drinks/flask/gold,
 /obj/item/areaeditor/shuttle,
-/obj/item/aiModule/core/freeformcore,
+/obj/item/ai_module/core/freeformcore,
 /obj/item/gun/energy/laser/hitscanpistol,
 /obj/item/disk/nuclear/fake/obvious,
-/obj/item/clothing/suit/toggle/labcoat/raincoat{
-	desc = "A translucent, uniquely designed labcoat. It's made from a special material that actively repels fluids. You're pretty sure this is just a raincoat";
-	name = "clear labcoat"
-	},
+/obj/item/clothing/suit/toggle/labcoat,
 /turf/open/floor/carpet/purple,
 /area/ship/crew/office)
 "zx" = (
@@ -1621,7 +1615,7 @@
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/ship/science)
 "Af" = (
-/obj/effect/mob_spawn/human/corpse/damaged,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /obj/structure/cable{
 	icon_state = "5-8"
 	},
@@ -1684,14 +1678,11 @@
 /obj/item/clothing/suit/hooded/flashsuit,
 /obj/item/clothing/head/collectable/petehat,
 /obj/item/fakeartefact,
-/obj/item/clothing/suit/toggle/labcoat/raincoat{
-	desc = "A translucent, uniquely designed labcoat. It's made from a special material that actively repels fluids. You're pretty sure this is just a raincoat";
-	name = "clear labcoat"
-	},
+/obj/item/clothing/suit/toggle/labcoat,
 /turf/open/floor/plating,
 /area/ship/storage)
 "AQ" = (
-/obj/item/extinguisher/empty,
+/obj/item/extinguisher,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -2039,7 +2030,7 @@
 /area/ship/crew/canteen)
 "ET" = (
 /obj/structure/table,
-/obj/item/reagent_containers/food/snacks/soup/electron,
+/obj/item/food/soup/electron,
 /obj/machinery/firealarm{
 	pixel_y = 25
 	},
@@ -2049,10 +2040,7 @@
 /obj/structure/window/reinforced/spawner,
 /obj/structure/window/reinforced/spawner/west,
 /obj/structure/closet/l3closet/scientist,
-/obj/item/clothing/suit/toggle/labcoat/raincoat{
-	desc = "A translucent, uniquely designed labcoat. It's made from a special material that actively repels fluids. You're pretty sure this is just a raincoat";
-	name = "clear labcoat"
-	},
+/obj/item/clothing/suit/toggle/labcoat,
 /turf/open/floor/mineral/titanium/tiled/purple,
 /area/ship/science)
 "Fm" = (
@@ -2355,7 +2343,7 @@
 /area/ship/hallway/aft)
 "IB" = (
 /obj/structure/table,
-/obj/item/reagent_containers/food/snacks/burger/xeno,
+/obj/item/food/burger/xeno,
 /turf/open/floor/mineral/titanium/tiled,
 /area/ship/crew/canteen)
 "IE" = (
@@ -2390,7 +2378,7 @@
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/ship/hallway/aft)
 "IY" = (
-/obj/item/weldingtool/largetank/empty,
+/obj/item/weldingtool/largetank,
 /obj/item/clothing/mask/gas/welding,
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2433,9 +2421,7 @@
 /turf/open/floor/plating,
 /area/ship/science)
 "Jo" = (
-/obj/machinery/computer/rdconsole/robotics{
-	dir = 8
-	},
+/obj/machinery/computer/robotics,
 /turf/open/floor/mineral/titanium/tiled,
 /area/ship/science/robotics)
 "Jq" = (
@@ -2587,7 +2573,7 @@
 /turf/open/floor/mineral/titanium/tiled/purple,
 /area/ship/science/ai_chamber)
 "LG" = (
-/obj/machinery/holopad/emergency/science,
+/obj/machinery/holopad,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/ship/science)
 "LH" = (
@@ -2756,9 +2742,7 @@
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/ship/hallway/aft)
 "NZ" = (
-/obj/machinery/computer/rdconsole/core{
-	dir = 4
-	},
+/obj/machinery/computer/rdconsole,
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/ship/science)
 "Ob" = (
@@ -3246,7 +3230,7 @@
 	},
 /area/ship/storage)
 "Vb" = (
-/obj/structure/AIcore,
+/obj/strucutre/ai_core,
 /obj/item/mmi/posibrain,
 /obj/machinery/turretid{
 	pixel_y = -24
@@ -3528,10 +3512,7 @@
 /obj/structure/cable{
 	icon_state = "0-9"
 	},
-/obj/item/clothing/suit/toggle/labcoat/raincoat{
-	desc = "A translucent, uniquely designed labcoat. It's made from a special material that actively repels fluids. You're pretty sure this is just a raincoat";
-	name = "clear labcoat"
-	},
+/obj/item/clothing/suit/toggle/labcoat,
 /turf/open/floor/mineral/titanium/tiled,
 /area/ship/crew/toilet)
 "Yf" = (
