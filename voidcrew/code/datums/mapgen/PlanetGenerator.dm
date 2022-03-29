@@ -49,30 +49,30 @@
 		if(height <= mountain_height)
 			switch(heat)
 				if(0 to 0.20)
-					heat_level = planet_type.coldest_biomes
+					heat_level = planet_type.biomes["coldest"]
 				if(0.20 to 0.40)
-					heat_level = planet_type.cold_biomes
+					heat_level = planet_type.biomes["cold"]
 				if(0.40 to 0.60)
-					heat_level = planet_type.warm_biomes
+					heat_level = planet_type.biomes["warm"]
 				if(0.60 to 0.65)
-					heat_level = planet_type.perfect_biomes
+					heat_level = planet_type.biomes["perfect"]
 				if(0.65 to 0.80)
-					heat_level = planet_type.hot_biomes
+					heat_level = planet_type.biomes["hot"]
 				if(0.80 to 1)
-					heat_level = planet_type.hottest_biomes
+					heat_level = planet_type.biomes["hottest"]
 			selected_biome = heat_level[humidity_level]
 			selected_biome = SSmapping.biomes[selected_biome]
 			selected_biome.generate_overworld(gen_turf)
 		else
 			switch(heat)
 				if(0 to 0.25)
-					heat_level = planet_type.coldest_cave_biomes
+					heat_level = planet_type.biomes["coldest_cave"]
 				if(0.25 to 0.5)
-					heat_level = planet_type.cold_cave_biomes
+					heat_level = planet_type.biomes["cold_cave"]
 				if(0.5 to 0.75)
-					heat_level = planet_type.warm_cave_biomes
+					heat_level = planet_type.biomes["warm_cave"]
 				if(0.75 to 1)
-					heat_level = planet_type.hot_cave_biomes
+					heat_level = planet_type.biomes["hot_cave"]
 			selected_cave_biome = heat_level[humidity_level]
 			selected_cave_biome = SSmapping.biomes[selected_cave_biome]
 			selected_cave_biome.generate_caves(gen_turf, string_gen)
