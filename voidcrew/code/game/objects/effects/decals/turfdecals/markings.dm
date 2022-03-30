@@ -109,3 +109,46 @@
 /obj/effect/turf_decal/radiation/white
 	icon = 'voidcrew/icons/turf/decals.dmi'
 	icon_state = "radiation-w"
+
+///SYNDICATE EMBLEM///
+//Bottom
+
+/obj/effect/turf_decal/syndicateemblem/bottom/left
+	icon = 'voidcrew/icons/turf/decals.dmi'
+	icon_state = "s1,1"
+
+/obj/effect/turf_decal/syndicateemblem/bottom/middle
+	icon = 'voidcrew/icons/turf/decals.dmi'
+	icon_state = "s1,2"
+
+/obj/effect/turf_decal/syndicateemblem/bottom/right
+	icon = 'voidcrew/icons/turf/decals.dmi'
+	icon_state = "s1,3"
+
+//Middle
+
+/obj/effect/turf_decal/syndicateemblem/middle/left
+	icon = 'voidcrew/icons/turf/decals.dmi'
+	icon_state = "s2,1"
+
+/obj/effect/turf_decal/syndicateemblem/middle/middle
+	icon = 'voidcrew/icons/turf/decals.dmi'
+	icon_state = "s2,2"
+
+/obj/effect/turf_decal/syndicateemblem/middle/right
+	icon = 'voidcrew/icons/turf/decals.dmi'
+	icon_state = "s2,3"
+
+//Top
+
+/obj/effect/turf_decal/syndicateemblem/top/left
+	icon = 'voidcrew/icons/turf/decals.dmi'
+	icon_state = "s3,1"
+
+/obj/effect/turf_decal/syndicateemblem/top/middle
+	icon = 'voidcrew/icons/turf/decals.dmi'
+	icon_state = "s3,2"
+
+/obj/effect/turf_decal/syndicateemblem/top/right
+	icon = 'voidcrew/icons/turf/decals.dmi'
+	icon_state = "s3,3"
