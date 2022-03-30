@@ -1661,9 +1661,9 @@
 /obj/item/ammo_casing/caseless/rocket,
 /obj/item/ammo_casing/caseless/rocket,
 /obj/item/ammo_casing/caseless/rocket/hedp,
-/obj/item/stock_parts/cell/gun,
-/obj/item/stock_parts/cell/gun,
-/obj/item/stock_parts/cell/gun,
+/obj/item/stock_parts/cell,
+/obj/item/stock_parts/cell,
+/obj/item/stock_parts/cell,
 /obj/item/storage/box/rubbershot,
 /obj/item/storage/box/rubbershot,
 /obj/item/storage/box/rubbershot,
@@ -2146,7 +2146,7 @@
 "xH" = (
 /obj/structure/closet/crate/freezer/blood,
 /obj/effect/turf_decal/tile/red,
-/turf/open/floor/plasteel/white/airless,
+/turf/open/floor/iron/dark/airless,
 /area/ship/medical)
 "xI" = (
 /obj/effect/turf_decal/stripes/line,
@@ -3517,11 +3517,7 @@
 	req_access = null;
 	req_access_txt = "151"
 	},
-/obj/item/card/id/syndicate_command{
-	access_txt = "150;151";
-	desc = "The spare ID from the syndicate battlecruiser's captain himself.";
-	name = "captain's spare ID"
-	},
+/obj/item/card/id/advanced/black/syndicate_command,
 /obj/item/clothing/under/syndicate,
 /obj/item/ammo_box/a357,
 /obj/item/ammo_box/a357,
