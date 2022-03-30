@@ -105,3 +105,10 @@
 	category = list ("Cassette Technology")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
+/datum/design/board/selling_pad
+	name = "Machine Design (Cargo Hold Pad)"
+	desc = "The circuit board for a Cargo Hold Pad."
+	id = "selling_pad"
+	build_path = /obj/item/circuitboard/machine/selling_pad
+	category = list ("Misc. Machinery")
+	departmental_flags = DEPARTMENTAL_FLAG_CARGO
