@@ -99,7 +99,7 @@
 /turf/open/floor/iron,
 /area/ship/cargo)
 "cH" = (
-/obj/structure/window/plasma/reinforced/spawner,
+/obj/structure/window/plasma/spawner,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /turf/open/floor/engine/vacuum,
 /area/ship/engineering/atmospherics)
@@ -267,7 +267,7 @@
 /obj/machinery/atmospherics/components/unary/outlet_injector/on{
 	dir = 1
 	},
-/obj/structure/window/plasma/reinforced/spawner,
+/obj/structure/window/plasma/spawner,
 /turf/open/floor/engine/vacuum,
 /area/ship/engineering/atmospherics)
 "jb" = (
@@ -276,7 +276,7 @@
 "jh" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high/plus,
+/obj/item/stock_parts/cell/high,
 /obj/machinery/airalarm/directional/south,
 /obj/machinery/light/broken{
 	dir = 8
@@ -341,7 +341,7 @@
 /obj/item/stack/sheet/glass{
 	amount = 10
 	},
-/obj/item/stack/sheet/metal/twenty,
+/obj/item/stack/sheet/iron/twenty,
 /obj/effect/turf_decal/tile/brown/anticorner,
 /turf/open/floor/iron,
 /area/ship/cargo)
@@ -358,17 +358,9 @@
 	pixel_x = 6;
 	pixel_y = -2
 	},
-/obj/item/trash/plate{
-	pixel_x = -6;
-	pixel_y = -2
-	},
-/obj/item/trash/plate{
-	pixel_y = 12
-	},
-/obj/item/trash/plate{
-	pixel_x = 11;
-	pixel_y = 4
-	},
+/obj/item/plate_shard,
+/obj/item/plate_shard,
+/obj/item/plate_shard,
 /obj/item/kitchen/fork{
 	pixel_x = 12;
 	pixel_y = 3
@@ -392,7 +384,7 @@
 /obj/machinery/atmospherics/components/unary/outlet_injector/on{
 	dir = 1
 	},
-/obj/structure/window/plasma/reinforced/spawner,
+/obj/structure/window/plasma/spawner,
 /turf/open/floor/engine/vacuum,
 /area/ship/engineering/atmospherics)
 "mb" = (
@@ -434,7 +426,7 @@
 /area/ship/engineering)
 "nJ" = (
 /obj/structure/window/reinforced/plasma/spawner/west,
-/obj/structure/window/plasma/reinforced/spawner,
+/obj/structure/window/plasma/spawner,
 /obj/machinery/portable_atmospherics/canister,
 /turf/open/floor/iron,
 /area/ship/engineering/atmospherics)
@@ -448,7 +440,7 @@
 "oC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/structure/window/reinforced/plasma/spawner/east,
-/obj/structure/window/plasma/reinforced/spawner,
+/obj/structure/window/plasma/spawner,
 /obj/machinery/portable_atmospherics/canister,
 /turf/open/floor/iron,
 /area/ship/engineering/atmospherics)
@@ -541,7 +533,7 @@
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 10
 	},
-/obj/item/stack/sheet/metal/twenty,
+/obj/item/stack/sheet/iron/twenty,
 /obj/item/stack/sheet/glass{
 	amount = 10
 	},
@@ -931,7 +923,7 @@
 /turf/open/floor/plating,
 /area/ship/engineering)
 "Er" = (
-/obj/structure/window/plasma/reinforced/spawner,
+/obj/structure/window/plasma/spawner,
 /turf/open/floor/engine/vacuum,
 /area/ship/engineering/atmospherics)
 "EF" = (
@@ -970,18 +962,9 @@
 /area/ship/engineering/atmospherics)
 "GY" = (
 /obj/structure/closet/secure_closet/freezer/fridge/open,
-/obj/item/reagent_containers/food/snacks/meat/slab/synthmeat{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/food/snacks/meat/slab/synthmeat{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/food/snacks/meat/slab/synthmeat{
-	pixel_x = -3;
-	pixel_y = 3
-	},
+/obj/item/food/meat/slab/synthmeat,
+/obj/item/food/meat/slab/synthmeat,
+/obj/item/food/meat/slab/synthmeat,
 /obj/item/reagent_containers/food/condiment/flour{
 	pixel_x = -3;
 	pixel_y = 3
@@ -1115,9 +1098,7 @@
 /area/ship/hallway/central)
 "Kr" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/holopad/emergency/command{
-	pixel_y = 16
-	},
+/obj/machinery/holopad,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
@@ -1131,7 +1112,7 @@
 /turf/open/floor/iron,
 /area/ship/cargo)
 "KP" = (
-/obj/structure/window/plasma/reinforced/spawner,
+/obj/structure/window/plasma/spawner,
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos,
 /turf/open/floor/engine/vacuum,
 /area/ship/engineering/atmospherics)
@@ -1466,9 +1447,7 @@
 /obj/machinery/reagentgrinder{
 	pixel_y = 6
 	},
-/obj/item/kitchen/knife{
-	pixel_x = 16
-	},
+/obj/item/knife,
 /obj/item/kitchen/rollingpin{
 	pixel_x = 8
 	},

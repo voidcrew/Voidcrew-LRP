@@ -5,14 +5,6 @@
 "c" = (
 /turf/closed/wall/mineral/plastitanium,
 /area/ship/security)
-"e" = (
-/obj/machinery/porta_turret/centcom_shuttle/ballistic{
-	dir = 5;
-	name = "ship turret";
-	on = 0
-	},
-/turf/closed/wall/mineral/plastitanium,
-/area/ship/security)
 "l" = (
 /obj/machinery/power/shuttle/engine/electric{
 	dir = 4
@@ -29,6 +21,10 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
+/turf/closed/wall/mineral/plastitanium,
+/area/ship/security)
+"o" = (
+/obj/machinery/porta_turret/centcom_shuttle,
 /turf/closed/wall/mineral/plastitanium,
 /area/ship/security)
 "q" = (
@@ -129,9 +125,7 @@
 	pixel_y = -10;
 	req_access = list(150)
 	},
-/obj/machinery/holopad/emergency/command{
-	name = "advanced holopad"
-	},
+/obj/machinery/holopad,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/security)
 "G" = (
@@ -161,19 +155,13 @@
 /obj/item/tank/internals/emergency_oxygen/double,
 /obj/item/tank/internals/emergency_oxygen/double,
 /obj/item/storage/toolbox/syndicate,
-/obj/item/stack/cable_coil/red,
+/obj/item/stack/cable_coil,
 /obj/item/resonator,
 /obj/item/resonator,
 /obj/item/resonator,
-/obj/item/melee/transforming/energy/sword/saber/red{
-	name = "energy saber"
-	},
-/obj/item/melee/transforming/energy/sword/saber/red{
-	name = "energy saber"
-	},
-/obj/item/melee/transforming/energy/sword/saber/red{
-	name = "energy saber"
-	},
+/obj/item/melee/energy/sword/saber/red,
+/obj/item/melee/energy/sword/saber/red,
+/obj/item/melee/energy/sword/saber/red,
 /obj/item/mining_scanner,
 /obj/item/mining_scanner,
 /obj/item/mining_scanner,
@@ -197,14 +185,6 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/turf/closed/wall/mineral/plastitanium,
-/area/ship/security)
-"U" = (
-/obj/machinery/porta_turret/centcom_shuttle/ballistic{
-	dir = 6;
-	name = "ship turret";
-	on = 0
-	},
 /turf/closed/wall/mineral/plastitanium,
 /area/ship/security)
 
@@ -264,7 +244,7 @@ c
 c
 "}
 (6,1,1) = {"
-e
+o
 a
 a
 a
@@ -272,5 +252,5 @@ a
 a
 a
 a
-U
+o
 "}

@@ -167,7 +167,7 @@
 "in" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /obj/effect/turf_decal/stripes/corner,
-/obj/machinery/power/rad_collector/anchored,
+/obj/machinery/power/energy_accumulator/tesla_coil/anchored,
 /obj/structure/cable,
 /obj/structure/cable,
 /turf/open/floor/engine,
@@ -343,17 +343,9 @@
 /turf/open/floor/engine,
 /area/ship/engineering/engine)
 "rw" = (
-/obj/item/reagent_containers/food/snacks/canned/beans{
-	pixel_x = -5;
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/food/snacks/canned/beans{
-	pixel_x = 2;
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/food/snacks/canned/beans{
-	pixel_x = -2
-	},
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
 /obj/item/reagent_containers/food/drinks/waterbottle/large{
 	pixel_x = 5
 	},
@@ -369,12 +361,12 @@
 	name = "food crate"
 	},
 /obj/item/storage/cans/sixbeer,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
@@ -411,7 +403,7 @@
 /area/ship/engineering/engine)
 "sX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
-/obj/effect/spawner/structure/window/reinforced/plasma/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/ship/engineering/engine)
@@ -569,7 +561,7 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "AC" = (
-/obj/machinery/power/rad_collector/anchored,
+/obj/machinery/power/energy_accumulator/tesla_coil/anchored,
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
@@ -577,9 +569,9 @@
 /area/ship/engineering/engine)
 "AP" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
-/obj/machinery/power/rad_collector/anchored,
+/obj/machinery/power/energy_accumulator/tesla_coil/anchored,
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/power/rad_collector/anchored,
+/obj/machinery/power/energy_accumulator/tesla_coil/anchored,
 /obj/structure/cable,
 /obj/structure/cable,
 /turf/open/floor/engine,
@@ -751,7 +743,7 @@
 /turf/open/floor/iron,
 /area/ship/medical)
 "Jw" = (
-/obj/machinery/power/rad_collector/anchored,
+/obj/machinery/power/energy_accumulator/tesla_coil/anchored,
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/cable,
 /obj/structure/cable,
@@ -817,7 +809,7 @@
 /area/ship/maintenance/aft)
 "LU" = (
 /obj/effect/turf_decal/stripes/corner,
-/obj/machinery/power/rad_collector/anchored,
+/obj/machinery/power/energy_accumulator/tesla_coil/anchored,
 /obj/structure/cable,
 /obj/structure/cable,
 /obj/structure/cable,
@@ -953,7 +945,7 @@
 /area/ship/engineering/engine)
 "Qs" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
-/obj/machinery/power/rad_collector/anchored,
+/obj/machinery/power/energy_accumulator/tesla_coil/anchored,
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/cable,
 /turf/open/floor/engine,
@@ -1078,7 +1070,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/vending/snack/random,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/wood,
 /area/ship/crew/dorm)
 "US" = (
@@ -1143,7 +1135,7 @@
 /area/ship/maintenance/aft)
 "WP" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
-/obj/effect/spawner/structure/window/reinforced/plasma/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma,
 /turf/open/floor/plating,
 /area/ship/engineering/engine)
 "XM" = (

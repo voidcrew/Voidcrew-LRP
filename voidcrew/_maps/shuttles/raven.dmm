@@ -66,7 +66,7 @@
 	pixel_y = -31
 	},
 /obj/item/restraints/handcuffs,
-/obj/item/reagent_containers/food/snacks/chocolatebar,
+/obj/item/food/chocolatebar,
 /obj/item/assembly/flash,
 /obj/effect/turf_decal/tile/blue/anticorner,
 /turf/open/floor/iron/dark,
@@ -377,9 +377,7 @@
 	pixel_y = 3
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/reagent_dispensers/peppertank{
-	pixel_x = -32
-	},
+/obj/structure/reagent_dispensers/wall/peppertank,
 /obj/structure/table/reinforced,
 /turf/open/floor/mineral/plastitanium/red/brig,
 /area/ship/security/prison)
@@ -773,17 +771,12 @@
 /obj/item/reagent_containers/glass/bottle/epinephrine{
 	pixel_x = 6
 	},
-/obj/item/reagent_containers/glass/bottle/charcoal{
-	pixel_x = -3
-	},
+/obj/item/reagent_containers/glass/bottle/syriniver,
 /obj/item/reagent_containers/glass/bottle/epinephrine{
 	pixel_x = -3;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/glass/bottle/charcoal{
-	pixel_x = 6;
-	pixel_y = 8
-	},
+/obj/item/reagent_containers/glass/bottle/syriniver,
 /obj/item/reagent_containers/syringe/epinephrine{
 	pixel_x = 3;
 	pixel_y = -2
@@ -812,7 +805,7 @@
 	pixel_y = 4
 	},
 /obj/item/storage/firstaid/fire,
-/obj/item/clothing/suit/space/hardsuit/medical,
+/obj/item/mod/control/pre_equipped/medical,
 /obj/effect/turf_decal/tile/neutral/anticorner,
 /turf/open/floor/iron,
 /area/ship/medical)
@@ -871,7 +864,7 @@
 /obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/effect/spawner/random/food_or_drink/donkpockets,
-/obj/item/kitchen/knife,
+/obj/item/knife,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 4
 	},

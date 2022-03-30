@@ -12,12 +12,12 @@
 /turf/open/floor/pod/light,
 /area/ship/bridge)
 "aW" = (
-/obj/machinery/holopad/emergency/command,
+/obj/machinery/holopad,
 /obj/machinery/light/small{
 	dir = 8;
 	pixel_y = -10
 	},
-/obj/item/clothing/under/rank/command/captain,
+/obj/item/clothing/under/rank/captain,
 /obj/item/radio/headset/heads/captain/alt,
 /obj/item/storage/backpack/captain,
 /obj/item/clothing/gloves/color/captain,
@@ -47,7 +47,7 @@
 	name = "captain's closet";
 	pixel_x = -28
 	},
-/turf/open/floor/carpet/nanoweave/blue,
+/turf/open/floor/carpet/blue,
 /area/ship/bridge)
 "bb" = (
 /obj/structure/chair/comfy/shuttle{
@@ -68,7 +68,7 @@
 	pixel_x = 27;
 	pixel_y = -5
 	},
-/turf/open/floor/carpet/nanoweave/blue,
+/turf/open/floor/carpet/blue,
 /area/ship/bridge)
 "br" = (
 /turf/open/floor/mineral/plastitanium,
@@ -105,7 +105,7 @@
 	id = "piratecargo";
 	name = "Cargo Bay"
 	},
-/turf/open/floor/engine/hull/interior,
+/turf/open/floor/engine/hull,
 /area/ship/cargo)
 "fi" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
@@ -126,7 +126,7 @@
 /obj/item/storage/box/ids{
 	pixel_x = -7
 	},
-/obj/item/melee/classic_baton/telescopic,
+/obj/item/melee/baton/telescopic,
 /obj/item/folder/blue{
 	pixel_x = -1;
 	pixel_y = 8
@@ -172,7 +172,7 @@
 	name = "Port Launch Tube"
 	},
 /obj/structure/fans/tiny,
-/turf/open/floor/engine/hull/interior,
+/turf/open/floor/engine/hull,
 /area/ship/security)
 "hb" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
@@ -198,7 +198,7 @@
 	name = "Starboard Launch Tube"
 	},
 /obj/structure/fans/tiny,
-/turf/open/floor/engine/hull/interior,
+/turf/open/floor/engine/hull,
 /area/ship/security)
 "kK" = (
 /obj/structure/grille,
@@ -356,7 +356,7 @@
 	dir = 8;
 	pixel_y = 12
 	},
-/obj/item/clothing/suit/space/hardsuit/solgov,
+/obj/item/mod/control/pre_equipped/standard,
 /obj/item/clothing/mask/gas/sechailer/swat/spacepol,
 /obj/item/tank/jetpack/oxygen,
 /obj/structure/closet/wall/red{
@@ -415,7 +415,7 @@
 "pW" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line,
-/obj/item/clothing/suit/space/hardsuit/solgov,
+/obj/item/mod/control/pre_equipped/standard,
 /obj/item/clothing/mask/gas/sechailer/swat/spacepol,
 /obj/item/tank/jetpack/oxygen,
 /obj/structure/closet/wall/red{
@@ -446,9 +446,9 @@
 /area/ship/security)
 "rF" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/item/kitchen/knife/combat,
-/obj/item/kitchen/knife/combat,
-/obj/item/kitchen/knife/combat,
+/obj/item/knife/combat,
+/obj/item/knife/combat,
+/obj/item/knife/combat,
 /obj/item/storage/box/zipties{
 	pixel_x = 7;
 	pixel_y = 3
@@ -482,7 +482,7 @@
 	dir = 1;
 	pixel_y = -24
 	},
-/obj/item/clothing/suit/space/hardsuit/solgov,
+/obj/item/mod/control/pre_equipped/standard,
 /obj/item/clothing/mask/gas/sechailer/swat/spacepol,
 /obj/item/tank/jetpack/oxygen,
 /obj/structure/closet/wall/red{
@@ -674,14 +674,14 @@
 "yi" = (
 /obj/structure/chair/plastic,
 /obj/effect/landmark/start/assistant,
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/crew)
 "yU" = (
 /obj/structure/sink{
 	dir = 8;
 	pixel_x = 12
 	},
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/crew)
 "za" = (
 /obj/structure/grille,
@@ -743,7 +743,7 @@
 /obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/crew)
 "Bb" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
@@ -751,13 +751,11 @@
 "Bi" = (
 /obj/structure/table,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
-/obj/item/kitchen/knife/plastic{
-	pixel_x = -3
-	},
+/obj/item/knife/plastic,
 /obj/item/kitchen/fork/plastic{
 	pixel_x = 3
 	},
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/crew)
 "Bw" = (
 /obj/machinery/light{
@@ -788,11 +786,11 @@
 	icon_door = "grey_wall";
 	pixel_x = 28
 	},
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/crew)
 "By" = (
 /obj/structure/table/optable,
-/obj/item/radio/headset/headset_medsec/alt,
+/obj/item/radio/headset/headset_sec/alt/department/med,
 /obj/item/clothing/accessory/armband/medblue,
 /obj/item/clothing/head/beret/solgov,
 /obj/item/clothing/suit/armor/vest/solgov/rep{
@@ -846,7 +844,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/effect/landmark/start/assistant,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/crew)
 "Cx" = (
 /obj/structure/chair/plastic{
@@ -854,7 +852,7 @@
 	},
 /obj/effect/landmark/start/assistant,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/crew)
 "CK" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
@@ -877,23 +875,18 @@
 	desc = "Cleaning up the sector, one ship at a time.";
 	name = "\improper Mopfficer Sweepsky"
 	},
-/turf/open/floor/carpet/nanoweave/beige,
+/turf/open/floor/carpet,
 /area/ship/crew)
 "Ec" = (
 /obj/item/reagent_containers/glass/bottle/epinephrine{
 	pixel_x = 6
 	},
-/obj/item/reagent_containers/glass/bottle/charcoal{
-	pixel_x = -3
-	},
+/obj/item/reagent_containers/glass/bottle/syriniver,
 /obj/item/reagent_containers/glass/bottle/epinephrine{
 	pixel_x = -3;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/glass/bottle/charcoal{
-	pixel_x = 6;
-	pixel_y = 8
-	},
+/obj/item/reagent_containers/glass/bottle/syriniver,
 /obj/item/reagent_containers/syringe/epinephrine{
 	pixel_x = 3;
 	pixel_y = -2
@@ -1012,7 +1005,7 @@
 /obj/machinery/cell_charger,
 /obj/item/stock_parts/cell/high,
 /obj/item/stock_parts/cell/high,
-/turf/open/floor/carpet/nanoweave/red,
+/turf/open/floor/carpet/red,
 /area/ship/cargo)
 "Hh" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
@@ -1024,7 +1017,7 @@
 	pixel_y = 32
 	},
 /obj/structure/filingcabinet/chestdrawer,
-/turf/open/floor/carpet/nanoweave/red,
+/turf/open/floor/carpet/red,
 /area/ship/cargo)
 "Hw" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
@@ -1104,19 +1097,19 @@
 /obj/item/gun/ballistic/automatic/pistol/solgov,
 /obj/item/ammo_box/magazine/pistol556mm,
 /obj/item/ammo_box/magazine/pistol556mm,
-/obj/item/melee/classic_baton/telescopic,
+/obj/item/melee/baton/telescopic,
 /obj/structure/closet/wall{
 	dir = 4;
 	icon_door = "red_wall";
 	name = "brig officer's closet";
 	pixel_x = -28
 	},
-/turf/open/floor/carpet/nanoweave/red,
+/turf/open/floor/carpet/red,
 /area/ship/cargo)
 "Jx" = (
 /obj/effect/landmark/start/warden,
 /obj/structure/chair/office,
-/turf/open/floor/carpet/nanoweave/red,
+/turf/open/floor/carpet/red,
 /area/ship/cargo)
 "Ko" = (
 /turf/open/floor/iron/dark,
@@ -1146,17 +1139,9 @@
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
 "KV" = (
-/obj/item/reagent_containers/food/snacks/canned/beans{
-	pixel_x = -5;
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/food/snacks/canned/beans{
-	pixel_x = 2;
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/food/snacks/canned/beans{
-	pixel_x = -2
-	},
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
 /obj/item/reagent_containers/food/drinks/waterbottle/large{
 	pixel_x = 5
 	},
@@ -1172,12 +1157,12 @@
 	name = "food crate"
 	},
 /obj/item/storage/cans/sixbeer,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/cargo)
 "Le" = (
@@ -1246,8 +1231,8 @@
 /obj/machinery/newscaster/security_unit{
 	pixel_x = -28
 	},
-/obj/item/kitchen/knife/letter_opener,
-/turf/open/floor/carpet/nanoweave/red,
+,
+/turf/open/floor/carpet/red,
 /area/ship/cargo)
 "Nq" = (
 /obj/structure/table,
@@ -1263,7 +1248,7 @@
 /obj/item/desk_flag/solgov{
 	pixel_x = -14
 	},
-/turf/open/floor/carpet/nanoweave/red,
+/turf/open/floor/carpet/red,
 /area/ship/cargo)
 "Nz" = (
 /obj/machinery/door_timer{
@@ -1443,7 +1428,7 @@
 	name = "Cargo Bay"
 	},
 /obj/structure/fans/tiny,
-/turf/open/floor/engine/hull/interior,
+/turf/open/floor/engine/hull,
 /area/ship/cargo)
 "TT" = (
 /obj/effect/turf_decal/stripes/line,

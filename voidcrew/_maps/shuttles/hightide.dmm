@@ -28,7 +28,7 @@
 /area/ship/cargo)
 "bg" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/suit_storage_unit/independent/mining/eva,
+/obj/machinery/suit_storage_unit/mining/eva,
 /turf/open/floor/plating,
 /area/ship/cargo)
 "bn" = (
@@ -50,8 +50,8 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/port)
 "cb" = (
-/obj/structure/catwalk,
 /obj/item/trash/sosjerky,
+/turf/open/floor/catwalk_floor/iron,
 /turf/open/floor/plating,
 /area/space)
 "cc" = (
@@ -89,19 +89,19 @@
 /turf/closed/wall/r_wall,
 /area/ship/maintenance/fore)
 "dd" = (
-/mob/living/simple_animal/hostile/cockroach,
+/mob/living/basic/cockroach,
 /turf/open/floor/plating,
 /area/ship/maintenance/port)
 "dk" = (
 /obj/item/wrench/medical,
-/obj/item/wrench/crescent,
+/obj/item/wrench,
 /obj/structure/rack,
 /turf/open/floor/plating,
 /area/ship/maintenance/starboard)
 "ds" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/wrench/combat,
-/obj/item/wrench/syndie,
+/obj/item/wrench/caravan,
 /obj/structure/rack,
 /turf/open/floor/plating,
 /area/ship/maintenance/starboard)
@@ -211,11 +211,11 @@
 /turf/open/floor/plating,
 /area/ship/cargo)
 "io" = (
-/obj/structure/catwalk,
-/obj/item/toy/plush/among,
+/obj/item/toy/plush/beeplushie,
 /obj/structure/chair{
 	dir = 1
 	},
+/turf/open/floor/catwalk_floor/iron,
 /turf/open/floor/plating,
 /area/space)
 "iS" = (
@@ -302,10 +302,10 @@
 /area/ship/maintenance/port)
 "mv" = (
 /obj/structure/closet/crate,
-/obj/item/reagent_containers/food/snacks/canned/beans,
-/obj/item/reagent_containers/food/snacks/canned/beans,
-/obj/item/reagent_containers/food/snacks/canned/beans,
-/obj/item/reagent_containers/food/snacks/canned/beans,
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
 /obj/effect/spawner/random/food_or_drink/pizzaparty,
 /turf/open/floor/plating,
 /area/ship/maintenance/port)
@@ -349,7 +349,7 @@
 /area/ship/maintenance/central)
 "nK" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/holopad/emergency/command,
+/obj/machinery/holopad,
 /turf/open/floor/plating,
 /area/ship/maintenance/fore)
 "nT" = (
@@ -357,7 +357,7 @@
 /area/ship/maintenance/central)
 "nX" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/simple_animal/hostile/cockroach,
+/mob/living/basic/cockroach,
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "ob" = (
@@ -373,9 +373,9 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/fore)
 "ou" = (
-/obj/structure/catwalk,
-/obj/item/toy/plush/among,
+/obj/item/toy/plush/beeplushie,
 /obj/structure/chair,
+/turf/open/floor/catwalk_floor/iron,
 /turf/open/floor/plating,
 /area/space)
 "oF" = (
@@ -769,7 +769,7 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/port)
 "Ef" = (
-/mob/living/simple_animal/hostile/cockroach,
+/mob/living/basic/cockroach,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -805,7 +805,7 @@
 /obj/item/storage/toolbox/mechanical/old,
 /obj/structure/rack,
 /obj/item/clothing/gloves/color/fyellow,
-/obj/item/multitool/old,
+/obj/item/multitool,
 /obj/item/crowbar/red,
 /obj/item/screwdriver/power,
 /turf/open/floor/plating,
@@ -830,9 +830,9 @@
 /turf/closed/wall/r_wall,
 /area/ship/cargo)
 "IV" = (
-/obj/structure/catwalk,
 /obj/structure/table,
 /obj/effect/spawner/random/medical/two_percent_xeno_egg_spawner,
+/turf/open/floor/catwalk_floor/iron,
 /turf/open/floor/plating,
 /area/space)
 "Jd" = (
@@ -887,7 +887,7 @@
 /area/ship/cargo)
 "LR" = (
 /obj/structure/closet/crate,
-/obj/item/kitchen/knife/letter_opener,
+,
 /obj/item/flashlight/pen,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
@@ -960,7 +960,7 @@
 "PC" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/power/terminal,
-/mob/living/simple_animal/hostile/cockroach,
+/mob/living/basic/cockroach,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -993,7 +993,7 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/starboard)
 "QJ" = (
-/obj/structure/catwalk,
+/turf/open/floor/catwalk_floor/iron,
 /turf/open/floor/plating,
 /area/space)
 "Rc" = (
@@ -1053,7 +1053,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/reagent_dispensers/fueltank,
-/obj/item/weldingtool/empty,
+/obj/item/weldingtool,
 /obj/item/clothing/mask/gas/welding,
 /turf/open/floor/plating,
 /area/ship/maintenance/port)

@@ -73,9 +73,7 @@
 /area/ruin/space/has_grav/astraeus/hallway)
 "dk" = (
 /obj/structure/lattice,
-/obj/item/stack/cable_coil/cut/red{
-	amount = 2
-	},
+/obj/item/stack/cable_coil/cut,
 /turf/template_noop,
 /area/space/nearstation)
 "dm" = (
@@ -90,9 +88,7 @@
 /turf/template_noop,
 /area/space/nearstation)
 "dp" = (
-/obj/item/stack/cable_coil/cut/red{
-	amount = 2
-	},
+/obj/item/stack/cable_coil/cut,
 /turf/template_noop,
 /area/template_noop)
 "dq" = (
@@ -120,7 +116,7 @@
 /turf/template_noop,
 /area/space/nearstation)
 "eh" = (
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -194,14 +190,14 @@
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/astraeus/munitions)
 "gJ" = (
-/obj/structure/catwalk,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/turf/open/floor/catwalk_floor/iron,
 /turf/template_noop,
 /area/ruin/space/has_grav/astraeus/bridge)
 "gR" = (
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /turf/template_noop,
 /area/template_noop)
 "gT" = (
@@ -299,12 +295,12 @@
 "it" = (
 /obj/effect/turf_decal/delivery,
 /obj/structure/closet,
-/obj/item/clothing/suit/space/hardsuit/mining,
+/obj/item/mod/control/pre_equipped/mining,
 /obj/item/storage/bag/ore,
 /obj/item/pickaxe,
 /obj/item/mining_scanner,
 /obj/item/gun/energy/kinetic_accelerator,
-/obj/item/clothing/head/hardhat/mining,
+/obj/item/clothing/head/hardhat,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/astraeus/hallway)
 "iP" = (
@@ -549,7 +545,7 @@
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/astraeus/disposals)
 "qr" = (
-/obj/structure/catwalk,
+/turf/open/floor/catwalk_floor/iron,
 /turf/template_noop,
 /area/ruin/space/has_grav/astraeus/bridge)
 "qO" = (
@@ -634,14 +630,12 @@
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/astraeus/disposals)
 "tb" = (
-/obj/item/stack/sheet/metal,
-/obj/item/stack/cable_coil/cut/red{
-	amount = 2
-	},
+/obj/item/stack/sheet/iron,
+/obj/item/stack/cable_coil/cut,
 /turf/template_noop,
 /area/template_noop)
 "ti" = (
-/obj/item/stack/sheet/metal/five,
+/obj/item/stack/sheet/iron/five,
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/astraeus/disposals)
 "tr" = (
@@ -697,9 +691,7 @@
 /area/ruin/space/has_grav/astraeus/hallway)
 "vl" = (
 /obj/structure/lattice,
-/obj/item/stack/cable_coil/cut/red{
-	amount = 2
-	},
+/obj/item/stack/cable_coil/cut,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -810,7 +802,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/catwalk,
+/turf/open/floor/catwalk_floor/iron,
 /turf/template_noop,
 /area/ruin/space/has_grav/astraeus/bridge)
 "xw" = (
@@ -1025,9 +1017,7 @@
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/astraeus/disposals)
 "EO" = (
-/obj/item/stack/cable_coil/cut/red{
-	amount = 2
-	},
+/obj/item/stack/cable_coil/cut,
 /obj/structure/disposalpipe/broken{
 	dir = 8
 	},
@@ -1152,7 +1142,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/roller,
 /obj/effect/decal/cleanable/blood/old,
-/obj/effect/mob_spawn/human/corpse/damaged,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 32
 	},
@@ -1211,7 +1201,7 @@
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/astraeus/munitions)
 "Jk" = (
-/obj/structure/catwalk,
+/turf/open/floor/catwalk_floor/iron,
 /turf/template_noop,
 /area/ruin/space/has_grav/astraeus/munitions)
 "Jr" = (
@@ -1328,7 +1318,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/obj/structure/catwalk,
+/turf/open/floor/catwalk_floor/iron,
 /turf/template_noop,
 /area/ruin/space/has_grav/astraeus/bridge)
 "Mk" = (
@@ -1405,7 +1395,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/o_minus,
 /turf/open/floor/iron/airless,
 /area/ruin/space/has_grav/astraeus/hallway)
 "Ot" = (
@@ -1440,7 +1430,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/structure/catwalk,
+/turf/open/floor/catwalk_floor/iron,
 /turf/template_noop,
 /area/ruin/space/has_grav/astraeus/bridge)
 "Pg" = (
@@ -1507,7 +1497,7 @@
 /area/ruin/space/has_grav/astraeus/munitions)
 "RJ" = (
 /obj/structure/sign/warning/securearea,
-/obj/structure/catwalk,
+/turf/open/floor/catwalk_floor/iron,
 /turf/template_noop,
 /area/ruin/space/has_grav/astraeus/bridge)
 "RK" = (
@@ -1758,7 +1748,7 @@
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/astraeus/dorms_med)
 "WU" = (
-/obj/item/clothing/suit/space/hardsuit/mining,
+/obj/item/mod/control/pre_equipped/mining,
 /turf/open/floor/plating/asteroid/airless,
 /area/ruin/unpowered)
 "Xj" = (
@@ -1852,13 +1842,6 @@
 	},
 /turf/template_noop,
 /area/template_noop)
-"Zd" = (
-/obj/structure/catwalk,
-/obj/item/stack/cable_coil/cut/red{
-	amount = 2
-	},
-/turf/template_noop,
-/area/ruin/space/has_grav/astraeus/bridge)
 "Zk" = (
 /obj/structure/lattice,
 /obj/structure/cable{
@@ -1915,10 +1898,8 @@
 /turf/open/floor/iron/dark/airless,
 /area/ruin/space/has_grav/astraeus/bridge)
 "ZY" = (
-/obj/item/stack/cable_coil/cut/red{
-	amount = 2
-	},
-/obj/structure/catwalk,
+/obj/item/stack/cable_coil/cut,
+/turf/open/floor/catwalk_floor/iron,
 /turf/template_noop,
 /area/ruin/space/has_grav/astraeus/bridge)
 
@@ -2610,7 +2591,7 @@ Xr
 hU
 jG
 KD
-Zd
+ZY
 ac
 XD
 ac

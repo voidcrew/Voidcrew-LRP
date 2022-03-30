@@ -66,7 +66,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/powered)
 "cd" = (
-/obj/effect/spawner/structure/window/reinforced/plasma/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma,
 /turf/open/floor/plating,
 /area/ruin/powered)
 "cy" = (
@@ -154,13 +154,13 @@
 "eP" = (
 /obj/effect/gibspawner/human,
 /obj/item/bodypart/head,
-/obj/item/clothing/head/beret/chem,
+/obj/item/clothing/head/beret/medical,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/ruin/powered)
 "eQ" = (
-/obj/structure/table/wood/reinforced,
+/obj/structure/table/wood,
 /obj/item/storage/fancy/cigarettes/cigars/havana,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -188,10 +188,7 @@
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue,
-/obj/effect/mob_spawn/human/corpse/damaged{
-	disease = /datum/disease/brainrot;
-	outfit = /datum/outfit/job/assistant
-	},
+/obj/effect/mob_spawn/corpse/human/damaged,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/white,
@@ -355,7 +352,7 @@
 /turf/open/floor/carpet/blue,
 /area/ruin/powered)
 "jq" = (
-/obj/structure/table/wood/reinforced,
+/obj/structure/table/wood,
 /obj/item/cigbutt/cigarbutt,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/royalblue,
@@ -725,7 +722,7 @@
 /turf/open/floor/engine,
 /area/ruin/powered)
 "vU" = (
-/obj/structure/table/wood/reinforced,
+/obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/royalblue,
 /area/ruin/powered)
@@ -789,7 +786,7 @@
 	name = "chief doctor's locker";
 	req_access = list(103)
 	},
-/obj/item/storage/box/hypospray/CMO,
+/obj/item/reagent_containers/hypospray/cmo,
 /obj/item/storage/photo_album/CMO,
 /obj/item/melee/classic_baton,
 /obj/item/storage/firstaid/ancient,
@@ -884,7 +881,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/powered)
 "Bk" = (
-/obj/structure/table/wood/reinforced,
+/obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/royalblue,
@@ -974,17 +971,15 @@
 /turf/open/floor/plating,
 /area/ruin/powered)
 "DF" = (
-/obj/structure/table/wood/reinforced,
+/obj/structure/table/wood,
 /obj/item/toy/redbutton,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/royalblue,
 /area/ruin/powered)
 "DU" = (
-/obj/structure/window/plasma/reinforced/spawner{
-	dir = 1
-	},
-/obj/machinery/power/rad_collector/anchored,
+/obj/structure/window/plasma/spawner,
+/obj/machinery/power/energy_accumulator/tesla_coil/anchored,
 /obj/machinery/atmospherics/pipe/simple/brown/visible,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/engine,
@@ -1157,10 +1152,7 @@
 "Hc" = (
 /obj/structure/bed,
 /obj/item/bedsheet/dorms,
-/obj/effect/mob_spawn/human/corpse/damaged{
-	disease = null;
-	outfit = /datum/outfit/job/assistant
-	},
+/obj/effect/mob_spawn/corpse/human/damaged,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
 /area/ruin/powered)
@@ -1214,11 +1206,7 @@
 /turf/open/floor/carpet/royalblue,
 /area/ruin/powered)
 "IS" = (
-/obj/machinery/door/firedoor/window{
-	density = 1;
-	icon_state = "door_closed";
-	opacity = 1
-	},
+/obj/machinery/door/poddoor/shutters/window/preopen,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 1
 	},
@@ -1310,10 +1298,7 @@
 /turf/open/floor/iron,
 /area/ruin/powered)
 "Kw" = (
-/obj/effect/mob_spawn/human/corpse/damaged{
-	disease = /datum/disease/brainrot;
-	outfit = /datum/outfit/job/assistant
-	},
+/obj/effect/mob_spawn/corpse/human/damaged,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
@@ -1422,19 +1407,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/ruin/powered)
-"NH" = (
-/obj/structure/window/plasma/reinforced/spawner,
-/obj/machinery/power/rad_collector/anchored,
-/obj/machinery/atmospherics/pipe/simple/brown/visible,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/engine,
-/area/ruin/powered)
 "NM" = (
 /obj/machinery/door/poddoor,
 /turf/open/floor/iron/airless,
 /area/ruin/powered)
 "NU" = (
-/obj/structure/table/wood/reinforced,
+/obj/structure/table/wood,
 /obj/item/flashlight/lamp/green,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/carpet/royalblue,
@@ -1539,8 +1517,8 @@
 /obj/item/ammo_box/c38,
 /obj/item/melee/sabre,
 /obj/item/clothing/suit/hooded/wintercoat/captain,
-/obj/item/clothing/head/beret/captain,
-/obj/item/card/id/captains_spare,
+/obj/item/clothing/head/caphat/beret,
+/obj/item/card/id/advanced/gold/captains_spare,
 /turf/open/floor/carpet/royalblue,
 /area/ruin/powered)
 "QW" = (
@@ -2885,7 +2863,7 @@ FI
 (26,1,1) = {"
 EH
 HA
-NH
+DU
 rS
 Ju
 Ca
@@ -2926,7 +2904,7 @@ FI
 (27,1,1) = {"
 Vj
 HA
-NH
+DU
 rS
 pO
 Ca
@@ -2967,7 +2945,7 @@ FI
 (28,1,1) = {"
 EH
 XK
-NH
+DU
 rS
 Ju
 Ca

@@ -61,7 +61,7 @@
 /obj/item/clothing/glasses/hud/health,
 /obj/item/clothing/glasses/hud/health,
 /obj/item/clothing/glasses/hud/health,
-/obj/item/clothing/glasses/hud/health/prescription,
+/obj/item/clothing/glasses/hud/health,
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical,
@@ -455,15 +455,15 @@
 /obj/effect/turf_decal/tile/blue,
 /obj/item/storage/box/zipties,
 /obj/item/assembly/flash/handheld,
-/obj/item/melee/classic_baton/telescopic,
+/obj/item/melee/baton/telescopic,
 /obj/item/megaphone{
 	pixel_x = 3;
 	pixel_y = -3
 	},
 /obj/structure/table/reinforced,
-/obj/item/stock_parts/cell/gun/mini,
-/obj/item/stock_parts/cell/gun/mini,
-/obj/item/stock_parts/cell/gun/mini,
+/obj/item/stock_parts/cell/mini_egun,
+/obj/item/stock_parts/cell/mini_egun,
+/obj/item/stock_parts/cell/mini_egun,
 /obj/machinery/recharger,
 /obj/item/gun/energy/e_gun/mini,
 /obj/machinery/requests_console{
@@ -524,7 +524,7 @@
 	name = "Operations"
 	},
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/carpet/nanoweave/blue,
+/turf/open/floor/carpet/blue,
 /area/ship/bridge)
 "bK" = (
 /obj/machinery/computer/crew{
@@ -555,7 +555,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/open/floor/plasteel/mono/white,
+/turf/open/floor/iron/white/smooth_large,
 /area/ship/medical)
 "bS" = (
 /obj/machinery/medical_kiosk,
@@ -625,12 +625,12 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/open/floor/carpet/nanoweave/blue,
+/turf/open/floor/carpet/blue,
 /area/ship/bridge)
 "ca" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/holopad/emergency/command,
-/turf/open/floor/carpet/nanoweave/blue,
+/obj/machinery/holopad,
+/turf/open/floor/carpet/blue,
 /area/ship/bridge)
 "cb" = (
 /obj/effect/turf_decal/tile/blue,
@@ -702,7 +702,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 1
 	},
-/turf/open/floor/carpet/nanoweave/blue,
+/turf/open/floor/carpet/blue,
 /area/ship/bridge)
 "cn" = (
 /obj/structure/chair/comfy/shuttle{
@@ -710,7 +710,7 @@
 	dir = 4;
 	name = "Helmsman"
 	},
-/turf/open/floor/carpet/nanoweave/blue,
+/turf/open/floor/carpet/blue,
 /area/ship/bridge)
 "co" = (
 /obj/machinery/computer/helm{
@@ -969,7 +969,7 @@
 /turf/open/floor/iron/dark,
 /area/ship/crew)
 "cS" = (
-/obj/machinery/photocopier/faxmachine,
+/obj/machinery/photocopier,
 /obj/structure/table/reinforced,
 /turf/open/floor/iron/dark,
 /area/ship/crew)
@@ -1147,7 +1147,7 @@
 /turf/open/floor/iron/white,
 /area/ship/crew)
 "dr" = (
-/turf/open/floor/plasteel/mono/white,
+/turf/open/floor/iron/white/smooth_large,
 /area/ship/medical)
 "ds" = (
 /obj/machinery/suit_storage_unit/cmo,
@@ -1180,7 +1180,7 @@
 	pixel_x = -24;
 	pixel_y = 24
 	},
-/turf/open/floor/carpet/nanoweave/blue,
+/turf/open/floor/carpet/blue,
 /area/ship/bridge)
 "dz" = (
 /obj/effect/turf_decal/tile/blue,
@@ -1230,7 +1230,7 @@
 /turf/open/floor/iron/white,
 /area/ship/medical)
 "gD" = (
-/obj/structure/closet/secure_closet/CMO,
+/obj/structure/closet/secure_closet/chief_medical,
 /obj/item/retractor/advanced,
 /turf/open/floor/iron/dark,
 /area/ship/crew)
@@ -1238,7 +1238,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 8
 	},
-/turf/open/floor/plasteel/mono/white,
+/turf/open/floor/iron/white/smooth_large,
 /area/ship/medical)
 "hi" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
@@ -1252,7 +1252,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/open/floor/plasteel/mono/white,
+/turf/open/floor/iron/white/smooth_large,
 /area/ship/medical)
 "iI" = (
 /obj/structure/cable{
@@ -1417,10 +1417,7 @@
 /turf/open/floor/plating,
 /area/ship/engineering)
 "wG" = (
-/obj/machinery/smartfridge/bloodbank/preloaded{
-	density = 0;
-	pixel_y = 32
-	},
+/obj/structure/closet/crate/freezer/blood,
 /obj/machinery/iv_drip,
 /obj/structure/closet/secure_closet/medical2,
 /obj/effect/turf_decal/tile/blue,
@@ -1433,7 +1430,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/open/floor/plasteel/mono/white,
+/turf/open/floor/iron/white/smooth_large,
 /area/ship/medical)
 "yU" = (
 /obj/effect/turf_decal/stripes/line,
@@ -1467,13 +1464,13 @@
 /area/ship/crew)
 "Bh" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
-/obj/machinery/holopad/emergency/medical,
+/obj/machinery/holopad,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /obj/effect/turf_decal/bot,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
-/turf/open/floor/plasteel/mono/white,
+/turf/open/floor/iron/white/smooth_large,
 /area/ship/medical)
 "BE" = (
 /obj/machinery/power/smes/shuttle/precharged{

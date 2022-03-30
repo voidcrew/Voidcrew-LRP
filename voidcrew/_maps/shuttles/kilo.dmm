@@ -436,7 +436,7 @@
 	dir = 1;
 	pixel_y = -24
 	},
-/obj/machinery/suit_storage_unit/independent/mining/eva,
+/obj/machinery/suit_storage_unit/mining/eva,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/cargo)
 "cj" = (
@@ -647,14 +647,14 @@
 	},
 /obj/effect/turf_decal/stripes/line,
 /obj/item/stack/rods,
-/obj/machinery/holopad/emergency/command,
+/obj/machinery/holopad,
 /turf/open/floor/mineral/titanium/blue,
 /area/ship/bridge)
 "da" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/structure/table_frame,
-/obj/item/stack/sheet/metal,
+/obj/item/stack/sheet/iron,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/bridge)
 "db" = (
@@ -709,12 +709,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/delivery,
-/obj/machinery/suit_storage_unit/independent/engineering,
+/obj/machinery/suit_storage_unit/engine,
 /turf/open/floor/plating,
 /area/ship/engineering/engine)
 "dF" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4,
-/obj/structure/catwalk,
+/turf/open/floor/catwalk_floor/iron,
 /turf/open/floor/plating/airless,
 /area/ship/external)
 "eo" = (
@@ -908,7 +908,7 @@
 	},
 /obj/item/paicard,
 /obj/item/clothing/shoes/cowboy/white,
-/obj/item/clothing/head/caphat/cowboy,
+/obj/item/clothing/head/cowboy_hat_white/captain,
 /turf/open/floor/carpet,
 /area/ship/crew)
 "jU" = (
@@ -1092,7 +1092,7 @@
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/storage/bag/tray,
-/obj/item/reagent_containers/food/snacks/burger/bearger,
+/obj/item/food/burger/bearger,
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
@@ -1614,7 +1614,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/delivery,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/suit_storage_unit/independent/mining/eva,
+/obj/machinery/suit_storage_unit/mining/eva,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/cargo)
 "MI" = (
@@ -1650,19 +1650,19 @@
 	dir = 8
 	},
 /obj/item/gun/energy/e_gun/mini,
-/obj/item/stock_parts/cell/gun/mini,
+/obj/item/stock_parts/cell/mini_egun,
 /obj/item/clothing/shoes/workboots,
 /obj/item/clothing/shoes/workboots,
 /obj/item/clothing/shoes/workboots,
 /obj/item/clothing/shoes/cowboy,
 /obj/item/clothing/shoes/cowboy,
 /obj/item/clothing/shoes/cowboy,
-/obj/item/clothing/head/cowboy,
-/obj/item/clothing/head/cowboy,
-/obj/item/clothing/head/cowboy,
-/obj/item/clothing/head/cowboy,
-/obj/item/clothing/head/cowboy,
-/obj/item/clothing/head/cowboy,
+/obj/item/clothing/head/cowboy_hat_brown,
+/obj/item/clothing/head/cowboy_hat_brown,
+/obj/item/clothing/head/cowboy_hat_brown,
+/obj/item/clothing/head/cowboy_hat_brown,
+/obj/item/clothing/head/cowboy_hat_brown,
+/obj/item/clothing/head/cowboy_hat_brown,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/crew)
 "NI" = (
@@ -1676,22 +1676,22 @@
 	},
 /obj/effect/decal/cleanable/greenglow,
 /obj/item/gun/energy/e_gun/mini,
-/obj/item/stock_parts/cell/gun/mini,
+/obj/item/stock_parts/cell/mini_egun,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
 	dir = 1
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 1
 	},
-/obj/item/clothing/under/utility,
-/obj/item/clothing/under/utility,
-/obj/item/clothing/under/utility,
-/obj/item/clothing/under/utility/skirt,
-/obj/item/clothing/under/utility/skirt,
-/obj/item/clothing/under/utility/skirt,
-/obj/item/clothing/suit/toggle/hazard,
-/obj/item/clothing/suit/toggle/hazard,
-/obj/item/clothing/suit/toggle/hazard,
+/obj/item/clothing/under/color/black,
+/obj/item/clothing/under/color/black,
+/obj/item/clothing/under/color/black,
+/obj/item/clothing/under/color/jumpskirt/black,
+/obj/item/clothing/under/color/jumpskirt/black,
+/obj/item/clothing/under/color/jumpskirt/black,
+/obj/item/clothing/suit/hazardvest,
+/obj/item/clothing/suit/hazardvest,
+/obj/item/clothing/suit/hazardvest,
 /obj/item/clothing/suit/hazardvest,
 /obj/item/clothing/suit/hazardvest,
 /obj/item/clothing/suit/hazardvest,
@@ -1773,8 +1773,8 @@
 	locked = 0;
 	name = "fridge"
 	},
-/obj/item/reagent_containers/food/snacks/sausage,
-/obj/item/reagent_containers/food/snacks/sandwich,
+/obj/item/food/sausage,
+,
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 1
 	},
@@ -1813,7 +1813,7 @@
 "Ud" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/closet/crate,
-/obj/item/stack/sheet/metal/twenty,
+/obj/item/stack/sheet/iron/twenty,
 /obj/item/stack/sheet/glass{
 	amount = 10
 	},

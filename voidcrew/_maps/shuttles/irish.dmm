@@ -113,7 +113,7 @@
 /turf/open/floor/iron,
 /area/ship/bridge)
 "fS" = (
-/obj/machinery/doppler_array/research,
+/obj/machinery/doppler_array,
 /turf/open/floor/iron,
 /area/ship/science)
 "gL" = (
@@ -244,7 +244,7 @@
 /area/ship/cargo)
 "po" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
-/obj/machinery/suit_storage_unit/independent/engineering,
+/obj/machinery/suit_storage_unit/engine,
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "ps" = (
@@ -257,7 +257,7 @@
 /turf/open/floor/iron,
 /area/ship/bridge)
 "qc" = (
-/obj/effect/spawner/structure/window/reinforced/plasma/reinforced,
+/obj/effect/spawner/structure/window/reinforced/plasma,
 /turf/open/floor/engine,
 /area/ship/science)
 "qQ" = (
@@ -421,7 +421,7 @@
 /area/ship/maintenance/aft)
 "wr" = (
 /obj/item/radio,
-/obj/machinery/holopad/emergency,
+/obj/machinery/holopad,
 /turf/open/floor/iron,
 /area/ship/bridge)
 "wO" = (
@@ -735,17 +735,9 @@
 /turf/open/floor/iron,
 /area/ship/storage)
 "Lb" = (
-/obj/item/reagent_containers/food/snacks/canned/beans{
-	pixel_x = -5;
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/food/snacks/canned/beans{
-	pixel_x = 2;
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/food/snacks/canned/beans{
-	pixel_x = -2
-	},
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
 /obj/item/reagent_containers/food/drinks/waterbottle/large{
 	pixel_x = 5
 	},
@@ -761,12 +753,12 @@
 	name = "food crate"
 	},
 /obj/item/storage/cans/sixbeer,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
 /turf/open/floor/iron,
 /area/ship/science)
 "Le" = (
@@ -844,8 +836,8 @@
 /obj/item/t_scanner/adv_mining_scanner/lesser,
 /obj/item/t_scanner/adv_mining_scanner/lesser,
 /obj/item/t_scanner/adv_mining_scanner/lesser,
-/obj/item/storage/box/contractor/fulton_extraction,
-/obj/item/storage/box/contractor/fulton_extraction,
+/obj/item/fulton_core,
+/obj/item/fulton_core,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -893,7 +885,7 @@
 /turf/open/floor/iron,
 /area/ship/storage)
 "PP" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/heater,
+/obj/machinery/atmospherics/components/binary/thermomachine/heater,
 /turf/open/floor/iron,
 /area/ship/science)
 "PX" = (

@@ -23,7 +23,7 @@
 "bl" = (
 /obj/structure/bed,
 /obj/item/bedsheet/random,
-/obj/structure/curtain/cloth/grey,
+/obj/structure/curtain/bounty,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/crew/dorm)
 "br" = (
@@ -74,7 +74,7 @@
 /area/ship/medical)
 "dm" = (
 /obj/structure/closet/crate/science,
-/obj/item/stack/cable_coil/red,
+/obj/item/stack/cable_coil,
 /obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/effect/decal/cleanable/blood,
@@ -94,9 +94,7 @@
 /area/ship/crew/dorm)
 "dS" = (
 /obj/structure/rack,
-/obj/item/gun/ballistic/shotgun/doublebarrel/improvised/sawn{
-	name = "\improper TOZ-1"
-	},
+/obj/item/gun/ballistic/shotgun/doublebarrel,
 /obj/item/ammo_casing/shotgun/laserslug{
 	pixel_x = 2;
 	pixel_y = 1
@@ -108,7 +106,7 @@
 /area/ship/security)
 "en" = (
 /obj/structure/table,
-/obj/item/reagent_containers/food/snacks/meat/slab/bear,
+/obj/item/food/meat/slab/bear,
 /obj/structure/cable{
 	icon_state = "8-10"
 	},
@@ -126,8 +124,8 @@
 /obj/item/clothing/under/rank/engineering/engineer,
 /obj/item/clothing/gloves/color/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/cable_coil/red,
-/obj/item/stack/cable_coil/red,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
 /obj/machinery/power/terminal,
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -329,7 +327,7 @@
 /turf/open/floor/mineral/titanium/yellow,
 /area/ship/cargo)
 "pe" = (
-/obj/structure/sign/poster/retro/science,
+/obj/structure/sign/poster/official/science,
 /turf/closed/wall/r_wall,
 /area/ship/science)
 "pF" = (
@@ -608,15 +606,9 @@
 /area/ship/maintenance/central)
 "zl" = (
 /obj/structure/rack,
-/obj/item/kitchen/knife/hunting{
-	pixel_y = -1
-	},
-/obj/item/kitchen/knife/hunting{
-	pixel_y = 7
-	},
-/obj/item/kitchen/knife/hunting{
-	pixel_y = -9
-	},
+/obj/item/knife/hunting,
+/obj/item/knife/hunting,
+/obj/item/knife/hunting,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/security)
@@ -774,8 +766,8 @@
 /obj/structure/closet/crate/critter{
 	name = "rare and exotic russian native animals"
 	},
-/obj/item/reagent_containers/food/snacks/deadmouse,
-/mob/living/simple_animal/hostile/cockroach/glockroach,
+/obj/item/food/deadmouse,
+/mob/living/basic/cockroach/glockroach,
 /mob/living/simple_animal/pet/dog/corgi,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1042,7 +1034,7 @@
 /area/ship/science)
 "Nd" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/holopad/emergency,
+/obj/machinery/holopad,
 /obj/structure/cable{
 	icon_state = "4-5"
 	},
@@ -1054,13 +1046,13 @@
 /obj/structure/closet/crate{
 	name = "authentic russian cuisine crate"
 	},
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
 /obj/item/reagent_containers/food/drinks/waterbottle/large,
 /obj/item/reagent_containers/food/drinks/waterbottle/large,
 /obj/item/reagent_containers/food/drinks/bottle/vodka,

@@ -4,17 +4,9 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "aB" = (
-/obj/item/reagent_containers/food/snacks/canned/beans{
-	pixel_x = -5;
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/food/snacks/canned/beans{
-	pixel_x = 2;
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/food/snacks/canned/beans{
-	pixel_x = -2
-	},
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
+/obj/item/food/canned/beans,
 /obj/item/reagent_containers/food/drinks/waterbottle/large{
 	pixel_x = 5
 	},
@@ -30,12 +22,12 @@
 	name = "food crate"
 	},
 /obj/item/storage/cans/sixbeer,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
-/obj/item/reagent_containers/food/snacks/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
+/obj/item/food/rationpack,
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "aX" = (
@@ -237,7 +229,7 @@
 /obj/effect/turf_decal/tile/purple,
 /obj/effect/turf_decal/tile/yellow,
 /obj/machinery/light,
-/obj/machinery/vending/snack/random,
+/obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/iron,
 /area/ship/hallway/central)
 "nK" = (
@@ -369,7 +361,7 @@
 "vG" = (
 /obj/machinery/autolathe,
 /obj/effect/turf_decal/tile/brown/full,
-/obj/item/stack/sheet/metal/ten,
+/obj/item/stack/sheet/iron/ten,
 /obj/item/stack/sheet/glass,
 /obj/item/stack/sheet/glass,
 /obj/item/stack/sheet/glass,
