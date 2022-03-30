@@ -21,3 +21,8 @@
 /obj/item/circuitboard/computer/shuttle/helm
 	name = "Shuttle Helm (Computer Board)"
 	build_path = /obj/machinery/computer/helm
+
+/obj/item/circuitboard/computer/selling_pad_control
+	name = "Cargo hold control terminal (Computer Board)"
+	icon_state = "supply"
+	build_path = /obj/machinery/computer/selling_pad_control
