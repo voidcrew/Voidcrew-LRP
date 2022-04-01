@@ -74,18 +74,18 @@ SUBSYSTEM_DEF(vote)
 
 			//WS Begin - Autotransfer
 			else if(mode == "transfer")
-				var/factor = 1
+				var/factor = 0
 				switch(world.time / (1 MINUTES ))
 					if(0 to 60)
-						factor = 0.5
+						factor = 0
 					if(61 to 120)
-						factor = 0.8
+						factor = 0
 					if(121 to 240)
-						factor = 1
+						factor = 0
 					if(241 to 300)
-						factor = 1.2
+						factor = 0
 					else
-						factor = 1.4
+						factor = 0
 				choices["Initiate Crew Transfer"] += round(non_voters.len * factor)
 			//WS End
 
