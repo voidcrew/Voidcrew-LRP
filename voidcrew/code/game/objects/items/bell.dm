@@ -9,7 +9,6 @@ click on it or use it inhand to make a noise, click-drag to bring to inventory, 
 	icon = 'voidcrew/icons/obj/assemblies.dmi'
 	icon_state = "table-bell"
 	w_class = WEIGHT_CLASS_TINY
-	var/bell_sound = 'sound/items/ding.ogg'
 
 /obj/item/table_bell/Initialize(mapload)
 	. = ..()
@@ -23,7 +22,7 @@ click on it or use it inhand to make a noise, click-drag to bring to inventory, 
 
 //ATTACK HAND IGNORING PARENT RETURN VAUE
 /obj/item/table_bell/attack_hand(mob/user)
-	playsound (src, bell_sound, 50, FALSE)
+	playsound (src, 'voidcrew/sound/items/ding.ogg', 50, FALSE)
 	flick("[icon_state]_ding", src)
 	add_fingerprint(user)
 	return ..()
