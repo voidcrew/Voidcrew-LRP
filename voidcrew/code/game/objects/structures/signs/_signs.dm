@@ -14,3 +14,10 @@
 
 /obj/structure/sign/solgov_flag/right
 	icon_state = "solgovflag-right"
+
+/obj/structure/sign/syndicate	//based of paradise's syndicate logo. I will i was good enough to sprite the background
+	name = "\improper Syndicate logo sign"
+	sign_change_name = "Corporate Logo - Syndicate"
+	desc = "A sign with the Syndicate logo on it. Death to Nanotrasen."
+	icon_state = "syndicate"
+	is_editable = TRUE
