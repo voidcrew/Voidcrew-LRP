@@ -4,7 +4,6 @@
 #define MAX_OVERMAP_EVENTS 120
 #define MAX_OVERMAP_PLACE_ATTEMPTS 20
 
-
 #define BOTTOM_LEFT_TURF locate(OVERMAP_MIN_X, OVERMAP_MIN_Y, OVERMAP_Z_LEVEL)
 
 SUBSYSTEM_DEF(overmap)
@@ -147,12 +146,12 @@ SUBSYSTEM_DEF(overmap)
 		setup_planet(planet_object, planet)
 
 /datum/controller/subsystem/overmap/proc/setup_sun()
-	var/path = pick(list(
+	var/obj/structure/overmap/star/centre
+	var/star_to_spawn = rand(1,)
 		/obj/structure/overmap/star/big/binary,
 		/obj/structure/overmap/star/medium,
 		/obj/structure/overmap/star/big,
-	))
-	var/obj/structure/overmap/star/centre = new path
+	)	
 	var/sun_loc = locate(size / 2, (OVERMAP_MIN_Y - 1) + (size / 2), 1)
 	centre.forceMove(sun_loc)
 	new /obj/effect/landmark/observer_start(sun_loc)
