@@ -63,6 +63,7 @@
 		var/datum/map_template/shuttle/shuttle = new(data["map_path"], data["map_name"], TRUE)
 		shuttle.suffix = data["map_id"]
 		shuttle.port_id = "voidcrew"
+		shuttle.shuttle_id = data["map_id"]
 
 		if(istext(data["map_short_name"]))
 			shuttle.short_name = data["map_short_name"]
@@ -109,8 +110,8 @@
 			//ship_purchase_list["[shuttle.faction_prefix] [shuttle.name] ([shuttle.cost] [CONFIG_GET(string/metacurrency_name)]s)"] = shuttle // VOIDCREW
 		if(isnum(data["limit"]))
 			shuttle.limit = data["limit"]
-		shuttle_templates[shuttle.suffix] = shuttle
-		map_templates[shuttle.suffix] = shuttle
+		shuttle_templates[shuttle.shuttle_id] = shuttle
+		map_templates[shuttle.shuttle_id] = shuttle
 		if(isnum(data["roundstart"]) && data["roundstart"])
 			maplist[shuttle.name] = shuttle
 		switch(shuttle.faction_prefix)
