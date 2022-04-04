@@ -97,8 +97,8 @@ SUBSYSTEM_DEF(overmap)
 /datum/controller/subsystem/overmap/proc/spawn_space_level(planet_num)
 	var/datum/space_level/z_level = SSmapping.add_new_zlevel("Space zone [planet_num]", list(ZTRAIT_SPACE_RUINS = TRUE, ZTRAIT_BASETURF = /turf/open/space))
 
-	if (prob(25))
-		seedRuins(list(z_level.z_value), 10, /area/space, SSmapping.themed_ruins[ZTRAIT_SPACE_RUINS])
+	//if (prob(25))
+	//	seedRuins(list(z_level.z_value), 10, /area/space, SSmapping.themed_ruins[ZTRAIT_SPACE_RUINS])
 	return z_level.z_value
 
 /datum/controller/subsystem/overmap/proc/setup_planet(obj/structure/overmap/dynamic/planet_object, datum/overmap/planet/planet)
@@ -146,12 +146,13 @@ SUBSYSTEM_DEF(overmap)
 		setup_planet(planet_object, planet)
 
 /datum/controller/subsystem/overmap/proc/setup_sun()
-	var/obj/structure/overmap/star/centre
-	var/star_to_spawn = rand(1,)
+	var/list/stars = list(
+		/obj/structure/overmap/star,
 		/obj/structure/overmap/star/big/binary,
 		/obj/structure/overmap/star/medium,
 		/obj/structure/overmap/star/big,
-	)	
+	)
+	var/obj/structure/overmap/star/centre = new
 	var/sun_loc = locate(size / 2, (OVERMAP_MIN_Y - 1) + (size / 2), 1)
 	centre.forceMove(sun_loc)
 	new /obj/effect/landmark/observer_start(sun_loc)
