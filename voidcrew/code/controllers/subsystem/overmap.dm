@@ -1,7 +1,8 @@
 #define INIT_ANNOUNCE(X) to_chat(world, span_boldannounce("[X]")); log_world(X)
 
-#define MAX_OVERMAP_EVENT_CLUSTERS 10
-#define MAX_OVERMAP_EVENTS 150
+#define MAX_OVERMAP_EVENT_CLUSTERS 8
+#define MAX_OVERMAP_EVENTS 120
+#define MAX_OVERMAP_PLACE_ATTEMPTS 20
 
 #define BOTTOM_LEFT_TURF locate(OVERMAP_MIN_X, OVERMAP_MIN_Y, OVERMAP_Z_LEVEL)
 
@@ -23,9 +24,13 @@ SUBSYSTEM_DEF(overmap)
 	var/list/simulated_ships
 	///Map of tiles at each radius (represented by index) around the sun
 	var/list/list/radius_tiles
+	///Planetary z levels
+	var/list/planets = list()
+	///List of space z zones
+	var/list/space_z_zones = list()
 
 	///Width/height of the overmap "zlevel"
-	var/size = 18
+	var/size = 23
 
 	///Planet spawning probability
 	var/static/list/possible_planets = list()
@@ -46,9 +51,9 @@ SUBSYSTEM_DEF(overmap)
 
 	create_map()
 
-	spawn_overmap_planets()
-
 	setup_events()
+
+	spawn_overmap_planets()
 
 	return ..()
 
@@ -57,37 +62,10 @@ SUBSYSTEM_DEF(overmap)
 		if(event?.affect_multiple_times && event?.close_overmap_objects)
 			event.apply_effect()
 
-/datum/controller/subsystem/overmap/proc/generate_probabilites()
-	for (var/path in subtypesof(/datum/overmap/planet))
-		var/datum/overmap/planet/temp_planet = new path
-		possible_planets |= list(temp_planet.type = min(length(SSmapping.themed_ruins[temp_planet.ruin_type]), temp_planet.spawn_rate))
-		qdel(temp_planet)
-
-/datum/controller/subsystem/overmap/proc/create_map()
-	var/area/overmap/overmap_area = new
-	overmap_area.setup("Overmap")
-	var/list/overmap_turfs = block(locate(OVERMAP_MIN_X, OVERMAP_MIN_Y, OVERMAP_Z_LEVEL), locate(OVERMAP_MAX_X, OVERMAP_MAX_Y, OVERMAP_Z_LEVEL))
-	for (var/turf/turf as anything in overmap_turfs)
-		if (turf.x == OVERMAP_MIN_X || turf.x == OVERMAP_MAX_X || turf.y == OVERMAP_MIN_Y || turf.y == OVERMAP_MAX_Y)
-			turf.ChangeTurf(/turf/closed/overmap_edge)
-		else
-			turf.ChangeTurf(/turf/open/overmap)
-		overmap_area.contents += turf
-	overmap_area.reg_in_areas_in_z()
-
-///Creates new z levels for each planet
-/datum/controller/subsystem/overmap/proc/spawn_overmap_planets()
-	for (var/i in 1 to planets_to_spawn)
-		var/datum/overmap/planet/planet = pick_n_take(possible_planets)
-
-		planet = new planet
-		var/datum/space_level/planet_z = SSmapping.add_new_zlevel("Overmap planet [i]", planet.planet_ztraits)
-		spawn_planet(planet, planet_z)
-
-
-
 ///Generates the planeat on a given z level
-/datum/controller/subsystem/overmap/proc/spawn_planet(datum/overmap/planet/planet_type, datum/space_level/z_level)
+/datum/controller/subsystem/overmap/proc/spawn_planet(datum/overmap/planet/planet_type, planet_num)
+	var/datum/space_level/z_level = SSmapping.add_new_zlevel("Overmap planet [planet_num]", planet_type.planet_ztraits)
+
 	var/ruin_type = planet_type.ruin_type
 	var/turf/surface = planet_type.surface
 	var/datum/map_generator/mapgen = planet_type?.mapgen
@@ -113,9 +91,71 @@ SUBSYSTEM_DEF(overmap)
 		area.map_generator = mapgen
 		area.RunGeneration()
 
+	planets[planet_type.ruin_type] = z_level.z_value
+	return z_level.z_value
+
+/datum/controller/subsystem/overmap/proc/spawn_space_level(planet_num)
+	var/datum/space_level/z_level = SSmapping.add_new_zlevel("Space zone [planet_num]", list(ZTRAIT_SPACE_RUINS = TRUE, ZTRAIT_BASETURF = /turf/open/space))
+
+	//if (prob(25))
+	//	seedRuins(list(z_level.z_value), 10, /area/space, SSmapping.themed_ruins[ZTRAIT_SPACE_RUINS])
+	return z_level.z_value
+
+/datum/controller/subsystem/overmap/proc/setup_planet(obj/structure/overmap/dynamic/planet_object, datum/overmap/planet/planet)
+	planet_object.name = planet.name
+	planet_object.desc = planet.desc
+	planet_object.icon_state = planet.icon_state
+	planet_object.color = planet.color
+
+/datum/controller/subsystem/overmap/proc/generate_probabilites()
+	for (var/path in subtypesof(/datum/overmap/planet))
+		var/datum/overmap/planet/temp_planet = new path
+		possible_planets |= list(temp_planet.type = min(length(SSmapping.themed_ruins[temp_planet.ruin_type]), temp_planet.spawn_rate))
+		qdel(temp_planet)
+
+/datum/controller/subsystem/overmap/proc/create_map()
+	var/area/overmap/overmap_area = new
+	overmap_area.setup("Overmap")
+	var/list/overmap_turfs = block(locate(OVERMAP_MIN_X, OVERMAP_MIN_Y, OVERMAP_Z_LEVEL), locate(OVERMAP_MAX_X, OVERMAP_MAX_Y, OVERMAP_Z_LEVEL))
+	for (var/turf/turf as anything in overmap_turfs)
+		if (turf.x == OVERMAP_MIN_X || turf.x == OVERMAP_MAX_X || turf.y == OVERMAP_MIN_Y || turf.y == OVERMAP_MAX_Y)
+			turf.ChangeTurf(/turf/closed/overmap_edge)
+		else
+			turf.ChangeTurf(/turf/open/overmap)
+		overmap_area.contents += turf
+	overmap_area.reg_in_areas_in_z()
+
+///Creates new z levels for each planet
+/datum/controller/subsystem/overmap/proc/spawn_overmap_planets()
+	for (var/i in 1 to planets_to_spawn)
+		var/datum/overmap/planet/planet = pick(possible_planets)
+		planet = new planet
+		//VOID TODO: planets should really be spawning far apart, need some sort of proc that will find a turf that is far from other planets
+		var/outer_radii = LAZYLEN(radius_tiles)
+		var/radius_level = rand(outer_radii - 3, outer_radii)
+		var/obj/structure/overmap/dynamic/planet_object
+		while (TRUE)
+			var/turf/overmap_turf = radius_tiles[radius_level][rand(1, length(radius_tiles[radius_level]))]
+			var/obj/structure/overmap/dynamic/temp_planet = locate(/obj/structure/overmap/dynamic) in overmap_turf
+			if (temp_planet)
+				continue
+			force_unused_overmap_square(overmap_turf)
+			planet_object = new(overmap_turf)
+			break
+		planet_object.linked_zlevel = spawn_planet(planet, i) // spawn the planet here, and link it to the planet
+		setup_planet(planet_object, planet)
+
 /datum/controller/subsystem/overmap/proc/setup_sun()
-	var/obj/structure/overmap/star/big/centre = new // TODO set this up to choose a random medium, big or binary
-	centre.forceMove(locate(size / 2, OVERMAP_MIN_Y + (size / 2), 1))
+	var/list/stars = list(
+		/obj/structure/overmap/star,
+		/obj/structure/overmap/star/big/binary,
+		/obj/structure/overmap/star/medium,
+		/obj/structure/overmap/star/big,
+	)
+	var/obj/structure/overmap/star/centre = new
+	var/sun_loc = locate(size / 2, (OVERMAP_MIN_Y - 1) + (size / 2), 1)
+	centre.forceMove(sun_loc)
+	new /obj/effect/landmark/observer_start(sun_loc)
 
 	//setup radius tiles
 	var/list/unsorted_turfs = get_areatype_turfs(/area/overmap)
@@ -123,25 +163,31 @@ SUBSYSTEM_DEF(overmap)
 	for (var/i in 1 to (size - 2) / 2)
 		radius_tiles += list(list())
 		for (var/turf/turf in unsorted_turfs)
-			var/dist = round(sqrt((turf.x - centre.x) ** 2 + (turf.y - centre.y) ** 2))
+			var/dist = round(sqrt((turf.x - (centre.x + 1)) ** 2 + (turf.y - (centre.y + 1)) ** 2))
 			if (dist != i)
 				continue
 			radius_tiles[i] += turf
 			unsorted_turfs -= turf
 
-/datum/controller/subsystem/overmap/proc/get_unused_overmap_square_in_radius(radius, obj_to_avoid, tries = MAX_OVERMAP_PLACEMENT_ATTEMPTS, force = FALSE)
+///Forcefully turns the given square into an available one
+/datum/controller/subsystem/overmap/proc/force_unused_overmap_square(turf/turf)
+	var/obj/structure/overmap/obj = locate(/obj/structure/overmap)
+	if (obj)
+		qdel(obj)
+
+/datum/controller/subsystem/overmap/proc/get_unused_overmap_square_in_radius(radius, obj_to_avoid = /obj/structure/overmap, force = FALSE)
 	if (!radius)
 		radius = rand(2, LAZYLEN(radius_tiles))
 
-	var/turf/turf_to_return
-	for (var/i in 1 to tries)
-		turf_to_return = pick(radius_tiles[radius])
-		if (locate(obj_to_avoid) in turf_to_return)
+	for (var/i in 1 to MAX_OVERMAP_PLACE_ATTEMPTS)
+		. = pick(radius_tiles[radius])
+		var/obj/structure/overmap/obj = locate(obj_to_avoid) in .
+		if (force && obj)
+			qdel(obj)
+			return
+		if (obj)
 			continue
-		return turf_to_return
-
-	if (!force)
-		turf_to_return = null
+		return
 
 /datum/controller/subsystem/overmap/proc/setup_dangers()
 	var/list/orbits = list()
@@ -171,21 +217,32 @@ SUBSYSTEM_DEF(overmap)
 				continue
 			new event_type(turf_to_spawn)
 
+
+/datum/controller/subsystem/overmap/proc/setup_space()
+	var/z_zone = 1
+	var/last_zone = z_zone
+	for (var/i in (OVERMAP_MIN_X + 1) to (OVERMAP_MAX_X - 1))
+		for (var/j in (OVERMAP_MIN_Y + 1) to (OVERMAP_MAX_Y - 1))
+			var/turf/open/overmap/overmap = locate(i, j, OVERMAP_Z_LEVEL)
+			overmap.z_zone = z_zone
+			overmap.name = "[i]-[j]"
+
+			if (((OVERMAP_MIN_Y) - j) % 3 == 0)
+				overmap.z_zone = spawn_space_level(z_zone) // setup space and assign the z to it
+				z_zone += 1
+
+		if ((i - 1) % 3 == 0)
+			last_zone = z_zone
+		else
+			z_zone = last_zone
+
 /datum/controller/subsystem/overmap/proc/setup_events()
 	setup_sun()
 	setup_dangers()
+	setup_space()
 
 
-
-	//then events
-
-/*
-/datum/controller/subsystem/overmap/Recover()
-	if(istype(SSovermap.events))
-		events = SSovermap.events
-	if(istype(SSovermap.radius_tiles))
-		radius_tiles = SSovermap.radius_tiles
-*/
+//VOID TODO setup SSovermap recover
 
 #undef INIT_ANNOUNCE
 #undef MAX_OVERMAP_EVENTS
