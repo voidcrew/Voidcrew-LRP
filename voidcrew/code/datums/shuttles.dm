@@ -34,3 +34,14 @@
 	prefix = "_maps/shuttles/"
 	suffix = "ruin_solgov_exploration_pod.dmm"
 	name = "SolGov Exploration Pod"
+
+
+/datum/map_template/shuttle/voidcrew/New()
+	shuttle_id = "[suffix]"
+	mappath = "[prefix][shuttle_id].dmm"
+	. = ..()
+
+/datum/map_template/shuttle/voidcrew
+	prefix = "voidcrew/_maps/shuttles/"
+	port_id = "voidcrew"
+
