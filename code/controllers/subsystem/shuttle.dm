@@ -659,7 +659,7 @@ SUBSYSTEM_DEF(shuttle)
 
 /datum/controller/subsystem/shuttle/proc/is_in_shuttle_bounds(atom/A)
 	var/area/current = get_area(A)
-	if(istype(current, /area/shuttle) && !istype(current, /area/shuttle/transit))
+	if((istype(current, /area/shuttle) && !istype(current, /area/shuttle/transit)) || istype(current, /area/ship))
 		return TRUE
 	for(var/obj/docking_port/mobile/M in mobile_docking_ports)
 		if(M.is_in_shuttle_bounds(A))
@@ -667,6 +667,11 @@ SUBSYSTEM_DEF(shuttle)
 
 /datum/controller/subsystem/shuttle/proc/get_containing_shuttle(atom/A)
 	var/list/mobile_docking_ports_cache = mobile_docking_ports
+	var/area/param_area = get_area(A)
+	if(istype(param_area, /area/ship))
+		var/area/ship/ship_area = param_area
+		if(ship_area.mobile_port)
+			return ship_area.mobile_port
 	for(var/i in 1 to mobile_docking_ports_cache.len)
 		var/obj/docking_port/port = mobile_docking_ports_cache[i]
 		if(port.is_in_shuttle_bounds(A))
