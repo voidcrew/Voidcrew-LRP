@@ -132,6 +132,7 @@
 	sound_environment = SOUND_ENVIRONMENT_HANGAR
 	ambientsounds = AMBIENCE_MAINT
 
+/* WE are no longer spawning space as individual ruin tiles
 /datum/overmap/planet/space // not a planet but freak off!!
 	name = "weak energy signal"
 	desc = "A very weak energy signal emenating from space."
@@ -146,3 +147,4 @@
 	ruin_type = ZTRAIT_SPACE_RUINS
 
 	sound_environment = SOUND_AREA_SPACE
+*/
