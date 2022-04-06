@@ -1285,9 +1285,13 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	dir = 2;
+	dwidth = 23;
+	height = 24;
 	launch_status = 0;
-	port_direction = 8
+	port_direction = 8;
+	width = 34
 	},
 /obj/machinery/door/firedoor/heavy,
 /turf/open/floor/iron/dark,

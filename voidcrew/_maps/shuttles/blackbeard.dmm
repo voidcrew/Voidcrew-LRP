@@ -752,10 +752,14 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	dir = 2;
+	dwidth = 26;
+	height = 13;
 	name = "Syndicate Heavy Boarder";
 	port_direction = 8;
-	preferred_direction = 4
+	preferred_direction = 4;
+	width = 39
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/hallway/central)

@@ -655,9 +655,13 @@
 	id = "blastdoors"
 	},
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	dir = 4;
+	dwidth = 14;
+	height = 17;
 	launch_status = 0;
-	port_direction = 8
+	port_direction = 8;
+	width = 20
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/cargo)

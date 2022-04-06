@@ -591,9 +591,13 @@
 "Jc" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	can_move_docking_ports = 1;
 	dir = 8;
-	launch_status = 0
+	dwidth = 5;
+	height = 19;
+	launch_status = 0;
+	width = 11
 	},
 /turf/open/floor/plating,
 /area/ship/bridge)

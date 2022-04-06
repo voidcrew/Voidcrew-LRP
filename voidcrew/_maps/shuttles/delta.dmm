@@ -30,12 +30,16 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	callTime = 250;
 	dir = 2;
+	dwidth = 11;
+	height = 17;
 	launch_status = 0;
 	name = "NT Frigate";
 	port_direction = 8;
-	preferred_direction = 4
+	preferred_direction = 4;
+	width = 28
 	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 1

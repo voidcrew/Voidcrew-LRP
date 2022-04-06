@@ -11,12 +11,16 @@
 /area/ship/cargo)
 "ae" = (
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	callTime = 250;
 	dir = 2;
+	dwidth = 7;
+	height = 17;
 	launch_status = 0;
 	name = "Hospital Ship";
 	port_direction = 8;
-	preferred_direction = 4
+	preferred_direction = 4;
+	width = 30
 	},
 /obj/structure/fans/tiny,
 /obj/effect/turf_decal/stripes/line,
