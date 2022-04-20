@@ -16,8 +16,6 @@ SUBSYSTEM_DEF(overmap)
 	//The type of star this system will have
 	var/startype
 
-	var/
-
 	///List of all overmap objects.
 	var/list/overmap_objects
 	///List of all events
@@ -146,26 +144,6 @@ SUBSYSTEM_DEF(overmap)
 			planet_spawned = TRUE
 		planet_object.linked_zlevel = spawn_planet(planet, i) // spawn the planet here, and link it to the planet
 		setup_planet(planet_object, planet)
-
-
-
-	// for (var/i in 1 to planets_to_spawn)
-	// 	var/datum/overmap/planet/planet = pick(possible_planets)
-	// 	planet = new planet
-	// 	//VOID TODO: planets should really be spawning far apart, need some sort of proc that will find a turf that is far from other planets
-	// 	var/outer_radii = LAZYLEN(radius_tiles)
-	// 	var/radius_level = rand(outer_radii - 3, outer_radii)
-	// 	var/obj/structure/overmap/dynamic/planet_object
-	// 	while (TRUE)
-	// 		var/turf/overmap_turf = radius_tiles[radius_level][rand(1, length(radius_tiles[radius_level]))]
-	// 		var/obj/structure/overmap/dynamic/temp_planet = locate(/obj/structure/overmap/dynamic) in overmap_turf
-	// 		if (temp_planet)
-	// 			continue
-	// 		force_unused_overmap_square(overmap_turf)
-	// 		planet_object = new(overmap_turf)
-	// 		break
-	// 	planet_object.linked_zlevel = spawn_planet(planet, i) // spawn the planet here, and link it to the planet
-	// 	setup_planet(planet_object, planet)
 
 /datum/controller/subsystem/overmap/proc/setup_sun()
 	var/obj/structure/overmap/star/big/centre = new
