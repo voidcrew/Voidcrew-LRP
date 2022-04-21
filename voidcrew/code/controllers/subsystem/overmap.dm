@@ -127,35 +127,28 @@ SUBSYSTEM_DEF(overmap)
 
 ///Creates new z levels for each planet
 /datum/controller/subsystem/overmap/proc/spawn_overmap_planets()
+	var/outer_radii = LAZYLEN(radius_tiles)
+	var/planet_spawned = FALSE
+	var/obj/structure/overmap/dynamic/planet_object = null
 	for (var/i in 1 to planets_to_spawn)
 		var/datum/overmap/planet/planet = pick(possible_planets)
 		planet = new planet
-		//VOID TODO: planets should really be spawning far apart, need some sort of proc that will find a turf that is far from other planets
-		var/outer_radii = LAZYLEN(radius_tiles)
-		var/radius_level = rand(outer_radii - 3, outer_radii)
-		var/obj/structure/overmap/dynamic/planet_object
-		while (TRUE)
+		planet_spawned = FALSE
+		while (!planet_spawned)
+			var/radius_level = rand(outer_radii - 3, outer_radii)
 			var/turf/overmap_turf = radius_tiles[radius_level][rand(1, length(radius_tiles[radius_level]))]
-			var/obj/structure/overmap/dynamic/temp_planet = locate(/obj/structure/overmap/dynamic) in overmap_turf
-			if (temp_planet)
-				continue
 			force_unused_overmap_square(overmap_turf)
-			planet_object = new(overmap_turf)
-			break
+
+			planet_object = new
+			planet_object.forceMove(overmap_turf)
+			planet_spawned = TRUE
 		planet_object.linked_zlevel = spawn_planet(planet, i) // spawn the planet here, and link it to the planet
 		setup_planet(planet_object, planet)
 
 /datum/controller/subsystem/overmap/proc/setup_sun()
-	var/list/stars = list(
-		/obj/structure/overmap/star,
-		/obj/structure/overmap/star/big/binary,
-		/obj/structure/overmap/star/medium,
-		/obj/structure/overmap/star/big,
-	)
-	var/obj/structure/overmap/star/centre = new
-	var/sun_loc = locate(size / 2, (OVERMAP_MIN_Y - 1) + (size / 2), 1)
-	centre.forceMove(sun_loc)
-	new /obj/effect/landmark/observer_start(sun_loc)
+	var/obj/structure/overmap/star/big/centre = new
+	centre.forceMove(locate(size / 2, (OVERMAP_MIN_Y - 1) + (size / 2), 1))
+	new /obj/effect/landmark/observer_start(locate(size / 2, (OVERMAP_MIN_Y - 1) + (size / 2), 1))
 
 	//setup radius tiles
 	var/list/unsorted_turfs = get_areatype_turfs(/area/overmap)
@@ -171,9 +164,9 @@ SUBSYSTEM_DEF(overmap)
 
 ///Forcefully turns the given square into an available one
 /datum/controller/subsystem/overmap/proc/force_unused_overmap_square(turf/turf)
-	var/obj/structure/overmap/obj = locate(/obj/structure/overmap)
-	if (obj)
-		qdel(obj)
+	var/turf/base_turf = get_turf(turf)
+	for (var/item in base_turf.contents)
+		qdel(item)
 
 /datum/controller/subsystem/overmap/proc/get_unused_overmap_square_in_radius(radius, obj_to_avoid = /obj/structure/overmap, force = FALSE)
 	if (!radius)
@@ -237,9 +230,9 @@ SUBSYSTEM_DEF(overmap)
 			z_zone = last_zone
 
 /datum/controller/subsystem/overmap/proc/setup_events()
+	setup_space()
 	setup_sun()
 	setup_dangers()
-	setup_space()
 
 
 //VOID TODO setup SSovermap recover
