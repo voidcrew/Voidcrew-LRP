@@ -399,8 +399,11 @@
 "hA" = (
 /obj/machinery/door/airlock/external,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	launch_status = 0;
-	port_direction = 2
+	port_direction = 2;
+	width = 32;
+	height = 32
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1

@@ -248,11 +248,6 @@
 /area/ship/cargo)
 "in" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/suit/space/hardsuit/cult,
-/obj/item/clothing/suit/space/hardsuit/cult,
-/obj/item/clothing/suit/space/hardsuit/cult,
-/obj/item/clothing/suit/space/hardsuit/cult,
-/obj/item/clothing/suit/space/hardsuit/cult,
 /obj/item/melee/cultblade,
 /obj/item/melee/cultblade,
 /obj/item/melee/cultblade,
@@ -464,9 +459,11 @@
 /obj/effect/turf_decal/stripes/asteroid/full,
 /obj/structure/fans/tiny,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	dir = 4;
 	launch_status = 0;
-	port_direction = 8
+	port_direction = 8;
+	width = 21
 	},
 /obj/machinery/door/poddoor{
 	id = "starboardloadingbay";

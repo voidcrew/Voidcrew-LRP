@@ -299,12 +299,15 @@
 /obj/structure/fans/tiny,
 /obj/machinery/door/airlock/external,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	can_move_docking_ports = 1;
 	dir = 2;
 	launch_status = 0;
 	name = "mining ship";
 	port_direction = 8;
-	preferred_direction = 4
+	preferred_direction = 4;
+	height = 19;
+	width = 20
 	},
 /turf/open/floor/iron,
 /area/ship/crew/dorm)
@@ -729,14 +732,6 @@
 	icon_state = "1-4"
 	},
 /obj/structure/closet/crate,
-/obj/item/am_containment,
-/obj/item/am_containment,
-/obj/item/am_containment,
-/obj/item/am_containment,
-/obj/item/am_containment,
-/obj/item/am_containment,
-/obj/item/am_containment,
-/obj/item/am_containment,
 /obj/item/stack/sheet/mineral/plasma/thirty,
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
@@ -793,7 +788,6 @@
 /turf/open/floor/mineral/titanium,
 /area/ship/hallway/central)
 "LK" = (
-/obj/machinery/power/am_control_unit,
 /obj/structure/cable,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -979,7 +973,6 @@
 /turf/open/floor/mineral/titanium,
 /area/ship/security/armory)
 "Ww" = (
-/obj/machinery/am_shielding,
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "WR" = (

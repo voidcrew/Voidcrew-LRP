@@ -181,14 +181,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/ship/medical)
-"es" = (
-/mob/living/simple_animal/hostile/retaliate/gator/steppy{
-	desc = "A Donk! Co. esteemed employee, the one you go to when you have a complaint about the product. Teeth included.";
-	name = "Donk! Co. Head of Customer Complaints"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/dark,
-/area/ship/cargo)
 "ey" = (
 /obj/machinery/chem_master,
 /turf/open/floor/iron/dark,
@@ -434,9 +426,12 @@
 "iV" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	can_move_docking_ports = 1;
 	dir = 2;
-	launch_status = 0
+	launch_status = 0;
+	width = 19;
+	height = 27
 	},
 /obj/machinery/door/poddoor/shutters{
 	id = "externalshutters"
@@ -2055,7 +2050,7 @@ hs
 hs
 ab
 LQ
-es
+Wj
 hx
 Og
 Og

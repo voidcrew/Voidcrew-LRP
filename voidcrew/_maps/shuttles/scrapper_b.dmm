@@ -257,8 +257,11 @@
 	name = "external access hatch"
 	},
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	dir = 8;
-	port_direction = 4
+	port_direction = 4;
+	height = 36;
+	width = 25
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/iron/dark,

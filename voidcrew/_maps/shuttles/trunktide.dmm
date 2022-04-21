@@ -95,8 +95,10 @@
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/fans/tiny,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	launch_status = 0;
-	port_direction = 2
+	port_direction = 2;
+	width = 18
 	},
 /turf/open/floor/plating,
 /area/ship/cargo)

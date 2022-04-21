@@ -21,7 +21,10 @@
 /obj/effect/spawner/structure/window/reinforced/indestructable,
 /obj/structure/grille,
 /obj/docking_port/mobile{
-	dir = 2
+	area_type = /area/ship;
+	dir = 2;
+	height = 24;
+	width = 26
 	},
 /obj/structure/cable{
 	icon_state = "0-2"

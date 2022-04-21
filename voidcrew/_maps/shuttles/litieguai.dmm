@@ -1057,8 +1057,11 @@
 /area/ship/hallway/fore)
 "BN" = (
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	launch_status = 0;
-	port_direction = 2
+	port_direction = 2;
+	height = 27;
+	width = 19
 	},
 /obj/structure/fans/tiny,
 /obj/machinery/door/poddoor/shutters{
@@ -1101,10 +1104,6 @@
 /area/ship/maintenance/starboard)
 "Dy" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
-/mob/living/simple_animal/hostile/retaliate/poison/snake{
-	desc = "The CMO's pet snake. The question of what species it actually belongs to is a mystery for the ages.";
-	name = "\proper Deuce"
-	},
 /obj/structure/bed/dogbed{
 	anchored = 1;
 	desc = "A comfy-looking... snake bed? There's bits of shed scales stuck in the bedding...";
@@ -1713,7 +1712,6 @@
 /obj/item/stack/sheet/glass/fifty,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
 /obj/effect/turf_decal/delivery/red,
-/obj/item/disk/design_disk/ammo_38_hunting,
 /turf/open/floor/iron,
 /area/ship/storage)
 "Ti" = (

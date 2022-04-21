@@ -2403,9 +2403,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/ship/science)
-"mx" = (
-/turf/open/floor/plasteel/median/darktogrime,
-/area/ship/crew/chapel)
 "my" = (
 /obj/machinery/mass_driver{
 	dir = 8;
@@ -2720,9 +2717,6 @@
 /obj/effect/turf_decal/tile/blue,
 /obj/item/storage/pill_bottle/psicodine{
 	pixel_x = -8
-	},
-/obj/item/storage/pill_bottle/trophazole{
-	pixel_x = 8
 	},
 /obj/item/storage/pill_bottle/mannitol,
 /obj/structure/closet/secure_closet/chemical/heisenberg,
@@ -3765,10 +3759,6 @@
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/nitrogen_input,
 /turf/open/floor/engine/n2,
 /area/ship/engineering/atmospherics)
-"tp" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel/median/floortogrime/corner,
-/area/ship/crew/chapel)
 "tr" = (
 /obj/machinery/atmospherics/miner/n2o,
 /obj/machinery/camera/autoname{
@@ -3970,15 +3960,9 @@
 /obj/structure/chair/pew/left{
 	dir = 8
 	},
-/turf/open/floor/plasteel/median/darktogrime{
-	dir = 1
-	},
 /area/ship/crew/chapel)
 "ux" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel/median/darktogrime{
-	dir = 1
-	},
 /area/ship/crew/chapel)
 "uz" = (
 /obj/structure/cable,
@@ -4072,7 +4056,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
-/turf/open/floor/plasteel/median/darktogrime,
 /area/ship/crew/chapel)
 "uV" = (
 /obj/structure/cable{
@@ -4803,9 +4786,6 @@
 /area/ship/medical)
 "yP" = (
 /obj/structure/table/wood,
-/turf/open/floor/plasteel/median/darktogrime{
-	dir = 8
-	},
 /area/ship/crew/chapel)
 "yQ" = (
 /obj/structure/disposalpipe/segment{
@@ -5071,9 +5051,6 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/turf/open/floor/plasteel/median/darktogrime{
-	dir = 4
-	},
 /area/ship/crew/chapel)
 "zS" = (
 /obj/structure/disposalpipe/junction{
@@ -5316,9 +5293,6 @@
 /turf/open/floor/iron/dark,
 /area/ship/crew/chapel)
 "Bc" = (
-/turf/open/floor/plasteel/median/floortogrime/corner{
-	dir = 4
-	},
 /area/ship/crew/chapel)
 "Be" = (
 /obj/effect/turf_decal/tile/brown,
@@ -5577,9 +5551,6 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/plasteel/median/darktogrime{
-	dir = 1
-	},
 /area/ship/crew/chapel)
 "Cz" = (
 /turf/open/floor/engine/air,
@@ -6021,9 +5992,6 @@
 /area/ship/engineering/atmospherics)
 "EB" = (
 /obj/structure/closet/wardrobe/chaplain_black,
-/turf/open/floor/plasteel/median/floortogrime/corner{
-	dir = 1
-	},
 /area/ship/crew/chapel)
 "EC" = (
 /obj/structure/disposalpipe/segment{
@@ -6068,9 +6036,6 @@
 /turf/open/floor/iron/dark,
 /area/ship/medical/morgue)
 "EL" = (
-/obj/machinery/computer/card/minor/rd{
-	dir = 4
-	},
 /obj/effect/turf_decal/tile/purple/anticorner,
 /turf/open/floor/iron/dark,
 /area/ship/construction)
@@ -6427,7 +6392,6 @@
 /obj/structure/chair/pew/right{
 	dir = 8
 	},
-/turf/open/floor/plasteel/median/darktogrime,
 /area/ship/crew/chapel)
 "Gg" = (
 /obj/machinery/light{
@@ -7256,7 +7220,6 @@
 /turf/closed/wall,
 /area/ship/crew/chapel)
 "Kh" = (
-/mob/living/simple_animal/hostile/retaliate/gator/steppy,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/ship/cargo)
@@ -7309,9 +7272,12 @@
 	name = "Blast Doors"
 	},
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	can_move_docking_ports = 1;
 	dir = 2;
-	launch_status = 0
+	launch_status = 0;
+	width = 40;
+	height = 56
 	},
 /turf/open/floor/iron,
 /area/ship/cargo)
@@ -10194,9 +10160,6 @@
 /turf/open/floor/iron,
 /area/ship/hallway/central)
 "Za" = (
-/obj/machinery/computer/card/minor/hos{
-	dir = 8
-	},
 /obj/effect/turf_decal/tile/red/anticorner,
 /turf/open/floor/iron/dark,
 /area/ship/maintenance)
@@ -10321,9 +10284,6 @@
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
-	},
-/turf/open/floor/plasteel/median/floortogrime/corner{
-	dir = 8
 	},
 /area/ship/crew/chapel)
 "ZN" = (
@@ -10472,7 +10432,7 @@ Fa
 cN
 sv
 zZ
-tp
+ux
 Hb
 Rf
 AA
@@ -10591,7 +10551,7 @@ zZ
 zk
 ux
 ZJ
-mx
+Bc
 zk
 UN
 jK

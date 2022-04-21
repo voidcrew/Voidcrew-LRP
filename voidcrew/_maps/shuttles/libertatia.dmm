@@ -114,8 +114,11 @@
 "fd" = (
 /obj/structure/fans/tiny,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	launch_status = 0;
-	port_direction = 2
+	port_direction = 2;
+	height = 25;
+	width = 18
 	},
 /obj/machinery/door/poddoor/shutters{
 	id = "piratecargo";

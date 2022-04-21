@@ -149,7 +149,6 @@
 /turf/closed/wall/r_wall,
 /area/ship/storage)
 "bP" = (
-/obj/effect/spawner/structure/window/reinforced/shutters,
 /turf/open/floor/plating,
 /area/ship/medical)
 "bU" = (
@@ -407,7 +406,6 @@
 /turf/open/floor/iron,
 /area/ship/engineering/engine)
 "fV" = (
-/obj/effect/spawner/structure/window/reinforced/shutters,
 /turf/open/floor/plating,
 /area/ship/crew/solgov)
 "fW" = (
@@ -611,9 +609,12 @@
 	dir = 4
 	},
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	dir = 4;
 	launch_status = 0;
-	port_direction = 2
+	port_direction = 2;
+	height = 29;
+	width = 37
 	},
 /turf/open/floor/iron,
 /area/ship/engineering)
@@ -627,7 +628,6 @@
 /turf/open/floor/carpet/blue,
 /area/ship/medical)
 "jr" = (
-/obj/effect/spawner/structure/window/reinforced/shutters,
 /turf/open/floor/plating,
 /area/ship/hallway/central)
 "jy" = (
@@ -1219,7 +1219,6 @@
 /turf/open/floor/iron,
 /area/ship/engineering)
 "sa" = (
-/obj/effect/spawner/structure/window/reinforced/shutters,
 /obj/structure/curtain/bounty,
 /turf/open/floor/plating,
 /area/ship/crew/canteen)
@@ -1373,7 +1372,6 @@
 /turf/open/floor/carpet/black,
 /area/ship/hallway/central)
 "vh" = (
-/obj/effect/spawner/structure/window/reinforced/shutters,
 /turf/open/floor/plating,
 /area/ship/bridge)
 "vk" = (
@@ -2538,7 +2536,6 @@
 /turf/open/floor/iron/white/smooth_large,
 /area/ship/crew/canteen)
 "Mw" = (
-/obj/effect/spawner/structure/window/reinforced/shutters,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
@@ -2950,7 +2947,6 @@
 /turf/open/floor/engine/o2,
 /area/ship/engineering/atmospherics)
 "Ty" = (
-/obj/effect/spawner/structure/window/reinforced/shutters,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green/visible,
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)

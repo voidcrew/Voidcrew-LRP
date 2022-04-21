@@ -917,7 +917,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
 	dir = 4
 	},
-/mob/living/simple_animal/hostile/retaliate/poison/snake/bookworm,
 /turf/open/floor/carpet/red,
 /area/ship/crew/library)
 "qt" = (
@@ -1624,9 +1623,12 @@
 "zL" = (
 /obj/machinery/door/airlock/external,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	dir = 4;
 	launch_status = 0;
-	port_direction = 8
+	port_direction = 8;
+	width = 32;
+	height = 36
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4

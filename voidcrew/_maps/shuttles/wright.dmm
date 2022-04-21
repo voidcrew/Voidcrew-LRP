@@ -921,9 +921,12 @@
 "zB" = (
 /obj/machinery/door/airlock/external,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	dir = 4;
 	launch_status = 0;
-	port_direction = 2
+	port_direction = 2;
+	height = 20;
+	width = 24
 	},
 /turf/open/floor/plating,
 /area/ship/crew/office)

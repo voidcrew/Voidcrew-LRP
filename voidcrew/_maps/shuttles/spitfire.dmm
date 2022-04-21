@@ -298,9 +298,12 @@
 "mX" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	can_move_docking_ports = 1;
 	dir = 2;
-	launch_status = 0
+	launch_status = 0;
+	height = 18;
+	width = 23
 	},
 /turf/open/floor/plating,
 /area/ship/bridge)

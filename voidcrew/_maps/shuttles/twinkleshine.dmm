@@ -1390,10 +1390,13 @@
 /area/ship/engineering/electrical)
 "qz" = (
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	can_move_docking_ports = 1;
 	dir = 4;
 	name = "SBD starfurys revenge";
-	port_direction = 8
+	port_direction = 8;
+	width = 35;
+	height = 52
 	},
 /obj/structure/railing,
 /obj/structure/railing{

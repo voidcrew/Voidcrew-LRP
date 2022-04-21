@@ -984,9 +984,12 @@
 	id = "golemwindows"
 	},
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	can_move_docking_ports = 1;
 	dir = 4;
-	name = "Free Golem Ship"
+	name = "Free Golem Ship";
+	height = 18;
+	width = 32
 	},
 /turf/open/floor/plating,
 /area/ship/bridge)

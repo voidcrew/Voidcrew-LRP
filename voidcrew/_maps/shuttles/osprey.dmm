@@ -1775,9 +1775,12 @@
 /obj/effect/turf_decal/tile/dark/half,
 /obj/machinery/door/airlock/external/glass,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	dir = 4;
 	launch_status = 0;
-	port_direction = 8
+	port_direction = 8;
+	width = 31;
+	height = 56
 	},
 /turf/open/floor/iron/dark,
 /area/ship/maintenance/port)

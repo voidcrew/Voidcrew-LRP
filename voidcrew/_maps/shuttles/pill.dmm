@@ -88,9 +88,12 @@
 	},
 /obj/item/toy/plush/beeplushie,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	can_move_docking_ports = 1;
 	dir = 8;
-	launch_status = 0
+	launch_status = 0;
+	width = 3;
+	height = 1
 	},
 /obj/item/storage/toolbox/mechanical/old,
 /obj/item/storage/box/stockparts/basic,
