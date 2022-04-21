@@ -119,5 +119,6 @@
 				nt_ship_list[shuttle.name] = shuttle
 			if("SYN-C")
 				syn_ship_list[shuttle.name] = shuttle
+
 #undef CHECK_STRING_EXISTS
 #undef CHECK_LIST_EXISTS
