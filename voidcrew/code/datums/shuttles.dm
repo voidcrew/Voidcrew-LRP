@@ -36,12 +36,10 @@
 	name = "SolGov Exploration Pod"
 
 
-/datum/map_template/shuttle/voidcrew/New()
+/datum/map_template/shuttle/voidcrew
+	. = ..()
 	shuttle_id = "[suffix]"
 	mappath = "[prefix][shuttle_id].dmm"
-	. = ..()
-
-/datum/map_template/shuttle/voidcrew
 	prefix = "voidcrew/_maps/shuttles/"
 	port_id = "voidcrew"
 
