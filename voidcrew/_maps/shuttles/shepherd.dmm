@@ -928,6 +928,24 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /turf/open/floor/carpet,
 /area/ship/medical/morgue)
+"qy" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/grille,
+/obj/machinery/door/poddoor/shutters/window/preopen,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "chapel_backwindow";
+	name = "window shutters"
+	},
+/obj/docking_port/mobile{
+	area_type = /area/ship;
+	launch_status = 0;
+	port_direction = 8;
+	width = 32;
+	height = 36;
+	dwidth = 15
+	},
+/turf/open/floor/plating,
+/area/ship/crew/chapel)
 "qG" = (
 /obj/machinery/atmospherics/components/trinary/filter/flipped/on{
 	dir = 8
@@ -1622,15 +1640,6 @@
 /area/ship/crew/dorm)
 "zL" = (
 /obj/machinery/door/airlock/external,
-/obj/docking_port/mobile{
-	area_type = /area/ship;
-	dir = 4;
-	launch_status = 0;
-	port_direction = 8;
-	width = 32;
-	height = 36;
-	dwidth = 14
-	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
@@ -4054,7 +4063,7 @@ Pn
 ci
 ci
 Rf
-yW
+qy
 "}
 (17,1,1) = {"
 ZP

@@ -455,24 +455,6 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/cult,
 /area/ship/security)
-"oW" = (
-/obj/effect/turf_decal/stripes/asteroid/full,
-/obj/structure/fans/tiny,
-/obj/docking_port/mobile{
-	area_type = /area/ship;
-	dir = 4;
-	launch_status = 0;
-	port_direction = 8;
-	width = 21;
-	dheight = 20;
-	dwidth = 14
-	},
-/obj/machinery/door/poddoor{
-	id = "starboardloadingbay";
-	name = "Starboard Loading Bay"
-	},
-/turf/open/floor/iron,
-/area/ship/cargo)
 "pu" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
@@ -1326,6 +1308,24 @@
 	},
 /turf/open/floor/iron,
 /area/ship/storage)
+"NQ" = (
+/obj/effect/turf_decal/stripes/asteroid/full,
+/obj/structure/fans/tiny,
+/obj/machinery/door/poddoor{
+	id = "portloadingbay";
+	name = "Port Loading Bay"
+	},
+/obj/docking_port/mobile{
+	area_type = /area/ship;
+	dir = 4;
+	launch_status = 0;
+	port_direction = 8;
+	width = 21;
+	dwidth = 14;
+	name = "Cultist"
+	},
+/turf/open/floor/cult,
+/area/ship/cargo)
 "NR" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -1880,7 +1880,7 @@ wi
 wi
 wb
 wb
-qS
+NQ
 qS
 wi
 gL
@@ -2366,7 +2366,7 @@ wi
 wi
 Ly
 Ly
-oW
+YJ
 YJ
 wi
 gL

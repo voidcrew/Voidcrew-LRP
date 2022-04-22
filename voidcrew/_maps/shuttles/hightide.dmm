@@ -160,6 +160,17 @@
 	},
 /turf/open/floor/plating,
 /area/ship/maintenance/fore)
+"gq" = (
+/obj/docking_port/mobile{
+	area_type = /area/ship;
+	launch_status = 0;
+	port_direction = 4;
+	width = 18;
+	height = 29;
+	dwidth = 10
+	},
+/turf/closed/wall/r_wall/rust,
+/area/ship/maintenance/central)
 "gw" = (
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/plating,
@@ -383,15 +394,6 @@
 /area/ship/maintenance/starboard)
 "oY" = (
 /obj/machinery/door/airlock/maintenance_hatch,
-/obj/docking_port/mobile{
-	area_type = /area/ship;
-	dir = 8;
-	launch_status = 0;
-	port_direction = 4;
-	width = 18;
-	height = 29;
-	dwidth = 21
-	},
 /turf/open/floor/plating,
 /area/ship/cargo)
 "po" = (
@@ -1582,7 +1584,7 @@ dM
 GI
 PS
 nT
-nT
+gq
 "}
 (12,1,1) = {"
 xg

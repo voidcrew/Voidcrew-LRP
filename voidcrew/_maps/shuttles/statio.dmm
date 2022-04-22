@@ -7265,23 +7265,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/ship/hallway/starboard)
-"Kr" = (
-/obj/structure/fans/tiny,
-/obj/machinery/door/poddoor{
-	id = "stationtestdoors";
-	name = "Blast Doors"
-	},
-/obj/docking_port/mobile{
-	area_type = /area/ship;
-	can_move_docking_ports = 1;
-	dir = 2;
-	launch_status = 0;
-	width = 40;
-	height = 56;
-	dwidth = 33
-	},
-/turf/open/floor/iron,
-/area/ship/cargo)
 "Ks" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 8
@@ -9798,6 +9781,17 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/ship/security/prison)
+"WQ" = (
+/obj/docking_port/mobile{
+	area_type = /area/ship;
+	can_move_docking_ports = 1;
+	launch_status = 0;
+	width = 40;
+	height = 56;
+	dwidth = 19
+	},
+/turf/closed/wall/r_wall,
+/area/ship/engineering/electrical)
 "WR" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -10626,7 +10620,7 @@ nD
 UN
 "}
 (6,1,1) = {"
-Kr
+ld
 dL
 VZ
 Kh
@@ -11493,7 +11487,7 @@ zc
 MO
 MO
 zc
-zc
+WQ
 "}
 (21,1,1) = {"
 if

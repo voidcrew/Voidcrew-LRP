@@ -1762,6 +1762,17 @@
 	},
 /turf/open/floor/carpet/black,
 /area/ship/bridge)
+"En" = (
+/obj/docking_port/mobile{
+	area_type = /area/ship;
+	launch_status = 0;
+	port_direction = 4;
+	width = 24;
+	dwidth = 10
+	},
+/turf/open/floor/catwalk_floor/iron,
+/turf/template_noop,
+/area/ship/external)
 "Er" = (
 /turf/closed/wall/r_wall,
 /area/ship/crew/chapel/office)
@@ -2096,14 +2107,6 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
-	},
-/obj/docking_port/mobile{
-	area_type = /area/ship;
-	dir = 8;
-	launch_status = 0;
-	port_direction = 4;
-	width = 24;
-	dwidth = 25
 	},
 /turf/open/floor/plating,
 /area/ship/hallway/starboard)
@@ -3522,7 +3525,7 @@ pu
 em
 gJ
 ui
-We
+En
 "}
 (12,1,1) = {"
 Aq
