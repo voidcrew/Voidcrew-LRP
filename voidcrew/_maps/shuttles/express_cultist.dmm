@@ -1074,6 +1074,21 @@
 /obj/item/sharpener/cult,
 /turf/open/floor/cult,
 /area/ship/security)
+"Hr" = (
+/obj/machinery/atmospherics/components/unary/outlet_injector/on{
+	dir = 1
+	},
+/obj/docking_port/mobile{
+	area_type = /area/ship;
+	launch_status = 0;
+	port_direction = 8;
+	width = 21;
+	dwidth = 7;
+	name = "Cultist";
+	height = 25
+	},
+/turf/open/floor/engine/cult,
+/area/ship/external)
 "HJ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1308,24 +1323,6 @@
 	},
 /turf/open/floor/iron,
 /area/ship/storage)
-"NQ" = (
-/obj/effect/turf_decal/stripes/asteroid/full,
-/obj/structure/fans/tiny,
-/obj/machinery/door/poddoor{
-	id = "portloadingbay";
-	name = "Port Loading Bay"
-	},
-/obj/docking_port/mobile{
-	area_type = /area/ship;
-	dir = 4;
-	launch_status = 0;
-	port_direction = 8;
-	width = 21;
-	dwidth = 14;
-	name = "Cultist"
-	},
-/turf/open/floor/cult,
-/area/ship/cargo)
 "NR" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -1880,7 +1877,7 @@ wi
 wi
 wb
 wb
-NQ
+qS
 qS
 wi
 gL
@@ -2052,7 +2049,7 @@ nd
 LI
 GW
 QV
-mu
+Hr
 "}
 (9,1,1) = {"
 FO

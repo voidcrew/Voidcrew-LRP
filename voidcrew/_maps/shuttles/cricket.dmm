@@ -1285,6 +1285,16 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/machinery/door/firedoor/heavy,
+/obj/docking_port/mobile{
+	area_type = /area/ship;
+	launch_status = 0;
+	port_direction = 8;
+	width = 34;
+	dwidth = 23;
+	name = "Cricket";
+	dir = 2;
+	height = 24
+	},
 /turf/open/floor/iron/dark,
 /area/ship/hallway/aft)
 "sv" = (
@@ -3154,18 +3164,6 @@
 ,
 /turf/open/floor/iron/dark,
 /area/ship/engineering/communications)
-"Ra" = (
-/obj/docking_port/mobile{
-	area_type = /area/ship;
-	launch_status = 0;
-	port_direction = 8;
-	width = 34;
-	dwidth = 21;
-	name = "Cricket"
-	},
-/turf/open/floor/catwalk_floor/iron,
-/turf/template_noop,
-/area/ship/external)
 "Ri" = (
 /obj/structure/lattice,
 /turf/open/floor/catwalk_floor/iron,
@@ -4355,7 +4353,7 @@ Dc
 Bl
 VJ
 OI
-Ra
+oe
 "}
 (23,1,1) = {"
 YU

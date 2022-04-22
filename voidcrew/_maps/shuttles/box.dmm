@@ -1280,20 +1280,6 @@
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/iron/dark,
 /area/ship/medical)
-"mg" = (
-/obj/docking_port/mobile{
-	area_type = /area/ship;
-	callTime = 250;
-	dir = 4;
-	launch_status = 0;
-	name = "Hospital Ship";
-	port_direction = 8;
-	preferred_direction = 4;
-	height = 17;
-	dwidth = 7
-	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/ship/engineering)
 "mE" = (
 /obj/structure/table/glass,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
@@ -1583,6 +1569,26 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ship/medical)
+"NC" = (
+/obj/structure/fans/tiny,
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/door/poddoor{
+	id = "emergencybay_blastdoors"
+	},
+/obj/docking_port/mobile{
+	area_type = /area/ship;
+	callTime = 250;
+	dir = 2;
+	launch_status = 0;
+	name = "Hospital Ship";
+	port_direction = 8;
+	preferred_direction = 4;
+	height = 17;
+	dwidth = 8;
+	width = 30
+	},
+/turf/open/floor/engine,
+/area/ship/cargo)
 "OA" = (
 /turf/open/floor/iron/white,
 /area/ship/cargo)
@@ -1728,7 +1734,7 @@ aa
 aa
 aa
 vk
-mg
+at
 aa
 at
 vk
@@ -2120,7 +2126,7 @@ Yj
 Rx
 "}
 (22,1,1) = {"
-cC
+NC
 aj
 aA
 Yz
