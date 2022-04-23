@@ -546,9 +546,13 @@
 /obj/structure/fans/tiny,
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	dir = 4;
 	launch_status = 0;
-	port_direction = 8
+	port_direction = 8;
+	width = 13;
+	height = 17;
+	dwidth = 9
 	},
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)

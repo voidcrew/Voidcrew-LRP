@@ -3148,8 +3148,12 @@
 /area/ship/cargo)
 "Oc" = (
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	launch_status = 0;
-	port_direction = 2
+	port_direction = 2;
+	width = 31;
+	height = 35;
+	dwidth = 11
 	},
 /turf/open/floor/plating/airless,
 /area/ship/engineering/electrical)

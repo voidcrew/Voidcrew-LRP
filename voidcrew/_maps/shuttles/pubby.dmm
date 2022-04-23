@@ -35,12 +35,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/hidden,
 /turf/open/floor/plating,
 /area/ship/engineering)
-"bo" = (
-/obj/machinery/door/poddoor/multi_tile/four_tile_hor{
-	id = "pubbywspodnw"
-	},
-/turf/open/floor/engine,
-/area/ship/cargo)
 "cl" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
@@ -121,12 +115,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/ship/bridge)
-"gP" = (
-/obj/machinery/door/poddoor/multi_tile/four_tile_hor{
-	id = "pubbywspodne"
-	},
-/turf/open/floor/engine,
-/area/ship/cargo)
 "hi" = (
 /obj/structure/ore_box,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -138,9 +126,10 @@
 /obj/machinery/door/airlock/external/glass,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	callTime = 250;
 	dir = 2;
-	dwidth = 11;
+	dwidth = 10;
 	height = 12;
 	launch_status = 0;
 	name = "White Ship";
@@ -191,12 +180,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ship/bridge)
-"iQ" = (
-/obj/machinery/door/poddoor/multi_tile/four_tile_hor{
-	id = "pubbywspodsw"
-	},
-/turf/open/floor/engine,
-/area/ship/cargo)
 "iZ" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
 /obj/machinery/door/poddoor{
@@ -310,12 +293,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/plating,
 /area/ship/engineering)
-"mi" = (
-/obj/machinery/door/poddoor/multi_tile/four_tile_hor{
-	id = "pubbywspodse"
-	},
-/turf/open/floor/engine,
-/area/ship/cargo)
 "na" = (
 /obj/machinery/light{
 	dir = 8
@@ -1320,7 +1297,7 @@ eL
 eL
 "}
 (10,1,1) = {"
-bo
+du
 nS
 Zz
 Zz
@@ -1331,7 +1308,7 @@ yy
 Zz
 Zz
 Yl
-iQ
+du
 "}
 (11,1,1) = {"
 du
@@ -1418,7 +1395,7 @@ No
 No
 "}
 (17,1,1) = {"
-gP
+du
 yn
 Zz
 Lg
@@ -1429,7 +1406,7 @@ nr
 WN
 Zz
 yn
-mi
+du
 "}
 (18,1,1) = {"
 du

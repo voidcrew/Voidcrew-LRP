@@ -398,10 +398,6 @@
 /area/ship/bridge)
 "hA" = (
 /obj/machinery/door/airlock/external,
-/obj/docking_port/mobile{
-	launch_status = 0;
-	port_direction = 2
-	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -1787,6 +1783,17 @@
 /obj/item/stack/cable_coil,
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
+"yj" = (
+/obj/docking_port/mobile{
+	area_type = /area/ship;
+	launch_status = 0;
+	port_direction = 2;
+	width = 32;
+	height = 32;
+	dwidth = 18
+	},
+/turf/closed/wall/mineral/titanium,
+/area/ship/engineering)
 "yp" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ship/crew/solgov)
@@ -4482,7 +4489,7 @@ wF
 WL
 Tq
 Tq
-vp
+yj
 "}
 (18,1,1) = {"
 Ly

@@ -9,22 +9,6 @@
 /obj/structure/sign/departments/medbay/alt,
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ship/cargo)
-"ae" = (
-/obj/docking_port/mobile{
-	callTime = 250;
-	dir = 2;
-	launch_status = 0;
-	name = "Hospital Ship";
-	port_direction = 8;
-	preferred_direction = 4
-	},
-/obj/structure/fans/tiny,
-/obj/effect/turf_decal/stripes/line,
-/obj/machinery/door/poddoor{
-	id = "emergencybay_blastdoors"
-	},
-/turf/open/floor/engine,
-/area/ship/cargo)
 "ag" = (
 /turf/closed/wall/mineral/titanium,
 /area/ship/medical)
@@ -1585,6 +1569,26 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ship/medical)
+"NC" = (
+/obj/structure/fans/tiny,
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/door/poddoor{
+	id = "emergencybay_blastdoors"
+	},
+/obj/docking_port/mobile{
+	area_type = /area/ship;
+	callTime = 250;
+	dir = 2;
+	launch_status = 0;
+	name = "Hospital Ship";
+	port_direction = 8;
+	preferred_direction = 4;
+	height = 17;
+	dwidth = 8;
+	width = 30
+	},
+/turf/open/floor/engine,
+/area/ship/cargo)
 "OA" = (
 /turf/open/floor/iron/white,
 /area/ship/cargo)
@@ -2122,7 +2126,7 @@ Yj
 Rx
 "}
 (22,1,1) = {"
-cC
+NC
 aj
 aA
 Yz
@@ -2141,7 +2145,7 @@ ER
 Rx
 "}
 (23,1,1) = {"
-ae
+cC
 aj
 yU
 OA

@@ -153,9 +153,6 @@
 "do" = (
 /obj/item/kirbyplants/random,
 /obj/item/vending_refill/medical,
-/obj/effect/turf_decal/corner/bottlegreen/border{
-	dir = 9
-	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/firealarm{
 	dir = 4;
@@ -168,9 +165,6 @@
 "dr" = (
 /obj/item/kirbyplants/random,
 /obj/item/seeds/replicapod,
-/obj/effect/turf_decal/corner/bottlegreen/border{
-	dir = 5
-	},
 /obj/effect/turf_decal/syndicateemblem/top/right,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/hallway/central)
@@ -415,9 +409,6 @@
 /turf/open/floor/grass,
 /area/ship/crew/hydroponics)
 "iR" = (
-/obj/effect/turf_decal/corner/bottlegreen/border{
-	dir = 10
-	},
 /obj/machinery/ore_silo,
 /obj/machinery/light,
 /obj/effect/turf_decal/syndicateemblem/bottom/left,
@@ -456,9 +447,6 @@
 /area/ship/bridge)
 "ju" = (
 /obj/item/kirbyplants/random,
-/obj/effect/turf_decal/corner/bottlegreen/border{
-	dir = 6
-	},
 /obj/machinery/airalarm/directional/east,
 /obj/item/clothing/head/hardhat,
 /obj/effect/turf_decal/syndicateemblem/bottom/right,
@@ -468,7 +456,6 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/hallway/central)
 "jD" = (
-/obj/effect/turf_decal/corner/bottlegreen/full,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -574,7 +561,6 @@
 /turf/open/floor/carpet/red,
 /area/ship/bridge)
 "mz" = (
-/obj/effect/turf_decal/corner/bottlegreen/full,
 /obj/machinery/door/airlock/virology/glass{
 	name = "Medical Center"
 	},
@@ -606,9 +592,13 @@
 "mX" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	can_move_docking_ports = 1;
 	dir = 2;
-	launch_status = 0
+	launch_status = 0;
+	height = 18;
+	width = 23;
+	dwidth = 11
 	},
 /obj/machinery/door/poddoor/preopen{
 	id = "spitfireshutters"
@@ -1083,7 +1073,6 @@
 /turf/open/floor/iron/dark,
 /area/ship/crew/library)
 "yE" = (
-/obj/effect/turf_decal/corner/bottlegreen/full,
 /obj/machinery/door/airlock/virology/glass,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1414,7 +1403,6 @@
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Irrelevant Room"
 	},
-/obj/effect/turf_decal/corner/bottlegreen/full,
 /obj/effect/mapping_helpers/airlock/abandoned,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1661,15 +1649,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/ship/medical)
-"Wl" = (
-/obj/effect/turf_decal/corner/bottlegreen/full,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/white,
-/area/ship/medical)
 "Wv" = (
 /obj/machinery/duct,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -1892,7 +1871,7 @@ dZ
 hI
 lm
 lr
-Wl
+WK
 SE
 cX
 sG

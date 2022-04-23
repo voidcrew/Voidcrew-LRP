@@ -2130,9 +2130,13 @@
 /area/ship/security/prison)
 "LN" = (
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	dir = 2;
 	launch_status = 0;
-	port_direction = 8
+	port_direction = 8;
+	width = 35;
+	height = 17;
+	dwidth = 19
 	},
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/airlock/external/glass,

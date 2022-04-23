@@ -2098,9 +2098,13 @@
 	dir = 8
 	},
 /obj/docking_port/mobile{
-	dir = 8;
+	area_type = /area/ship;
 	launch_status = 0;
-	port_direction = 4
+	port_direction = 4;
+	width = 24;
+	dwidth = 24;
+	height = 40;
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/ship/hallway/starboard)

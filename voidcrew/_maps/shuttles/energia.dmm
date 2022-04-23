@@ -184,12 +184,17 @@
 /obj/machinery/door/airlock/external,
 /obj/structure/fans/tiny,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	can_move_docking_ports = 1;
 	dir = 2;
 	launch_status = 0;
 	name = "mining ship";
 	port_direction = 8;
-	preferred_direction = 4
+	preferred_direction = 4;
+	width = 20;
+	height = 20;
+	dwidth = 8;
+	dheight = 20
 	},
 /turf/open/floor/engine,
 /area/ship/engineering/engine)

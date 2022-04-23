@@ -449,12 +449,17 @@
 	name = "cargo bay blast door"
 	},
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	can_move_docking_ports = 1;
 	dir = 2;
 	launch_status = 0;
 	name = "mining ship";
 	port_direction = 8;
-	preferred_direction = 4
+	preferred_direction = 4;
+	width = 19;
+	height = 17;
+	dwidth = 11;
+	dheight = 16
 	},
 /turf/open/floor/plating,
 /area/ship/cargo)

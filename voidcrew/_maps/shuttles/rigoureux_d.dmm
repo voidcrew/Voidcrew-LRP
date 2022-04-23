@@ -427,10 +427,6 @@
 /area/ship/security/prison)
 "hA" = (
 /obj/machinery/door/airlock/external,
-/obj/docking_port/mobile{
-	launch_status = 0;
-	port_direction = 2
-	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -657,6 +653,19 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet/purple,
 /area/ship/crew/canteen)
+"jY" = (
+/obj/docking_port/mobile{
+	area_type = /area/ship;
+	launch_status = 0;
+	port_direction = 2;
+	height = 32;
+	width = 32;
+	dwidth = 18
+	},
+/turf/closed/wall/mineral/titanium{
+	color = "#E58E2D"
+	},
+/area/ship/engineering)
 "jZ" = (
 /obj/machinery/autolathe,
 /turf/open/floor/iron/dark,
@@ -4807,7 +4816,7 @@ wF
 WL
 kC
 kC
-Tq
+jY
 "}
 (18,1,1) = {"
 Ly

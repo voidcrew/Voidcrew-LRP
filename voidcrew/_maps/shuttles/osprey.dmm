@@ -1063,6 +1063,21 @@
 /obj/machinery/atmospherics/components/tank/air,
 /turf/open/floor/iron,
 /area/ship/engineering/atmospherics)
+"iT" = (
+/obj/machinery/power/shuttle/engine/electric{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/docking_port/mobile{
+	area_type = /area/ship;
+	launch_status = 0;
+	port_direction = 8;
+	width = 31;
+	height = 56;
+	dwidth = 6
+	},
+/turf/open/floor/plating,
+/area/ship/maintenance/port)
 "ja" = (
 /turf/closed/wall/mineral/titanium,
 /area/ship/storage)
@@ -1774,11 +1789,6 @@
 	},
 /obj/effect/turf_decal/tile/dark/half,
 /obj/machinery/door/airlock/external/glass,
-/obj/docking_port/mobile{
-	dir = 4;
-	launch_status = 0;
-	port_direction = 8
-	},
 /turf/open/floor/iron/dark,
 /area/ship/maintenance/port)
 "oE" = (
@@ -6257,7 +6267,7 @@ rM
 nu
 il
 no
-Wh
+iT
 "}
 (8,1,1) = {"
 XU

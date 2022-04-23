@@ -248,11 +248,6 @@
 /area/ship/cargo)
 "in" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/suit/space/hardsuit/cult,
-/obj/item/clothing/suit/space/hardsuit/cult,
-/obj/item/clothing/suit/space/hardsuit/cult,
-/obj/item/clothing/suit/space/hardsuit/cult,
-/obj/item/clothing/suit/space/hardsuit/cult,
 /obj/item/melee/cultblade,
 /obj/item/melee/cultblade,
 /obj/item/melee/cultblade,
@@ -460,20 +455,6 @@
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/cult,
 /area/ship/security)
-"oW" = (
-/obj/effect/turf_decal/stripes/asteroid/full,
-/obj/structure/fans/tiny,
-/obj/docking_port/mobile{
-	dir = 4;
-	launch_status = 0;
-	port_direction = 8
-	},
-/obj/machinery/door/poddoor{
-	id = "starboardloadingbay";
-	name = "Starboard Loading Bay"
-	},
-/turf/open/floor/iron,
-/area/ship/cargo)
 "pu" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
@@ -1093,6 +1074,21 @@
 /obj/item/sharpener/cult,
 /turf/open/floor/cult,
 /area/ship/security)
+"Hr" = (
+/obj/machinery/atmospherics/components/unary/outlet_injector/on{
+	dir = 1
+	},
+/obj/docking_port/mobile{
+	area_type = /area/ship;
+	launch_status = 0;
+	port_direction = 8;
+	width = 21;
+	dwidth = 7;
+	name = "Cultist";
+	height = 25
+	},
+/turf/open/floor/engine/cult,
+/area/ship/external)
 "HJ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2053,7 +2049,7 @@ nd
 LI
 GW
 QV
-mu
+Hr
 "}
 (9,1,1) = {"
 FO
@@ -2367,7 +2363,7 @@ wi
 wi
 Ly
 Ly
-oW
+YJ
 YJ
 wi
 gL

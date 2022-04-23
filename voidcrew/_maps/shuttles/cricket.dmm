@@ -1284,12 +1284,17 @@
 "sh" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/docking_port/mobile{
-	dir = 2;
-	launch_status = 0;
-	port_direction = 8
-	},
 /obj/machinery/door/firedoor/heavy,
+/obj/docking_port/mobile{
+	area_type = /area/ship;
+	launch_status = 0;
+	port_direction = 8;
+	width = 34;
+	dwidth = 23;
+	name = "Cricket";
+	dir = 2;
+	height = 24
+	},
 /turf/open/floor/iron/dark,
 /area/ship/hallway/aft)
 "sv" = (

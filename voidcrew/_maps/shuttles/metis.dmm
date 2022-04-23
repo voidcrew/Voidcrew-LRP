@@ -1545,8 +1545,12 @@
 /obj/machinery/door/airlock/external,
 /obj/structure/fans/tiny,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	launch_status = 0;
-	port_direction = 2
+	port_direction = 2;
+	width = 36;
+	height = 26;
+	dwidth = 20
 	},
 /turf/open/floor/plating,
 /area/ship/hallway/aft)

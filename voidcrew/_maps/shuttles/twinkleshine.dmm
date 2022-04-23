@@ -1388,19 +1388,6 @@
 	},
 /turf/open/floor/plating,
 /area/ship/engineering/electrical)
-"qz" = (
-/obj/docking_port/mobile{
-	can_move_docking_ports = 1;
-	dir = 4;
-	name = "SBD starfurys revenge";
-	port_direction = 8
-	},
-/obj/structure/railing,
-/obj/structure/railing{
-	dir = 1
-	},
-/turf/open/floor/plating/airless,
-/area/ship/external)
 "qD" = (
 /obj/effect/turf_decal/tile/bar,
 /turf/open/floor/iron,
@@ -1876,6 +1863,21 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ship/bridge)
+"vm" = (
+/obj/machinery/power/shuttle/engine/fueled/plasma{
+	dir = 1
+	},
+/obj/docking_port/mobile{
+	area_type = /area/ship;
+	can_move_docking_ports = 1;
+	name = "SBD starfurys revenge";
+	port_direction = 8;
+	width = 35;
+	height = 52;
+	dwidth = 17
+	},
+/turf/open/floor/plating/airless,
+/area/ship/engineering/atmospherics)
 "vo" = (
 /turf/open/floor/engine,
 /area/ship/engineering/engine)
@@ -4601,7 +4603,7 @@ av
 av
 Xu
 Xu
-qz
+Lr
 Xu
 Xu
 Xu
@@ -5532,7 +5534,7 @@ Ct
 Ik
 Ik
 YG
-Ds
+vm
 "}
 (19,1,1) = {"
 Xu

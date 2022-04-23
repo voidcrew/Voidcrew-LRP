@@ -83,6 +83,7 @@
 "A" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	callTime = 50;
 	dir = 4;
 	dwidth = 4;
@@ -92,7 +93,8 @@
 	name = "Syndicate Fighter";
 	port_direction = 2;
 	preferred_direction = 4;
-	width = 9
+	width = 6;
+	
 	},
 /obj/machinery/door/airlock/hatch{
 	id_tag = "syndicatefighter"

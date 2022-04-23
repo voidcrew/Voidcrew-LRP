@@ -187,8 +187,6 @@
 	pixel_y = 32
 	},
 /obj/item/storage/toolbox/mechanical,
-/obj/item/disk/design_disk/ammo_1911,
-/obj/item/disk/design_disk/ammo_38_hunting,
 /obj/structure/rack,
 /turf/open/floor/iron/dark,
 /area/ship/engineering)
@@ -243,12 +241,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ship/construction)
-"eD" = (
-/obj/effect/turf_decal/corner/orange{
-	dir = 1
-	},
-/turf/open/floor/iron/dark,
-/area/ship/security/prison)
 "eF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -696,13 +688,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/ship/security/prison)
-"mM" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/corner/orange{
-	dir = 4
-	},
-/turf/open/floor/iron/dark,
-/area/ship/security/prison)
 "mS" = (
 /obj/machinery/computer/station_alert{
 	dir = 1
@@ -1113,10 +1098,17 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ship/bridge)
-"tF" = (
-/obj/effect/turf_decal/corner/orange/diagonal,
-/turf/open/floor/iron/dark,
-/area/ship/security/prison)
+"tH" = (
+/obj/docking_port/mobile{
+	area_type = /area/ship;
+	port_direction = 8;
+	preferred_direction = 8;
+	width = 56;
+	height = 36;
+	dwidth = 24
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/ship/construction)
 "tJ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1284,12 +1276,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ship/construction)
-"wY" = (
-/obj/effect/turf_decal/corner/orange{
-	dir = 5
-	},
-/turf/open/floor/iron/dark,
-/area/ship/security/prison)
 "xa" = (
 /obj/structure/railing,
 /turf/open/floor/iron/smooth_large,
@@ -2321,11 +2307,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ship/security/prison)
-"Qf" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/corner/orange,
-/turf/open/floor/iron/dark,
-/area/ship/security/prison)
 "Qu" = (
 /obj/effect/turf_decal/siding/thinplating/dark/corner{
 	dir = 1
@@ -2429,12 +2410,6 @@
 /obj/item/reagent_containers/food/drinks/coffee,
 /turf/open/floor/carpet,
 /area/ship/crew)
-"RX" = (
-/obj/effect/turf_decal/corner/orange{
-	dir = 8
-	},
-/turf/open/floor/iron/dark,
-/area/ship/security/prison)
 "Sz" = (
 /obj/structure/railing{
 	dir = 4
@@ -2652,12 +2627,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/ship/engineering/electrical)
-"Wh" = (
-/obj/effect/turf_decal/corner/orange{
-	dir = 10
-	},
-/turf/open/floor/iron/dark,
-/area/ship/security/prison)
 "Wk" = (
 /obj/structure/railing{
 	dir = 8
@@ -2761,10 +2730,6 @@
 /area/ship/construction)
 "YO" = (
 /obj/machinery/door/window/survival_pod,
-/obj/docking_port/mobile{
-	port_direction = 8;
-	preferred_direction = 8
-	},
 /obj/structure/fans/tiny,
 /turf/open/floor/iron/dark,
 /area/ship/hallway/central)
@@ -3408,9 +3373,9 @@ HD
 HD
 UW
 pe
-Qf
+RD
 AU
-mM
+RD
 XU
 zH
 BE
@@ -3446,9 +3411,9 @@ ID
 UW
 hD
 je
-Wh
-tF
-wY
+AU
+AU
+AU
 Oc
 cD
 BE
@@ -3484,9 +3449,9 @@ ya
 mL
 jT
 ec
-RX
 AU
-eD
+AU
+AU
 XU
 YA
 UW
@@ -4443,7 +4408,7 @@ Vp
 uK
 eR
 Tb
-eR
+tH
 "}
 (44,1,1) = {"
 wv

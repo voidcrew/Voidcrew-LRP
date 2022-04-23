@@ -464,8 +464,13 @@
 "AR" = (
 /obj/machinery/door/airlock/external,
 /obj/docking_port/mobile{
+	area_type = /area/ship;
+	dwidth = 11;
+	height = 17;
 	launch_status = 0;
-	port_direction = 4
+	launch_status = 0;
+	port_direction = 4;
+	width = 18
 	},
 /turf/open/floor/plating,
 /area/ship/engineering)
@@ -873,7 +878,7 @@
 /area/ship/maintenance/aft)
 "VB" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "VI" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4

@@ -234,10 +234,14 @@
 	id = "phcargooneblastdoor"
 	},
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	dir = 2;
 	name = "NT Super Battlecrusier";
 	port_direction = 8;
-	preferred_direction = 4
+	preferred_direction = 4;
+	height = 30;
+	width = 56;
+	dwidth = 31
 	},
 /turf/open/floor/iron{
 	icon_state = "steel_ridged"

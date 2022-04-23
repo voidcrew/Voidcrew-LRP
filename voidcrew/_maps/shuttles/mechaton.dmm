@@ -924,10 +924,14 @@
 	name = "cargo bay blast door"
 	},
 /obj/docking_port/mobile{
+	area_type = /area/ship;
 	dir = 2;
 	launch_status = 0;
 	name = "Mechaton-class Shuttle";
-	port_direction = 8
+	port_direction = 8;
+	height = 14;
+	width = 25;
+	dwidth = 12
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/ship/cargo)

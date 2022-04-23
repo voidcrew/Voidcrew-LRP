@@ -616,9 +616,6 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/turf_decal/corner_steel_grid{
-	dir = 10
-	},
 /turf/open/floor/iron,
 /area/ship/engineering/communications)
 "jm" = (
@@ -791,9 +788,6 @@
 "lx" = (
 /obj/structure/cable{
 	icon_state = "1-2"
-	},
-/obj/effect/turf_decal/corner_steel_grid{
-	dir = 10
 	},
 /turf/open/floor/iron,
 /area/ship/hallway/central)
@@ -1333,9 +1327,6 @@
 /turf/open/floor/engine/hull,
 /area/ship/cargo)
 "sV" = (
-/obj/effect/turf_decal/corner_steel_grid{
-	dir = 10
-	},
 /turf/open/floor/iron,
 /area/ship/engineering/communications)
 "te" = (
@@ -1348,6 +1339,17 @@
 	},
 /turf/open/floor/iron/grimy,
 /area/ship/crew)
+"ti" = (
+/obj/docking_port/mobile{
+	area_type = /area/ship;
+	launch_status = 0;
+	port_direction = 2;
+	height = 32;
+	width = 32;
+	dwidth = 16
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/ship/engineering)
 "tr" = (
 /obj/machinery/airalarm/all_access{
 	pixel_y = 24;
@@ -1851,9 +1853,6 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/ship/bridge)
 "zu" = (
-/obj/effect/turf_decal/corner_steel_grid{
-	dir = 10
-	},
 /turf/open/floor/iron,
 /area/ship/crew/office)
 "zF" = (
@@ -1969,10 +1968,6 @@
 /area/ship/engineering)
 "BG" = (
 /obj/machinery/door/airlock/external,
-/obj/docking_port/mobile{
-	launch_status = 0;
-	port_direction = 2
-	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
@@ -2048,7 +2043,6 @@
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/under/rank/security/officer/blueshirt,
 /obj/item/clothing/glasses/hud/security/sunglasses,
-/obj/item/clothing/head/HoS/cowboy : /obj/item/clothing/head/cowboy_hat_white,
 /turf/open/floor/iron/grimy,
 /area/ship/security)
 "CG" = (
@@ -2262,9 +2256,6 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/port)
 "ES" = (
-/obj/effect/turf_decal/corner_steel_grid{
-	dir = 10
-	},
 /turf/open/floor/iron,
 /area/ship/hallway/central)
 "Fe" = (
@@ -2542,12 +2533,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
-"Hz" = (
-/obj/effect/turf_decal/corner_steel_grid{
-	dir = 5
-	},
-/turf/open/floor/iron,
-/area/ship/crew/office)
 "HG" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 1
@@ -2674,9 +2659,6 @@
 "Kg" = (
 /obj/structure/cable{
 	icon_state = "1-2"
-	},
-/obj/effect/turf_decal/corner_steel_grid{
-	dir = 5
 	},
 /turf/open/floor/iron,
 /area/ship/crew/office)
@@ -4093,7 +4075,7 @@ XM
 VG
 FC
 BP
-Hz
+zu
 sL
 Ll
 zu
@@ -4127,7 +4109,7 @@ mK
 GQ
 vw
 FC
-Hz
+zu
 UA
 BZ
 zu
@@ -4479,7 +4461,7 @@ Ga
 Ak
 kC
 kC
-Tq
+ti
 "}
 (18,1,1) = {"
 Ly
