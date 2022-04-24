@@ -6,14 +6,21 @@
 /obj/item/gps/mining,
 /obj/item/gps/mining,
 /obj/item/gps/mining,
-/obj/effect/turf_decal/tile/brown,
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown/anticorner{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
 "ay" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/bridge)
+"aA" = (
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/ship/cargo)
 "bj" = (
 /obj/machinery/computer/autopilot{
 	dir = 4;
@@ -34,7 +41,6 @@
 "cl" = (
 /obj/structure/tank_dispenser/oxygen,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/tile/brown/anticorner,
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
 "ct" = (
@@ -110,7 +116,9 @@
 /obj/item/vending_refill/sovietsoda,
 /obj/item/vending_refill/cola,
 /obj/item/vending_refill/cola,
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/ship/storage)
 "dh" = (
@@ -276,7 +284,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown/half,
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
 "gI" = (
@@ -429,10 +437,10 @@
 	area_type = /area/ship;
 	can_move_docking_ports = 1;
 	dir = 2;
-	launch_status = 0;
-	width = 19;
+	dwidth = 9;
 	height = 27;
-	dwidth = 9
+	launch_status = 0;
+	width = 19
 	},
 /obj/machinery/door/poddoor/shutters{
 	id = "externalshutters"
@@ -510,7 +518,9 @@
 	dir = 8
 	},
 /obj/structure/ore_box,
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
 "kl" = (
@@ -603,7 +613,9 @@
 /mob/living/simple_animal/bot/secbot/grievous/toy,
 /obj/effect/decal/cleanable/blood/old,
 /obj/item/hand_labeler_refill,
-/obj/effect/turf_decal/tile/brown/anticorner,
+/obj/effect/turf_decal/tile/brown/anticorner{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/ship/storage)
 "nx" = (
@@ -625,6 +637,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet/donk,
 /area/ship/crew/dorm)
+"oa" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/ship/cargo)
 "of" = (
 /obj/structure/chair/plastic,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -747,7 +767,9 @@
 /obj/item/storage/box/donkpockets/donkpocketberry,
 /obj/item/storage/box/donkpockets/donkpocketberry,
 /obj/item/storage/box/donkpockets/donkpocketberry,
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/ship/storage)
 "re" = (
@@ -756,6 +778,9 @@
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/brown{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/ship/storage)
 "rV" = (
@@ -831,7 +856,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/ship/storage)
 "tI" = (
@@ -844,7 +871,9 @@
 	},
 /obj/item/mecha_parts/mecha_equipment/hydraulic_clamp,
 /obj/effect/decal/cleanable/oil,
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/ship/storage)
 "tN" = (
@@ -875,7 +904,9 @@
 "ur" = (
 /obj/machinery/light,
 /obj/item/banner/cargo,
-/obj/effect/turf_decal/tile/brown/anticorner,
+/obj/effect/turf_decal/tile/brown/anticorner{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
 "uK" = (
@@ -886,7 +917,9 @@
 "uO" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/ship/storage)
 "vd" = (
@@ -962,7 +995,9 @@
 /obj/item/circuitboard/machine/microwave,
 /obj/item/circuitboard/machine/microwave,
 /obj/item/circuitboard/machine/microwave,
-/obj/effect/turf_decal/tile/brown/anticorner,
+/obj/effect/turf_decal/tile/brown/anticorner{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/ship/storage)
 "vU" = (
@@ -1050,7 +1085,9 @@
 /area/ship/cargo)
 "zB" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
 "zO" = (
@@ -1112,7 +1149,9 @@
 /area/ship/engineering)
 "By" = (
 /obj/effect/decal/cleanable/oil,
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
 "BN" = (
@@ -1185,8 +1224,9 @@
 "DS" = (
 /obj/structure/closet/crate/trashcart,
 /obj/effect/spawner/random/maintenance/eight,
-/obj/effect/turf_decal/tile/brown,
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown/anticorner{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
 "Eo" = (
@@ -1209,12 +1249,24 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/ship/engineering)
+"EV" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/brown/half,
+/turf/open/floor/iron/dark,
+/area/ship/storage)
 "EW" = (
 /turf/open/floor/engine/plasma,
 /area/ship/engineering)
 "FG" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/brown{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/ship/storage)
 "FH" = (
@@ -1383,7 +1435,9 @@
 /obj/machinery/airalarm/directional/west,
 /obj/item/stack/sheet/cardboard/fifty,
 /obj/item/hand_labeler,
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown/anticorner{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
 "Lx" = (
@@ -1402,7 +1456,9 @@
 	helmet_type = /obj/item/clothing/head/helmet/space/syndicate/blue;
 	suit_type = /obj/item/clothing/suit/space/syndicate/surplus
 	},
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
 "LP" = (
@@ -1414,7 +1470,7 @@
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
 "LQ" = (
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown/half,
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
 "LU" = (
@@ -1434,7 +1490,9 @@
 	dir = 4;
 	pixel_x = 26
 	},
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
 "Ml" = (
@@ -1456,7 +1514,9 @@
 /obj/item/soap/syndie,
 /obj/item/soap/syndie,
 /obj/item/soap/syndie,
-/obj/effect/turf_decal/tile/brown/anticorner,
+/obj/effect/turf_decal/tile/brown/anticorner{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/ship/storage)
 "Nc" = (
@@ -1524,7 +1584,9 @@
 /obj/item/storage/box/donkpockets/donkpocketpizza,
 /obj/item/storage/box/donkpockets/donkpocketpizza,
 /obj/item/storage/box/donkpockets/donkpocketpizza,
-/obj/effect/turf_decal/tile/brown/anticorner,
+/obj/effect/turf_decal/tile/brown/anticorner{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/ship/storage)
 "OZ" = (
@@ -1609,7 +1671,9 @@
 /obj/item/stack/sheet/glass/fifty,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/hand_labeler_refill,
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown/anticorner{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/ship/storage)
 "Rb" = (
@@ -1621,6 +1685,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet/donk,
 /area/ship/crew/dorm)
+"Rj" = (
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/ship/cargo)
 "Rl" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -1662,13 +1732,16 @@
 /obj/item/storage/box/donkpockets,
 /obj/item/storage/box/donkpockets,
 /obj/machinery/airalarm/directional/west,
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/ship/storage)
 "RG" = (
 /obj/machinery/ore_silo,
-/obj/effect/turf_decal/tile/brown,
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown/anticorner{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
 "RH" = (
@@ -1691,6 +1764,13 @@
 	},
 /turf/open/floor/carpet/donk,
 /area/ship/crew/dorm)
+"SM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/ship/cargo)
 "ST" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1702,6 +1782,9 @@
 "Tj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/ship/cargo)
 "TA" = (
@@ -1720,6 +1803,13 @@
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/carpet/donk,
 /area/ship/crew/dorm)
+"TP" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/ship/cargo)
 "TW" = (
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/bridge)
@@ -1784,7 +1874,9 @@
 /obj/machinery/computer/mech_bay_power_console{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/ship/storage)
 "VH" = (
@@ -1842,7 +1934,9 @@
 /area/ship/bridge)
 "Xk" = (
 /obj/structure/ore_box,
-/obj/effect/turf_decal/tile/brown/anticorner,
+/obj/effect/turf_decal/tile/brown/anticorner{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/ship/storage)
 "Xy" = (
@@ -1890,7 +1984,9 @@
 	dir = 4;
 	pixel_x = 26
 	},
-/obj/effect/turf_decal/tile/brown,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/ship/storage)
 "YD" = (
@@ -1917,7 +2013,9 @@
 /obj/item/storage/box/donkpockets/donkpocketteriyaki,
 /obj/item/storage/box/donkpockets/donkpocketteriyaki,
 /obj/item/storage/box/donkpockets/donkpocketteriyaki,
-/obj/effect/turf_decal/tile/brown/anticorner,
+/obj/effect/turf_decal/tile/brown/anticorner{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/ship/storage)
 "YF" = (
@@ -1938,6 +2036,17 @@
 /obj/machinery/portable_atmospherics/pump,
 /turf/open/floor/plating,
 /area/ship/engineering)
+"ZS" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/tile/brown/half{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/ship/storage)
 "ZT" = (
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
@@ -2023,7 +2132,7 @@ hs
 hs
 cl
 Ls
-LQ
+aA
 Pr
 fh
 Wj
@@ -2050,15 +2159,15 @@ Nr
 hs
 hs
 ab
-LQ
-Wj
+Rj
+TP
 hx
 Og
 Og
 zu
 gz
 Cj
-tq
+ZS
 tq
 dc
 Xk
@@ -2079,9 +2188,9 @@ Nr
 RH
 HF
 RG
-zB
+SM
 Tj
-Og
+oa
 kb
 Mi
 LI
@@ -2122,7 +2231,7 @@ re
 Qu
 dK
 Jw
-Qu
+EV
 Ck
 tW
 Rl

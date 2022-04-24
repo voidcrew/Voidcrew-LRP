@@ -55,7 +55,6 @@
 	},
 /obj/structure/railing,
 /obj/item/radio,
-/obj/effect/landmark/start/captain,
 /obj/machinery/button/door{
 	id = "piratecargo";
 	name = "Blast Door Control";
@@ -99,11 +98,11 @@
 /obj/structure/fans/tiny,
 /obj/docking_port/mobile{
 	area_type = /area/ship;
+	dwidth = 8;
+	height = 25;
 	launch_status = 0;
 	port_direction = 2;
-	width = 18;
-	height = 25;
-	dwidth = 8
+	width = 18
 	},
 /obj/machinery/door/poddoor/shutters{
 	id = "piratecargo";
@@ -150,7 +149,6 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
-/obj/effect/landmark/start/head_of_personnel,
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -245,7 +243,6 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 32
 	},
-/obj/effect/landmark/start/depsec,
 /turf/open/floor/iron/dark,
 /area/ship/security)
 "mU" = (
@@ -286,7 +283,6 @@
 /obj/structure/fireaxecabinet{
 	pixel_y = 32
 	},
-/obj/effect/landmark/start/depsec,
 /turf/open/floor/iron/dark,
 /area/ship/security)
 "nB" = (
@@ -297,7 +293,6 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/effect/landmark/start/depsec,
 /turf/open/floor/iron/dark,
 /area/ship/security)
 "nC" = (
@@ -355,7 +350,6 @@
 /turf/open/floor/engine/hull,
 /area/ship/external)
 "pm" = (
-,
 /obj/machinery/light/small{
 	dir = 8;
 	pixel_y = 12
@@ -369,6 +363,9 @@
 	pixel_x = -28;
 	req_one_access_txt = "1"
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/security)
 "pA" = (
@@ -380,14 +377,15 @@
 /turf/open/floor/iron/stairs,
 /area/ship/security)
 "pH" = (
-/obj/effect/turf_decal/stripes/line,
 /obj/machinery/vending/security/marine/solgov{
 	all_items_free = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/security)
 "pS" = (
-/obj/effect/turf_decal/stripes/line,
 /obj/machinery/light/small{
 	dir = 4;
 	pixel_y = 12
@@ -414,11 +412,12 @@
 	pixel_x = 28;
 	req_one_access_txt = "1"
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/security)
 "pW" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/effect/turf_decal/stripes/line,
 /obj/item/mod/control/pre_equipped/standard,
 /obj/item/clothing/mask/gas/sechailer/swat/spacepol,
 /obj/item/tank/jetpack/oxygen,
@@ -427,6 +426,9 @@
 	name = "suit locker";
 	pixel_x = -28;
 	req_one_access_txt = "1"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/security)
@@ -445,11 +447,12 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
 	dir = 8
 	},
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/security)
 "rF" = (
-/obj/effect/turf_decal/stripes/line,
 /obj/item/knife/combat,
 /obj/item/knife/combat,
 /obj/item/knife/combat,
@@ -464,10 +467,12 @@
 	pixel_x = 28;
 	req_one_access_txt = "1"
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/security)
 "rL" = (
-/obj/effect/turf_decal/stripes/line,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -478,10 +483,10 @@
 	pixel_x = -24;
 	pixel_y = -10
 	},
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/cargo)
 "sc" = (
-,
 /obj/machinery/airalarm/all_access{
 	dir = 1;
 	pixel_y = -24
@@ -494,6 +499,9 @@
 	name = "suit locker";
 	pixel_x = -28;
 	req_one_access_txt = "1"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/security)
@@ -509,7 +517,6 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 8
 	},
-/obj/effect/turf_decal/stripes/line,
 /obj/machinery/status_display/shuttle{
 	pixel_y = -32
 	},
@@ -522,10 +529,12 @@
 	pixel_x = 6;
 	pixel_y = 6
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/security)
 "sI" = (
-/obj/effect/turf_decal/stripes/line,
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = -24
@@ -553,6 +562,9 @@
 	name = "armory locker";
 	pixel_x = 28;
 	req_one_access_txt = "1"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/security)
@@ -602,7 +614,9 @@
 /obj/structure/sign/warning/vacuum/external{
 	pixel_y = 32
 	},
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/ship/crew)
 "ut" = (
@@ -614,7 +628,9 @@
 	pixel_y = 28
 	},
 /obj/machinery/door_buttons/airlock_controller,
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/ship/crew)
 "vo" = (
@@ -677,7 +693,6 @@
 /area/ship/crew)
 "yi" = (
 /obj/structure/chair/plastic,
-/obj/effect/landmark/start/assistant,
 /turf/open/floor/carpet,
 /area/ship/crew)
 "yU" = (
@@ -827,7 +842,6 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/obj/effect/landmark/start/paramedic,
 /turf/open/floor/iron/showroomfloor,
 /area/ship/crew)
 "Cg" = (
@@ -846,7 +860,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
-/obj/effect/landmark/start/assistant,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/carpet,
 /area/ship/crew)
@@ -854,7 +867,6 @@
 /obj/structure/chair/plastic{
 	dir = 1
 	},
-/obj/effect/landmark/start/assistant,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /turf/open/floor/carpet,
 /area/ship/crew)
@@ -1111,7 +1123,6 @@
 /turf/open/floor/carpet/red,
 /area/ship/cargo)
 "Jx" = (
-/obj/effect/landmark/start/warden,
 /obj/structure/chair/office,
 /turf/open/floor/carpet/red,
 /area/ship/cargo)
@@ -1235,7 +1246,6 @@
 /obj/machinery/newscaster/security_unit{
 	pixel_x = -28
 	},
-,
 /turf/open/floor/carpet/red,
 /area/ship/cargo)
 "Nq" = (
@@ -1325,7 +1335,6 @@
 /turf/open/floor/plating,
 /area/ship/hallway/port)
 "Qj" = (
-/obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/structure/cable{
@@ -1435,7 +1444,6 @@
 /turf/open/floor/engine/hull,
 /area/ship/cargo)
 "TT" = (
-/obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
 /obj/structure/cable{
@@ -1647,7 +1655,6 @@
 /turf/open/floor/plating,
 /area/ship/hallway/port)
 "ZB" = (
-/obj/effect/turf_decal/stripes/line,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -1658,6 +1665,7 @@
 	pixel_x = 24;
 	pixel_y = -10
 	},
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/cargo)
 
@@ -1873,7 +1881,7 @@ Jx
 Nq
 Sc
 Wa
-dD
+br
 rL
 TP
 "}
@@ -1954,7 +1962,7 @@ KD
 Og
 SA
 WZ
-dD
+br
 ZB
 TP
 "}
