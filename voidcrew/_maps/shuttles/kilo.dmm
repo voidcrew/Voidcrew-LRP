@@ -35,11 +35,13 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ship/cargo)
 "ar" = (
-/obj/effect/turf_decal/stripes/line,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/ship/cargo)
@@ -1411,8 +1413,8 @@
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/airalarm/all_access{
-	pixel_y = 24;
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
@@ -1583,8 +1585,8 @@
 	pixel_y = 8
 	},
 /obj/machinery/airalarm/all_access{
-	pixel_y = 24;
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /turf/open/floor/carpet,
 /area/ship/crew)
@@ -1774,7 +1776,6 @@
 	name = "fridge"
 	},
 /obj/item/food/sausage,
-,
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 1
 	},
@@ -1793,11 +1794,13 @@
 /turf/open/floor/plating,
 /area/ship/crew)
 "Tn" = (
-/obj/effect/turf_decal/stripes/line,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/greenglow,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
 	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/ship/cargo)

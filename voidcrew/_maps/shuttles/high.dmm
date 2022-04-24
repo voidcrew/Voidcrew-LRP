@@ -23,10 +23,6 @@
 /obj/machinery/recharger,
 /turf/open/floor/carpet/red,
 /area/ship/security)
-"aN" = (
-,
-/turf/open/floor/plating,
-/area/ship/engineering)
 "aP" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
@@ -86,7 +82,9 @@
 	},
 /area/ship/bridge)
 "bo" = (
-/obj/effect/turf_decal/loading_area,
+/obj/effect/turf_decal/loading_area{
+	dir = 8
+	},
 /turf/open/floor/iron,
 /area/ship/cargo)
 "bZ" = (
@@ -187,7 +185,6 @@
 /obj/item/reagent_containers/food/drinks/bottle/wine,
 /obj/item/reagent_containers/food/drinks/bottle/wine,
 /obj/item/reagent_containers/food/drinks/bottle/wine,
-,
 /turf/open/floor/iron,
 /area/ship/cargo)
 "dA" = (
@@ -217,7 +214,9 @@
 /turf/open/floor/wood/large,
 /area/ship/crew/chapel/office)
 "dT" = (
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
 /obj/structure/window/reinforced/plasma/spawner/north,
 /turf/open/floor/engine,
 /area/ship/cargo)
@@ -268,6 +267,12 @@
 	pixel_y = 21
 	},
 /turf/open/floor/plating,
+/area/ship/cargo)
+"et" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/engine,
 /area/ship/cargo)
 "eB" = (
 /obj/structure/filingcabinet,
@@ -342,7 +347,6 @@
 /turf/open/floor/wood,
 /area/ship/crew/chapel/office)
 "fU" = (
-/obj/structure/window/reinforced/plasma/spawner/east,
 /turf/open/floor/engine/o2,
 /area/ship/engineering)
 "fV" = (
@@ -426,6 +430,7 @@
 /area/ship/bridge)
 "ho" = (
 /obj/effect/turf_decal/atmos/oxygen,
+/obj/structure/window/reinforced/plasma/spawner/west,
 /turf/open/floor/engine/o2,
 /area/ship/engineering)
 "ht" = (
@@ -531,12 +536,10 @@
 /turf/open/floor/wood,
 /area/ship/crew/chapel/office)
 "ji" = (
-/obj/structure/window/reinforced/plasma/spawner/east,
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/oxygen_input,
 /turf/open/floor/engine/o2,
 /area/ship/engineering)
 "jq" = (
-/obj/structure/window/reinforced/plasma/spawner/east,
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/nitrogen_input,
 /turf/open/floor/engine/n2,
 /area/ship/engineering)
@@ -554,9 +557,6 @@
 /obj/item/clothing/under/suit/black,
 /obj/item/clothing/under/suit/black,
 /obj/item/clothing/under/suit/black,
-,
-,
-,
 /obj/item/clothing/under/suit/black_really,
 /obj/item/clothing/under/suit/black_really,
 /obj/item/clothing/under/suit/black_really,
@@ -636,6 +636,7 @@
 /area/ship/cargo)
 "lc" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/oxygen_output,
+/obj/structure/window/reinforced/plasma/spawner/west,
 /turf/open/floor/engine/o2,
 /area/ship/engineering)
 "lw" = (
@@ -764,6 +765,7 @@
 /area/ship/security)
 "on" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/high_volume/siphon/atmos/air_output,
+/obj/structure/window/reinforced/plasma/spawner/west,
 /turf/open/floor/engine/air,
 /area/ship/engineering)
 "oA" = (
@@ -863,6 +865,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer2,
 /turf/open/floor/iron,
 /area/ship/hallway/starboard)
+"qi" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/engine,
+/area/ship/cargo)
 "qj" = (
 /obj/effect/turf_decal/siding/blue{
 	dir = 8
@@ -998,6 +1006,9 @@
 	pixel_x = 24
 	},
 /obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
 /turf/open/floor/iron/white,
 /area/ship/crew/dorm)
 "sr" = (
@@ -1136,6 +1147,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ship/hallway/central)
+"tU" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/ship/cargo)
 "uh" = (
 /obj/structure/sign/poster/official/fruit_bowl{
 	pixel_x = 32
@@ -1222,7 +1239,9 @@
 /turf/open/floor/plating,
 /area/ship/engineering)
 "vp" = (
-/obj/effect/turf_decal/loading_area,
+/obj/effect/turf_decal/loading_area{
+	dir = 8
+	},
 /obj/machinery/button/door{
 	id = "corpcargobay1";
 	pixel_x = -23;
@@ -1722,6 +1741,7 @@
 /area/ship/hallway/central)
 "Dn" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/nitrogen_output,
+/obj/structure/window/reinforced/plasma/spawner/west,
 /turf/open/floor/engine/n2,
 /area/ship/engineering)
 "Do" = (
@@ -1785,6 +1805,9 @@
 	pixel_x = -24
 	},
 /obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
 /turf/open/floor/iron/white,
 /area/ship/crew/dorm)
 "Fl" = (
@@ -1797,6 +1820,7 @@
 /area/ship/crew)
 "Fo" = (
 /obj/effect/turf_decal/atmos/nitrogen,
+/obj/structure/window/reinforced/plasma/spawner/west,
 /turf/open/floor/engine/n2,
 /area/ship/engineering)
 "Fu" = (
@@ -1916,6 +1940,9 @@
 /obj/effect/turf_decal/tile/blue,
 /obj/machinery/door/airlock/public{
 	name = "Blue Restroom"
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
 	},
 /turf/open/floor/iron/white,
 /area/ship/crew/dorm)
@@ -2099,12 +2126,12 @@
 	},
 /obj/docking_port/mobile{
 	area_type = /area/ship;
-	launch_status = 0;
-	port_direction = 4;
-	width = 24;
+	dir = 8;
 	dwidth = 24;
 	height = 40;
-	dir = 8
+	launch_status = 0;
+	port_direction = 4;
+	width = 24
 	},
 /turf/open/floor/plating,
 /area/ship/hallway/starboard)
@@ -2241,6 +2268,7 @@
 /area/ship/bridge)
 "Lh" = (
 /obj/effect/turf_decal/atmos/air,
+/obj/structure/window/reinforced/plasma/spawner/west,
 /turf/open/floor/engine/air,
 /area/ship/engineering)
 "Lj" = (
@@ -2255,6 +2283,12 @@
 	},
 /turf/open/floor/carpet/stellar,
 /area/ship/crew/office)
+"Lo" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/engine,
+/area/ship/cargo)
 "Lq" = (
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron/dark,
@@ -2286,6 +2320,9 @@
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/medical,
 /obj/item/clothing/under/suit/white,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
 /turf/open/floor/iron/white,
 /area/ship/crew/dorm)
 "LZ" = (
@@ -2373,6 +2410,13 @@
 	},
 /turf/open/floor/bamboo,
 /area/ship/hallway/starboard)
+"MD" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/obj/structure/window/reinforced/plasma/spawner/north,
+/turf/open/floor/engine,
+/area/ship/cargo)
 "MF" = (
 /turf/open/floor/carpet/blue,
 /area/ship/bridge)
@@ -2499,13 +2543,6 @@
 "Od" = (
 /turf/open/floor/iron,
 /area/ship/cargo)
-"Or" = (
-/obj/structure/window/reinforced/plasma/spawner/north,
-/obj/machinery/atmospherics/pipe/layer_manifold{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/ship/engineering)
 "OG" = (
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1;
@@ -2548,6 +2585,9 @@
 /area/ship/engineering)
 "Pm" = (
 /obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
 /turf/open/floor/iron/white,
 /area/ship/crew/dorm)
 "PC" = (
@@ -2637,7 +2677,6 @@
 /turf/open/floor/engine,
 /area/ship/cargo)
 "QX" = (
-/obj/structure/window/reinforced/plasma/spawner/east,
 /turf/open/floor/engine/n2,
 /area/ship/engineering)
 "Rh" = (
@@ -2646,6 +2685,9 @@
 /area/ship/bridge)
 "Ri" = (
 /obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
 /turf/open/floor/iron/white,
 /area/ship/crew/dorm)
 "Rw" = (
@@ -2739,6 +2781,9 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
 /turf/open/floor/iron/white,
 /area/ship/crew/dorm)
 "TF" = (
@@ -2857,6 +2902,9 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
 /turf/open/floor/iron/white,
 /area/ship/crew/dorm)
 "VV" = (
@@ -2877,6 +2925,9 @@
 /obj/effect/turf_decal/tile/red,
 /obj/machinery/door/airlock/public{
 	name = "Red Restroom"
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
 	},
 /turf/open/floor/iron/white,
 /area/ship/crew/dorm)
@@ -3266,8 +3317,8 @@ Od
 ob
 Od
 dT
-bZ
-bZ
+et
+Lo
 JE
 Rw
 GD
@@ -3349,9 +3400,9 @@ ZE
 IC
 ss
 Od
-dT
-bZ
-bZ
+MD
+tU
+qi
 JE
 tS
 Ti
@@ -3558,9 +3609,9 @@ rF
 rF
 rF
 Ca
-aN
-aN
-Or
+xO
+xO
+dZ
 xO
 dZ
 Yd
