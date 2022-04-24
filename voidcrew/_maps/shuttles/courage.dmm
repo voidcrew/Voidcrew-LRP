@@ -43,6 +43,28 @@
 	},
 /turf/open/floor/plating/airless,
 /area/ship/crew)
+"ea" = (
+/obj/effect/turf_decal/tile/red/anticorner{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/ship/crew)
+"ef" = (
+/obj/effect/turf_decal/tile/red/half{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/ship/crew)
+"fo" = (
+/obj/effect/turf_decal/tile/red/anticorner{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/ship/crew)
+"gc" = (
+/obj/effect/turf_decal/tile/red/half,
+/turf/open/floor/iron/dark,
+/area/ship/crew)
 "gl" = (
 /obj/machinery/door/airlock/hatch{
 	id_tag = "caravansyndicate3_bolt_port";
@@ -70,7 +92,9 @@
 /obj/item/wrench,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/hidden,
 /turf/open/floor/plating,
 /area/ship/crew)
@@ -78,7 +102,9 @@
 /obj/machinery/computer/autopilot{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/red/anticorner,
+/obj/effect/turf_decal/tile/red/anticorner{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/ship/crew)
 "jk" = (
@@ -100,7 +126,9 @@
 /turf/open/floor/pod/dark,
 /area/ship/crew)
 "qE" = (
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
 /obj/machinery/stasis,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/crew)
@@ -127,13 +155,19 @@
 "sn" = (
 /obj/structure/table/reinforced,
 /obj/machinery/airalarm/syndicate{
-	pixel_y = 24;
-	dir = 1
+	dir = 1;
+	pixel_y = 24
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/open/floor/pod/dark,
+/area/ship/crew)
+"so" = (
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
 /area/ship/crew)
 "uy" = (
 /obj/structure/chair/comfy/shuttle,
@@ -169,7 +203,7 @@
 /area/ship/crew)
 "Bp" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/hidden,
-/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red/half,
 /turf/open/floor/iron/dark,
 /area/ship/crew)
 "Cm" = (
@@ -182,7 +216,9 @@
 /turf/open/floor/pod/dark,
 /area/ship/crew)
 "Dt" = (
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
 /obj/machinery/light/small,
 /obj/structure/table/reinforced,
 /obj/item/storage/backpack/duffelbag/syndie/surgery,
@@ -198,7 +234,6 @@
 /area/ship/crew)
 "EO" = (
 /obj/structure/table/reinforced,
-/obj/item/disk/design_disk/ammo_c9mm,
 /obj/machinery/power/apc/syndicate{
 	dir = 8;
 	name = "Syndicate Drop Ship APC";
@@ -210,7 +245,9 @@
 /turf/open/floor/pod/dark,
 /area/ship/crew)
 "Fa" = (
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
 /obj/structure/rack,
 /obj/item/melee/energy/sword/saber/red,
 /obj/item/melee/energy/sword/saber/red,
@@ -236,7 +273,9 @@
 "FM" = (
 /obj/structure/table/reinforced,
 /obj/item/assembly/flash/handheld,
-/obj/effect/turf_decal/tile/red/anticorner,
+/obj/effect/turf_decal/tile/red/anticorner{
+	dir = 4
+	},
 /turf/open/floor/iron/dark,
 /area/ship/crew)
 "Gx" = (
@@ -260,11 +299,15 @@
 /obj/machinery/computer/helm{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red/half{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/ship/crew)
 "HJ" = (
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
 /obj/structure/sign/warning/vacuum{
 	pixel_y = -32
 	},
@@ -285,7 +328,9 @@
 /obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/effect/spawner/random/food_or_drink/donkpockets,
 /obj/effect/spawner/random/food_or_drink/donkpockets,
-/obj/effect/turf_decal/tile/red/anticorner,
+/obj/effect/turf_decal/tile/red/anticorner{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/ship/crew)
 "IU" = (
@@ -309,21 +354,24 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/showcase/cyborg/assault,
 /turf/open/floor/pod/dark,
 /area/ship/crew)
 "Lq" = (
-/obj/effect/turf_decal/stripes/line,
 /obj/structure/sign/warning/vacuum{
 	pixel_y = 32
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
 	},
 /obj/machinery/autolathe/hacked,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/crew)
 "NH" = (
-/obj/effect/turf_decal/stripes/line,
 /obj/machinery/light/small{
 	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
 	},
 /obj/machinery/vending/security/marine{
 	all_items_free = 1
@@ -331,7 +379,9 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ship/crew)
 "Pt" = (
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
 /obj/structure/closet/crate,
 /obj/item/stack/sheet/iron/twenty,
 /obj/item/stack/sheet/glass{
@@ -383,7 +433,9 @@
 "RB" = (
 /obj/machinery/photocopier,
 /obj/structure/table/reinforced,
-/obj/effect/turf_decal/tile/red/anticorner,
+/obj/effect/turf_decal/tile/red/anticorner{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/ship/crew)
 "Sl" = (
@@ -408,6 +460,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ship/crew)
+"Vg" = (
+/obj/effect/turf_decal/tile/red/anticorner{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/ship/crew)
 "VA" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light/small{
@@ -418,7 +476,9 @@
 /obj/item/ammo_box/a357,
 /obj/item/card/emag,
 /obj/item/areaeditor/shuttle,
-/obj/effect/turf_decal/tile/red/anticorner,
+/obj/effect/turf_decal/tile/red/anticorner{
+	dir = 1
+	},
 /turf/open/floor/iron/dark,
 /area/ship/crew)
 "Wr" = (
@@ -435,7 +495,9 @@
 /turf/open/floor/iron/dark,
 /area/ship/crew)
 "YU" = (
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
 /obj/structure/closet/syndicate{
 	anchored = 1
 	},
@@ -457,7 +519,9 @@
 /turf/closed/wall/mineral/plastitanium,
 /area/ship/crew)
 "ZI" = (
-/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
 /obj/structure/ore_box,
 /obj/item/storage/bag/ore,
 /obj/item/tank/internals/emergency_oxygen/double,
@@ -509,16 +573,16 @@ Tn
 (4,1,1) = {"
 Tn
 sn
-Xt
+ef
 ZJ
-Xt
+gc
 ka
 Tn
 "}
 (5,1,1) = {"
 Tn
 EO
-Xt
+ef
 IU
 Bp
 Cm
@@ -527,9 +591,9 @@ Tn
 (6,1,1) = {"
 Tn
 al
-Xt
+ef
 Dx
-Xt
+gc
 rV
 Tn
 "}
@@ -581,34 +645,34 @@ Tn
 (12,1,1) = {"
 Tn
 uy
-rE
+ea
 Dx
-rE
+fo
 Sl
 Tn
 "}
 (13,1,1) = {"
 rU
 ns
-Xt
+ef
 Dx
-Xt
+gc
 vw
 rU
 "}
 (14,1,1) = {"
 rU
 ns
-Xt
+ef
 Dx
-Xt
+gc
 PJ
 rU
 "}
 (15,1,1) = {"
 Tn
 rz
-rE
+Vg
 Dx
 rE
 Ll
@@ -635,7 +699,7 @@ Tn
 (18,1,1) = {"
 mG
 Wr
-Xt
+so
 Ri
 Xt
 FM
