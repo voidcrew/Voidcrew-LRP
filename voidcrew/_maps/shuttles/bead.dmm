@@ -75,7 +75,9 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/effect/turf_decal/tile/blue/anticorner,
+/obj/effect/turf_decal/tile/blue/anticorner{
+	dir = 1
+	},
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron,
 /area/ship/bridge)
@@ -108,7 +110,9 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/blue/anticorner,
+/obj/effect/turf_decal/tile/blue/anticorner{
+	dir = 8
+	},
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = -24
@@ -122,7 +126,6 @@
 /turf/open/floor/iron,
 /area/ship/hallway/central)
 "jr" = (
-/obj/effect/turf_decal/tile/red/half,
 /obj/structure/rack,
 /obj/item/clothing/suit/armor/bulletproof,
 /obj/item/clothing/suit/armor/bulletproof,
@@ -133,10 +136,16 @@
 /obj/item/clothing/mask/gas/sechailer/swat,
 /obj/item/clothing/mask/gas/sechailer/swat,
 /obj/item/clothing/mask/gas/sechailer/swat,
+/obj/effect/turf_decal/tile/red/anticorner{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/ship/security)
 "ju" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/effect/turf_decal/tile/red/half{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/ship/hallway/central)
 "jI" = (
@@ -161,7 +170,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/tile/blue/half,
+/obj/effect/turf_decal/tile/blue/half{
+	dir = 8
+	},
 /turf/open/floor/iron,
 /area/ship/bridge)
 "kn" = (
@@ -170,14 +181,15 @@
 /area/ship/cargo)
 "kt" = (
 /obj/structure/closet/secure_closet/security,
-/obj/effect/turf_decal/tile/red/half,
 /obj/item/gun_voucher,
 /obj/item/gun/energy/e_gun/mini,
+/obj/effect/turf_decal/tile/red/anticorner{
+	dir = 8
+	},
 /turf/open/floor/iron,
 /area/ship/security)
 "kW" = (
 /obj/structure/window/reinforced/spawner/east,
-/obj/effect/turf_decal/tile/red/half,
 /obj/structure/window/reinforced/spawner/north,
 /obj/structure/bed,
 /obj/item/clothing/head/soft/orange,
@@ -192,6 +204,7 @@
 /obj/item/food/tofu/prison,
 /obj/item/food/tofu/prison,
 /obj/item/food/tofu/prison,
+/obj/effect/turf_decal/tile/red/anticorner,
 /turf/open/floor/iron,
 /area/ship/security/prison)
 "ln" = (
@@ -241,23 +254,27 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/red/half,
 /obj/structure/closet/secure_closet/security,
 /obj/item/gun_voucher,
 /obj/item/gun/energy/e_gun/mini,
+/obj/effect/turf_decal/tile/red/half{
+	dir = 8
+	},
 /turf/open/floor/iron,
 /area/ship/security)
 "ny" = (
 /obj/structure/window/reinforced/spawner/east,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/structure/rack,
-/obj/effect/turf_decal/tile/red/half,
 /obj/item/restraints/handcuffs,
 /obj/item/restraints/handcuffs,
 /obj/item/restraints/handcuffs,
 /obj/item/restraints/handcuffs,
 /obj/item/restraints/handcuffs,
 /obj/item/restraints/handcuffs,
+/obj/effect/turf_decal/tile/red/anticorner{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/ship/security/prison)
 "nH" = (
@@ -311,7 +328,9 @@
 	pixel_y = 32
 	},
 /obj/structure/tank_dispenser/oxygen,
-/obj/effect/turf_decal/tile/red/half,
+/obj/effect/turf_decal/tile/red/anticorner{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/ship/hallway/central)
 "rS" = (
@@ -376,6 +395,9 @@
 "vY" = (
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/effect/turf_decal/tile/red/half{
+	dir = 8
 	},
 /turf/open/floor/iron,
 /area/ship/hallway/central)
@@ -444,8 +466,10 @@
 /area/ship/maintenance/starboard)
 "Am" = (
 /obj/machinery/airalarm/directional/north,
-/obj/effect/turf_decal/tile/red/half,
 /obj/machinery/vending/sustenance,
+/obj/effect/turf_decal/tile/red/anticorner{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/ship/security/prison)
 "AC" = (
@@ -467,7 +491,6 @@
 	area_type = /area/ship;
 	dwidth = 11;
 	height = 17;
-	launch_status = 0;
 	launch_status = 0;
 	port_direction = 4;
 	width = 18
@@ -499,7 +522,9 @@
 /obj/structure/sign/departments/cargo{
 	pixel_y = 32
 	},
-/obj/effect/turf_decal/tile/red/half,
+/obj/effect/turf_decal/tile/red/half{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/ship/hallway/central)
 "FF" = (
@@ -563,6 +588,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/red/half{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/ship/hallway/central)
 "If" = (
@@ -662,7 +690,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/window/reinforced/spawner/east,
-/obj/effect/turf_decal/tile/red/half,
+/obj/effect/turf_decal/tile/red/half{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/ship/security/prison)
 "Ls" = (
@@ -674,7 +704,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/red/half,
 /obj/structure/rack,
 /obj/item/shield/riot,
 /obj/item/shield/riot,
@@ -688,16 +717,21 @@
 /obj/item/clothing/mask/gas/sechailer/swat,
 /obj/item/clothing/mask/gas/sechailer/swat,
 /obj/item/clothing/mask/gas/sechailer/swat,
+/obj/effect/turf_decal/tile/red/half{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/ship/security)
 "MJ" = (
 /turf/closed/wall/mineral/titanium,
 /area/ship/engineering)
 "ML" = (
-/obj/effect/turf_decal/tile/red/half,
 /obj/structure/closet/secure_closet/security,
 /obj/item/gun_voucher,
 /obj/item/gun/energy/e_gun/mini,
+/obj/effect/turf_decal/tile/red/anticorner{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/ship/security)
 "MW" = (
@@ -717,9 +751,11 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ship/engineering)
 "OD" = (
-/obj/effect/turf_decal/tile/red/half,
 /obj/machinery/door/window/brigdoor/security/cell{
 	dir = 1
+	},
+/obj/effect/turf_decal/tile/red/anticorner{
+	dir = 8
 	},
 /turf/open/floor/iron,
 /area/ship/security/prison)
@@ -747,6 +783,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/red/half{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/ship/hallway/central)
 "QC" = (
@@ -757,7 +796,7 @@
 /obj/structure/sign/poster/official/nanotrasen_logo{
 	pixel_x = 32
 	},
-/obj/effect/turf_decal/tile/red/half,
+/obj/effect/turf_decal/tile/red/anticorner,
 /turf/open/floor/iron,
 /area/ship/hallway/central)
 "Rk" = (
@@ -771,6 +810,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/airalarm/directional/east,
+/obj/effect/turf_decal/tile/red/anticorner{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/ship/hallway/central)
 "RS" = (
@@ -808,7 +850,9 @@
 	dir = 4;
 	pixel_x = -24
 	},
-/obj/effect/turf_decal/tile/red/half,
+/obj/effect/turf_decal/tile/red/half{
+	dir = 8
+	},
 /turf/open/floor/iron,
 /area/ship/security/prison)
 "ST" = (
@@ -825,7 +869,9 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/auto_name/directional/north,
-/obj/effect/turf_decal/tile/red/half,
+/obj/effect/turf_decal/tile/red/half{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/ship/hallway/central)
 "TP" = (
@@ -891,13 +937,24 @@
 	dir = 1;
 	pixel_y = -24
 	},
-/obj/effect/turf_decal/tile/red/half,
 /obj/machinery/vending/security/marine/solgov,
+/obj/effect/turf_decal/tile/red/anticorner,
 /turf/open/floor/iron,
 /area/ship/security)
 "VQ" = (
 /turf/closed/wall/mineral/titanium,
 /area/ship/security)
+"Wy" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/red/half{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/ship/security/prison)
 "Wz" = (
 /obj/structure/sign/poster/official/nanotrasen_logo,
 /turf/closed/wall/mineral/titanium,
@@ -932,7 +989,9 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/auto_name/directional/north,
-/obj/effect/turf_decal/tile/red/half,
+/obj/effect/turf_decal/tile/red/half{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/ship/security)
 "XG" = (
@@ -980,10 +1039,12 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/red/half,
 /obj/machinery/autolathe,
 /obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty,
+/obj/effect/turf_decal/tile/red/anticorner{
+	dir = 8
+	},
 /turf/open/floor/iron,
 /area/ship/hallway/central)
 "ZB" = (
@@ -1001,7 +1062,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/red/half,
+/obj/effect/turf_decal/tile/red/half{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/ship/hallway/central)
 "ZM" = (
@@ -1021,7 +1084,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/turf_decal/tile/red/half,
 /obj/item/clothing/under/rank/prisoner,
 /obj/item/clothing/under/rank/prisoner,
 /obj/item/clothing/under/rank/prisoner,
@@ -1042,6 +1104,9 @@
 /obj/item/clothing/shoes/sneakers/orange,
 /obj/item/clothing/shoes/sneakers/orange,
 /obj/item/clothing/shoes/sneakers/orange,
+/obj/effect/turf_decal/tile/red/half{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/ship/security/prison)
 
@@ -1190,7 +1255,7 @@ PM
 II
 fQ
 Pa
-ZM
+Wy
 ZM
 WB
 nH
