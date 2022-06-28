@@ -53,7 +53,7 @@ SUBSYSTEM_DEF(overmap)
 
 	setup_events()
 
-	spawn_overmap_planets()
+	// spawn_overmap_planets()
 
 	return ..()
 
@@ -228,6 +228,41 @@ SUBSYSTEM_DEF(overmap)
 			last_zone = z_zone
 		else
 			z_zone = last_zone
+
+/**
+  * Gets the parent overmap object (e.g. the planet the atom is on) for a given atom.
+  * * source - The object you want to get the corresponding parent overmap object for.
+  */
+/datum/controller/subsystem/overmap/proc/get_overmap_object_by_location(atom/source)
+	for(var/O in overmap_objects)
+		if(istype(O, /obj/structure/overmap/dynamic))
+			var/obj/structure/overmap/dynamic/D = O
+			return D
+
+/**
+  * Creates an overmap ship object for the provided mobile docking port if one does not already exist.
+  * * Shuttle: The docking port to create an overmap object for
+  */
+/datum/controller/subsystem/overmap/proc/setup_shuttle_ship(obj/docking_port/mobile/shuttle, datum/map_template/shuttle/source_template)
+	var/docked_object = get_overmap_object_by_location(shuttle)
+	var/obj/structure/overmap/ship/simulated/new_ship
+
+	if(docked_object)
+		new_ship = new(docked_object, shuttle, source_template)
+		new_ship.state = OVERMAP_SHIP_IDLE
+	else if(is_reserved_level(shuttle.z))
+		var/list/orbits = list()
+		for (var/i in 2 to LAZYLEN(radius_tiles))
+			orbits += "[i]"
+		var/selected_orbit = text2num(pick(orbits))
+		new_ship = new(get_unused_overmap_square_in_radius(selected_orbit), shuttle, source_template)
+		new_ship.state = OVERMAP_SHIP_FLYING
+	else if(is_centcom_level(shuttle))
+		new_ship = new(null, shuttle, source_template)
+	else
+		CRASH("Shuttle created in unknown location, unable to create overmap ship!")
+
+	shuttle.current_ship = new_ship
 
 /datum/controller/subsystem/overmap/proc/setup_events()
 	setup_space()

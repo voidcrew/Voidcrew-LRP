@@ -20,6 +20,9 @@
 	var/first_dock_taken = FALSE
 	var/second_dock_taken = FALSE
 
+	///The active turf reservation, if there is one
+	var/datum/map_zone/mapzone
+
 /obj/structure/overmap/dynamic/attack_ghost(mob/user)
 	. = ..()
 

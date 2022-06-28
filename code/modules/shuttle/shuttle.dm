@@ -459,7 +459,9 @@
 		counter++
 		id = "[tmp_id]_[counter]"
 		name = "[tmp_name] [counter]"
+	load(SSshuttle.selected)
 
+/obj/docking_port/mobile/proc/load(datum/map_template/shuttle/source_template)
 	shuttle_areas = list()
 	var/list/all_turfs = return_ordered_turfs(x, y, z, dir)
 	for(var/i in 1 to all_turfs.len)
@@ -470,6 +472,8 @@
 
 	initial_engines = count_engines()
 	current_engines = initial_engines
+
+	SSovermap.setup_shuttle_ship(src, source_template)
 
 	#ifdef DOCKING_PORT_HIGHLIGHT
 	highlight("#0f0")
@@ -976,6 +980,10 @@
 			if(!QDELETED(E))
 				engine_list += WEAKREF(E)
 				. += E.engine_power
+		for(var/obj/machinery/power/shuttle/engine/E in areaInstance.contents)
+			if(!QDELETED(E))
+				engine_list += E
+				. += E.thruster_active ? 1 : 0
 
 // Double initial engines to get to 0.5 minimum
 // Lose all initial engines to get to 2
