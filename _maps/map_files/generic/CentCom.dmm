@@ -591,7 +591,9 @@
 /turf/open/floor/holofloor/grass,
 /area/holodeck/rec_center/pet_lounge)
 "acO" = (
-/obj/structure/bed,
+/obj/structure/bed{
+	desc = "It's dirty and rusted. The word 'realb' is engraved onto the side..."
+	},
 /obj/item/bedsheet/medical,
 /obj/structure/window{
 	dir = 1
@@ -604,7 +606,9 @@
 /obj/structure/window{
 	dir = 8
 	},
-/obj/structure/bed,
+/obj/structure/bed{
+	desc = "It's dirty and rusted. The word 'realb' is engraved onto the side..."
+	},
 /obj/item/bedsheet/medical,
 /obj/structure/window{
 	dir = 1
@@ -647,7 +651,9 @@
 /turf/open/floor/holofloor/beach/coast_b,
 /area/holodeck/rec_center/beach)
 "acZ" = (
-/obj/structure/bed,
+/obj/structure/bed{
+	desc = "It's dirty and rusted. The word 'realb' is engraved onto the side..."
+	},
 /obj/item/bedsheet/medical,
 /obj/machinery/iv_drip,
 /turf/open/floor/holofloor{
@@ -658,7 +664,9 @@
 /obj/structure/window{
 	dir = 8
 	},
-/obj/structure/bed,
+/obj/structure/bed{
+	desc = "It's dirty and rusted. The word 'realb' is engraved onto the side..."
+	},
 /obj/item/bedsheet/medical,
 /obj/machinery/iv_drip,
 /turf/open/floor/holofloor{
@@ -1654,9 +1662,11 @@
 /turf/open/floor/holofloor/hyperspace,
 /area/space)
 "ajC" = (
-/turf/closed/indestructible/fakedoor{
-	name = "CentCom"
+/obj/machinery/door/airlock/centcom{
+	name = "Whitaker Containment Access";
+	req_access_txt = "109"
 	},
+/turf/open/floor/wood,
 /area/centcom/ferry)
 "ajE" = (
 /obj/machinery/status_display/evac,
@@ -5537,7 +5547,9 @@
 /turf/open/floor/carpet,
 /area/wizard_station)
 "aEc" = (
-/obj/structure/bed,
+/obj/structure/bed{
+	desc = "It's dirty and rusted. The word 'realb' is engraved onto the side..."
+	},
 /obj/item/bedsheet/wiz,
 /turf/open/floor/carpet,
 /area/wizard_station)
@@ -6431,7 +6443,11 @@
 /turf/open/floor/plasteel/grimy,
 /area/tdome/tdomeadmin)
 "aKd" = (
-/obj/machinery/igniter/on,
+/obj/machinery/igniter/on{
+	desc = "It's useful for something.";
+	name = "strange device";
+	pixel_y = 24
+	},
 /obj/effect/turf_decal/industrial/hatch/yellow,
 /turf/open/floor/plasteel,
 /area/tdome/arena)
@@ -6765,7 +6781,9 @@
 /turf/open/floor/mineral/titanium,
 /area/centcom/evac)
 "aLv" = (
-/obj/structure/bed,
+/obj/structure/bed{
+	desc = "It's dirty and rusted. The word 'realb' is engraved onto the side..."
+	},
 /turf/open/floor/mineral/titanium/blue,
 /area/centcom/evac)
 "aLw" = (
@@ -6773,7 +6791,9 @@
 /turf/open/floor/plating,
 /area/centcom/evac)
 "aLx" = (
-/obj/structure/bed,
+/obj/structure/bed{
+	desc = "It's dirty and rusted. The word 'realb' is engraved onto the side..."
+	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -7526,7 +7546,9 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "aNm" = (
-/obj/structure/closet/crate,
+/obj/structure/closet/crate{
+	name = "whitaker's shit"
+	},
 /obj/item/vending_refill/autodrobe,
 /obj/item/stack/sheet/paperframes/fifty,
 /obj/item/stack/sheet/paperframes/fifty,
@@ -8317,7 +8339,9 @@
 /obj/item/reagent_containers/food/condiment/enzyme,
 /obj/item/reagent_containers/food/drinks/shaker,
 /obj/item/book/manual/wiki/barman_recipes,
-/obj/structure/closet/crate,
+/obj/structure/closet/crate{
+	name = "whitaker's shit"
+	},
 /turf/open/floor/plasteel,
 /area/centcom/holding)
 "aOQ" = (
@@ -13412,6 +13436,14 @@
 /obj/effect/turf_decal/industrial/outline/yellow,
 /turf/open/floor/plasteel,
 /area/centcom/supply)
+"bxV" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light/dim{
+	dir = 1
+	},
+/obj/item/bikehorn,
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "bDH" = (
 /obj/structure/chair/comfy/brown{
 	dir = 1
@@ -13478,6 +13510,15 @@
 	},
 /turf/open/floor/circuit/red,
 /area/ctf)
+"cgq" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/closed/indestructible/fakeglass,
+/area/centcom/ferry)
 "cjQ" = (
 /obj/item/kirbyplants{
 	icon_state = "plant-21"
@@ -13537,6 +13578,11 @@
 /obj/effect/turf_decal/industrial/warning,
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"ctZ" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/bikehorn,
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "czl" = (
 /obj/effect/turf_decal/industrial/warning,
 /obj/effect/turf_decal/corner/red{
@@ -13586,6 +13632,23 @@
 	},
 /turf/open/floor/holofloor,
 /area/holodeck/rec_center/kobayashi)
+"cLv" = (
+/obj/machinery/atmospherics/components/binary/valve{
+	name = "Termination Valve";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "cMq" = (
 /obj/structure/chair/office{
 	dir = 8
@@ -13605,6 +13668,18 @@
 	},
 /turf/open/floor/holofloor,
 /area/holodeck/rec_center/basketball)
+"cVp" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood,
+/mob/living/simple_animal/bot/honkbot{
+	emagged = 2;
+	name = "Tormentinator 9000";
+	desc = "Run.";
+	health = 99999999999
+	},
+/obj/item/bikehorn,
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "cVq" = (
 /obj/machinery/door/window/brigdoor{
 	base_state = "rightsecure";
@@ -13834,6 +13909,20 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/supply)
+"egU" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/bot/honkbot{
+	emagged = 2;
+	name = "Tormentinator 9000";
+	desc = "Run.";
+	health = 99999999999
+	},
+/obj/item/bikehorn,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "eio" = (
 /obj/effect/turf_decal/corner/red{
 	dir = 1
@@ -13981,6 +14070,12 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ctf)
+"euk" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/closed/indestructible/riveted,
+/area/centcom/ferry)
 "euu" = (
 /obj/structure/bookcase/random,
 /obj/machinery/light{
@@ -14098,6 +14193,9 @@
 /obj/effect/turf_decal/industrial/outline/yellow,
 /turf/open/floor/plasteel,
 /area/centcom/supply)
+"eXg" = (
+/turf/closed/indestructible/fakeglass,
+/area/centcom/ferry)
 "fbD" = (
 /obj/effect/turf_decal/corner/red{
 	dir = 1
@@ -14142,7 +14240,9 @@
 /obj/effect/turf_decal/corner/red{
 	dir = 8
 	},
-/obj/item/melee/transforming/energy/ctf,
+/obj/item/melee/transforming/energy/ctf{
+	desc = "If found outside of CTF, please ahelp."
+	},
 /turf/open/floor/plasteel/dark,
 /area/ctf)
 "fnB" = (
@@ -14492,6 +14592,18 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ctf)
+"gZa" = (
+/obj/structure/grille/indestructable{
+	desc = "A not-so-flimsy framework of metal rods."
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/plating/rust,
+/area/centcom/ferry)
 "hdi" = (
 /obj/item/shovel/spade{
 	pixel_x = 2;
@@ -14524,6 +14636,19 @@
 	},
 /turf/open/floor/holofloor,
 /area/holodeck/rec_center/kobayashi)
+"heO" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/igniter/on{
+	desc = "It's useful for something.";
+	name = "strange device";
+	max_integrity = 99999999999999999
+	},
+/obj/item/bikehorn,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/plating/rust,
+/area/centcom/ferry)
 "hfh" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Addust's Office";
@@ -14711,6 +14836,20 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
+"hRp" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/bikehorn/golden{
+	desc = "Golden? Clearly, it's made with Whitakerium! Honk!"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/components/unary/outlet_injector/on{
+	dir = 4;
+	name = "Sanity Preservation Injector"
+	},
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "hTx" = (
 /obj/effect/turf_decal/industrial/warning{
 	dir = 4
@@ -14794,6 +14933,13 @@
 	},
 /turf/open/floor/holofloor,
 /area/holodeck/rec_center/basketball)
+"iyZ" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "izV" = (
 /obj/effect/turf_decal/corner/green{
 	dir = 4
@@ -14932,6 +15078,20 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
+"jbu" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/rtg/advanced{
+	power_gen = 9999999;
+	desc = "An advanced RTG capable of moderating isotope decay, increasing power output but reducing lifetime. It uses plasma-fueled radiation collectors to increase output even further. Hilariously beefed up."
+	},
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "jdR" = (
 /obj/machinery/door/airlock/external{
 	name = "Supply Shuttle";
@@ -15281,6 +15441,20 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/ferry)
+"kRQ" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/bot/honkbot{
+	emagged = 2;
+	name = "Tormentinator 9000";
+	desc = "Run.";
+	health = 99999999999
+	},
+/obj/item/bikehorn,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "kTF" = (
 /obj/machinery/airalarm{
 	dir = 8;
@@ -15414,6 +15588,17 @@
 /obj/machinery/computer,
 /turf/open/floor/plasteel,
 /area/centcom/ferry)
+"lrm" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/igniter/on{
+	desc = "It's useful for something.";
+	name = "strange device";
+	max_integrity = 99999999999999999
+	},
+/obj/effect/decal/cleanable/blood,
+/obj/item/bikehorn,
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "lvT" = (
 /obj/structure/table,
 /obj/item/clipboard,
@@ -15546,6 +15731,11 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/supply)
+"lNi" = (
+/turf/closed/indestructible/fakedoor{
+	name = "Whitaker Chamber Entry"
+	},
+/area/centcom/ferry)
 "lNU" = (
 /obj/effect/turf_decal/corner/red,
 /obj/effect/turf_decal/corner/red{
@@ -15587,6 +15777,10 @@
 	},
 /turf/open/floor/circuit,
 /area/ctf)
+"lTO" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "lWJ" = (
 /obj/effect/turf_decal/industrial/loading{
 	dir = 4
@@ -15741,6 +15935,24 @@
 	},
 /turf/open/floor/plasteel,
 /area/syndicate_mothership/control)
+"mWE" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/visible,
+/obj/effect/turf_decal/atmos/plasma,
+/obj/structure/window/plasma/reinforced/spawner/east,
+/obj/structure/window/plasma/reinforced/spawner/west,
+/obj/structure/window/plasma/reinforced/spawner/north,
+/turf/open/floor/engine/plasma,
+/area/centcom/ferry)
+"mXU" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/visible{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "mYq" = (
 /obj/machinery/readybutton,
 /obj/effect/turf_decal/corner/green{
@@ -15764,6 +15976,24 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/supply)
+"ngn" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/item/bikehorn,
+/obj/item/gun/ballistic/revolver/reverse,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "nlD" = (
 /obj/structure/filingcabinet/filingcabinet,
 /obj/effect/turf_decal/corner/neutral{
@@ -15874,6 +16104,17 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"nVB" = (
+/obj/machinery/atmospherics/components/binary/pump/on{
+	dir = 8;
+	name = "Burn Mix Output"
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "odb" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
@@ -15885,6 +16126,13 @@
 /obj/effect/turf_decal/industrial/outline/yellow,
 /turf/open/floor/plasteel,
 /area/centcom/supply)
+"oiD" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "ojp" = (
 /obj/machinery/door/poddoor{
 	id = "XCCQMLoaddoor";
@@ -15957,6 +16205,15 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
+/area/centcom/ferry)
+"oCB" = (
+/obj/machinery/atmospherics/components/unary/passive_vent{
+	dir = 1
+	},
+/obj/structure/window/plasma/reinforced/spawner/east,
+/obj/structure/window/plasma/reinforced/spawner/west,
+/obj/structure/window/plasma/reinforced/spawner,
+/turf/open/floor/engine/plasma,
 /area/centcom/ferry)
 "oGl" = (
 /obj/machinery/door/firedoor,
@@ -16147,6 +16404,23 @@
 	},
 /turf/open/floor/circuit,
 /area/ctf)
+"plu" = (
+/obj/structure/grille/indestructable{
+	name = "Injector Security Grille";
+	desc = "An extremely tough grille used for protecting extremely important pipes."
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "ppK" = (
 /obj/effect/turf_decal/corner/brown,
 /obj/effect/turf_decal/corner/brown{
@@ -16214,7 +16488,11 @@
 /turf/open/floor/plasteel,
 /area/centcom/ferry)
 "pvV" = (
-/obj/machinery/igniter/on,
+/obj/machinery/igniter/on{
+	desc = "It's useful for something.";
+	name = "strange device";
+	pixel_y = 24
+	},
 /obj/effect/turf_decal/industrial/hatch/yellow,
 /turf/open/floor/plasteel,
 /area/tdome/arena_source)
@@ -16227,6 +16505,17 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
+/area/centcom/ferry)
+"pxv" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/bot/honkbot{
+	emagged = 2;
+	name = "Tormentinator 9000";
+	desc = "Run.";
+	health = 99999999999
+	},
+/obj/item/bikehorn,
+/turf/open/floor/wood,
 /area/centcom/ferry)
 "pxS" = (
 /obj/structure/closet/secure_closet/contraband/heads,
@@ -16268,6 +16557,15 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/evac)
+"pFH" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/table/reinforced,
+/obj/item/gun/ballistic/revolver/reverse,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "pIW" = (
 /obj/machinery/computer/cargo{
 	dir = 4
@@ -16361,6 +16659,15 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"qnm" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/visible,
+/obj/structure/window/plasma/reinforced/spawner/east,
+/obj/structure/window/plasma/reinforced/spawner/west,
+/obj/structure/window/plasma/reinforced/spawner,
+/obj/effect/turf_decal/atmos/oxygen,
+/turf/open/floor/engine/o2,
+/area/centcom/ferry)
 "qnU" = (
 /obj/effect/turf_decal/industrial/warning{
 	dir = 5
@@ -16463,6 +16770,15 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
+"qyB" = (
+/obj/structure/grille/indestructable{
+	desc = "A not-so-flimsy framework of metal rods."
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/open/floor/plating/rust,
+/area/centcom/ferry)
 "qyW" = (
 /obj/effect/turf_decal/industrial/warning{
 	dir = 1
@@ -16480,6 +16796,14 @@
 /obj/effect/turf_decal/corner/green,
 /turf/open/floor/plasteel,
 /area/tdome/arena_source)
+"qIc" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/table/reinforced,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "qJe" = (
 /obj/effect/turf_decal/corner/green{
 	dir = 8
@@ -16496,6 +16820,12 @@
 	},
 /turf/open/floor/plating,
 /area/syndicate_mothership/control)
+"qKe" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light/broken,
+/obj/item/bikehorn,
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "qLS" = (
 /obj/item/clipboard,
 /obj/item/folder/red,
@@ -16582,6 +16912,14 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
+/area/centcom/ferry)
+"rcY" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/components/unary/passive_vent,
+/obj/structure/window/plasma/reinforced/spawner/east,
+/obj/structure/window/plasma/reinforced/spawner/west,
+/obj/structure/window/plasma/reinforced/spawner/north,
+/turf/open/floor/engine/o2,
 /area/centcom/ferry)
 "rdo" = (
 /obj/machinery/light{
@@ -16708,6 +17046,19 @@
 	},
 /turf/open/floor/plasteel,
 /area/tdome/arena_source)
+"rPB" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/igniter/on{
+	desc = "It's useful for something.";
+	name = "strange device";
+	max_integrity = 99999999999999999
+	},
+/obj/item/bikehorn,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "rPK" = (
 /obj/structure/rack,
 /obj/item/clothing/under/color/red,
@@ -16764,6 +17115,17 @@
 /obj/effect/turf_decal/corner/green,
 /turf/open/floor/holofloor,
 /area/holodeck/rec_center/dodgeball)
+"sbl" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/grille/indestructable{
+	name = "Injector Security Grille";
+	desc = "An extremely tough grille used for protecting extremely important pipes."
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "siN" = (
 /obj/item/target,
 /obj/item/target/clown,
@@ -16793,7 +17155,9 @@
 /obj/effect/turf_decal/corner/blue{
 	dir = 8
 	},
-/obj/item/melee/transforming/energy/ctf,
+/obj/item/melee/transforming/energy/ctf{
+	desc = "If found outside of CTF, please ahelp."
+	},
 /turf/open/floor/plasteel/dark,
 /area/ctf)
 "srJ" = (
@@ -17056,6 +17420,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"tmm" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/closed/indestructible/riveted,
+/area/centcom/ferry)
 "tnx" = (
 /obj/effect/turf_decal/corner/neutral{
 	dir = 1
@@ -17120,6 +17490,23 @@
 	},
 /turf/open/floor/plasteel,
 /area/centcom/control)
+"tDK" = (
+/obj/item/clothing/mask/gas/clown_hat,
+/obj/item/clothing/suit/space/hardsuit/clown{
+	name = "Whitaker's Hardsuit";
+	desc = "Honk honk, asshole."
+	},
+/obj/item/clothing/under/rank/civilian/clown,
+/obj/item/megaphone/clown,
+/obj/item/clothing/shoes/clown_shoes,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/mecha_parts/mecha_equipment/weapon/honker,
+/obj/structure/closet/crate{
+	name = "whitaker's shit"
+	},
+/obj/item/bikehorn,
+/turf/open/floor/plating/rust,
+/area/centcom/ferry)
 "tHd" = (
 /obj/effect/turf_decal/industrial/warning{
 	dir = 5
@@ -17287,6 +17674,22 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/ferry)
+"uhc" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/grille/indestructable{
+	name = "Injector Security Grille";
+	desc = "An extremely tough grille used for protecting extremely important pipes."
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/open/floor/plating/rust,
+/area/centcom/ferry)
+"uhj" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/bikehorn,
+/turf/open/floor/plating/rust,
+/area/centcom/ferry)
 "ukC" = (
 /obj/machinery/computer/helm,
 /obj/effect/turf_decal/corner/bar,
@@ -17295,6 +17698,14 @@
 	},
 /turf/open/floor/plasteel,
 /area/syndicate_mothership/control)
+"ukR" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/table/reinforced,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "ulu" = (
 /obj/effect/turf_decal/industrial/warning{
 	dir = 10
@@ -17372,6 +17783,12 @@
 	},
 /turf/open/floor/holofloor,
 /area/holodeck/rec_center/dodgeball)
+"uTW" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood,
+/obj/item/bikehorn,
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "uWs" = (
 /obj/effect/turf_decal/industrial/warning,
 /turf/open/floor/plating,
@@ -17619,6 +18036,16 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/supply)
+"wxe" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/igniter/on{
+	desc = "It's useful for something.";
+	name = "strange device";
+	max_integrity = 99999999999999999
+	},
+/obj/item/bikehorn,
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "wCT" = (
 /obj/structure/chair/office{
 	dir = 1
@@ -17855,6 +18282,16 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
+"xyq" = (
+/obj/item/bedsheet/clown,
+/obj/structure/bed{
+	desc = "It's dirty and rusted. The word 'realb' is engraved onto the side..."
+	},
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/blood,
+/obj/item/bikehorn,
+/turf/open/floor/wood,
+/area/centcom/ferry)
 "xBi" = (
 /obj/structure/closet/crate/bin,
 /obj/structure/extinguisher_cabinet{
@@ -53365,15 +53802,15 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+amD
+amD
+amD
+amD
+lNi
+amD
+amD
+amD
+amD
 aaa
 aaa
 aaa
@@ -53622,14 +54059,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+amD
+qyB
+tDK
+cVp
+uhj
+pxv
+ctZ
+qyB
 amD
 amD
 amD
@@ -53879,14 +54316,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+amD
+gZa
+ctZ
+wxe
+sbl
+lrm
+uhj
+gZa
 amD
 aoB
 aoB
@@ -54136,14 +54573,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+amD
+gZa
+bxV
+uhc
+hRp
+sbl
+qKe
+gZa
 amD
 ufv
 aoB
@@ -54393,14 +54830,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+amD
+gZa
+uTW
+rPB
+plu
+heO
+ctZ
+gZa
 amD
 aoB
 aoB
@@ -54650,14 +55087,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+amD
+gZa
+uhj
+egU
+ngn
+kRQ
+xyq
+gZa
 amD
 aoB
 aoB
@@ -54907,14 +55344,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 amD
+tmm
+eXg
+eXg
+cgq
+eXg
+eXg
+tmm
 amD
 amD
 amD
@@ -55164,14 +55601,14 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 amD
+qIc
+pFH
+ukR
+cLv
+ukR
+ukR
+euk
 aoB
 aoB
 aoB
@@ -55421,13 +55858,13 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+lNi
+iyZ
+oiD
+oiD
+nVB
+lTO
+lTO
 ajC
 aoB
 aoB
@@ -55678,13 +56115,13 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+amD
+jbu
+rcY
+qnm
+mXU
+mWE
+oCB
 amD
 uJC
 aoB
