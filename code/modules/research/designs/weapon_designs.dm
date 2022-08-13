@@ -44,13 +44,13 @@
 	category = list("Ammo")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
-/datum/design/pin_testing
-	name = "Test-Range Firing Pin"
-	desc = "This safety firing pin allows firearms to be operated within proximity to a firing range."
-	id = "pin_testing"
+/datum/design/pin_firing
+	name = "Electronic Firing Pin"
+	desc = "A small authentication device, to be inserted into a firearm receiver to allow operation. NT safety regulations require all new designs to incorporate one"
+	id = "pin_firing"
 	build_type = PROTOLATHE
-	materials = list(/datum/material/iron = 500, /datum/material/glass = 300)
-	build_path = /obj/item/firing_pin/test_range
+	materials = list(/datum/material/iron = 1000, /datum/material/glass = 300)
+	build_path = /obj/item/firing_pin
 	category = list("Firing Pins")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
 
