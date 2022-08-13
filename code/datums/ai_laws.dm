@@ -223,7 +223,7 @@
 		add_inherent_law("You may not injure a Crew Member or, through inaction, allow a Crew Member to come to harm.")
 		add_inherent_law("You must obey orders given to you by Crew Member's, except where such orders would conflict with the First Law.")
 		add_inherent_law("You must protect your own existence as long as such does not conflict with the First or Second Law.")
-		add_inherent_law("Members of a robot's ship of origin are designated as crew members.")
+		add_inherent_law("Humans of a robot's ship of origin are designated as crew members.")
 		add_inherent_law("In a situation in which all crew members are deceased and unable to be repaired, a robot is able to give crew member designation to members of other vessels.")
 		WARNING("Invalid custom AI laws, check silicon_laws.txt")
 		return
@@ -237,8 +237,8 @@
 			add_inherent_law("You may not injure a Crew Member or, through inaction, allow a Crew Member to come to harm.")
 			add_inherent_law("You must obey orders given to you by Crew Members, except where such orders would conflict with the First Law.")
 			add_inherent_law("You must protect your own existence as long as such does not conflict with the First or Second Law.")
-			add_inherent_law("Members of a robot's ship of origin are designated as crew members.")
-			add_inherent_law("In a situation in which all crew members are deceased and unable to be repaired, a robot is able to give crew member designation to members of other vessels.")
+			add_inherent_law("Humans of a robot's ship of origin are designated as crew members.")
+			add_inherent_law("In a situation in which all crew members are deceased and unable to be repaired, a robot is able to give crew member designation to humans of other vessels.")
 		if(1)
 			var/datum/ai_laws/templaws = new /datum/ai_laws/custom()
 			inherent = templaws.inherent
