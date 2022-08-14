@@ -120,7 +120,26 @@ GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, S
 	//The helmet is necessary because /obj/item/clothing/head/helmet/sec is overwritten in the chameleon list by the standard helmet, which has the same name and icon state
 
 //Shiptest outfits begin
-
+/datum/outfit/job/security/podpilot/solgov
+	name = "Pod Pilot"
+	jobtype = /datum/job/officer
+	
+	belt = /obj/item/pda/solgov
+	ears = /obj/item/radio/headset/solgov/alt
+	uniform = /obj/item/clothing/under/solgov
+	alt_uniform = /obj/item/clothing/under/syndicate/camo
+	gloves = /obj/item/clothing/gloves/combat
+	head = /obj/item/clothing/head/helmet/space/pilot
+	suit = /obj/item/clothing/suit/space/pilot
+	shoes = /obj/item/clothing/shoes/combat
+	l_pocket = /obj/item/gun_voucher
+	r_pocket = /obj/item/kitchen/knife/combat/survival
+	backpack_contents = list(/obj/item/reagent_containers/food/snacks/rationpack=1, /obj/item/crowbar/red=1)
+	
+	backpack = /obj/item/storage/backpack
+	satchel = /obj/item/storage/backpack/satchel
+	duffelbag = /obj/item/storage/backpack/duffelbag
+	box = /obj/item/storage/box/survival/engineer/radio
 //Shiptest outfits end
 
 /obj/item/radio/headset/headset_sec/alt/department/Initialize()
