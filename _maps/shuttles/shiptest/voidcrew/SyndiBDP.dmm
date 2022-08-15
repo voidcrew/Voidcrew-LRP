@@ -2,23 +2,6 @@
 "a" = (
 /turf/template_noop,
 /area/template_noop)
-"c" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/turf_decal/industrial/outline,
-/obj/structure/closet/crate,
-/obj/item/stack/sheet/plasteel/fifty,
-/obj/item/stack/cable_coil/blue,
-/obj/item/stack/ore/bluespace_crystal,
-/obj/item/stack/rods/ten,
-/obj/item/stack/sheet/glass/fifty,
-/obj/item/stack/sheet/metal/fifty,
-/obj/item/stack/sheet/mineral/wood/fifty,
-/obj/item/circuitboard/machine/hydroponics,
-/obj/item/circuitboard/machine/hydroponics,
-/turf/open/floor/mineral/plastitanium/red,
-/area/ship/bridge)
 "d" = (
 /obj/machinery/computer/helm{
 	dir = 8
@@ -34,13 +17,9 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/bridge)
 "i" = (
-/obj/machinery/power/terminal{
-	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
 /obj/machinery/light,
+/obj/machinery/power/smes/engineering,
+/obj/structure/cable,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/bridge)
 "j" = (
@@ -62,10 +41,13 @@
 /area/ship/bridge)
 "l" = (
 /obj/machinery/power/smes/shuttle/precharged{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
+	},
+/obj/structure/window/plasma/reinforced{
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/ship/bridge)
@@ -92,8 +74,9 @@
 /turf/open/floor/plating,
 /area/ship/bridge)
 "o" = (
+/obj/machinery/power/port_gen/pacman/uranium,
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "0-8"
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/bridge)
@@ -123,7 +106,6 @@
 /obj/machinery/power/terminal{
 	dir = 8
 	},
-/obj/structure/cable,
 /obj/machinery/turretid{
 	desc = "Used to control the Inteceptor's automated defenses.";
 	pixel_y = -25;
@@ -145,6 +127,9 @@
 /obj/item/tank/internals/oxygen/yellow,
 /obj/item/tank/internals/oxygen/yellow,
 /obj/item/tank/internals/oxygen/yellow,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/bridge)
 "s" = (
@@ -166,7 +151,7 @@
 /area/ship/bridge)
 "w" = (
 /obj/structure/cable{
-	icon_state = "2-8"
+	icon_state = "4-8"
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/bridge)
@@ -196,9 +181,19 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ship/bridge)
 "C" = (
-/obj/machinery/power/smes/engineering,
+/obj/effect/turf_decal/industrial/outline,
+/obj/structure/closet/crate,
+/obj/item/stack/sheet/plasteel/fifty,
+/obj/item/stack/cable_coil/blue,
+/obj/item/stack/ore/bluespace_crystal,
+/obj/item/stack/rods/ten,
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/mineral/wood/fifty,
+/obj/item/circuitboard/machine/hydroponics,
+/obj/item/circuitboard/machine/hydroponics,
 /obj/structure/cable{
-	icon_state = "0-4"
+	icon_state = "2-4"
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/bridge)
@@ -222,6 +217,9 @@
 /area/ship/bridge)
 "G" = (
 /obj/effect/turf_decal/syndicateemblem/bottom/left,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/bridge)
 "H" = (
@@ -230,6 +228,16 @@
 /area/ship/bridge)
 "J" = (
 /obj/effect/turf_decal/syndicateemblem/bottom/right,
+/turf/open/floor/mineral/plastitanium/red,
+/area/ship/bridge)
+"K" = (
+/obj/machinery/suit_storage_unit/syndicate{
+	storage_type = null
+	},
+/obj/machinery/light,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/bridge)
 "L" = (
@@ -290,9 +298,11 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ship/bridge)
 "T" = (
-/obj/machinery/power/port_gen/pacman/uranium,
+/obj/machinery/power/terminal{
+	dir = 8
+	},
 /obj/structure/cable{
-	icon_state = "0-8"
+	icon_state = "0-4"
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/bridge)
@@ -330,6 +340,9 @@
 	pixel_y = 2
 	},
 /obj/item/reagent_containers/food/snacks/syndicake,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/bridge)
 "Y" = (
@@ -371,7 +384,7 @@ a
 U
 j
 k
-c
+w
 T
 j
 U
@@ -391,7 +404,7 @@ m
 f
 X
 G
-P
+K
 v
 "}
 (7,1,1) = {"
