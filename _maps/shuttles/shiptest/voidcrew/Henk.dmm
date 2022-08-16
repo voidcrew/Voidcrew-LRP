@@ -297,6 +297,11 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/button{
+	id = "11HONKERSSHOOTITNOW!!!";
+	name = "SHOOT THE SM!";
+	pixel_x = 25
+	},
 /turf/open/floor/carpet/donk,
 /area/ship/engineering/engine)
 "sp" = (
@@ -355,12 +360,13 @@
 /turf/closed/wall/mineral/bananium,
 /area/ship/crew)
 "ut" = (
+/obj/effect/decal/cleanable/glitter,
 /obj/machinery/button/door{
 	id = "256ClowningMimes";
-	pixel_y = 9;
+	pixel_y = -25;
 	pixel_z = -5
 	},
-/turf/closed/wall/mineral/bananium,
+/turf/open/floor/mineral/bananium,
 /area/ship/crew)
 "uz" = (
 /obj/effect/decal/cleanable/glitter,
@@ -501,11 +507,12 @@
 /turf/open/floor/mineral/bananium,
 /area/ship/crew)
 "wP" = (
+/obj/item/grown/bananapeel,
 /obj/machinery/button/door{
 	id = "246ClowningMimes";
-	pixel_y = 8
+	pixel_y = -25
 	},
-/turf/closed/wall/mineral/bananium,
+/turf/open/floor/mineral/bananium,
 /area/ship/crew)
 "wS" = (
 /obj/effect/decal/cleanable/glitter,
@@ -541,14 +548,6 @@
 /obj/item/grown/bananapeel,
 /turf/open/floor/mineral/bananium,
 /area/ship/crew/dorm)
-"zs" = (
-/obj/machinery/button{
-	id = "11HONKERSSHOOTITNOW!!!";
-	name = "SHOOT THE SM!";
-	pixel_x = -9
-	},
-/turf/closed/wall/mineral/bananium,
-/area/ship/engineering/engine)
 "Ar" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1033,8 +1032,8 @@ aa
 aa
 eG
 mz
-qr
 ut
+aa
 aa
 XI
 XI
@@ -1223,7 +1222,7 @@ pv
 rW
 wu
 BZ
-zs
+Gh
 Gh
 MA
 Gh
@@ -1254,8 +1253,8 @@ aa
 aa
 oS
 kJ
-mz
 wP
+aa
 aa
 XI
 XI
