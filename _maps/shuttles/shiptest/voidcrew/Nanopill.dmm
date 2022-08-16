@@ -87,17 +87,28 @@
 	},
 /area/ship/bridge)
 "z" = (
-/obj/structure/sign/poster/official/random{
-	pixel_x = 32
+/obj/machinery/mineral/ore_redemption{
+	dir = 8
 	},
-/obj/structure/reagent_dispensers/watertank,
-/turf/open/floor/carpet/executive,
+/obj/structure/fans/tiny,
+/obj/machinery/door/window{
+	dir = 4
+	},
+/obj/machinery/door/window{
+	dir = 8
+	},
+/turf/open/floor/plasteel{
+	icon_state = "steel"
+	},
 /area/ship/bridge)
 "B" = (
 /obj/machinery/suit_storage_unit/ert/security,
 /obj/effect/turf_decal/box/white,
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/structure/sign/poster/official/random{
+	pixel_x = -32
 	},
 /turf/open/floor/plasteel{
 	icon_state = "steel"
@@ -116,6 +127,7 @@
 	},
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/mop,
+/obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/carpet/executive,
 /area/ship/bridge)
 "D" = (
@@ -292,7 +304,7 @@ f
 f
 u
 j
-z
+j
 C
 J
 O
@@ -306,7 +318,7 @@ a
 f
 l
 w
-l
+z
 l
 f
 K
