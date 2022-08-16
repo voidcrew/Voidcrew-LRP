@@ -7,4 +7,4 @@
 /turf/open/lava/smooth/lava_land_surface/lit
 	light_color = LIGHT_COLOR_LAVA
 	light_range = 2
-	light_power = 0.75
+	light_power = 2
