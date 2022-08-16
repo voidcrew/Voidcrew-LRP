@@ -20,6 +20,7 @@
 /obj/item/suppressor,
 /obj/item/ammo_box/magazine/sniper_rounds,
 /obj/item/ammo_box/magazine/sniper_rounds,
+/obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/plasteel,
 /area/ship/bridge)
 "bm" = (
@@ -42,6 +43,10 @@
 /obj/item/storage/toolbox/mechanical,
 /turf/open/floor/plasteel,
 /area/ship/science)
+"bY" = (
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/floor/plating,
+/area/ship/maintenance/aft)
 "cB" = (
 /obj/structure/window/reinforced/spawner/north,
 /obj/structure/rack,
@@ -180,6 +185,9 @@
 /obj/structure/chair/comfy/brown,
 /turf/open/floor/plasteel,
 /area/ship/medical)
+"iA" = (
+/turf/closed/wall/rust,
+/area/ship/medical)
 "jI" = (
 /turf/open/floor/plasteel,
 /area/ship/cargo)
@@ -246,6 +254,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/ship/bridge)
+"oG" = (
+/turf/closed/wall/rust,
+/area/ship/bridge)
+"oZ" = (
+/turf/closed/wall/rust,
+/area/ship/cargo)
 "pf" = (
 /obj/structure/fans/tiny,
 /obj/machinery/door/poddoor{
@@ -347,6 +361,10 @@
 /obj/item/grenade/c4,
 /turf/open/floor/plasteel,
 /area/ship/medical)
+"sn" = (
+/obj/effect/decal/cleanable/blood/footprints,
+/turf/open/floor/engine,
+/area/ship/science)
 "ss" = (
 /turf/closed/wall,
 /area/ship/science)
@@ -366,6 +384,7 @@
 /area/ship/maintenance/aft)
 "sI" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/plasteel,
 /area/ship/bridge)
 "tj" = (
@@ -400,6 +419,10 @@
 /obj/machinery/suit_storage_unit/mining/eva,
 /turf/open/floor/plasteel,
 /area/ship/cargo)
+"tP" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/open/floor/plasteel,
+/area/ship/science)
 "tX" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
@@ -602,6 +625,7 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "Bh" = (
+/obj/effect/decal/cleanable/greenglow,
 /turf/open/floor/plasteel,
 /area/ship/medical)
 "BE" = (
@@ -631,6 +655,9 @@
 /obj/machinery/light/small,
 /turf/open/floor/plasteel,
 /area/ship/science)
+"Da" = (
+/turf/closed/wall/rust,
+/area/ship/science)
 "Dp" = (
 /turf/closed/wall,
 /area/ship/cargo)
@@ -649,6 +676,11 @@
 	},
 /turf/open/floor/plasteel,
 /area/ship/storage)
+"DX" = (
+/obj/effect/decal/cleanable/blood/gibs/old,
+/obj/effect/decal/cleanable/blood/footprints,
+/turf/open/floor/engine,
+/area/ship/science)
 "DZ" = (
 /obj/structure/window/reinforced/spawner/west,
 /obj/structure/window/reinforced/spawner/north,
@@ -663,6 +695,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/plasteel,
 /area/ship/science)
 "Ex" = (
@@ -745,7 +778,7 @@
 /area/ship/cargo)
 "Ia" = (
 /obj/machinery/atmospherics/pipe/manifold/orange/visible,
-/turf/closed/wall,
+/turf/closed/wall/rust,
 /area/ship/maintenance/aft)
 "Im" = (
 /obj/machinery/atmospherics/pipe/layer_manifold,
@@ -1011,20 +1044,29 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plasteel,
 /area/ship/bridge)
 "VH" = (
 /obj/machinery/power/apc/auto_name/south,
 /obj/structure/cable,
 /obj/machinery/light/small,
+/obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/plasteel,
 /area/ship/bridge)
+"VR" = (
+/turf/closed/wall/rust,
+/area/ship/maintenance/aft)
 "Wq" = (
 /obj/machinery/igniter{
 	id = "toxins"
 	},
 /turf/open/floor/engine,
 /area/ship/science)
+"Xa" = (
+/obj/effect/decal/cleanable/blood/gibs/core,
+/turf/open/floor/plasteel,
+/area/ship/cargo)
 "Xq" = (
 /obj/machinery/chem_master,
 /turf/open/floor/plasteel,
@@ -1089,19 +1131,19 @@ fo
 (2,1,1) = {"
 fo
 fo
-XV
-XV
+VR
+VR
 fJ
 XV
 Zj
 XV
 Zj
-XV
+VR
 lH
 XV
 fJ
 XV
-XV
+VR
 fo
 fo
 "}
@@ -1120,17 +1162,17 @@ Le
 xZ
 KJ
 xZ
-XV
+VR
 fo
 fo
 "}
 (4,1,1) = {"
 fo
 fo
-XV
+VR
 AP
 KI
-hm
+bY
 hm
 hm
 AS
@@ -1164,7 +1206,7 @@ fo
 "}
 (6,1,1) = {"
 ss
-xI
+ss
 ss
 ss
 ss
@@ -1174,20 +1216,20 @@ Im
 eo
 uw
 vP
+oZ
 Dp
 Dp
 Dp
-Dp
-Dp
-Dp
+oZ
+oZ
 "}
 (7,1,1) = {"
-ss
+xI
 Wq
 tC
-tC
-tC
-ss
+sn
+DX
+Da
 XV
 XV
 re
@@ -1206,7 +1248,7 @@ qc
 qc
 mw
 qc
-ss
+Da
 NB
 La
 Ga
@@ -1233,7 +1275,7 @@ bm
 rx
 Dp
 Gp
-jI
+Xa
 jI
 jI
 pf
@@ -1258,7 +1300,7 @@ jI
 pf
 "}
 (11,1,1) = {"
-ss
+Da
 rl
 AM
 BV
@@ -1277,12 +1319,12 @@ yA
 yA
 "}
 (12,1,1) = {"
-ss
+Da
 PP
-AM
+tP
 AM
 ai
-ss
+Da
 kt
 Fu
 DA
@@ -1296,7 +1338,7 @@ Xq
 yA
 "}
 (13,1,1) = {"
-ss
+Da
 Ar
 ZD
 ZD
@@ -1312,7 +1354,7 @@ ub
 Bh
 ir
 cH
-yA
+iA
 "}
 (14,1,1) = {"
 ss
@@ -1326,20 +1368,20 @@ lD
 hB
 rx
 rx
-yA
+iA
 hb
 Fh
 rK
 Nr
-yA
+iA
 "}
 (15,1,1) = {"
 ss
+Da
+Da
 ss
 ss
-ss
-ss
-ss
+Da
 xb
 xb
 ps
@@ -1358,7 +1400,7 @@ fo
 fo
 fo
 fo
-xb
+oG
 fL
 rq
 ud
@@ -1416,8 +1458,8 @@ fo
 fo
 fo
 xb
-xb
-xb
+oG
+oG
 xb
 xb
 xb
