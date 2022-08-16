@@ -492,12 +492,6 @@
 	pixel_x = -1;
 	pixel_y = 14
 	},
-/obj/item/ammo_box/magazine/m45,
-/obj/item/ammo_box/magazine/m45,
-/obj/item/ammo_box/magazine/m45,
-/obj/item/ammo_box/magazine/m45,
-/obj/item/ammo_box/magazine/m45,
-/obj/item/ammo_box/magazine/m45,
 /obj/machinery/airalarm/all_access{
 	pixel_y = 25
 	},
@@ -780,12 +774,11 @@
 /area/ship/security/prison)
 "kr" = (
 /obj/effect/turf_decal/corner/grey/diagonal,
-/obj/machinery/door/airlock/security/glass{
-	id = "Cell 1";
-	name = "Cell 1";
-	req_access_txt = "2"
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/window/brigdoor/security/cell/southleft{
+	id = "Cell 1";
+	req_one_access_txt = "2"
+	},
 /turf/open/floor/plasteel/dark,
 /area/ship/security/prison)
 "ky" = (
@@ -2600,6 +2593,12 @@
 /obj/effect/turf_decal/corner/red{
 	dir = 5
 	},
+/obj/item/ammo_box/magazine/m45,
+/obj/item/ammo_box/magazine/m45,
+/obj/item/ammo_box/magazine/m45,
+/obj/item/ammo_box/magazine/m45,
+/obj/item/ammo_box/magazine/m45,
+/obj/item/ammo_box/magazine/m45,
 /turf/open/floor/plasteel/dark,
 /area/ship/security/prison)
 "En" = (
