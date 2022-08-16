@@ -8,16 +8,21 @@
 		/obj/structure/flora/ash/whitesands/fireblossom = 1,
 		/obj/structure/flora/ash/whitesands/puce = 5
 	)
-	feature_spawn_chance = 0.3
-	feature_spawn_list = list(/obj/structure/flora/rock/hell = 5, /obj/structure/elite_tumor = 1, /obj/structure/geyser/random = 1, /obj/structure/spawner/lavaland = 2)
+	feature_spawn_chance = 0.4
+	feature_spawn_list = list(
+		/obj/structure/flora/rock/hell = 7,
+		/obj/structure/elite_tumor = 1,
+		/obj/structure/geyser/random = 1,
+		/obj/structure/spawner/lavaland = 3,
+		/obj/structure/spawner/lavaland/legion = 3,
+		/obj/structure/spawner/lavaland/goliath = 3,
+	),
 	mob_spawn_chance = 4
 	mob_spawn_list = list(
 		/mob/living/simple_animal/hostile/asteroid/goliath/beast/random = 50,
-		/obj/structure/spawner/lavaland/goliath = 3,
+
 		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random = 40,
-		/obj/structure/spawner/lavaland = 3,
 		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/random = 30,
-		/obj/structure/spawner/lavaland/legion = 3,
 		/mob/living/simple_animal/hostile/asteroid/goldgrub = 10
 	)
 
@@ -61,7 +66,9 @@
 	feature_spawn_list = list(
 		/obj/structure/flora/tree/dead/barren/purple = 60,
 		/obj/structure/flora/tree/dead/tall/grey = 60,
-		/obj/structure/spawner/lavaland = 5
+		/obj/structure/spawner/lavaland = 5,
+		/obj/structure/spawner/lavaland/legion = 5,
+		/obj/structure/spawner/lavaland/goliath = 5,
 	)
 
 /datum/biome/lavaland/plains/dense/mixed
@@ -103,7 +110,12 @@
 		/obj/structure/flora/rock/pile/lava = 1
 	)
 	flora_spawn_chance = 2
-	feature_spawn_chance = 0
+	feature_spawn_list = list(
+		/obj/structure/spawner/lavaland = 3,
+		/obj/structure/spawner/lavaland/legion = 3,
+		/obj/structure/spawner/lavaland/goliath = 3,
+		/obj/vehicle/ridden/lavaboat/dragon = 1
+	)
 
 /datum/biome/lavaland/lava/rocky
 	flora_spawn_chance = 4
@@ -114,13 +126,16 @@
 	mob_spawn_chance = 4
 	mob_spawn_list = list(
 		/mob/living/simple_animal/hostile/asteroid/goliath/beast/random = 50,
-		/obj/structure/spawner/lavaland/goliath = 3,
 		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random = 40,
-		/obj/structure/spawner/lavaland = 3,
 		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/random = 30,
-		/obj/structure/spawner/lavaland/legion = 3,
 		/mob/living/simple_animal/hostile/asteroid/goldgrub = 10
 	)
+	feature_spawn_list = list(
+		/obj/structure/spawner/lavaland/goliath = 1,
+		/obj/structure/spawner/lavaland = 1,
+		/obj/structure/spawner/lavaland/legion = 1
+	)
+	feature_spawn_rate = 0.4
 	flora_spawn_chance = 1
 	flora_spawn_list = list(
 		/obj/structure/flora/ash/leaf_shroom = 1,
