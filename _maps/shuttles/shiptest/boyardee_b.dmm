@@ -32,6 +32,12 @@
 "bq" = (
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/ship/storage)
+"br" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/ship/external)
 "bM" = (
 /obj/machinery/airalarm/all_access{
 	dir = 8;
@@ -560,7 +566,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
-/obj/machinery/holopad,
 /obj/structure/chair/wood{
 	dir = 4
 	},
@@ -569,6 +574,12 @@
 	},
 /turf/open/floor/carpet/red,
 /area/ship/crew/canteen)
+"lw" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/plating/airless,
+/area/ship/external)
 "ly" = (
 /obj/machinery/advanced_airlock_controller{
 	pixel_y = 24
@@ -656,10 +667,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/corner/blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/corner/blue{
-	dir = 8
+	dir = 9
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
@@ -683,10 +691,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/corner/blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/corner/blue{
-	dir = 8
+	dir = 9
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
@@ -1058,10 +1063,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/corner/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/corner/neutral{
-	dir = 1
+	dir = 9
 	},
 /turf/open/floor/plasteel/mono/dark,
 /area/ship/bridge)
@@ -1151,6 +1153,12 @@
 	},
 /turf/open/floor/plating,
 /area/ship/maintenance)
+"xr" = (
+/obj/structure/railing{
+	dir = 9
+	},
+/turf/open/floor/plating,
+/area/ship/external)
 "xO" = (
 /turf/open/floor/wood,
 /area/ship/crew/canteen)
@@ -1445,6 +1453,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/machinery/holopad,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/crew)
 "Eu" = (
@@ -1575,10 +1584,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/corner/blue{
-	dir = 1
-	},
-/obj/effect/turf_decal/corner/blue{
-	dir = 8
+	dir = 9
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
@@ -1597,14 +1603,11 @@
 /turf/open/floor/plating,
 /area/ship/maintenance)
 "Hb" = (
-/obj/effect/turf_decal/corner/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/corner/neutral{
-	dir = 1
-	},
 /obj/item/radio/intercom/wideband,
 /obj/structure/table/reinforced,
+/obj/effect/turf_decal/corner/neutral{
+	dir = 9
+	},
 /turf/open/floor/plasteel/mono/dark,
 /area/ship/bridge)
 "HD" = (
@@ -1811,6 +1814,10 @@
 	},
 /turf/open/floor/plasteel/mono/white,
 /area/ship/medical)
+"Mg" = (
+/obj/machinery/holopad,
+/turf/open/floor/carpet/black,
+/area/ship/crew/canteen)
 "Mj" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -2019,6 +2026,7 @@
 	dir = 1;
 	pixel_y = -24
 	},
+/obj/machinery/holopad,
 /turf/open/floor/carpet/red,
 /area/ship/crew/canteen)
 "Qu" = (
@@ -2276,12 +2284,6 @@
 	department = "Cockpit";
 	pixel_y = 30
 	},
-/obj/effect/turf_decal/corner/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/corner/neutral{
-	dir = 1
-	},
 /obj/machinery/button/door{
 	id = "windowlockdown";
 	name = "Window Lockdown";
@@ -2298,6 +2300,9 @@
 	id = "bridgelockdown";
 	name = "Bridge Lockdown";
 	pixel_y = -5
+	},
+/obj/effect/turf_decal/corner/neutral{
+	dir = 9
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
@@ -2814,7 +2819,7 @@ Bd
 vZ
 "}
 (11,1,1) = {"
-vZ
+xr
 aa
 Tr
 Yx
@@ -2835,7 +2840,7 @@ Bd
 vZ
 "}
 (12,1,1) = {"
-vZ
+br
 aa
 oO
 oi
@@ -2856,7 +2861,7 @@ BN
 vZ
 "}
 (13,1,1) = {"
-vZ
+br
 aa
 oO
 MI
@@ -2877,12 +2882,12 @@ BN
 vZ
 "}
 (14,1,1) = {"
-vZ
+br
 aa
 oO
 eg
 BF
-eV
+Mg
 eV
 IO
 Bg
@@ -2898,7 +2903,7 @@ BN
 vZ
 "}
 (15,1,1) = {"
-vZ
+br
 aa
 Tr
 IW
@@ -2919,7 +2924,7 @@ Bd
 vZ
 "}
 (16,1,1) = {"
-vZ
+br
 aa
 Tr
 IW
@@ -2940,7 +2945,7 @@ Bd
 vZ
 "}
 (17,1,1) = {"
-vZ
+br
 Kh
 dl
 IW
@@ -2961,7 +2966,7 @@ Bd
 vZ
 "}
 (18,1,1) = {"
-vZ
+br
 Ap
 SQ
 Pk
@@ -2982,7 +2987,7 @@ Bd
 vZ
 "}
 (19,1,1) = {"
-vZ
+br
 Ap
 SB
 mb
@@ -3003,7 +3008,7 @@ Ap
 vZ
 "}
 (20,1,1) = {"
-yi
+lw
 Ap
 iP
 wh
