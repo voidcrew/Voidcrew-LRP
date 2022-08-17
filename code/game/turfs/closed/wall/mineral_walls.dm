@@ -288,6 +288,16 @@
 	T.transform = transform
 	return T
 
+/turf/closed/wall/mineral/titanium/interior/blue
+  color = "#9CE9F6"
+  Initialize(...)
+    smoothing_flags &= ~SMOOTH_DIAGONAL_CORNERS
+    return ..()
+
+/turf/closed/wall/mineral/titanium/interior/blue/Initialize()
+	. = ..()
+	add_atom_colour("#9CE9F6", FIXED_COLOUR_PRIORITY) // fuck you
+
 /turf/closed/wall/mineral/titanium/copyTurf(turf/T)
 	. = ..()
 	T.transform = transform
@@ -310,6 +320,7 @@
 /turf/closed/wall/mineral/titanium/survival/pod
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_TITANIUM_WALLS, SMOOTH_GROUP_SURVIVAL_TIANIUM_POD)
 	canSmoothWith = list(SMOOTH_GROUP_SURVIVAL_TIANIUM_POD)
+
 
 /////////////////////Plastitanium walls/////////////////////
 
