@@ -1,8 +1,5 @@
 // This is eventually for wjohn to add more color standardization stuff like I keep asking him >:(
 
-#define COLOR_INPUT_DISABLED "#F0F0F0"
-#define COLOR_INPUT_ENABLED "#D3B5B5"
-
 //BeginWS
 #define COLOR_DARKMODE_DARKBACKGROUND "#383838"
 #define COLOR_DARKMODE_BACKGROUND "#272727"

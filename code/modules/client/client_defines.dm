@@ -174,6 +174,12 @@
 	/// rate limiting for the crew manifest
 	var/crew_manifest_delay
 
+
+//Hide top bars
+	var/fullscreen = FALSE
+	//Hide status bar (bottom left)
+	var/show_status_bar = TRUE
+
 	/// A buffer of currently held keys.
 	var/list/keys_held = list()
 	/// A buffer for combinations such of modifiers + keys (ex: CtrlD, AltE, ShiftT). Format: ["key"] -> ["combo"] (ex: ["D"] -> ["CtrlD"])
