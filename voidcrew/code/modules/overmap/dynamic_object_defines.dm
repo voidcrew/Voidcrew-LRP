@@ -18,20 +18,18 @@
 	var/first_dock_taken = FALSE
 	var/second_dock_taken = FALSE
 
+
 /obj/structure/overmap/dynamic/lava
 	planet = /datum/overmap/planet/lava
 
 /obj/structure/overmap/dynamic/ice
 	planet = /datum/overmap/planet/ice
 
-/obj/structure/overmap/dynamic/sand
-	planet = /datum/overmap/planet/sand
+/obj/structure/overmap/dynamic/beach
+	planet = /datum/overmap/planet/beach
 
 /obj/structure/overmap/dynamic/jungle
 	planet = /datum/overmap/planet/jungle
-
-/obj/structure/overmap/dynamic/rock
-	planet = /datum/overmap/planet/rock
 
 /obj/structure/overmap/dynamic/reebe
 	planet = /datum/overmap/planet/reebe
@@ -41,6 +39,9 @@
 
 /obj/structure/overmap/dynamic/energy_signal
 	planet = /datum/overmap/planet/space
+
+/obj/structure/overmap/dynamic/wasteland
+	planet = /datum/overmap/planet/wasteland
 
 /area/overmap_encounter
 	name = "\improper Overmap Encounter"
@@ -58,6 +59,12 @@
 	has_gravity = STANDARD_GRAVITY
 	always_unpowered = TRUE
 
+/area/overmap_encounter/planetoid/cave
+	name = "\improper Mysterious Cave"
+	sound_environment = SOUND_ENVIRONMENT_CAVE
+	ambientsounds = SPOOKY
+	outdoors = FALSE
+
 /area/overmap_encounter/planetoid/lava
 	name = "\improper Volcanic Planetoid"
 	ambientsounds = MINING
@@ -67,24 +74,25 @@
 	sound_environment = SOUND_ENVIRONMENT_CAVE
 	ambientsounds = SPOOKY
 
-/area/overmap_encounter/planetoid/sand
-	name = "\improper Sandy Planetoid"
-	sound_environment = SOUND_ENVIRONMENT_QUARRY
-	ambientsounds = MINING
+/area/overmap_encounter/planetoid/beach
+	name = "\improper Beach Planetoid"
+	sound_environment = SOUND_ENVIRONMENT_FOREST
+	ambientsounds = BEACH
 
 /area/overmap_encounter/planetoid/jungle
 	name = "\improper Jungle Planetoid"
 	sound_environment = SOUND_ENVIRONMENT_FOREST
 	ambientsounds = AWAY_MISSION
 
-/area/overmap_encounter/planetoid/rockplanet
-	name = "\improper Rocky Planetoid"
-	sound_environment = SOUND_ENVIRONMENT_HANGAR
-	ambientsounds = MAINTENANCE
+/area/overmap_encounter/planetoid/dynamic
+	name = "\improper Dynamic Planetoid"
+	sound_environment = SOUND_ENVIRONMENT_FOREST
+	ambientsounds = AWAY_MISSION
 
-/area/overmap_encounter/planetoid/rockplanet/explored//for use in ruins
-	area_flags = UNIQUE_AREA
-	area_flags = VALID_TERRITORY | UNIQUE_AREA
+/area/overmap_encounter/planetoid/wasteland
+	name = "\improper Apocalyptic Planetoid"
+	sound_environment = SOUND_ENVIRONMENT_HANGAR
+	ambientsounds = MINING
 
 /area/overmap_encounter/planetoid/reebe
 	name = "\improper Yellow Space"

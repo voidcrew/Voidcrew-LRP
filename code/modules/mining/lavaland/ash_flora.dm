@@ -111,7 +111,7 @@
 
 /obj/structure/flora/ash/stem_shroom
 	icon_state = "t_mushroom"
-	name = "numerous mushrooms"
+	name = "mushrooms"
 	desc = "A large number of mushrooms, some of which have long, fleshy stems. They're radiating light!"
 	light_range = 1.5
 	light_power = 2.1
@@ -125,6 +125,7 @@
 	harvest_message_high = "You acquire a number of stems from these mushrooms."
 	regrowth_time_low = 3000
 	regrowth_time_high = 6000
+	gender = PLURAL
 
 /obj/structure/flora/ash/cacti
 	icon_state = "cactus"

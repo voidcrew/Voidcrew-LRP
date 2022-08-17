@@ -47,8 +47,8 @@
 
 #define RUIN_TYPE_LAVA "lava"
 #define RUIN_TYPE_ICE "ice"
-#define RUIN_TYPE_SAND "sand"
 #define RUIN_TYPE_JUNGLE "jungle"
-#define RUIN_TYPE_ROCK "rock"
 #define RUIN_TYPE_REEBE "reebe"
 #define RUIN_TYPE_SPACE "space"
+#define RUIN_TYPE_BEACH "beach"
+#define RUIN_TYPE_WASTELAND "wasteland"

@@ -133,7 +133,7 @@ GLOBAL_LIST_INIT(ore_probability, list(
 /obj/effect/collapsing_demonic_portal/Initialize()
 	. = ..()
 	playsound(loc,'sound/effects/tendril_destroyed.ogg', 200, FALSE, 50, TRUE, TRUE)
-	visible_message("<span class='boldannounce'>[src] begins to collapse! As it fails, it connects to a random dimensional point and pulls through what it finds!</span>")
+	visible_message("<span class='boldannounce'>The demonic portal begins to collapse! As it fails, it connects to a random dimensional point and pulls through what it finds!</span>")
 	animate(src, transform = matrix().Scale(0, 1), alpha = 50, time = 5 SECONDS)
 	addtimer(CALLBACK(src, .proc/collapse), 5 SECONDS)
 

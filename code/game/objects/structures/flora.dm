@@ -137,7 +137,7 @@
 	name = "tree"
 	icon = 'icons/obj/flora/jungletrees.dmi'
 	icon_state = "tree"
-	desc = "It's seriously hampering your view of the jungle."
+	desc = "A very large tree. It seems to have grown quite well."
 	var/randomize_icon = TRUE
 	pixel_x = -48
 	pixel_y = -20
@@ -208,13 +208,17 @@
 	. = ..()
 
 /obj/structure/flora/ausbushes/reedbush
+	name = "reeds"
+	desc = "Some grass-like plants. They favour wet climates."
 	icon_state = "reedbush_1"
+	gender = PLURAL
 
 /obj/structure/flora/ausbushes/reedbush/Initialize()
 	icon_state = "reedbush_[rand(1, 4)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/leafybush
+	desc = "Some kind of leafy bush."
 	icon_state = "leafybush_1"
 
 /obj/structure/flora/ausbushes/leafybush/Initialize()
@@ -222,6 +226,7 @@
 	. = ..()
 
 /obj/structure/flora/ausbushes/palebush
+	desc = "Some kind of small bush."
 	icon_state = "palebush_1"
 
 /obj/structure/flora/ausbushes/palebush/Initialize()
@@ -229,6 +234,7 @@
 	. = ..()
 
 /obj/structure/flora/ausbushes/stalkybush
+	desc = "Some kind of bush with many stalks."
 	icon_state = "stalkybush_1"
 
 /obj/structure/flora/ausbushes/stalkybush/Initialize()
@@ -236,6 +242,7 @@
 	. = ..()
 
 /obj/structure/flora/ausbushes/grassybush
+	desc = "Some kind of grassy bush."
 	icon_state = "grassybush_1"
 
 /obj/structure/flora/ausbushes/grassybush/Initialize()
@@ -243,6 +250,7 @@
 	. = ..()
 
 /obj/structure/flora/ausbushes/fernybush
+	desc = "Some kind of bush with ferns."
 	icon_state = "fernybush_1"
 
 /obj/structure/flora/ausbushes/fernybush/Initialize()
@@ -250,6 +258,7 @@
 	. = ..()
 
 /obj/structure/flora/ausbushes/sunnybush
+	desc = "Some kind of bush that seems to have grown particularly well."
 	icon_state = "sunnybush_1"
 
 /obj/structure/flora/ausbushes/sunnybush/Initialize()
@@ -257,6 +266,7 @@
 	. = ..()
 
 /obj/structure/flora/ausbushes/genericbush
+	desc = "Some kind of bush with no distinct features."
 	icon_state = "genericbush_1"
 
 /obj/structure/flora/ausbushes/genericbush/Initialize()
@@ -271,41 +281,59 @@
 	. = ..()
 
 /obj/structure/flora/ausbushes/lavendergrass
+	name = "lavender"
+	desc = "Some wild lavender. It smells good."
 	icon_state = "lavendergrass_1"
+	gender = PLURAL
 
 /obj/structure/flora/ausbushes/lavendergrass/Initialize()
 	icon_state = "lavendergrass_[rand(1, 4)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/ywflowers
+	name = "flowers"
+	desc = "Some yellow and white flowers. Pretty."
 	icon_state = "ywflowers_1"
+	gender = PLURAL
 
 /obj/structure/flora/ausbushes/ywflowers/Initialize()
 	icon_state = "ywflowers_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/brflowers
+	name = "flowers"
+	desc = "Some blue and red flowers. Pretty."
 	icon_state = "brflowers_1"
+	gender = PLURAL
 
 /obj/structure/flora/ausbushes/brflowers/Initialize()
 	icon_state = "brflowers_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/ppflowers
+	name = "flowers"
+	desc = "Some purple and pink flowers. Pretty."
 	icon_state = "ppflowers_1"
+	gender = PLURAL
+
 
 /obj/structure/flora/ausbushes/ppflowers/Initialize()
 	icon_state = "ppflowers_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/sparsegrass
+	name = "grass"
+	desc = "Some sparsely grown grass."
 	icon_state = "sparsegrass_1"
+	gender = PLURAL
 
 /obj/structure/flora/ausbushes/sparsegrass/Initialize()
 	icon_state = "sparsegrass_[rand(1, 3)]"
 	. = ..()
 
 /obj/structure/flora/ausbushes/fullgrass
+	name = "grass"
+	desc = "A thick patch of grass."
 	icon_state = "fullgrass_1"
 
 /obj/structure/flora/ausbushes/fullgrass/Initialize()
@@ -415,6 +443,7 @@
 			playsound(src.loc, 'sound/items/welder.ogg', 100, TRUE)
 
 /obj/structure/flora/rock/pile
+	name = "rock pile"
 	icon_state = "lavarocks"
 	desc = "A pile of rocks."
 
@@ -422,9 +451,10 @@
 
 /obj/structure/flora/grass/jungle
 	name = "jungle grass"
-	desc = "Thick alien flora."
+	desc = "A lush patch of grass."
 	icon = 'icons/obj/flora/jungleflora.dmi'
 	icon_state = "grassa"
+	gender = PLURAL
 
 
 /obj/structure/flora/grass/jungle/Initialize()
@@ -432,15 +462,18 @@
 	. = ..()
 
 /obj/structure/flora/grass/jungle/b
+	desc = "A few bits of grass here and there."
 	icon_state = "grassb"
 
 //Jungle rocks
 
 /obj/structure/flora/rock/jungle
+	name = "jungle rocks"
 	icon_state = "rock"
-	desc = "A pile of rocks."
+	desc = "A pile of rocks, partially covered with grass."
 	icon = 'icons/obj/flora/jungleflora.dmi'
 	density = FALSE
+	gender = PLURAL
 
 /obj/structure/flora/rock/jungle/Initialize()
 	. = ..()
@@ -466,6 +499,7 @@
 	icon_state = "bushc"
 
 /obj/structure/flora/junglebush/large
+	desc = "A large plant that is found in jungles."
 	icon_state = "bush"
 	icon = 'icons/obj/flora/largejungleflora.dmi'
 	pixel_x = -16
@@ -474,11 +508,13 @@
 
 /obj/structure/flora/rock/pile/largejungle
 	name = "rocks"
+	desc = "A large pile of rocks. Grass is interspersed among the rocks."
 	icon_state = "rocks"
 	icon = 'icons/obj/flora/largejungleflora.dmi'
 	density = FALSE
 	pixel_x = -16
 	pixel_y = -16
+	gender = PLURAL
 
 /obj/structure/flora/rock/pile/largejungle/Initialize()
 	. = ..()

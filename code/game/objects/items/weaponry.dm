@@ -240,7 +240,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	max_integrity = 500
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	var/essence = 0//Used for blade abilities, mainly heals(If I can safely implement this I will nerf the damage slightly, and boost the selfdam)
-	var/list/nemesis_factions = list("mining", "boss")
+	var/list/nemesis_factions = list("mining", "boss", "beach", "wasteland")
 	var/faction_bonus_force = 25
 
 /obj/item/katana/cursed/suicide_act(mob/user)

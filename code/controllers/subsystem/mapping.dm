@@ -12,9 +12,9 @@ SUBSYSTEM_DEF(mapping)
 	var/list/space_ruins_templates = list()
 	var/list/lava_ruins_templates = list()
 	var/list/ice_ruins_templates = list()
-	var/list/sand_ruins_templates = list()
 	var/list/jungle_ruins_templates = list()
-	var/list/rock_ruins_templates = list()
+	var/list/beach_ruins_templates = list() // VOID EDIT
+	var/list/wasteland_ruins_templates = list() // VOID EDIT
 	var/list/yellow_ruins_templates = list()
 
 	var/list/maplist
@@ -31,7 +31,6 @@ SUBSYSTEM_DEF(mapping)
 
 	///All possible biomes in assoc list as type || instance
 	var/list/biomes = list()
-
 	// Z-manager stuff
 	var/station_start  // should only be used for maploading-related tasks
 	var/space_levels_so_far = 0
@@ -87,9 +86,6 @@ SUBSYSTEM_DEF(mapping)
 	ruins_templates = SSmapping.ruins_templates
 	space_ruins_templates = SSmapping.space_ruins_templates
 	lava_ruins_templates = SSmapping.lava_ruins_templates
-	// WS Edit Start - Whitesands
-	sand_ruins_templates = SSmapping.sand_ruins_templates
-	// WS Edit End - Whitesands
 	shuttle_templates = SSmapping.shuttle_templates
 	shelter_templates = SSmapping.shelter_templates
 
@@ -122,10 +118,10 @@ SUBSYSTEM_DEF(mapping)
 	var/list/banned = generateMapList("[global.config.directory]/ruins/lavaruinblacklist.txt")
 	banned += generateMapList("[global.config.directory]/ruins/spaceruinblacklist.txt")
 	banned += generateMapList("[global.config.directory]/ruins/iceruinblacklist.txt")
-	banned += generateMapList("[global.config.directory]/ruins/sandruinblacklist.txt")
 	banned += generateMapList("[global.config.directory]/ruins/jungleruinblacklist.txt")
+	banned += generateMapList("[global.config.directory]/ruins/beachruinblacklist.txt") // VOID EDIT
+	banned += generateMapList("[global.config.directory]/ruins/wastelandruinblacklist.txt") // VOID EDIT
 	banned += generateMapList("[global.config.directory]/ruins/reeberuinblacklist.txt")
-	banned += generateMapList("[global.config.directory]/ruins/rockruinblacklist.txt")
 
 	for(var/item in sortList(subtypesof(/datum/map_template/ruin), /proc/cmp_ruincost_priority))
 		var/datum/map_template/ruin/ruin_type = item
@@ -142,16 +138,18 @@ SUBSYSTEM_DEF(mapping)
 
 		if(istype(R, /datum/map_template/ruin/lavaland))
 			lava_ruins_templates[R.name] = R
-		else if(istype(R, /datum/map_template/ruin/whitesands))
-			sand_ruins_templates[R.name] = R
 		else if(istype(R, /datum/map_template/ruin/jungle))
 			jungle_ruins_templates[R.name] = R
+		// VOID EDITS [
+		else if(istype(R, /datum/map_template/ruin/beach))
+			beach_ruins_templates[R.name] = R
+		else if(istype(R, /datum/map_template/ruin/wasteland))
+			wasteland_ruins_templates[R.name] = R
+		// ] VOID EDITS
 		else if(istype(R, /datum/map_template/ruin/icemoon))
 			ice_ruins_templates[R.name] = R
 		else if(istype(R, /datum/map_template/ruin/space))
 			space_ruins_templates[R.name] = R
-		else if(istype(R, /datum/map_template/ruin/rockplanet))
-			rock_ruins_templates[R.name] = R
 		else if(istype(R, /datum/map_template/ruin/reebe))
 			yellow_ruins_templates[R.name] = R
 
@@ -264,8 +262,7 @@ SUBSYSTEM_DEF(mapping)
 		shelter_templates[S.shelter_id] = S
 		map_templates[S.shelter_id] = S
 
-///Initialize all biomes, assoc as type || instance
-/datum/controller/subsystem/mapping/proc/initialize_biomes()
+/datum/controller/subsystem/mapping/proc/initialize_biomes() // Void edit
 	for(var/biome_path in subtypesof(/datum/biome))
 		var/datum/biome/biome_instance = new biome_path()
 		biomes[biome_path] += biome_instance

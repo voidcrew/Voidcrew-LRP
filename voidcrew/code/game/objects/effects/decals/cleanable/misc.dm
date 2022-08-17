@@ -14,3 +14,7 @@
 	mob.playsound_local(get_turf(src), 'sound/effects/splat.ogg', 50, 1)
 	mob.visible_message("<span class='warning'>[mob.name] gets covered in squid ink, leaving a hideous outline around them!</span>", "<span class='warning'>You get squid ink all over yourself, it's horrible!</span>")
 
+/obj/effect/decal/cleanable/greenglow/glowy
+	light_power = 0.85
+	light_range = 2
+	light_color = "#22ff47"

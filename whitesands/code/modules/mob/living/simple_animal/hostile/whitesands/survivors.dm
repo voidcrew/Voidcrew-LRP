@@ -40,7 +40,7 @@
 		/obj/effect/spawner/lootdrop/whitesands/survivor
 	)
 	del_on_death = 1
-	faction = list("hermit")
+	faction = list("hermit", "wasteland") // VOID edit
 
 /mob/living/simple_animal/hostile/asteroid/whitesands/survivor/death(gibbed)
 	move_force = MOVE_FORCE_DEFAULT
