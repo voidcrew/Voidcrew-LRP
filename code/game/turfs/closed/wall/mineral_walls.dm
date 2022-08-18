@@ -288,6 +288,16 @@
 	T.transform = transform
 	return T
 
+/turf/closed/wall/mineral/titanium/interior/conquest
+	color = "#b3ab7c"
+	Initialize(...)
+		smoothing_flags &= ~SMOOTH_DIAGONAL_CORNERS
+		return ..()
+
+/turf/closed/wall/mineral/titanium/interior/blue/Initialize()
+	. = ..()
+	add_atom_colour("#b3ab7c", FIXED_COLOUR_PRIORITY) // obligatory fuck you
+
 /turf/closed/wall/mineral/titanium/copyTurf(turf/T)
 	. = ..()
 	T.transform = transform
@@ -365,6 +375,16 @@
 		T.setDir(dir)
 	T.transform = transform
 	return T
+
+/turf/closed/wall/mineral/plastitanium/interior/conquest
+	color = "#b3ab7c"
+	Initialize(...)
+		smoothing_flags &= ~SMOOTH_DIAGONAL_CORNERS
+		return ..()
+
+/turf/closed/wall/mineral/plastitanium/interior/conquest/Initialize()
+	. = ..()
+	add_atom_colour("#b3ab7c", FIXED_COLOUR_PRIORITY) // Honestly could be worse
 
 /turf/closed/wall/mineral/plastitanium/copyTurf(turf/T)
 	. = ..()
