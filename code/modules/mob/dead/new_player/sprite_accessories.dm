@@ -161,6 +161,10 @@
 	name = "Braid (Floorlength)"
 	icon_state = "hair_braid"
 
+/datum/sprite_accessory/hair/braid
+	name = "Glossy Braid (Floorlength)"
+	icon_state = "hair_braid_glossy"
+
 /datum/sprite_accessory/hair/braided
 	name = "Braided"
 	icon_state = "hair_braided"
@@ -511,15 +515,15 @@
 
 /datum/sprite_accessory/hair/kagami
 	name = "Pigtails"
-	icon_state = "hair_kagami"
+	icon_state = "hair_pigtails"
 
 /datum/sprite_accessory/hair/pigtail
 	name = "Pigtails 2"
-	icon_state = "hair_pigtails"
+	icon_state = "hair_pigtails2"
 
 /datum/sprite_accessory/hair/pigtail2
 	name = "Pigtails 3"
-	icon_state = "hair_pigtails2"
+	icon_state = "hair_pigtails3"
 
 /datum/sprite_accessory/hair/pixie
 	name = "Pixie Cut"
