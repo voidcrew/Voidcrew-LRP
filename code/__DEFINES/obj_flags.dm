@@ -32,6 +32,8 @@
 #define IN_STORAGE (1<<11) //is this item in the storage item, such as backpack? used for tooltips
 #define SURGICAL_TOOL (1<<12)	//Tool commonly used for surgery: won't attack targets in an active surgical operation on help intent (in case of mistakes)
 #define EYE_STAB (1<<13) /// Item can be used to eyestab
+///Can be equipped on digitigrade legs.
+#define IGNORE_DIGITIGRADE (1<<18)
 
 // Flags for the clothing_flags var on /obj/item/clothing
 

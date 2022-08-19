@@ -109,6 +109,7 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/sign = 1,
 		/obj/item/stack/tape/industrial = 1,
 		/obj/item/stack/tape/industrial/electrical = 1,
+		/obj/item/mod/construction/broken_core = 1,
 
 		//assemblies
 		/obj/item/assembly/infra = 1,

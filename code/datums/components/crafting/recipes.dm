@@ -905,3 +905,15 @@
 				/obj/item/stack/sheet/bone = 5,
 				/obj/item/stack/sheet/sinew = 3)
 	category = CAT_PRIMAL
+
+/datum/crafting_recipe/mod_core
+	name = "MOD core"
+	result = /obj/item/mod/construction/core
+	tool_behaviors = list(TOOL_SCREWDRIVER)
+	time = 10 SECONDS
+	reqs = list(/obj/item/stack/cable_coil = 5,
+				/obj/item/stack/rods = 2,
+				/obj/item/stack/sheet/glass = 1,
+				/obj/item/organ/heart = 1
+				)
+	category = CAT_MISC
