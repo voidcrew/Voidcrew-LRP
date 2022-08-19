@@ -517,7 +517,7 @@
 			return
 		cell = mod.cell
 	else
-			return
+		return
 
 	use_power(charge_rate * delta_time)
 	cell.give(charge_rate * delta_time)
