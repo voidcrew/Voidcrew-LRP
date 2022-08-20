@@ -16,7 +16,7 @@
 		/obj/structure/spawner/lavaland = 3,
 		/obj/structure/spawner/lavaland/legion = 3,
 		/obj/structure/spawner/lavaland/goliath = 3,
-	),
+	)
 	mob_spawn_chance = 4
 	mob_spawn_list = list(
 		/mob/living/simple_animal/hostile/asteroid/goliath/beast/random = 50,
@@ -135,7 +135,7 @@
 		/obj/structure/spawner/lavaland = 1,
 		/obj/structure/spawner/lavaland/legion = 1
 	)
-	feature_spawn_rate = 0.4
+	feature_spawn_chance = 0.4
 	flora_spawn_chance = 1
 	flora_spawn_list = list(
 		/obj/structure/flora/ash/leaf_shroom = 1,

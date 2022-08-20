@@ -49,7 +49,7 @@
 /datum/biome/beach
 	open_turf_types = list(/turf/open/floor/plating/asteroid/sand/beach/lit = 1)
 	mob_spawn_list = list(/mob/living/simple_animal/crab/beach = 7, /mob/living/simple_animal/turtle/beach = 4, /mob/living/simple_animal/hostile/retaliate/gator/steppy = 1)
-	mob_spawn_chance = 1
+	mob_spawn_chance = 0.3
 	feature_spawn_chance = 3
 	feature_spawn_list = list(
 		/obj/structure/chair/plastic = 7,
