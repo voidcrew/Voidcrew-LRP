@@ -43,7 +43,7 @@
 
 		if(W.tool_behaviour == TOOL_CROWBAR)
 			to_chat(user, "<span class='notice'>You start to remove the airlock electronics.</span>")
-			if(!(machine_stat & NOPOWER))
+			if(!(machine_stat & NOPOWER && panel_open))
 				do_sparks(5, TRUE, src)
 				electrocute_mob(user, get_area(src), src, 1, TRUE) //fuck this fella
 				close()
