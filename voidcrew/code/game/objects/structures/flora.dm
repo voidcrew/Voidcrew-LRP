@@ -111,6 +111,9 @@
 	icon = 'voidcrew/icons/obj/flora/lavarocks.dmi'
 	icon_state = "lavarocks"
 	gender = PLURAL
+	light_color = "#fffb00"
+	light_power = 1
+	light_range = 2
 
 /obj/structure/flora/rock/asteroid
 	name = "pebbles"
