@@ -9,7 +9,7 @@
 		/obj/structure/flora/ash/whitesands/puce = 5
 	)
 	feature_spawn_chance = 0.3
-	feature_spawn_list = list(/obj/structure/flora/rock/hell = 5, /obj/structure/elite_tumor = 1, /obj/structure/geyser/random = 1)
+	feature_spawn_list = list(/obj/structure/flora/rock/hell = 5, /obj/structure/elite_tumor = 1, /obj/structure/geyser/random = 1, /obj/structure/spawner/lavaland = 2)
 	mob_spawn_chance = 4
 	mob_spawn_list = list(
 		/mob/living/simple_animal/hostile/asteroid/goliath/beast/random = 50,
@@ -59,8 +59,9 @@
 	open_turf_types = list(/turf/open/floor/plating/grass/lava = 50)
 	feature_spawn_chance = 5
 	feature_spawn_list = list(
-		/obj/structure/flora/tree/dead/barren/purple = 1,
-		/obj/structure/flora/tree/dead/tall/grey = 1,
+		/obj/structure/flora/tree/dead/barren/purple = 60,
+		/obj/structure/flora/tree/dead/tall/grey = 60,
+		/obj/structure/spawner/lavaland = 5
 	)
 
 /datum/biome/lavaland/plains/dense/mixed
@@ -69,7 +70,6 @@
 
 /datum/biome/lavaland/outback
 	open_turf_types = list(/turf/open/floor/plating/grass/lava/orange = 20)
-
 	flora_spawn_list = list(
 		/obj/structure/flora/ausbushes/grassybush/hell = 10,
 		/obj/structure/flora/ausbushes/genericbush/hell = 10,
