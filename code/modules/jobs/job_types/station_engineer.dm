@@ -177,3 +177,8 @@
 	shoes = /obj/item/clothing/shoes/workboots
 	alt_uniform = null
 	glasses = null
+
+/datum/outfit/job/engineer/mapper
+	name = "Mapper"
+
+	uniform = /obj/item/clothing/under/rank/civilian/janitor/maid
