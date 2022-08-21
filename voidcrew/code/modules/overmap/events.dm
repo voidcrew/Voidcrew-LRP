@@ -108,18 +108,14 @@
 	icon_state = "ion[rand(1, 4)]"
 
 /obj/structure/overmap/event/emp/affect_ship(obj/structure/overmap/ship/simulated/S)
-	var/area/source_area = pick(S.shuttle.shuttle_areas)
+	var/area/source_area = pick(S.shuttle_port.shuttle_areas)
 	source_area.set_fire_alarm_effect()
-	S.recieve_damage(rand(strength * 5, strength * 10))
-	if(S.integrity <= 0)
-		var/source_object = pick(source_area.contents)
-		empulse(get_turf(source_object), round(rand(strength / 2, strength)), rand(strength, strength * 2))
-	else
+	var/source_object = pick(source_area.contents)
+	empulse(get_turf(source_object), round(rand(strength / 2, strength)), rand(strength, strength * 2))
 	for(var/mob/M as anything in GLOB.player_list)
-			if(S.shuttle.is_in_shuttle_bounds(M))
-				var/strength = abs(S.integrity - initial(S.integrity))
-				M.playsound_local(S.shuttle, 'sound/weapons/ionrifle.ogg', strength)
-				shake_camera(M, 10, strength / 10)
+		if(S.shuttle_port.is_in_shuttle_bounds(M))
+			M.playsound_local(S.shuttle_port, 'sound/weapons/ionrifle.ogg', strength)
+			shake_camera(M, 10, strength)
 
 /obj/structure/overmap/event/emp/minor
 	name = "ion storm (minor)"
@@ -150,10 +146,9 @@
 	var/turf/source = ship_vlevel.get_side_turf(pick(GLOB.cardinals))
 	tesla_zap(source, 10, TESLA_DEFAULT_POWER)
 	for(var/mob/M as anything in GLOB.player_list)
-			if(S.shuttle.is_in_shuttle_bounds(M))
-				var/strength = abs(S.integrity - initial(S.integrity))
+		if(S.shuttle_port.is_in_shuttle_bounds(M))
 			M.playsound_local(source, 'sound/magic/lightningshock.ogg', rand(min_damage / 10, max_damage / 10))
-				shake_camera(M, 10, strength / 10)
+			shake_camera(M, 10, rand(min_damage / 10, max_damage / 10))
 
 /obj/structure/overmap/event/electric/minor
 	name = "electrical storm (minor)"
