@@ -56,42 +56,43 @@
 	spread_chance = 50
 	chain_rate = 4
 	station_event = /datum/round_event_control/meteor_wave/threatening
-	var/max_damage = 15
-	var/min_damage = 5
-
+	var/list/meteor_types = list(
+		/obj/effect/meteor/dust=3,
+		/obj/effect/meteor/medium=8,
+		/obj/effect/meteor/big=3,
+		/obj/effect/meteor/flaming=1,
+		/obj/effect/meteor/irradiated=3
+	)
 /obj/structure/overmap/event/meteor/Initialize(mapload)
 	. = ..()
 	icon_state = "meteor[rand(1, 4)]"
 
 /obj/structure/overmap/event/meteor/affect_ship(obj/structure/overmap/ship/simulated/S)
-	var/area/source_area = pick(S.shuttle.shuttle_areas)
-	source_area?.set_fire_alarm_effect()
-	S.recieve_damage(rand(min_damage, max_damage))
-	if(S.integrity <= 0 && source_area)
-		var/source_object = pick(source_area.contents)
-		dyn_explosion(source_object, rand(min_damage, max_damage) / 2)
-	else
-		for(var/MN in GLOB.player_list)
-			var/mob/M = MN
-			if(S.shuttle.is_in_shuttle_bounds(M))
-				var/strength = abs(S.integrity - initial(S.integrity))
-				M.playsound_local(S.shuttle, 'sound/effects/explosionfar.ogg', strength)
-				shake_camera(M, 10, strength / 10)
+	spawn_meteor(meteor_types, S.shuttle_port.get_virtual_level(), 0)
 
 /obj/structure/overmap/event/meteor/minor
 	name = "asteroid storm (minor)"
 	station_event = /datum/round_event_control/meteor_wave
 	chain_rate = 3
-	max_damage = 10
-	min_damage = 3
+	meteor_types = list(
+		/obj/effect/meteor/medium=4,
+		/obj/effect/meteor/big=8,
+		/obj/effect/meteor/flaming=3,
+		/obj/effect/meteor/irradiated=3
+	)
 
 /obj/structure/overmap/event/meteor/major
 	name = "asteroid storm (major)"
 	spread_chance = 25
 	chain_rate = 6
 	station_event = /datum/round_event_control/meteor_wave/catastrophic
-	max_damage = 25
-	min_damage = 10
+	meteor_types = list(
+		/obj/effect/meteor/medium=5,
+		/obj/effect/meteor/big=75,
+		/obj/effect/meteor/flaming=10,
+		/obj/effect/meteor/irradiated=10,
+		/obj/effect/meteor/tunguska = 1
+	)
 
 ///ION STORM - Causes EMP pulses on the shuttle, wreaking havoc on the shields
 /obj/structure/overmap/event/emp
@@ -114,8 +115,7 @@
 		var/source_object = pick(source_area.contents)
 		empulse(get_turf(source_object), round(rand(strength / 2, strength)), rand(strength, strength * 2))
 	else
-		for(var/MN in GLOB.player_list)
-			var/mob/M = MN
+	for(var/mob/M as anything in GLOB.player_list)
 			if(S.shuttle.is_in_shuttle_bounds(M))
 				var/strength = abs(S.integrity - initial(S.integrity))
 				M.playsound_local(S.shuttle, 'sound/weapons/ionrifle.ogg', strength)
@@ -146,18 +146,13 @@
 	icon_state = "electrical[rand(1, 4)]"
 
 /obj/structure/overmap/event/electric/affect_ship(obj/structure/overmap/ship/simulated/S)
-	var/area/source_area = pick(S.shuttle.shuttle_areas)
-	source_area.set_fire_alarm_effect()
-	S.recieve_damage(rand(min_damage, max_damage))
-	if(S.integrity <= 0)
-		var/source_object = pick(source_area.contents)
-		tesla_zap(source_object, rand(min_damage, max_damage) / 2)
-	else
-		for(var/MN in GLOB.player_list)
-			var/mob/M = MN
+	var/datum/virtual_level/ship_vlevel = S.shuttle_port.get_virtual_level()
+	var/turf/source = ship_vlevel.get_side_turf(pick(GLOB.cardinals))
+	tesla_zap(source, 10, TESLA_DEFAULT_POWER)
+	for(var/mob/M as anything in GLOB.player_list)
 			if(S.shuttle.is_in_shuttle_bounds(M))
 				var/strength = abs(S.integrity - initial(S.integrity))
-				M.playsound_local(S.shuttle, 'sound/magic/lightningshock.ogg', strength)
+			M.playsound_local(source, 'sound/magic/lightningshock.ogg', rand(min_damage / 10, max_damage / 10))
 				shake_camera(M, 10, strength / 10)
 
 /obj/structure/overmap/event/electric/minor
