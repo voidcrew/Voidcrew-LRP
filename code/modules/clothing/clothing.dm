@@ -94,6 +94,7 @@
 			return
 		if(!src)
 			to_chat(user, "<span class='notice'>The item doesn't exist anymore!.</span>")
+			return
 		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, TRUE)
 		to_chat(user, "<span class='notice'>You cut the [src] into strips with [W].</span>")
 		var/obj/item/stack/sheet/cotton/cloth/C = new (get_turf(src), clothamnt)
