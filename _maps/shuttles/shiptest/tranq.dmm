@@ -718,7 +718,9 @@
 /area/ship/crew/cryo)
 "fS" = (
 /obj/docking_port/mobile{
-	dir = 2
+	can_move_docking_ports = 1;
+	dir = 2;
+	launch_status = 0
 	},
 /turf/open/floor/engine/hull,
 /area/ship/external)
