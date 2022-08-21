@@ -91,7 +91,9 @@
 /obj/item/clothing/attackby(obj/item/W, mob/user, params)
 	if(W.get_sharpness() && cuttable)
 		if (alert(user, "Are you sure you want to cut the [src] into strips?", "Cut clothing:", "Yes", "No") != "Yes")
-			return
+			return`
+		if(!src)
+			to_chat(user, "<span class='notice'>The item doesn't exist anymore!.</span>")
 		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, TRUE)
 		to_chat(user, "<span class='notice'>You cut the [src] into strips with [W].</span>")
 		var/obj/item/stack/sheet/cotton/cloth/C = new (get_turf(src), clothamnt)
