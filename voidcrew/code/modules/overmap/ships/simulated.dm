@@ -28,6 +28,7 @@
 	///The timer ID of the repair timer.
 	var/repair_timer
 	///State of the shuttle: idle, flying, docking, or undocking
+	VAR_FINAL/obj/docking_port/mobile/shuttle_port
 	var/state = OVERMAP_SHIP_IDLE
 	///Vessel estimated thrust
 	var/est_thrust
