@@ -68,7 +68,7 @@
 	icon_state = "meteor[rand(1, 4)]"
 
 /obj/structure/overmap/event/meteor/affect_ship(obj/structure/overmap/ship/simulated/S)
-	spawn_meteor(meteor_types, S.shuttle_port.get_virtual_level(), 0)
+	spawn_meteor(meteor_types, S.shuttle.get_virtual_level(), 0)
 
 /obj/structure/overmap/event/meteor/minor
 	name = "asteroid storm (minor)"
@@ -108,13 +108,13 @@
 	icon_state = "ion[rand(1, 4)]"
 
 /obj/structure/overmap/event/emp/affect_ship(obj/structure/overmap/ship/simulated/S)
-	var/area/source_area = pick(S.shuttle_port.shuttle_areas)
+	var/area/source_area = pick(S.shuttle.shuttle_areas)
 	source_area.set_fire_alarm_effect()
 	var/source_object = pick(source_area.contents)
 	empulse(get_turf(source_object), round(rand(strength / 2, strength)), rand(strength, strength * 2))
 	for(var/mob/M as anything in GLOB.player_list)
-		if(S.shuttle_port.is_in_shuttle_bounds(M))
-			M.playsound_local(S.shuttle_port, 'sound/weapons/ionrifle.ogg', strength)
+		if(S.shuttle.is_in_shuttle_bounds(M))
+			M.playsound_local(S.shuttle, 'sound/weapons/ionrifle.ogg', strength)
 			shake_camera(M, 10, strength)
 
 /obj/structure/overmap/event/emp/minor
@@ -142,11 +142,11 @@
 	icon_state = "electrical[rand(1, 4)]"
 
 /obj/structure/overmap/event/electric/affect_ship(obj/structure/overmap/ship/simulated/S)
-	var/datum/virtual_level/ship_vlevel = S.shuttle_port.get_virtual_level()
+	var/datum/virtual_level/ship_vlevel = S.shuttle.get_virtual_level()
 	var/turf/source = ship_vlevel.get_side_turf(pick(GLOB.cardinals))
 	tesla_zap(source, 10, TESLA_DEFAULT_POWER)
 	for(var/mob/M as anything in GLOB.player_list)
-		if(S.shuttle_port.is_in_shuttle_bounds(M))
+		if(S.shuttle.is_in_shuttle_bounds(M))
 			M.playsound_local(source, 'sound/magic/lightningshock.ogg', rand(min_damage / 10, max_damage / 10))
 			shake_camera(M, 10, rand(min_damage / 10, max_damage / 10))
 
