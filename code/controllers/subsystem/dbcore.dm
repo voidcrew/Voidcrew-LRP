@@ -27,6 +27,33 @@ SUBSYSTEM_DEF(dbcore)
 
 	return ..()
 
+
+/datum/db_query
+	// Inputs
+	var/connection
+	var/sql
+	var/arguments
+
+	var/datum/callback/success_callback
+	var/datum/callback/fail_callback
+
+	// Status information
+	/// Current status of the query.
+	var/status
+	/// Job ID of the query passed by rustg.
+	var/job_id
+	var/last_error
+	var/last_activity
+	var/last_activity_time
+
+	// Output
+	var/list/list/rows
+	var/next_row_to_take = 1
+	var/affected
+	var/last_insert_id
+
+	var/list/item  //list of data values populated by NextRow()
+
 /datum/controller/subsystem/dbcore/fire()
 	for(var/I in active_queries)
 		var/datum/DBQuery/Q = I

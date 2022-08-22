@@ -32,18 +32,18 @@
 	if(!enabled)
 		return
 	flick("[base_icon_state]_pressed", src)
-	update_appearance(UPDATE_ICON)
+	update_icon()
 	return TRUE
 
 /atom/movable/screen/lobby/button/MouseEntered(location,control,params)
 	. = ..()
 	highlighted = TRUE
-	update_appearance(UPDATE_ICON)
+	update_icon()
 
 /atom/movable/screen/lobby/button/MouseExited()
 	. = ..()
 	highlighted = FALSE
-	update_appearance(UPDATE_ICON)
+	update_icon()
 
 /atom/movable/screen/lobby/button/update_icon(updates)
 	. = ..()
@@ -59,7 +59,7 @@
 	if(status == enabled)
 		return FALSE
 	enabled = status
-	update_appearance(UPDATE_ICON)
+	update_icon()
 	return TRUE
 
 ///Prefs menu
@@ -107,7 +107,7 @@
 	else
 		new_player.ready = PLAYER_NOT_READY
 		base_icon_state = "not_ready"
-	update_appearance(UPDATE_ICON)
+	update_icon()
 
 ///Shown when the game has started
 /atom/movable/screen/lobby/button/join
@@ -251,35 +251,6 @@
 	var/isadmin = FALSE
 	if(new_player.client?.holder)
 		isadmin = TRUE
-	var/datum/db_query/query_get_new_polls = SSdbcore.NewQuery({"
-		SELECT id FROM [format_table_name("poll_question")]
-		WHERE (adminonly = 0 OR :isadmin = 1)
-		AND Now() BETWEEN starttime AND endtime
-		AND deleted = 0
-		AND id NOT IN (
-			SELECT pollid FROM [format_table_name("poll_vote")]
-			WHERE ckey = :ckey
-			AND deleted = 0
-		)
-		AND id NOT IN (
-			SELECT pollid FROM [format_table_name("poll_textreply")]
-			WHERE ckey = :ckey
-			AND deleted = 0
-		)
-	"}, list("isadmin" = isadmin, "ckey" = new_player.ckey))
-	if(!query_get_new_polls.Execute())
-		qdel(query_get_new_polls)
-		set_button_status(FALSE)
-		return
-	if(query_get_new_polls.NextRow())
-		new_poll = TRUE
-	else
-		new_poll = FALSE
-	update_appearance(UPDATE_OVERLAYS)
-	qdel(query_get_new_polls)
-	if(QDELETED(new_player))
-		set_button_status(FALSE)
-		return
 
 /atom/movable/screen/lobby/button/poll/update_overlays()
 	. = ..()
