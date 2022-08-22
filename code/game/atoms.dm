@@ -14,6 +14,10 @@
 	///If non-null, overrides a/an/some in all cases
 	var/article
 
+/atom/proc/update_appearance(updates=ALL)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+
 	///First atom flags var
 	var/flags_1 = NONE
 	///Intearaction flags
