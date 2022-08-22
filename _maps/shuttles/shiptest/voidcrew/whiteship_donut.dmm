@@ -467,7 +467,6 @@
 /area/ship/cargo)
 "aY" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/power/port_gen/pacman,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
@@ -477,6 +476,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/power/port_gen/pacman/uranium,
 /turf/open/floor/plating,
 /area/ship/engineering)
 "aZ" = (
@@ -761,9 +761,6 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/door/window/eastleft{
-	dir = 1
-	},
-/obj/machinery/door/window/eastright{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -1174,7 +1171,8 @@
 /obj/item/stack/sheet/titaniumglass{
 	amount = 25
 	},
-/obj/item/stack/sheet/mineral/plasma/twenty,
+/obj/item/stack/sheet/mineral/uranium/twenty,
+/obj/item/stack/sheet/mineral/uranium/five,
 /turf/open/floor/plating,
 /area/ship/engineering)
 "Di" = (
