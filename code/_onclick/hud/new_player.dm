@@ -129,7 +129,7 @@
 	if(!.)
 		return
 	if(!SSticker?.IsRoundInProgress())
-		to_chat(hud.mymob, span_boldwarning("The round is either not ready, or has already finished..."))
+		to_chat(usr, "<span class='danger'>The round is either not ready, or has already finished...</span>")
 		return
 
 	//Determines Relevent Population Cap
@@ -144,16 +144,16 @@
 	var/mob/dead/new_player/new_player = hud.mymob
 
 	if(SSticker.queued_players.len || (relevant_cap && living_player_count() >= relevant_cap && !(ckey(new_player.key) in GLOB.admin_datums)))
-		to_chat(new_player, span_danger("[CONFIG_GET(string/hard_popcap_message)]"))
+		to_chat(usr, "<span class='danger'>[CONFIG_GET(string/hard_popcap_message)]</span>")
 
 		var/queue_position = SSticker.queued_players.Find(new_player)
 		if(queue_position == 1)
-			to_chat(new_player, span_notice("You are next in line to join the game. You will be notified when a slot opens up."))
+			to_chat(usr, "<span class='notice'>You are next in line to join the game. You will be notified when a slot opens up.</span>")
 		else if(queue_position)
-			to_chat(new_player, span_notice("There are [queue_position-1] players in front of you in the queue to join the game."))
+			to_chat(usr, "<span class='notice'>There are [queue_position-1] players in front of you in the queue to join the game.</span>")
 		else
 			SSticker.queued_players += new_player
-			to_chat(new_player, span_notice("You have been added to the queue to join the game. Your position in queue is [SSticker.queued_players.len]."))
+			to_chat(usr, "<span class='notice'>You have been added to the queue to join the game. Your position in queue is [SSticker.queued_players.len].</span>")
 		return
 	new_player.LateChoices()
 
@@ -251,35 +251,6 @@
 	var/isadmin = FALSE
 	if(new_player.client?.holder)
 		isadmin = TRUE
-	var/datum/db_query/query_get_new_polls = SSdbcore.NewQuery({"
-		SELECT id FROM [format_table_name("poll_question")]
-		WHERE (adminonly = 0 OR :isadmin = 1)
-		AND Now() BETWEEN starttime AND endtime
-		AND deleted = 0
-		AND id NOT IN (
-			SELECT pollid FROM [format_table_name("poll_vote")]
-			WHERE ckey = :ckey
-			AND deleted = 0
-		)
-		AND id NOT IN (
-			SELECT pollid FROM [format_table_name("poll_textreply")]
-			WHERE ckey = :ckey
-			AND deleted = 0
-		)
-	"}, list("isadmin" = isadmin, "ckey" = new_player.ckey))
-	if(!query_get_new_polls.Execute())
-		qdel(query_get_new_polls)
-		set_button_status(FALSE)
-		return
-	if(query_get_new_polls.NextRow())
-		new_poll = TRUE
-	else
-		new_poll = FALSE
-	update_overlays()
-	qdel(query_get_new_polls)
-	if(QDELETED(new_player))
-		set_button_status(FALSE)
-		return
 
 /atom/movable/screen/lobby/button/poll/update_overlays()
 	. = ..()
