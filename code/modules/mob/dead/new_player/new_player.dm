@@ -119,72 +119,7 @@
 
 	if(client.interviewee)
 		return FALSE
-
-	//Determines Relevent Population Cap
-	var/relevant_cap
-	var/hpc = CONFIG_GET(number/hard_popcap)
-	var/epc = CONFIG_GET(number/extreme_popcap)
-	if(hpc && epc)
-		relevant_cap = min(hpc, epc)
-	else
-		relevant_cap = max(hpc, epc)
-
-	if(href_list["show_preferences"])
-		client.prefs.ShowChoices(src)
-		return 1
-
-	if(href_list["ready"])
-		var/tready = text2num(href_list["ready"])
-		//Avoid updating ready if we're after PREGAME (they should use latejoin instead)
-		//This is likely not an actual issue but I don't have time to prove that this
-		//no longer is required
-		if(SSticker.current_state <= GAME_STATE_PREGAME)
-			ready = tready
-		//if it's post initialisation and they're trying to observe we do the needful
-		if(!SSticker.current_state < GAME_STATE_PREGAME && tready == PLAYER_READY_TO_OBSERVE)
-			ready = tready
-			make_me_an_observer()
-			return
-
-	if(href_list["refresh"])
-		src << browse(null, "window=playersetup") //closes the player setup window
-		new_player_panel()
-
-	if(href_list["late_join"])
-		if(!SSticker?.IsRoundInProgress())
-			to_chat(usr, "<span class='boldwarning'>The round is either not ready, or has already finished...</span>")
-			return
-
-		if(href_list["late_join"] == "override")
-			LateChoices()
-			return
-
-		if(SSticker.queued_players.len || (relevant_cap && living_player_count() >= relevant_cap && !(ckey(key) in GLOB.admin_datums)))
-			to_chat(usr, "<span class='danger'>[CONFIG_GET(string/hard_popcap_message)]</span>")
-
-			var/queue_position = SSticker.queued_players.Find(usr)
-			if(queue_position == 1)
-				to_chat(usr, "<span class='notice'>You are next in line to join the game. You will be notified when a slot opens up.</span>")
-			else if(queue_position)
-				to_chat(usr, "<span class='notice'>There are [queue_position-1] players in front of you in the queue to join the game.</span>")
-			else
-				SSticker.queued_players += usr
-				to_chat(usr, "<span class='notice'>You have been added to the queue to join the game. Your position in queue is [SSticker.queued_players.len].</span>")
-			return
 		LateChoices()
-
-	if(href_list["manifest"])
-		ViewManifest()
-
-	if(!ready && href_list["preference"])
-		if(client)
-			client.prefs.process_link(src, href_list)
-	else if(!href_list["late_join"])
-		new_player_panel()
-
-	if(href_list["showpoll"])
-		handle_player_polling()
-		return
 
 	if(href_list["viewpoll"])
 		var/datum/poll_question/poll = locate(href_list["viewpoll"]) in GLOB.polls
@@ -205,7 +140,6 @@
 	if(QDELETED(src) || !src.client || this_is_like_playing_right != "Yes")
 		ready = PLAYER_NOT_READY
 		src << browse(null, "window=playersetup") //closes the player setup window
-		new_player_panel()
 		return FALSE
 
 	var/mob/dead/observer/observer = new()
