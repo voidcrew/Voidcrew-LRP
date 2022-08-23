@@ -791,7 +791,7 @@
 	desc = "Contains an advanced hardsuit, for all your temperature immunity needs."
 	cost = 100000
 	contains = list(/obj/item/clothing/suit/space/hardsuit/engine/elite)
-	crate_name = "Advanced Hardsuit Crate"
+	crate_name = "advanced hardsuit crate"
 
 /datum/supply_pack/engineering/shieldgen
 	name = "Anti-breach Shield Projector Crate"
@@ -1512,6 +1512,13 @@
 					/obj/item/assembly/timer)
 	crate_name = "plasma assembly crate"
 	crate_type = /obj/structure/closet/crate/secure/plasma
+
+/datum/supply_pack/science/rdhardsuit
+	name = "Research Director's Hardsuit Crate"
+	desc = "A spare Research Director's Hardsuit in case the first one wasn't explosion-proof enough"
+	cost = 100000
+	contains = list(/obj/item/clothing/suit/space/hardsuit/rd)
+	crate_name = "research director's hardsuit crate"
 
 /datum/supply_pack/science/robotics
 	name = "Robotics Assembly Crate"
