@@ -119,7 +119,6 @@
 
 	if(client.interviewee)
 		return FALSE
-		LateChoices()
 
 	if(href_list["viewpoll"])
 		var/datum/poll_question/poll = locate(href_list["viewpoll"]) in GLOB.polls
