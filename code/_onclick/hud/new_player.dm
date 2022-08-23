@@ -236,22 +236,6 @@
 
 	var/new_poll = FALSE
 
-///Need to use New due to init
-/atom/movable/screen/lobby/button/poll/New(loc, ...)
-	. = ..()
-	if(!usr) //
-		return
-	var/mob/dead/new_player/new_player = usr
-	if(IsGuestKey(new_player.key))
-		set_button_status(FALSE)
-		return
-	if(!SSdbcore.Connect())
-		set_button_status(FALSE)
-		return
-	var/isadmin = FALSE
-	if(new_player.client?.holder)
-		isadmin = TRUE
-
 /atom/movable/screen/lobby/button/poll/update_overlays()
 	. = ..()
 	if(new_poll)
