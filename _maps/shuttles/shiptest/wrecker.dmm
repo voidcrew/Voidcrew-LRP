@@ -61,22 +61,23 @@
 /turf/open/floor/plating,
 /area/ship/bridge)
 "eJ" = (
-/obj/structure/window/plasma/reinforced/fulltile,
-/obj/structure/grille,
-/obj/structure/sign/warning/electricshock,
+/obj/structure/sign/poster/contraband/hacking_guide,
+/turf/closed/wall,
+/area/ship/crew/canteen)
+"ga" = (
+/obj/machinery/light,
+/obj/machinery/power/apc/auto_name/east,
 /obj/structure/cable{
-	icon_state = "2-4"
+	icon_state = "0-8"
 	},
-/turf/open/space/basic,
+/turf/open/floor/plating,
 /area/ship/bridge)
 "gy" = (
-/obj/structure/table/wood/bar,
-/obj/item/storage/fancy/cigarettes/cigpack_robust,
-/obj/item/cigbutt{
-	pixel_x = 6
+/obj/item/cigbutt,
+/turf/open/floor/plating/asteroid/airless{
+	tiled_dirt = 0
 	},
-/turf/open/floor/plasteel/grimy,
-/area/ship/crew/canteen)
+/area/ship/construction)
 "gS" = (
 /obj/structure/toilet,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
@@ -88,13 +89,18 @@
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/crew/canteen)
 "hb" = (
-/obj/item/clothing/suit/hooded/explorer,
-/obj/item/tank/internals/oxygen,
-/obj/item/clothing/mask/gas/explorer,
-/obj/structure/rack,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
-/area/ship/bridge)
+/obj/item/mop,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/clothing/gloves/color/latex/nitrile,
+/obj/item/storage/box/lights/mixed,
+/obj/item/storage/pill_bottle/charcoal/less,
+/obj/structure/closet/wall{
+	name = "Utility Closet";
+	dir = 8;
+	pixel_x = 32
+	},
+/turf/open/floor/wood/maple,
+/area/ship/crew/canteen)
 "hr" = (
 /turf/open/floor/plating/asteroid/airless{
 	tiled_dirt = 0
@@ -102,6 +108,10 @@
 /area/ship/construction)
 "hQ" = (
 /obj/structure/table/wood/bar,
+/obj/item/storage/fancy/cigarettes/cigpack_robust,
+/obj/item/cigbutt{
+	pixel_x = 6
+	},
 /turf/open/floor/plasteel/grimy,
 /area/ship/crew/canteen)
 "hU" = (
@@ -116,20 +126,6 @@
 /obj/machinery/door/airlock/public,
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/crew/canteen)
-"iz" = (
-/obj/machinery/light,
-/obj/machinery/power/apc/auto_name/east,
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
-/turf/open/floor/plating,
-/area/ship/bridge)
-"iK" = (
-/obj/structure/chair/stool/bar{
-	pixel_x = 4
-	},
-/turf/open/floor/wood/maple,
-/area/ship/crew/canteen)
 "iW" = (
 /obj/machinery/power/shuttle/engine/electric{
 	dir = 1
@@ -137,23 +133,28 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/ship/external)
-"je" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/fulltile,
-/turf/open/floor/plating,
-/area/ship/crew/canteen)
 "le" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/ship/bridge)
-"ln" = (
-/obj/structure/cable{
-	icon_state = "1-8"
+"lz" = (
+/obj/structure/table,
+/obj/machinery/microwave{
+	pixel_y = 6
 	},
 /turf/open/floor/plating,
 /area/ship/crew/canteen)
-"lz" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+"lP" = (
+/obj/structure/window/plasma/reinforced/fulltile,
+/obj/structure/grille,
+/obj/structure/sign/warning/electricshock,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/open/space/basic,
+/area/ship/bridge)
+"lY" = (
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/ship/crew/canteen)
 "mc" = (
@@ -188,14 +189,14 @@
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/crew/canteen)
 "nq" = (
-/obj/structure/table,
-/obj/machinery/microwave{
-	pixel_y = 6
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /turf/open/floor/plating,
 /area/ship/crew/canteen)
 "nt" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/structure/grille,
+/obj/structure/window/reinforced/fulltile,
 /turf/open/floor/plating,
 /area/ship/crew/canteen)
 "nv" = (
@@ -218,17 +219,15 @@
 /obj/effect/decal/cleanable/glass/plasma,
 /turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
-"pj" = (
-/obj/structure/cable{
-	icon_state = "0-4"
+"pM" = (
+/obj/machinery/suit_storage_unit/mining/eva{
+	storage_type = /obj/item/tank/internals/oxygen
 	},
-/obj/structure/rack,
-/obj/item/storage/bag/ore,
-/obj/item/storage/bag/ore,
-/obj/item/pickaxe,
-/obj/item/pickaxe,
-/obj/item/mining_scanner,
-/obj/item/mining_scanner,
+/obj/machinery/airalarm/directional/west,
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/plating,
 /area/ship/bridge)
 "pU" = (
@@ -238,6 +237,10 @@
 	},
 /turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
+"qU" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/ship/external)
 "ry" = (
 /obj/structure/closet/secure_closet/freezer/kitchen{
 	name = "kitchen freezer"
@@ -281,24 +284,9 @@
 	},
 /turf/open/floor/plating,
 /area/ship/crew/canteen)
-"uv" = (
-/obj/effect/decal/cleanable/glass,
-/turf/closed/mineral/random/asteroid,
-/area/ship/construction)
-"uP" = (
-/obj/machinery/suit_storage_unit/mining/eva{
-	storage_type = /obj/item/tank/internals/oxygen
-	},
-/obj/machinery/airalarm/directional/west,
-/obj/machinery/light/broken{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/cobweb,
-/turf/open/floor/plating,
-/area/ship/bridge)
 "vf" = (
-/obj/structure/sign/poster/contraband/hacking_guide,
-/turf/closed/wall,
+/obj/structure/chair/wood,
+/turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
 "vj" = (
 /obj/machinery/door/window/southleft{
@@ -309,23 +297,24 @@
 /turf/open/floor/plasteel/grimy,
 /area/ship/crew/canteen)
 "vk" = (
-/obj/structure/rack,
-/obj/item/storage/toolbox/mechanical/old,
-/obj/item/stack/cable_coil/red,
-/obj/item/flashlight/lantern,
-/obj/machinery/light/small{
-	dir = 8;
-	light_power = 0.25
-	},
-/turf/open/floor/plating,
+/obj/machinery/suit_storage_unit/open,
+/turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
 "wk" = (
 /obj/structure/rack,
 /obj/item/clothing/gloves/color/black,
 /obj/item/storage/toolbox/mechanical/old,
+/obj/item/stack/tape/industrial/electrical,
 /obj/item/stack/sheet/mineral/plasma/five,
 /turf/open/floor/plating,
 /area/ship/bridge)
+"wA" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/plating,
+/area/ship/crew/canteen)
 "wG" = (
 /obj/structure/sign/poster/contraband/smoke,
 /turf/closed/wall,
@@ -341,6 +330,10 @@
 /obj/machinery/computer/cryopod,
 /turf/closed/wall/rust,
 /area/ship/bridge)
+"yv" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/open/floor/plating,
+/area/ship/crew/canteen)
 "zr" = (
 /turf/closed/wall,
 /area/ship/bridge)
@@ -386,16 +379,20 @@
 	},
 /turf/open/floor/plating,
 /area/ship/crew/canteen)
-"Cy" = (
-/obj/item/cigbutt,
-/turf/open/floor/plating/asteroid/airless{
-	tiled_dirt = 0
-	},
-/area/ship/construction)
 "CD" = (
-/obj/machinery/suit_storage_unit/open,
-/turf/open/floor/wood/maple,
-/area/ship/crew/canteen)
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/structure/rack,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/mining_scanner,
+/obj/item/mining_scanner,
+/obj/item/stack/marker_beacon/thirty,
+/turf/open/floor/plating,
+/area/ship/bridge)
 "Ef" = (
 /turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
@@ -411,7 +408,7 @@
 /turf/closed/wall/r_wall,
 /area/ship/bridge)
 "FA" = (
-/turf/closed/wall,
+/turf/closed/wall/rust,
 /area/ship/crew/canteen)
 "FC" = (
 /obj/structure/closet/wall/orange{
@@ -520,34 +517,11 @@
 	},
 /area/ship/construction)
 "MM" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/ship/external)
-"Ns" = (
-/obj/item/reagent_containers/food/drinks/ale{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/structure/table/wood/poker,
-/obj/item/reagent_containers/food/drinks/ale{
-	pixel_y = 14;
-	pixel_x = -7
-	},
-/obj/item/cigbutt/cigarbutt{
-	pixel_x = -1;
-	pixel_y = 2
-	},
-/turf/open/floor/wood/maple,
+/obj/structure/sign/poster/contraband/bountyhunters,
+/turf/closed/wall,
 /area/ship/crew/canteen)
-"Oe" = (
-/obj/structure/chair/wood{
-	dir = 8
-	},
-/obj/item/clothing/head/hardhat/mining{
-	pixel_x = 8;
-	pixel_y = -10
-	},
-/turf/open/floor/wood/maple,
+"Ns" = (
+/turf/closed/wall,
 /area/ship/crew/canteen)
 "Oy" = (
 /obj/structure/cable{
@@ -581,12 +555,8 @@
 	},
 /turf/open/floor/plating,
 /area/ship/crew/canteen)
-"Pk" = (
-/turf/closed/wall/rust,
-/area/ship/crew/canteen)
 "Po" = (
-/obj/structure/sign/poster/ripped,
-/obj/structure/sign/poster/contraband/bountyhunters,
+/obj/structure/sign/poster/contraband/tools,
 /turf/closed/wall,
 /area/ship/crew/canteen)
 "Px" = (
@@ -594,27 +564,25 @@
 /obj/item/tank/internals/oxygen,
 /obj/item/clothing/mask/gas/explorer,
 /obj/structure/rack,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/spawner/lootdrop/glowstick,
 /turf/open/floor/plating,
 /area/ship/bridge)
-"Qo" = (
-/obj/item/mop,
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/clothing/gloves/color/latex/nitrile,
-/obj/item/storage/box/lights/mixed,
-/obj/item/storage/pill_bottle/charcoal/less,
-/obj/structure/closet/wall{
-	name = "Utility Closet";
-	dir = 8;
-	pixel_x = 32
+"PG" = (
+/obj/item/reagent_containers/food/drinks/ale{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/structure/table/wood/poker,
+/obj/item/reagent_containers/food/drinks/ale{
+	pixel_y = 14;
+	pixel_x = -7
+	},
+/obj/item/cigbutt/cigarbutt{
+	pixel_x = -1;
+	pixel_y = 2
 	},
 /turf/open/floor/wood/maple,
-/area/ship/crew/canteen)
-"Rm" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/open/floor/plating,
 /area/ship/crew/canteen)
 "RK" = (
 /obj/item/shard/plasma,
@@ -636,11 +604,25 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/ship/bridge)
+"SR" = (
+/obj/structure/chair/wood{
+	dir = 8
+	},
+/obj/item/clothing/head/hardhat/mining{
+	pixel_x = 8;
+	pixel_y = -10
+	},
+/turf/open/floor/wood/maple,
+/area/ship/crew/canteen)
+"Tb" = (
+/obj/structure/table/wood/bar,
+/turf/open/floor/plasteel/grimy,
+/area/ship/crew/canteen)
 "Ti" = (
 /turf/open/floor/plating,
 /area/ship/bridge)
 "Tp" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/item/chair/wood,
 /turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
 "Tx" = (
@@ -681,14 +663,33 @@
 	tiled_dirt = 0
 	},
 /area/ship/construction)
+"Vq" = (
+/obj/structure/rack,
+/obj/item/storage/toolbox/mechanical/old,
+/obj/item/stack/cable_coil/red,
+/obj/item/flashlight/lantern,
+/obj/machinery/light/small{
+	dir = 8;
+	light_power = 0.25
+	},
+/turf/open/floor/plating,
+/area/ship/crew/canteen)
 "Vr" = (
 /obj/item/storage/secure/safe,
 /turf/closed/wall,
 /area/ship/crew/canteen)
 "We" = (
-/obj/structure/chair/wood,
-/turf/open/floor/wood/maple,
-/area/ship/crew/canteen)
+/obj/effect/decal/cleanable/glass,
+/turf/closed/mineral/random/asteroid,
+/area/ship/construction)
+"Ws" = (
+/obj/item/clothing/suit/hooded/explorer,
+/obj/item/tank/internals/oxygen,
+/obj/item/clothing/mask/gas/explorer,
+/obj/structure/rack,
+/obj/effect/spawner/lootdrop/glowstick,
+/turf/open/floor/plating,
+/area/ship/bridge)
 "Xg" = (
 /obj/item/chair/stool/bar,
 /turf/open/floor/wood/maple,
@@ -720,6 +721,12 @@
 /obj/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/ship/crew/canteen)
+"YM" = (
+/obj/structure/chair/stool/bar{
+	pixel_x = 4
+	},
+/turf/open/floor/wood/maple,
+/area/ship/crew/canteen)
 "YV" = (
 /mob/living/simple_animal/hostile/cockroach,
 /turf/open/floor/wood/maple,
@@ -734,7 +741,7 @@
 	},
 /area/ship/construction)
 "Zo" = (
-/obj/item/chair/wood,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
 
@@ -776,7 +783,7 @@ bg
 IX
 IX
 IX
-MM
+qU
 IX
 Fg
 zr
@@ -797,17 +804,17 @@ bg
 bg
 cn
 bg
-FA
-je
-je
-je
-FA
-MM
+Ns
+nt
+nt
+nt
+Ns
+qU
 GE
-uP
+pM
+Ws
 Px
-hb
-pj
+CD
 mc
 zr
 IX
@@ -822,12 +829,12 @@ bg
 bg
 bg
 bg
+Ns
+vk
+vk
+vk
+Ns
 FA
-CD
-CD
-CD
-FA
-Pk
 nv
 Ye
 Ti
@@ -843,15 +850,15 @@ IX
 IX
 KX
 bg
-FA
+Ns
 ry
-nq
-vf
-FA
-iK
+lz
+eJ
+Ns
+YM
 Ef
 Ef
-Tp
+Zo
 TN
 Il
 rQ
@@ -859,7 +866,7 @@ Ti
 Ti
 Ti
 wk
-eJ
+lP
 iW
 IX
 "}
@@ -869,14 +876,14 @@ IX
 bg
 bg
 OD
-nt
+lY
 Pf
-FA
+Ns
 OK
-gy
+hQ
 oq
 FQ
-Tp
+Zo
 TN
 Ha
 Lh
@@ -895,7 +902,7 @@ bg
 bg
 Vr
 Yg
-Rm
+wA
 tr
 RK
 Yo
@@ -918,22 +925,22 @@ IX
 bg
 bg
 bg
-vk
+Vq
 Yg
 KL
-FA
+Ns
 cd
-hQ
+Tb
 Ab
 Ef
-Tp
+Zo
 aZ
 cm
 ch
 Ti
 Ti
 Ti
-iz
+ga
 zr
 IX
 IX
@@ -943,15 +950,15 @@ IX
 KX
 Vl
 bg
-lz
+yv
 Oy
-ln
+nq
 zt
 ea
 vj
 mN
 Ef
-Zo
+Tp
 xa
 eq
 xk
@@ -968,19 +975,19 @@ IX
 IX
 hr
 bg
-FA
+Ns
 Cc
-FA
-FA
+Ns
+Ns
 ES
 YI
 LP
 Ef
 Ef
-We
+vf
 pU
-Pk
-MM
+FA
+qU
 IX
 IX
 IX
@@ -996,15 +1003,15 @@ MD
 Zi
 Ya
 bg
-FA
-FA
-FA
+Ns
+Ns
+Ns
 wG
 YV
 Ef
-We
+vf
+PG
 Ns
-FA
 bg
 IX
 IX
@@ -1018,18 +1025,18 @@ IX
 IX
 IX
 IX
-Cy
+gy
 bg
 bg
 Po
 gS
 nh
 ih
+hb
 Ef
-Qo
 Ef
-Oe
-FA
+SR
+Ns
 bg
 IX
 IX
@@ -1046,15 +1053,15 @@ IX
 bg
 bg
 bg
-FA
-FA
+Ns
+Ns
 au
-FA
-FA
-FA
-FA
-FA
-FA
+Ns
+Ns
+Ns
+MM
+Ns
+Ns
 bg
 IX
 IX
@@ -1078,7 +1085,7 @@ bg
 bg
 bg
 bg
-uv
+We
 bg
 KX
 IX
