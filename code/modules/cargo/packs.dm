@@ -298,6 +298,13 @@
 					/obj/item/clothing/head/fedora/det_hat)
 	crate_name = "forensics crate"
 
+/datum/supply_pack/security/headofsecsuit
+	name = "Head of Security's Spare Hardsuit
+	desc = "Contains a spare hardsuit for the head of security. Don't lose this one."
+	cost = 120000
+	contains = list(/obj/item/clothing/suit/space/hardsuit/security/hos)
+	crate_name = "head of security's spare hardsuit"
+
 /datum/supply_pack/security/helmets
 	name = "Helmets Crate"
 	desc = "Contains three standard-issue brain buckets. Requires extended Security access to open."
