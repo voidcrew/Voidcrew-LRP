@@ -124,39 +124,6 @@
 	else
 		RegisterSignal(SSticker, COMSIG_TICKER_ENTER_SETTING_UP, .proc/show_join_button)
 
-/atom/movable/screen/lobby/button/join/Click(location, control, params)
-	. = ..()
-	if(!.)
-		return
-	if(!SSticker?.IsRoundInProgress())
-		to_chat(hud.mymob, span_boldwarning("The round is either not ready, or has already finished..."))
-		return
-
-	//Determines Relevent Population Cap
-	var/relevant_cap
-	var/hpc = CONFIG_GET(number/hard_popcap)
-	var/epc = CONFIG_GET(number/extreme_popcap)
-	if(hpc && epc)
-		relevant_cap = min(hpc, epc)
-	else
-		relevant_cap = max(hpc, epc)
-
-	var/mob/dead/new_player/new_player = hud.mymob
-
-	if(SSticker.queued_players.len || (relevant_cap && living_player_count() >= relevant_cap && !(ckey(new_player.key) in GLOB.admin_datums)))
-		to_chat(new_player, span_danger("[CONFIG_GET(string/hard_popcap_message)]"))
-
-		var/queue_position = SSticker.queued_players.Find(new_player)
-		if(queue_position == 1)
-			to_chat(new_player, span_notice("You are next in line to join the game. You will be notified when a slot opens up."))
-		else if(queue_position)
-			to_chat(new_player, span_notice("There are [queue_position-1] players in front of you in the queue to join the game."))
-		else
-			SSticker.queued_players += new_player
-			to_chat(new_player, span_notice("You have been added to the queue to join the game. Your position in queue is [SSticker.queued_players.len]."))
-		return
-	new_player.LateChoices()
-
 /atom/movable/screen/lobby/button/join/proc/show_join_button(status)
 	SIGNAL_HANDLER
 	set_button_status(TRUE)
