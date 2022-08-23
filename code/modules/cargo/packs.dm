@@ -299,7 +299,7 @@
 	crate_name = "forensics crate"
 
 /datum/supply_pack/security/headofsecsuit
-	name = "Head of Security's Spare Hardsuit
+	name = "Head of Security's Spare Hardsuit"
 	desc = "Contains a spare hardsuit for the head of security. Don't lose this one."
 	cost = 120000
 	contains = list(/obj/item/clothing/suit/space/hardsuit/security/hos)
