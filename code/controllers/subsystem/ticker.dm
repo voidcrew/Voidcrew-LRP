@@ -277,7 +277,6 @@ SUBSYSTEM_DEF(ticker)
 	CHECK_TICK
 	GLOB.start_landmarks_list = shuffle(GLOB.start_landmarks_list) //Shuffle the order of spawn points so they dont always predictably spawn bottom-up and right-to-left
 	for(var/mob/dead/new_player/player as anything in GLOB.new_player_list)
-		player.new_player_panel()
 
 	for(var/I in round_start_events)
 		var/datum/callback/cb = I

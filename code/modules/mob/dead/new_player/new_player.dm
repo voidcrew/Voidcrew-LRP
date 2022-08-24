@@ -1,5 +1,3 @@
-#define LINKIFY_READY(string, value) "<a href='byond://?src=[REF(src)];ready=[value]'>[string]</a>"
-
 /mob/dead/new_player
 	var/ready = 0
 	var/spawning = 0//Referenced when you want to delete the new_player later on in the code.
@@ -10,6 +8,7 @@
 
 	density = FALSE
 	stat = DEAD
+	hud_type = /datum/hud/new_player
 	hud_possible = list()
 
 	var/mob/living/new_character	//for instant transfer once the round is set up
@@ -40,75 +39,6 @@
 
 /mob/dead/new_player/prepare_huds()
 	return
-
-/**
-  * This proc generates the panel that opens to all newly joining players, allowing them to join, observe, view polls, view the current crew manifest, and open the character customization menu.
-  */
-/mob/dead/new_player/proc/new_player_panel()
-	if (client?.interviewee)
-		return
-
-	var/datum/asset/asset_datum = get_asset_datum(/datum/asset/simple/lobby)
-	asset_datum.send(client)
-	var/list/output = list("<center><p><a href='byond://?src=[REF(src)];show_preferences=1'>Setup Character</a></p>")
-
-	if(SSticker.current_state <= GAME_STATE_PREGAME)
-		switch(ready)
-			if(PLAYER_NOT_READY)
-				output += "<p>\[ <b>Not Ready</b> | [LINKIFY_READY("Observe", PLAYER_READY_TO_OBSERVE)] \]</p>"
-			if(PLAYER_READY_TO_PLAY)
-				output += "<p>\[ [LINKIFY_READY("Not Ready", PLAYER_NOT_READY)] | [LINKIFY_READY("Observe", PLAYER_READY_TO_OBSERVE)] \]</p>"
-			if(PLAYER_READY_TO_OBSERVE)
-				output += "<p>\[ [LINKIFY_READY("Not Ready", PLAYER_NOT_READY)] | <b> Observe </b> \]</p>"
-	else
-		output += "<p><a href='byond://?src=[REF(src)];manifest=1'>View the Crew Manifest</a></p>"
-		output += "<p><a href='byond://?src=[REF(src)];late_join=1'>Join Game!</a></p>"
-		output += "<p>[LINKIFY_READY("Observe", PLAYER_READY_TO_OBSERVE)]</p>"
-
-	if(!IsGuestKey(src.key))
-		output += playerpolls()
-
-	output += "</center>"
-
-	var/datum/browser/popup = new(src, "playersetup", "<div align='center'>New Player Options</div>", 250, 265)
-	popup.set_window_options("can_close=0")
-	popup.set_content(output.Join())
-	popup.open(FALSE)
-
-/mob/dead/new_player/proc/playerpolls()
-	var/list/output = list()
-	if (SSdbcore.Connect())
-		var/isadmin = FALSE
-		if(client?.holder)
-			isadmin = TRUE
-		var/datum/DBQuery/query_get_new_polls = SSdbcore.NewQuery({"
-			SELECT id FROM [format_table_name("poll_question")]
-			WHERE (adminonly = 0 OR :isadmin = 1)
-			AND Now() BETWEEN starttime AND endtime
-			AND deleted = 0
-			AND id NOT IN (
-				SELECT pollid FROM [format_table_name("poll_vote")]
-				WHERE ckey = :ckey
-				AND deleted = 0
-			)
-			AND id NOT IN (
-				SELECT pollid FROM [format_table_name("poll_textreply")]
-				WHERE ckey = :ckey
-				AND deleted = 0
-			)
-		"}, list("isadmin" = isadmin, "ckey" = ckey))
-		var/rs = REF(src)
-		if(!query_get_new_polls.Execute())
-			qdel(query_get_new_polls)
-			return "Failed to get player polls!"
-		if(query_get_new_polls.NextRow())
-			output += "<p><b><a href='byond://?src=[rs];showpoll=1'>Show Player Polls</A> (NEW!)</b></p>"
-		else
-			output += "<p><a href='byond://?src=[rs];showpoll=1'>Show Player Polls</A></p>"
-		qdel(query_get_new_polls)
-		if(QDELETED(src))
-			return
-		return output
 
 /mob/dead/new_player/Topic(href, href_list[])
 	if(src != usr)
@@ -334,14 +264,12 @@
 		var/obj/docking_port/mobile/target = SSshuttle.load_template(template)
 		if(!istype(target))
 			to_chat(usr, "<span class='danger'>There was an error loading the ship (You have not been charged). Please contact admins!</span>")
-			new_player_panel()
 			return
 		//Withdraw coins for the purchase
 		usr.client.inc_metabalance(-total_cost, TRUE, "buying [template.name]")
 		SSblackbox.record_feedback("tally", "ship_purchased", 1, template.name) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		if(!AttemptLateSpawn(target.current_ship.job_slots[1], target.current_ship)) //Try to spawn as the first listed job in the job slots (usually captain)
 			to_chat(usr, "<span class='danger'>Ship spawned, but you were unable to be spawned. You can likely try to spawn in the ship through joining normally, but if not, please contact an admin.</span>")
-			new_player_panel()
 		//Password assignment
 		if (password != "")
 			target.current_ship.password = password

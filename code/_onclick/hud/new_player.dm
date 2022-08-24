@@ -32,18 +32,18 @@
 	if(!enabled)
 		return
 	flick("[base_icon_state]_pressed", src)
-	update_icon_state()
+	update_icon()
 	return TRUE
 
 /atom/movable/screen/lobby/button/MouseEntered(location,control,params)
 	. = ..()
 	highlighted = TRUE
-	update_icon_state()
+	update_icon()
 
 /atom/movable/screen/lobby/button/MouseExited()
 	. = ..()
 	highlighted = FALSE
-	update_icon_state()
+	update_icon()
 
 /atom/movable/screen/lobby/button/update_icon(updates)
 	. = ..()
@@ -59,7 +59,7 @@
 	if(status == enabled)
 		return FALSE
 	enabled = status
-	update_icon_state()
+	update_icon()
 	return TRUE
 
 ///Prefs menu
@@ -107,7 +107,7 @@
 	else
 		new_player.ready = PLAYER_NOT_READY
 		base_icon_state = "not_ready"
-	update_icon_state()
+	update_icon()
 
 ///Shown when the game has started
 /atom/movable/screen/lobby/button/join
