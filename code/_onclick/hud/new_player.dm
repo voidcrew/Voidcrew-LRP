@@ -95,20 +95,6 @@
 	set_button_status(FALSE)
 	UnregisterSignal(SSticker, COMSIG_TICKER_ENTER_SETTING_UP)
 
-/atom/movable/screen/lobby/button/ready/Click(location, control, params)
-	. = ..()
-	if(!.)
-		return
-	var/mob/dead/new_player/new_player = hud.mymob
-	ready = !ready
-	if(ready)
-		new_player.ready = PLAYER_READY_TO_PLAY
-		base_icon_state = "ready"
-	else
-		new_player.ready = PLAYER_NOT_READY
-		base_icon_state = "not_ready"
-	update_icon()
-
 ///Shown when the game has started
 /atom/movable/screen/lobby/button/join
 	screen_loc = "TOP:-13,CENTER:-58"
