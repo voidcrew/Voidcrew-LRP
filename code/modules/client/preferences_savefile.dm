@@ -385,8 +385,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	READ_FILE(S["feature_mcolor"], features["mcolor"])
 	READ_FILE(S["feature_ethcolor"], features["ethcolor"])
 	READ_FILE(S["feature_lizard_tail"], features["tail_lizard"])
+	READ_FILE(S["feature_human_tail"], features["tail_human"])
 	READ_FILE(S["feature_lizard_snout"], features["snout"])
 	READ_FILE(S["feature_lizard_horns"], features["horns"])
+	READ_FILE(S["feature_human_ears"], features["ears"])
 	READ_FILE(S["feature_lizard_frills"], features["frills"])
 	READ_FILE(S["feature_lizard_spines"], features["spines"])
 	READ_FILE(S["feature_lizard_body_markings"], features["body_markings"])
@@ -424,13 +426,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		equipped_gear = list()
 
 	//WS End
-
-	if(!CONFIG_GET(flag/join_with_mutant_humans))
-		features["tail_human"] = "none"
-		features["ears"] = "none"
-	else
-		READ_FILE(S["feature_human_tail"], features["tail_human"])
-		READ_FILE(S["feature_human_ears"], features["ears"])
 
 	//Custom names
 	for(var/custom_name_id in GLOB.preferences_custom_names)
