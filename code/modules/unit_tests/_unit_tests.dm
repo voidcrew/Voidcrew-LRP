@@ -49,6 +49,7 @@
 #include "teleporters.dm"
 #include "timer_sanity.dm"
 #include "unit_test.dm"
+#include "modular_map_loader.dm"
 #include "voidcrew\overmap.dm"
 
 #undef TEST_ASSERT
