@@ -364,7 +364,7 @@ GLOBAL_LIST_INIT(ore_probability, list(
 			if(prob(35))
 				new /obj/item/storage/belt/military(loc)
 			if(prob(25))
-				new /obj/item/syndie_crusher(loc)
+				new /obj/item/kinetic_crusher/syndie(loc)
 				new /mob/living/simple_animal/hostile/syndicate/ranged/smg(loc)
 			if(prob(25))
 				new /obj/item/card/id/syndicate/anyone(loc)
