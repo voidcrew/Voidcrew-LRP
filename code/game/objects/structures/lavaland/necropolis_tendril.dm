@@ -46,11 +46,7 @@ GLOBAL_LIST_INIT(tendrils, list())
 
 
 /obj/structure/spawner/lavaland/Destroy()
-	var/last_tendril = TRUE
-	if(GLOB.tendrils.len>1)
-		last_tendril = FALSE
-
-	if(last_tendril && !(flags_1 & ADMIN_SPAWNED_1))
+	if(!(flags_1 & ADMIN_SPAWNED_1))
 		if(SSachievements.achievements_enabled)
 			for(var/mob/living/L in view(7,src))
 				if(L.stat || !L.client)
