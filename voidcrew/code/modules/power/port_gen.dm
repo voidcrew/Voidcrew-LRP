@@ -18,9 +18,9 @@
 
 /obj/machinery/power/port_gen/pacman/crude
 	name = "\improper C.R.U.D.E.P.A.C.M.A.N.-type portable generator"
-	base_icon = "portgen1_0"
-	icon_state = "portgen1"
+	base_icon = "portgen1"
+	icon_state = "portgen1_0"
 	circuit = /obj/item/circuitboard/machine/pacman/crude
 	sheet_path = /obj/item/stack/ore/iron
-	power_gen = 10000
+	power_gen = 9000
 	time_per_sheet = 80

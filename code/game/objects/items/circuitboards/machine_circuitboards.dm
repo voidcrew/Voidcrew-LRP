@@ -236,6 +236,14 @@
 		/obj/item/stack/cable_coil = 2,
 		/obj/item/stock_parts/subspace/filter = 1)
 
+/obj/item/circuitboard/machine/pacman/crude
+	name = "CAVEMAN-type Generator (Machine Board)"
+	icon_state = "engineering"
+	build_path = /obj/machinery/power/port_gen/pacman/crude
+	req_components = list(/obj/item/stack/ore/iron = 2,
+	/obj/item/stack/ore/gold = 3)
+	needs_anchored = FALSE
+
 /obj/item/circuitboard/machine/pacman
 	name = "PACMAN-type Generator (Machine Board)"
 	icon_state = "engineering"

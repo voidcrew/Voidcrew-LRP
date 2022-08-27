@@ -11,7 +11,7 @@
 	build_path = /obj/machinery/power/port_gen/pacman/diamond
 
 /obj/item/circuitboard/machine/pacman/crude
-	name = "CRUDEMAN-type Generator (Machine Board)"
+	name = "CAVEMAN-type Generator (Machine Board)"
 	build_path = /obj/machinery/power/port_gen/pacman/crude
 
 /**
