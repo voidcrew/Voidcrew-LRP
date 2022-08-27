@@ -419,6 +419,20 @@
 	time = 10
 	category = CAT_MISC
 
+/datum/crafting_recipe/crude_crowbar
+	name = "Crude Crowbar"
+	result = /obj/item/crowbar
+	reqs = list(/obj/item/stack/ore/iron = 5)
+	time = 10
+	category = CAT_MISC
+
+/datum/crafting_recipe/crude_screwdriver
+	name = "Crude Wrench"
+	result = /obj/item/wrench
+	reqs = list(/obj/item/stack/ore/iron = 4)
+	time = 10
+	category = CAT_MISC
+
 /datum/crafting_recipe/crude_screwdriver
 	name = "Crude Screwdriver"
 	result = /obj/item/screwdriver
