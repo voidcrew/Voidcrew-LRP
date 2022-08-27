@@ -368,7 +368,7 @@
 
 /datum/crafting_recipe/engine
 	name = "Crude Engine"
-	result = /obj/item/circuitboard/machine/shuttle/engine/crude
+	result = /obj/item/circuitboard/machine/shuttle/engine/electric/crude
 	reqs = list(/obj/item/circuitboard/machine/crude_board_component = 2,
 				/obj/item/circuitboard/machine/crude_board = 1)
 	time = 25
