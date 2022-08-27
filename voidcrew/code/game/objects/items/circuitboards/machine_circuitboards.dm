@@ -10,6 +10,10 @@
 	name = "MRSPACMAN-type Generator (Machine Board)"
 	build_path = /obj/machinery/power/port_gen/pacman/diamond
 
+/obj/item/circuitboard/machine/pacman/crude
+	name = "CRUDEMAN-type Generator (Machine Board)"
+	build_path = /obj/machinery/power/port_gen/pacman/crude
+
 /**
  * # CLONING
  */
@@ -116,6 +120,12 @@
 	req_components = list(/obj/item/stock_parts/capacitor = 2,
 		/obj/item/stack/cable_coil = 5,
 		/obj/item/stock_parts/micro_laser = 1)
+
+/obj/item/circuitboard/machine/shuttle/engine/electric/crude
+	name = "Crude Ion Thruster (Machine Board)"
+	build_path = /obj/machinery/power/shuttle/engine/electric
+	req_components = list(/obj/item/stack/ore/iron = 4,
+	/obj/item/stack/ore/gold = 2)
 
 /obj/item/circuitboard/machine/shuttle/engine/electric
 	name = "Ion Thruster (Machine Board)"

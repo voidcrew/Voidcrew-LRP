@@ -35,6 +35,14 @@
 
 //Engineering
 
+/obj/item/circuitboard/machine/crude_board_component
+	name = "Crude Board Component"
+	icon_state = "generic"
+
+/obj/item/circuitboard/machine/crude_board
+	name = "Crude Board"
+	icon_state = "generic"
+
 /obj/item/circuitboard/machine/announcement_system
 	name = "Announcement System (Machine Board)"
 	icon_state = "engineering"

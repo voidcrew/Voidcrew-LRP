@@ -350,6 +350,55 @@
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
 
+/datum/crafting_recipe/engine
+	name = "Crude Engine"
+	result = /obj/item/circuitboard/machine/shuttle/engine/crude
+	reqs = list(/obj/item/circuitboard/machine/crude_board_component = 2,
+				/obj/item/circuitboard/machine/crude_board = 1)
+	parts = list(/obj/item/shard = 1)
+	time = 25
+	category = CAT_MISC
+	subcategory = CAT_MISC
+
+/datum/crafting_recipe/pacman
+	name = "Crude Pacman"
+	result = /obj/item/circuitboard/machine/pacman/crude
+	reqs = list(/obj/item/circuitboard/machine/crude_board_component = 2,
+				/obj/item/circuitboard/machine/crude_board = 1)
+	parts = list(/obj/item/shard = 1)
+	time = 25
+	category = CAT_MISC
+	subcategory = CAT_MISC
+
+/datum/crafting_recipe/helm
+	name = "Crude Helm Board"
+	result = /obj/item/circuitboard/computer/shuttle/helm
+	reqs = list(/obj/item/circuitboard/machine/crude_board_component = 2,
+				/obj/item/circuitboard/machine/crude_board = 1)
+	parts = list(/obj/item/shard = 1)
+	time = 25
+	category = CAT_MISC
+	subcategory = CAT_MISC
+
+/datum/crafting_recipe/crude_board_component
+	name = "Crude Board Component"
+	result = /obj/item/circuitboard/machine/crude_board_component
+	reqs = list(/obj/item/stack/ore/gold = 1,
+				/obj/item/stack/ore/iron = 2)
+	parts = list(/obj/item/shard = 1)
+	time = 10
+	category = CAT_MISC
+	subcategory = CAT_MISC
+
+/datum/crafting_recipe/crude_board
+	name = "Crude Board"
+	result = /obj/item/circuitboard/machine/crude_board
+	reqs = list(/obj/item/stack/ore/iron = 3)
+	parts = list(/obj/item/shard = 1)
+	time = 15
+	category = CAT_MISC
+	subcategory = CAT_MISC
+
 /datum/crafting_recipe/spear
 	name = "Spear"
 	result = /obj/item/spear
