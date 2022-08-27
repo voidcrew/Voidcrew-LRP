@@ -366,6 +366,33 @@
 	category = CAT_MISC
 	subcategory = CAT_MISC
 
+/datum/crafting_recipe/crude_cell
+	name = "Crude Cell"
+	result = /obj/item/stock_parts/cell/potato
+	reqs = list(/obj/item/circuitboard/machine/crude_board_component = 1,
+				/obj/item/stack/cable_coil = 2)
+	time = 5
+	category = CAT_MISC
+	subcategory = CAT_MISC
+
+/datum/crafting_recipe/crude_apc
+	name = "Crude APC Board"
+	result = /obj/item/electronics/apc
+	reqs = list(/obj/item/circuitboard/machine/crude_board_component = 1,
+				/obj/item/circuitboard/machine/crude_board = 1)
+	time = 10
+	category = CAT_MISC
+	subcategory = CAT_MISC
+
+/datum/crafting_recipe/crude_autolathe
+	name = "Crude Autolathe Board"
+	result = /obj/item/circuitboard/machine/autolathe/crude
+	reqs = list(/obj/item/circuitboard/machine/crude_board_component = 2,
+				/obj/item/circuitboard/machine/crude_board = 1)
+	time = 25
+	category = CAT_MISC
+	subcategory = CAT_MISC
+
 /datum/crafting_recipe/engine
 	name = "Crude Engine"
 	result = /obj/item/circuitboard/machine/shuttle/engine/electric/crude
@@ -390,6 +417,22 @@
 	reqs = list(/obj/item/circuitboard/machine/crude_board_component = 2,
 				/obj/item/circuitboard/machine/crude_board = 1)
 	time = 25
+	category = CAT_MISC
+	subcategory = CAT_MISC
+
+/datum/crafting_recipe/crude_iron
+	name = "Crude Iron"
+	result = /obj/item/stack/sheet/metal
+	reqs = list(/obj/item/stack/ore/iron = 5)
+	time = 10
+	category = CAT_MISC
+	subcategory = CAT_MISC
+
+/datum/crafting_recipe/crude_screwdriver
+	name = "Crude Screwdriver"
+	result = /obj/item/screwdriver
+	reqs = list(/obj/item/stack/ore/iron = 2)
+	time = 10
 	category = CAT_MISC
 	subcategory = CAT_MISC
 

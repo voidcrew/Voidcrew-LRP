@@ -347,8 +347,8 @@
 	desc = "A rechargeable starch based power cell."
 	icon = 'icons/obj/hydroponics/harvest.dmi'
 	icon_state = "potato"
-	charge = 100
-	maxcharge = 300
+	charge = 600
+	maxcharge = 1000
 	custom_materials = null
 	grown_battery = TRUE //it has the overlays for wires
 

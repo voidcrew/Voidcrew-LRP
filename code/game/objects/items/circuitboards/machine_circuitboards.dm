@@ -60,6 +60,13 @@
 		/obj/item/stock_parts/manipulator = 1,
 		/obj/item/stack/sheet/glass = 1)
 
+/obj/item/circuitboard/machine/autolathe/crude
+	name = "Crude Autolathe (Machine Board)"
+	icon_state = "generic"
+	build_path = /obj/machinery/autolathe
+	req_components = list(/obj/item/stack/ore/iron = 5,
+	/obj/item/stack/ore/gold = 1)
+
 /obj/item/circuitboard/machine/grounding_rod
 	name = "Grounding Rod (Machine Board)"
 	icon_state = "engineering"
