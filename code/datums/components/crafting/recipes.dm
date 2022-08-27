@@ -356,7 +356,6 @@
 	reqs = list(/obj/item/stack/ore/gold = 1)
 	time = 25
 	category = CAT_MISC
-	subcategory = CAT_MISC
 
 /datum/crafting_recipe/expansion_permit
 	name = "Expansion Permit"
@@ -364,7 +363,6 @@
 	reqs = list(/obj/item/stack/ore/iron = 1)
 	time = 25
 	category = CAT_MISC
-	subcategory = CAT_MISC
 
 /datum/crafting_recipe/crude_cell
 	name = "Crude Cell"
@@ -373,7 +371,6 @@
 				/obj/item/stack/cable_coil = 2)
 	time = 5
 	category = CAT_MISC
-	subcategory = CAT_MISC
 
 /datum/crafting_recipe/crude_apc
 	name = "Crude APC Board"
@@ -382,7 +379,6 @@
 				/obj/item/circuitboard/machine/crude_board = 1)
 	time = 10
 	category = CAT_MISC
-	subcategory = CAT_MISC
 
 /datum/crafting_recipe/crude_autolathe
 	name = "Crude Autolathe Board"
@@ -391,7 +387,6 @@
 				/obj/item/circuitboard/machine/crude_board = 1)
 	time = 25
 	category = CAT_MISC
-	subcategory = CAT_MISC
 
 /datum/crafting_recipe/engine
 	name = "Crude Engine"
@@ -400,7 +395,6 @@
 				/obj/item/circuitboard/machine/crude_board = 1)
 	time = 25
 	category = CAT_MISC
-	subcategory = CAT_MISC
 
 /datum/crafting_recipe/pacman
 	name = "Crude Pacman"
@@ -409,7 +403,6 @@
 				/obj/item/circuitboard/machine/crude_board = 1)
 	time = 25
 	category = CAT_MISC
-	subcategory = CAT_MISC
 
 /datum/crafting_recipe/helm
 	name = "Crude Helm Board"
@@ -418,7 +411,6 @@
 				/obj/item/circuitboard/machine/crude_board = 1)
 	time = 25
 	category = CAT_MISC
-	subcategory = CAT_MISC
 
 /datum/crafting_recipe/crude_iron
 	name = "Crude Iron"
@@ -426,7 +418,6 @@
 	reqs = list(/obj/item/stack/ore/iron = 5)
 	time = 10
 	category = CAT_MISC
-	subcategory = CAT_MISC
 
 /datum/crafting_recipe/crude_screwdriver
 	name = "Crude Screwdriver"
@@ -434,7 +425,6 @@
 	reqs = list(/obj/item/stack/ore/iron = 2)
 	time = 10
 	category = CAT_MISC
-	subcategory = CAT_MISC
 
 /datum/crafting_recipe/crude_board_component
 	name = "Crude Board Component"
@@ -443,7 +433,6 @@
 				/obj/item/stack/ore/iron = 2)
 	time = 10
 	category = CAT_MISC
-	subcategory = CAT_MISC
 
 /datum/crafting_recipe/crude_board
 	name = "Crude Board"
@@ -451,7 +440,6 @@
 	reqs = list(/obj/item/stack/ore/iron = 3)
 	time = 15
 	category = CAT_MISC
-	subcategory = CAT_MISC
 
 /datum/crafting_recipe/spear
 	name = "Spear"
