@@ -353,7 +353,7 @@
 /datum/crafting_recipe/coil
 	name = "Coil"
 	result = /obj/item/stack/cable_coil
-	reqs = list(/obj/item/stack/ore/gold = 1)
+	reqs = list(/obj/item/stack/ore/gold = 2)
 	time = 25
 	category = CAT_MISC
 

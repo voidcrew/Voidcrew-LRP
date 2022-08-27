@@ -17,7 +17,7 @@
 	time_per_sheet = 80
 
 /obj/machinery/power/port_gen/pacman/crude
-	name = "\improper C.R.U.D.E.P.A.C.M.A.N.-type portable generator"
+	name = "\improper C.A.V.E.P.A.C.M.A.N.-type portable generator"
 	base_icon = "portgen1"
 	icon_state = "portgen1_0"
 	circuit = /obj/item/circuitboard/machine/pacman/crude
