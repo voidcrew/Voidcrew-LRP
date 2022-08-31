@@ -20,5 +20,8 @@
 		multi.buffer = src
 		to_chat(user, "<span class='notice'>[src] stored in [O].</span>")
 		return TRUE
+	if(istype(O, /obj/item/bio_scanner))
+		var/obj/item/bio_scanner/scanner = O
+		scanner.stored_research += stored_research
 
 	return ..()
