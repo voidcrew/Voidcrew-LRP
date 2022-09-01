@@ -66,3 +66,12 @@
 	build_path = /obj/item/device/cassette_deck
 	category = list("initial","Tools","Tool Designs")
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
+
+/datum/design/bio_scanner
+	name = "Bilogical Scanner"
+	id = "bio_scanner"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 10000,
+					/datum/material/glass = 2500)
+	build_path = /obj/item/bio_scanner
+	category = list("initial","Tools")

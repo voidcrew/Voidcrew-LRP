@@ -29,13 +29,13 @@
 
 /obj/item/bio_scanner
 	name = "Biological Scanner"
-	desc = "A small device that scans the remains of a mob and uploads the data to a connected research server."
+	desc = "A small device that performs a detailed scan of various living or descesed beings and uploads the collected data to a connected research server."
 	icon = 'icons/obj/device.dmi'
-	icon_state = "forensicnew"
+	icon_state = "forensicnew" // should be temp
 	w_class = WEIGHT_CLASS_SMALL
-	item_state = "electronic"
-	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
+	item_state = "electronic" // should be temp
+	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi' // should be temp
+	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi' // should be temp
 	flags_1 = CONDUCT_1
 	item_flags = NOBLUDGEON
 	slot_flags = ITEM_SLOT_BELT
@@ -44,11 +44,12 @@
 	throw_speed = 3
 	throw_range = 7
 	var/datum/techweb/stored_research
-	var/value = BASE_HUMAN_REWARD
+	var/value = 0 // the actual reward
+	var/reward = 1500 // base reward before bonus, todo: make this a var in /mob/
 
-/obj/item/bio_scanner/attack(mob/dead/M, mob/living/user)
-	if(istype(M, /mob/dead)) //Scanning
-		var/mob/dead/mob = M
+/obj/item/bio_scanner/attack(mob/living/M, mob/living/user)
+	if(istype(M, /mob/living)) //Scanning
+		var/mob/living/mob = M
 		if(!stored_research)
 			playsound(loc, 'sound/effects/zzzt.ogg', 25, TRUE)
 			say("Cannot scan. Not connected to a research server! Tap server with device to link.")
@@ -59,24 +60,23 @@
 			stored_research.scanned_mobs.Add(mob.name)
 			getvalue(mob)
 			stored_research.add_point_list(list(TECHWEB_POINT_TYPE_GENERIC = value))
-			say("Sucessfully scanned. 1000 points added to database.")
+			say("Sucessfully scanned. [value] points added to database.")
 			playsound(loc, 'sound/effects/adminhelp.ogg', 25, TRUE) //lul
-
 
 /obj/item/bio_scanner/AltClick(mob/user)
 	stored_research = null
 	say("Cleared linked techweb!")
 
-/obj/item/bio_scanner/proc/getvalue(mob/dead/M) // Copy pasted from experimental_disection.dm I'll be working on a PR soon to give /mob a new var that hold its point reward, so no more of this bs
-	var/mob/dead = M
-	if(isalienroyal(dead))
+/obj/item/bio_scanner/proc/getvalue(mob/living/M) // Copy pasted from experimental_disection.dm I'll be working on a PR soon to give /mob a new var that hold its point reward, so no more of this bs
+	var/mob/living/target = M
+	if(isalienroyal(target))
 		value = (reward*10)
-	else if(isalienadult(dead))
+	else if(isalienadult(target))
 		value = (reward*5)
-	else if(ismonkey(dead))
+	else if(ismonkey(target))
 		value = (reward*0.5)
-	else if(ishuman(dead))
-		var/mob/living/carbon/human/H = dead
+	else if(ishuman(target))
+		var/mob/living/carbon/human/H = target
 		if(H?.dna?.species)
 			if(isabductor(H))
 				value = (reward*4)
