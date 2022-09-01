@@ -22,7 +22,7 @@
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 	vision_range = 2 // don't aggro unless you basically antagonize it, though they will kill you worse than a goliath will
 	aggro_vision_range = 9
-	move_force = MOVE_FORCE_VERY_STRONG
+	move_force = MOVE_FORCE_NORMAL
 	move_resist = MOVE_FORCE_VERY_STRONG
 	pull_force = MOVE_FORCE_VERY_STRONG
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/meat/slab/bear = 3, /obj/item/stack/sheet/bone = 2)
@@ -55,7 +55,6 @@
 	aggressive_message_said = FALSE
 
 /mob/living/simple_animal/hostile/asteroid/polarbear/death(gibbed)
-	move_force = MOVE_FORCE_DEFAULT
 	move_resist = MOVE_RESIST_DEFAULT
 	pull_force = PULL_FORCE_DEFAULT
 	return ..()

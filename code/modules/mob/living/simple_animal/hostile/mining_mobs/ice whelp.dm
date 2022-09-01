@@ -25,7 +25,7 @@
 	attack_sound = 'sound/magic/demon_attack1.ogg'
 	vision_range = 7
 	aggro_vision_range = 7
-	move_force = MOVE_FORCE_VERY_STRONG
+	move_force = MOVE_FORCE_NORMAL
 	move_resist = MOVE_FORCE_VERY_STRONG
 	pull_force = MOVE_FORCE_VERY_STRONG
 	butcher_results = list(/obj/item/stack/ore/diamond = 3, /obj/item/stack/sheet/sinew = 2, /obj/item/stack/sheet/bone = 10, /obj/item/stack/sheet/animalhide/ashdrake = 1)
@@ -51,10 +51,8 @@
 	adjustHealth(-maxHealth*0.025)
 
 /mob/living/simple_animal/hostile/asteroid/ice_whelp/death(gibbed)
-	move_force = MOVE_FORCE_DEFAULT
 	move_resist = MOVE_RESIST_DEFAULT
 	pull_force = PULL_FORCE_DEFAULT
 	if(prob(10))
 		new /obj/item/gem/amber(loc)
 	return ..()
-

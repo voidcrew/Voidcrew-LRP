@@ -32,7 +32,7 @@
 	throw_message = "does nothing to the rocky hide of the"
 	vision_range = 5
 	aggro_vision_range = 9
-	move_force = MOVE_FORCE_VERY_STRONG
+	move_force = MOVE_FORCE_NORMAL
 	move_resist = MOVE_FORCE_VERY_STRONG
 	pull_force = MOVE_FORCE_VERY_STRONG
 	gender = MALE //lavaland elite goliath says that it s female and i s stronger because of sexual dimorphism, so normal goliaths should be male
@@ -62,13 +62,11 @@
 
 /mob/living/simple_animal/hostile/asteroid/goliath/revive(full_heal = FALSE, admin_revive = FALSE)//who the fuck anchors mobs
 	if(..())
-		move_force = MOVE_FORCE_VERY_STRONG
 		move_resist = MOVE_FORCE_VERY_STRONG
 		pull_force = MOVE_FORCE_VERY_STRONG
 		. = 1
 
 /mob/living/simple_animal/hostile/asteroid/goliath/death(gibbed)
-	move_force = MOVE_FORCE_DEFAULT
 	move_resist = MOVE_RESIST_DEFAULT
 	pull_force = PULL_FORCE_DEFAULT
 	..()
