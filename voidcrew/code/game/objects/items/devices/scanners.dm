@@ -69,20 +69,20 @@
 
 /obj/item/bio_scanner/proc/getvalue(mob/dead/M) // Copy pasted from experimental_disection.dm I'll be working on a PR soon to give /mob a new var that hold its point reward, so no more of this bs
 	var/mob/dead = M
-	if(isalienroyal(target))
-		cost = (BASE_HUMAN_REWARD*10)
-	else if(isalienadult(target))
-		cost = (BASE_HUMAN_REWARD*5)
-	else if(ismonkey(target))
-		cost = (BASE_HUMAN_REWARD*0.5)
-	else if(ishuman(target))
-		var/mob/living/carbon/human/H = target
+	if(isalienroyal(dead))
+		value = (reward*10)
+	else if(isalienadult(dead))
+		value = (reward*5)
+	else if(ismonkey(dead))
+		value = (reward*0.5)
+	else if(ishuman(dead))
+		var/mob/living/carbon/human/H = dead
 		if(H?.dna?.species)
 			if(isabductor(H))
-				cost = (BASE_HUMAN_REWARD*4)
+				value = (reward*4)
 			else if(isgolem(H) || iszombie(H))
-				cost = (BASE_HUMAN_REWARD*3)
+				value = (reward*3)
 			else if(isjellyperson(H) || ispodperson(H))
-				cost = (BASE_HUMAN_REWARD*2)
+				value = (reward*2)
 	else
-		cost = (BASE_HUMAN_REWARD * 0.6)
+		value = (reward * 0.6)
