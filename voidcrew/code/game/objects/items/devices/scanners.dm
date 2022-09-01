@@ -28,8 +28,8 @@
 		to_chat(user, "<span class='info'>No nanites detected in the subject.</span>")
 
 /obj/item/bio_scanner
-	name = "Behavioral Analyzer"
-	desc = "A small device that scans the brain patterns of a living mob and uploads their data to a connected research server."
+	name = "Biological Scanner"
+	desc = "A small device that scans the remains of a mob and uploads the data to a connected research server."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "forensicnew"
 	w_class = WEIGHT_CLASS_SMALL
@@ -44,6 +44,7 @@
 	throw_speed = 3
 	throw_range = 7
 	var/datum/techweb/stored_research
+	var/value = BASE_HUMAN_REWARD
 
 /obj/item/bio_scanner/attack(mob/dead/M, mob/living/user)
 	if(istype(M, /mob/dead)) //Scanning
@@ -56,7 +57,8 @@
 			say("Scan failed. Already scanned!")
 		else
 			stored_research.scanned_mobs.Add(mob.name)
-			stored_research.add_point_list(list(TECHWEB_POINT_TYPE_GENERIC = 1000))
+			getvalue(mob)
+			stored_research.add_point_list(list(TECHWEB_POINT_TYPE_GENERIC = value))
 			say("Sucessfully scanned. 1000 points added to database.")
 			playsound(loc, 'sound/effects/adminhelp.ogg', 25, TRUE) //lul
 
@@ -65,3 +67,22 @@
 	stored_research = null
 	say("Cleared linked techweb!")
 
+/obj/item/bio_scanner/proc/getvalue(mob/dead/M) // Copy pasted from experimental_disection.dm I'll be working on a PR soon to give /mob a new var that hold its point reward, so no more of this bs
+	var/mob/dead = M
+	if(isalienroyal(target))
+		cost = (BASE_HUMAN_REWARD*10)
+	else if(isalienadult(target))
+		cost = (BASE_HUMAN_REWARD*5)
+	else if(ismonkey(target))
+		cost = (BASE_HUMAN_REWARD*0.5)
+	else if(ishuman(target))
+		var/mob/living/carbon/human/H = target
+		if(H?.dna?.species)
+			if(isabductor(H))
+				cost = (BASE_HUMAN_REWARD*4)
+			else if(isgolem(H) || iszombie(H))
+				cost = (BASE_HUMAN_REWARD*3)
+			else if(isjellyperson(H) || ispodperson(H))
+				cost = (BASE_HUMAN_REWARD*2)
+	else
+		cost = (BASE_HUMAN_REWARD * 0.6)
