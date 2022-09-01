@@ -12,6 +12,9 @@
 /obj/effect/turf_decal/corner/brown{
 	dir = 8
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/ship/cargo)
 "ay" = (
@@ -110,23 +113,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate,
 /obj/item/vending_refill/engineering,
-/obj/item/vending_refill/engineering,
 /obj/item/vending_refill/engivend,
-/obj/item/vending_refill/engivend,
-/obj/item/vending_refill/hydronutrients,
 /obj/item/vending_refill/hydroseeds,
 /obj/item/vending_refill/hydronutrients,
-/obj/item/vending_refill/hydroseeds,
-/obj/item/vending_refill/boozeomat,
 /obj/item/vending_refill/boozeomat,
 /obj/item/vending_refill/medical,
-/obj/item/vending_refill/medical,
 /obj/item/vending_refill/cigarette,
-/obj/item/vending_refill/cigarette,
-/obj/item/vending_refill/snack,
 /obj/item/vending_refill/snack,
 /obj/item/vending_refill/sovietsoda,
-/obj/item/vending_refill/cola,
 /obj/item/vending_refill/cola,
 /obj/effect/turf_decal/corner/brown{
 	dir = 9
@@ -302,7 +296,8 @@
 /area/ship/crew/dorm)
 "go" = (
 /obj/structure/closet/secure_closet/chemical/heisenberg{
-	req_access = list(21,41)
+	req_access = null;
+	req_one_access = list(21,41)
 	},
 /obj/item/storage/box/bodybags,
 /turf/open/floor/plasteel/dark,
@@ -660,7 +655,8 @@
 /obj/item/gun/ballistic/shotgun/doublebarrel,
 /obj/item/storage/box/syndie_kit/chameleon,
 /obj/structure/closet/secure_closet/bar{
-	req_access = list(25,41)
+	req_access = null;
+	req_one_access = list(25,41)
 	},
 /turf/open/floor/plating,
 /area/ship/engineering)
@@ -932,6 +928,7 @@
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
 	dir = 4
 	},
+/obj/machinery/holopad/emergency/engineering,
 /turf/open/floor/plating,
 /area/ship/engineering)
 "sG" = (
@@ -968,7 +965,8 @@
 /obj/item/pipe_dispenser,
 /obj/item/clothing/under/syndicate/intern,
 /obj/structure/closet/secure_closet/engineering_personal{
-	req_access = list(11,41)
+	req_access = null;
+	req_one_access = list(11,41)
 	},
 /turf/open/floor/plating,
 /area/ship/engineering)
@@ -987,7 +985,7 @@
 /area/ship/engineering)
 "ur" = (
 /obj/machinery/light,
-/obj/item/banner/cargo,
+/obj/item/banner/cargo/mundane,
 /obj/effect/turf_decal/corner/brown/three_quarters{
 	dir = 1
 	},
@@ -1055,41 +1053,11 @@
 	desc = "A box containing every board you need to start your own civilian research operation!";
 	name = "Donk! Co. RND Boards Kit"
 	},
-/obj/item/storage/box/rndboards{
-	desc = "A box containing every board you need to start your own civilian research operation!";
-	name = "Donk! Co. RND Boards Kit"
-	},
-/obj/item/storage/box/rndboards{
-	desc = "A box containing every board you need to start your own civilian research operation!";
-	name = "Donk! Co. RND Boards Kit"
-	},
-/obj/item/storage/box/rndboards{
-	desc = "A box containing every board you need to start your own civilian research operation!";
-	name = "Donk! Co. RND Boards Kit"
-	},
-/obj/item/storage/box/rndboards{
-	desc = "A box containing every board you need to start your own civilian research operation!";
-	name = "Donk! Co. RND Boards Kit"
-	},
-/obj/item/circuitboard/machine/chem_dispenser/drinks,
-/obj/item/circuitboard/machine/chem_dispenser/drinks,
 /obj/item/circuitboard/machine/chem_dispenser/drinks,
 /obj/item/circuitboard/machine/chem_dispenser/drinks/beer,
-/obj/item/circuitboard/machine/chem_dispenser/drinks/beer,
-/obj/item/circuitboard/machine/chem_dispenser/drinks/beer,
-/obj/item/circuitboard/machine/deep_fryer,
-/obj/item/circuitboard/machine/deep_fryer,
 /obj/item/circuitboard/machine/deep_fryer,
 /obj/item/circuitboard/machine/mechfab,
-/obj/item/circuitboard/machine/mechfab,
-/obj/item/circuitboard/machine/mechfab,
-/obj/item/circuitboard/machine/mechfab,
-/obj/item/circuitboard/machine/mechfab,
 /obj/item/circuitboard/machine/ore_redemption,
-/obj/item/circuitboard/machine/ore_redemption,
-/obj/item/circuitboard/machine/ore_redemption,
-/obj/item/circuitboard/machine/microwave,
-/obj/item/circuitboard/machine/microwave,
 /obj/item/circuitboard/machine/microwave,
 /obj/effect/turf_decal/corner/brown/three_quarters{
 	dir = 8
@@ -2110,6 +2078,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/obj/machinery/holopad/emergency/medical,
 /turf/open/floor/plasteel/dark,
 /area/ship/medical)
 "VR" = (
@@ -2154,7 +2123,7 @@
 /turf/open/floor/carpet/donk,
 /area/ship/crew/dorm)
 "Xe" = (
-/obj/item/banner/cargo,
+/obj/item/banner/cargo/mundane,
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = -24
