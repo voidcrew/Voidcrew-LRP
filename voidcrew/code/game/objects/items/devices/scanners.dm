@@ -28,7 +28,8 @@
 		to_chat(user, "<span class='info'>No nanites detected in the subject.</span>")
 
 /obj/item/bio_scanner
-	name = "bio scanner"
+	name = "Behavioral Analyzer"
+	desc = "A small device that scans the brain patterns of a living mob and uploads their data to a connected research server."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "forensicnew"
 	w_class = WEIGHT_CLASS_SMALL
@@ -44,11 +45,23 @@
 	throw_range = 7
 	var/datum/techweb/stored_research
 
-obj/item/bio_scanner/attack(mob/living/M, mob/living/user)
-	if(istype(M, /mob/living)) //Scanning
-		var/mob/living/mob = M
-		if(!stored_research.scanned_mobs.find(mob.name))
-			stored_research.scanned_mobs.add(mob.name)
-			//Add research points
-			visible_message("The" + mob.name + "Has been sucessfully scanned. Research added to database.")
-			playsound(loc, 'sound/effects/adminhelp.ogg', 25, TRUE) //hah
+/obj/item/bio_scanner/attack(mob/dead/M, mob/living/user)
+	if(istype(M, /mob/dead)) //Scanning
+		var/mob/dead/mob = M
+		if(!stored_research)
+			playsound(loc, 'sound/effects/zzzt.ogg', 25, TRUE)
+			say("Cannot scan. Not connected to a research server! Tap server with device to link.")
+		else if(stored_research.scanned_mobs.Find(mob.name))
+			playsound(loc, 'sound/effects/zzzt.ogg', 25, TRUE)
+			say("Scan failed. Already scanned!")
+		else
+			stored_research.scanned_mobs.Add(mob.name)
+			stored_research.add_point_list(list(TECHWEB_POINT_TYPE_GENERIC = 1000))
+			say("Sucessfully scanned. 1000 points added to database.")
+			playsound(loc, 'sound/effects/adminhelp.ogg', 25, TRUE) //lul
+
+
+/obj/item/bio_scanner/AltClick(mob/user)
+	stored_research = null
+	say("Cleared linked techweb!")
+

@@ -23,5 +23,5 @@
 	if(istype(O, /obj/item/bio_scanner))
 		var/obj/item/bio_scanner/scanner = O
 		scanner.stored_research += stored_research
-
+		visible_message("The servers status display briefly flashes: \"CONNECTED\".")
 	return ..()
