@@ -28,13 +28,13 @@
 /obj/effect/decal/cleanable/robot_debris/limb,
 /mob/living/simple_animal/hostile/nanotrasen/ranged/assault{
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
-	attack_sound = 'sound\weapons\blade1.ogg';
+	attack_sound = 'sound/weapons/blade1.ogg';
 	attack_verb_continuous = "slashes";
 	attack_verb_simple = "slash";
 	casingtype = /obj/item/ammo_casing/mm712x82;
 	damage_coeff = list("brute" = 0.7, "fire" = 1.2, "toxin" = 1, "clone" = 1, "stamina" = 0, "oxygen" = 1);
 	deathmessage = "falls apart!";
-	deathsound = 'sound\voice\borg_deathsound.ogg';
+	deathsound = 'sound/voice/borg_deathsound.ogg';
 	desc = "A heavily armed, malfunctioning Syndicate Assault Cyborg. You should run.";
 	has_unlimited_silicon_privilege = 1;
 	health = 1250;
@@ -54,7 +54,7 @@
 	minbodytemp = 0;
 	move_resist = 2999;
 	name = "Malfunctioning Syndicate Cyborg";
-	projectilesound = 'sound\weapons\gun\l6\shot_old.ogg';
+	projectilesound = 'sound/weapons/gun/l6/shot_old.ogg';
 	projectiletype = /obj/projectile/bullet/mm712x82;
 	pull_force = 2999;
 	rapid = 3;
