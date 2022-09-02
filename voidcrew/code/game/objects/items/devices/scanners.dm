@@ -44,24 +44,26 @@
 	throw_speed = 3
 	throw_range = 7
 	var/datum/techweb/stored_research
-	var/value = 0 // the actual reward
-	var/reward = 1500 // base reward before bonus, todo: make this a var in /mob/
+	/// the actual reward
+	var/value = 0
+	/// base reward before bonus, todo: make this a var in /mob/
+	var/reward = 1500
 
-/obj/item/bio_scanner/attack(mob/living/M, mob/living/user)
-	if(istype(M, /mob/living)) //Scanning
-		var/mob/living/mob = M
-		if(!stored_research)
-			playsound(loc, 'sound/effects/zzzt.ogg', 25, TRUE)
-			say("Cannot scan. Not connected to a research server! Tap server with device to link.")
-		else if(stored_research.scanned_mobs.Find(mob.name))
-			playsound(loc, 'sound/effects/zzzt.ogg', 25, TRUE)
-			say("Scan failed. Already scanned!")
-		else
-			stored_research.scanned_mobs.Add(mob.name)
-			getvalue(mob)
-			stored_research.add_point_list(list(TECHWEB_POINT_TYPE_GENERIC = value))
-			say("Sucessfully scanned. [value] points added to database.")
-			playsound(loc, 'sound/effects/adminhelp.ogg', 25, TRUE) //lul
+/obj/item/bio_scanner/attack(mob/living/attacked_mob, mob/living/user)
+	if(!istype(attacked_mob))
+		return //Scanning
+	if(!stored_research)
+		playsound(loc, 'sound/effects/zzzt.ogg', 25, TRUE)
+		say("Cannot scan. Not connected to a research server! Tap server with device to link.")
+	else if(stored_research.scanned_mobs.Find(attacked_mob.name))
+		playsound(loc, 'sound/effects/zzzt.ogg', 25, TRUE)
+		say("Scan failed. Already scanned!")
+	else
+		stored_research.scanned_mobs.Add(attacked_mob.name)
+		getvalue(attacked_mob)
+		stored_research.add_point_list(list(TECHWEB_POINT_TYPE_GENERIC = value))
+		say("Sucessfully scanned. [value] points added to database.")
+		playsound(loc, 'sound/effects/adminhelp.ogg', 25, TRUE) //lul
 
 /obj/item/bio_scanner/AltClick(mob/user)
 	stored_research = null
