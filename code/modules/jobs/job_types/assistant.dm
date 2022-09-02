@@ -74,3 +74,13 @@ Assistant
 /datum/outfit/job/assistant/engineeringspecialist
 	name = "Assistant (Deckhand)"
 	accessory = /obj/item/clothing/accessory/armband/cargo
+
+/datum/outfit/job/assistant/artist
+	name = "Assistant (Artist)"
+
+	uniform = /obj/item/clothing/under/suit/burgundy
+	suit = /obj/item/clothing/suit/toggle/suspenders
+	head = /obj/item/clothing/head/beret/black
+	shoes = /obj/item/clothing/shoes/laceup
+	gloves = /obj/item/clothing/gloves/color/white
+	accessory = /obj/item/clothing/neck/scarf/darkblue
