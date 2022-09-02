@@ -92,7 +92,7 @@
 	if(W.get_sharpness() && cuttable)
 		if (alert(user, "Are you sure you want to cut the [src] into strips?", "Cut clothing:", "Yes", "No") != "Yes")
 			return
-		if(!src)
+		if(QDELETED(src))
 			to_chat(user, "<span class='notice'>The item doesn't exist anymore!.</span>")
 			return
 		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, TRUE)
