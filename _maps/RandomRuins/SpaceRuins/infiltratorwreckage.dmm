@@ -2,16 +2,12 @@
 "ah" = (
 /obj/effect/decal/cleanable/ash/large,
 /turf/open/floor/plating/asteroid/lowpressure,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "aq" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/stack/sheet/mineral/plastitanium,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "az" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -20,30 +16,67 @@
 /obj/item/mmi/syndie,
 /obj/item/mmi/syndie,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "aU" = (
 /obj/effect/turf_decal/industrial/warning{
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/mineral/plastitanium/red,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "ch" = (
 /obj/effect/decal/cleanable/robot_debris/limb,
+/mob/living/simple_animal/hostile/nanotrasen/ranged/assault{
+	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0);
+	attack_sound = 'sound\weapons\blade1.ogg';
+	attack_verb_continuous = "slashes";
+	attack_verb_simple = "slash";
+	casingtype = /obj/item/ammo_casing/mm712x82;
+	damage_coeff = list("brute" = 0.7, "fire" = 1.2, "toxin" = 1, "clone" = 1, "stamina" = 0, "oxygen" = 1);
+	deathmessage = "falls apart!";
+	deathsound = 'sound\voice\borg_deathsound.ogg';
+	desc = "A heavily armed, malfunctioning Syndicate Assault Cyborg. You should run.";
+	has_unlimited_silicon_privilege = 1;
+	health = 1250;
+	icon = 'icons/mob/robots.dmi';
+	icon_gib = null;
+	icon_living = "synd_sec";
+	icon_state = "synd_sec";
+	light_color = "#B90E0A";
+	light_power = 1.5;
+	light_range = 2;
+	lighting_alpha = 128;
+	loot = list(/obj/effect/decal/cleanable/robot_debris);
+	maxHealth = 1250;
+	maxbodytemp = 1350;
+	melee_damage_lower = 40;
+	melee_damage_upper = 60;
+	minbodytemp = 0;
+	move_resist = 2999;
+	name = "Malfunctioning Syndicate Cyborg";
+	projectilesound = 'sound\weapons\gun\l6\shot_old.ogg';
+	projectiletype = /obj/projectile/bullet/mm712x82;
+	pull_force = 2999;
+	rapid = 3;
+	rapid_fire_delay = 2;
+	retreat_distance = 3;
+	speak = list("I'LL TEAR YOU APART!!","YOUR KNEECAPS WILL FLY!!","I WILL SCATTER YOUR NEURONS!!");
+	speak_chance = 5;
+	speak_emote = list("states","exclaims");
+	speech_span = "robot";
+	speed = 1;
+	unsuitable_atmos_damage = 0;
+	verb_ask = "queries";
+	verb_exclaim = "declares";
+	verb_say = "states";
+	verb_yell = "alarms"
+	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "cx" = (
 /mob/living/simple_animal/hostile/carp,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "dd" = (
 /obj/effect/turf_decal/industrial/warning,
 /obj/effect/decal/cleanable/greenglow,
@@ -51,24 +84,18 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/remains/human,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "dh" = (
 /obj/structure/girder/reinforced,
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg1"
 	},
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "di" = (
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg1"
 	},
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "dF" = (
 /obj/structure/lattice,
 /obj/structure/fluff/broken_flooring{
@@ -76,49 +103,35 @@
 	icon_state = "plating"
 	},
 /turf/open/space/basic,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "dX" = (
 /turf/open/floor/plating/asteroid/lowpressure,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "eB" = (
 /obj/structure/grille,
 /obj/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/plating,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "fg" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "fD" = (
 /obj/machinery/door/airlock/hatch{
 	welded = 1
 	},
 /turf/open/floor/plating,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "gc" = (
 /obj/structure/frame/machine,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "hr" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg3"
 	},
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "hu" = (
 /obj/structure/fluff/broken_flooring{
 	icon_state = "singular"
@@ -131,9 +144,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "iw" = (
 /obj/item/toy/figure/syndie{
 	desc = "The sole survivor.";
@@ -142,86 +153,68 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "jz" = (
 /obj/item/storage/box/handcuffs{
 	pixel_x = 3;
 	pixel_y = 3
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "kj" = (
 /obj/effect/decal/cleanable/greenglow,
 /obj/effect/decal/remains/human,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "kS" = (
 /obj/structure/table/reinforced,
-/obj/item/robot_module/saboteur{
-	desc = "A both rare and coveted cyborg module board. This one is designated as Saboteur.";
-	name = "Syndicate Cyborg Module: Saboteur";
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/robot_module/syndicate_medical{
-	desc = "A both rare and coveted cyborg module board. This one is designated as Medical.";
-	name = "Syndicate Cyborg Module: Medical"
-	},
 /obj/machinery/light/broken{
 	dir = 1
 	},
+/obj/item/borg/upgrade/transform/clown{
+	desc = "A module picking system, capable of using stored matter to build itself out into a fresh cyborg configuration. This one has no serial number, and no identifying marks.";
+	name = "cyborg module upgrade (Saboteur)";
+	new_module = /obj/item/robot_module/saboteur;
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/borg/upgrade/transform/clown{
+	desc = "A module picking system, capable of using stored matter to build itself out into a fresh cyborg configuration. This one has no serial number, and no identifying marks.";
+	name = "cyborg module upgrade (Medical)";
+	new_module = /obj/item/robot_module/syndicate_medical
+	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "lu" = (
 /obj/effect/acid/alien,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "mm" = (
 /obj/item/stack/sheet/mineral/plastitanium,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "mF" = (
 /obj/structure/grille/broken,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "mT" = (
 /obj/effect/turf_decal/industrial/outline,
 /obj/machinery/mecha_part_fabricator,
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "nF" = (
 /obj/effect/acid/alien,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "nP" = (
 /obj/machinery/door/airlock/external{
 	req_access_txt = "150"
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "nR" = (
 /obj/machinery/door/poddoor/preopen{
 	desc = "A heavy duty blast door. It is covered in blood.";
@@ -230,9 +223,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/circuit/red/off,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "of" = (
 /obj/structure/shuttle/engine/heater,
 /obj/structure/window/reinforced{
@@ -240,30 +231,18 @@
 	},
 /obj/effect/turf_decal/industrial/warning,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "oE" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light/broken{
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
-"pY" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "qu" = (
 /obj/effect/decal/cleanable/robot_debris/limb,
 /turf/open/floor/plating/asteroid/lowpressure,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "qI" = (
 /obj/effect/turf_decal/industrial/warning{
 	dir = 6
@@ -272,9 +251,7 @@
 /obj/machinery/suit_storage_unit/open,
 /obj/machinery/light/small/broken,
 /turf/open/floor/mineral/plastitanium,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "qJ" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4;
@@ -283,35 +260,25 @@
 /obj/effect/turf_decal/industrial/outline,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "ru" = (
 /obj/item/storage/toolbox/syndicate,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "rL" = (
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg2"
 	},
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "sb" = (
 /obj/structure/table/optable,
 /obj/effect/turf_decal/industrial/outline,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "si" = (
 /obj/item/stack/sheet/metal,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "sF" = (
 /obj/structure/fluff/broken_flooring{
 	dir = 4;
@@ -325,70 +292,50 @@
 	},
 /obj/effect/decal/cleanable/shreds,
 /turf/open/floor/mineral/plastitanium/red,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "sS" = (
 /obj/effect/decal/cleanable/greenglow,
 /obj/effect/decal/remains/human,
 /turf/open/floor/plating/asteroid/lowpressure,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "sZ" = (
 /obj/effect/turf_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/stack/sheet/metal,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "tr" = (
 /obj/effect/decal/cleanable/ash,
 /turf/open/floor/plating/asteroid/lowpressure,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "tX" = (
 /obj/effect/decal/cleanable/shreds,
 /turf/open/floor/plating/asteroid/lowpressure,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "ub" = (
 /obj/structure/shuttle/engine/propulsion,
 /obj/effect/turf_decal/industrial/warning,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "uk" = (
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "uC" = (
 /obj/structure/table/reinforced,
 /obj/item/stack/cable_coil/white,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "uY" = (
 /obj/structure/girder/reinforced,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "vy" = (
 /obj/item/stack/sheet/mineral/plastitanium,
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg1"
 	},
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "vD" = (
 /obj/structure/lattice,
 /obj/structure/fluff/broken_flooring{
@@ -396,30 +343,22 @@
 	icon_state = "plating"
 	},
 /turf/open/space/basic,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "wx" = (
 /obj/effect/turf_decal/industrial/warning,
 /turf/open/floor/mineral/plastitanium/red,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "yC" = (
 /obj/effect/turf_decal/industrial/warning{
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium/red,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "yJ" = (
 /obj/item/restraints/handcuffs,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/circuit/red/off,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "yY" = (
 /obj/structure/lattice,
 /obj/structure/fluff/broken_flooring{
@@ -427,55 +366,35 @@
 	icon_state = "plating"
 	},
 /turf/open/space/basic,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "zg" = (
 /obj/structure/table/reinforced,
 /obj/item/assembly/flash,
 /obj/item/assembly/flash,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "zn" = (
 /turf/open/floor/circuit/red/off,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "zN" = (
 /obj/effect/turf_decal/industrial/warning{
 	dir = 9
 	},
 /turf/open/floor/mineral/plastitanium/red,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "zX" = (
 /obj/structure/fluff/broken_flooring{
 	icon_state = "pile"
 	},
 /turf/open/space/basic,
 /area/space)
-"zY" = (
-/obj/effect/turf_decal/industrial/warning{
-	dir = 1
-	},
-/turf/open/floor/mineral/plastitanium/red,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
 "AH" = (
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Dp" = (
 /obj/effect/decal/cleanable/generic,
 /turf/open/floor/plating/asteroid/lowpressure,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "DI" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4;
@@ -483,45 +402,33 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "DP" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1;
 	name = "tactical chair"
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Eh" = (
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg3"
 	},
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Em" = (
 /obj/item/stack/cable_coil/cut/red,
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg3"
 	},
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "EL" = (
 /obj/effect/decal/cleanable/oil,
 /turf/open/floor/plating/asteroid/lowpressure,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Fk" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Fs" = (
 /obj/item/surgicaldrill,
 /obj/item/circular_saw,
@@ -530,25 +437,19 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Fu" = (
 /obj/structure/shuttle/engine/propulsion/right,
 /obj/effect/turf_decal/industrial/warning,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Fw" = (
 /obj/item/clothing/suit/space/syndicate{
 	pixel_x = 16;
 	pixel_y = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "FE" = (
 /obj/structure/table/reinforced,
 /obj/item/stack/cable_coil/yellow{
@@ -563,33 +464,25 @@
 /obj/item/stock_parts/cell/high,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "FS" = (
 /obj/item/tank/internals/emergency_oxygen/double{
 	pixel_x = 16;
 	pixel_y = 6
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "FW" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 8;
 	name = "tactical chair"
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Gm" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Hb" = (
 /obj/structure/window/plasma/reinforced/plastitanium,
 /obj/machinery/door/poddoor/shutters{
@@ -598,9 +491,7 @@
 	},
 /obj/structure/grille,
 /turf/open/floor/plating,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Hv" = (
 /obj/effect/turf_decal/industrial/warning{
 	dir = 9
@@ -608,55 +499,36 @@
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/structure/table_frame,
 /turf/open/floor/mineral/plastitanium/red,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Ig" = (
 /obj/item/stack/cable_coil/cut/red,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Iv" = (
 /mob/living/simple_animal/hostile/carp,
 /turf/open/floor/plating/asteroid/lowpressure,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "IF" = (
 /obj/item/gun/ballistic/automatic/pistol/suppressed,
 /turf/open/floor/plating/asteroid/lowpressure,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "IS" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/broken{
 	dir = 4
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "IV" = (
 /turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Jc" = (
 /turf/closed/wall/r_wall/syndicate,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Jf" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/mob/living/simple_animal/hostile/carp/megacarp{
-	health = 125
-	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Jh" = (
 /obj/effect/turf_decal/industrial/warning{
 	dir = 8
@@ -669,9 +541,7 @@
 /obj/effect/decal/cleanable/greenglow,
 /obj/effect/decal/remains/human,
 /turf/open/floor/mineral/plastitanium/red,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Jq" = (
 /obj/structure/sink{
 	dir = 8;
@@ -681,56 +551,40 @@
 	pixel_x = 30
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Kg" = (
 /obj/effect/turf_decal/industrial/outline,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "KD" = (
 /obj/machinery/light/small/broken,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "KL" = (
 /obj/item/stack/cable_coil/red,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Mz" = (
 /obj/item/cautery,
 /obj/item/scalpel,
 /obj/structure/table/reinforced,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Nt" = (
 /obj/effect/decal/cleanable/glass,
 /obj/item/shard,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "NA" = (
 /obj/structure/lattice,
 /turf/open/space/basic,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "NH" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/stack/sheet/metal,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "OQ" = (
 /obj/structure/fluff/broken_flooring{
 	dir = 1;
@@ -738,22 +592,16 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/basic,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Pa" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Pl" = (
 /obj/structure/table/reinforced,
 /obj/item/mmi/posibrain,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Pu" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4;
@@ -761,60 +609,47 @@
 	},
 /obj/effect/turf_decal/industrial/outline,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Pw" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/circuit/red/off,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "PO" = (
 /obj/structure/chair{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/circuit/red/off,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Qa" = (
 /obj/effect/decal/remains/robot,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/oil,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Qt" = (
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Qu" = (
 /obj/machinery/door/airlock/external{
 	name = "E.V.A. Gear Storage";
 	req_access_txt = "150"
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Qx" = (
 /obj/effect/turf_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
-"QD" = (
-/turf/open/space/basic,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
+"QC" = (
+/obj/effect/turf_decal/industrial/warning{
+	dir = 1
+	},
+/turf/open/floor/mineral/plastitanium/red,
+/area/awaymission/moonoutpost19/main)
 "Rj" = (
 /obj/structure/lattice,
 /obj/structure/fluff/broken_flooring{
@@ -824,25 +659,19 @@
 	dir = 1
 	},
 /turf/open/space/basic,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Ry" = (
 /obj/structure/table_frame,
 /obj/item/stack/sheet/plasteel,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "RL" = (
 /obj/structure/lattice,
 /obj/structure/fluff/broken_flooring{
 	icon_state = "pile"
 	},
 /turf/open/space/basic,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "RO" = (
 /turf/open/space/basic,
 /area/space)
@@ -852,39 +681,29 @@
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg3"
 	},
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "SS" = (
 /obj/effect/decal/cleanable/molten_object/large,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Tb" = (
 /obj/structure/door_assembly/door_assembly_hatch{
 	anchored = 1;
 	broken = 1
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Tp" = (
 /obj/structure/shuttle/engine/propulsion/left,
 /obj/effect/turf_decal/industrial/warning,
 /turf/open/floor/plating/airless,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Ua" = (
 /obj/effect/decal/cleanable/molten_object,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Uj" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4;
@@ -895,9 +714,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Um" = (
 /mob/living/simple_animal/hostile/carp/megacarp{
 	health = 125
@@ -910,15 +727,11 @@
 	},
 /obj/machinery/suit_storage_unit/open,
 /turf/open/floor/mineral/plastitanium,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "UM" = (
 /obj/structure/sign/warning/vacuum/external,
 /turf/closed/wall/r_wall/syndicate,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Va" = (
 /obj/item/stack/sheet/mineral/plastitanium,
 /turf/open/space/basic,
@@ -928,30 +741,22 @@
 	name = "tactical chair"
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Wh" = (
 /obj/effect/decal/cleanable/oil/streak,
 /turf/open/floor/plating/asteroid/lowpressure,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "WA" = (
 /obj/item/retractor,
 /obj/item/hemostat,
 /obj/structure/table/reinforced,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "WB" = (
 /obj/effect/decal/cleanable/robot_debris/old,
 /obj/effect/decal/cleanable/oil,
 /turf/open/floor/plating/asteroid/lowpressure,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "WT" = (
 /obj/machinery/door/poddoor{
 	id = "smindicate";
@@ -968,9 +773,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "Xj" = (
 /mob/living/simple_animal/hostile/carp,
 /turf/open/space/basic,
@@ -978,47 +781,37 @@
 "Xu" = (
 /obj/structure/mecha_wreckage/gygax/dark,
 /turf/open/floor/plating/asteroid/lowpressure,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "XB" = (
 /obj/effect/decal/cleanable/robot_debris/gib,
 /obj/effect/decal/cleanable/oil/slippery,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "XE" = (
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "XK" = (
 /obj/machinery/door/airlock/external{
 	name = "Ready Room";
 	req_access_txt = "150"
 	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "YQ" = (
 /turf/closed/mineral/random/asteroid,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 "ZQ" = (
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/table/reinforced,
 /obj/item/bodypart/l_arm/robot,
-/obj/item/bodypart/l_arm/robot,
+/obj/item/bodypart/l_arm/robot{
+	pixel_x = 5
+	},
 /turf/open/floor/plasteel/dark,
-/area/ruin/unpowered/no_grav{
-	always_unpowered = 1
-	})
+/area/awaymission/moonoutpost19/main)
 
 (1,1,1) = {"
 RO
@@ -1832,7 +1625,7 @@ Eh
 uk
 hr
 rL
-pY
+Jf
 Jc
 kS
 AH
@@ -1894,15 +1687,15 @@ Jc
 RO
 RO
 Jc
-pY
+Jf
 aq
 vD
 AH
-pY
+Jf
 Jc
 zg
 AH
-zY
+QC
 wx
 ZQ
 IV
@@ -1963,12 +1756,12 @@ Jc
 Rj
 AH
 Gm
-pY
+Jf
 KD
 Jc
 FE
 XB
-zY
+QC
 wx
 Pl
 Jc
@@ -2032,7 +1825,7 @@ IV
 Qu
 eB
 IV
-eB
+IV
 fD
 IV
 Jc
@@ -2090,15 +1883,15 @@ vy
 Em
 Jc
 uC
-pY
+Jf
 Vk
 si
 DI
 eB
 Qt
 Ua
-pY
-pY
+Jf
+Jf
 dd
 Jc
 yJ
@@ -2155,15 +1948,15 @@ dF
 NA
 Fk
 Tb
-pY
+Jf
 kj
-pY
-pY
+Jf
+Jf
 NH
 XK
-pY
-pY
-pY
+Jf
+Jf
+Jf
 Jf
 Qx
 nR
@@ -2227,10 +2020,10 @@ IS
 FW
 AH
 eB
-pY
-pY
+Jf
+Jf
 SS
-pY
+Jf
 sZ
 Jc
 zn
@@ -2282,8 +2075,8 @@ RO
 RO
 RO
 RO
-QD
-QD
+RO
+RO
 Fk
 RX
 Jc
@@ -2422,14 +2215,14 @@ RO
 RO
 RO
 Jc
-pY
+Jf
 AH
-pY
-pY
+Jf
+Jf
 AH
 Jc
 Pa
-pY
+Jf
 NA
 Fk
 rL
@@ -2488,7 +2281,7 @@ RO
 RO
 RO
 Jc
-pY
+Jf
 ru
 FS
 Fw
