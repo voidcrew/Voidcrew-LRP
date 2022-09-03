@@ -479,7 +479,7 @@
 /datum/outfit/syndicate_empty/post_equip(mob/living/carbon/human/H)
 	H.faction |= ROLE_SYNDICATE
 
-//shiptest edit start, adding egors updated starfury roles, this should theoritacly not fuck with shit since this code is unused anyways
+//voidcrew edit start, adding egors updated starfury roles, this should theoritacly not fuck with shit since this code is unused anyways
 /obj/effect/mob_spawn/human/syndicate/battlecruiser
 	name = "Syndicate Battlecruiser Ship Operative"
 	short_desc = "You are a crewmember aboard the Syndicate flagship <i>Starfury</i>."

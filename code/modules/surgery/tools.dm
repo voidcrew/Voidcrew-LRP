@@ -1,7 +1,7 @@
 /obj/item/retractor
 	name = "retractor"
 	desc = "Retracts stuff."
-	icon = 'whitesands/icons/obj/surgery.dmi' //SHIPTEST edit: cool and new tools
+	icon = 'whitesands/icons/obj/surgery.dmi' //voidcrew edit: cool and new tools
 	icon_state = "retractor"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -21,7 +21,7 @@
 /obj/item/hemostat
 	name = "hemostat"
 	desc = "You think you have seen this before."
-	icon = 'whitesands/icons/obj/surgery.dmi' //SHIPTEST edit: cool and new tools
+	icon = 'whitesands/icons/obj/surgery.dmi' //voidcrew edit: cool and new tools
 	icon_state = "hemostat"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -42,7 +42,7 @@
 /obj/item/cautery
 	name = "cautery"
 	desc = "This stops bleeding."
-	icon = 'whitesands/icons/obj/surgery.dmi' //SHIPTEST edit: cool and new tools
+	icon = 'whitesands/icons/obj/surgery.dmi' //voidcrew edit: cool and new tools
 	icon_state = "cautery"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -63,7 +63,7 @@
 /obj/item/surgicaldrill
 	name = "surgical drill"
 	desc = "You can drill using this item. You dig?"
-	icon = 'whitesands/icons/obj/surgery.dmi' //SHIPTEST edit: cool and new tools
+	icon = 'whitesands/icons/obj/surgery.dmi' //voidcrew edit: cool and new tools
 	icon_state = "drill"
 	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
@@ -100,7 +100,7 @@
 /obj/item/scalpel
 	name = "scalpel"
 	desc = "Cut, cut, and once more cut."
-	icon = 'whitesands/icons/obj/surgery.dmi' //SHIPTEST edit: cool and new tools
+	icon = 'whitesands/icons/obj/surgery.dmi' //voidcrew edit: cool and new tools
 	icon_state = "scalpel"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
@@ -135,7 +135,7 @@
 /obj/item/circular_saw
 	name = "circular saw"
 	desc = "For heavy duty cutting."
-	icon = 'whitesands/icons/obj/surgery.dmi' //SHIPTEST edit: cool and new tools
+	icon = 'whitesands/icons/obj/surgery.dmi' //voidcrew edit: cool and new tools
 	icon_state = "saw"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'

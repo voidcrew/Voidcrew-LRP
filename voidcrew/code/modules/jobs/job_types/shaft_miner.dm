@@ -38,7 +38,7 @@
 	suit = /obj/item/clothing/suit/space/hardsuit/mining
 	mask = /obj/item/clothing/mask/breath
 
-//Shiptest Outfits
+//voidcrew Outfits
 
 /datum/outfit/job/miner/hazard
 	name = "Asteroid Miner (Hazard)"

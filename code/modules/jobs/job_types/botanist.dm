@@ -34,7 +34,7 @@
 	satchel = /obj/item/storage/backpack/satchel/hyd
 	courierbag = /obj/item/storage/backpack/messenger/hyd
 
-//shiptest!!!!!!!!!!
+//voidcrew!!!!!!!!!!
 /datum/outfit/job/botanist/syndicate/nsv
 	name = "Botanist-Chemist (NSV-M)"
 

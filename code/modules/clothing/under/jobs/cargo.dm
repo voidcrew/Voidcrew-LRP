@@ -52,7 +52,7 @@
 	item_state = "explorer"
 	can_adjust = TRUE
 
-//Shiptest alt jumpsuits
+//voidcrew alt jumpsuits
 
 /obj/item/clothing/under/rank/cargo/miner/hazard
 	desc = "A thick jumpsuit with reflective stripes for hazardous, low-visibility environments. It's coated in a thick layer of asteroid dust."

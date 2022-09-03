@@ -133,7 +133,7 @@
 	helmet_type = /obj/item/clothing/head/radiation
 	storage_type = /obj/item/geiger_counter
 
-//SHIPTEST suits below
+//voidcrew suits below
 
 /obj/machinery/suit_storage_unit/independent/security
 	suit_type = /obj/item/clothing/suit/space/hardsuit/security/independent
@@ -154,7 +154,7 @@
 	helmet_type = /obj/item/clothing/head/helmet/space/pilot/random
 	mask_type = /obj/item/clothing/mask/breath
 
-//End shiptest suits
+//End voidcrew suits
 
 /obj/machinery/suit_storage_unit/open
 	state_open = TRUE

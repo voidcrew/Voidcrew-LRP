@@ -100,7 +100,7 @@
 	backpack_contents = list(/obj/item/clipboard=1, /obj/item/folder/white=1, /obj/item/taperecorder=1)
 //WS Edit End - Alt-Job Titles
 
-//Shiptest outfits
+//voidcrew outfits
 
 /datum/outfit/job/doctor/solgov
 	name = "Medical Doctor (SolGov)"

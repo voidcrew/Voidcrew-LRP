@@ -16,7 +16,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 /*-----------------------------------------------------------------------------*/
 
-/* Shiptest Begin
+/* voidcrew Begin
 
 /area/ai_monitored	//stub defined ai_monitored.dm
 
@@ -1343,4 +1343,4 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/maintenance/external/port/bow
 	name = "Port Bow External Hull Access"
 
-Shiptest End */
+voidcrew End */

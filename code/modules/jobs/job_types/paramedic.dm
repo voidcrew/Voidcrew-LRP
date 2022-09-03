@@ -50,7 +50,7 @@
 
 	uniform = /obj/item/clothing/under/rank/medical/paramedic/emt
 
-//Shiptest outfits
+//voidcrew outfits
 	uniform = /obj/item/clothing/under/solgov
 	accessory = /obj/item/clothing/accessory/armband/medblue
 	shoes = /obj/item/clothing/shoes/combat

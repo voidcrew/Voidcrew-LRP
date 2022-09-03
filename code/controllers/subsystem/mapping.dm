@@ -195,7 +195,7 @@ SUBSYSTEM_DEF(mapping)
 		CHECK_LIST_EXISTS("job_slots")
 		var/datum/map_template/shuttle/S = new(data["map_path"], data["map_name"], TRUE)
 		S.file_name = data["map_path"]
-		S.category = "shiptest"
+		S.category = "voidcrew"
 
 		if(istext(data["map_short_name"]))
 			S.short_name = data["map_short_name"]

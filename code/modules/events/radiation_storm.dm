@@ -16,6 +16,6 @@
 	//sound not longer matches the text, but an audible warning is probably good
 
 /datum/round_event/radiation_storm/start()
-	/// Should point to a central mapzone.weather_controller, one doesn't exist in shiptest
+	/// Should point to a central mapzone.weather_controller, one doesn't exist in voidcrew
 	WARNING("Radiation Storm is not implemented.")
 	return

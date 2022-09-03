@@ -10,6 +10,6 @@
 	var/started = FALSE
 
 /datum/round_event/wizard/lava/start()
-	/// Should point to a central mapzone.weather_controller, one doesn't exist in shiptest
+	/// Should point to a central mapzone.weather_controller, one doesn't exist in voidcrew
 	WARNING("Wizard Floor is Lava event is not implemented.")
 	return

@@ -99,9 +99,9 @@
 	if(movement_force)
 		M.movement_force = movement_force.Copy()
 
-/// Shiptest-specific main maps. Do not make subtypes! Make a json in /_maps/configs/ instead.
-/datum/map_template/shuttle/shiptest
-	category = "shiptest"
+/// voidcrew-specific main maps. Do not make subtypes! Make a json in /_maps/configs/ instead.
+/datum/map_template/shuttle/voidcrew
+	category = "voidcrew"
 
 /// Mining shuttles
 /datum/map_template/shuttle/mining

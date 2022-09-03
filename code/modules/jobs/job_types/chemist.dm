@@ -89,7 +89,7 @@
 
 	backpack_contents = list(/obj/item/clothing/glasses/science=1)
 
-//Shiptest
+//voidcrew
 /datum/outfit/job/chemist/gec
 	name = "Chemist (GEC)"
 

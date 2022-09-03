@@ -162,7 +162,7 @@
 	name = "Strange Ship"
 	description = "A ship seemingly lost, drifting along the stars. This thing looks like it belongs in ancient times."
 
-/* shiptest: Replaced with dark_glade ruin
+/* voidcrew: Replaced with dark_glade ruin
 /datum/map_template/ruin/space/way_home
 	id = "way-home"
 	suffix = "way_home.dmm"
@@ -177,7 +177,7 @@
 	description = "Until very recently this pirate radio station was used to harangue local space stations over a variety of perceived \"ethics violations\". \
 	It seems like someone finally got sick of it, but the equipment still works."
 
-/* shiptest: derelict is too big. we're commenting it out for now
+/* voidcrew: derelict is too big. we're commenting it out for now
 /datum/map_template/ruin/space/thederelict
 	id = "thederelict"
 	suffix = "thederelict.dmm"

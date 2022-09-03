@@ -375,7 +375,7 @@
 				H.adjustOrganLoss(ORGAN_SLOT_BRAIN, 60, 80)
 			message_admins("[key_name_admin(holder)] made everybody brain damaged")
 		if("floorlava")
-			/// Should point to a central mapzone.weather_controller, one doesn't exist in shiptest
+			/// Should point to a central mapzone.weather_controller, one doesn't exist in voidcrew
 			WARNING("Floor lava bus is not implemented.")
 			return
 		if("anime")

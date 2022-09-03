@@ -502,7 +502,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	if(cultslurring)
 		cultslurring = max(cultslurring-1, 0)
 
-	if(clockcultslurring) //Shiptest edit
+	if(clockcultslurring) //voidcrew edit
 		clockcultslurring = max(clockcultslurring-1, 0)
 
 	if(silent)

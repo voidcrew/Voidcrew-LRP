@@ -344,7 +344,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(cultslurring)
 		message = cultslur(message)
 
-	if(clockcultslurring) //Shiptest edit
+	if(clockcultslurring) //voidcrew edit
 		message = CLOCK_CULT_SLUR(message)
 
 

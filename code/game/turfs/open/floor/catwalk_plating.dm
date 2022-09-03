@@ -20,7 +20,7 @@
 
 /turf/open/floor/plating/catwalk_floor/Initialize(mapload, inherited_virtual_z)
 	. = ..()
-	update_overlays() //shiptest edit, missing refactor
+	update_overlays() //voidcrew edit, missing refactor
 
 /turf/open/floor/plating/catwalk_floor/update_overlays()
 	. = ..()
@@ -33,12 +33,12 @@
 /turf/open/floor/plating/catwalk_floor/screwdriver_act(mob/living/user, obj/item/tool)
 	. = ..()
 	covered = !covered
-	to_chat(user, "[!covered ? "cover removed" : "cover added"]") //shiptest edit, baloon alerts bad
+	to_chat(user, "[!covered ? "cover removed" : "cover added"]") //voidcrew edit, baloon alerts bad
 	update_overlays() //missing refactor 2
 
 /turf/open/floor/plating/catwalk_floor/crowbar_act(mob/living/user, obj/item/I)
 	if(covered)
-		to_chat(user, "Remove the cover first!") //shiptest edit, baloon alerts bad part two
+		to_chat(user, "Remove the cover first!") //voidcrew edit, baloon alerts bad part two
 		return FALSE
 	else //edit, not sure how else to get it to work
 		I.play_tool_sound(src, 80)

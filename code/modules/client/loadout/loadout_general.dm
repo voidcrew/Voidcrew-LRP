@@ -144,7 +144,7 @@
 	path = /obj/item/toy/plush/knight
 	cost = 2000 //imagine not being able to afford the marketable plushes
 
-// Shiptest edit
+// voidcrew edit
 /datum/gear/amongus
 	display_name = "toy, suspicious pill plushie"
 	path = /obj/item/toy/plush/among
@@ -166,7 +166,7 @@
 	path = /obj/item/table_bell/brass
 	cost = 100000 //yes
 
-// End Shiptest
+// End voidcrew
 
 /datum/gear/flashlight
 	display_name = "tool, flashlight"

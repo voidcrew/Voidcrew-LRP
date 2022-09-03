@@ -86,7 +86,7 @@
 
 	backpack_contents = list(/obj/item/storage/belt/utility/full=1)
 
-//Shiptest Outfits
+//voidcrew Outfits
 
 /datum/outfit/job/roboticist/technician
 	name = "Mech Technician (Industrial)"

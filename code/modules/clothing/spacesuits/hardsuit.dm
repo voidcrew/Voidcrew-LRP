@@ -931,7 +931,7 @@
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	actions_types = list()
 
-///////////////Shiptest Additions////////////////////
+///////////////voidcrew Additions////////////////////
 
 //Softsuit helmet light framework
 /obj/item/clothing/head/helmet/space/light

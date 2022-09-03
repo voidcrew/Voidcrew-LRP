@@ -87,7 +87,7 @@
 	suit_store = null
 	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/storage/firstaid/medical=1, /obj/item/flashlight/pen=1)
 
-//Shiptest!
+//voidcrew!
 /datum/outfit/job/cmo/syndicate/nsv
 	name = "Medical Director (NSV-M)"
 

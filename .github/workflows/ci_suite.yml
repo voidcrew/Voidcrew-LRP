@@ -38,7 +38,7 @@ jobs:
           tools/bootstrap/python -c ''
       - name: Run Linters
         run: |
-          bash tools/ci/check_filedirs.sh shiptest.dme
+          bash tools/ci/check_filedirs.sh voidcrew.dme
           bash tools/ci/check_changelogs.sh
           bash tools/ci/check_grep.sh
           bash tools/ci/check_misc.sh
@@ -75,4 +75,4 @@ jobs:
           source $HOME/BYOND/byond/bin/byondsetup
           tools/bootstrap/python tools/ci/template_dm_generator.py
           tgui/bin/tgui --build
-          bash tools/ci/dm.sh -DCIBUILDING -DCITESTING -DALL_MAPS shiptest.dme
+          bash tools/ci/dm.sh -DCIBUILDING -DCITESTING -DALL_MAPS voidcrew.dme

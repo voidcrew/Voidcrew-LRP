@@ -72,7 +72,7 @@
 
 	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced=1, /obj/item/storage/belt/utility/atmostech=1)
 
-//Shiptest
+//voidcrew
 /datum/outfit/job/atmos/gec
 	name = "Atmospheric Technician (GEC)"
 

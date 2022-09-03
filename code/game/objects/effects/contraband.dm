@@ -631,7 +631,7 @@
 	desc = "This informational poster teaches the viewer what carbon dioxide is."
 	icon_state = "poster35_legit"
 
-//shiptest stuff, retro posters. very inspired by the early apple logos and 70s-90s tech logos.
+//voidcrew stuff, retro posters. very inspired by the early apple logos and 70s-90s tech logos.
 /obj/structure/sign/poster/retro
 	poster_item_name = "retro poster"
 	poster_item_desc = "A really old Nanotrasen poster that probably sells for a lot now days. It comes with adhesive backing, for easy pinning to any vertical surface."

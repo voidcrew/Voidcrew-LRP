@@ -13,7 +13,7 @@
 	description = "Blown up by an unfortunate accident."
 	suffix = "icemoon_surface_engioutpost.dmm"
 
-/datum/map_template/ruin/icemoon/slimerancher //Shiptest edit
+/datum/map_template/ruin/icemoon/slimerancher //voidcrew edit
 	name = "Slime Ranch"
 	id = "slimerancher"
 	description = "Slime ranchin with the bud."

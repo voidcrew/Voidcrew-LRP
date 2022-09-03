@@ -7,7 +7,7 @@
 To develop and maintain a separate codebase is a big task, that many have failed and suffered the consequences of, such as outdated, and messy code.
 It's not necessarily the fault of lack of skill of the people maintaining it, merely the lack of resources and how much continuous effort such an endeavor takes.
 
-One of the solutions for such, is to base our server on a solid codebase, that is primarily maintained by somebody else, in this case shiptest, and insert our content in a modular fashion, while following the general direction of the upstream, mirroring any changes they do for parity.
+One of the solutions for such, is to base our server on a solid codebase, that is primarily maintained by somebody else, in this case voidcrew, and insert our content in a modular fashion, while following the general direction of the upstream, mirroring any changes they do for parity.
 
 Git, as a version control system, is very useful, however it is just a very methodical thing, that follows its many algorithms, that sadly cannot always intelligently resolve certain changes in the code in an unambiguous way, giving us conflicts, that need to be resolved in a manual fashion.
 
@@ -67,7 +67,7 @@ And then you'll want to establish your core folder that you'll be working out of
 
 ### Maps
 
-Any new Voidcrew specific shuttles must be placed `_maps/shuttles/shiptest/voidcrew`
+Any new Voidcrew specific shuttles must be placed `_maps/shuttles/voidcrew/voidcrew`
 
 If you wanted to add some location to the CentCom z-level, a'la whatever off-station location that isn't meant to be reachable or escapable through normal means, we have our own separate z-level, in `_maps/map_files/generic/Offstation_voidcrew.dmm`. That z-level, by design, has the same traits as the CentCom z-level, meaning that teleporters and a lot of other things will simply refuse to work there.
 
@@ -130,7 +130,7 @@ MODULE ID: <!-- uppercase, underscore_connected name of your module, that you us
 
 <!-- Here, try to describe what your PR does, what features it provides and any other directly useful information -->
 
-### Shiptest Proc/File Changes:
+### voidcrew Proc/File Changes:
 
 - N/A
 <!-- If you had to edit, or append to any core procs in the process of making this PR, list them here. APPEND: Also, please include any files that you've changed. .DM files that is. -->

@@ -22,7 +22,7 @@
 	should_squeak = FALSE
 //WS end
 
-/obj/item/toy/plush/among //Shiptest begin, with our debut plushy
+/obj/item/toy/plush/among //voidcrew begin, with our debut plushy
 	name = "amoung pequeño"
 	desc = "A little pill shaped guy, with a price tag of 3€."
 	icon = 'whitesands/icons/obj/plushes.dmi'
