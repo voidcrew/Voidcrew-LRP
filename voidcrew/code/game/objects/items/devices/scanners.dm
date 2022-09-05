@@ -58,12 +58,16 @@
 	else if(stored_research.scanned_mobs.Find(attacked_mob.name))
 		playsound(loc, 'sound/effects/zzzt.ogg', 25, TRUE)
 		say("Scan failed. Already scanned!")
-	else
+	else if(do_after(user, 10))
 		stored_research.scanned_mobs.Add(attacked_mob.name)
 		getvalue(attacked_mob)
 		stored_research.add_point_list(list(TECHWEB_POINT_TYPE_GENERIC = value))
 		say("Sucessfully scanned. [value] points added to database.")
 		playsound(loc, 'sound/effects/adminhelp.ogg', 25, TRUE) //lul
+	else
+		playsound(src, 'sound/machines/buzz-sigh.ogg', 20)
+		say("Must be stationary to scan!")
+		return
 
 /obj/item/bio_scanner/AltClick(mob/user)
 	stored_research = null
