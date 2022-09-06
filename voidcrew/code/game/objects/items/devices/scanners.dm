@@ -76,19 +76,19 @@
 /obj/item/bio_scanner/proc/getvalue(mob/living/valued_customer) // Copy pasted from experimental_disection.dm I'll be working on a PR soon to give /mob a new var that hold its point reward, so no more of this bs
 	var/mob/living/target = valued_customer
 	if(isalienroyal(target))
-		value = (reward*10)
+		value = reward * 10
 	else if(isalienadult(target))
-		value = (reward*5)
+		value = reward * 5
 	else if(ismonkey(target))
-		value = (reward*0.5)
+		value = reward  *0.5
 	else if(ishuman(target))
 		var/mob/living/carbon/human/valued_human = target
 		if(valued_human.dna?.species)
 			if(isabductor(valued_human))
-				value = (reward*4)
+				value = reward * 4
 			else if(isgolem(valued_human) || iszombie(valued_human))
-				value = (reward*3)
+				value = reward * 3
 			else if(isjellyperson(valued_human) || ispodperson(valued_human))
-				value = (reward*2)
+				value = reward * 2
 	else
-		value = (reward * 0.6)
+		value = reward * 0.6
