@@ -1522,7 +1522,7 @@
 
 /datum/supply_pack/science/rdhardsuit
 	name = "Research Director's Hardsuit Crate"
-	desc = "A spare Research Director's Hardsuit in case the first one wasn't explosion-proof enough"
+	desc = "A spare Research Director's Hardsuit in case the first one wasn't explosion-proof enough."
 	cost = 100000
 	contains = list(/obj/item/clothing/suit/space/hardsuit/rd)
 	crate_name = "research director's hardsuit crate"
