@@ -1,11 +1,13 @@
-/obj/machinery/rnd/server/attackby(obj/item/O, mob/user, params)
+/obj/machinery/rnd/server/multitool_act(obj/item/multitool, mob/user, params)
 	if(istype(O, /obj/item/multitool))
-		var/obj/item/multitool/multi = O
+		var/obj/item/multitool/multi = multitool
 		multi.buffer = src
-		to_chat(user, "<span class='notice'>[src] stored in [O].</span>")
+		to_chat(user, "<span class='notice'>[src] stored in [multitool].</span>")
 		return TRUE
-	if(istype(O, /obj/item/bio_scanner))
-		var/obj/item/bio_scanner/scanner = O
+
+/obj/machinery/rnd/server/attackby(obj/item/object, mob/living/user, params)
+	if(istype(object, /obj/item/bio_scanner))
+		var/obj/item/bio_scanner/scanner = object
 		if(!scanner.stored_research)
 			scanner.stored_research += stored_research
 			visible_message("The servers status display briefly flashes: \"CONNECTED\".")

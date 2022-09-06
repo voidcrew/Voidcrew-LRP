@@ -73,8 +73,8 @@
 	stored_research = null
 	say("Cleared linked techweb!")
 
-/obj/item/bio_scanner/proc/getvalue(mob/living/M) // Copy pasted from experimental_disection.dm I'll be working on a PR soon to give /mob a new var that hold its point reward, so no more of this bs
-	var/mob/living/target = M
+/obj/item/bio_scanner/proc/getvalue(mob/living/valued_customer) // Copy pasted from experimental_disection.dm I'll be working on a PR soon to give /mob a new var that hold its point reward, so no more of this bs
+	var/mob/living/target = valued_customer
 	if(isalienroyal(target))
 		value = (reward*10)
 	else if(isalienadult(target))
@@ -82,13 +82,13 @@
 	else if(ismonkey(target))
 		value = (reward*0.5)
 	else if(ishuman(target))
-		var/mob/living/carbon/human/H = target
-		if(H?.dna?.species)
-			if(isabductor(H))
+		var/mob/living/carbon/human/valued_human = target
+		if(valued_human.dna?.species)
+			if(isabductor(valued_human))
 				value = (reward*4)
-			else if(isgolem(H) || iszombie(H))
+			else if(isgolem(valued_human) || iszombie(valued_human))
 				value = (reward*3)
-			else if(isjellyperson(H) || ispodperson(H))
+			else if(isjellyperson(valued_human) || ispodperson(valued_human))
 				value = (reward*2)
 	else
 		value = (reward * 0.6)
