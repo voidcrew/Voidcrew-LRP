@@ -241,7 +241,8 @@
 	icon_state = "engineering"
 	build_path = /obj/machinery/power/port_gen/pacman/crude
 	req_components = list(/obj/item/stack/ore/iron = 2,
-	/obj/item/stack/ore/gold = 3)
+	/obj/item/stack/ore/gold = 3,
+	/obj/item/stock_parts/capacitor = 1)
 	needs_anchored = FALSE
 
 /obj/item/circuitboard/machine/pacman

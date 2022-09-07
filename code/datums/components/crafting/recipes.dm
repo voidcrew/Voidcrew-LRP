@@ -405,6 +405,14 @@
 	category = CAT_MISC
 
 /datum/crafting_recipe/helm
+	name = "Crude Capacitor"
+	result = /obj/item/stock_parts/capacitor
+	reqs = list(/obj/item/stack/ore/iron = 2,
+	/obj/item/stack/ore/gold = 2)
+	time = 10
+	category = CAT_MISC
+
+/datum/crafting_recipe/helm
 	name = "Crude Helm Board"
 	result = /obj/item/circuitboard/computer/shuttle/helm
 	reqs = list(/obj/item/circuitboard/machine/crude_board_component = 2,
