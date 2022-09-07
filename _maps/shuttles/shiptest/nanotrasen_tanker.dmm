@@ -489,7 +489,8 @@
 /area/ship/bridge)
 "ki" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector/atmos/atmos_waste{
-	dir = 4
+	dir = 4;
+	id = null
 	},
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
@@ -2511,9 +2512,7 @@
 /area/ship/crew/dorm)
 "Wh" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/security{
-	id = "Patient1"
-	},
+/obj/machinery/door/airlock/security,
 /turf/open/floor/carpet/red,
 /area/ship/medical)
 "Wo" = (
