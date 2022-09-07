@@ -424,7 +424,6 @@
 /obj/structure/toilet{
 	dir = 8
 	},
-/obj/structure/window/reinforced/survival_pod/spawner/west,
 /obj/machinery/door/window/survival_pod{
 	dir = 1
 	},
@@ -555,12 +554,6 @@
 /obj/machinery/door/poddoor/shutters{
 	id = "Tankerbay"
 	},
-/obj/machinery/power/shieldwallgen/atmos{
-	anchored = 1;
-	id = "Tankerholo";
-	locked = 1;
-	dir = 1
-	},
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -570,6 +563,7 @@
 /obj/machinery/atmospherics/components/unary/portables_connector/visible/layer4{
 	dir = 1
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
 "lW" = (
@@ -1254,6 +1248,7 @@
 /obj/machinery/atmospherics/components/binary/valve/layer2{
 	dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
 "AF" = (
@@ -1628,6 +1623,7 @@
 /obj/machinery/door/poddoor/shutters{
 	id = "Tankerbay"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
 "IC" = (
@@ -1898,12 +1894,13 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/port_gen/pacman/super,
 /obj/item/stack/sheet/mineral/uranium/five,
 /obj/item/wrench/crescent,
 /obj/structure/sign/poster/contraband/power{
 	pixel_x = -32
 	},
+/obj/machinery/power/port_gen/pacman,
+/obj/item/stack/sheet/mineral/plasma/fifty,
 /turf/open/floor/mineral/titanium/yellow,
 /area/ship/engineering/engine)
 "Mz" = (
@@ -2212,15 +2209,10 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/power/shieldwallgen/atmos{
-	anchored = 1;
-	id = "Tankerholo";
-	locked = 1;
-	dir = 3
-	},
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
 "QB" = (
@@ -2485,12 +2477,6 @@
 	pixel_y = -25;
 	dir = 1
 	},
-/obj/machinery/button/shieldwallgen{
-	id = "Tankerholo";
-	pixel_x = -12;
-	pixel_y = -25;
-	dir = 1
-	},
 /obj/machinery/meter/atmos/layer4,
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
@@ -2529,10 +2515,10 @@
 /turf/open/floor/wood/ebony,
 /area/ship/crew/dorm)
 "Wh" = (
-/obj/machinery/door/airlock/security/brig/glass{
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/security{
 	id = "Patient1"
 	},
-/obj/machinery/door/firedoor,
 /turf/open/floor/carpet/red,
 /area/ship/medical)
 "Wo" = (
