@@ -31,10 +31,13 @@
 /turf/open/floor/plasteel/grimy,
 /area/ship/crew/canteen)
 "ch" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/cryopod,
-/turf/open/floor/plating,
-/area/ship/bridge)
+/obj/machinery/door/window/southleft{
+	icon_state = "right";
+	obj_integrity = 75;
+	name = "Bar access door"
+	},
+/turf/open/floor/plasteel/grimy,
+/area/ship/crew/canteen)
 "cm" = (
 /obj/structure/girder/displaced,
 /turf/open/floor/plating,
@@ -107,11 +110,11 @@
 	},
 /area/ship/construction)
 "hQ" = (
-/obj/structure/table/wood/bar,
 /obj/item/storage/fancy/cigarettes/cigpack_robust,
 /obj/item/cigbutt{
 	pixel_x = 6
 	},
+/obj/structure/table/wood,
 /turf/open/floor/plasteel/grimy,
 /area/ship/crew/canteen)
 "hU" = (
@@ -211,7 +214,10 @@
 /turf/closed/wall/rust,
 /area/ship/bridge)
 "oq" = (
-/obj/item/chair/stool/bar,
+/obj/item/chair/stool/bar{
+	dir = 1;
+	pixel_x = -14
+	},
 /obj/item/stack/rods{
 	amount = 2
 	},
@@ -289,13 +295,13 @@
 /turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
 "vj" = (
-/obj/machinery/door/window/southleft{
-	name = "Bar_new";
-	icon_state = "right";
-	obj_integrity = 75
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/cryopod,
+/obj/machinery/computer/cryopod{
+	pixel_x = 32
 	},
-/turf/open/floor/plasteel/grimy,
-/area/ship/crew/canteen)
+/turf/open/floor/plating,
+/area/ship/bridge)
 "vk" = (
 /obj/machinery/suit_storage_unit/open,
 /turf/open/floor/wood/maple,
@@ -320,16 +326,27 @@
 /turf/closed/wall,
 /area/ship/crew/canteen)
 "xa" = (
-/obj/machinery/light/built,
-/obj/item/light/tube/broken,
-/turf/open/floor/wood/cold,
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c1000,
+/obj/item/gun/ballistic/shotgun/doublebarrel,
+/obj/item/ammo_casing/shotgun/laserslug,
+/obj/item/ammo_casing/shotgun/laserslug,
+/obj/item/ammo_casing/shotgun/laserslug,
+/obj/item/storage/belt/bandolier,
+/obj/item/ammo_casing/shotgun/laserslug,
+/obj/structure/safe{
+	icon_state = "floorsafe"
+	},
+/turf/closed/wall,
 /area/ship/crew/canteen)
 "xk" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/computer/cryopod,
-/turf/closed/wall/rust,
-/area/ship/bridge)
+/obj/item/chair/stool/bar{
+	pixel_y = 6;
+	pixel_x = 6
+	},
+/turf/open/floor/wood/maple,
+/area/ship/crew/canteen)
 "yv" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/open/floor/plating,
@@ -380,17 +397,18 @@
 /turf/open/floor/plating,
 /area/ship/crew/canteen)
 "CD" = (
-/obj/structure/cable{
-	icon_state = "0-4"
+/obj/machinery/power/port_gen/pacman{
+	anchored = 1;
+	can_be_unanchored = 1
 	},
-/obj/structure/rack,
-/obj/item/storage/bag/ore,
-/obj/item/storage/bag/ore,
-/obj/item/pickaxe,
-/obj/item/pickaxe,
-/obj/item/mining_scanner,
-/obj/item/mining_scanner,
-/obj/item/stack/marker_beacon/thirty,
+/obj/effect/decal/cleanable/plasma,
+/obj/effect/decal/cleanable/oil,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/open/floor/plating,
 /area/ship/bridge)
 "Ef" = (
@@ -615,8 +633,9 @@
 /turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
 "Tb" = (
-/obj/structure/table/wood/bar,
-/turf/open/floor/plasteel/grimy,
+/obj/machinery/light/built,
+/obj/item/light/tube/broken,
+/turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
 "Ti" = (
 /turf/open/floor/plating,
@@ -626,16 +645,9 @@
 /turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
 "Tx" = (
-/obj/machinery/power/port_gen/pacman{
-	anchored = 1;
-	can_be_unanchored = 1
-	},
-/obj/effect/decal/cleanable/oil,
-/obj/effect/decal/cleanable/plasma,
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/turf/open/floor/plating,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/closed/wall/rust,
 /area/ship/bridge)
 "TN" = (
 /obj/effect/decal/cleanable/dirt,
@@ -675,9 +687,19 @@
 /turf/open/floor/plating,
 /area/ship/crew/canteen)
 "Vr" = (
-/obj/item/storage/secure/safe,
-/turf/closed/wall,
-/area/ship/crew/canteen)
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/structure/rack,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/stack/marker_beacon/thirty,
+/obj/item/t_scanner/adv_mining_scanner/lesser,
+/obj/item/t_scanner/adv_mining_scanner/lesser,
+/turf/open/floor/plating,
+/area/ship/bridge)
 "We" = (
 /obj/effect/decal/cleanable/glass,
 /turf/closed/mineral/random/asteroid,
@@ -691,8 +713,8 @@
 /turf/open/floor/plating,
 /area/ship/bridge)
 "Xg" = (
-/obj/item/chair/stool/bar,
-/turf/open/floor/wood/maple,
+/obj/structure/table/wood,
+/turf/open/floor/plasteel/grimy,
 /area/ship/crew/canteen)
 "Ya" = (
 /obj/structure/cable{
@@ -749,32 +771,6 @@
 IX
 IX
 IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-"}
-(2,1,1) = {"
-IX
-IX
-IX
-IX
 hr
 bg
 IX
@@ -793,10 +789,8 @@ LR
 zr
 Fg
 IX
-IX
 "}
-(3,1,1) = {"
-IX
+(2,1,1) = {"
 IX
 IX
 Vl
@@ -814,14 +808,12 @@ GE
 pM
 Ws
 Px
-CD
+Vr
 mc
 zr
 IX
-IX
 "}
-(4,1,1) = {"
-IX
+(3,1,1) = {"
 IX
 IX
 bg
@@ -843,10 +835,8 @@ le
 FC
 zr
 HQ
-IX
 "}
-(5,1,1) = {"
-IX
+(4,1,1) = {"
 IX
 KX
 bg
@@ -868,10 +858,8 @@ Ti
 wk
 lP
 iW
-IX
 "}
-(6,1,1) = {"
-IX
+(5,1,1) = {"
 IX
 bg
 bg
@@ -890,23 +878,21 @@ Lh
 hU
 eC
 Ye
-Tx
+CD
 zX
 iW
-IX
 "}
-(7,1,1) = {"
-IX
+(6,1,1) = {"
 IX
 bg
 bg
-Vr
+xa
 Yg
 wA
 tr
 RK
 Yo
-Xg
+xk
 Ef
 FQ
 Ub
@@ -918,10 +904,8 @@ Ti
 sw
 zr
 HQ
-IX
 "}
-(8,1,1) = {"
-IX
+(7,1,1) = {"
 bg
 bg
 bg
@@ -930,23 +914,21 @@ Yg
 KL
 Ns
 cd
-Tb
+Xg
 Ab
 Ef
 Zo
 aZ
 cm
-ch
+vj
 Ti
 Ti
 Ti
 ga
 zr
 IX
-IX
 "}
-(9,1,1) = {"
-IX
+(8,1,1) = {"
 KX
 Vl
 bg
@@ -955,23 +937,21 @@ Oy
 nq
 zt
 ea
-vj
+ch
 mN
 Ef
 Tp
-xa
+Tb
 eq
-xk
+Tx
 Hb
 AU
 SI
 zr
 Fg
 IX
-IX
 "}
-(10,1,1) = {"
-IX
+(9,1,1) = {"
 IX
 hr
 bg
@@ -993,10 +973,8 @@ IX
 IX
 IX
 IX
-IX
 "}
-(11,1,1) = {"
-IX
+(10,1,1) = {"
 IX
 IX
 MD
@@ -1018,10 +996,8 @@ IX
 IX
 IX
 IX
-IX
 "}
-(12,1,1) = {"
-IX
+(11,1,1) = {"
 IX
 IX
 IX
@@ -1043,10 +1019,8 @@ IX
 IX
 IX
 IX
-IX
 "}
-(13,1,1) = {"
-IX
+(12,1,1) = {"
 IX
 IX
 IX
@@ -1068,10 +1042,8 @@ IX
 IX
 IX
 IX
-IX
 "}
-(14,1,1) = {"
-IX
+(13,1,1) = {"
 IX
 IX
 IX
@@ -1093,6 +1065,28 @@ IX
 IX
 IX
 IX
+"}
+(14,1,1) = {"
+IX
+IX
+IX
+IX
+KX
+bg
+bg
+KX
+bg
+KX
+Vl
+Vl
+bg
+bg
+Vl
+IX
+IX
+IX
+IX
+IX
 IX
 "}
 (15,1,1) = {"
@@ -1101,32 +1095,6 @@ IX
 IX
 IX
 IX
-KX
-bg
-bg
-KX
-bg
-KX
-Vl
-Vl
-bg
-bg
-Vl
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-"}
-(16,1,1) = {"
-IX
-IX
-IX
-IX
-IX
-IX
 hr
 bg
 IX
@@ -1136,32 +1104,6 @@ IX
 hr
 hr
 hr
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-"}
-(17,1,1) = {"
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
 IX
 IX
 IX
