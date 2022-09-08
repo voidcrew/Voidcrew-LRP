@@ -82,7 +82,7 @@
 	icon = 'icons/obj/clothing/under/medical.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/under/medical.dmi'
 
-/obj/item/clothing/under/suit/cmo/skirt
+/obj/item/clothing/under/rank/medical/suit/cmo/skirt
 	name = "medical director skirtsuit"
 	desc = "A skirtsuit with medical colors, meant to be worn by those who lead the medical department."
 	icon_state = "medical_director_skirt"
