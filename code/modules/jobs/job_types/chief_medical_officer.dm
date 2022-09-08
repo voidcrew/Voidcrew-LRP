@@ -65,7 +65,7 @@
 /datum/outfit/job/cmo/medicaldirector
 	name = "Chief Medical Officer (Medical Director)"
 
-	uniform = /obj/item/clothing/under/suit/cmo
+	uniform = /obj/item/clothing/under/rank/medical/suit/cmo
 	alt_uniform = null
 	shoes = /obj/item/clothing/shoes/laceup
 	suit = /obj/item/clothing/suit/toggle/lawyer/cmo
