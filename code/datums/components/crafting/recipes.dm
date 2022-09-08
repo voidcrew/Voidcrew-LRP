@@ -404,7 +404,7 @@
 	time = 25
 	category = CAT_MISC
 
-/datum/crafting_recipe/helm
+/datum/crafting_recipe/crude_capacitor
 	name = "Crude Capacitor"
 	result = /obj/item/stock_parts/capacitor
 	reqs = list(/obj/item/stack/ore/iron = 2,
