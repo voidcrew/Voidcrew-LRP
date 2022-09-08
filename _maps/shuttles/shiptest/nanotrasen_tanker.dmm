@@ -207,7 +207,6 @@
 /area/ship/bridge)
 "fN" = (
 /obj/effect/spawner/structure/window/shuttle,
-/obj/structure/grille,
 /obj/machinery/door/poddoor/shutters{
 	id = 48
 	},
@@ -472,7 +471,6 @@
 /area/ship/engineering/engine)
 "jT" = (
 /obj/effect/spawner/structure/window/shuttle,
-/obj/structure/grille,
 /obj/machinery/door/poddoor/shutters{
 	id = 48
 	},
@@ -674,7 +672,6 @@
 /area/ship/crew/dorm)
 "or" = (
 /obj/effect/spawner/structure/window/shuttle,
-/obj/structure/grille,
 /obj/machinery/door/poddoor/shutters{
 	id = 48
 	},
@@ -1562,7 +1559,6 @@
 /area/ship/crew/dorm)
 "Hy" = (
 /obj/effect/spawner/structure/window/shuttle,
-/obj/structure/grille,
 /obj/machinery/door/poddoor/shutters{
 	id = 48
 	},
@@ -2219,7 +2215,6 @@
 /area/ship/crew/janitor)
 "QD" = (
 /obj/effect/spawner/structure/window/shuttle,
-/obj/structure/grille,
 /obj/machinery/door/poddoor/shutters{
 	id = 48
 	},
@@ -2512,7 +2507,9 @@
 /area/ship/crew/dorm)
 "Wh" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/security,
+/obj/machinery/door/airlock/security{
+	id = "Patient1"
+	},
 /turf/open/floor/carpet/red,
 /area/ship/medical)
 "Wo" = (
@@ -2581,7 +2578,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/holopad,
+/obj/machinery/holopad/emergency/command,
 /turf/open/floor/plasteel/patterned,
 /area/ship/bridge)
 "Yr" = (
