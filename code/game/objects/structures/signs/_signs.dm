@@ -75,6 +75,7 @@
 	if(type != /obj/structure/sign) //If it's still just a basic sign backing, we can (and should) skip some of the below variable transfers.
 		unwrenched_sign.name = name //Copy over the sign structure variables to the sign item we're creating when we unwrench a sign.
 		unwrenched_sign.desc = "[desc] It can be placed on a wall."
+		unwrenched_sign.icon = icon
 		unwrenched_sign.icon_state = icon_state
 		unwrenched_sign.sign_path = type
 	unwrenched_sign.obj_integrity = obj_integrity //Transfer how damaged it is.
