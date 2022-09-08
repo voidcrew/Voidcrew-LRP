@@ -31,11 +31,11 @@
 	name = "Biological Scanner"
 	desc = "A small device that performs a detailed scan of various living or descesed beings and uploads the collected data to a connected research server."
 	icon = 'icons/obj/device.dmi'
-	icon_state = "forensicnew" // should be temp
+	icon_state = "pinpointer_hunter"
 	w_class = WEIGHT_CLASS_SMALL
-	item_state = "electronic" // should be temp
-	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi' // should be temp
-	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi' // should be temp
+	item_state = "electronic"
+	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
 	flags_1 = CONDUCT_1
 	item_flags = NOBLUDGEON
 	slot_flags = ITEM_SLOT_BELT
@@ -74,15 +74,14 @@
 	say("Cleared linked techweb!")
 
 /obj/item/bio_scanner/proc/getvalue(mob/living/valued_customer) // Copy pasted from experimental_disection.dm I'll be working on a PR soon to give /mob a new var that hold its point reward, so no more of this bs
-	var/mob/living/target = valued_customer
-	if(isalienroyal(target))
+	if(isalienroyal(valued_customer))
 		value = reward * 10
-	else if(isalienadult(target))
+	else if(isalienadult(valued_customer))
 		value = reward * 5
-	else if(ismonkey(target))
-		value = reward  *0.5
-	else if(ishuman(target))
-		var/mob/living/carbon/human/valued_human = target
+	else if(ismonkey(valued_customer))
+		value = reward  * 0.5
+	else if(ishuman(valued_customer))
+		var/mob/living/carbon/human/valued_human = valued_customer
 		if(valued_human.dna?.species)
 			if(isabductor(valued_human))
 				value = reward * 4
