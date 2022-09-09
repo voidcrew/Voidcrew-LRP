@@ -1,8 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "au" = (
-/obj/machinery/vending/wallmed,
-/turf/closed/wall,
-/area/ship/crew/canteen)
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/closed/wall/rust,
+/area/ship/bridge)
 "aM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/glass/plasma,
@@ -31,12 +32,19 @@
 /turf/open/floor/plasteel/grimy,
 /area/ship/crew/canteen)
 "ch" = (
-/obj/item/storage/fancy/cigarettes/cigpack_robust,
-/obj/item/cigbutt{
-	pixel_x = 6
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c1000,
+/obj/item/gun/ballistic/shotgun/doublebarrel,
+/obj/item/ammo_casing/shotgun/laserslug,
+/obj/item/ammo_casing/shotgun/laserslug,
+/obj/item/ammo_casing/shotgun/laserslug,
+/obj/item/storage/belt/bandolier,
+/obj/item/ammo_casing/shotgun/laserslug,
+/obj/structure/safe{
+	icon_state = "floorsafe"
 	},
-/obj/structure/table/wood,
-/turf/open/floor/plasteel/grimy,
+/turf/closed/wall,
 /area/ship/crew/canteen)
 "cm" = (
 /obj/structure/girder/displaced,
@@ -110,13 +118,12 @@
 	},
 /area/ship/construction)
 "hQ" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/cryopod,
-/obj/machinery/computer/cryopod{
-	pixel_x = 32
+/obj/item/chair/stool/bar{
+	pixel_y = 6;
+	pixel_x = 6
 	},
-/turf/open/floor/plating,
-/area/ship/bridge)
+/turf/open/floor/wood/maple,
+/area/ship/crew/canteen)
 "hU" = (
 /obj/effect/decal/cleanable/oil/streak,
 /obj/item/chair{
@@ -178,24 +185,9 @@
 /turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
 "nh" = (
-/obj/structure/sink{
-	dir = 4;
-	pixel_x = -12;
-	pixel_y = 2
-	},
-/obj/machinery/light/small{
-	dir = 8;
-	pixel_y = 10;
-	light_power = 0.25
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/mirror{
-	pixel_x = -26
-	},
-/obj/item/cigbutt{
-	pixel_x = -13
-	},
-/turf/open/floor/plasteel/tech/techmaint,
+/obj/machinery/light/built,
+/obj/item/light/tube/broken,
+/turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
 "nq" = (
 /obj/structure/cable{
@@ -220,17 +212,11 @@
 /turf/closed/wall/rust,
 /area/ship/bridge)
 "oq" = (
-/obj/structure/cable{
-	icon_state = "0-4"
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/cryopod,
+/obj/machinery/computer/cryopod{
+	pixel_x = 32
 	},
-/obj/structure/rack,
-/obj/item/storage/bag/ore,
-/obj/item/storage/bag/ore,
-/obj/item/pickaxe,
-/obj/item/pickaxe,
-/obj/item/stack/marker_beacon/thirty,
-/obj/item/t_scanner/adv_mining_scanner/lesser,
-/obj/item/t_scanner/adv_mining_scanner/lesser,
 /turf/open/floor/plating,
 /area/ship/bridge)
 "pM" = (
@@ -334,21 +320,35 @@
 /turf/closed/wall,
 /area/ship/crew/canteen)
 "xa" = (
-/obj/machinery/light/built,
-/obj/item/light/tube/broken,
-/turf/open/floor/wood/maple,
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = -12;
+	pixel_y = 2
+	},
+/obj/machinery/light/small{
+	dir = 8;
+	pixel_y = 10;
+	light_power = 0.25
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/mirror{
+	pixel_x = -26
+	},
+/obj/item/cigbutt{
+	pixel_x = -13
+	},
+/obj/machinery/vending/wallmed{
+	pixel_x = 32
+	},
+/turf/open/floor/plasteel/tech/techmaint,
 /area/ship/crew/canteen)
 "xk" = (
-/obj/item/chair/stool/bar{
-	dir = 1;
-	pixel_x = -14
+/obj/item/storage/fancy/cigarettes/cigpack_robust,
+/obj/item/cigbutt{
+	pixel_x = 6
 	},
-/obj/item/stack/rods{
-	amount = 2
-	},
-/obj/item/shard/plasma,
-/obj/effect/decal/cleanable/glass/plasma,
-/turf/open/floor/wood/maple,
+/obj/structure/table/wood,
+/turf/open/floor/plasteel/grimy,
 /area/ship/crew/canteen)
 "yv" = (
 /obj/machinery/suit_storage_unit/standard_unit,
@@ -400,22 +400,28 @@
 /turf/open/floor/plating,
 /area/ship/crew/canteen)
 "CD" = (
-/obj/structure/window/plasma/reinforced/fulltile,
-/obj/structure/grille,
-/obj/structure/sign/warning/electricshock,
-/obj/structure/cable{
-	icon_state = "2-4"
+/obj/machinery/door/window/southleft{
+	icon_state = "right";
+	obj_integrity = 75;
+	name = "Bar access door"
 	},
-/turf/open/floor/plating,
-/area/ship/bridge)
+/turf/open/floor/plasteel/grimy,
+/area/ship/crew/canteen)
 "Ef" = (
 /turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
 "ES" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/closed/wall/rust,
-/area/ship/bridge)
+/obj/item/chair/stool/bar{
+	dir = 1;
+	pixel_x = -14
+	},
+/obj/item/stack/rods{
+	amount = 2
+	},
+/obj/item/shard/plasma,
+/obj/effect/decal/cleanable/glass/plasma,
+/turf/open/floor/wood/maple,
+/area/ship/crew/canteen)
 "Fg" = (
 /turf/closed/wall/r_wall,
 /area/ship/bridge)
@@ -627,13 +633,19 @@
 /turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
 "Tb" = (
-/obj/machinery/door/window/southleft{
-	icon_state = "right";
-	obj_integrity = 75;
-	name = "Bar access door"
+/obj/structure/cable{
+	icon_state = "0-4"
 	},
-/turf/open/floor/plasteel/grimy,
-/area/ship/crew/canteen)
+/obj/structure/rack,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/stack/marker_beacon/thirty,
+/obj/item/t_scanner/adv_mining_scanner/lesser,
+/obj/item/t_scanner/adv_mining_scanner/lesser,
+/turf/open/floor/plating,
+/area/ship/bridge)
 "Ti" = (
 /turf/open/floor/plating,
 /area/ship/bridge)
@@ -642,12 +654,14 @@
 /turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
 "Tx" = (
-/obj/item/chair/stool/bar{
-	pixel_y = 6;
-	pixel_x = 6
+/obj/structure/window/plasma/reinforced/fulltile,
+/obj/structure/grille,
+/obj/structure/sign/warning/electricshock,
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
-/turf/open/floor/wood/maple,
-/area/ship/crew/canteen)
+/turf/open/floor/plating,
+/area/ship/bridge)
 "TN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/glass,
@@ -684,21 +698,6 @@
 	light_power = 0.25
 	},
 /turf/open/floor/plating,
-/area/ship/crew/canteen)
-"Vr" = (
-/obj/item/stack/spacecash/c1000,
-/obj/item/stack/spacecash/c1000,
-/obj/item/stack/spacecash/c1000,
-/obj/item/gun/ballistic/shotgun/doublebarrel,
-/obj/item/ammo_casing/shotgun/laserslug,
-/obj/item/ammo_casing/shotgun/laserslug,
-/obj/item/ammo_casing/shotgun/laserslug,
-/obj/item/storage/belt/bandolier,
-/obj/item/ammo_casing/shotgun/laserslug,
-/obj/structure/safe{
-	icon_state = "floorsafe"
-	},
-/turf/closed/wall,
 /area/ship/crew/canteen)
 "We" = (
 /obj/effect/decal/cleanable/glass,
@@ -808,7 +807,7 @@ GE
 pM
 Ws
 Px
-oq
+Tb
 mc
 zr
 IX
@@ -856,7 +855,7 @@ Ti
 Ti
 Ti
 wk
-CD
+Tx
 iW
 "}
 (5,1,1) = {"
@@ -868,8 +867,8 @@ lY
 Pf
 Ns
 OK
-ch
 xk
+ES
 FQ
 Zo
 TN
@@ -886,13 +885,13 @@ iW
 IX
 bg
 bg
-Vr
+ch
 Yg
 wA
 tr
 RK
 Yo
-Tx
+hQ
 Ef
 FQ
 Ub
@@ -920,7 +919,7 @@ Ef
 Zo
 aZ
 cm
-hQ
+oq
 Ti
 Ti
 Ti
@@ -937,13 +936,13 @@ Oy
 nq
 zt
 ea
-Tb
+CD
 mN
 Ef
 Tp
-xa
+nh
 eq
-ES
+au
 Hb
 AU
 SI
@@ -1006,7 +1005,7 @@ bg
 bg
 Po
 gS
-nh
+xa
 ih
 hb
 Ef
@@ -1029,7 +1028,7 @@ bg
 bg
 Ns
 Ns
-au
+Ns
 Ns
 Ns
 Ns
