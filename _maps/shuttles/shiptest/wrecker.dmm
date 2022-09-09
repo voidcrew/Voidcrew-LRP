@@ -31,11 +31,11 @@
 /turf/open/floor/plasteel/grimy,
 /area/ship/crew/canteen)
 "ch" = (
-/obj/machinery/door/window/southleft{
-	icon_state = "right";
-	obj_integrity = 75;
-	name = "Bar access door"
+/obj/item/storage/fancy/cigarettes/cigpack_robust,
+/obj/item/cigbutt{
+	pixel_x = 6
 	},
+/obj/structure/table/wood,
 /turf/open/floor/plasteel/grimy,
 /area/ship/crew/canteen)
 "cm" = (
@@ -110,13 +110,13 @@
 	},
 /area/ship/construction)
 "hQ" = (
-/obj/item/storage/fancy/cigarettes/cigpack_robust,
-/obj/item/cigbutt{
-	pixel_x = 6
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/cryopod,
+/obj/machinery/computer/cryopod{
+	pixel_x = 32
 	},
-/obj/structure/table/wood,
-/turf/open/floor/plasteel/grimy,
-/area/ship/crew/canteen)
+/turf/open/floor/plating,
+/area/ship/bridge)
 "hU" = (
 /obj/effect/decal/cleanable/oil/streak,
 /obj/item/chair{
@@ -148,13 +148,19 @@
 /turf/open/floor/plating,
 /area/ship/crew/canteen)
 "lP" = (
-/obj/structure/window/plasma/reinforced/fulltile,
-/obj/structure/grille,
-/obj/structure/sign/warning/electricshock,
+/obj/machinery/power/port_gen/pacman{
+	anchored = 1;
+	can_be_unanchored = 1
+	},
+/obj/effect/decal/cleanable/plasma,
+/obj/effect/decal/cleanable/oil,
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/open/space/basic,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/open/floor/plating,
 /area/ship/bridge)
 "lY" = (
 /obj/effect/decal/cleanable/dirt,
@@ -214,17 +220,19 @@
 /turf/closed/wall/rust,
 /area/ship/bridge)
 "oq" = (
-/obj/item/chair/stool/bar{
-	dir = 1;
-	pixel_x = -14
+/obj/structure/cable{
+	icon_state = "0-4"
 	},
-/obj/item/stack/rods{
-	amount = 2
-	},
-/obj/item/shard/plasma,
-/obj/effect/decal/cleanable/glass/plasma,
-/turf/open/floor/wood/maple,
-/area/ship/crew/canteen)
+/obj/structure/rack,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/stack/marker_beacon/thirty,
+/obj/item/t_scanner/adv_mining_scanner/lesser,
+/obj/item/t_scanner/adv_mining_scanner/lesser,
+/turf/open/floor/plating,
+/area/ship/bridge)
 "pM" = (
 /obj/machinery/suit_storage_unit/mining/eva{
 	storage_type = /obj/item/tank/internals/oxygen
@@ -295,13 +303,13 @@
 /turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
 "vj" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/cryopod,
-/obj/machinery/computer/cryopod{
-	pixel_x = 32
+/obj/machinery/airalarm/directional/east,
+/obj/item/storage/box/drinkingglasses{
+	pixel_y = 4
 	},
-/turf/open/floor/plating,
-/area/ship/bridge)
+/obj/structure/table/wood,
+/turf/open/floor/plasteel/grimy,
+/area/ship/crew/canteen)
 "vk" = (
 /obj/machinery/suit_storage_unit/open,
 /turf/open/floor/wood/maple,
@@ -326,25 +334,20 @@
 /turf/closed/wall,
 /area/ship/crew/canteen)
 "xa" = (
-/obj/item/stack/spacecash/c1000,
-/obj/item/stack/spacecash/c1000,
-/obj/item/stack/spacecash/c1000,
-/obj/item/gun/ballistic/shotgun/doublebarrel,
-/obj/item/ammo_casing/shotgun/laserslug,
-/obj/item/ammo_casing/shotgun/laserslug,
-/obj/item/ammo_casing/shotgun/laserslug,
-/obj/item/storage/belt/bandolier,
-/obj/item/ammo_casing/shotgun/laserslug,
-/obj/structure/safe{
-	icon_state = "floorsafe"
-	},
-/turf/closed/wall,
+/obj/machinery/light/built,
+/obj/item/light/tube/broken,
+/turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
 "xk" = (
 /obj/item/chair/stool/bar{
-	pixel_y = 6;
-	pixel_x = 6
+	dir = 1;
+	pixel_x = -14
 	},
+/obj/item/stack/rods{
+	amount = 2
+	},
+/obj/item/shard/plasma,
+/obj/effect/decal/cleanable/glass/plasma,
 /turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
 "yv" = (
@@ -397,17 +400,11 @@
 /turf/open/floor/plating,
 /area/ship/crew/canteen)
 "CD" = (
-/obj/machinery/power/port_gen/pacman{
-	anchored = 1;
-	can_be_unanchored = 1
-	},
-/obj/effect/decal/cleanable/plasma,
-/obj/effect/decal/cleanable/oil,
+/obj/structure/window/plasma/reinforced/fulltile,
+/obj/structure/grille,
+/obj/structure/sign/warning/electricshock,
 /obj/structure/cable{
 	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	icon_state = "0-2"
 	},
 /turf/open/floor/plating,
 /area/ship/bridge)
@@ -415,13 +412,10 @@
 /turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
 "ES" = (
-/obj/machinery/airalarm/directional/east,
-/obj/structure/table/wood/bar,
-/obj/item/storage/box/drinkingglasses{
-	pixel_y = 4
-	},
-/turf/open/floor/plasteel/grimy,
-/area/ship/crew/canteen)
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/closed/wall/rust,
+/area/ship/bridge)
 "Fg" = (
 /turf/closed/wall/r_wall,
 /area/ship/bridge)
@@ -633,9 +627,12 @@
 /turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
 "Tb" = (
-/obj/machinery/light/built,
-/obj/item/light/tube/broken,
-/turf/open/floor/wood/maple,
+/obj/machinery/door/window/southleft{
+	icon_state = "right";
+	obj_integrity = 75;
+	name = "Bar access door"
+	},
+/turf/open/floor/plasteel/grimy,
 /area/ship/crew/canteen)
 "Ti" = (
 /turf/open/floor/plating,
@@ -645,10 +642,12 @@
 /turf/open/floor/wood/maple,
 /area/ship/crew/canteen)
 "Tx" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/closed/wall/rust,
-/area/ship/bridge)
+/obj/item/chair/stool/bar{
+	pixel_y = 6;
+	pixel_x = 6
+	},
+/turf/open/floor/wood/maple,
+/area/ship/crew/canteen)
 "TN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/glass,
@@ -687,19 +686,20 @@
 /turf/open/floor/plating,
 /area/ship/crew/canteen)
 "Vr" = (
-/obj/structure/cable{
-	icon_state = "0-4"
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c1000,
+/obj/item/gun/ballistic/shotgun/doublebarrel,
+/obj/item/ammo_casing/shotgun/laserslug,
+/obj/item/ammo_casing/shotgun/laserslug,
+/obj/item/ammo_casing/shotgun/laserslug,
+/obj/item/storage/belt/bandolier,
+/obj/item/ammo_casing/shotgun/laserslug,
+/obj/structure/safe{
+	icon_state = "floorsafe"
 	},
-/obj/structure/rack,
-/obj/item/storage/bag/ore,
-/obj/item/storage/bag/ore,
-/obj/item/pickaxe,
-/obj/item/pickaxe,
-/obj/item/stack/marker_beacon/thirty,
-/obj/item/t_scanner/adv_mining_scanner/lesser,
-/obj/item/t_scanner/adv_mining_scanner/lesser,
-/turf/open/floor/plating,
-/area/ship/bridge)
+/turf/closed/wall,
+/area/ship/crew/canteen)
 "We" = (
 /obj/effect/decal/cleanable/glass,
 /turf/closed/mineral/random/asteroid,
@@ -808,7 +808,7 @@ GE
 pM
 Ws
 Px
-Vr
+oq
 mc
 zr
 IX
@@ -856,7 +856,7 @@ Ti
 Ti
 Ti
 wk
-lP
+CD
 iW
 "}
 (5,1,1) = {"
@@ -868,8 +868,8 @@ lY
 Pf
 Ns
 OK
-hQ
-oq
+ch
+xk
 FQ
 Zo
 TN
@@ -878,7 +878,7 @@ Lh
 hU
 eC
 Ye
-CD
+lP
 zX
 iW
 "}
@@ -886,13 +886,13 @@ iW
 IX
 bg
 bg
-xa
+Vr
 Yg
 wA
 tr
 RK
 Yo
-xk
+Tx
 Ef
 FQ
 Ub
@@ -920,7 +920,7 @@ Ef
 Zo
 aZ
 cm
-vj
+hQ
 Ti
 Ti
 Ti
@@ -937,13 +937,13 @@ Oy
 nq
 zt
 ea
-ch
+Tb
 mN
 Ef
 Tp
-Tb
+xa
 eq
-Tx
+ES
 Hb
 AU
 SI
@@ -959,7 +959,7 @@ Ns
 Cc
 Ns
 Ns
-ES
+vj
 YI
 LP
 Ef
