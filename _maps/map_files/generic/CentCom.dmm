@@ -1715,7 +1715,7 @@
 	name = "Syndicate Auxillary Shuttle Dock";
 	width = 50
 	},
-/turf/open/floor/plating/snowed/smoothed,
+/turf/open/floor/plating/asteroid/snow,
 /area/syndicate_mothership)
 "akk" = (
 /obj/structure/cable{
@@ -1776,6 +1776,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/syndicate_mothership/control)
 "akz" = (
@@ -2443,6 +2444,7 @@
 	desc = "A forgotten stasis unit."
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/oil/slippery,
 /turf/open/floor/plating,
 /area/centcom/ferry)
 "apb" = (
@@ -12184,7 +12186,7 @@
 /turf/open/floor/plasteel/dark,
 /area/centcom/control)
 "aXp" = (
-/turf/open/floor/plating/snowed/smoothed,
+/turf/open/floor/engine,
 /area/syndicate_mothership/control)
 "aXq" = (
 /obj/machinery/deepfryer,
@@ -13366,6 +13368,13 @@
 	},
 /turf/open/chasm,
 /area/syndicate_mothership/control)
+"bqK" = (
+/obj/machinery/door/airlock/external{
+	req_access_txt = "150"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/syndicate_mothership/control)
 "bqR" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -13860,6 +13869,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/oil/slippery,
 /turf/open/floor/carpet/royalblack,
 /area/centcom/ferry)
 "dbb" = (
@@ -15397,6 +15407,7 @@
 /obj/structure/barricade/wooden,
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/oil/slippery,
 /turf/open/floor/carpet/royalblack,
 /area/centcom/ferry)
 "hHp" = (
@@ -15879,6 +15890,16 @@
 	},
 /turf/open/floor/holofloor,
 /area/holodeck/rec_center/court)
+"jes" = (
+/obj/machinery/door/airlock/external{
+	req_access_txt = "150"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/plating,
+/area/syndicate_mothership/control)
 "jeI" = (
 /obj/machinery/button/door/indestructible{
 	id = "XCCsec3";
@@ -19772,6 +19793,7 @@
 /area/centcom/ferry)
 "uLU" = (
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/oil/slippery,
 /turf/open/floor/carpet/royalblue,
 /area/centcom/ferry)
 "uQN" = (
@@ -36980,7 +37002,7 @@ ahl
 ahl
 ang
 ang
-auJ
+bqK
 ang
 akt
 ahl
@@ -37234,8 +37256,8 @@ ahl
 ahl
 ahl
 ahl
-awk
-auJ
+ahl
+bqK
 all
 alm
 ang
@@ -37253,7 +37275,7 @@ akt
 akt
 akt
 anz
-auJ
+bqK
 anz
 akt
 awk
@@ -37491,7 +37513,7 @@ ahl
 ahl
 ahl
 ahl
-awk
+ahl
 ang
 ang
 auJ
@@ -37748,7 +37770,7 @@ ahl
 ahl
 ahl
 ahl
-awk
+ahl
 akv
 jQJ
 all
@@ -38005,7 +38027,7 @@ ahl
 ahl
 ahl
 ahl
-awk
+ahl
 akv
 dQu
 all
@@ -38262,7 +38284,7 @@ ahl
 ahl
 ahl
 ahl
-awk
+ahl
 akv
 dQu
 all
@@ -38776,7 +38798,7 @@ ahl
 ahl
 ahl
 ahl
-awk
+ahl
 akv
 dQu
 all
@@ -39033,7 +39055,7 @@ ahl
 ahl
 ahl
 ahl
-awk
+ahl
 akv
 dQu
 all
@@ -39290,7 +39312,7 @@ ahl
 ahl
 ahl
 ahl
-awk
+ahl
 akv
 tWF
 aKl
@@ -39547,7 +39569,7 @@ ahl
 ahl
 ahl
 ahl
-awk
+ahl
 akv
 poU
 all
@@ -39804,7 +39826,7 @@ ahl
 ahl
 ahl
 ahl
-awk
+ahl
 akv
 poU
 all
@@ -40061,7 +40083,7 @@ ahl
 ahl
 ahl
 ahl
-awk
+ahl
 akv
 poU
 alm
@@ -40318,7 +40340,7 @@ ahl
 ahl
 ahl
 ahl
-awk
+ahl
 akv
 poU
 all
@@ -40575,7 +40597,7 @@ ahl
 ahl
 ahl
 ahl
-awk
+ahl
 akv
 poU
 all
@@ -40832,7 +40854,7 @@ ahl
 ahl
 ahl
 ahl
-awk
+ahl
 akv
 sqm
 all
@@ -41089,7 +41111,7 @@ ahl
 ahl
 ahl
 ahl
-awk
+ahl
 ang
 ang
 auJ
@@ -41346,8 +41368,8 @@ ahl
 ahl
 ahl
 ahl
-awk
-auJ
+ahl
+bqK
 all
 alm
 ang
@@ -41606,7 +41628,7 @@ ahl
 ahl
 ang
 ang
-auJ
+bqK
 ang
 akt
 ahl
@@ -43177,7 +43199,7 @@ aOQ
 aOQ
 aOQ
 lLf
-auJ
+bqK
 awk
 awk
 jMj
@@ -44958,7 +44980,7 @@ eKK
 hkO
 uQN
 jhQ
-cXw
+jes
 aKl
 cXw
 aKl
