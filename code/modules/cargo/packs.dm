@@ -2731,6 +2731,7 @@
 	contains = list()
 	crate_name = "syndicate gear crate"
 	crate_type = /obj/structure/closet/crate
+	cost = 10000 //Even if someone exploits the console, it's gonna hit their wallet back.
 	var/crate_value = 30 ///Total TC worth of contained uplink items
 
 ///Generate assorted uplink items, taking into account the same surplus modifiers used for surplus crates
