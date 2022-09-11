@@ -68,7 +68,7 @@
 	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
 
 /datum/design/bio_scanner
-	name = "Bilogical Scanner"
+	name = "Biological Scanner"
 	id = "bio_scanner"
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 10000,
