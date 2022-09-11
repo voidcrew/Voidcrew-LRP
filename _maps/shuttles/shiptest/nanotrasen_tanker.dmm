@@ -64,7 +64,7 @@
 /area/ship/crew/dorm)
 "cQ" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "cU" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -201,8 +201,6 @@
 /obj/effect/turf_decal/borderfloor{
 	dir = 1
 	},
-/obj/item/radio/intercom/wideband,
-/obj/structure/table/reinforced,
 /turf/open/floor/plasteel/patterned,
 /area/ship/bridge)
 "fN" = (
@@ -390,7 +388,7 @@
 /area/ship/engineering/atmospherics)
 "ji" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "jj" = (
 /obj/machinery/power/terminal,
@@ -443,7 +441,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "jH" = (
 /obj/structure/cable{
@@ -605,7 +603,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -26
 	},
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "mq" = (
 /obj/effect/decal/cleanable/cobweb/cobweb2,
@@ -639,7 +637,7 @@
 "np" = (
 /obj/structure/table/wood,
 /obj/item/storage/pill_bottle/dice,
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "nB" = (
 /obj/effect/decal/cleanable/dirt,
@@ -653,7 +651,7 @@
 /obj/machinery/power/apc/auto_name/west,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /obj/machinery/computer/slot_machine,
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "nJ" = (
 /obj/structure/sign/warning/explosives,
@@ -689,7 +687,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "oD" = (
 /obj/effect/spawner/structure/window/hollow/plasma/directional{
@@ -777,7 +775,7 @@
 "px" = (
 /obj/structure/table/wood,
 /obj/machinery/microwave,
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "pR" = (
 /obj/machinery/airalarm/directional/west,
@@ -828,12 +826,12 @@
 /area/ship/crew/janitor)
 "qH" = (
 /obj/machinery/vending/sustenance,
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "qI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/candy,
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "qK" = (
 /obj/structure/rack,
@@ -893,6 +891,7 @@
 /obj/structure/sign/poster/random{
 	pixel_x = -32
 	},
+/obj/item/toy/gun,
 /turf/open/floor/carpet/red,
 /area/ship/medical)
 "rV" = (
@@ -957,7 +956,7 @@
 /obj/structure/chair{
 	dir = 8
 	},
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "tn" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -1012,7 +1011,7 @@
 	dir = 4;
 	pixel_x = -22
 	},
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "uI" = (
 /obj/structure/cable{
@@ -1036,7 +1035,8 @@
 "uQ" = (
 /obj/structure/table/wood,
 /obj/item/toy/cards/deck,
-/turf/open/floor/wood/ebony,
+/obj/item/toy/eightball,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "uZ" = (
 /obj/machinery/atmospherics/pipe/manifold4w/purple/hidden/layer4,
@@ -1133,7 +1133,7 @@
 /obj/item/reagent_containers/food/condiment/pack/astrotame{
 	pixel_x = 6
 	},
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "wb" = (
 /obj/effect/spawner/structure/window/hollow/plasma/directional{
@@ -1301,6 +1301,10 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
+/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/suit/armor/riot,
+/obj/item/clothing/head/helmet/riot,
+/obj/item/clothing/head/helmet/riot,
 /turf/open/floor/carpet/red,
 /area/ship/medical)
 "BA" = (
@@ -1364,6 +1368,8 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 4
 	},
+/obj/item/gun/energy/laser/hitscanpistol,
+/obj/item/gun/energy/laser/hitscanpistol,
 /turf/open/floor/carpet/red,
 /area/ship/medical)
 "Cy" = (
@@ -1448,7 +1454,7 @@
 /obj/machinery/computer/arcade/orion_trail{
 	dir = 4
 	},
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "Ej" = (
 /obj/structure/cable,
@@ -1735,7 +1741,7 @@
 	dir = 8;
 	pixel_x = 26
 	},
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "Kd" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -1755,7 +1761,7 @@
 /obj/structure/chair{
 	dir = 1
 	},
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "Kt" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
@@ -2040,7 +2046,7 @@
 /obj/structure/sign/poster/random{
 	pixel_x = -32
 	},
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "Pl" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -2068,7 +2074,7 @@
 /obj/structure/chair{
 	dir = 1
 	},
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "Ps" = (
 /obj/machinery/suit_storage_unit/inherit{
@@ -2338,9 +2344,6 @@
 /obj/item/restraints/legcuffs/bola,
 /obj/item/storage/box/zipties,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/window/survival_pod{
-	dir = 4
-	},
 /obj/machinery/camera{
 	dir = 5
 	},
@@ -2359,6 +2362,8 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 1
 	},
+/obj/item/gun/energy/e_gun/dragnet,
+/obj/item/gun/energy/e_gun/dragnet,
 /turf/open/floor/carpet/red,
 /area/ship/medical)
 "TD" = (
@@ -2596,7 +2601,7 @@
 /area/ship/engineering/engine)
 "YI" = (
 /obj/structure/chair,
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "YP" = (
 /obj/machinery/mineral/ore_redemption,
@@ -2697,9 +2702,8 @@
 /obj/item/stack/spacecash/c1000,
 /obj/item/stack/spacecash/c1000,
 /obj/item/stack/spacecash/c1000,
-/obj/item/toy/gun,
-/obj/item/toy/eightball,
 /obj/structure/railing,
+/obj/item/radio/intercom/wideband,
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/bridge)
 "ZV" = (
