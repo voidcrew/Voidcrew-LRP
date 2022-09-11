@@ -19,9 +19,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /turf/open/floor/plasteel/showroomfloor,
 /area/ship/science)
 "aT" = (
@@ -470,9 +467,6 @@
 /turf/open/floor/plating,
 /area/ship/bridge)
 "iu" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/open/floor/mineral/titanium/tiled/white,
 /area/ship/science)
 "iA" = (
@@ -541,11 +535,22 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/ship/science)
+"kc" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/plasteel/white,
+/area/ship/science)
 "km" = (
 /obj/machinery/door/airlock/virology/glass,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
@@ -651,9 +656,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
 	},
 /obj/effect/turf_decal/trimline/neutral/filled/warning{
 	dir = 8
@@ -796,19 +798,13 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
 /obj/effect/turf_decal/trimline/red/filled/warning{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer2,
 /turf/open/floor/plasteel/white,
-/area/ship/hallway/fore)
+/area/ship/science)
 "oe" = (
 /obj/machinery/door/window/westright,
 /turf/open/floor/mineral/titanium/tiled/white,
@@ -896,7 +892,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/white,
-/area/ship/hallway/fore)
+/area/ship/science)
 "qc" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
@@ -920,9 +916,6 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/ship/crew/toilet)
 "qP" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/door/window/westright{
 	dir = 2
 	},
@@ -940,9 +933,6 @@
 /turf/open/floor/plasteel/white,
 /area/ship/medical)
 "rd" = (
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -1288,9 +1278,6 @@
 /turf/open/floor/plasteel/dark,
 /area/ship/bridge)
 "yl" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/effect/turf_decal/trimline/red/filled/warning{
 	dir = 4
 	},
@@ -1301,7 +1288,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/white,
-/area/ship/hallway/fore)
+/area/ship/science)
 "yA" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -1311,9 +1298,6 @@
 "yM" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
 	},
 /obj/effect/turf_decal/trimline/neutral/filled/warning{
 	dir = 4
@@ -2231,15 +2215,6 @@
 /obj/structure/curtain,
 /turf/open/floor/plasteel/showroomfloor,
 /area/ship/crew/toilet)
-"Qm" = (
-/obj/machinery/power/apc/auto_name/south,
-/obj/structure/cable,
-/obj/effect/turf_decal/trimline/neutral/filled/warning{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/neutral/filled/warning,
-/turf/open/floor/plasteel/showroomfloor,
-/area/ship/science)
 "Qp" = (
 /obj/machinery/vending/snack/random,
 /obj/effect/turf_decal/trimline/red/filled/line,
@@ -2248,6 +2223,12 @@
 "Qq" = (
 /turf/closed/wall/mineral/titanium,
 /area/ship/medical)
+"QD" = (
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/white,
+/area/ship/science)
 "QK" = (
 /turf/open/floor/plating/grass,
 /area/ship/science)
@@ -2530,10 +2511,16 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/ship/hallway/fore)
-"Uy" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+"Ui" = (
+/obj/effect/turf_decal/trimline/red/filled/line{
+	dir = 4
 	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plasteel/white,
+/area/ship/science)
+"Uy" = (
 /obj/effect/turf_decal/trimline/neutral/filled/warning{
 	dir = 1
 	},
@@ -2679,9 +2666,6 @@
 "VC" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 9
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -3359,9 +3343,9 @@ Ci
 Mj
 pK
 pK
-Wc
+kc
 nT
-Wc
+kc
 pK
 pK
 Wc
@@ -3394,13 +3378,13 @@ zg
 Ps
 Rk
 yd
-cI
-cI
-Yn
+QD
+QD
+Ui
 yl
-Yn
-cI
-cI
+Ui
+QD
+QD
 Yn
 cI
 Kv
@@ -3623,7 +3607,7 @@ rd
 iu
 qP
 Uy
-Qm
+Nq
 jN
 PH
 XW
