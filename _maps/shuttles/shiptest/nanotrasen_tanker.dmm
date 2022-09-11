@@ -353,6 +353,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/structure/window/reinforced/tinted/frosted,
 /turf/open/floor/plating,
 /area/ship/engineering/engine)
 "ib" = (
@@ -554,13 +555,13 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/machinery/atmospherics/components/binary/valve/layer4{
-	dir = 4
-	},
 /obj/machinery/atmospherics/components/unary/portables_connector/visible/layer4{
 	dir = 1
 	},
 /obj/structure/fans/tiny,
+/obj/machinery/atmospherics/pipe/simple/purple/hidden/layer4{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
 "lW" = (
@@ -1187,6 +1188,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/structure/window/reinforced/tinted/frosted,
 /turf/open/floor/plating,
 /area/ship/engineering/engine)
 "yJ" = (
@@ -1243,10 +1245,10 @@
 /obj/machinery/door/poddoor/shutters{
 	id = "Tankerbay"
 	},
-/obj/machinery/atmospherics/components/binary/valve/layer2{
+/obj/structure/fans/tiny,
+/obj/machinery/atmospherics/pipe/simple/green/hidden/layer2{
 	dir = 4
 	},
-/obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
 "AF" = (
@@ -1585,7 +1587,7 @@
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
 "HQ" = (
-/obj/machinery/atmospherics/components/unary/portables_connector/visible/layer2{
+/obj/machinery/atmospherics/components/binary/valve/layer2{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -1896,7 +1898,6 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/item/stack/sheet/mineral/uranium/five,
 /obj/item/wrench/crescent,
 /obj/structure/sign/poster/contraband/power{
 	pixel_x = -32
@@ -2326,7 +2327,7 @@
 /turf/open/floor/carpet/red_gold,
 /area/ship/crew/canteen)
 "Su" = (
-/obj/machinery/atmospherics/components/unary/portables_connector/visible/layer4{
+/obj/machinery/atmospherics/components/binary/valve/layer4{
 	dir = 4
 	},
 /turf/open/floor/plating,
