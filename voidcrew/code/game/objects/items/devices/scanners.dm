@@ -63,7 +63,7 @@
 		getvalue(attacked_mob)
 		stored_research.add_point_list(list(TECHWEB_POINT_TYPE_GENERIC = value))
 		say("Sucessfully scanned. [value] points added to database.")
-		playsound(loc, 'sound/effects/adminhelp.ogg', 25, TRUE) //lul
+		playsound(loc, 'sound/machines/chime.ogg', 25, TRUE) //lul
 	else
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 20)
 		say("Must be stationary to scan!")
