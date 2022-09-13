@@ -720,6 +720,15 @@
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/plasteel/patterned,
 /area/ship/hallway/starboard)
+"iT" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/plasteel/patterned,
+/area/ship/hallway/starboard)
 "iV" = (
 /obj/effect/turf_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/coffin{
@@ -1225,9 +1234,6 @@
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/maintenance/aft)
 "py" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 4
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1607,9 +1613,6 @@
 "uV" = (
 /obj/structure/chair{
 	dir = 4
-	},
-/obj/structure/sign/poster/official/obey{
-	pixel_x = -32
 	},
 /turf/open/floor/mineral/titanium/tiled/blue,
 /area/ship/medical)
@@ -2683,6 +2686,12 @@
 	pixel_y = 3
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/button/door{
+	id = "Notadickfront";
+	name = "Front Shutters";
+	pixel_x = 25;
+	pixel_y = -5
+	},
 /turf/open/floor/carpet/nanoweave/red,
 /area/ship/hallway/starboard)
 "Hx" = (
@@ -2748,9 +2757,6 @@
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/bridge)
 "Io" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 4
-	},
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
@@ -5016,7 +5022,7 @@ AA
 Bn
 ts
 yM
-XE
+iT
 cZ
 Qr
 CI
