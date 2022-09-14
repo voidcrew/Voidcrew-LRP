@@ -686,7 +686,7 @@
 /obj/machinery/power/terminal{
 	dir = 8
 	},
-/obj/structure/cable{
+/obj/structure/cable/orange{
 	icon_state = "0-2"
 	},
 /obj/structure/closet/secure_closet/atmospherics,
@@ -817,9 +817,17 @@
 	},
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/maintenance/aft)
+"jY" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/ship/crew/dorm)
 "kb" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/south,
 /turf/open/floor/plasteel/patterned,
 /area/ship/hallway/central)
 "kc" = (
@@ -1084,10 +1092,10 @@
 "mY" = (
 /obj/machinery/atmospherics/pipe/simple/green/visible/layer5,
 /obj/machinery/power/port_gen/pacman,
-/obj/structure/cable{
+/obj/structure/cable/orange{
 	icon_state = "0-8"
 	},
-/obj/structure/cable{
+/obj/structure/cable/orange{
 	icon_state = "1-8"
 	},
 /obj/machinery/firealarm{
@@ -1110,6 +1118,9 @@
 /area/ship/hallway/central)
 "nE" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ship/crew/dorm)
 "nF" = (
@@ -1923,10 +1934,10 @@
 /obj/machinery/power/terminal{
 	dir = 8
 	},
-/obj/structure/cable{
+/obj/structure/cable/orange{
 	icon_state = "0-4"
 	},
-/obj/structure/cable{
+/obj/structure/cable/orange{
 	icon_state = "1-4"
 	},
 /turf/open/floor/plasteel/tech/techmaint,
@@ -1940,7 +1951,7 @@
 /area/ship/medical)
 "yv" = (
 /obj/machinery/atmospherics/pipe/simple/green/visible/layer5,
-/obj/structure/cable{
+/obj/structure/cable/orange{
 	icon_state = "0-8"
 	},
 /obj/machinery/camera/xray{
@@ -2051,10 +2062,10 @@
 /turf/closed/wall/mineral/titanium,
 /area/ship/medical)
 "zZ" = (
-/obj/structure/cable{
+/obj/structure/cable/orange{
 	icon_state = "2-4"
 	},
-/obj/structure/cable{
+/obj/structure/cable/orange{
 	icon_state = "2-8"
 	},
 /turf/open/floor/plasteel/tech/techmaint,
@@ -2706,6 +2717,18 @@
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
 /area/ship/medical)
+"HE" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/open/floor/plasteel/patterned,
+/area/ship/hallway/central)
 "HG" = (
 /obj/machinery/computer/cargo/express{
 	dir = 8
@@ -2806,6 +2829,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/patterned,
 /area/ship/hallway/port)
+"Jr" = (
+/obj/structure/cable/orange{
+	icon_state = "1-2"
+	},
+/turf/open/floor/plasteel/tech/techmaint,
+/area/ship/maintenance/aft)
 "JQ" = (
 /obj/structure/closet/emcloset/anchored,
 /turf/open/floor/plasteel/patterned,
@@ -2891,7 +2920,7 @@
 "Ko" = (
 /obj/machinery/atmospherics/pipe/simple/green/visible/layer5,
 /obj/machinery/power/port_gen/pacman,
-/obj/structure/cable{
+/obj/structure/cable/orange{
 	icon_state = "0-2"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3625,10 +3654,10 @@
 /turf/open/floor/plasteel/patterned,
 /area/ship/hallway/starboard)
 "Sk" = (
-/obj/structure/cable{
+/obj/structure/cable/orange{
 	icon_state = "1-4"
 	},
-/obj/structure/cable,
+/obj/structure/cable/orange,
 /obj/machinery/power/port_gen/pacman/uranium,
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
@@ -3983,6 +4012,12 @@
 "Xb" = (
 /turf/closed/wall/mineral/titanium,
 /area/ship/maintenance/fore)
+"Xd" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/closed/wall/mineral/titanium,
+/area/ship/crew/dorm)
 "Xe" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
@@ -4356,7 +4391,7 @@ pw
 pV
 fV
 zZ
-Uh
+Jr
 Sk
 Yb
 yP
@@ -4675,7 +4710,7 @@ sB
 dZ
 mB
 qy
-nZ
+Xd
 Bz
 om
 Hx
@@ -4698,7 +4733,7 @@ Ma
 mq
 mB
 yQ
-nZ
+Xd
 fw
 wq
 wq
@@ -4721,7 +4756,7 @@ sB
 UM
 mB
 Oa
-mF
+jY
 Zd
 wq
 oZ
@@ -4761,7 +4796,7 @@ KZ
 yw
 EU
 RE
-Vm
+HE
 kb
 DY
 VN
