@@ -94,4 +94,3 @@ Assistant
 	ears = /obj/item/radio/headset
 	head = /obj/item/clothing/head/wizard
 	back = /obj/item/storage/backpack
-

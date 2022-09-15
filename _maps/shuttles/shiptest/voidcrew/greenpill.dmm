@@ -241,6 +241,8 @@
 	},
 /obj/machinery/light,
 /obj/item/storage/toolbox/mechanical,
+/obj/item/stack/sheet/metal/fifty,
+/obj/item/stack/sheet/glass/fifty,
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "tR" = (
@@ -347,7 +349,10 @@
 	dir = 1
 	},
 /obj/machinery/cryopod{
-	dir = 8
+	close_state = "bscanner_green";
+	icon_state = "oldpod";
+	open_state = "bscanner_open";
+	name = "crew preserver"
 	},
 /obj/machinery/computer/cryopod{
 	dir = 1;
@@ -394,6 +399,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
+/obj/machinery/autolathe,
 /turf/open/floor/wood,
 /area/ship/maintenance/aft)
 "Fx" = (
