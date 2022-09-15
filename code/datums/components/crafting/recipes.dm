@@ -404,6 +404,14 @@
 	time = 25
 	category = CAT_MISC
 
+/datum/crafting_recipe/crude_matter_bin
+	name = "Crude Matter Bin"
+	result = /obj/item/stock_parts/matter_bin
+	reqs = list(/obj/item/stack/ore/iron = 3,
+	/obj/item/stack/ore/gold = 2)
+	time = 10
+	category = CAT_MISC
+
 /datum/crafting_recipe/crude_capacitor
 	name = "Crude Capacitor"
 	result = /obj/item/stock_parts/capacitor
