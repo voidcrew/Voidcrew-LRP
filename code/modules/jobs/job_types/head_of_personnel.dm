@@ -75,3 +75,4 @@
 	ears = /obj/item/radio/headset
 	head = /obj/item/clothing/head/wizard
 	
+	
