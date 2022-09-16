@@ -19,6 +19,7 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 	// circuit = /obj/item/circuitboard/cryopodcontrol
 	density = FALSE
 	req_one_access = list(ACCESS_HEADS, ACCESS_ARMORY) //Heads of staff or the warden can go here to claim recover items from their department that people went were cryodormed with.
+	resistance_flags = INDESTRUCTIBLE|LAVA_PROOF|FIRE_PROOF|UNACIDABLE|ACID_PROOF
 
 	/// Used for logging people entering cryosleep and important items they are carrying. Shows crew members.
 	var/list/frozen_crew = list()
@@ -157,6 +158,7 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 	density = TRUE
 	anchored = TRUE
 	state_open = TRUE
+	resistance_flags = INDESTRUCTIBLE|LAVA_PROOF|FIRE_PROOF|UNACIDABLE|ACID_PROOF
 
 	/// Time until the human inside is despawned. Reduced to 10% of this if player manually enters cryo.
 	var/time_till_despawn = 5 MINUTES
