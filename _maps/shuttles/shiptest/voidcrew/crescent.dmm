@@ -235,6 +235,7 @@
 	dir = 8;
 	light_color = "#e8eaff"
 	},
+/obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plating,
 /area/ship/cargo)
 "eC" = (
@@ -356,6 +357,7 @@
 	icon_state = "2-4"
 	},
 /obj/effect/turf_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plating,
 /area/ship/cargo)
 "jb" = (
@@ -551,7 +553,8 @@
 /area/ship/cargo)
 "ov" = (
 /obj/machinery/power/shuttle/engine/electric{
-	dir = 1
+	dir = 1;
+	name = "mana thruster"
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -628,6 +631,14 @@
 	},
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
+"pC" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/open/floor/plating,
+/area/ship/cargo)
 "pD" = (
 /obj/structure/cable/cyan{
 	icon_state = "1-2"
@@ -1821,7 +1832,8 @@
 /area/ship/security/armory)
 "Ka" = (
 /obj/machinery/power/smes{
-	name = "mana storage unit"
+	name = "mana storage unit";
+	charge = 2e+006
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -1833,7 +1845,8 @@
 /area/ship/engineering/atmospherics)
 "Kk" = (
 /obj/machinery/power/shuttle/engine/electric{
-	dir = 1
+	dir = 1;
+	name = "mana thruster"
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -2423,6 +2436,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/turf_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plating,
 /area/ship/cargo)
 "XJ" = (
@@ -2848,7 +2862,7 @@ TH
 Lb
 Tp
 nd
-XC
+pC
 LS
 Oo
 Rw
