@@ -149,17 +149,11 @@
 /turf/open/floor/wood,
 /area/ship/medical)
 "aA" = (
-/obj/structure/cable/cyan{
-	icon_state = "1-4"
+/obj/structure/chair/wood/wings{
+	dir = 4
 	},
-/obj/structure/cable/cyan{
-	icon_state = "1-8"
-	},
-/obj/structure/cable/cyan{
-	icon_state = "1-2"
-	},
-/turf/open/floor/plating,
-/area/ship/maintenance/aft)
+/turf/open/floor/wood,
+/area/ship/security)
 "aB" = (
 /obj/machinery/power/rtg/advanced{
 	name = "mana field condenser"
@@ -309,7 +303,9 @@
 	icon_state = "0-4"
 	},
 /obj/structure/window/plasma/reinforced/spawner/east,
-/obj/structure/window/plasma/reinforced/spawner/north,
+/obj/structure/window/plasma/reinforced/spawner/east{
+	dir = 1
+	},
 /turf/open/floor/mineral/diamond,
 /area/ship/maintenance/aft)
 "ba" = (
@@ -921,6 +917,9 @@
 	},
 /obj/item/storage/box/handcuffs,
 /obj/structure/closet/cabinet,
+/obj/structure/sign/poster/contraband/random{
+	pixel_y = 32
+	},
 /turf/open/floor/wood,
 /area/ship/security)
 "gB" = (
@@ -1482,7 +1481,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate,
+/obj/structure/closet/cabinet,
 /obj/item/clothing/glasses/hud/security/night{
 	icon_state = "trickblindfold";
 	name = "enchanted blindfold";
@@ -1498,7 +1497,7 @@
 /obj/item/clothing/suit/wizrobe/magusred,
 /obj/item/clothing/head/wizard/magus,
 /obj/item/clothing/head/wizard/magus,
-/turf/open/floor/bronze,
+/turf/open/floor/wood,
 /area/ship/security)
 "DP" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1617,6 +1616,9 @@
 	pixel_y = 17
 	},
 /obj/effect/decal/cleanable/blood,
+/obj/structure/mirror/magic{
+	pixel_y = 30
+	},
 /turf/open/floor/wood,
 /area/ship/security)
 "GM" = (
@@ -1875,13 +1877,12 @@
 /turf/open/floor/wood,
 /area/ship/hallway/central)
 "ME" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/fulltile{
-	color = "#008000"
+/obj/item/radio/intercom{
+	pixel_y = -24;
+	dir = 1
 	},
-/obj/structure/curtain/cloth/fancy,
-/turf/open/floor/plating,
-/area/ship/maintenance/aft)
+/turf/open/floor/wood,
+/area/ship/security)
 "Nm" = (
 /obj/machinery/vending/boozeomat/all_access,
 /turf/closed/wall/mineral/uranium/safe{
@@ -2752,14 +2753,14 @@ WW
 ay
 Dq
 aN
-bT
+aA
 bu
 bG
 bN
 ex
 qT
 bh
-ME
+ck
 ck
 ck
 ck
@@ -2782,7 +2783,7 @@ RD
 ay
 RD
 Nm
-Db
+ay
 GL
 Mf
 vr
@@ -2794,8 +2795,8 @@ qT
 Sc
 aZ
 bY
-bY
 ck
+No
 No
 "}
 (15,1,1) = {"
@@ -2819,16 +2820,16 @@ ay
 gz
 bT
 Bx
-bT
+ME
 qT
 bO
 bV
 qT
 av
-aA
 Ql
 ar
 ck
+No
 No
 "}
 (16,1,1) = {"
@@ -2860,8 +2861,8 @@ qT
 aB
 aB
 aB
-aB
 ck
+No
 No
 "}
 (17,1,1) = {"
@@ -2894,7 +2895,7 @@ ck
 ck
 ck
 ck
-ck
+No
 No
 "}
 (18,1,1) = {"
