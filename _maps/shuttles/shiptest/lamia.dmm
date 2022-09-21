@@ -897,7 +897,10 @@
 	icon_state = "telewand";
 	name = "wand of stunning";
 	desc = "A wand which send a weak blast of energy designed to incapacitate";
-	pixel_x = -5
+	pixel_x = -5;
+	fire_sound = 'sound/magic/wand_teleport.ogg';
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
 	},
 /obj/item/gun/energy/taser{
 	icon = 'icons/obj/guns/magic.dmi';
