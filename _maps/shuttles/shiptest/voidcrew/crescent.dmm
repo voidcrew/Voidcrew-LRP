@@ -177,7 +177,9 @@
 /area/ship/cargo/office)
 "dw" = (
 /obj/structure/altar_of_gods,
-/obj/effect/rune/narsie,
+/obj/effect/rune/narsie{
+	used = 1
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
 /area/ship/engineering/atmospherics)
@@ -1000,6 +1002,14 @@
 "vs" = (
 /obj/structure/chair/wood/wings{
 	dir = 4
+	},
+/obj/item/gun/energy/laser/captain/scattershot{
+	icon = 'icons/obj/guns/magic.dmi';
+	icon_state = "nothingwand";
+	pixel_x = 5;
+	desc = "A wand used by Wizards who specialize in offensive magic";
+	name = "wand of many orbs";
+	item_state = "wand"
 	},
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
@@ -2078,7 +2088,12 @@
 	icon_state = "polywand";
 	icon = 'icons/obj/guns/magic.dmi';
 	name = "wand of rending";
-	desc = "A powerful wand with three modes."
+	desc = "A powerful wand with three modes.";
+	fire_sound = 'sound/magic/fireball.ogg';
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi';
+	item_state = "wand";
+	pin = /obj/item/firing_pin/magic
 	},
 /obj/item/book/granter/spell/charge{
 	pixel_x = 5
@@ -2165,14 +2180,22 @@
 	icon = 'icons/obj/guns/magic.dmi';
 	desc = "A wand used by Wizards who specialize in offensive magic";
 	pixel_x = -5;
-	name = "wand of beams"
+	name = "wand of beams";
+	item_state = "wand";
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi';
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
+	fire_sound = 'sound/magic/wandodeath.ogg'
 	},
 /obj/item/gun/energy/laser/captain/scattershot{
 	icon = 'icons/obj/guns/magic.dmi';
 	icon_state = "nothingwand";
 	pixel_x = 5;
 	desc = "A wand used by Wizards who specialize in offensive magic";
-	name = "wand of many orbs"
+	name = "wand of many orbs";
+	item_state = "wand";
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi';
+	fire_sound = 'sound/magic/wand_teleport.ogg'
 	},
 /obj/machinery/light{
 	dir = 8
@@ -2411,6 +2434,18 @@
 	desc = "A wall plated with emerald.";
 	name = "emerald wall"
 	},
+/area/ship/crew/canteen)
+"WS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/gun/energy/laser/captain/scattershot{
+	icon = 'icons/obj/guns/magic.dmi';
+	icon_state = "nothingwand";
+	pixel_x = 5;
+	desc = "A wand used by Wizards who specialize in offensive magic";
+	name = "wand of many orbs";
+	item_state = "wand"
+	},
+/turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "WV" = (
 /obj/machinery/door/window/survival_pod{
@@ -2705,7 +2740,7 @@ Tx
 Tx
 MI
 LQ
-LQ
+WS
 FY
 ye
 AC
