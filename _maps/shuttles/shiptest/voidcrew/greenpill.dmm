@@ -598,7 +598,12 @@
 	pixel_y = 5;
 	charge_sections = 6;
 	charge_delay = 3;
-	desc = "A wand used by many mages for basic self defense."
+	desc = "A wand used by many mages for basic self defense.";
+	item_state = "wand";
+	pin = /obj/item/firing_pin/magic;
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi';
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
+	fire_sound = 'sound/magic/wand_teleport.ogg'
 	},
 /turf/open/floor/carpet/purple,
 /area/ship/bridge)
