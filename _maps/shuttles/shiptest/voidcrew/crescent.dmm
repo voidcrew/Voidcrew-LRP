@@ -139,13 +139,19 @@
 	icon = 'icons/obj/doors/airlocks/station/uranium.dmi';
 	name = "External Airlock"
 	},
-/obj/structure/fans/tiny,
+/obj/structure/fans/tiny{
+	name = "vaccum barrier projector";
+	desc = "A tiny fan, projecting an invisible barrier that doesnt allow gas to pass."
+	},
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "cW" = (
-/obj/structure/fans/tiny,
 /obj/machinery/door/poddoor/shutters{
 	id = "wizardship3_top"
+	},
+/obj/structure/fans/tiny{
+	name = "vaccum barrier projector";
+	desc = "A tiny fan, projecting an invisible barrier that doesnt allow gas to pass."
 	},
 /turf/open/floor/wood,
 /area/ship/cargo/office)
@@ -914,7 +920,9 @@
 /obj/effect/turf_decal/floordetail/edgedrain{
 	dir = 1
 	},
-/obj/machinery/mecha_part_fabricator,
+/obj/machinery/mecha_part_fabricator{
+	name = "exosuit conjurer"
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood/mahogany,
 /area/ship/cargo/office)
@@ -1002,14 +1010,6 @@
 "vs" = (
 /obj/structure/chair/wood/wings{
 	dir = 4
-	},
-/obj/item/gun/energy/laser/captain/scattershot{
-	icon = 'icons/obj/guns/magic.dmi';
-	icon_state = "nothingwand";
-	pixel_x = 5;
-	desc = "A wand used by Wizards who specialize in offensive magic";
-	name = "wand of many orbs";
-	item_state = "wand"
 	},
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
@@ -2435,18 +2435,6 @@
 	name = "emerald wall"
 	},
 /area/ship/crew/canteen)
-"WS" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/gun/energy/laser/captain/scattershot{
-	icon = 'icons/obj/guns/magic.dmi';
-	icon_state = "nothingwand";
-	pixel_x = 5;
-	desc = "A wand used by Wizards who specialize in offensive magic";
-	name = "wand of many orbs";
-	item_state = "wand"
-	},
-/turf/open/floor/wood/bamboo,
-/area/ship/crew/canteen)
 "WV" = (
 /obj/machinery/door/window/survival_pod{
 	dir = 8
@@ -2740,7 +2728,7 @@ Tx
 Tx
 MI
 LQ
-WS
+LQ
 FY
 ye
 AC
