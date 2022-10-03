@@ -251,7 +251,7 @@
 /turf/open/floor/wood,
 /area/ship/crew/canteen)
 "aS" = (
-/turf/open/water,
+/turf/open/floor/plating/beach/water,
 /area/ship/crew/canteen)
 "aT" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -365,7 +365,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/open/water,
+/turf/open/floor/plating/beach/water,
 /area/ship/crew/canteen)
 "bl" = (
 /obj/effect/decal/cleanable/blood/gibs/down,
@@ -774,8 +774,9 @@
 /obj/item/book/granter/spell/charge{
 	pixel_x = 5
 	},
-/obj/item/book/granter/spell/knock,
+/obj/item/book/granter/spell/blind,
 /obj/structure/closet/cabinet,
+/obj/item/book/granter/spell/cards,
 /turf/open/floor/wood,
 /area/ship/security)
 "cr" = (
@@ -1742,10 +1743,6 @@
 	},
 /turf/open/floor/wood/mahogany,
 /area/ship/crew/chapel)
-"Kj" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/water,
-/area/ship/crew/canteen)
 "KS" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
@@ -2004,15 +2001,6 @@
 	dir = 1
 	},
 /turf/open/floor/wood/mahogany,
-/area/ship/crew/chapel)
-"Rm" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/fulltile{
-	color = "#008000"
-	},
-/obj/structure/curtain/cloth/fancy,
-/obj/item/instrument/trombone,
-/turf/open/floor/plating,
 /area/ship/crew/chapel)
 "RD" = (
 /obj/structure/grille,
@@ -2357,7 +2345,7 @@ No
 No
 aJ
 vw
-Rm
+aU
 qN
 aU
 aJ
@@ -2917,7 +2905,7 @@ KW
 KW
 KW
 KW
-Kj
+aS
 aS
 bi
 zn
