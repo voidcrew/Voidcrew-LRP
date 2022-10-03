@@ -676,23 +676,16 @@
 /turf/open/floor/mineral/diamond,
 /area/ship/maintenance/aft)
 "ca" = (
-/obj/machinery/power/smes{
-	name = "mana storage unit";
-	charge = 2e+006
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
-	icon_state = "0-2"
+	icon_state = "2-4"
 	},
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "cb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/cyan{
-	icon_state = "0-4"
-	},
-/obj/machinery/power/terminal{
-	dir = 8
+	icon_state = "4-8"
 	},
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
@@ -1302,9 +1295,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
 /obj/structure/table/wood/fancy/red_gold,
 /obj/item/storage/box/donkpockets/donkpocketgondola,
 /obj/effect/spawner/lootdrop/donkpockets,
@@ -1332,6 +1322,13 @@
 	},
 /turf/open/floor/wood,
 /area/ship/security)
+"vw" = (
+/obj/item/reagent_containers/glass/bottle/necropolis_seed,
+/turf/closed/wall/mineral/uranium/safe{
+	desc = "A wall plated with emerald.";
+	name = "emerald wall"
+	},
+/area/ship/crew/chapel)
 "wq" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -2008,6 +2005,15 @@
 	},
 /turf/open/floor/wood/mahogany,
 /area/ship/crew/chapel)
+"Rm" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced/fulltile{
+	color = "#008000"
+	},
+/obj/structure/curtain/cloth/fancy,
+/obj/item/instrument/trombone,
+/turf/open/floor/plating,
+/area/ship/crew/chapel)
 "RD" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/fulltile{
@@ -2076,9 +2082,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 10
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
 	},
 /obj/structure/table/wood/fancy/red_gold,
 /obj/machinery/reagentgrinder,
@@ -2152,8 +2155,8 @@
 /turf/open/floor/wood,
 /area/ship/crew/canteen)
 "VC" = (
-/obj/item/reagent_containers/glass/bottle/adminordrazine,
 /obj/structure/displaycase,
+/obj/item/instrument/trombone/spectral,
 /turf/open/floor/carpet/purple,
 /area/ship/crew/canteen)
 "VD" = (
@@ -2353,8 +2356,8 @@ No
 No
 No
 aJ
-aJ
-aU
+vw
+Rm
 qN
 aU
 aJ
