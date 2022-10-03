@@ -93,9 +93,6 @@
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/cargo)
 "aN" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/effect/turf_decal/industrial/stand_clear/red{
 	dir = 8
 	},
@@ -539,9 +536,6 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
 /obj/effect/turf_decal/industrial/warning{
 	dir = 4
 	},
@@ -586,9 +580,6 @@
 /turf/closed/wall/mineral/titanium,
 /area/ship/bridge)
 "ho" = (
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
 /obj/effect/turf_decal/industrial/warning{
 	dir = 4
 	},
@@ -772,16 +763,6 @@
 "jC" = (
 /turf/open/floor/carpet/black,
 /area/ship/bridge)
-"jJ" = (
-/obj/machinery/door/poddoor/shutters{
-	id = "Notadickfront"
-	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
-/obj/structure/fans/tiny,
-/turf/open/floor/plating,
-/area/ship/medical)
 "jK" = (
 /obj/machinery/firealarm{
 	pixel_y = 25
@@ -908,9 +889,6 @@
 	},
 /obj/machinery/door/poddoor/shutters{
 	id = "Notadickfront"
-	},
-/obj/structure/cable{
-	icon_state = "0-8"
 	},
 /obj/structure/fans/tiny,
 /turf/open/floor/plating,
@@ -1352,9 +1330,6 @@
 /turf/open/floor/plasteel/patterned,
 /area/ship/security/armory)
 "qM" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/effect/turf_decal/industrial/warning{
 	dir = 4
 	},
@@ -2170,9 +2145,6 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 10
-	},
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood/ebony,
 /area/ship/crew/canteen)
@@ -2427,7 +2399,9 @@
 /turf/open/floor/plating,
 /area/ship/crew/canteen)
 "Es" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 10
+	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2581,9 +2555,6 @@
 /turf/open/floor/engine/airless,
 /area/ship/hallway/central)
 "GO" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/effect/turf_decal/industrial/stand_clear/red{
 	dir = 8
 	},
@@ -3034,9 +3005,6 @@
 /turf/open/floor/wood,
 /area/ship/hallway/port)
 "Mx" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 6
-	},
 /obj/item/kirbyplants/random,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood/ebony,
@@ -3045,15 +3013,15 @@
 /obj/machinery/camera/xray{
 	dir = 4
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = -28
 	},
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
 	},
 /turf/open/floor/wood/ebony,
 /area/ship/crew/canteen)
@@ -5337,7 +5305,7 @@ HA
 HA
 HA
 HA
-jJ
+HA
 zV
 yP
 yP
