@@ -379,7 +379,7 @@
 		var/password = ""
 		var/total_cost = template.cost
 		if (!template.disable_passwords)
-			var/password_cost = template.get_password_cost()
+			var/password_cost = 0// template.get_password_cost() temporary edit for free password due to griefers. If you see this on the master branch someone did a bad.
 			// Prompt for password purchasing
 			var/password_choice = tgui_alert(src, "Enable password protection for [password_cost] voidcoins", "Password Protection", list("Yes", "No"))
 			if(password_choice == null)
