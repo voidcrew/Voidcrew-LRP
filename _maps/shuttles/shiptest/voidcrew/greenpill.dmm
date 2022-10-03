@@ -3,7 +3,9 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 1
+	},
 /turf/open/floor/wood,
 /area/ship/maintenance/aft)
 "aP" = (
@@ -162,6 +164,9 @@
 /obj/structure/mirror/magic{
 	pixel_y = -29
 	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
 /turf/open/floor/wood,
 /area/ship/maintenance/aft)
 "lx" = (
@@ -192,9 +197,6 @@
 /area/ship/bridge)
 "nu" = (
 /obj/structure/window/reinforced/tinted/frosted,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
-	},
 /obj/machinery/mineral/ore_redemption{
 	req_access = null
 	},
@@ -204,6 +206,12 @@
 /obj/machinery/holopad/emergency/command,
 /turf/open/floor/carpet/purple,
 /area/ship/bridge)
+"pO" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/carpet/royalblue,
+/area/ship/maintenance/aft)
 "so" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 6
@@ -371,9 +379,6 @@
 /obj/structure/sign/poster/official/fruit_bowl{
 	pixel_y = 32
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
-	},
 /turf/open/floor/wood,
 /area/ship/maintenance/aft)
 "DR" = (
@@ -395,9 +400,6 @@
 	},
 /area/ship/bridge)
 "EZ" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
 /obj/machinery/autolathe,
 /turf/open/floor/wood,
 /area/ship/maintenance/aft)
@@ -443,8 +445,8 @@
 	icon_state = "1-2"
 	},
 /obj/structure/window/reinforced/tinted/frosted,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 1
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 1
@@ -493,7 +495,16 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
 /turf/open/floor/wood,
+/area/ship/maintenance/aft)
+"IX" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 9
+	},
+/turf/open/floor/carpet/royalblue,
 /area/ship/maintenance/aft)
 "JK" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
@@ -581,6 +592,9 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "Tb" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
 /turf/open/floor/wood,
 /area/ship/maintenance/aft)
 "TS" = (
@@ -613,6 +627,12 @@
 	},
 /turf/open/floor/carpet/purple,
 /area/ship/bridge)
+"Wg" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/turf/open/floor/carpet/royalblue,
+/area/ship/maintenance/aft)
 "Xh" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -643,7 +663,10 @@
 /area/ship/maintenance/aft)
 "Yv" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 5
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 9
 	},
 /turf/open/floor/carpet/royalblue,
 /area/ship/maintenance/aft)
@@ -693,8 +716,8 @@ EB
 Gl
 ed
 AN
-Xk
-Xk
+pO
+Wg
 Gg
 Gl
 uC
@@ -711,7 +734,7 @@ so
 vn
 aC
 Yv
-Xk
+IX
 hC
 ed
 uC
