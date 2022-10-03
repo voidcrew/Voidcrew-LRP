@@ -126,14 +126,17 @@
 /turf/open/floor/wood/bamboo,
 /area/ship/maintenance/aft)
 "aZ" = (
-/obj/structure/cable/cyan{
-	icon_state = "0-2"
+/obj/structure/chair/sofa/corner{
+	dir = 4
 	},
-/turf/open/floor/wood/bamboo,
-/area/ship/maintenance/aft)
+/turf/open/floor/carpet/green,
+/area/ship/maintenance/port)
 "bf" = (
 /obj/structure/closet/secure_closet/engineering_electrical{
 	anchored = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/open/floor/bronze,
 /area/ship/maintenance/aft)
@@ -182,10 +185,7 @@
 /area/ship/maintenance/aft)
 "bC" = (
 /obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "4-8"
 	},
 /turf/closed/wall/mineral/uranium/safe{
 	desc = "A wall plated with emerald.";
@@ -270,19 +270,14 @@
 "cP" = (
 /obj/structure/bed,
 /obj/item/bedsheet/wiz,
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/yew,
 /area/ship/crew/dorm/dormtwo)
 "cR" = (
-/obj/structure/table/wood/fancy/green,
-/obj/item/book/granter/spell/knock{
-	pixel_x = -5
-	},
-/obj/item/book/granter/spell/knock{
-	pixel_x = 5
-	},
-/obj/machinery/light,
+/obj/structure/table/wood,
+/obj/item/candle/infinite,
+/obj/item/storage/box/matches,
 /turf/open/floor/wood/bamboo,
-/area/ship/security/armory)
+/area/ship/crew/library)
 "cS" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -357,14 +352,11 @@
 /turf/open/floor/wood,
 /area/ship/crew/dorm)
 "dC" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/structure/chair/sofa/right{
+	dir = 4
 	},
-/turf/closed/wall/mineral/uranium/safe{
-	desc = "A wall plated with emerald.";
-	name = "emerald wall"
-	},
-/area/ship/maintenance/central)
+/turf/open/floor/carpet/green,
+/area/ship/maintenance/port)
 "dU" = (
 /obj/machinery/power/smes{
 	name = "mana storage unit";
@@ -419,8 +411,12 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 9
+	},
 /turf/open/floor/carpet/stellar,
 /area/ship/crew/library)
 "er" = (
@@ -453,28 +449,14 @@
 	},
 /obj/item/reagent_containers/glass/beaker/bluespace{
 	icon_state = "potblue";
-	name = "beaker of holding"
+	name = "beaker of holding";
+	can_have_cap = 0
 	},
 /obj/item/slimepotion/genderchange{
 	pixel_x = 5
 	},
 /obj/item/slimepotion/lavaproof{
 	pixel_x = 10
-	},
-/obj/item/slimepotion/peacepotion{
-	pixel_x = 15
-	},
-/obj/item/slimepotion/spaceproof{
-	pixel_x = 20
-	},
-/obj/item/slimepotion/speed{
-	pixel_x = 25
-	},
-/obj/item/slimepotion/transference{
-	pixel_x = 30
-	},
-/obj/item/reagent_containers/glass/bottle/potion/flight{
-	pixel_x = 35
 	},
 /turf/open/floor/mineral/silver,
 /area/ship/medical)
@@ -566,9 +548,6 @@
 /obj/structure/cable/cyan{
 	icon_state = "2-8"
 	},
-/obj/structure/cable/cyan{
-	icon_state = "1-2"
-	},
 /obj/structure/window/plasma/reinforced/spawner/west{
 	color = "#008000"
 	},
@@ -623,19 +602,10 @@
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/library)
 "gc" = (
-/obj/machinery/power/rtg/advanced{
-	name = "mana field condenser"
+/obj/structure/chair/comfy/brown{
+	dir = 1
 	},
-/obj/structure/cable/cyan{
-	icon_state = "0-4"
-	},
-/obj/structure/window/plasma/reinforced/spawner/east{
-	color = "#008000"
-	},
-/obj/structure/window/plasma/reinforced/spawner{
-	color = "#008000"
-	},
-/turf/open/floor/mineral/diamond,
+/turf/open/floor/carpet/green,
 /area/ship/maintenance/port)
 "gu" = (
 /obj/effect/turf_decal/atmos/plasma,
@@ -720,6 +690,9 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
+	dir = 1
+	},
 /turf/open/floor/light,
 /area/ship/medical)
 "he" = (
@@ -786,6 +759,9 @@
 /obj/structure/closet/radiation{
 	anchored = 1
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "hQ" = (
@@ -793,6 +769,9 @@
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/electrical{
 	pixel_y = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/open/floor/bronze,
 /area/ship/maintenance/aft)
@@ -940,6 +919,9 @@
 "jb" = (
 /obj/structure/closet/secure_closet/atmospherics{
 	anchored = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/open/floor/bronze,
 /area/ship/maintenance/aft)
@@ -1102,27 +1084,17 @@
 /turf/open/floor/wood/mahogany,
 /area/ship/storage)
 "lh" = (
-/obj/structure/table/wood/fancy,
-/obj/item/skub{
-	pixel_y = 16
+/obj/machinery/power/rtg/advanced{
+	name = "mana field condenser"
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/item/skub{
-	pixel_y = 11
+/obj/structure/window/plasma/reinforced/spawner/east{
+	color = "#008000"
 	},
-/obj/item/skub{
-	pixel_y = 4
+/obj/structure/cable/cyan{
+	icon_state = "0-4"
 	},
-/obj/machinery/door/window/survival_pod{
-	req_access_txt = "1";
-	dir = 4
-	},
-/obj/machinery/light/small{
-	brightness = 3;
-	dir = 1
-	},
-/turf/open/floor/plasteel/grimy,
-/area/ship/maintenance/fore)
+/turf/open/floor/mineral/diamond,
+/area/ship/maintenance/starboard)
 "lk" = (
 /obj/structure/cable/cyan{
 	icon_state = "2-8"
@@ -1184,12 +1156,9 @@
 /turf/open/floor/plasteel/grimy,
 /area/ship/maintenance/fore)
 "lK" = (
-/turf/closed/wall/mineral/uranium/safe{
-	desc = "A wall plated with emerald.";
-	name = "emerald wall"
-	},
-/turf/open/floor/wood/ebony,
-/area/ship/crew/canteen/kitchen)
+/obj/machinery/vending/snack/green,
+/turf/open/floor/carpet/green,
+/area/ship/maintenance/starboard)
 "lM" = (
 /obj/machinery/smartfridge/bloodbank/preloaded,
 /turf/closed/wall/mineral/uranium/safe{
@@ -1370,14 +1339,14 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 6
-	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 8
 	},
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/library)
@@ -1387,7 +1356,7 @@
 /obj/item/upgradescroll,
 /obj/item/upgradescroll,
 /obj/item/upgradescroll,
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/yew,
 /area/ship/crew/dorm/dormtwo)
 "nV" = (
 /obj/structure/cable{
@@ -1489,9 +1458,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
 	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/central)
 "pO" = (
@@ -1572,7 +1538,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/yew,
 /area/ship/crew/dorm/dormtwo)
 "qE" = (
 /obj/structure/cable{
@@ -1612,11 +1578,9 @@
 /turf/open/floor/wood/yew,
 /area/ship/bridge)
 "qT" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
-	dir = 1
-	},
-/turf/open/floor/mineral/silver,
-/area/ship/medical)
+/obj/machinery/vending/snack/green,
+/turf/open/floor/carpet/green,
+/area/ship/maintenance/port)
 "rd" = (
 /obj/structure/table/reinforced,
 /obj/item/kitchen/knife/butcher,
@@ -1710,7 +1674,7 @@
 /area/ship/cargo)
 "sg" = (
 /obj/effect/decal/cleanable/blood/old,
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/yew,
 /area/ship/crew/dorm/dormtwo)
 "sh" = (
 /obj/structure/cable{
@@ -1734,9 +1698,6 @@
 "sF" = (
 /obj/structure/cable/cyan{
 	icon_state = "1-8"
-	},
-/obj/structure/cable/cyan{
-	icon_state = "1-4"
 	},
 /obj/structure/cable/cyan{
 	icon_state = "1-2"
@@ -1803,9 +1764,6 @@
 /obj/structure/cable/cyan{
 	icon_state = "2-4"
 	},
-/obj/structure/cable/cyan{
-	icon_state = "2-8"
-	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/port)
@@ -1818,20 +1776,6 @@
 /obj/structure/closet/emcloset/anchored,
 /turf/open/floor/wood/bamboo,
 /area/ship/cargo)
-"tJ" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
-/obj/machinery/stasis{
-	name = "Mana preservation unit"
-	},
-/obj/machinery/defibrillator_mount/loaded{
-	pixel_y = -28;
-	desc = "Uses a high-frequency jolt of Mana to restart circulatory systems.";
-	name = "Wall-mounted mana-jolter"
-	},
-/turf/open/floor/mineral/silver,
-/area/ship/medical)
 "tL" = (
 /obj/machinery/door/airlock{
 	icon = 'icons/obj/doors/airlocks/station/uranium.dmi';
@@ -1879,7 +1823,16 @@
 /area/ship/maintenance/central)
 "tW" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/item/research_notes/loot/genius,
+/obj/item/research_notes/loot/medium,
+/obj/item/research_notes/loot/tiny,
+/obj/item/research_notes/loot/tiny,
+/obj/item/research_notes/loot/tiny,
+/obj/item/research_notes/loot/tiny,
+/obj/item/research_notes/loot/tiny,
+/obj/item/research_notes/loot/tiny,
+/obj/item/research_notes/loot/tiny,
+/obj/item/research_notes/loot/tiny,
+/obj/item/research_notes/loot/tiny,
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/library)
 "tY" = (
@@ -1906,6 +1859,12 @@
 	},
 /obj/structure/closet/secure_closet/engineering_welding{
 	anchored = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/open/floor/bronze,
 /area/ship/maintenance/aft)
@@ -2066,11 +2025,11 @@
 /turf/open/floor/mineral/diamond,
 /area/ship/maintenance/starboard)
 "vv" = (
-/obj/structure/cable/cyan{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
 	dir = 1
+	},
+/obj/structure/cable/cyan{
+	icon_state = "4-8"
 	},
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/aft)
@@ -2161,7 +2120,7 @@
 	desc = "50% carp, 100% magic, 150% horrible, 200% a wizard's best friend.";
 	name = "Bunglesworth"
 	},
-/turf/open/floor/wood,
+/turf/open/floor/wood/yew,
 /area/ship/bridge)
 "wt" = (
 /obj/machinery/processor,
@@ -2198,7 +2157,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/yew,
 /area/ship/crew/dorm/dormtwo)
 "wI" = (
 /obj/structure/chair/bronze{
@@ -2274,6 +2233,7 @@
 /obj/effect/mob_spawn/human/corpse/wizard{
 	name = "Pingus"
 	},
+/obj/item/research_notes/loot/tiny,
 /turf/open/floor/engine/plasma,
 /area/ship/storage)
 "xy" = (
@@ -2384,6 +2344,9 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "yG" = (
@@ -2475,7 +2438,8 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/turf/open/floor/wood/ebony,
+/obj/machinery/power/apc/auto_name/west,
+/turf/open/floor/wood/yew,
 /area/ship/crew/dorm/dormtwo)
 "zr" = (
 /obj/machinery/power/smes/shuttle/precharged{
@@ -2527,9 +2491,6 @@
 /turf/open/floor/mineral/diamond,
 /area/ship/maintenance/port)
 "zE" = (
-/obj/structure/cable/cyan{
-	icon_state = "2-4"
-	},
 /obj/structure/cable/cyan{
 	icon_state = "2-8"
 	},
@@ -2612,14 +2573,15 @@
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/port)
 "AF" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 9
+/obj/structure/cable/cyan{
+	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 9
+/obj/structure/cable/cyan{
+	icon_state = "2-8"
 	},
-/turf/open/floor/carpet/stellar,
-/area/ship/crew/library)
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/carpet/green,
+/area/ship/maintenance/port)
 "AJ" = (
 /obj/structure/window/plasma/reinforced/fulltile{
 	color = "#008000"
@@ -2688,17 +2650,14 @@
 /turf/open/floor/carpet/royalblack,
 /area/ship/crew/dorm/dormtwo)
 "Bz" = (
-/obj/structure/cable/cyan{
-	icon_state = "4-8"
-	},
-/obj/structure/cable/cyan{
-	icon_state = "1-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
 	},
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/aft)
@@ -2729,7 +2688,7 @@
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi';
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	},
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/yew,
 /area/ship/crew/dorm/dormtwo)
 "BW" = (
 /obj/machinery/power/rtg/advanced{
@@ -2788,36 +2747,57 @@
 /turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "Cu" = (
-/obj/structure/table/wood/fancy/green,
-/obj/item/book/granter/spell/summonitem{
-	pixel_x = 5
-	},
-/obj/item/book/granter/spell/summonitem{
-	pixel_x = -5
-	},
-/turf/open/floor/wood/bamboo,
-/area/ship/security/armory)
+/obj/structure/chair/sofa/left,
+/turf/open/floor/carpet/green,
+/area/ship/maintenance/port)
 "Cx" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 9
-	},
 /obj/item/storage/backpack/duffelbag/med/surgery,
 /obj/structure/table/wood/fancy/royalblue,
 /turf/open/floor/mineral/silver,
 /area/ship/medical)
 "Cy" = (
 /obj/structure/table/wood/fancy/green,
-/obj/item/gun/energy/xray{
-	fire_sound = 'sound/magic/staff_change.ogg';
+/obj/item/gun/energy/taser{
 	icon = 'icons/obj/guns/magic.dmi';
-	icon_state = "staffofsapping";
-	item_state = "staffofsapping";
-	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi';
-	lefthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi';
-	desc = "A powerful offensive staff that can fire blasts of eldrich energy that pass through walls.";
-	name = "Gamma Staff";
+	icon_state = "telewand";
+	name = "wand of stunning";
+	desc = "A wand which send a weak blast of energy designed to incapacitate";
+	fire_sound = 'sound/magic/wand_teleport.ogg';
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
+	},
+/obj/item/gun/energy/taser{
+	icon = 'icons/obj/guns/magic.dmi';
+	icon_state = "telewand";
+	name = "wand of stunning";
+	desc = "A wand which send a weak blast of energy designed to incapacitate";
 	pixel_x = 5
 	},
+/obj/item/gun/energy/taser{
+	icon = 'icons/obj/guns/magic.dmi';
+	icon_state = "telewand";
+	name = "wand of stunning";
+	desc = "A wand which send a weak blast of energy designed to incapacitate";
+	pixel_x = 10;
+	fire_sound = 'sound/magic/wand_teleport.ogg';
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
+	},
+/obj/item/gun/energy/taser{
+	icon = 'icons/obj/guns/magic.dmi';
+	icon_state = "telewand";
+	name = "wand of stunning";
+	desc = "A wand which send a weak blast of energy designed to incapacitate";
+	pixel_x = -5;
+	fire_sound = 'sound/magic/wand_teleport.ogg';
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
+	},
+/turf/open/floor/wood/bamboo,
+/area/ship/security/armory)
+"CA" = (
+/obj/structure/fluff/divine/convertaltar,
+/obj/machinery/light/floor,
 /obj/item/gun/energy/xray{
 	fire_sound = 'sound/magic/staff_change.ogg';
 	icon = 'icons/obj/guns/magic.dmi';
@@ -2828,42 +2808,6 @@
 	desc = "A powerful offensive staff that can fire blasts of eldrich energy that pass through walls.";
 	name = "Gamma Staff"
 	},
-/obj/item/gun/energy/xray{
-	fire_sound = 'sound/magic/staff_change.ogg';
-	icon = 'icons/obj/guns/magic.dmi';
-	icon_state = "staffofsapping";
-	item_state = "staffofsapping";
-	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi';
-	lefthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi';
-	desc = "A powerful offensive staff that can fire blasts of eldrich energy that pass through walls.";
-	name = "Gamma Staff";
-	pixel_x = -5
-	},
-/obj/item/gun/energy/xray{
-	fire_sound = 'sound/magic/staff_change.ogg';
-	icon = 'icons/obj/guns/magic.dmi';
-	icon_state = "staffofsapping";
-	item_state = "staffofsapping";
-	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi';
-	lefthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi';
-	desc = "A powerful offensive staff that can fire blasts of eldrich energy that pass through walls.";
-	name = "Gamma Staff";
-	pixel_x = -10
-	},
-/turf/open/floor/wood/bamboo,
-/area/ship/security/armory)
-"CA" = (
-/obj/structure/altar_of_gods,
-/obj/item/gun/energy/pulse/carbine{
-	icon = 'icons/obj/guns/magic.dmi';
-	icon_state = "staffofanimation";
-	pin = /obj/item/firing_pin/magic;
-	lefthand_file = 'icons/mob/inhands/weapons/staves_lefthand.dmi';
-	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi';
-	desc = "An extremely powerful wand, created using the soul of the powerful wizard, Rodney XII";
-	name = "Rodney's Gift"
-	},
-/obj/machinery/light/floor,
 /turf/open/floor/carpet/black,
 /area/ship/storage)
 "CF" = (
@@ -3046,19 +2990,8 @@
 /turf/open/floor/wood/yew,
 /area/ship/bridge)
 "Eg" = (
-/obj/machinery/power/rtg/advanced{
-	name = "mana field condenser"
-	},
-/obj/structure/cable/cyan{
-	icon_state = "0-8"
-	},
-/obj/structure/window/plasma/reinforced/spawner/west{
-	color = "#008000"
-	},
-/obj/structure/window/plasma/reinforced/spawner/north{
-	color = "#008000"
-	},
-/turf/open/floor/mineral/diamond,
+/obj/item/reagent_containers/food/snacks/grown/banana,
+/turf/open/floor/carpet/green,
 /area/ship/maintenance/starboard)
 "Ei" = (
 /obj/machinery/door/airlock{
@@ -3067,9 +3000,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
 	},
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/central)
@@ -3089,7 +3019,6 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
-/obj/structure/bookcase/random,
 /turf/open/floor/carpet/stellar,
 /area/ship/crew/library)
 "ED" = (
@@ -3159,17 +3088,12 @@
 /area/ship/medical)
 "Fd" = (
 /obj/structure/closet/crate/bin,
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/yew,
 /area/ship/crew/dorm/dormtwo)
 "Fg" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 1
-	},
-/turf/open/floor/carpet/stellar,
-/area/ship/crew/library)
+/mob/living/carbon/monkey/punpun,
+/turf/open/floor/carpet/green,
+/area/ship/maintenance/starboard)
 "Fl" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3195,13 +3119,10 @@
 /turf/open/floor/carpet/red_gold,
 /area/ship/hallway/central)
 "Fs" = (
+/obj/machinery/airalarm/directional/south,
 /obj/structure/cable/cyan{
 	icon_state = "1-8"
 	},
-/obj/structure/cable/cyan{
-	icon_state = "1-4"
-	},
-/obj/machinery/airalarm/directional/south,
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/starboard)
 "Fu" = (
@@ -3222,9 +3143,6 @@
 /turf/open/floor/engine/plasma,
 /area/ship/maintenance/aft)
 "FF" = (
-/obj/structure/cable/cyan{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 10
 	},
@@ -3342,6 +3260,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "GV" = (
@@ -3385,17 +3306,9 @@
 /turf/open/floor/carpet/royalblue,
 /area/ship/hallway/central)
 "Hr" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/turf/open/floor/light,
-/area/ship/medical)
+/obj/item/grown/bananapeel,
+/turf/open/floor/carpet/green,
+/area/ship/maintenance/starboard)
 "HA" = (
 /obj/machinery/computer/rdconsole{
 	dir = 8
@@ -3412,7 +3325,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/yew,
 /area/ship/crew/dorm/dormtwo)
 "HN" = (
 /obj/structure/window/plasma/reinforced/spawner/north{
@@ -3515,7 +3428,7 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 2
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 5
@@ -3638,7 +3551,7 @@
 /obj/structure/closet/cabinet,
 /obj/item/clothing/suit/space/hardsuit/wizard,
 /obj/item/clothing/gloves/combat/wizard,
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/yew,
 /area/ship/crew/dorm/dormtwo)
 "Kc" = (
 /obj/structure/cable{
@@ -3706,6 +3619,9 @@
 	desc = "Used for pulsing wires, with magic"
 	},
 /obj/item/storage/toolbox/mechanical,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "Kp" = (
@@ -3718,6 +3634,16 @@
 /area/ship/crew/dorm)
 "Kr" = (
 /obj/structure/table/wood/fancy/royalblue,
+/obj/item/reagent_containers/glass/bottle/potion/flight{
+	pixel_x = 5
+	},
+/obj/item/slimepotion/speed,
+/obj/item/slimepotion/spaceproof{
+	pixel_x = -5
+	},
+/obj/item/slimepotion/peacepotion{
+	pixel_x = -10
+	},
 /turf/open/floor/mineral/silver,
 /area/ship/medical)
 "Kw" = (
@@ -3758,12 +3684,6 @@
 	},
 /turf/open/floor/wood/bamboo,
 /area/ship/security/armory)
-"KJ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 5
-	},
-/turf/open/floor/mineral/silver,
-/area/ship/medical)
 "KM" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -3959,6 +3879,9 @@
 	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/open/floor/bronze,
 /area/ship/maintenance/aft)
@@ -4186,19 +4109,7 @@
 /turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "Qf" = (
-/obj/machinery/power/rtg/advanced{
-	name = "mana field condenser"
-	},
-/obj/structure/cable/cyan{
-	icon_state = "0-8"
-	},
-/obj/structure/window/plasma/reinforced/spawner/west{
-	color = "#008000"
-	},
-/obj/structure/window/plasma/reinforced/spawner{
-	color = "#008000"
-	},
-/turf/open/floor/mineral/diamond,
+/turf/open/floor/carpet/green,
 /area/ship/maintenance/port)
 "Qn" = (
 /obj/structure/chair/bronze{
@@ -4213,10 +4124,12 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 2
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
+	dir = 8
+	},
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/library)
 "Qt" = (
@@ -4286,13 +4199,13 @@
 /turf/open/floor/carpet/orange,
 /area/ship/security/armory)
 "RN" = (
+/obj/machinery/power/apc/auto_name/north,
 /obj/structure/cable/cyan{
 	icon_state = "2-4"
 	},
 /obj/structure/cable/cyan{
 	icon_state = "2-8"
 	},
-/obj/machinery/power/apc/auto_name/north,
 /obj/structure/cable/cyan{
 	icon_state = "0-2"
 	},
@@ -4362,14 +4275,14 @@
 /turf/open/floor/wood/bamboo,
 /area/ship/maintenance/aft)
 "SD" = (
-/obj/structure/cable/cyan{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/aft)
@@ -4413,9 +4326,6 @@
 /obj/structure/cable/cyan{
 	icon_state = "2-4"
 	},
-/obj/structure/cable/cyan{
-	icon_state = "2-8"
-	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/port)
@@ -4426,9 +4336,6 @@
 /turf/open/floor/wood/bamboo,
 /area/ship/cargo)
 "Ti" = (
-/obj/structure/cable/cyan{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 2
 	},
@@ -4438,7 +4345,9 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
-/obj/structure/bookcase/random,
+/obj/structure/chair/bronze{
+	dir = 4
+	},
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/library)
 "Tk" = (
@@ -4448,12 +4357,12 @@
 /turf/open/floor/wood/mahogany,
 /area/ship/hallway/fore)
 "Tl" = (
-/obj/structure/cable/cyan{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/components/binary/pump/layer4{
 	dir = 1;
 	on = 1
+	},
+/obj/structure/cable/cyan{
+	icon_state = "4-8"
 	},
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/aft)
@@ -4477,6 +4386,9 @@
 /obj/item/pipe_dispenser{
 	name = "Rapid Pipe Conjurer (RPC)";
 	desc = "A device used to rapidly pipe things, using magic"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/open/floor/bronze,
 /area/ship/maintenance/aft)
@@ -4516,19 +4428,7 @@
 /turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "TW" = (
-/obj/machinery/power/rtg/advanced{
-	name = "mana field condenser"
-	},
-/obj/structure/cable/cyan{
-	icon_state = "0-4"
-	},
-/obj/structure/window/plasma/reinforced/spawner/east{
-	color = "#008000"
-	},
-/obj/structure/window/plasma/reinforced/spawner/north{
-	color = "#008000"
-	},
-/turf/open/floor/mineral/diamond,
+/turf/open/floor/carpet/green,
 /area/ship/maintenance/starboard)
 "TY" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
@@ -4543,9 +4443,6 @@
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/library)
 "Ua" = (
-/obj/structure/cable/cyan{
-	icon_state = "2-8"
-	},
 /obj/machinery/computer/cargo/express{
 	dir = 8
 	},
@@ -4559,6 +4456,10 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/auto_name/west,
+/obj/machinery/light/small{
+	brightness = 3;
+	dir = 4
+	},
 /turf/open/floor/plasteel/grimy,
 /area/ship/maintenance/fore)
 "Uc" = (
@@ -4640,7 +4541,7 @@
 /area/ship/hallway/fore)
 "UN" = (
 /obj/item/kirbyplants/random,
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/yew,
 /area/ship/crew/dorm/dormtwo)
 "UV" = (
 /obj/structure/cable{
@@ -4670,7 +4571,7 @@
 /turf/open/floor/carpet/red_gold,
 /area/ship/hallway/central)
 "Vh" = (
-/obj/structure/altar_of_gods,
+/obj/structure/fluff/divine/convertaltar,
 /obj/item/mjollnir,
 /obj/machinery/light/floor,
 /turf/open/floor/carpet/black,
@@ -4687,7 +4588,7 @@
 /area/ship/cargo)
 "VE" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/wood/ebony,
+/turf/open/floor/wood/yew,
 /area/ship/crew/dorm/dormtwo)
 "VW" = (
 /obj/machinery/atmospherics/pipe/simple/purple/visible,
@@ -4921,6 +4822,12 @@
 /obj/structure/closet/secure_closet/engineering_personal{
 	anchored = 1
 	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "Zi" = (
@@ -4965,10 +4872,10 @@
 /area/ship/crew/dorm)
 "ZS" = (
 /obj/structure/cable/cyan{
-	icon_state = "1-8"
+	icon_state = "1-4"
 	},
 /obj/structure/cable/cyan{
-	icon_state = "1-4"
+	icon_state = "1-2"
 	},
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/starboard)
@@ -5296,7 +5203,7 @@ wN
 wN
 Eo
 yZ
-aZ
+OG
 FF
 Ti
 Bz
@@ -5318,8 +5225,8 @@ jg
 zw
 iR
 LB
-gv
-gv
+lh
+lh
 gv
 gv
 kc
@@ -5332,9 +5239,9 @@ MG
 MG
 Eo
 zE
-SX
-SX
-SX
+AF
+AF
+AF
 MM
 Eo
 Eo
@@ -5342,18 +5249,18 @@ Eo
 Eo
 Eo
 Ei
-dC
-dC
-dC
-dC
-dC
+vJ
+vJ
+vJ
+vJ
+vJ
 bC
 bC
-dC
-dC
-dC
-dC
-dC
+vJ
+vJ
+vJ
+vJ
+vJ
 pE
 LB
 LB
@@ -5373,9 +5280,9 @@ MG
 MG
 MG
 Eo
-zD
-Ut
-Ut
+qT
+aZ
+dC
 Qf
 vE
 VZ
@@ -5404,9 +5311,9 @@ gv
 eb
 WY
 Eg
-ql
-ql
-jE
+Fg
+Eg
+lK
 LB
 MG
 MG
@@ -5416,8 +5323,8 @@ MG
 MG
 Eo
 Eo
-wx
-wN
+Cu
+Qf
 gc
 xB
 wg
@@ -5446,8 +5353,8 @@ gJ
 gJ
 aH
 TW
-gv
-kc
+Hr
+Fg
 LB
 LB
 MG
@@ -5487,8 +5394,8 @@ ql
 ql
 Ds
 an
-sF
-sF
+ZS
+ZS
 ZS
 hA
 MG
@@ -5548,7 +5455,7 @@ nD
 nD
 nD
 nD
-lh
+lJ
 lJ
 lJ
 nD
@@ -5613,7 +5520,7 @@ Mm
 RQ
 zj
 Jf
-KJ
+EY
 GC
 ya
 MG
@@ -5655,8 +5562,8 @@ pW
 ya
 EY
 hd
-qT
-tJ
+GN
+mL
 ya
 MG
 MG
@@ -5696,7 +5603,7 @@ ya
 ya
 lM
 EY
-Hr
+sQ
 Cx
 ya
 ya
@@ -6054,7 +5961,7 @@ ZU
 tL
 ZU
 mZ
-lK
+ZU
 ZU
 pW
 Di
@@ -6444,8 +6351,8 @@ jZ
 oC
 DD
 nO
-Fg
-AF
+jz
+jz
 jz
 GH
 DD
@@ -6487,7 +6394,7 @@ oC
 DD
 Ki
 EB
-bg
+jz
 jz
 tY
 DD
@@ -6528,7 +6435,7 @@ Qt
 xf
 DD
 LM
-bg
+jz
 bg
 jz
 tW
@@ -6609,10 +6516,10 @@ Uo
 oC
 oC
 oC
-cR
+CP
 DD
 LM
-DK
+cR
 DK
 gQ
 DD
@@ -6648,7 +6555,7 @@ Tk
 Tk
 TB
 Uo
-Cu
+CY
 CP
 CY
 ZR
