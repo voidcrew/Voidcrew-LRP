@@ -273,11 +273,15 @@
 /turf/open/floor/wood/yew,
 /area/ship/crew/dorm/dormtwo)
 "cR" = (
-/obj/structure/table/wood,
-/obj/item/candle/infinite,
-/obj/item/storage/box/matches,
+/obj/structure/table/wood/fancy/green,
+/obj/item/book/granter/spell/forcewall{
+	pixel_x = 5
+	},
+/obj/item/book/granter/spell/forcewall{
+	pixel_x = -5
+	},
 /turf/open/floor/wood/bamboo,
-/area/ship/crew/library)
+/area/ship/security/armory)
 "cS" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -352,11 +356,17 @@
 /turf/open/floor/wood,
 /area/ship/crew/dorm)
 "dC" = (
-/obj/structure/chair/sofa/right{
-	dir = 4
+/obj/machinery/power/rtg/advanced{
+	name = "mana field condenser"
 	},
-/turf/open/floor/carpet/green,
-/area/ship/maintenance/port)
+/obj/structure/window/plasma/reinforced/spawner/east{
+	color = "#008000"
+	},
+/obj/structure/cable/cyan{
+	icon_state = "0-4"
+	},
+/turf/open/floor/mineral/diamond,
+/area/ship/maintenance/starboard)
 "dU" = (
 /obj/machinery/power/smes{
 	name = "mana storage unit";
@@ -1084,17 +1094,9 @@
 /turf/open/floor/wood/mahogany,
 /area/ship/storage)
 "lh" = (
-/obj/machinery/power/rtg/advanced{
-	name = "mana field condenser"
-	},
-/obj/structure/window/plasma/reinforced/spawner/east{
-	color = "#008000"
-	},
-/obj/structure/cable/cyan{
-	icon_state = "0-4"
-	},
-/turf/open/floor/mineral/diamond,
-/area/ship/maintenance/starboard)
+/obj/structure/chair/sofa/left,
+/turf/open/floor/carpet/green,
+/area/ship/maintenance/port)
 "lk" = (
 /obj/structure/cable/cyan{
 	icon_state = "2-8"
@@ -1578,9 +1580,11 @@
 /turf/open/floor/wood/yew,
 /area/ship/bridge)
 "qT" = (
-/obj/machinery/vending/snack/green,
-/turf/open/floor/carpet/green,
-/area/ship/maintenance/port)
+/obj/structure/table/wood,
+/obj/item/candle/infinite,
+/obj/item/storage/box/matches,
+/turf/open/floor/wood/bamboo,
+/area/ship/crew/library)
 "rd" = (
 /obj/structure/table/reinforced,
 /obj/item/kitchen/knife/butcher,
@@ -1776,6 +1780,10 @@
 /obj/structure/closet/emcloset/anchored,
 /turf/open/floor/wood/bamboo,
 /area/ship/cargo)
+"tJ" = (
+/obj/machinery/vending/snack/green,
+/turf/open/floor/carpet/green,
+/area/ship/maintenance/port)
 "tL" = (
 /obj/machinery/door/airlock{
 	icon = 'icons/obj/doors/airlocks/station/uranium.dmi';
@@ -2573,15 +2581,9 @@
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/port)
 "AF" = (
-/obj/structure/cable/cyan{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/cyan{
-	icon_state = "2-8"
-	},
-/obj/effect/decal/cleanable/dirt,
+/mob/living/carbon/monkey/punpun,
 /turf/open/floor/carpet/green,
-/area/ship/maintenance/port)
+/area/ship/maintenance/starboard)
 "AJ" = (
 /obj/structure/window/plasma/reinforced/fulltile{
 	color = "#008000"
@@ -2747,9 +2749,15 @@
 /turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "Cu" = (
-/obj/structure/chair/sofa/left,
-/turf/open/floor/carpet/green,
-/area/ship/maintenance/port)
+/obj/structure/table/wood/fancy/green,
+/obj/item/book/granter/spell/cards{
+	pixel_x = -5
+	},
+/obj/item/book/granter/spell/cards{
+	pixel_x = 5
+	},
+/turf/open/floor/wood/bamboo,
+/area/ship/security/armory)
 "Cx" = (
 /obj/item/storage/backpack/duffelbag/med/surgery,
 /obj/structure/table/wood/fancy/royalblue,
@@ -3091,7 +3099,7 @@
 /turf/open/floor/wood/yew,
 /area/ship/crew/dorm/dormtwo)
 "Fg" = (
-/mob/living/carbon/monkey/punpun,
+/obj/item/grown/bananapeel,
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/starboard)
 "Fl" = (
@@ -3306,9 +3314,15 @@
 /turf/open/floor/carpet/royalblue,
 /area/ship/hallway/central)
 "Hr" = (
-/obj/item/grown/bananapeel,
+/obj/structure/cable/cyan{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/cyan{
+	icon_state = "2-4"
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet/green,
-/area/ship/maintenance/starboard)
+/area/ship/maintenance/port)
 "HA" = (
 /obj/machinery/computer/rdconsole{
 	dir = 8
@@ -3684,6 +3698,12 @@
 	},
 /turf/open/floor/wood/bamboo,
 /area/ship/security/armory)
+"KJ" = (
+/obj/structure/chair/sofa/right{
+	dir = 4
+	},
+/turf/open/floor/carpet/green,
+/area/ship/maintenance/port)
 "KM" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -4324,7 +4344,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/cable/cyan{
-	icon_state = "2-4"
+	icon_state = "2-8"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet/green,
@@ -5225,8 +5245,8 @@ jg
 zw
 iR
 LB
-lh
-lh
+dC
+dC
 gv
 gv
 kc
@@ -5239,9 +5259,9 @@ MG
 MG
 Eo
 zE
-AF
-AF
-AF
+SX
+SX
+SX
 MM
 Eo
 Eo
@@ -5280,9 +5300,9 @@ MG
 MG
 MG
 Eo
-qT
+tJ
 aZ
-dC
+KJ
 Qf
 vE
 VZ
@@ -5311,7 +5331,7 @@ gv
 eb
 WY
 Eg
-Fg
+AF
 Eg
 lK
 LB
@@ -5323,7 +5343,7 @@ MG
 MG
 Eo
 Eo
-Cu
+lh
 Qf
 gc
 xB
@@ -5353,8 +5373,8 @@ gJ
 gJ
 aH
 TW
-Hr
 Fg
+AF
 LB
 LB
 MG
@@ -5366,8 +5386,8 @@ MG
 MG
 Zm
 tc
-SX
-SX
+Hr
+Hr
 AB
 aT
 Ut
@@ -6516,10 +6536,10 @@ Uo
 oC
 oC
 oC
-CP
+cR
 DD
 LM
-cR
+qT
 DK
 gQ
 DD
@@ -6555,7 +6575,7 @@ Tk
 Tk
 TB
 Uo
-CY
+Cu
 CP
 CY
 ZR
