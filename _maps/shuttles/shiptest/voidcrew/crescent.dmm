@@ -4,7 +4,6 @@
 /turf/open/floor/wood,
 /area/ship/engineering/atmospherics)
 "an" = (
-/obj/machinery/power/apc/auto_name/south,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 9
@@ -1498,6 +1497,9 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/open/floor/carpet/royalblue,
 /area/ship/crew/canteen)
 "DG" = (
@@ -1848,9 +1850,6 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
 /turf/open/floor/wood,
 /area/ship/engineering/atmospherics)
 "Kk" = (
@@ -2080,6 +2079,9 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/open/floor/carpet/royalblue,
 /area/ship/crew/canteen)
 "No" = (
@@ -2254,16 +2256,6 @@
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/ship/engineering/atmospherics)
-"Rf" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/closed/wall/mineral/uranium/safe{
-	desc = "A wall plated with emerald.";
-	name = "emerald wall"
-	},
-/area/ship/bridge)
 "Rw" = (
 /turf/template_noop,
 /area/template_noop)
@@ -3500,7 +3492,7 @@ Al
 DP
 mb
 an
-Rf
+Yf
 uG
 jb
 ox
