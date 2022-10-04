@@ -31,6 +31,21 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
 /turf/open/floor/carpet/green,
 /area/ship/cargo)
+"aw" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/firealarm{
+	pixel_y = 25
+	},
+/turf/open/floor/wood/bamboo,
+/area/ship/crew/library)
 "ay" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 1
@@ -72,6 +87,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood,
 /area/ship/bridge)
 "aH" = (
@@ -410,6 +426,9 @@
 	dir = 8
 	},
 /obj/machinery/light,
+/obj/machinery/firealarm{
+	pixel_y = -25
+	},
 /turf/open/floor/wood/mahogany,
 /area/ship/storage)
 "ep" = (
@@ -599,6 +618,7 @@
 	name = "Mana requillary";
 	req_access_txt = "16"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/starboard)
 "fX" = (
@@ -620,6 +640,13 @@
 	},
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/port)
+"gq" = (
+/mob/living/carbon/monkey/punpun,
+/obj/machinery/firealarm{
+	pixel_y = -25
+	},
+/turf/open/floor/carpet/green,
+/area/ship/maintenance/starboard)
 "gu" = (
 /obj/effect/turf_decal/atmos/plasma,
 /turf/open/floor/engine/plasma,
@@ -989,6 +1016,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/decal/cleanable/squid_ink,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/grimy,
 /area/ship/maintenance/fore)
 "jr" = (
@@ -1100,6 +1128,9 @@
 /area/ship/storage)
 "lh" = (
 /obj/structure/chair/sofa/left,
+/obj/machinery/firealarm{
+	pixel_y = 25
+	},
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/port)
 "lk" = (
@@ -1190,6 +1221,7 @@
 	icon = 'icons/obj/doors/airlocks/station/uranium.dmi';
 	name = "Archives"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood,
 /area/ship/crew/dorm)
 "mi" = (
@@ -1213,12 +1245,15 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood/mahogany,
 /area/ship/storage)
 "mw" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/open/floor/bronze,
-/area/ship/maintenance/aft)
+/obj/machinery/firealarm{
+	pixel_y = -25
+	},
+/turf/open/floor/wood/ebony,
+/area/ship/crew/canteen/kitchen)
 "mL" = (
 /obj/machinery/stasis{
 	name = "Mana preservation unit"
@@ -1234,6 +1269,9 @@
 /obj/structure/tank_dispenser/oxygen,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/firealarm{
+	pixel_y = 25
 	},
 /turf/open/floor/wood/bamboo,
 /area/ship/security/armory)
@@ -1422,7 +1460,12 @@
 	icon = 'icons/obj/doors/airlocks/station/uranium.dmi';
 	name = "Cargo"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/carpet/green,
+/area/ship/maintenance/aft)
+"oP" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "oT" = (
 /obj/structure/cable/cyan{
@@ -1475,6 +1518,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/central)
 "pO" = (
@@ -1533,6 +1577,9 @@
 /obj/structure/constructshell,
 /obj/structure/constructshell,
 /obj/structure/constructshell,
+/obj/machinery/firealarm{
+	pixel_y = -25
+	},
 /turf/open/floor/wood/yew,
 /area/ship/bridge)
 "qA" = (
@@ -1790,6 +1837,9 @@
 "ti" = (
 /obj/machinery/airalarm/directional/east,
 /obj/structure/closet/emcloset/anchored,
+/obj/machinery/firealarm{
+	pixel_y = 25
+	},
 /turf/open/floor/wood/bamboo,
 /area/ship/science)
 "tt" = (
@@ -1808,6 +1858,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood/ebony,
 /area/ship/crew/canteen/kitchen)
 "tP" = (
@@ -1867,6 +1918,27 @@
 	},
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/library)
+"tZ" = (
+/obj/structure/table/wood/fancy,
+/obj/item/skub{
+	pixel_y = 16
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/skub{
+	pixel_y = 11
+	},
+/obj/item/skub{
+	pixel_y = 4
+	},
+/obj/machinery/door/window/survival_pod{
+	req_access_txt = "1";
+	dir = 4
+	},
+/obj/machinery/firealarm{
+	pixel_y = -25
+	},
+/turf/open/floor/plasteel/grimy,
+/area/ship/maintenance/fore)
 "ua" = (
 /obj/machinery/atmospherics/miner/oxygen{
 	icon = 'icons/obj/items_and_weapons.dmi';
@@ -1877,6 +1949,14 @@
 /turf/open/floor/engine/air{
 	icon_state = "wood-broken6"
 	},
+/area/ship/maintenance/aft)
+"ub" = (
+/obj/structure/ore_box,
+/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/machinery/firealarm{
+	pixel_y = 25
+	},
+/turf/open/floor/wood/bamboo,
 /area/ship/maintenance/aft)
 "uc" = (
 /obj/machinery/computer/helm/viewscreen{
@@ -2056,12 +2136,6 @@
 	},
 /turf/open/floor/carpet/red_gold,
 /area/ship/hallway/central)
-"vD" = (
-/obj/structure/closet/crate/bin{
-	pixel_y = 10
-	},
-/turf/open/floor/mineral/silver,
-/area/ship/medical)
 "vE" = (
 /obj/structure/cable/cyan{
 	icon_state = "4-8"
@@ -2728,6 +2802,7 @@
 	icon = 'icons/obj/doors/airlocks/station/uranium.dmi';
 	name = "Mana Channeling Chamber"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/central)
 "BV" = (
@@ -3017,6 +3092,15 @@
 /obj/machinery/power/apc/auto_name/east,
 /turf/open/floor/wood/mahogany,
 /area/ship/hallway/central)
+"DB" = (
+/obj/structure/closet/crate/bin{
+	pixel_y = 10
+	},
+/obj/machinery/firealarm{
+	pixel_y = 25
+	},
+/turf/open/floor/mineral/silver,
+/area/ship/medical)
 "DD" = (
 /turf/closed/wall/mineral/uranium/safe{
 	desc = "A wall plated with emerald.";
@@ -3058,6 +3142,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 8
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/central)
 "Ej" = (
@@ -3133,6 +3218,9 @@
 /obj/item/clothing/suit/wizrobe/marisa,
 /obj/item/clothing/suit/wizrobe/black,
 /obj/item/clothing/suit/wizrobe,
+/obj/machinery/firealarm{
+	pixel_y = -25
+	},
 /turf/open/floor/wood,
 /area/ship/crew/dorm)
 "EY" = (
@@ -3159,6 +3247,7 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2,
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/library)
 "Fr" = (
@@ -3326,6 +3415,13 @@
 	},
 /turf/open/floor/wood/bamboo,
 /area/ship/cargo)
+"Ha" = (
+/obj/item/kirbyplants/random,
+/obj/machinery/firealarm{
+	pixel_y = -25
+	},
+/turf/open/floor/wood/mahogany,
+/area/ship/hallway/central)
 "Hl" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 10
@@ -3528,6 +3624,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood/yew,
 /area/ship/bridge)
 "Jr" = (
@@ -3809,6 +3906,7 @@
 	icon = 'icons/obj/doors/airlocks/station/uranium.dmi';
 	name = "Archives"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/light,
 /area/ship/crew/library)
 "Lh" = (
@@ -3910,6 +4008,7 @@
 	name = "Mana requillary";
 	req_access_txt = "16"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/port)
 "MM" = (
@@ -3936,6 +4035,12 @@
 	},
 /turf/open/floor/bronze,
 /area/ship/maintenance/aft)
+"Ni" = (
+/obj/machinery/firealarm{
+	pixel_y = -25
+	},
+/turf/open/floor/wood/mahogany,
+/area/ship/hallway/central)
 "Nn" = (
 /obj/machinery/light{
 	dir = 4
@@ -4027,6 +4132,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 9
+	},
+/obj/machinery/firealarm{
+	pixel_y = -25
 	},
 /turf/open/floor/carpet/royalblue,
 /area/ship/hallway/fore)
@@ -4297,6 +4405,7 @@
 	icon = 'icons/obj/doors/airlocks/station/uranium.dmi';
 	name = "Wound Nullification Chamber"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/wood/mahogany,
 /area/ship/medical)
 "RS" = (
@@ -4615,10 +4724,14 @@
 	icon = 'icons/obj/doors/airlocks/station/uranium.dmi';
 	name = "Waiting Room"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/carpet/royalblue,
 /area/ship/hallway/fore)
 "UN" = (
 /obj/item/kirbyplants/random,
+/obj/machinery/firealarm{
+	pixel_y = -25
+	},
 /turf/open/floor/wood/yew,
 /area/ship/crew/dorm/dormtwo)
 "UV" = (
@@ -4662,6 +4775,9 @@
 	dir = 9
 	},
 /obj/machinery/airalarm/directional/east,
+/obj/machinery/firealarm{
+	pixel_y = -25
+	},
 /turf/open/floor/wood/bamboo,
 /area/ship/cargo)
 "VE" = (
@@ -4683,6 +4799,7 @@
 	icon = 'icons/obj/doors/airlocks/station/uranium.dmi';
 	name = "Artificer's Chambers"
 	},
+/obj/machinery/door/firedoor,
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/aft)
 "VZ" = (
@@ -4853,6 +4970,12 @@
 	},
 /turf/open/floor/wood/bamboo,
 /area/ship/science)
+"Yr" = (
+/obj/machinery/firealarm{
+	pixel_y = 25
+	},
+/turf/open/floor/wood/bamboo,
+/area/ship/maintenance/central)
 "YD" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -5110,7 +5233,7 @@ KW
 VA
 cA
 cA
-Sz
+ub
 CP
 fy
 ER
@@ -5281,7 +5404,7 @@ FF
 Ti
 Bz
 Nn
-mw
+oP
 cA
 cA
 cA
@@ -5325,7 +5448,7 @@ Ei
 vJ
 vJ
 vJ
-fi
+Yr
 fi
 fi
 bC
@@ -5427,7 +5550,7 @@ gJ
 aH
 TW
 Fg
-AF
+gq
 LB
 LB
 MG
@@ -5530,7 +5653,7 @@ nD
 nD
 lJ
 lJ
-lJ
+tZ
 nD
 cg
 Xf
@@ -5547,7 +5670,7 @@ pW
 pW
 pW
 pW
-cg
+Ha
 ya
 ya
 ya
@@ -5633,7 +5756,7 @@ iF
 Ae
 pW
 ya
-vD
+DB
 hd
 GN
 mL
@@ -5992,7 +6115,7 @@ KD
 mi
 zy
 QU
-ny
+mw
 ZU
 QW
 Mq
@@ -6248,7 +6371,7 @@ ZE
 ZE
 ZE
 Ir
-pW
+Ni
 Uo
 Uo
 Uo
@@ -6507,7 +6630,7 @@ Qt
 Qt
 xf
 DD
-LM
+aw
 jz
 bg
 jz
