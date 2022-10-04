@@ -574,6 +574,7 @@
 /area/ship/science)
 "fF" = (
 /obj/effect/decal/cleanable/wrapping,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/wood/mahogany,
 /area/ship/hallway/fore)
 "fK" = (
@@ -1165,7 +1166,7 @@
 /turf/open/floor/plasteel/grimy,
 /area/ship/maintenance/fore)
 "lK" = (
-/obj/machinery/vending/snack/green,
+/obj/machinery/jukebox,
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/starboard)
 "lM" = (
@@ -1215,10 +1216,9 @@
 /turf/open/floor/wood/mahogany,
 /area/ship/storage)
 "mw" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/obj/item/kirbyplants/random,
-/turf/open/floor/wood/mahogany,
-/area/ship/hallway/central)
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/open/floor/bronze,
+/area/ship/maintenance/aft)
 "mL" = (
 /obj/machinery/stasis{
 	name = "Mana preservation unit"
@@ -1359,9 +1359,17 @@
 "nS" = (
 /obj/structure/table/wood/fancy/green,
 /obj/item/scrying,
-/obj/item/upgradescroll,
-/obj/item/upgradescroll,
-/obj/item/upgradescroll,
+/obj/item/upgradescroll{
+	pixel_x = 5;
+	pixel_y = 2
+	},
+/obj/item/upgradescroll{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/obj/item/upgradescroll{
+	pixel_y = -5
+	},
 /turf/open/floor/wood/yew,
 /area/ship/crew/dorm/dormtwo)
 "nV" = (
@@ -2048,6 +2056,12 @@
 	},
 /turf/open/floor/carpet/red_gold,
 /area/ship/hallway/central)
+"vD" = (
+/obj/structure/closet/crate/bin{
+	pixel_y = 10
+	},
+/turf/open/floor/mineral/silver,
+/area/ship/medical)
 "vE" = (
 /obj/structure/cable/cyan{
 	icon_state = "4-8"
@@ -2220,6 +2234,28 @@
 	},
 /obj/item/book/granter/spell/charge{
 	pixel_x = 5
+	},
+/obj/item/gun/energy/laser/hitscanpistol{
+	icon_state = "deathwand";
+	icon = 'icons/obj/guns/magic.dmi';
+	desc = "A wand used by Wizards who specialize in offensive magic";
+	pixel_x = 5;
+	name = "wand of beams";
+	item_state = "wand";
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi';
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
+	fire_sound = 'sound/magic/wandodeath.ogg'
+	},
+/obj/item/gun/energy/laser/hitscanpistol{
+	icon_state = "deathwand";
+	icon = 'icons/obj/guns/magic.dmi';
+	desc = "A wand used by Wizards who specialize in offensive magic";
+	pixel_x = -5;
+	name = "wand of beams";
+	item_state = "wand";
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi';
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
+	fire_sound = 'sound/magic/wandodeath.ogg'
 	},
 /turf/open/floor/wood/bamboo,
 /area/ship/security/armory)
@@ -3400,6 +3436,11 @@
 /area/ship/crew/canteen/kitchen)
 "IO" = (
 /obj/machinery/airalarm/directional/north,
+/obj/structure/closet/crate/bin{
+	pixel_y = 10;
+	desc = "A place to put used spellbooks. Read responsibly!";
+	name = "spellbook disposal"
+	},
 /turf/open/floor/wood/bamboo,
 /area/ship/security/armory)
 "IQ" = (
@@ -3570,6 +3611,7 @@
 /obj/structure/closet/cabinet,
 /obj/item/clothing/suit/space/hardsuit/wizard,
 /obj/item/clothing/gloves/combat/wizard,
+/obj/item/tank/internals/oxygen,
 /turf/open/floor/wood/yew,
 /area/ship/crew/dorm/dormtwo)
 "Kc" = (
@@ -3898,6 +3940,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "Nu" = (
@@ -3982,8 +4025,8 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
 	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 9
 	},
 /turf/open/floor/carpet/royalblue,
 /area/ship/hallway/fore)
@@ -4742,8 +4785,8 @@
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/starboard)
 "Xf" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 5
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
 	},
 /turf/open/floor/wood/mahogany,
 /area/ship/hallway/central)
@@ -5238,7 +5281,7 @@ FF
 Ti
 Bz
 Nn
-ER
+mw
 cA
 cA
 cA
@@ -5489,7 +5532,7 @@ lJ
 lJ
 lJ
 nD
-mw
+cg
 Xf
 Up
 pW
@@ -5590,7 +5633,7 @@ iF
 Ae
 pW
 ya
-EY
+vD
 hd
 GN
 mL
