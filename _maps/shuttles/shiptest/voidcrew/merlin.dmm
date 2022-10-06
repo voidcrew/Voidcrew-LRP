@@ -154,6 +154,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/structure/sign/poster/contraband/random{
+	pixel_x = 32
+	},
 /turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "bg" = (
@@ -936,6 +939,9 @@
 /obj/structure/cable/cyan{
 	icon_state = "0-8"
 	},
+/obj/structure/sign/poster/random{
+	pixel_y = 32
+	},
 /turf/open/floor/mineral/diamond,
 /area/ship/maintenance/starboard)
 "iR" = (
@@ -1489,6 +1495,12 @@
 /obj/machinery/grill,
 /turf/open/floor/wood/ebony,
 /area/ship/crew/canteen/kitchen)
+"pl" = (
+/obj/structure/sign/poster/contraband/random{
+	pixel_x = 32
+	},
+/turf/open/floor/wood/bamboo,
+/area/ship/maintenance/central)
 "ps" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -1573,6 +1585,13 @@
 	},
 /turf/open/floor/mineral/diamond,
 /area/ship/maintenance/starboard)
+"qr" = (
+/obj/structure/sign/poster/official/random,
+/turf/closed/wall/mineral/uranium/safe{
+	desc = "A wall plated with emerald.";
+	name = "emerald wall"
+	},
+/area/ship/bridge)
 "qw" = (
 /obj/structure/constructshell,
 /obj/structure/constructshell,
@@ -1645,6 +1664,9 @@
 /obj/structure/table/wood,
 /obj/item/candle/infinite,
 /obj/item/storage/box/matches,
+/obj/structure/sign/poster/contraband/random{
+	pixel_x = 32
+	},
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/library)
 "rd" = (
@@ -1848,6 +1870,9 @@
 /area/ship/cargo)
 "tJ" = (
 /obj/machinery/vending/snack/green,
+/obj/structure/sign/poster/random{
+	pixel_y = 32
+	},
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/port)
 "tL" = (
@@ -2299,6 +2324,9 @@
 /area/ship/crew/dorm)
 "xc" = (
 /obj/machinery/mineral/equipment_vendor,
+/obj/structure/sign/poster/random{
+	pixel_y = 32
+	},
 /turf/open/floor/wood/bamboo,
 /area/ship/maintenance/aft)
 "xf" = (
@@ -2330,6 +2358,16 @@
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi';
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
 	fire_sound = 'sound/magic/wandodeath.ogg'
+	},
+/obj/item/melee/transforming/energy/sword/saber/pirate/green{
+	pixel_x = -5;
+	name = "mana cutlass";
+	desc = "Alakazam matey."
+	},
+/obj/item/melee/transforming/energy/sword/saber/pirate/green{
+	pixel_x = 5;
+	name = "mana cutlass";
+	desc = "Alakazam matey."
 	},
 /turf/open/floor/wood/bamboo,
 /area/ship/security/armory)
@@ -2381,6 +2419,48 @@
 	},
 /turf/open/floor/carpet/green,
 /area/ship/maintenance/port)
+"xF" = (
+/obj/structure/table/wood/fancy/green,
+/obj/item/book/granter/spell/charge{
+	pixel_x = -5
+	},
+/obj/item/book/granter/spell/charge{
+	pixel_x = 5
+	},
+/obj/item/gun/energy/laser/hitscanpistol{
+	icon_state = "deathwand";
+	icon = 'icons/obj/guns/magic.dmi';
+	desc = "A wand used by Wizards who specialize in offensive magic";
+	pixel_x = 5;
+	name = "wand of beams";
+	item_state = "wand";
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi';
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
+	fire_sound = 'sound/magic/wandodeath.ogg'
+	},
+/obj/item/gun/energy/laser/hitscanpistol{
+	icon_state = "deathwand";
+	icon = 'icons/obj/guns/magic.dmi';
+	desc = "A wand used by Wizards who specialize in offensive magic";
+	pixel_x = -5;
+	name = "wand of beams";
+	item_state = "wand";
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi';
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
+	fire_sound = 'sound/magic/wandodeath.ogg'
+	},
+/obj/item/melee/transforming/energy/sword/saber/pirate/green{
+	pixel_x = 5;
+	name = "mana cutlass";
+	desc = "Alakazam matey."
+	},
+/obj/item/melee/transforming/energy/sword/saber/pirate/green{
+	pixel_x = -5;
+	name = "mana cutlass";
+	desc = "Alakazam matey."
+	},
+/turf/open/floor/wood/bamboo,
+/area/ship/security/armory)
 "xI" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2831,6 +2911,9 @@
 /obj/structure/window/plasma/reinforced/spawner/east{
 	color = "#008000"
 	},
+/obj/structure/sign/poster/random{
+	pixel_y = 32
+	},
 /turf/open/floor/mineral/diamond,
 /area/ship/maintenance/starboard)
 "BZ" = (
@@ -3221,6 +3304,23 @@
 /obj/machinery/firealarm{
 	pixel_y = -25
 	},
+/obj/item/storage/backpack/holding{
+	icon_state = "ert_janitor";
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/storage/backpack/holding{
+	icon_state = "ert_janitor";
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/storage/backpack/holding{
+	icon_state = "ert_janitor";
+	pixel_y = 5
+	},
+/obj/item/storage/backpack/holding{
+	icon_state = "ert_janitor"
+	},
 /turf/open/floor/wood,
 /area/ship/crew/dorm)
 "EY" = (
@@ -3383,6 +3483,21 @@
 /obj/item/clothing/suit/wizrobe/black,
 /obj/item/clothing/suit/wizrobe,
 /obj/machinery/airalarm/directional/south,
+/obj/item/storage/backpack/holding{
+	icon_state = "ert_janitor";
+	pixel_x = -5
+	},
+/obj/item/storage/backpack/holding{
+	icon_state = "ert_janitor"
+	},
+/obj/item/storage/backpack/holding{
+	icon_state = "ert_janitor";
+	pixel_x = 5
+	},
+/obj/item/storage/backpack/holding{
+	icon_state = "ert_janitor";
+	pixel_y = 5
+	},
 /turf/open/floor/wood,
 /area/ship/crew/dorm)
 "GN" = (
@@ -3554,6 +3669,27 @@
 	},
 /turf/open/floor/carpet/red_gold,
 /area/ship/hallway/central)
+"IX" = (
+/obj/structure/table/wood/fancy/green,
+/obj/item/book/granter/spell/charge{
+	pixel_x = -5
+	},
+/obj/item/book/granter/spell/charge{
+	pixel_x = 5
+	},
+/obj/item/clothing/glasses/hud/security/night{
+	icon_state = "trickblindfold";
+	name = "enchanted blindfold";
+	desc = "An enchantment provides an advanced heads-up display that provides ID data and vision in complete darkness.";
+	pixel_y = -5
+	},
+/obj/item/clothing/glasses/hud/security/night{
+	icon_state = "trickblindfold";
+	name = "enchanted blindfold";
+	desc = "An enchantment provides an advanced heads-up display that provides ID data and vision in complete darkness."
+	},
+/turf/open/floor/wood/bamboo,
+/area/ship/security/armory)
 "Ja" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3709,6 +3845,16 @@
 /obj/item/clothing/suit/space/hardsuit/wizard,
 /obj/item/clothing/gloves/combat/wizard,
 /obj/item/tank/internals/oxygen,
+/obj/item/storage/backpack/holding{
+	icon_state = "ert_janitor";
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/clothing/glasses/hud/security/night{
+	icon_state = "trickblindfold";
+	name = "enchanted blindfold";
+	desc = "An enchantment provides an advanced heads-up display that provides ID data and vision in complete darkness."
+	},
 /turf/open/floor/wood/yew,
 /area/ship/crew/dorm/dormtwo)
 "Kc" = (
@@ -5571,14 +5717,14 @@ Ut
 nL
 Eo
 vN
-fi
+pl
 XM
 fi
 fi
 fi
 Uc
 zc
-fi
+pl
 fi
 fi
 XM
@@ -6586,7 +6732,7 @@ Ps
 oC
 RK
 Qt
-xf
+IX
 DD
 Ki
 EB
@@ -6670,7 +6816,7 @@ Uo
 IO
 Qt
 Qt
-xf
+xF
 DD
 TY
 Tj
@@ -7000,7 +7146,7 @@ MG
 MG
 MG
 oz
-oz
+qr
 Jo
 oz
 oz
@@ -7051,7 +7197,7 @@ oz
 oz
 aE
 oz
-oz
+qr
 oz
 MG
 MG
