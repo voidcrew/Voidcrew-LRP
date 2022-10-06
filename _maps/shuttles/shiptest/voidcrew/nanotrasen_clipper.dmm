@@ -302,11 +302,6 @@
 /area/ship/hallway/central)
 "dT" = (
 /obj/structure/table/wood/bar,
-/obj/machinery/light_switch{
-	dir = 4;
-	pixel_x = -24;
-	pixel_y = 10
-	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/storage/crayons,
 /turf/open/floor/wood,
@@ -1614,6 +1609,11 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = -24;
+	pixel_y = 10
+	},
 /turf/open/floor/wood,
 /area/ship/hallway/port)
 "vw" = (
@@ -2281,6 +2281,11 @@
 "CI" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/ship/hallway/starboard)
+"CN" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/vending/boozeomat/all_access,
+/turf/closed/wall/mineral/titanium,
+/area/ship/security/armory)
 "CO" = (
 /obj/structure/window/plasma/reinforced/spawner,
 /obj/machinery/atmospherics/components/unary/passive_vent/layer4,
@@ -2339,13 +2344,13 @@
 /area/ship/maintenance/fore)
 "Db" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/firstaid,
-/obj/item/storage/firstaid,
 /obj/machinery/light{
 	dir = 8;
 	light_color = "#e8eaff"
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
 /turf/open/floor/mineral/titanium/tiled/blue,
 /area/ship/medical)
 "De" = (
@@ -2579,9 +2584,9 @@
 /obj/machinery/door/window/survival_pod{
 	req_access_txt = "1"
 	},
-/obj/item/tank/internals/oxygen,
 /obj/effect/turf_decal/corner_techfloor_gray/diagonal,
 /obj/effect/turf_decal/industrial/warning/full,
+/obj/item/tank/jetpack/oxygen,
 /turf/open/floor/plasteel/patterned,
 /area/ship/security/armory)
 "Hc" = (
@@ -3340,6 +3345,7 @@
 	pixel_y = -5
 	},
 /obj/item/storage/belt/utility,
+/obj/machinery/cell_charger,
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/maintenance/aft)
 "Pz" = (
@@ -3503,9 +3509,9 @@
 /obj/structure/window/reinforced/survival_pod{
 	dir = 8
 	},
-/obj/item/tank/internals/oxygen,
 /obj/effect/turf_decal/corner_techfloor_gray/diagonal,
 /obj/effect/turf_decal/industrial/warning/full,
+/obj/item/tank/jetpack/oxygen,
 /turf/open/floor/plasteel/patterned,
 /area/ship/security/armory)
 "QG" = (
@@ -3949,12 +3955,9 @@
 /turf/open/floor/plasteel/patterned,
 /area/ship/hallway/central)
 "Xh" = (
-/obj/structure/sign/poster/official/nanotrasen_logo{
-	pixel_y = null;
-	pixel_x = -32
-	},
-/turf/open/space/basic,
-/area/template_noop)
+/obj/structure/sign/poster/official/nanotrasen_logo,
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/ship/medical)
 "Xi" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 8
@@ -4513,7 +4516,7 @@ yP
 au
 jt
 xN
-xN
+CN
 Or
 jz
 kN
@@ -5320,7 +5323,7 @@ yP
 yP
 yP
 zV
-nL
+Xh
 zV
 yP
 ip
@@ -5343,7 +5346,7 @@ yP
 yP
 yP
 yP
-Xh
+yP
 yP
 yP
 yP
