@@ -153,6 +153,9 @@
 /obj/structure/chair/wood/wings{
 	dir = 4
 	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
 /turf/open/floor/wood,
 /area/ship/security)
 "aB" = (
@@ -184,8 +187,8 @@
 /area/ship/crew/canteen)
 "aI" = (
 /obj/machinery/light,
-/obj/machinery/stasis{
-	name = "Mana preservation unit"
+/obj/machinery/computer/operating{
+	dir = 1
 	},
 /obj/machinery/defibrillator_mount/loaded{
 	pixel_y = -28
@@ -395,7 +398,7 @@
 /obj/item/sord{
 	desc = "This thing is so unspeakably powerful you are having a hard time even holding it."
 	},
-/obj/structure/displaycase,
+/obj/structure/table/wood/fancy/black,
 /turf/open/floor/carpet/purple,
 /area/ship/crew/canteen)
 "bp" = (
@@ -528,12 +531,6 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/ship/security)
-"bI" = (
-/obj/machinery/computer/operating{
-	dir = 1
-	},
-/turf/open/floor/wood,
-/area/ship/medical)
 "bJ" = (
 /obj/effect/turf_decal/industrial/outline/yellow,
 /obj/machinery/light{
@@ -1114,9 +1111,17 @@
 	name = "staff of bombardment";
 	desc = "A powerful staff that required almost 100 assistant souls to create.";
 	icon = 'icons/obj/items_and_weapons.dmi';
-	icon_state = "godstaff-red"
+	icon_state = "godstaff-red";
+	pixel_x = 5'
 	},
-/obj/structure/displaycase,
+/obj/structure/table/wood/fancy/black,
+/obj/item/gun/energy/e_gun/smg{
+	name = "staff of bombardment";
+	desc = "A powerful staff that required almost 100 assistant souls to create.";
+	icon = 'icons/obj/items_and_weapons.dmi';
+	icon_state = "godstaff-red";
+	pixel_x = -5
+	},
 /turf/open/floor/carpet/purple,
 /area/ship/crew/canteen)
 "oD" = (
@@ -1315,11 +1320,11 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 1
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 1
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer4{
+	dir = 8
 	},
 /turf/open/floor/wood,
 /area/ship/security)
@@ -1425,6 +1430,9 @@
 /area/ship/crew/dorm/dormtwo)
 "Bx" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
 /turf/open/floor/wood,
 /area/ship/security)
 "Cc" = (
@@ -1557,7 +1565,7 @@
 /turf/open/floor/wood,
 /area/ship/hallway/central)
 "Eu" = (
-/obj/structure/displaycase,
+/obj/structure/table/wood/fancy/black,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -1846,7 +1854,7 @@
 /area/ship/medical)
 "MA" = (
 /obj/item/soulstone/anybody,
-/obj/structure/displaycase,
+/obj/structure/table/wood/fancy/black,
 /turf/open/floor/carpet/purple,
 /area/ship/crew/canteen)
 "MB" = (
@@ -1953,9 +1961,11 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/item/table_bell/brass{
-	pixel_x = -8
-	},
+/obj/item/coin/uranium,
+/obj/item/coin/uranium,
+/obj/item/coin/uranium,
+/obj/item/coin/uranium,
+/obj/item/coin/uranium,
 /turf/open/floor/carpet/stellar,
 /area/ship/bridge)
 "OQ" = (
@@ -2143,7 +2153,7 @@
 /turf/open/floor/wood,
 /area/ship/crew/canteen)
 "VC" = (
-/obj/structure/displaycase,
+/obj/structure/table/wood/fancy/black,
 /obj/item/instrument/trombone/spectral,
 /turf/open/floor/carpet/purple,
 /area/ship/crew/canteen)
@@ -2705,7 +2715,7 @@ bd
 an
 au
 an
-bI
+VP
 iu
 ui
 Me
