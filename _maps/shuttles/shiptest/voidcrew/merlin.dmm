@@ -1102,8 +1102,8 @@
 /turf/open/floor/mineral/diamond,
 /area/ship/maintenance/starboard)
 "kv" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+	dir = 8
 	},
 /turf/open/floor/carpet/stellar,
 /area/ship/crew/dorm)
@@ -1666,6 +1666,9 @@
 /obj/item/storage/box/matches,
 /obj/structure/sign/poster/contraband/random{
 	pixel_x = 32
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
 	},
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/library)
@@ -3245,11 +3248,11 @@
 	},
 /area/ship/maintenance/port)
 "EB" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
 	},
-/turf/open/floor/carpet/stellar,
-/area/ship/crew/library)
+/turf/open/floor/wood,
+/area/ship/crew/dorm)
 "ED" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 2
@@ -3887,10 +3890,10 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
-	dir = 1
-	},
 /obj/machinery/airalarm/directional/north,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
+	dir = 4
+	},
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/library)
 "Kj" = (
@@ -3987,7 +3990,7 @@
 /turf/open/floor/carpet/green,
 /area/ship/cargo)
 "KH" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
 /turf/open/floor/wood/bamboo,
@@ -4086,8 +4089,8 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer2{
+	dir = 1
 	},
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/library)
@@ -4522,12 +4525,6 @@
 	},
 /turf/open/floor/wood/mahogany,
 /area/ship/storage)
-"RK" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
-/turf/open/floor/carpet/orange,
-/area/ship/security/armory)
 "RN" = (
 /obj/machinery/power/apc/auto_name/north,
 /obj/structure/cable/cyan{
@@ -6738,12 +6735,12 @@ TK
 Uo
 Ps
 oC
-RK
+Qt
 Qt
 IX
 DD
 Ki
-EB
+jz
 jz
 jz
 tY
@@ -6993,7 +6990,7 @@ Jm
 Kp
 FO
 Ts
-FO
+EB
 XH
 FO
 FO
