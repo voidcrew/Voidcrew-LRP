@@ -393,7 +393,7 @@
 "iw" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
-	id = homesteadkitchen
+	id = "homesteadkitchen"
 	},
 /turf/open/floor/wood/yew,
 /area/ship/crew/canteen/kitchen)
@@ -826,8 +826,8 @@
 /area/ship/crew/canteen/kitchen)
 "sd" = (
 /obj/machinery/button/door{
-	id = "homesteadwindow";
-	name = "Windows";
+	id = "homesteadkitchen";
+	name = "shutters";
 	pixel_y = 24
 	},
 /obj/machinery/computer/autopilot{
@@ -1651,6 +1651,11 @@
 /area/ship/crew/dorm)
 "HY" = (
 /obj/machinery/deepfryer,
+/obj/machinery/button/door{
+	id = "homesteadwindow";
+	name = "Windows";
+	pixel_y = 24
+	},
 /turf/open/floor/plasteel/mono/dark,
 /area/ship/crew/canteen/kitchen)
 "Ib" = (
