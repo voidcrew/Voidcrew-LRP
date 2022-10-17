@@ -29,3 +29,4 @@
 	icon = 'icons/turf/floors/reinf_glass.dmi'
 	icon_state = "reinf_glass-0"
 	base_icon_state = "reinf_glass"
+	floor_tile = /obj/item/stack/tile/glass/reinforced
