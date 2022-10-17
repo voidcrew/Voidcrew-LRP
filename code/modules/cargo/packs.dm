@@ -298,6 +298,13 @@
 					/obj/item/clothing/head/fedora/det_hat)
 	crate_name = "forensics crate"
 
+/datum/supply_pack/security/headofsecsuit
+	name = "Head of Security's Spare Hardsuit"
+	desc = "Contains a spare hardsuit for the head of security. Don't lose this one."
+	cost = 120000
+	contains = list(/obj/item/clothing/suit/space/hardsuit/security/hos)
+	crate_name = "head of security's spare hardsuit"
+
 /datum/supply_pack/security/helmets
 	name = "Helmets Crate"
 	desc = "Contains three standard-issue brain buckets. Requires extended Security access to open."
@@ -785,6 +792,13 @@
 /datum/supply_pack/engineering
 	group = "Engineering"
 	crate_type = /obj/structure/closet/crate/engineering
+
+/datum/supply_pack/engineering/cehardsuit
+	name = "Advanced Hardsuit Crate"
+	desc = "Contains an advanced hardsuit, for all your temperature immunity needs."
+	cost = 100000
+	contains = list(/obj/item/clothing/suit/space/hardsuit/engine/elite)
+	crate_name = "advanced hardsuit crate"
 
 /datum/supply_pack/engineering/shieldgen
 	name = "Anti-breach Shield Projector Crate"
@@ -1505,6 +1519,13 @@
 					/obj/item/assembly/timer)
 	crate_name = "plasma assembly crate"
 	crate_type = /obj/structure/closet/crate/secure/plasma
+
+/datum/supply_pack/science/rdhardsuit
+	name = "Research Director's Hardsuit Crate"
+	desc = "A spare Research Director's Hardsuit in case the first one wasn't explosion-proof enough."
+	cost = 100000
+	contains = list(/obj/item/clothing/suit/space/hardsuit/rd)
+	crate_name = "research director's hardsuit crate"
 
 /datum/supply_pack/science/robotics
 	name = "Robotics Assembly Crate"

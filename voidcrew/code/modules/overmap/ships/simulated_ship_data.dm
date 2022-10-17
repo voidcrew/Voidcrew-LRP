@@ -40,7 +40,7 @@
 
 			remove_faction_hud(FACTION_HUD_GENERAL, ex_crewmate)
 			var/datum/mind/ex_crewmate_mind = ex_crewmate.mind
-			var/datum/antagonist/to_remove = ex_crewmate_mind.has_antag_datum(source_template?.antag_datum)
+			var/datum/antagonist/to_remove = ex_crewmate_mind?.has_antag_datum(source_template?.antag_datum)
 			if (!isnull(to_remove))
 				ex_crewmate_mind.remove_antag_datum(to_remove)
 
