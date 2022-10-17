@@ -32,7 +32,7 @@
 /area/ship/crew/canteen/kitchen)
 "bo" = (
 /obj/structure/lattice,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/ship/external)
 "bv" = (
 /obj/machinery/airalarm/directional/south,
@@ -418,7 +418,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/ship/external)
 "jk" = (
 /obj/structure/cable{
@@ -443,9 +443,7 @@
 /area/ship/maintenance/central)
 "kd" = (
 /obj/item/reagent_containers/food/snacks/hotdog,
-/turf/open/floor/plating/dirt{
-	desc = "Upon closer examination, it's still dirt."
-	},
+/turf/open/floor/plating/dirt,
 /area/ship/external)
 "kj" = (
 /obj/structure/cable{
@@ -816,9 +814,7 @@
 /area/ship/external)
 "rJ" = (
 /obj/effect/decal/cleanable/ash,
-/turf/open/floor/plating/dirt{
-	desc = "Upon closer examination, it's still dirt."
-	},
+/turf/open/floor/plating/dirt,
 /area/ship/external)
 "rM" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
@@ -1123,9 +1119,7 @@
 /area/ship/medical)
 "wN" = (
 /obj/effect/decal/cleanable/ash/large,
-/turf/open/floor/plating/dirt{
-	desc = "Upon closer examination, it's still dirt."
-	},
+/turf/open/floor/plating/dirt,
 /area/ship/external)
 "wS" = (
 /obj/machinery/door/airlock/wood,
@@ -1139,7 +1133,7 @@
 "xk" = (
 /obj/structure/lattice,
 /obj/structure/lattice,
-/turf/open/space/basic,
+/turf/template_noop,
 /area/ship/external)
 "xq" = (
 /obj/structure/cable{
@@ -1155,15 +1149,17 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /turf/open/floor/wood/yew,
 /area/ship/crew/canteen)
+"xB" = (
+/mob/living/simple_animal/pet/gondola,
+/turf/open/floor/wood/bamboo,
+/area/ship/cargo)
 "xG" = (
 /obj/machinery/autodoc,
 /turf/open/floor/mineral/titanium/tiled/blue,
 /area/ship/medical)
 "xV" = (
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/plating/dirt{
-	desc = "Upon closer examination, it's still dirt."
-	},
+/turf/open/floor/plating/dirt,
 /area/ship/external)
 "xW" = (
 /obj/structure/cable/yellow{
@@ -1802,7 +1798,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/wood/yew,
 /area/ship/crew/canteen)
 "LK" = (
 /obj/structure/cable/yellow{
@@ -1827,9 +1823,7 @@
 /area/ship/storage)
 "Mc" = (
 /obj/item/stack/rods,
-/turf/open/floor/plating/dirt{
-	desc = "Upon closer examination, it's still dirt."
-	},
+/turf/open/floor/plating/dirt,
 /area/ship/external)
 "Mv" = (
 /turf/closed/wall/mineral/wood/nonmetal,
@@ -2004,9 +1998,7 @@
 /area/ship/maintenance/central)
 "Qm" = (
 /obj/machinery/hydroponics/soil,
-/turf/open/floor/plating/dirt{
-	desc = "Upon closer examination, it's still dirt."
-	},
+/turf/open/floor/plating/dirt,
 /area/ship/external)
 "Qt" = (
 /turf/open/floor/mineral/titanium,
@@ -2033,7 +2025,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/circuit/airless,
 /area/ship/engineering/communications)
 "QL" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
@@ -2145,9 +2137,7 @@
 /turf/open/floor/wood/yew,
 /area/ship/crew/canteen)
 "TG" = (
-/turf/open/floor/plating/dirt{
-	desc = "Upon closer examination, it's still dirt."
-	},
+/turf/open/floor/plating/dirt,
 /area/ship/external)
 "TI" = (
 /obj/structure/cable{
@@ -2196,9 +2186,7 @@
 /area/template_noop)
 "Uj" = (
 /obj/structure/bonfire,
-/turf/open/floor/plating/dirt{
-	desc = "Upon closer examination, it's still dirt."
-	},
+/turf/open/floor/plating/dirt,
 /area/ship/external)
 "UA" = (
 /obj/structure/cable{
@@ -2326,9 +2314,7 @@
 /area/ship/storage)
 "We" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
-/turf/open/floor/plating/dirt{
-	desc = "Upon closer examination, it's still dirt."
-	},
+/turf/open/floor/plating/dirt,
 /area/ship/external)
 "Wi" = (
 /turf/open/floor/circuit/airless,
@@ -3068,7 +3054,7 @@ Sr
 Sr
 HJ
 gs
-le
+xB
 le
 SE
 bS
@@ -3883,8 +3869,8 @@ vb
 If
 wH
 YP
-ai
 ya
+ai
 GR
 sA
 Jh
