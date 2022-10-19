@@ -1398,6 +1398,11 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 8
 	},
+/obj/structure/closet/crate/bin{
+	pixel_y = 10;
+	desc = "A place to put used spellbooks. Read responsibly!";
+	name = "spellbook disposal"
+	},
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/library)
 "nS" = (
@@ -1670,6 +1675,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/item/storage/book/bible,
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/library)
 "rd" = (
@@ -2722,6 +2728,11 @@
 "zI" = (
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/library)
+"zL" = (
+/obj/structure/table/reinforced,
+/obj/machinery/chem_dispenser/drinks/fullupgrade,
+/turf/open/floor/wood/ebony,
+/area/ship/crew/canteen/kitchen)
 "zR" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
 /turf/open/floor/wood/ebony,
@@ -2776,6 +2787,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/chem_dispenser/drinks/beer/fullupgrade,
 /turf/open/floor/wood/ebony,
 /area/ship/crew/canteen/kitchen)
 "AB" = (
@@ -3638,7 +3650,6 @@
 /turf/open/floor/carpet/royalblue,
 /area/ship/hallway/central)
 "Is" = (
-/obj/structure/table/wood/fancy/black,
 /obj/machinery/computer/helm/viewscreen{
 	dir = 8;
 	pixel_x = 32
@@ -3646,6 +3657,7 @@
 /obj/item/stack/sheet/mineral/diamond/twenty,
 /obj/item/stack/sheet/mineral/gold/fifty,
 /obj/item/stack/sheet/mineral/silver/fifty,
+/obj/machinery/ore_silo,
 /turf/open/floor/wood/yew,
 /area/ship/bridge)
 "Iz" = (
@@ -4510,6 +4522,18 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/wood/mahogany,
 /area/ship/hallway/central)
+"Rj" = (
+/obj/structure/bodycontainer/crematorium/creamatorium{
+	dir = 8;
+	id = "merlin_crematorium"
+	},
+/obj/machinery/button/crematorium{
+	id = "merlin_crematorium";
+	pixel_x = -6;
+	pixel_y = -26
+	},
+/turf/open/floor/mineral/silver,
+/area/ship/medical)
 "Rl" = (
 /obj/structure/table/reinforced,
 /obj/item/kitchen/rollingpin,
@@ -6262,7 +6286,7 @@ MG
 MG
 MG
 ZU
-KD
+zL
 mi
 zy
 QU
@@ -6410,7 +6434,7 @@ xZ
 ya
 sQ
 Al
-Al
+Rj
 ya
 MG
 MG
