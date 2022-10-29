@@ -133,7 +133,6 @@
 /obj/effect/spawner/structure/window/shuttle,
 /obj/machinery/door/firedoor/window,
 /obj/structure/curtain/cloth/fancy,
-/obj/structure/grille,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "sgwindowshut";
 	name = "external shutters"
@@ -605,7 +604,6 @@
 	},
 /obj/effect/spawner/structure/window/shuttle,
 /obj/machinery/door/firedoor/window,
-/obj/structure/grille,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "sgwindowshut";
 	name = "external shutters"
@@ -1026,7 +1024,6 @@
 "mm" = (
 /obj/effect/spawner/structure/window/shuttle,
 /obj/machinery/door/firedoor/window,
-/obj/structure/grille,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "sgwindowshut";
 	name = "external shutters"
@@ -1189,7 +1186,6 @@
 "nO" = (
 /obj/effect/spawner/structure/window/shuttle,
 /obj/machinery/door/firedoor/window,
-/obj/structure/grille,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "sgwindowshut";
 	name = "external shutters"
@@ -1789,6 +1785,15 @@
 	icon_state = "0-4"
 	},
 /turf/open/floor/carpet/nanoweave/blue,
+/area/ship/hallway/fore)
+"vu" = (
+/obj/effect/spawner/structure/window/shuttle,
+/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "sgwindowshut";
+	name = "external shutters"
+	},
+/turf/open/floor/plating,
 /area/ship/hallway/fore)
 "vA" = (
 /obj/structure/cable{
@@ -3065,7 +3070,13 @@
 /turf/open/floor/carpet/nanoweave/beige,
 /area/ship/hallway/starboard)
 "IR" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/obj/effect/spawner/structure/window/shuttle,
+/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "sgwindowshut";
+	name = "external shutters"
+	},
+/turf/open/floor/plating,
 /area/ship/hallway/starboard)
 "Jr" = (
 /obj/structure/cable{
@@ -3364,7 +3375,6 @@
 "MZ" = (
 /obj/effect/spawner/structure/window/shuttle,
 /obj/machinery/door/firedoor/window,
-/obj/structure/grille,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "sgwindowshut";
 	name = "external shutters"
@@ -3629,7 +3639,6 @@
 "QD" = (
 /obj/effect/spawner/structure/window/shuttle,
 /obj/machinery/door/firedoor/window,
-/obj/structure/grille,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "sgwindowshut";
 	name = "external shutters"
@@ -3778,6 +3787,15 @@
 /obj/effect/turf_decal/corner/black/diagonal,
 /turf/open/floor/plasteel,
 /area/ship/storage)
+"SF" = (
+/obj/effect/spawner/structure/window/shuttle,
+/obj/machinery/door/firedoor/window,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "sgwindowshut";
+	name = "external shutters"
+	},
+/turf/open/floor/plating,
+/area/ship/medical)
 "SJ" = (
 /obj/machinery/power/smes/shuttle/precharged{
 	dir = 4
@@ -4907,7 +4925,7 @@ QD
 zR
 "}
 (21,1,1) = {"
-YU
+SF
 Wt
 ZB
 Ww
@@ -5096,7 +5114,7 @@ RA
 XD
 SC
 SC
-WY
+vu
 qd
 ts
 BT

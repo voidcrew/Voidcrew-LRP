@@ -65,3 +65,17 @@
 	..()
 	if(locate(/datum/holiday/ianbirthday) in SSevents.holidays)
 		undershirt = /datum/sprite_accessory/undershirt/ian
+
+/datum/outfit/job/head_of_personnel/wizard
+	name = "Head of Personnel (Wizard)"
+
+	uniform = /obj/item/clothing/under/color/lightpurple
+	suit = /obj/item/clothing/suit/wizrobe
+	shoes = /obj/item/clothing/shoes/sandal/magic
+	ears = /obj/item/radio/headset
+	head = /obj/item/clothing/head/wizard
+	back = /obj/item/storage/backpack
+	
+	
+	
+	

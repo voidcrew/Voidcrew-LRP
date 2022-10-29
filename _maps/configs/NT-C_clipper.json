@@ -1,0 +1,38 @@
+{
+	"$schema": "https://raw.githubusercontent.com/shiptest-ss13/Shiptest/master/_maps/ship_config_schema.json",
+	"prefix": "NT-C",
+	"namelists": ["GENERAL", "BRITISH_NAVY", "MERCANTILE", "SPACE"],
+	"map_name": "Indisputable-class Secure Transport",
+	"map_short_name": "Indisputable-class",
+	"map_path": "_maps/shuttles/shiptest/voidcrew/nanotrasen_clipper.dmm",
+	"limit": 2,
+	"job_slots": {
+		"Captain": {
+			"outfit": "/datum/outfit/job/captain/nt",
+			"officer": true,
+			"slots": 1
+		},
+		"First Mate": {
+			"outfit": "/datum/outfit/job/head_of_personnel/nt",
+			"officer": true,
+			"slots": 1
+		},
+		"Cargo Technician": {
+			"outfit": "/datum/outfit/job/cargo_tech",
+			"slots": 2
+		},
+		"Engineering Specialist": {
+			"outfit": "/datum/outfit/job/engineer/nt",
+			"slots": 1
+		},
+		"Security Officer": {
+			"outfit": "/datum/outfit/job/security",
+			"slots": 5
+		},
+		"Paramedic": {
+			"outfit": "/datum/outfit/job/paramedic",
+			"slots": 2
+		}
+	},
+	"cost": 750
+}

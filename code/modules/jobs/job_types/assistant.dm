@@ -84,3 +84,13 @@ Assistant
 	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/color/white
 	accessory = /obj/item/clothing/neck/scarf/darkblue
+
+/datum/outfit/job/assistant/wizard
+	name = "Assistant (Wizard)"
+
+	uniform = /obj/item/clothing/under/color/lightpurple
+	suit = /obj/item/clothing/suit/wizrobe
+	shoes = /obj/item/clothing/shoes/sandal/magic
+	ears = /obj/item/radio/headset
+	head = /obj/item/clothing/head/wizard
+	back = /obj/item/storage/backpack
