@@ -56,7 +56,9 @@
 /turf/open/floor/mineral/titanium/tiled/yellow,
 /area/ship/engineering)
 "bS" = (
-/obj/machinery/atmospherics/components/unary/tank/toxins,
+/obj/machinery/atmospherics/components/unary/tank/toxins{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
 "bT" = (
@@ -138,15 +140,10 @@
 	},
 /turf/open/floor/mineral/titanium/tiled/yellow,
 /area/ship/engineering)
-"dw" = (
-/obj/machinery/camera/xray{
-	dir = 5
-	},
-/turf/open/floor/plasteel/patterned/grid,
-/area/ship/bridge)
 "dC" = (
 /obj/effect/turf_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
+/obj/effect/spawner/lootdrop/donkpockets,
 /obj/effect/spawner/lootdrop/maintenance/eight,
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/cargo)
@@ -196,12 +193,6 @@
 "eD" = (
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/security)
-"eF" = (
-/obj/effect/turf_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
-/obj/item/grenade/clusterbuster/random,
-/turf/open/floor/plasteel/tech/techmaint,
-/area/ship/cargo)
 "eJ" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /turf/open/floor/mineral/titanium/purple,
@@ -267,7 +258,9 @@
 /turf/open/floor/mineral/plastitanium/airless,
 /area/ship/security/armory)
 "gd" = (
-/obj/machinery/atmospherics/components/unary/tank/oxygen,
+/obj/machinery/atmospherics/components/unary/tank/oxygen{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
 "gu" = (
@@ -305,11 +298,6 @@
 /obj/machinery/recharger,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/security)
-"hi" = (
-/obj/structure/window/plasma/reinforced/spawner/west,
-/obj/structure/window/plasma/reinforced/spawner/north,
-/turf/open/floor/engine,
-/area/ship/cargo)
 "hj" = (
 /obj/structure/transit_tube/station/dispenser{
 	dir = 1
@@ -377,17 +365,6 @@
 	},
 /turf/open/floor/mineral/titanium/purple,
 /area/ship/security)
-"iH" = (
-/obj/effect/turf_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/aimodule_harmful,
-/obj/effect/spawner/lootdrop/aimodule_harmful,
-/obj/effect/spawner/lootdrop/aimodule_harmless,
-/obj/effect/spawner/lootdrop/aimodule_harmless,
-/obj/effect/spawner/lootdrop/aimodule_neutral,
-/obj/effect/spawner/lootdrop/aimodule_neutral,
-/turf/open/floor/plasteel/tech/techmaint,
-/area/ship/cargo)
 "iR" = (
 /obj/machinery/porta_turret/centcom_shuttle/ballistic,
 /turf/closed/wall/r_wall,
@@ -428,17 +405,6 @@
 /obj/machinery/computer/mech_bay_power_console,
 /turf/open/floor/mineral/titanium/purple,
 /area/ship/security)
-"jF" = (
-/obj/structure/table,
-/obj/item/stack/spacecash/c1000,
-/obj/item/stack/spacecash/c1000,
-/obj/item/stack/spacecash/c1000,
-/obj/item/stack/spacecash/c1000,
-/obj/item/stack/spacecash/c1000,
-/obj/item/stack/spacecash/c1000,
-/obj/machinery/recharger,
-/turf/open/floor/plasteel/patterned/grid,
-/area/ship/bridge)
 "jG" = (
 /obj/item/borg/upgrade/ai,
 /obj/item/borg/upgrade/ai,
@@ -544,8 +510,8 @@
 /area/ship/cargo)
 "lt" = (
 /obj/machinery/atmospherics/pipe/simple/yellow/hidden/layer2,
-/obj/machinery/igniter{
-	id = killroom
+/obj/machinery/igniter/incinerator_atmos{
+	id = "killroom"
 	},
 /turf/open/floor/engine,
 /area/ship/engineering/atmospherics)
@@ -574,15 +540,6 @@
 	},
 /turf/open/floor/engine,
 /area/ship/engineering/atmospherics)
-"lC" = (
-/obj/effect/turf_decal/industrial/hatch/yellow,
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/open/floor/plasteel/tech/techmaint,
-/area/ship/cargo)
-"lI" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/open/floor/plasteel/tech/grid,
-/area/ship/maintenance/port)
 "lU" = (
 /obj/machinery/power/port_gen/pacman/uranium{
 	anchored = 1
@@ -620,6 +577,10 @@
 /obj/structure/frame,
 /turf/open/floor/plasteel/patterned,
 /area/ship/science/robotics)
+"nI" = (
+/obj/structure/window/plasma/reinforced/spawner/east,
+/turf/open/floor/engine,
+/area/ship/cargo)
 "nM" = (
 /obj/structure/catwalk,
 /obj/machinery/camera/xray{
@@ -699,6 +660,10 @@
 /obj/machinery/recharge_station,
 /turf/open/floor/mineral/titanium/tiled/yellow,
 /area/ship/engineering)
+"pA" = (
+/obj/machinery/light/floor,
+/turf/open/floor/plasteel/patterned/grid,
+/area/ship/bridge)
 "pU" = (
 /obj/machinery/door/airlock/highsecurity{
 	id_tag = "cell 1m";
@@ -716,8 +681,8 @@
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
 "qe" = (
-/obj/machinery/igniter{
-	id = killroom
+/obj/machinery/igniter/incinerator_atmos{
+	id = "killroom"
 	},
 /turf/open/floor/engine,
 /area/ship/engineering/atmospherics)
@@ -738,6 +703,7 @@
 	},
 /obj/machinery/airalarm/directional/north,
 /obj/machinery/portable_atmospherics/canister/nitrous_oxide,
+/obj/machinery/light/floor,
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
 "rb" = (
@@ -1118,6 +1084,12 @@
 "wK" = (
 /turf/open/floor/mineral/plastitanium/airless,
 /area/ship/security/armory)
+"wY" = (
+/obj/machinery/camera/xray{
+	dir = 5
+	},
+/turf/open/floor/plasteel/patterned/grid,
+/area/ship/bridge)
 "wZ" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
 	dir = 4
@@ -1143,6 +1115,15 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/security)
+"xw" = (
+/obj/structure/window/plasma/reinforced/spawner,
+/obj/structure/window/plasma/reinforced/spawner/west,
+/turf/open/floor/engine,
+/area/ship/cargo)
+"xx" = (
+/obj/structure/window/plasma/reinforced/spawner/west,
+/turf/open/floor/engine,
+/area/ship/cargo)
 "xX" = (
 /obj/item/toy/plush/among,
 /obj/machinery/camera/xray{
@@ -1236,6 +1217,23 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/cargo)
+"zR" = (
+/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/item/grenade/clusterbuster/random,
+/turf/open/floor/plasteel/tech/techmaint,
+/area/ship/cargo)
+"zV" = (
+/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/effect/spawner/lootdrop/glowstick,
+/obj/effect/spawner/lootdrop/glowstick,
+/obj/effect/spawner/lootdrop/glowstick,
+/obj/effect/spawner/lootdrop/glowstick,
+/obj/effect/spawner/lootdrop/glowstick,
+/obj/effect/spawner/lootdrop/maintenance/eight,
+/turf/open/floor/plasteel/tech/techmaint,
+/area/ship/cargo)
 "Af" = (
 /obj/machinery/recharge_station,
 /obj/machinery/camera/xray,
@@ -1308,11 +1306,6 @@
 	},
 /turf/open/floor/plasteel/patterned,
 /area/ship/science/robotics)
-"BU" = (
-/obj/structure/window/plasma/reinforced/spawner,
-/obj/structure/window/plasma/reinforced/spawner/east,
-/turf/open/floor/engine,
-/area/ship/cargo)
 "BV" = (
 /turf/open/floor/mineral/titanium/tiled/yellow,
 /area/ship/engineering)
@@ -1329,18 +1322,6 @@
 /obj/machinery/portable_atmospherics/scrubber/huge/movable,
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
-"Ck" = (
-/obj/structure/window/plasma/reinforced/spawner/east,
-/obj/structure/window/plasma/reinforced/spawner/north,
-/turf/open/floor/engine,
-/area/ship/cargo)
-"Cp" = (
-/obj/effect/turf_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/organ_spawner,
-/obj/effect/spawner/lootdrop/organ_spawner,
-/turf/open/floor/plasteel/tech/techmaint,
-/area/ship/cargo)
 "CO" = (
 /obj/machinery/computer/mech_bay_power_console,
 /turf/open/floor/mineral/titanium/purple,
@@ -1396,16 +1377,6 @@
 /obj/item/organ/ears/cybernetic/upgraded,
 /turf/open/floor/plasteel/patterned,
 /area/ship/science/robotics)
-"Ec" = (
-/obj/structure/window/plasma/reinforced/spawner/west,
-/turf/open/floor/engine,
-/area/ship/cargo)
-"Ed" = (
-/obj/machinery/door/poddoor/preopen{
-	id = "aich"
-	},
-/turf/open/floor/mineral/plastitanium/airless,
-/area/ship/security/armory)
 "Em" = (
 /obj/machinery/atmospherics/pipe/manifold/yellow/hidden/layer2{
 	dir = 4
@@ -1491,6 +1462,13 @@
 	},
 /turf/open/floor/plating,
 /area/ship/maintenance/port)
+"GA" = (
+/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/effect/spawner/lootdrop/organ_spawner,
+/obj/effect/spawner/lootdrop/organ_spawner,
+/turf/open/floor/plasteel/tech/techmaint,
+/area/ship/cargo)
 "GJ" = (
 /obj/item/storage/box/rndboards,
 /obj/structure/table,
@@ -1655,12 +1633,22 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/security)
+"Jm" = (
+/obj/machinery/door/poddoor/preopen{
+	id = "aich"
+	},
+/turf/open/floor/mineral/plastitanium/airless,
+/area/ship/security/armory)
 "Jo" = (
 /obj/structure/table,
 /obj/item/clothing/glasses/sunglasses/gar/supergar,
 /obj/item/toy/plush/spider,
 /turf/open/floor/plasteel/patterned/grid,
 /area/ship/bridge)
+"JB" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/open/floor/plasteel/tech/grid,
+/area/ship/maintenance/port)
 "JG" = (
 /obj/machinery/vending/assist,
 /turf/open/floor/mineral/titanium/tiled/yellow,
@@ -1708,6 +1696,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
+/obj/machinery/light/floor,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/security)
 "KM" = (
@@ -1781,6 +1770,11 @@
 /obj/mecha/combat/durand,
 /turf/open/floor/mineral/titanium/purple,
 /area/ship/security)
+"Ld" = (
+/obj/structure/window/plasma/reinforced/spawner,
+/obj/structure/window/plasma/reinforced/spawner/east,
+/turf/open/floor/engine,
+/area/ship/cargo)
 "Lk" = (
 /obj/structure/catwalk,
 /turf/open/floor/plating,
@@ -1793,6 +1787,11 @@
 	},
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/maintenance/starboard)
+"Lp" = (
+/obj/effect/turf_decal/industrial/hatch/yellow,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/open/floor/plasteel/tech/techmaint,
+/area/ship/cargo)
 "Ly" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 5
@@ -1827,6 +1826,17 @@
 /obj/structure/window/plasma/reinforced/spawner/north,
 /turf/open/floor/engine,
 /area/ship/cargo)
+"MC" = (
+/obj/structure/table,
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c1000,
+/obj/machinery/recharger,
+/turf/open/floor/plasteel/patterned/grid,
+/area/ship/bridge)
 "MP" = (
 /obj/structure/table/reinforced,
 /obj/item/pipe_dispenser,
@@ -1971,9 +1981,16 @@
 /turf/open/floor/engine,
 /area/ship/engineering/atmospherics)
 "OJ" = (
-/obj/machinery/light/floor,
-/turf/open/floor/plasteel/patterned/grid,
-/area/ship/bridge)
+/obj/effect/turf_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/effect/spawner/lootdrop/aimodule_harmful,
+/obj/effect/spawner/lootdrop/aimodule_harmful,
+/obj/effect/spawner/lootdrop/aimodule_harmless,
+/obj/effect/spawner/lootdrop/aimodule_harmless,
+/obj/effect/spawner/lootdrop/aimodule_neutral,
+/obj/effect/spawner/lootdrop/aimodule_neutral,
+/turf/open/floor/plasteel/tech/techmaint,
+/area/ship/cargo)
 "OW" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 8;
@@ -1983,13 +2000,13 @@
 	id = "ExteriorBlastMalf";
 	name = "exterior door";
 	pixel_y = -26;
-	pixel_x = -8
+	pixel_x = 8
 	},
 /obj/machinery/button/door{
 	id = "Interiorblastmalf";
 	name = "interior door";
 	pixel_y = -26;
-	pixel_x = 8
+	pixel_x = -8
 	},
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
@@ -2057,11 +2074,6 @@
 "QP" = (
 /obj/effect/turf_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/glowstick,
-/obj/effect/spawner/lootdrop/glowstick,
-/obj/effect/spawner/lootdrop/glowstick,
-/obj/effect/spawner/lootdrop/glowstick,
-/obj/effect/spawner/lootdrop/glowstick,
 /obj/effect/spawner/lootdrop/maintenance/eight,
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ship/cargo)
@@ -2071,7 +2083,9 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/security)
 "Rf" = (
-/obj/machinery/atmospherics/components/unary/tank/carbon_dioxide,
+/obj/machinery/atmospherics/components/unary/tank/carbon_dioxide{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/ship/engineering/atmospherics)
 "Rr" = (
@@ -2128,10 +2142,6 @@
 /obj/structure/closet/secure_closet/security,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ship/security)
-"Ss" = (
-/obj/structure/window/plasma/reinforced/spawner/east,
-/turf/open/floor/engine,
-/area/ship/cargo)
 "Su" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 4
@@ -2188,13 +2198,13 @@
 	id = "ExteriorBlastMalf";
 	name = "exterior door";
 	pixel_y = 26;
-	pixel_x = -8
+	pixel_x = 8
 	},
 /obj/machinery/button/door{
 	id = "Interiorblastmalf";
 	name = "interior door";
 	pixel_y = 26;
-	pixel_x = 8
+	pixel_x = -8
 	},
 /turf/open/floor/mineral/titanium/purple,
 /area/ship/security)
@@ -2270,19 +2280,17 @@
 	},
 /turf/open/floor/plasteel/patterned/grid,
 /area/ship/bridge)
-"TR" = (
-/obj/effect/turf_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
-/obj/effect/spawner/lootdrop/donkpockets,
-/obj/effect/spawner/lootdrop/maintenance/eight,
-/turf/open/floor/plasteel/tech/techmaint,
-/area/ship/cargo)
 "Ub" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium/airless,
 /area/ship/security/armory)
+"Un" = (
+/obj/structure/window/plasma/reinforced/spawner/east,
+/obj/structure/window/plasma/reinforced/spawner/north,
+/turf/open/floor/engine,
+/area/ship/cargo)
 "Us" = (
 /obj/structure/catwalk,
 /obj/machinery/camera/xray,
@@ -2396,11 +2404,6 @@
 	},
 /turf/open/floor/engine,
 /area/ship/engineering/atmospherics)
-"WJ" = (
-/obj/structure/window/plasma/reinforced/spawner,
-/obj/structure/window/plasma/reinforced/spawner/west,
-/turf/open/floor/engine,
-/area/ship/cargo)
 "WL" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/structure/cable{
@@ -2408,6 +2411,11 @@
 	},
 /obj/machinery/light/floor,
 /turf/open/floor/plasteel/tech/techmaint,
+/area/ship/cargo)
+"WO" = (
+/obj/structure/window/plasma/reinforced/spawner/west,
+/obj/structure/window/plasma/reinforced/spawner/north,
+/turf/open/floor/engine,
 /area/ship/cargo)
 "Xb" = (
 /obj/machinery/power/terminal{
@@ -2537,8 +2545,8 @@
 	dir = 10
 	},
 /obj/structure/window/plasma/reinforced/spawner/north,
-/obj/machinery/igniter{
-	id = killroom
+/obj/machinery/igniter/incinerator_atmos{
+	id = "killroom"
 	},
 /turf/open/floor/engine,
 /area/ship/engineering/atmospherics)
@@ -2769,7 +2777,7 @@ Fi
 SO
 uL
 zH
-Ed
+Jm
 Sy
 zH
 zH
@@ -2779,7 +2787,7 @@ zH
 zH
 zH
 Rr
-Ed
+Jm
 zH
 uL
 HB
@@ -2827,7 +2835,7 @@ lU
 SO
 uL
 zH
-Ed
+Jm
 Sy
 zH
 zH
@@ -2837,7 +2845,7 @@ zH
 zH
 zH
 Rr
-Ed
+Jm
 zH
 uL
 HB
@@ -2852,7 +2860,7 @@ uL
 SO
 be
 sX
-lI
+JB
 SO
 uL
 zH
@@ -3023,8 +3031,8 @@ Pw
 "}
 (16,1,1) = {"
 mE
-lC
-lC
+Lp
+Lp
 zN
 HR
 gu
@@ -3063,7 +3071,7 @@ sy
 Nj
 Sv
 sy
-dw
+wY
 gy
 uG
 sy
@@ -3081,10 +3089,10 @@ Pw
 "}
 (18,1,1) = {"
 mE
-iH
-TR
+OJ
 dC
-Cp
+QP
+GA
 ka
 LW
 cE
@@ -3092,8 +3100,8 @@ sy
 Qy
 ds
 sy
-jF
-OJ
+MC
+pA
 zC
 sy
 TC
@@ -3110,9 +3118,9 @@ Pw
 "}
 (19,1,1) = {"
 mE
-eF
+zR
+zV
 QP
-dC
 Eo
 ka
 LW
@@ -3140,9 +3148,9 @@ Pw
 (20,1,1) = {"
 mE
 qC
-hi
-Ec
-WJ
+WO
+xx
+xw
 mF
 dO
 ka
@@ -3198,9 +3206,9 @@ Pw
 (22,1,1) = {"
 BC
 mE
-Ck
-Ss
-BU
+Un
+nI
+Ld
 ka
 Xv
 Td
