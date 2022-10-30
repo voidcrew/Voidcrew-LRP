@@ -1,0 +1,22 @@
+{
+	"$schema": "https://raw.githubusercontent.com/shiptest-ss13/Shiptest/master/_maps/ship_config_schema.json",
+	"map_name": "Malfunction-class Silicon Ship",
+	"map_short_name": "Malfunction-class",
+	"prefix": "KOS",
+	"namelists": ["GENERAL", "MYTHOLOGICAL"],
+	"map_path": "_maps/shuttles/shiptest/voidcrew/Roguemalf.dmm",
+	"map_id": "roguemalf",
+	"limit": 2,
+	"job_slots": {
+		"Ai Technician": {
+			"outfit": "/datum/outfit/job/captain",
+			"officer": true,
+			"slots": 1
+		},
+		"Silicon Engineer": {
+			"outfit": "/datum/outfit/job/engineer",
+			"slots": 2
+		}
+	},
+	"cost": 1800
+}
