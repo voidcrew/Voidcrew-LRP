@@ -305,6 +305,19 @@
 /obj/machinery/computer/helm/viewscreen{
 	pixel_y = 32
 	},
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c1000,
+/obj/item/stack/spacecash/c1000,
+/obj/item/melee/transforming/energy/sword/saber/pirate/green{
+	pixel_x = -5;
+	name = "mana cutlass";
+	desc = "Alakazam matey."
+	},
+/obj/item/melee/transforming/energy/sword/saber/pirate/green{
+	pixel_x = 5;
+	name = "mana cutlass";
+	desc = "Alakazam matey."
+	},
 /turf/open/floor/carpet/stellar,
 /area/ship/bridge)
 "gT" = (
@@ -1046,35 +1059,32 @@
 /area/ship/engineering/atmospherics)
 "vZ" = (
 /obj/structure/table/wood/reinforced,
-/obj/item/storage/backpack/holding{
-	icon_state = "ert_janitor";
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/storage/backpack/holding{
-	icon_state = "ert_janitor";
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/item/storage/backpack/holding{
-	icon_state = "ert_janitor";
-	pixel_y = 5
-	},
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/storage/backpack/holding{
-	icon_state = "ert_janitor";
-	pixel_x = -5
-	},
-/obj/item/storage/backpack/holding{
-	icon_state = "ert_janitor"
-	},
-/obj/item/storage/backpack/holding{
-	icon_state = "ert_janitor";
-	pixel_x = 5
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/gun/energy/laser/hitscanpistol{
+	icon_state = "deathwand";
+	icon = 'icons/obj/guns/magic.dmi';
+	desc = "A wand used by Wizards who specialize in offensive magic";
+	pixel_x = -5;
+	name = "wand of beams";
+	item_state = "wand";
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi';
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
+	fire_sound = 'sound/magic/wandodeath.ogg'
+	},
+/obj/item/gun/energy/laser/hitscanpistol{
+	icon_state = "deathwand";
+	icon = 'icons/obj/guns/magic.dmi';
+	desc = "A wand used by Wizards who specialize in offensive magic";
+	pixel_x = 5;
+	name = "wand of beams";
+	item_state = "wand";
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi';
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
+	fire_sound = 'sound/magic/wandodeath.ogg'
+	},
 /turf/open/floor/carpet/red,
 /area/ship/security/armory)
 "wh" = (
@@ -1557,7 +1567,6 @@
 	},
 /area/ship/engineering/atmospherics)
 "DV" = (
-/obj/structure/closet/emcloset/anchored,
 /obj/machinery/door/firedoor,
 /turf/open/floor/carpet/orange,
 /area/ship/cargo)
@@ -1930,6 +1939,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/closet/emcloset/anchored,
 /turf/open/floor/wood/mahogany,
 /area/ship/cargo)
 "La" = (
@@ -2178,16 +2188,19 @@
 /area/ship/cargo/office)
 "Ox" = (
 /obj/structure/table/wood/reinforced,
-/obj/item/gun/energy/laser/hitscanpistol{
-	icon_state = "deathwand";
+/obj/item/gun/energy/laser/captain/scattershot{
 	icon = 'icons/obj/guns/magic.dmi';
-	desc = "A wand used by Wizards who specialize in offensive magic";
+	icon_state = "nothingwand";
 	pixel_x = -5;
-	name = "wand of beams";
+	desc = "A wand used by Wizards who specialize in offensive magic";
+	name = "wand of many orbs";
 	item_state = "wand";
-	righthand_file = 'icons/mob/inhands/items_righthand.dmi';
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
-	fire_sound = 'sound/magic/wandodeath.ogg'
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi';
+	fire_sound = 'sound/magic/wand_teleport.ogg'
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /obj/item/gun/energy/laser/captain/scattershot{
 	icon = 'icons/obj/guns/magic.dmi';
@@ -2199,9 +2212,6 @@
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi';
 	fire_sound = 'sound/magic/wand_teleport.ogg'
-	},
-/obj/machinery/light{
-	dir = 8
 	},
 /turf/open/floor/carpet/red,
 /area/ship/security/armory)
@@ -2530,6 +2540,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/emcloset/anchored,
 /turf/open/floor/wood/mahogany,
 /area/ship/cargo/office)
 
