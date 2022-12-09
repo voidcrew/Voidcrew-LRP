@@ -94,7 +94,7 @@
 /turf/open/floor/wood,
 /area/ship/maintenance/aft)
 "hC" = (
-/obj/machinery/suit_storage_unit/open,
+/obj/structure/closet/cabinet,
 /obj/item/tank/internals/emergency_oxygen/engi,
 /obj/item/clothing/suit/space/hardsuit/wizard,
 /obj/structure/sign/poster/random{
@@ -422,7 +422,7 @@
 /turf/open/floor/carpet/purple,
 /area/ship/bridge)
 "Gg" = (
-/obj/machinery/suit_storage_unit/open,
+/obj/structure/closet/cabinet,
 /obj/item/tank/internals/emergency_oxygen/engi,
 /obj/item/clothing/suit/space/hardsuit/wizard,
 /obj/machinery/door/window/survival_pod{
@@ -621,6 +621,22 @@
 	name = "Wizard's wand of burning light";
 	pixel_x = -2;
 	pixel_y = 5;
+	charge_sections = 6;
+	charge_delay = 3;
+	desc = "A wand used by many mages for basic self defense.";
+	item_state = "wand";
+	pin = /obj/item/firing_pin/magic;
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi';
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
+	fire_sound = 'sound/magic/wand_teleport.ogg'
+	},
+/obj/item/gun/energy/e_gun/mini{
+	gunlight_state = "nothingwand";
+	icon = 'icons/obj/guns/magic.dmi';
+	icon_state = "nothingwand";
+	name = "Wizard's wand of burning light";
+	pixel_x = 2;
+	pixel_y = -5;
 	charge_sections = 6;
 	charge_delay = 3;
 	desc = "A wand used by many mages for basic self defense.";

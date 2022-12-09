@@ -1471,14 +1471,17 @@
 /turf/open/floor/wood/bamboo,
 /area/ship/security/armory)
 "oE" = (
-/obj/machinery/suit_storage_unit,
-/obj/item/tank/internals/emergency_oxygen/engi,
+/obj/structure/closet/cabinet,
 /obj/item/clothing/suit/space/hardsuit/wizard,
 /obj/item/clothing/gloves/combat/wizard,
 /obj/machinery/door/window/survival_pod{
 	req_access_txt = "1";
 	dir = 4
 	},
+/obj/item/clothing/suit/space/hardsuit/wizard,
+/obj/item/clothing/gloves/combat/wizard,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
 /turf/open/floor/bronze,
 /area/ship/security/armory)
 "oL" = (
@@ -1580,15 +1583,6 @@
 	},
 /turf/open/floor/wood/yew,
 /area/ship/bridge)
-"pU" = (
-/obj/machinery/suit_storage_unit,
-/obj/item/tank/internals/emergency_oxygen/engi,
-/obj/item/clothing/suit/space/hardsuit/wizard,
-/obj/machinery/airalarm/directional/south,
-/obj/item/clothing/gloves/combat/wizard,
-/obj/machinery/light,
-/turf/open/floor/bronze,
-/area/ship/security/armory)
 "pW" = (
 /turf/open/floor/wood/mahogany,
 /area/ship/hallway/central)
@@ -3472,11 +3466,8 @@
 /turf/open/floor/mineral/silver,
 /area/ship/medical)
 "GF" = (
-/obj/machinery/suit_storage_unit,
-/obj/item/tank/internals/emergency_oxygen/engi,
-/obj/item/clothing/suit/space/hardsuit/wizard,
-/obj/item/clothing/gloves/combat/wizard,
-/turf/open/floor/bronze,
+/obj/machinery/light,
+/turf/open/floor/wood/bamboo,
 /area/ship/security/armory)
 "GH" = (
 /obj/structure/cable{
@@ -6577,10 +6568,10 @@ IR
 Cl
 NM
 Uo
-GF
-GF
-GF
-pU
+Uo
+Uo
+Uo
+Uo
 DD
 sY
 fv
@@ -6706,7 +6697,7 @@ Uo
 mW
 KH
 jZ
-oC
+GF
 DD
 nO
 jz

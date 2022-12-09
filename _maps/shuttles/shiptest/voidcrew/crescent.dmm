@@ -841,6 +841,8 @@
 /obj/item/stack/sheet/metal/fifty,
 /obj/item/stack/sheet/metal/fifty,
 /obj/item/stack/sheet/metal/fifty,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/electrical,
 /turf/open/floor/plating,
 /area/ship/cargo)
 "tg" = (
@@ -926,6 +928,18 @@
 	name = "glasses of terrain-sight"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/mining_scanner{
+	desc = "A grimoire penned by the mighty magus Antoras. Revelations of Rock is regarded as one of the most important and influential tomes to ever grace the Federation, granting it's reader the ability to divine minerals. And we mean REALLY divine. The book contains detailed information on hundreds of thousands of types of soil, minerals, gemstones, and more. A wizard wielding this tome could indeed, within seconds, precisely deduce how many individual grains of sand were on a planet. This tome alone is touted as the grandfather of the modern Wizard Federation, and certainly is responsible for your gem-encrusted hardsuits and your emerald-plated vessel. Your operations will, through the power of this stony grimoire, surely proceed smooth as slate and clear as crystal. That.. being said... It would appear that some, okay well, MOST of the pages have been ripped out of this copy. Through your wizardly intellect however, you deduce that missing pages will not lessen it's power. After all, tomes don't ACTUALLY utilize those pages, right?";
+	icon = 'icons/obj/library.dmi';
+	icon_state = "book";
+	name = "The Grimoire of Rock Revelation"
+	},
+/obj/item/mining_scanner{
+	desc = "A grimoire penned by the mighty magus Antoras. Revelations of Rock is regarded as one of the most important and influential tomes to ever grace the Federation, granting it's reader the ability to divine minerals. And we mean REALLY divine. The book contains detailed information on hundreds of thousands of types of soil, minerals, gemstones, and more. A wizard wielding this tome could indeed, within seconds, precisely deduce how many individual grains of sand were on a planet. This tome alone is touted as the grandfather of the modern Wizard Federation, and certainly is responsible for your gem-encrusted hardsuits and your emerald-plated vessel. Your operations will, through the power of this stony grimoire, surely proceed smooth as slate and clear as crystal. That.. being said... It would appear that some, okay well, MOST of the pages have been ripped out of this copy. Through your wizardly intellect however, you deduce that missing pages will not lessen it's power. After all, tomes don't ACTUALLY utilize those pages, right?";
+	icon = 'icons/obj/library.dmi';
+	icon_state = "book";
+	name = "The Grimoire of Rock Revelation"
+	},
 /turf/open/floor/plating,
 /area/ship/cargo)
 "uy" = (
@@ -1107,7 +1121,7 @@
 /turf/open/floor/carpet/royalblue,
 /area/ship/security/armory)
 "ww" = (
-/obj/machinery/suit_storage_unit,
+/obj/structure/closet/cabinet,
 /obj/item/clothing/suit/space/hardsuit/wizard,
 /obj/item/tank/internals/oxygen,
 /obj/item/clothing/mask/breath,
@@ -1131,7 +1145,7 @@
 	icon_state = "2-8"
 	},
 /obj/item/circuitboard/machine/rdserver,
-/obj/structure/frame,
+/obj/structure/frame/machine,
 /obj/item/stack/cable_coil/red,
 /obj/item/stock_parts/scanning_module/triphasic,
 /obj/structure/sign/poster/retro/random{
@@ -1530,7 +1544,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/auto_name/north,
-/obj/machinery/suit_storage_unit,
+/obj/structure/closet/cabinet,
 /obj/item/clothing/suit/space/hardsuit/wizard,
 /obj/item/tank/internals/oxygen,
 /obj/item/clothing/mask/breath,
@@ -1551,7 +1565,7 @@
 /obj/structure/window/reinforced/survival_pod{
 	dir = 4
 	},
-/obj/machinery/suit_storage_unit,
+/obj/structure/closet/cabinet,
 /obj/item/clothing/suit/space/hardsuit/wizard,
 /obj/item/tank/internals/oxygen,
 /obj/item/clothing/mask/breath,
@@ -1572,7 +1586,7 @@
 /area/ship/cargo)
 "DY" = (
 /obj/item/clothing/suit/space/hardsuit/wizard,
-/obj/machinery/suit_storage_unit,
+/obj/structure/closet/cabinet,
 /obj/item/tank/internals/oxygen,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/gloves/combat/wizard,
@@ -1905,7 +1919,7 @@
 /obj/structure/window/reinforced/survival_pod{
 	dir = 4
 	},
-/obj/machinery/suit_storage_unit,
+/obj/structure/closet/cabinet,
 /obj/item/clothing/suit/space/hardsuit/wizard,
 /obj/item/tank/internals/oxygen,
 /obj/item/clothing/mask/breath,
@@ -2353,7 +2367,7 @@
 /area/ship/cargo/office)
 "TE" = (
 /obj/item/clothing/suit/space/hardsuit/wizard,
-/obj/machinery/suit_storage_unit,
+/obj/structure/closet/cabinet,
 /obj/item/tank/internals/oxygen,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/gloves/combat/wizard,
