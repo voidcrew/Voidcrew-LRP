@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ad" = (
-/obj/machinery/rnd/production/protolathe/department/engineering,
+/obj/machinery/rnd/production/protolathe,
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/engineering)
 "bl" = (
@@ -838,7 +838,7 @@
 /turf/closed/wall/mineral/titanium,
 /area/ship/crew/janitor)
 "qH" = (
-/obj/machinery/vending/sustenance,
+/obj/machinery/vending/boozeomat,
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "qI" = (
@@ -950,8 +950,8 @@
 /area/ship/bridge)
 "sN" = (
 /obj/structure/table,
-/obj/item/storage/firstaid,
-/obj/item/storage/firstaid,
+/obj/item/storage/firstaid/advanced,
+/obj/item/storage/firstaid/advanced,
 /turf/open/floor/mineral/titanium,
 /area/ship/medical)
 "sS" = (
@@ -2526,7 +2526,8 @@
 "Wh" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
-	id_tag = "Patient1"
+	id_tag = "Patient1";
+	req_access_txt = "1"
 	},
 /turf/open/floor/carpet/red,
 /area/ship/medical)
