@@ -15,7 +15,9 @@
 /area/ship/bridge)
 "ao" = (
 /obj/machinery/power/rtg/advanced{
-	name = "mana field condenser"
+	name = "mana field condenser";
+	desc = "An advanced magical construct that rips electrons directly from the local mana field.";
+	color = "#008000"
 	},
 /obj/structure/cable/cyan{
 	icon_state = "0-4"
@@ -117,6 +119,7 @@
 	dir = 1;
 	pixel_y = -27
 	},
+/obj/effect/spawner/lootdrop/gambling,
 /turf/open/floor/plating,
 /area/ship/cargo)
 "cg" = (
@@ -136,7 +139,8 @@
 "cI" = (
 /obj/machinery/door/airlock{
 	icon = 'icons/obj/doors/airlocks/station/uranium.dmi';
-	name = "External Airlock"
+	name = "External Airlock";
+	req_access_txt = "12"
 	},
 /obj/structure/fans/tiny{
 	name = "vaccum barrier projector";
@@ -318,6 +322,7 @@
 	name = "mana cutlass";
 	desc = "Alakazam matey."
 	},
+/obj/item/stack/spacecash/c1000,
 /turf/open/floor/carpet/stellar,
 /area/ship/bridge)
 "gT" = (
@@ -357,7 +362,9 @@
 /area/ship/cargo/office)
 "iG" = (
 /obj/machinery/power/rtg/advanced{
-	name = "mana field condenser"
+	name = "mana field condenser";
+	desc = "An advanced magical construct that rips electrons directly from the local mana field.";
+	color = "#008000"
 	},
 /obj/structure/cable/cyan{
 	icon_state = "0-4"
@@ -796,6 +803,11 @@
 	},
 /turf/open/floor/carpet/green,
 /area/ship/engineering/atmospherics)
+"rJ" = (
+/obj/structure/table/wood/fancy/royalblue,
+/obj/machinery/reagentgrinder,
+/turf/open/floor/wood/bamboo,
+/area/ship/crew/canteen)
 "rM" = (
 /obj/effect/turf_decal/floordetail/edgedrain{
 	dir = 1
@@ -965,14 +977,16 @@
 	},
 /obj/machinery/button/door{
 	id = "wizardship3";
-	name = "shutters";
+	name = "windowshutters";
 	pixel_y = 10;
-	pixel_x = -26
+	pixel_x = -26;
+	req_access_txt = "1"
 	},
 /obj/machinery/button/door{
 	id = "wizardship3brdg";
 	name = "bridgelock";
-	pixel_x = -26
+	pixel_x = -26;
+	req_access_txt = "1"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet/stellar,
@@ -1117,7 +1131,7 @@
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/canteen)
 "wt" = (
-/obj/machinery/computer/arcade,
+/obj/machinery/computer/arcade/orion_trail,
 /turf/open/floor/carpet/royalblue,
 /area/ship/security/armory)
 "ww" = (
@@ -1242,7 +1256,8 @@
 	id = "wizardship3_top";
 	name = "shutters";
 	pixel_y = 29;
-	pixel_x = 5
+	pixel_x = 5;
+	req_access_txt = "13"
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/carpet/orange,
@@ -1430,7 +1445,9 @@
 /area/ship/cargo/office)
 "BU" = (
 /obj/machinery/power/rtg/advanced{
-	name = "mana field condenser"
+	name = "mana field condenser";
+	desc = "An advanced magical construct that rips electrons directly from the local mana field.";
+	color = "#008000"
 	},
 /obj/structure/cable/cyan{
 	icon_state = "0-2"
@@ -1594,7 +1611,9 @@
 /area/ship/security/armory)
 "Et" = (
 /obj/machinery/power/rtg/advanced{
-	name = "mana field condenser"
+	name = "mana field condenser";
+	desc = "An advanced magical construct that rips electrons directly from the local mana field.";
+	color = "#008000"
 	},
 /obj/structure/cable/cyan{
 	icon_state = "0-8"
@@ -1816,10 +1835,18 @@
 "HT" = (
 /obj/structure/table/wood/reinforced,
 /obj/item/book/granter/spell/charge{
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 5
 	},
 /obj/item/book/granter/spell/charge{
 	pixel_x = -5
+	},
+/obj/item/book/granter/spell/charge{
+	pixel_x = 5
+	},
+/obj/item/book/granter/spell/charge{
+	pixel_x = -5;
+	pixel_y = 5
 	},
 /turf/open/floor/carpet/red,
 /area/ship/security/armory)
@@ -2007,7 +2034,9 @@
 /area/ship/cargo)
 "LN" = (
 /obj/machinery/power/rtg/advanced{
-	name = "mana field condenser"
+	name = "mana field condenser";
+	desc = "An advanced magical construct that rips electrons directly from the local mana field.";
+	color = "#008000"
 	},
 /obj/structure/cable/cyan{
 	icon_state = "0-4"
@@ -2430,7 +2459,7 @@
 /turf/open/floor/carpet/orange,
 /area/ship/cargo)
 "VN" = (
-/obj/machinery/computer/arcade,
+/obj/machinery/computer/arcade/amputation/festive,
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/carpet/royalblue,
 /area/ship/security/armory)
@@ -2526,7 +2555,9 @@
 /area/ship/crew/dorm)
 "Yz" = (
 /obj/machinery/power/rtg/advanced{
-	name = "mana field condenser"
+	name = "mana field condenser";
+	desc = "An advanced magical construct that rips electrons directly from the local mana field.";
+	color = "#008000"
 	},
 /obj/structure/cable/cyan{
 	icon_state = "0-8"
@@ -2797,7 +2828,7 @@ WC
 rq
 WC
 pB
-FP
+rJ
 xS
 uB
 uB
@@ -3593,7 +3624,7 @@ ox
 Sg
 Sg
 Sg
-Sg
+ox
 ox
 ox
 ox

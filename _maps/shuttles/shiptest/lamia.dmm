@@ -160,7 +160,9 @@
 /area/ship/security)
 "aB" = (
 /obj/machinery/power/rtg/advanced{
-	name = "mana field condenser"
+	name = "mana field condenser";
+	desc = "An advanced magical construct that rips electrons directly from the local mana field.";
+	color = "#008000"
 	},
 /obj/structure/cable/cyan{
 	icon_state = "0-8"
@@ -301,7 +303,9 @@
 /area/ship/security)
 "aZ" = (
 /obj/machinery/power/rtg/advanced{
-	name = "mana field condenser"
+	name = "mana field condenser";
+	desc = "An advanced magical construct that rips electrons directly from the local mana field.";
+	color = "#008000"
 	},
 /obj/structure/cable/cyan{
 	icon_state = "0-4"
@@ -362,7 +366,7 @@
 /obj/structure/cable/cyan{
 	icon_state = "4-8"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "bi" = (
 /obj/machinery/light{
@@ -382,7 +386,8 @@
 	},
 /obj/machinery/power/apc/auto_name/north,
 /obj/structure/table/wood/fancy/royalblack,
-/obj/item/book/manual/wiki/plumbing,
+/obj/item/book/manual/random,
+/obj/item/book/random,
 /turf/open/floor/wood/mahogany,
 /area/ship/crew/chapel)
 "bn" = (
@@ -546,7 +551,6 @@
 "bK" = (
 /obj/effect/turf_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/engineering,
-/obj/item/stack/cable_coil/red,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -556,8 +560,6 @@
 /obj/item/stack/sheet/metal/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/glass/fifty,
-/obj/item/stack/cable_coil/red,
-/obj/item/stack/sheet/mineral/uranium/twenty,
 /turf/open/floor/plasteel,
 /area/ship/maintenance/central)
 "bL" = (
@@ -664,7 +666,9 @@
 /area/ship/maintenance/central)
 "bY" = (
 /obj/machinery/power/rtg/advanced{
-	name = "mana field condenser"
+	name = "mana field condenser";
+	desc = "An advanced magical construct that rips electrons directly from the local mana field.";
+	color = "#008000"
 	},
 /obj/structure/cable/cyan{
 	icon_state = "0-4"
@@ -677,14 +681,22 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/open/floor/plating,
+/obj/item/storage/toolbox/mechanical,
+/obj/structure/table,
+/obj/item/stack/cable_coil/red,
+/obj/item/multitool,
+/obj/item/gun/magic/wand/nothing{
+	desc = "A clever little artifact, devised to help with engine failures. You're not so confident about it, though.";
+	name = "emergency engine ignition wand"
+	},
+/turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "cb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/cyan{
 	icon_state = "4-8"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "cc" = (
 /obj/effect/decal/cleanable/dirt,
@@ -694,7 +706,7 @@
 /obj/structure/fireaxecabinet{
 	pixel_y = 28
 	},
-/turf/open/floor/plating,
+/turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "cd" = (
 /obj/machinery/door/airlock{
@@ -731,7 +743,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 8
 	},
-/turf/open/floor/plating,
+/turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "cg" = (
 /obj/structure/closet/cabinet,
@@ -742,7 +754,6 @@
 /turf/open/floor/bronze,
 /area/ship/maintenance/central)
 "ch" = (
-/obj/item/storage/toolbox/mechanical,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -750,7 +761,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "cj" = (
 /obj/effect/decal/cleanable/dirt,
@@ -846,7 +857,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "ex" = (
 /obj/structure/table/wood/fancy,
@@ -915,6 +926,28 @@
 /obj/structure/sign/poster/contraband/random{
 	pixel_y = 32
 	},
+/obj/item/gun/energy/laser/captain/scattershot{
+	icon = 'icons/obj/guns/magic.dmi';
+	icon_state = "nothingwand";
+	pixel_x = -5;
+	desc = "A wand used by Wizards who specialize in offensive magic";
+	name = "wand of many orbs";
+	item_state = "wand";
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi';
+	fire_sound = 'sound/magic/wand_teleport.ogg'
+	},
+/obj/item/gun/energy/laser/captain/scattershot{
+	icon = 'icons/obj/guns/magic.dmi';
+	icon_state = "nothingwand";
+	pixel_x = 5;
+	desc = "A wand used by Wizards who specialize in offensive magic";
+	name = "wand of many orbs";
+	item_state = "wand";
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi';
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi';
+	fire_sound = 'sound/magic/wand_teleport.ogg'
+	},
 /turf/open/floor/wood,
 /area/ship/security)
 "gB" = (
@@ -928,14 +961,10 @@
 /area/ship/hallway/central)
 "gL" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/gun/magic/wand/nothing{
-	desc = "A clever little artifact, devised to help with engine failures. You're not so confident about it, though.";
-	name = "emergency engine ignition wand"
-	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 8
 	},
-/turf/open/floor/plating,
+/turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "hh" = (
 /obj/structure/cable{
@@ -1139,7 +1168,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "pf" = (
 /obj/structure/cable{
@@ -1314,7 +1343,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/airalarm/directional/north,
-/turf/open/floor/plating,
+/turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "vr" = (
 /obj/structure/cable{
@@ -1657,7 +1686,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "Ia" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1668,7 +1697,7 @@
 	dir = 10
 	},
 /obj/structure/reagent_dispensers/fueltank,
-/turf/open/floor/plating,
+/turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "Ix" = (
 /obj/machinery/power/apc/auto_name/north,
@@ -1769,9 +1798,9 @@
 /area/ship/hallway/central)
 "Ll" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
-	dir = 8
-	},
+/obj/structure/cable,
+/obj/machinery/power/terminal,
+/obj/structure/closet/crate,
 /turf/open/floor/plating,
 /area/ship/maintenance/aft)
 "LZ" = (
@@ -1966,6 +1995,14 @@
 /obj/item/coin/uranium,
 /obj/item/coin/uranium,
 /obj/item/coin/uranium,
+/obj/item/stack/spacecash/c100,
+/obj/item/stack/spacecash/c100,
+/obj/item/stack/spacecash/c100,
+/obj/item/stack/spacecash/c100,
+/obj/item/stack/spacecash/c100,
+/obj/item/stack/spacecash/c100,
+/obj/item/stack/spacecash/c100,
+/obj/item/stack/spacecash/c100,
 /turf/open/floor/carpet/stellar,
 /area/ship/bridge)
 "OQ" = (
@@ -2039,7 +2076,7 @@
 /obj/structure/cable/cyan{
 	icon_state = "4-8"
 	},
-/turf/open/floor/plating,
+/turf/open/floor/bronze,
 /area/ship/maintenance/aft)
 "Si" = (
 /obj/structure/cable{
@@ -2323,19 +2360,16 @@
 	pixel_x = 5
 	},
 /obj/item/dyespray,
-/obj/item/reagent_containers/food/drinks/soda_cans/canned_laughter{
-	pixel_x = -5
-	},
 /obj/item/reagent_containers/pill/floorpill{
 	pixel_x = -9
 	},
+/obj/item/reagent_containers/pill/floorpill,
 /turf/open/floor/plasteel,
 /area/ship/maintenance/central)
 "ZZ" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
-/obj/structure/spider/spiderling/tarantula,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -2635,7 +2669,7 @@ hI
 ca
 cf
 en
-cj
+Ll
 ee
 QD
 "}
@@ -2666,7 +2700,7 @@ mr
 WE
 VD
 cb
-Ll
+gL
 oE
 cj
 ee
