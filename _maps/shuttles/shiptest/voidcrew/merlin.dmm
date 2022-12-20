@@ -1372,11 +1372,11 @@
 /area/ship/maintenance/fore)
 "nI" = (
 /obj/structure/table/wood/fancy/royalblue,
-/obj/item/storage/firstaid,
-/obj/item/storage/firstaid,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/brute,
 /turf/open/floor/mineral/silver,
 /area/ship/medical)
 "nK" = (
@@ -1981,6 +1981,7 @@
 /obj/item/research_notes/loot/tiny,
 /obj/item/research_notes/loot/tiny,
 /obj/item/research_notes/loot/tiny,
+/obj/item/research_notes/loot/medium,
 /turf/open/floor/wood/bamboo,
 /area/ship/crew/library)
 "tY" = (
@@ -2118,7 +2119,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
-/obj/item/storage/firstaid,
 /obj/item/clothing/glasses/meson{
 	icon_state = "jamjar_glasses";
 	desc = "Used by wizards to see the terrain of an area.";
@@ -2144,6 +2144,7 @@
 	icon_state = "book";
 	name = "The Grimoire of Rock Revelation"
 	},
+/obj/item/storage/firstaid/advanced,
 /turf/open/floor/wood/bamboo,
 /area/ship/maintenance/aft)
 "uW" = (
@@ -2641,7 +2642,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
-/obj/item/storage/firstaid,
 /obj/item/clothing/glasses/meson{
 	icon_state = "jamjar_glasses";
 	desc = "Used by wizards to see the terrain of an area.";
@@ -2667,6 +2667,7 @@
 	icon_state = "book";
 	name = "The Grimoire of Rock Revelation"
 	},
+/obj/item/storage/firstaid/advanced,
 /turf/open/floor/wood/bamboo,
 /area/ship/maintenance/aft)
 "zc" = (
@@ -3092,7 +3093,16 @@
 	lefthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi';
 	desc = "A powerful offensive staff that can fire blasts of eldrich energy that pass through walls.";
 	name = "Gamma Staff";
-	pin = /obj/item/firing_pin
+	pin = /obj/item/firing_pin;
+	armour_penetration = 5;
+	bayonet = 1;
+	charge_tick = 1;
+	force = 10;
+	projectile_damage_multiplier = 1.2;
+	selfcharge = 1;
+	sharpness = 1;
+	trigger_guard = 0;
+	w_class = 2
 	},
 /turf/open/floor/carpet/black,
 /area/ship/storage)
@@ -3890,6 +3900,7 @@
 	name = "enchanted blindfold";
 	desc = "An enchantment provides an advanced heads-up display that provides ID data and vision in complete darkness."
 	},
+/obj/item/slimepotion/speed,
 /turf/open/floor/wood/yew,
 /area/ship/crew/dorm/dormtwo)
 "Kc" = (
@@ -4362,7 +4373,7 @@
 /area/ship/storage)
 "Pi" = (
 /obj/structure/table/wood/fancy/royalblue,
-/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/fire,
 /obj/item/storage/firstaid/fire,
 /turf/open/floor/mineral/silver,
 /area/ship/medical)
