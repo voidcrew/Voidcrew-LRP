@@ -1,0 +1,24 @@
+{
+	"$schema": "https://raw.githubusercontent.com/shiptest-ss13/Shiptest/master/_maps/ship_config_schema.json",
+	"map_name": "Lamia-class Magery Ship",
+	"map_short_name": "Lamia-class",
+	"prefix": "KOS",
+	"map_path": "_maps/shuttles/shiptest/lamia.dmm",
+	"map_id": "lamia",
+	"job_slots": {
+		"ArchWizard": {
+			"outfit": "/datum/outfit/job/captain/wizard",
+			"officer": true,
+			"slots": 1
+		},
+		"Destruction Specialist": {
+			"outfit": "/datum/outfit/job/security/wizard",
+			"slots": 2
+		},
+		"Novice Spellcaster": {
+			"outfit": "/datum/outfit/job/assistant/wizard",
+			"slots": 3
+		}
+	},
+	"cost": 700
+}

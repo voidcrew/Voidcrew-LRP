@@ -1,0 +1,23 @@
+{
+	"$schema": "https://raw.githubusercontent.com/shiptest-ss13/Shiptest/master/_maps/ship_config_schema.json",
+	"map_name": "Greenpill-class Scrying Ship",
+	"map_short_name": "Greenpill-class",
+	"prefix": "KOS",
+	"namelists": ["MYTHOLOGICAL"],
+	"map_path": "_maps/shuttles/shiptest/voidcrew/greenpill.dmm",
+	"map_id": "greenpill",
+	"limit": 3,
+	"job_slots": {
+		"Wizard": {
+			"outfit": "/datum/outfit/job/captain/wizard",
+			"officer": true,
+			"slots": 1
+		},
+		"Wizard's Apprentice": {
+			"outfit": "/datum/outfit/job/head_of_personnel/wizard",
+			"officer": true,
+			"slots": 2
+		}
+	},
+	"cost": 390
+}

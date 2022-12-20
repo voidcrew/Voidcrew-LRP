@@ -1,0 +1,27 @@
+{
+	"$schema": "https://raw.githubusercontent.com/shiptest-ss13/Shiptest/master/_maps/ship_config_schema.json",
+	"map_name": "Crescent-class Freighter",
+	"map_short_name": "Crescent-class",
+	"prefix": "KOS",
+	"namelists": ["MYTHOLOGICAL"],
+	"map_path": "_maps/shuttles/shiptest/voidcrew/crescent.dmm",
+	"map_id": "crescnt",
+	"limit": 3,
+	"job_slots": {
+		"ArchWizard": {
+			"outfit": "/datum/outfit/job/captain/wizard",
+			"officer": true,
+			"slots": 1
+		},
+		"Destruction Specialist": {
+			"outfit": "/datum/outfit/job/security/wizard",
+			"officer": true,
+			"slots": 3
+		},
+		"Novice Spellcaster": {
+			"outfit": "/datum/outfit/job/assistant/wizard",
+			"slots": 3
+		}
+	},
+	"cost": 999
+}

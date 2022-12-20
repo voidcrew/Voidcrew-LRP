@@ -1,0 +1,35 @@
+{
+	"$schema": "https://raw.githubusercontent.com/shiptest-ss13/Shiptest/master/_maps/ship_config_schema.json",
+	"map_name": "Merlin-class Power Projector",
+	"map_short_name": "Merlin-class",
+	"prefix": "KOS",
+	"namelists": ["MYTHOLOGICAL"],
+	"map_path": "_maps/shuttles/shiptest/voidcrew/merlin.dmm",
+	"map_id": "merlin",
+	"limit": 1,
+	"job_slots": {
+		"ArchWizard": {
+			"outfit": "/datum/outfit/job/captain/wizard",
+			"officer": true,
+			"slots": 1
+		},
+		"Artifact Curator": {
+			"outfit": "/datum/outfit/job/head_of_personnel/wizard",
+			"officer": true,
+			"slots": 1
+		},
+		"Destruction Specialist": {
+			"outfit": "/datum/outfit/job/security/wizard",
+			"slots": 8
+		},
+		"Restoration Specialist": {
+			"outfit": "/datum/outfit/job/doctor/wizard",
+			"slots": 2
+		},
+		"Novice Wizard": {
+			"outfit": "/datum/outfit/job/assistant/wizard",
+			"slots": 4
+		}
+	},
+	"cost": 2100
+}
