@@ -27,22 +27,33 @@
 //Captain
 /obj/item/clothing/head/caphat
 	name = "captain's peaked cap"
-	desc = "It's good being the king."
-	icon_state = "captain"
+	desc = "Worn only by Captains with an abundance of class."
+	icon_state = "caphat"
 	item_state = "that"
 	flags_inv = 0
 	armor = list("melee" = 25, "bullet" = 15, "laser" = 25, "energy" = 35, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
 	strip_delay = 60
 	dog_fashion = /datum/dog_fashion/head/captain
 
-//Captain: This is no longer space-worthy
-/obj/item/clothing/head/caphat/parade
+/obj/item/clothing/head/caphat
+	name = "captain's hat"
+	desc = "It's good being the king."
+	icon_state = "captain_nt"
+	item_state = "that"
+	flags_inv = 0
+	armor = list("melee" = 25, "bullet" = 15, "laser" = 25, "energy" = 35, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
+	strip_delay = 60
+	dog_fashion = /datum/dog_fashion/head/captain
+
+/obj/item/clothing/head/caphat/nt
 	name = "captain's parade cap"
 	desc = "Worn only by Captains with an abundance of class."
-	icon_state = "capcap"
-
-	dog_fashion = null
-
+	icon_state = "caphat_nt"
+	item_state = "that"
+	flags_inv = 0
+	armor = list("melee" = 25, "bullet" = 15, "laser" = 25, "energy" = 35, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
+	strip_delay = 60
+	dog_fashion = /datum/dog_fashion/head/captain
 
 //Head of Personnel
 /obj/item/clothing/head/hopcap
@@ -53,7 +64,10 @@
 	dog_fashion = /datum/dog_fashion/head/head_of_personnel
 
 /obj/item/clothing/head/hopcap/nt
+	name = "head of personnel's cap"
 	icon_state = "hopcap_nt"
+	desc = "The symbol of true bureaucratic micromanagement."
+	armor = list("melee" = 25, "bullet" = 15, "laser" = 25, "energy" = 35, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
 	dog_fashion = /datum/dog_fashion/head/head_of_personnel
 
 //Chaplain

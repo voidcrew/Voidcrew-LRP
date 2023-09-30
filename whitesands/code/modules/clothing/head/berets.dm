@@ -177,15 +177,16 @@
 	armor = list("melee" = 25, "bullet" = 15, "laser" = 25, "energy" = 35, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
 	strip_delay = 90
 
-/obj/item/clothing/head/beret/command
-	name = "command beret"
-	desc = "A modest blue command beret with a silver rank insignia. Smells of power and the sweat of assistants."
-	icon_state = "beret_com"
-	armor = list("melee" = 10, "bullet" = 5, "laser" = 10, "energy" = 15, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 25, "acid" = 25)
-	strip_delay = 90
-
 /obj/item/clothing/head/beret/lt
 	name = "officer beret"
 	desc = "A showy lieutenants's beret. Smells of spilled coffee and crushed dreams."
-	icon_state = "beret_com"
-	armor = list("melee" = 40, "bullet" = 20, "laser" = 10, "energy" = 10, "rad" = 10, "bio" = 5, "rad" = 5, "fire" = 5, "rad" = 30)
+	icon_state = "beret_lt"
+	armor = list("melee" = 10, "bullet" = 5, "laser" = 10, "energy" = 15, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 25, "acid" = 25)
+	strip_delay = 90
+
+/obj/item/clothing/head/beret/com
+	name = "command beret"
+	desc = "A bland command beret. Smells of boring paperwork and ink."
+	icon_state = "beret_con"
+	armor = list("melee" = 10, "bullet" = 5, "laser" = 10, "energy" = 15, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 25, "acid" = 25)
+	strip_delay = 90
