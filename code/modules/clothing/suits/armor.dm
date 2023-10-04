@@ -105,16 +105,46 @@
 	dog_fashion = null
 	resistance_flags = FIRE_PROOF
 
+/obj/item/clothing/suit/armor/vest/comcarapace
+	name = "captain's carapace"
+	desc = "A fireproof armored chestpiece reinforced with ceramic plates and plasteel pauldrons to provide additional protection whilst still offering maximum mobility and flexibility. Issued only to the station's finest, although it does chafe your nipples."
+	icon_state = "comcarapace"
+	item_state = "armor"
+	body_parts_covered = CHEST|GROIN
+	armor = list("melee" = 55, "bullet" = 50, "laser" = 55, "energy" = 50, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 100, "acid" = 100)
+	dog_fashion = null
+	resistance_flags = FIRE_PROOF
+
 /obj/item/clothing/suit/armor/vest/capcarapace/syndicate
 	name = "syndicate captain's vest"
 	desc = "A sinister looking vest of advanced armor worn over a black and red fireproof jacket. The gold collar and shoulders denote that this belongs to a high ranking syndicate officer."
 	icon_state = "syndievest"
 
-/obj/item/clothing/suit/armor/vest/capcarapace/alt
+/obj/item/clothing/suit/armor/vest/capcarapace/formal/nt
 	name = "captain's parade jacket"
 	desc = "For when an armoured vest isn't fashionable enough."
 	icon_state = "capformal"
 	item_state = "capspacesuit"
+
+/obj/item/clothing/suit/armor/vest/comcarapace/formal
+	name = "captain's formal jacket"
+	desc = "For when an armoured vest isn't fashionable enough."
+	icon_state = "comformal"
+	item_state = "comspacesuit"
+
+/obj/item/clothing/suit/armor/vest/hop/nt
+	name = "head of personnel's coat"
+	desc = "A stylish coat given to a Head of Personnel."
+	icon_state = "hopcoat_nt"
+	item_state = "b_suit"
+	dog_fashion = null
+
+/obj/item/clothing/suit/armor/vest/hop
+	name = "head of personnel's coat"
+	desc = "A stylish coat given to a Head of Personnel."
+	icon_state = "hopcoat"
+	item_state = "w_suit"
+	dog_fashion = null
 
 /obj/item/clothing/suit/armor/riot
 	name = "riot suit"
