@@ -63,10 +63,24 @@
 	armor = list("melee" = 25, "bullet" = 15, "laser" = 25, "energy" = 35, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
 	dog_fashion = /datum/dog_fashion/head/head_of_personnel
 
+/obj/item/clothing/head/ltcap
+	name = "lieutenant's cap"
+	icon_state = "ltcap"
+	desc = "Sometimes you gotta be the underdog in something."
+	armor = list("melee" = 25, "bullet" = 15, "laser" = 25, "energy" = 35, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
+	dog_fashion = /datum/dog_fashion/head/head_of_personnel
+
 /obj/item/clothing/head/hopcap/nt
 	name = "head of personnel's cap"
 	icon_state = "hopcap_nt"
 	desc = "The symbol of true bureaucratic micromanagement."
+	armor = list("melee" = 25, "bullet" = 15, "laser" = 25, "energy" = 35, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
+	dog_fashion = /datum/dog_fashion/head/head_of_personnel
+
+/obj/item/clothing/head/ltcap/nt
+	name = "lieutenant's cap"
+	icon_state = "ltcap_nt"
+	desc = "Sometimes you gotta be the underdog in something."
 	armor = list("melee" = 25, "bullet" = 15, "laser" = 25, "energy" = 35, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50)
 	dog_fashion = /datum/dog_fashion/head/head_of_personnel
 
